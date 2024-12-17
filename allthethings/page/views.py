@@ -5632,6 +5632,9 @@ def get_transitive_lookup_dicts(session, lookup_table_name, codes):
                     retval[code].append(return_dict)
         else:
             raise Exception(f"Unknown {lookup_table_name=} in get_transitive_lookup_dicts")
+        # Sort by total data size, as a rough approximation for the usefulness of the record.
+        for key in retval:
+            retval[key].sort(key=lambda item: -len(orjson.dumps(item)))
         return dict(retval)
 
 UNIFIED_DATA_MERGE_ALL = '___all'
@@ -5819,9 +5822,7 @@ def get_aarecords_mysql(session, aarecord_ids):
             source_records_full_by_aarecord_id[aarecord_id].append({'source_type': 'oclc', 'source_record': oclc_dict})
     for code_full, oclc_dicts in get_transitive_lookup_dicts(session, "aarecords_codes_oclc_for_lookup", [code for code in transitive_codes.keys() if code[0] in ['isbn13']]).items():
         for aarecord_id in transitive_codes[code_full]:
-            if len(oclc_dicts) > 10:
-                print(f"WARNING: {len(oclc_dicts)=} > 10 for {aarecord_id=}")
-            for oclc_dict in oclc_dicts[0:10]: # Just a precaution.
+            for oclc_dict in oclc_dicts[0:3]: # It's very common for many OCLC records to match..
                 if any([source_record['source_record']['oclc_id'] == oclc_dict['oclc_id'] for source_record in source_records_full_by_aarecord_id[aarecord_id] if source_record['source_type'] == 'oclc']):
                     continue
                 source_records_full_by_aarecord_id[aarecord_id].append({'source_type': 'oclc', 'source_record': oclc_dict})
@@ -5863,9 +5864,7 @@ def get_aarecords_mysql(session, aarecord_ids):
                 source_records_full_by_aarecord_id[aarecord_id].append({'source_type': 'aac_trantor', 'source_record': trantor_book_dict})
     for code_full, gbooks_book_dicts in get_transitive_lookup_dicts(session, "aarecords_codes_gbooks_for_lookup", [code for code in transitive_codes.keys() if code[0] in ['isbn13', 'oclc']]).items():
         for aarecord_id in transitive_codes[code_full]:
-            if len(gbooks_book_dicts) > 10:
-                print(f"WARNING: {len(gbooks_book_dicts)=} > 10 for {aarecord_id=}")
-            for gbooks_book_dict in gbooks_book_dicts[0:10]: # Just a precaution.
+            for gbooks_book_dict in gbooks_book_dicts[0:3]: # It's quite common for many gbooks to match (due to OCLC records scrapes maybe?)
                 if any([source_record['source_record']['gbooks_id'] == gbooks_book_dict['gbooks_id'] for source_record in source_records_full_by_aarecord_id[aarecord_id] if source_record['source_type'] == 'aac_gbooks']):
                     continue
                 source_records_full_by_aarecord_id[aarecord_id].append({'source_type': 'aac_gbooks', 'source_record': gbooks_book_dict})
