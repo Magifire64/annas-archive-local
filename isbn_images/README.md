@@ -7,7 +7,7 @@ For a description of the file format see `dump_isbn13_codes_benc` in `allthethin
 Prerequisites:
 
 ```sh
-pip install bencodepy
+pip install bencode.py
 pip install isbnlib
 pip install Pillow
 pip install tqdm

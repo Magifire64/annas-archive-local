@@ -151,7 +151,7 @@ def normalize_doi(s):
 
 # Example: zlib2/pilimi-zlib2-0-14679999-extra/11078831
 def make_temp_anon_zlib_path(zlibrary_id, pilimi_torrent):
-    prefix = "g5/zlib1"
+    prefix = "g5/zlib1/zlib1"
     if "-zlib2-" in pilimi_torrent:
         prefix = "g1/zlib2"
     return f"{prefix}/{pilimi_torrent.replace('.torrent', '')}/{zlibrary_id}"
@@ -5809,9 +5809,7 @@ def get_aarecords_mysql(session, aarecord_ids):
             source_records_full_by_aarecord_id[aarecord_id].append({'source_type': 'ol', 'source_record': ol_book_dict})
     for code_full, ol_book_dicts in get_transitive_lookup_dicts(session, "aarecords_codes_ol_for_lookup", [code for code in transitive_codes.keys() if code[0] in ['isbn13', 'ocaid']]).items():
         for aarecord_id in transitive_codes[code_full]:
-            if len(ol_book_dicts) > 10:
-                print(f"WARNING: {len(ol_book_dicts)=} > 10 for {aarecord_id=}")
-            for ol_book_dict in ol_book_dicts[0:10]: # Just a precaution.
+            for ol_book_dict in ol_book_dicts[0:3]: # Common enough to limit it.
                 if any([source_record['source_record']['ol_edition'] == ol_book_dict['ol_edition'] for source_record in source_records_full_by_aarecord_id[aarecord_id] if source_record['source_type'] == 'ol']):
                     continue
                 source_records_full_by_aarecord_id[aarecord_id].append({'source_type': 'ol', 'source_record': ol_book_dict})
@@ -5870,17 +5868,13 @@ def get_aarecords_mysql(session, aarecord_ids):
                 source_records_full_by_aarecord_id[aarecord_id].append({'source_type': 'aac_gbooks', 'source_record': gbooks_book_dict})
     for code_full, goodreads_book_dicts in get_transitive_lookup_dicts(session, "aarecords_codes_goodreads_for_lookup", [code for code in transitive_codes.keys() if code[0] in ['isbn13']]).items():
         for aarecord_id in transitive_codes[code_full]:
-            if len(goodreads_book_dicts) > 10:
-                print(f"WARNING: {len(goodreads_book_dicts)=} > 10 for {aarecord_id=}")
-            for goodreads_book_dict in goodreads_book_dicts[0:10]: # Just a precaution.
+            for goodreads_book_dict in goodreads_book_dicts[0:3]: # Common enough to limit it.
                 if any([source_record['source_record']['goodreads_id'] == goodreads_book_dict['goodreads_id'] for source_record in source_records_full_by_aarecord_id[aarecord_id] if source_record['source_type'] == 'aac_goodreads']):
                     continue
                 source_records_full_by_aarecord_id[aarecord_id].append({'source_type': 'aac_goodreads', 'source_record': goodreads_book_dict})
     for code_full, libby_book_dicts in get_transitive_lookup_dicts(session, "aarecords_codes_libby_for_lookup", [code for code in transitive_codes.keys() if code[0] in ['isbn13']]).items():
         for aarecord_id in transitive_codes[code_full]:
-            if len(libby_book_dicts) > 10:
-                print(f"WARNING: {len(libby_book_dicts)=} > 10 for {aarecord_id=}")
-            for libby_book_dict in libby_book_dicts[0:10]: # Just a precaution.
+            for libby_book_dict in libby_book_dicts[0:3]: # Common enough to limit it.
                 if any([source_record['source_record']['libby_id'] == libby_book_dict['libby_id'] for source_record in source_records_full_by_aarecord_id[aarecord_id] if source_record['source_type'] == 'aac_libby']):
                     continue
                 source_records_full_by_aarecord_id[aarecord_id].append({'source_type': 'aac_libby', 'source_record': libby_book_dict})
@@ -5908,9 +5902,7 @@ def get_aarecords_mysql(session, aarecord_ids):
                 source_records_full_by_aarecord_id[aarecord_id].append({'source_type': 'aac_isbngrp', 'source_record': isbngrp_book_dict})
     for code_full, rgb_book_dicts in get_transitive_lookup_dicts(session, "aarecords_codes_rgb_for_lookup", [code for code in transitive_codes.keys() if code[0] in ['isbn13']]).items():
         for aarecord_id in transitive_codes[code_full]:
-            if len(rgb_book_dicts) > 10:
-                print(f"WARNING: {len(rgb_book_dicts)=} > 10 for {aarecord_id=}")
-            for rgb_book_dict in rgb_book_dicts[0:10]: # Just a precaution.
+            for rgb_book_dict in rgb_book_dicts[0:3]: # Common enough to limit it.
                 if any([source_record['source_record']['rgb_id'] == rgb_book_dict['rgb_id'] for source_record in source_records_full_by_aarecord_id[aarecord_id] if source_record['source_type'] == 'aac_rgb']):
                     continue
                 source_records_full_by_aarecord_id[aarecord_id].append({'source_type': 'aac_rgb', 'source_record': rgb_book_dict})
@@ -6754,7 +6746,7 @@ def get_additional_for_aarecord(aarecord):
                 date = source_record['aa_ia_file']['data_folder'].split('__')[3][0:8]
                 datetime = source_record['aa_ia_file']['data_folder'].split('__')[3][0:16]
                 if date in ['20241105']:
-                    server = 'ga'
+                    server = 'g6'
                 partner_path = make_temp_anon_aac_path(f"{server}/ia2_acsmpdf_files", source_record['aa_ia_file']['aacid'], source_record['aa_ia_file']['data_folder'])
                 additional['torrent_paths'].append({ "collection": "ia", "torrent_path": f"managed_by_aa/annas_archive_data__aacid/{source_record['aa_ia_file']['data_folder']}.torrent", "file_level1": source_record['aa_ia_file']['aacid'], "file_level2": "" })
             else:
@@ -6792,7 +6784,7 @@ def get_additional_for_aarecord(aarecord):
         lgrsnf_torrent_path = f"external/libgen_rs_non_fic/r_{lgrsnf_thousands_dir:03}.torrent"
         lgrsnf_filename = source_record['md5'].lower()
         if lgrsnf_thousands_dir <= 4391000:
-            lgrsnf_path = f"g4/libgenrs_nonfiction/{lgrsnf_thousands_dir}/{lgrsnf_filename}"
+            lgrsnf_path = f"g4/libgenrs_nonfiction/libgenrs_nonfiction/{lgrsnf_thousands_dir}/{lgrsnf_filename}"
             add_partner_servers(lgrsnf_path, '', aarecord, additional)
         elif lgrsnf_thousands_dir <= 4428000:
             lgrsnf_path = f"ga/lgrsnf/{lgrsnf_thousands_dir}/{lgrsnf_filename}"
@@ -6808,7 +6800,7 @@ def get_additional_for_aarecord(aarecord):
         lgrsfic_torrent_path = f"external/libgen_rs_fic/f_{lgrsfic_thousands_dir}.torrent" # Note: no leading zeroes
         lgrsfic_filename = f"{source_record['md5'].lower()}.{aarecord['file_unified_data']['extension_best']}"
         if lgrsfic_thousands_dir <= 3039000:
-            lgrsfic_path = f"g3/libgenrs_fiction/{lgrsfic_thousands_dir}/{lgrsfic_filename}"
+            lgrsfic_path = f"g3/libgenrs_fiction/libgenrs_fiction/{lgrsfic_thousands_dir}/{lgrsfic_filename}"
             add_partner_servers(lgrsfic_path, '', aarecord, additional)
         elif lgrsfic_thousands_dir <= 3060000:
             lgrsfic_path = f"ga/lgrsfic/{lgrsfic_thousands_dir}/{lgrsfic_filename}"
@@ -6828,7 +6820,7 @@ def get_additional_for_aarecord(aarecord):
             # torrented, because they overlap with our Z-Library torrents.
             # TODO: Verify overlap, and potentially add more torrents for what's missing?
             if lglific_thousands_dir >= 2201000 and lglific_thousands_dir <= 4259000:
-                lglific_path = f"g4/libgenli_fiction/{lglific_thousands_dir}/{lglific_filename}"
+                lglific_path = f"g4/libgenli_fiction/libgenli_fiction/{lglific_thousands_dir}/{lglific_filename}"
                 add_partner_servers(lglific_path, '', aarecord, additional)
 
             lglific_torrent_path = f"external/libgen_li_fic/f_{lglific_thousands_dir}.torrent" # Note: no leading zeroes
@@ -6852,7 +6844,7 @@ def get_additional_for_aarecord(aarecord):
             lglicomics_thousands_dir = (lglicomics_id // 1000) * 1000
             lglicomics_filename = f"{source_record['md5'].lower()}.{aarecord['file_unified_data']['extension_best']}"
             if lglicomics_id < 2567000:
-                add_partner_servers(f"g2/comics/{lglicomics_thousands_dir}/{lglicomics_filename}", '', aarecord, additional)
+                add_partner_servers(f"g2/comics/comics/{lglicomics_thousands_dir}/{lglicomics_filename}", '', aarecord, additional)
                 additional['torrent_paths'].append({ "collection": "libgen_li_comics", "torrent_path": f"external/libgen_li_comics/c_{lglicomics_thousands_dir}.torrent", "file_level1": lglicomics_filename, "file_level2": "" }) # Note: no leading zero
             else:
                 add_partner_servers(f"gi/lglihard/comics/{lglicomics_thousands_dir}/{lglicomics_filename}", '', aarecord, additional)
@@ -6861,7 +6853,7 @@ def get_additional_for_aarecord(aarecord):
         if lglimagz_id > 0 and lglimagz_id < 1363000:
             lglimagz_thousands_dir = (lglimagz_id // 1000) * 1000
             lglimagz_filename = f"{source_record['md5'].lower()}.{aarecord['file_unified_data']['extension_best']}"
-            lglimagz_path = f"g4/magz/{lglimagz_thousands_dir}/{lglimagz_filename}"
+            lglimagz_path = f"g4/magz/magz/{lglimagz_thousands_dir}/{lglimagz_filename}"
             add_partner_servers(lglimagz_path, '', aarecord, additional)
             additional['torrent_paths'].append({ "collection": "libgen_li_magazines", "torrent_path": f"external/libgen_li_magazines/m_{lglimagz_thousands_dir}.torrent", "file_level1": lglimagz_filename, "file_level2": "" }) # Note: no leading zero
 
@@ -6924,8 +6916,8 @@ def get_additional_for_aarecord(aarecord):
         if source_record['file_aacid'] is not None:
             server = 'g3'
             date = source_record['file_data_folder'].split('__')[3][0:8]
-            if date in ['20241105']:
-                server = 'ga'
+            if date in ['20241105', '20241217']:
+                server = 'g6'
             zlib_path = make_temp_anon_aac_path(f"{server}/zlib3_files", source_record['file_aacid'], source_record['file_data_folder'])
             add_partner_servers(zlib_path, 'aa_exclusive' if (len(additional['fast_partner_urls']) == 0) else '', aarecord, additional)
             additional['torrent_paths'].append({ "collection": "zlib", "torrent_path": f"managed_by_aa/annas_archive_data__aacid/{source_record['file_data_folder']}.torrent", "file_level1": source_record['file_aacid'], "file_level2": "" })
