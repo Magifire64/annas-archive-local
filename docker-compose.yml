@@ -146,7 +146,7 @@ services:
     restart: "${DOCKER_RESTART_POLICY:-unless-stopped}"
     stop_grace_period: "3s"
     volumes:
-      - "../allthethings-mariapersistreplica-data:/var/lib/mysql/"
+      - "../${MARIABACKUP_DIR:-allthethings-mariapersistreplica-data}:/var/lib/mysql/"
       - "../allthethings-mariabackup-data:/backup"
     ulimits:
       memlock:

@@ -10,3 +10,8 @@ CHANGE MASTER TO
 START SLAVE;
 
 SHOW SLAVE STATUS;
+
+
+Potentially helpful:
+- https://mariadb.com/kb/en/setting-up-replication/
+- "SHOW BINLOG EVENTS ..."

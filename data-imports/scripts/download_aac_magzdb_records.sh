@@ -13,4 +13,4 @@ cd /temp-dir/aac_magzdb_records
 curl -C - -O https://annas-archive.li/dyn/torrents/latest_aac_meta/magzdb_records.torrent
 
 # Tried ctorrent and aria2, but webtorrent seems to work best overall.
-webtorrent --verbose download magzdb_records.torrent
+webtorrent --verbose download magzdb_records.torrent || webtorrent --verbose download magzdb_records.torrent || webtorrent --verbose download magzdb_records.torrent

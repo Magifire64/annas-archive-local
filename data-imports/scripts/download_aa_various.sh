@@ -10,6 +10,6 @@ cd /temp-dir
 rm -f annas-archive-ia-2023-06-metadata-json.tar.gz annas-archive-ia-2023-06-thumbs.txt.gz annas-archive-ia-2023-06-files.csv.gz
 
 # Tried ctorrent and aria2, but webtorrent seems to work best overall.
-webtorrent /scripts/torrents/annas-archive-ia-2023-06-thumbs.txt.gz.torrent
-webtorrent /scripts/torrents/annas-archive-ia-2023-06-metadata-json.tar.gz.torrent
-webtorrent /scripts/torrents/annas-archive-ia-2023-06-files.csv.gz.torrent
+webtorrent /scripts/torrents/annas-archive-ia-2023-06-thumbs.txt.gz.torrent || webtorrent /scripts/torrents/annas-archive-ia-2023-06-thumbs.txt.gz.torrent || webtorrent /scripts/torrents/annas-archive-ia-2023-06-thumbs.txt.gz.torrent
+webtorrent /scripts/torrents/annas-archive-ia-2023-06-metadata-json.tar.gz.torrent || webtorrent /scripts/torrents/annas-archive-ia-2023-06-metadata-json.tar.gz.torrent || webtorrent /scripts/torrents/annas-archive-ia-2023-06-metadata-json.tar.gz.torrent
+webtorrent /scripts/torrents/annas-archive-ia-2023-06-files.csv.gz.torrent || webtorrent /scripts/torrents/annas-archive-ia-2023-06-files.csv.gz.torrent || webtorrent /scripts/torrents/annas-archive-ia-2023-06-files.csv.gz.torrent

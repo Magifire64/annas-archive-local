@@ -13,4 +13,4 @@ cd /temp-dir/aac_nexusstc_records
 curl -C - -O https://annas-archive.li/dyn/torrents/latest_aac_meta/nexusstc_records.torrent
 
 # Tried ctorrent and aria2, but webtorrent seems to work best overall.
-webtorrent --verbose download nexusstc_records.torrent
+webtorrent --verbose download nexusstc_records.torrent || webtorrent --verbose download nexusstc_records.torrent || webtorrent --verbose download nexusstc_records.torrent
