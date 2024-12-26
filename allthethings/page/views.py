@@ -5184,7 +5184,8 @@ def get_aac_rgb_book_dicts(session, key, values):
         allthethings.utils.add_identifier_unified(aac_rgb_book_dict['file_unified_data'], 'rgb', primary_id)
 
         for item in (aac_rgb_book_dict['ol_book_dict']['edition']['json'].get('subjects') or []):
-            allthethings.utils.add_classification_unified(aac_rgb_book_dict['file_unified_data'], 'rgb_subject', item.encode()[0:allthethings.utils.AARECORDS_CODES_CODE_LENGTH-len('rgb_subject:')-5].decode(errors='replace'))
+            for subitem in item.split('--'):
+                allthethings.utils.add_classification_unified(aac_rgb_book_dict['file_unified_data'], 'rgb_subject', subitem.strip().encode()[0:allthethings.utils.AARECORDS_CODES_CODE_LENGTH-len('rgb_subject:')-5].decode(errors='replace'))
 
         aac_rgb_book_dicts.append(aac_rgb_book_dict)
     return aac_rgb_book_dicts

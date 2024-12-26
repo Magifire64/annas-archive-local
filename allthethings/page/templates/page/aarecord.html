@@ -68,7 +68,7 @@
       {% else %}
         <!-- <a href="/metadata" class="block mt-2 text-xs text-right">{{ gettext('page.md5.header.improve_metadata') }}</a> -->
         <!-- TODO: don't show this report button on metadata-only records -->
-        <div class="block mt-2 text-xs text-right"><a href="#quality"> {{ gettext('page.md5.text.report_quality') }}</a></div>
+        <div class="block mt-2 text-xs text-right"><a href="#md5-tab-discussion" onclick="document.querySelector('#md5-tab-discussion').click();"> {{ gettext('page.md5.text.report_quality') }}</a></div>
       {% endif %}
     </div>
     <div class="text-sm text-gray-500">{{aarecord.additional.top_box.top_row}}</div>
@@ -132,6 +132,7 @@
   <div class="flex flex-wrap mb-1 text-black/64" role="tablist" aria-label="file tabs">
     <button class="mr-4 mb-1 border-b-[3px] border-transparent aria-selected:border-[#0095ff] aria-selected:text-black aria-selected:font-bold js-md5-tab-downloads" aria-selected="true" id="md5-tab-downloads" aria-controls="md5-panel-downloads" tabindex="0">{% if aarecord_id_split[0] in ['md5','doi','nexusstc_download'] %}{{ gettext('page.md5.tabs.downloads', count=((aarecord.additional.fast_partner_urls | length) + (aarecord.additional.slow_partner_urls | length) + (aarecord.additional.download_urls | length))) }}{% elif aarecord_id_split[0] == 'ia' %}{{ gettext('page.md5.tabs.borrow', count=((aarecord.additional.fast_partner_urls | length) + (aarecord.additional.slow_partner_urls | length) + (aarecord.additional.download_urls | length))) }}{% elif aarecord_id_split[0] in ['isbn', 'ol', 'oclc', 'duxiu_ssid', 'cadal_ssno', 'magzdb', 'nexusstc', 'edsebk'] %}{{ gettext('page.md5.tabs.explore_metadata', count=((aarecord.additional.fast_partner_urls | length) + (aarecord.additional.slow_partner_urls | length) + (aarecord.additional.download_urls | length))) }}{% endif %}</button>
     {% if aarecord_id_split[0] == 'md5' %}
+      <button class="mr-4 mb-1 border-b-[3px] border-transparent aria-selected:border-[#0095ff] aria-selected:text-black aria-selected:font-bold" aria-selected="false" id="md5-tab-discussion" aria-controls="md5-panel-discussion" tabindex="0">Comments (<span class="js-md5-tab-discussion">–</span>) <!--TODO:TRANSLATE--></button>
       <button class="mr-4 mb-1 border-b-[3px] border-transparent aria-selected:border-[#0095ff] aria-selected:text-black aria-selected:font-bold" aria-selected="false" id="md5-tab-lists" aria-controls="md5-panel-lists" tabindex="0">{{ gettext('page.md5.tabs.lists', count=('<span class="js-md5-tab-lists">–</span>' | safe)) }}</button>
       <button class="mr-4 mb-1 border-b-[3px] border-transparent aria-selected:border-[#0095ff] aria-selected:text-black aria-selected:font-bold" aria-selected="false" id="md5-tab-stats" aria-controls="md5-panel-stats" tabindex="0">{{ gettext('page.md5.tabs.stats', count=('<span class="js-md5-tab-stats">–</span>' | safe)) }}</button>
     {% endif %}
@@ -153,7 +154,7 @@
 
         window.md5ReloadSummary = function() {
           fetch("/dyn/md5/summary/" + md5).then((response) => response.json()).then((json) => {
-            // document.querySelector(".js-md5-tab-discussion").innerText = 'Discussion (' + (json.comments_count + json.reports_count + json.great_quality_count) + ')';
+            document.querySelector(".js-md5-tab-discussion").innerText = (json.comments_count + json.reports_count + json.great_quality_count);
             document.querySelector(".js-md5-tab-lists").innerText = json.lists_count;
             document.querySelector(".js-md5-tab-stats").innerText = json.downloads_total;
             document.querySelector(".js-md5-button-new-issue-label .js-count").innerText = json.reports_count;
@@ -167,8 +168,8 @@
             }
 
             if (json.comments_count > 0 || json.reports_count > 0) {
-              // document.getElementById('md5-panel-discussion').addEventListener("panelOpen", fetchComments);
-              fetchComments();
+              document.getElementById('md5-panel-discussion').addEventListener("panelOpen", fetchComments);
+              // fetchComments();
             } else {
               document.querySelector(".js-md5-issues-reports").classList.add("hidden");
             }
@@ -364,88 +365,88 @@
         })();
       </script>
     {% endif %}
+  </div>
 
-    {% if aarecord_id_split[0] == 'md5' %}
-      <div class="pt-4 border-dashed border-t">
-        <a name="quality"></a>
-        <h3 class="font-bold">📂 {{ gettext('page.md5.quality.header') }}</h3>
+  {% if aarecord_id_split[0] == 'md5' %}
+    <div id="md5-panel-discussion" role="tabpanel" tabindex="0" aria-labelledby="md5-tab-discussion" hidden>
+      <a name="quality"></a>
+      <h3 class="font-bold">📂 {{ gettext('page.md5.quality.header') }}</h3>
 
-        <p class="mb-4">
-          {{ gettext('page.md5.quality.report') }}
-        </p>
+      <p class="mb-4">
+        {{ gettext('page.md5.quality.report') }}
+      </p>
 
-        <div class="">
-          <button class="custom bg-[#777] hover:bg-[#999] text-white font-bold py-1 px-3 rounded shadow mb-2" onclick='if (localStorage["aa_logged_in"] !== "1") { document.querySelector(".js-discussion-logged-out").classList.toggle("hidden"); return; }; document.querySelector(".js-report-file-issues").classList.toggle("hidden"); document.querySelector(".js-new-comment").classList.add("hidden")'><span class='text-[18px] align-text-bottom text-white inline-block icon-[uil--exclamation-triangle]'></span> <span class="js-md5-button-new-issue-label">{{ gettext('page.md5.quality.report_issue', count=('<output class="js-count">0</output>' | safe)) }}</span></button>
+      <div class="">
+        <button class="custom bg-[#777] hover:bg-[#999] text-white font-bold py-1 px-3 rounded shadow mb-2" onclick='if (localStorage["aa_logged_in"] !== "1") { document.querySelector(".js-discussion-logged-out").classList.toggle("hidden"); return; }; document.querySelector(".js-report-file-issues").classList.toggle("hidden"); document.querySelector(".js-new-comment").classList.add("hidden")'><span class='text-[18px] align-text-bottom text-white inline-block icon-[uil--exclamation-triangle]'></span> <span class="js-md5-button-new-issue-label">{{ gettext('page.md5.quality.report_issue', count=('<output class="js-count">0</output>' | safe)) }}</span></button>
 
-          <span class="inline-block mb-2"><button class="shadow js-md5-button-great-quality custom bg-[#777] hover:bg-[#999] text-white font-bold py-1 px-3 rounded-l border-r border-[#999] align-bottom [&.selected]:bg-[#555] [&.selected]:pt-[5px] [&.selected]:pb-[3px] [&.selected]:shadow-[inset_0px_-1px_0px_0px_rgba(255,255,255,0.2),_inset_0px_1px_5px_0px_rgba(0,0,0,0.6)]" onclick='if (localStorage["aa_logged_in"] !== "1") { document.querySelector(".js-discussion-logged-out").classList.toggle("hidden"); return; }; fetch("/dyn/reactions/" + (window.md5UserReaction === 2 ? 0 : 2) + "/md5:" + {{ aarecord_id_split[1] | tojson }}, { method: "PUT" }).then(() => window.md5ReloadSummary())'> <span class='text-[21px] align-[-4px] text-white inline-block icon-[material-symbols--star-outline] [button.selected>&]:icon-[material-symbols--star]'></span> <span class="js-md5-button-great-quality-label">{{ gettext('page.md5.quality.great_quality', count=('<output class="js-count">0</output>' | safe)) }}</span></button><button class="disabled shadow js-md5-button-new-comment custom bg-[#777] hover:bg-[#999] [&.disabled]:opacity-40 [&.disabled]:hover:bg-[#777] [&.disabled]:cursor-auto text-white font-bold py-1 px-3 rounded-r" onclick='if (this.classList.contains("disabled")) { return; }; document.querySelector(".js-new-comment").classList.toggle("hidden"); document.querySelector(".js-report-file-issues").classList.add("hidden")'> {{ gettext('page.md5.quality.add_comment', count=('<output class="js-count">0</output>' | safe)) }}</button></span>
-        </div>
+        <span class="inline-block mb-2"><button class="shadow js-md5-button-great-quality custom bg-[#777] hover:bg-[#999] text-white font-bold py-1 px-3 rounded-l border-r border-[#999] align-bottom [&.selected]:bg-[#555] [&.selected]:pt-[5px] [&.selected]:pb-[3px] [&.selected]:shadow-[inset_0px_-1px_0px_0px_rgba(255,255,255,0.2),_inset_0px_1px_5px_0px_rgba(0,0,0,0.6)]" onclick='if (localStorage["aa_logged_in"] !== "1") { document.querySelector(".js-discussion-logged-out").classList.toggle("hidden"); return; }; fetch("/dyn/reactions/" + (window.md5UserReaction === 2 ? 0 : 2) + "/md5:" + {{ aarecord_id_split[1] | tojson }}, { method: "PUT" }).then(() => window.md5ReloadSummary())'> <span class='text-[21px] align-[-4px] text-white inline-block icon-[material-symbols--star-outline] [button.selected>&]:icon-[material-symbols--star]'></span> <span class="js-md5-button-great-quality-label">{{ gettext('page.md5.quality.great_quality', count=('<output class="js-count">0</output>' | safe)) }}</span></button><button class="disabled shadow js-md5-button-new-comment custom bg-[#777] hover:bg-[#999] [&.disabled]:opacity-40 [&.disabled]:hover:bg-[#777] [&.disabled]:cursor-auto text-white font-bold py-1 px-3 rounded-r" onclick='if (this.classList.contains("disabled")) { return; }; document.querySelector(".js-new-comment").classList.toggle("hidden"); document.querySelector(".js-report-file-issues").classList.add("hidden")'> {{ gettext('page.md5.quality.add_comment', count=('<output class="js-count">0</output>' | safe)) }}</button></span>
+      </div>
 
-        <div class="js-discussion-logged-out hidden">{{ gettext('page.md5.quality.logged_out_login', a_login=(' href="/login"' | safe)) }}</div>
+      <div class="js-discussion-logged-out hidden">{{ gettext('page.md5.quality.logged_out_login', a_login=(' href="/login"' | safe)) }}</div>
 
-        <form class="js-report-file-issues hidden mb-6" onsubmit='window.submitForm(event, "/dyn/md5_report/" + {{ aarecord_id_split[1] | tojson }})'>
-          <fieldset>
-            <p class="mb-2 font-bold">{{ gettext('page.md5.quality.what_is_wrong') }}</p>
-            <select name="type" class="bg-black/6.7 px-2 py-1 rounded mb-4 w-full max-w-[400px]" oninput="for (el of document.querySelectorAll('.js-report-file-issues-submenu')) { el.classList.add('hidden'); } for (el of document.querySelectorAll('.js-report-file-issues-submenu-' + this.value)) { el.classList.remove('hidden'); }">
-              <option></option>
-              {% for type in md5_report_type_mapping %}
-                <option value="{{ type }}">{{ md5_report_type_mapping[type] }}</option>
-              {% endfor %}
-            </select>
+      <form class="js-report-file-issues hidden mb-6" onsubmit='window.submitForm(event, "/dyn/md5_report/" + {{ aarecord_id_split[1] | tojson }})'>
+        <fieldset>
+          <p class="mb-2 font-bold">{{ gettext('page.md5.quality.what_is_wrong') }}</p>
+          <select name="type" class="bg-black/6.7 px-2 py-1 rounded mb-4 w-full max-w-[400px]" oninput="for (el of document.querySelectorAll('.js-report-file-issues-submenu')) { el.classList.add('hidden'); } for (el of document.querySelectorAll('.js-report-file-issues-submenu-' + this.value)) { el.classList.remove('hidden'); }">
+            <option></option>
+            {% for type in md5_report_type_mapping %}
+              <option value="{{ type }}">{{ md5_report_type_mapping[type] }}</option>
+            {% endfor %}
+          </select>
 
-            <div class="hidden mb-4 js-report-file-issues-submenu js-report-file-issues-submenu-copyright">
-              <p class="">
-                {{ gettext('page.md5.quality.copyright', a_copyright=(' href="/copyright"' | safe)) }}
-              </p>
-            </div>
-
-            <div class="hidden mb-4 js-report-file-issues-submenu js-report-file-issues-submenu-download js-report-file-issues-submenu-broken js-report-file-issues-submenu-pages js-report-file-issues-submenu-spam js-report-file-issues-submenu-other js-report-file-issues-submenu-metadata">
-              <p class="mb-1 font-bold">{{ gettext('page.md5.quality.describe_the_issue') }}</p>
-              <textarea required name="content" class="grow bg-black/6.7 px-2 py-1 mb-4 rounded w-full h-[120px]" placeholder="{{ gettext('page.md5.quality.issue_description') }}"></textarea>
-
-              <div class="hidden js-report-file-issues-submenu js-report-file-issues-submenu-download js-report-file-issues-submenu-broken js-report-file-issues-submenu-pages js-report-file-issues-submenu-spam js-report-file-issues-submenu-other">
-                <p class="mb-2">
-                  <strong>{{ gettext('page.md5.quality.better_md5.text1') }}</strong> {{ gettext('page.md5.quality.better_md5.text2', a_upload=' href="/faq#upload" target="_blank"' | safe) }}
-                </p>
-                <p class="mb-1">
-                  {{ gettext('page.md5.quality.better_md5.line1') }}<br>
-                  https://annas-archive.li/md5/<strong>{{ aarecord_id_split[1] }}</strong>
-                </p>
-                <input type="text" name="better_md5" class="grow bg-black/6.7 px-2 py-1 mb-4 rounded w-full" placeholder="{{ aarecord_id_split[1] }}" minlength="32" maxlength="32" />
-              </div>
-
-              <div class="">
-                <button type="submit" class="mr-2 bg-[#777] hover:bg-[#999] text-white font-bold py-1 px-3 rounded shadow">{{ gettext('page.md5.quality.submit_report') }}</button>
-                <span class="js-spinner invisible mb-[-3px] text-xl text-[#555] inline-block icon-[svg-spinners--ring-resize]"></span>
-              </div>
-
-              <div class="hidden mt-4 js-report-file-issues-submenu js-report-file-issues-submenu-metadata">
-                {{ gettext('page.md5.quality.improve_the_metadata', a_metadata=(' href="/metadata"' | safe)) }}
-              </div>
-            </div>
-          </fieldset>
-          <div class="hidden js-success">✅ {{ gettext('page.md5.quality.report_thanks') }}</div>
-          <div class="hidden js-failure mb-4">❌ {{ gettext('page.md5.quality.report_error') }}</div>
-        </form>
-
-        <form class="js-new-comment hidden mb-4" onsubmit='window.submitForm(event, "/dyn/comments/md5:" + {{ aarecord_id_split[1] | tojson }})'>
-          <fieldset>
-            <p class="mb-1">
-              {{ gettext('page.md5.quality.great.summary') }}
+          <div class="hidden mb-4 js-report-file-issues-submenu js-report-file-issues-submenu-copyright">
+            <p class="">
+              {{ gettext('page.md5.quality.copyright', a_copyright=(' href="/copyright"' | safe)) }}
             </p>
-            <textarea required name="content" class="grow bg-black/6.7 px-2 py-1 mb-1 rounded w-full h-20" placeholder="{{ gettext('page.md5.quality.loved_the_book') }}"></textarea>
+          </div>
+
+          <div class="hidden mb-4 js-report-file-issues-submenu js-report-file-issues-submenu-download js-report-file-issues-submenu-broken js-report-file-issues-submenu-pages js-report-file-issues-submenu-spam js-report-file-issues-submenu-other js-report-file-issues-submenu-metadata">
+            <p class="mb-1 font-bold">{{ gettext('page.md5.quality.describe_the_issue') }}</p>
+            <textarea required name="content" class="grow bg-black/6.7 px-2 py-1 mb-4 rounded w-full h-[120px]" placeholder="{{ gettext('page.md5.quality.issue_description') }}"></textarea>
+
+            <div class="hidden js-report-file-issues-submenu js-report-file-issues-submenu-download js-report-file-issues-submenu-broken js-report-file-issues-submenu-pages js-report-file-issues-submenu-spam js-report-file-issues-submenu-other">
+              <p class="mb-2">
+                <strong>{{ gettext('page.md5.quality.better_md5.text1') }}</strong> {{ gettext('page.md5.quality.better_md5.text2', a_upload=' href="/faq#upload" target="_blank"' | safe) }}
+              </p>
+              <p class="mb-1">
+                {{ gettext('page.md5.quality.better_md5.line1') }}<br>
+                https://annas-archive.li/md5/<strong>{{ aarecord_id_split[1] }}</strong>
+              </p>
+              <input type="text" name="better_md5" class="grow bg-black/6.7 px-2 py-1 mb-4 rounded w-full" placeholder="{{ aarecord_id_split[1] }}" minlength="32" maxlength="32" />
+            </div>
+
             <div class="">
-              <button type="submit" class="mr-2 bg-[#777] hover:bg-[#999] text-white font-bold py-1 px-3 rounded shadow">{{ gettext('page.md5.quality.submit_comment') }}</button>
+              <button type="submit" class="mr-2 bg-[#777] hover:bg-[#999] text-white font-bold py-1 px-3 rounded shadow">{{ gettext('page.md5.quality.submit_report') }}</button>
               <span class="js-spinner invisible mb-[-3px] text-xl text-[#555] inline-block icon-[svg-spinners--ring-resize]"></span>
             </div>
-          </fieldset>
-          <div class="hidden js-success">✅ {{ gettext('page.md5.quality.comment_thanks') }}</div>
-          <div class="hidden js-failure mb-4">❌ {{ gettext('page.md5.quality.comment_error') }}</div>
-        </form>
 
-        <div class="js-md5-issues-reports mt-4"><span class="mb-[-3px] text-xl text-[#555] inline-block icon-[svg-spinners--ring-resize]"></span></div>
-      </div>
-    {% endif %}
-  </div>
+            <div class="hidden mt-4 js-report-file-issues-submenu js-report-file-issues-submenu-metadata">
+              {{ gettext('page.md5.quality.improve_the_metadata', a_metadata=(' href="/metadata"' | safe)) }}
+            </div>
+          </div>
+        </fieldset>
+        <div class="hidden js-success">✅ {{ gettext('page.md5.quality.report_thanks') }}</div>
+        <div class="hidden js-failure mb-4">❌ {{ gettext('page.md5.quality.report_error') }}</div>
+      </form>
+
+      <form class="js-new-comment hidden mb-4" onsubmit='window.submitForm(event, "/dyn/comments/md5:" + {{ aarecord_id_split[1] | tojson }})'>
+        <fieldset>
+          <p class="mb-1">
+            {{ gettext('page.md5.quality.great.summary') }}
+          </p>
+          <textarea required name="content" class="grow bg-black/6.7 px-2 py-1 mb-1 rounded w-full h-20" placeholder="{{ gettext('page.md5.quality.loved_the_book') }}"></textarea>
+          <div class="">
+            <button type="submit" class="mr-2 bg-[#777] hover:bg-[#999] text-white font-bold py-1 px-3 rounded shadow">{{ gettext('page.md5.quality.submit_comment') }}</button>
+            <span class="js-spinner invisible mb-[-3px] text-xl text-[#555] inline-block icon-[svg-spinners--ring-resize]"></span>
+          </div>
+        </fieldset>
+        <div class="hidden js-success">✅ {{ gettext('page.md5.quality.comment_thanks') }}</div>
+        <div class="hidden js-failure mb-4">❌ {{ gettext('page.md5.quality.comment_error') }}</div>
+      </form>
+
+      <div class="js-md5-issues-reports mt-4"><span class="mb-[-3px] text-xl text-[#555] inline-block icon-[svg-spinners--ring-resize]"></span></div>
+    </div>
+  {% endif %}
 
   {% if aarecord_id_split[0] == 'md5' %}
     <div id="md5-panel-lists" role="tabpanel" tabindex="0" aria-labelledby="md5-tab-lists" hidden>

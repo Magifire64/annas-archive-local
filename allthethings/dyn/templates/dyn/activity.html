@@ -1,0 +1,61 @@
+{% extends "layouts/index.html" %}
+{% import 'macros/shared_links.j2' as a %}
+
+{% block body %}
+  {% from 'macros/profile_link.html' import profile_link %}
+
+  {% for activity_item in activity_items %}
+    <div class="pb-2 mb-4 border-b">
+      <div>
+        <div class="text-black/64 text-sm" title="{{ activity_item.created | datetimeformat(format='long') }}">{{ activity_item.created_delta | timedeltaformat(add_direction=True) }}</div>
+        {% if activity_item.activity_type == 'md5_report' %}
+          File issue report on <a href="{{ activity_item.href }}">{{ activity_item.target_description }}</a>
+        {% elif activity_item.activity_type == 'md5_comment' %}
+          Comment on <a href="{{ activity_item.href }}">{{ activity_item.target_description }}</a>
+        {% elif activity_item.activity_type == 'nested_comment' %}
+          Nested comment on <a href="{{ activity_item.href }}">{{ activity_item.target_description }}</a>
+        {% elif activity_item.activity_type == 'reaction' %}
+          {% if activity_item.reaction.reaction_resource_type == 'md5' %}
+            Reaction to <a href="{{ activity_item.href }}">{{ activity_item.target_description }}</a>
+          {% elif activity_item.reaction.reaction_resource_type == 'comment' %}
+            Reaction to comment on <a href="{{ activity_item.href }}">{{ activity_item.target_description }}</a>
+          {% elif activity_item.reaction.reaction_resource_type == 'nested_comment' %}
+            Reaction to nested comment on <a href="{{ activity_item.href }}">{{ activity_item.target_description }}</a>
+          {% endif %}
+        {% endif %}
+      </div>
+
+      <div class="ml-8">
+        <div>
+          {% if activity_item.reaction %}
+            {% if activity_item.reaction.type == 1 %}
+              Reported as abusive by
+            {% elif activity_item.reaction.type == 2 %}
+              {% if activity_item.reaction.reaction_resource_type == 'md5' %}
+                <span class="text-xl text-[#777] align-[-3.2px] icon-[material-symbols--star-outline]"></span> Great file quality
+              {% else %}
+                <span class="text-xl text-[#777] align-[-4px] icon-[tabler--thumb-up]"></span>
+              {% endif %}
+            {% elif activity_item.reaction.type == 3 %}
+              <span class="text-xl text-[#777] align-[-4px] icon-[tabler--thumb-down]"></span>
+            {% endif %}    
+          {% endif %}
+
+          {{ profile_link(activity_item.account, current_account_id, tag="span") }}
+        </div>
+
+        {% if activity_item.md5_report %}
+          {% if activity_item.md5_report.type %}
+            <div><span class='text-[18px] align-text-bottom inline-block icon-[uil--exclamation-triangle]'></span> <span class="italic">File issue: {{ md5_report_type_mapping[activity_item.md5_report.type] }}</span></div>
+          {% endif %}
+
+          {% if activity_item.md5_report.better_md5 %}<div>Better version: /md5/{{ activity_item.md5_report.better_md5 }}</div>{% endif %}
+        {% endif %}
+
+        {% if activity_item.comment %}
+          <div class="whitespace-pre-line mb-1">{{ activity_item.comment.content }}</div>
+        {% endif %}
+      </div>
+    </div>
+  {% endfor %}
+{% endblock %}

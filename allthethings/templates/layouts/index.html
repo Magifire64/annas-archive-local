@@ -496,6 +496,7 @@
                   {% elif header_active == 'home/volunteering' %}{{ gettext('layout.index.header.nav.volunteering') }}
                   {% elif header_active == 'home/datasets' %}{{ gettext('layout.index.header.nav.datasets') }}
                   {% elif header_active == 'home/torrents' %}{{ gettext('layout.index.header.nav.torrents') }}
+                  {% elif header_active == 'home/activity' %}Activity<!--TODO:TRANSLATE-->
                   {% elif header_active == 'home/codes' %}{{ gettext('layout.index.header.nav.codes') }}
                   {% elif header_active == 'home/llm' %}{{ gettext('layout.index.header.nav.llm_data') }}
                   {% else %}{{ gettext('layout.index.header.nav.home') }}{% endif %}
@@ -509,6 +510,7 @@
                   {% elif header_active == 'home/volunteering' %}{{ gettext('layout.index.header.nav.volunteering') }}
                   {% elif header_active == 'home/datasets' %}{{ gettext('layout.index.header.nav.datasets') }}
                   {% elif header_active == 'home/torrents' %}{{ gettext('layout.index.header.nav.torrents') }}
+                  {% elif header_active == 'home/activity' %}Activity<!--TODO:TRANSLATE-->
                   {% elif header_active == 'home/codes' %}{{ gettext('layout.index.header.nav.codes') }}
                   {% elif header_active == 'home/llm' %}{{ gettext('layout.index.header.nav.llm_data') }}
                   {% else %}{{ gettext('layout.index.header.nav.home') }}{% endif %}
@@ -524,6 +526,7 @@
                 <a class="custom-a block py-1 {% if header_active == 'home/volunteering' %}font-bold text-black{% else %}text-black/64{% endif %} hover:text-black" href="/volunteering">{{ gettext('layout.index.header.nav.volunteering') }}</a>
                 <a class="custom-a block py-1 {% if header_active == 'home/datasets'     %}font-bold text-black{% else %}text-black/64{% endif %} hover:text-black" href="/datasets">{{ gettext('layout.index.header.nav.datasets') }}</a>
                 <a class="custom-a block py-1 {% if header_active == 'home/torrents'     %}font-bold text-black{% else %}text-black/64{% endif %} hover:text-black" href="/torrents">{{ gettext('layout.index.header.nav.torrents') }}</a>
+                <a class="custom-a block py-1 {% if header_active == 'home/activity'     %}font-bold text-black{% else %}text-black/64{% endif %} hover:text-black" href="/activity">Activity<!--TODO:TRANSLATE--></a>
                 <a class="custom-a block py-1 {% if header_active == 'home/codes'        %}font-bold text-black{% else %}text-black/64{% endif %} hover:text-black" href="/member_codes">{{ gettext('layout.index.header.nav.codes') }}</a>
                 <a class="custom-a block py-1 {% if header_active == 'home/llm'          %}font-bold text-black{% else %}text-black/64{% endif %} hover:text-black" href="/llm">{{ gettext('layout.index.header.nav.llm_data') }}</a>
                 <a class="custom-a block py-1 text-black/64 hover:text-black" href="/blog" target="_blank">{{ gettext('layout.index.header.nav.annasblog') }}</a>
@@ -617,6 +620,7 @@
             <a class="custom-a hover:text-[#333]" href="/volunteering">{{ gettext('layout.index.header.nav.volunteering') }}</a><br>
             <a class="custom-a hover:text-[#333]" href="/datasets">{{ gettext('layout.index.header.nav.datasets') }}</a><br>
             <a class="custom-a hover:text-[#333]" href="/torrents">{{ gettext('layout.index.header.nav.torrents') }}</a><br>
+            <a class="custom-a hover:text-[#333]" href="/activity">Activity<!--TODO:TRANSLATE--></a><br>
             <a class="custom-a hover:text-[#333]" href="/member_codes">{{ gettext('layout.index.header.nav.codes') }}</a><br>
             <a class="custom-a hover:text-[#333]" href="/llm">{{ gettext('layout.index.header.nav.llm_data') }}</a><br>
             <a class="custom-a hover:text-[#333]" href="/faq#security">{{ gettext('layout.index.header.nav.security') }}</a><br>

@@ -53,7 +53,7 @@ CREATE TABLE mariapersist_md5_report (
     `created` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     `md5` BINARY(16) NOT NULL,
     `account_id` CHAR(7) NOT NULL,
-    `type` CHAR(10) NOT NULL,
+    `type` CHAR(10) NOT NULL, # "metadata", "download", "broken", "pages", "spam", "other"
     `better_md5` BINARY(16) NULL,
     PRIMARY KEY (`md5_report_id`),
     INDEX (`created`),
@@ -69,7 +69,7 @@ CREATE TABLE mariapersist_comments (
     `comment_id` BIGINT NOT NULL AUTO_INCREMENT,
     `created` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     `account_id` CHAR(7) NOT NULL,
-    `resource` VARCHAR(250) NOT NULL,
+    `resource` VARCHAR(250) NOT NULL, # md5:, md5_report:, comment:
     `content` TEXT NOT NULL,
     PRIMARY KEY (`comment_id`),
     INDEX (`created`),
@@ -81,7 +81,7 @@ ALTER TABLE mariapersist_comments ADD CONSTRAINT `mariapersist_comments_account_
 CREATE TABLE mariapersist_reactions (
     `reaction_id` BIGINT NOT NULL AUTO_INCREMENT,
     `account_id` CHAR(7) NOT NULL,
-    `resource` VARCHAR(250) NOT NULL,
+    `resource` VARCHAR(250) NOT NULL, # md5:, comment:
     `created` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     `updated` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     `type` TINYINT(1) NOT NULL, # 0=unset, 1=abuse, 2=thumbsup, 3=thumbsdown

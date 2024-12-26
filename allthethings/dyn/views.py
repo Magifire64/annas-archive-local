@@ -30,15 +30,15 @@ from allthethings.page.views import get_aarecords_elasticsearch, ES_TIMEOUT_PRIM
 import allthethings.utils
 
 
-dyn = Blueprint("dyn", __name__, template_folder="templates", url_prefix="/dyn")
+dyn = Blueprint("dyn", __name__, template_folder="templates")
 
-@dyn.get("/translations/")
+@dyn.get("/dyn/translations/")
 @allthethings.utils.no_cache()
 def language_codes():
     return orjson.dumps({ "translations": sorted(str(t) for t in allthethings.utils.list_translations()) })
 
 
-@dyn.get("/up/")
+@dyn.get("/dyn/up/")
 @allthethings.utils.no_cache()
 @cross_origin()
 def index():
@@ -51,7 +51,7 @@ def index():
     return orjson.dumps({ "aa_logged_in": aa_logged_in })
 
 number_of_db_exceptions = 0
-@dyn.get("/up/databases/")
+@dyn.get("/dyn/up/databases/")
 @allthethings.utils.no_cache()
 def databases():
     global number_of_db_exceptions
@@ -93,7 +93,7 @@ def api_md5_fast_download_get_json(download_url, other_fields):
     })
 
 # IMPORTANT: Keep in sync with md5_fast_download.
-@dyn.get("/api/fast_download.json")
+@dyn.get("/dyn/api/fast_download.json")
 @allthethings.utils.no_cache()
 def api_md5_fast_download():
     key_input = request.args.get('key', '')
@@ -172,7 +172,7 @@ def make_torrent_json(top_level_group_name, group_name, row):
         'random': row['temp_uuid'],
     }
 
-@dyn.get("/torrents.json")
+@dyn.get("/dyn/torrents.json")
 @allthethings.utils.no_cache()
 def torrents_json_page():
     torrents_data = get_torrents_data()
@@ -183,7 +183,7 @@ def torrents_json_page():
                 output_rows.append(make_torrent_json(top_level_group_name, group_name, small_file))
     return orjson.dumps(output_rows), {'Content-Type': 'text/json; charset=utf-8'}
 
-@dyn.get("/generate_torrents")
+@dyn.get("/dyn/generate_torrents")
 @allthethings.utils.no_cache()
 def generate_torrents_page():
     torrents_data = get_torrents_data()
@@ -234,7 +234,7 @@ def generate_torrents_page():
     else:
         return orjson.dumps(filtered_output_rows), {'Content-Type': 'text/json; charset=utf-8'}
 
-@dyn.get("/torrents/latest_aac_meta/<string:collection>.torrent")
+@dyn.get("/dyn/torrents/latest_aac_meta/<string:collection>.torrent")
 @allthethings.utils.no_cache()
 def torrents_latest_aac_page(collection):
     with mariapersist_engine.connect() as connection:
@@ -246,7 +246,7 @@ def torrents_latest_aac_page(collection):
             return "File not found", 404
         return send_file(io.BytesIO(file['data']), as_attachment=True, download_name=f'{collection}.torrent')
 
-@dyn.get("/small_file/<path:file_path>")
+@dyn.get("/dyn/small_file/<path:file_path>")
 @allthethings.utils.public_cache(minutes=5, cloudflare_minutes=60*3)
 def small_file_page(file_path):
     with mariapersist_engine.connect() as connection:
@@ -258,7 +258,7 @@ def small_file_page(file_path):
             return "File not found", 404
         return send_file(io.BytesIO(file['data']), as_attachment=True, download_name=file_path.split('/')[-1])
 
-@dyn.post("/downloads/increment/<string:md5_input>")
+@dyn.post("/dyn/downloads/increment/<string:md5_input>")
 @allthethings.utils.no_cache()
 def downloads_increment(md5_input):
     md5_input = md5_input[0:50]
@@ -285,7 +285,7 @@ def downloads_increment(md5_input):
         mariapersist_session.commit()
         return ""
 
-@dyn.get("/downloads/stats/")
+@dyn.get("/dyn/downloads/stats/")
 @allthethings.utils.public_cache(minutes=5, cloudflare_minutes=60)
 def downloads_stats_total():
     with mariapersist_engine.connect() as mariapersist_conn:
@@ -304,7 +304,7 @@ def downloads_stats_total():
         timeseries_y = [timeseries_by_hour.get(x, 0) for x in timeseries_x]
         return orjson.dumps({ "timeseries_x": timeseries_x, "timeseries_y": timeseries_y })
 
-@dyn.get("/downloads/stats/<string:md5_input>")
+@dyn.get("/dyn/downloads/stats/<string:md5_input>")
 @allthethings.utils.public_cache(minutes=5, cloudflare_minutes=60)
 def downloads_stats_md5(md5_input):
     md5_input = md5_input[0:50]
@@ -330,7 +330,7 @@ def downloads_stats_md5(md5_input):
         return orjson.dumps({ "total": int(total), "timeseries_x": timeseries_x, "timeseries_y": timeseries_y })
 
 
-# @dyn.put("/account/access/")
+# @dyn.put("/dyn/account/access/")
 # @allthethings.utils.no_cache()
 # def account_access():
 #     with Session(mariapersist_engine) as mariapersist_session:
@@ -348,7 +348,7 @@ def downloads_stats_md5(md5_input):
 #         return "{}"
 
 
-@dyn.put("/account/logout/")
+@dyn.put("/dyn/account/logout/")
 @allthethings.utils.no_cache()
 def account_logout():
     request.cookies[allthethings.utils.ACCOUNT_COOKIE_NAME] # Error if cookie is not set.
@@ -362,7 +362,7 @@ def account_logout():
     return resp
 
 
-@dyn.put("/copyright/")
+@dyn.put("/dyn/copyright/")
 @allthethings.utils.no_cache()
 def copyright():
     with Session(mariapersist_engine) as mariapersist_session:
@@ -373,7 +373,7 @@ def copyright():
         return "{}"
 
 
-@dyn.get("/md5/summary/<string:md5_input>")
+@dyn.get("/dyn/md5/summary/<string:md5_input>")
 @allthethings.utils.no_cache()
 def md5_summary(md5_input):
     md5_input = md5_input[0:50]
@@ -408,7 +408,7 @@ def md5_summary(md5_input):
         return orjson.dumps({ "reports_count": int(reports_count), "comments_count": int(comments_count), "lists_count": int(lists_count), "downloads_total": int(downloads_total), "great_quality_count": int(great_quality_count), "user_reaction": user_reaction, "downloads_left": downloads_left, "is_member": is_member, "download_still_active": download_still_active })
 
 
-@dyn.put("/md5_report/<string:md5_input>")
+@dyn.put("/dyn/md5_report/<string:md5_input>")
 @allthethings.utils.no_cache()
 def md5_report(md5_input):
     md5_input = md5_input[0:50]
@@ -450,14 +450,14 @@ def md5_report(md5_input):
         return "{}"
 
 
-@dyn.put("/account/display_name/")
+@dyn.put("/dyn/account/display_name/")
 @allthethings.utils.no_cache()
 def put_display_name():
     account_id = allthethings.utils.get_account_id(request.cookies)
     if account_id is None:
         return "", 403
 
-    display_name = request.form['display_name'].strip()
+    display_name = request.form['display_name'].strip().replace('\n', '')
 
     if len(display_name) < 4:
         return "", 500
@@ -470,7 +470,7 @@ def put_display_name():
         return "{}"
 
 
-@dyn.put("/list/name/<string:list_id>")
+@dyn.put("/dyn/list/name/<string:list_id>")
 @allthethings.utils.no_cache()
 def put_list_name(list_id):
     account_id = allthethings.utils.get_account_id(request.cookies)
@@ -496,7 +496,7 @@ def get_resource_type(resource):
     return None
 
 
-@dyn.put("/comments/<string:resource>")
+@dyn.put("/dyn/comments/<string:resource>")
 @allthethings.utils.no_cache()
 def put_comment(resource):
     account_id = allthethings.utils.get_account_id(request.cookies)
@@ -563,42 +563,53 @@ def get_comment_dicts(cursor, resources):
     if len(reactions_res) <= 0:
         reactions_res.append('x')
 
-    cursor.execute('SELECT resource, type, COUNT(*) as count FROM mariapersist_reactions '
-                   'WHERE resource IN %(resources)s GROUP BY resource, type '
-                   'LIMIT 10000', { 'resources': reactions_res })
+    cursor.execute("""SELECT 
+                        resource, 
+                        type, 
+                        COUNT(*) as count, 
+                        GROUP_CONCAT(mariapersist_accounts.account_id SEPARATOR "\n" LIMIT 5) AS account_ids,
+                        GROUP_CONCAT(mariapersist_accounts.display_name SEPARATOR "\n" LIMIT 5) AS account_display_names
+                    FROM mariapersist_reactions
+                    JOIN mariapersist_accounts USING (account_id)
+                    WHERE resource IN %(resources)s GROUP BY resource, type
+                    LIMIT 10000""", { 'resources': reactions_res })
     comment_reactions = list(cursor.fetchall())
 
     comment_reactions_by_id = collections.defaultdict(dict)
     for reaction in comment_reactions:
-        comment_reactions_by_id[int(reaction['resource'][len("comment:"):])][reaction['type']] = reaction['count']
+        comment_reactions_by_id[int(reaction['resource'][len("comment:"):])][reaction['type']] = {
+            'count': reaction['count'],
+            'accounts': [ {
+                'account_id': account_info[0],
+                'display_name': account_info[1],
+            } for account_info in zip(reaction['account_ids'].split('\n'), reaction['account_display_names'].split('\n'))]
+        }
 
     reply_dicts_by_parent_comment_id = collections.defaultdict(list)
     for reply in replies: # Note: these are already sorted chronologically.
         reply_dicts_by_parent_comment_id[int(reply['resource'][len('comment:'):])].append({
             **reply,
             'created_delta': reply['created'] - datetime.datetime.now(),
-            'abuse_total': comment_reactions_by_id[reply['comment_id']].get(1, 0),
-            'thumbs_up': comment_reactions_by_id[reply['comment_id']].get(2, 0),
-            'thumbs_down': comment_reactions_by_id[reply['comment_id']].get(3, 0),
+            'abuse_total': comment_reactions_by_id[reply['comment_id']].get(1, {'count': 0, 'accounts': []}),
+            'thumbs_up': comment_reactions_by_id[reply['comment_id']].get(2, {'count': 0, 'accounts': []}),
+            'thumbs_down': comment_reactions_by_id[reply['comment_id']].get(3, {'count': 0, 'accounts': []}),
         })
 
     comment_dicts = [{
         **comment,
         'created_delta': comment['created'] - datetime.datetime.now(),
-        'abuse_total': comment_reactions_by_id[comment['comment_id']].get(1, 0),
-        'thumbs_up': comment_reactions_by_id[comment['comment_id']].get(2, 0),
-        'thumbs_down': comment_reactions_by_id[comment['comment_id']].get(3, 0),
+        'abuse_total': comment_reactions_by_id[comment['comment_id']].get(1, {'count': 0, 'accounts': []}),
+        'thumbs_up': comment_reactions_by_id[comment['comment_id']].get(2, {'count': 0, 'accounts': []}),
+        'thumbs_down': comment_reactions_by_id[comment['comment_id']].get(3, {'count': 0, 'accounts': []}),
         'reply_dicts': reply_dicts_by_parent_comment_id[comment['comment_id']],
         'can_have_replies': True,
     } for comment in comments]
 
-
-
-    comment_dicts.sort(reverse=True, key=lambda c: 100000*(c['thumbs_up']-c['thumbs_down']-c['abuse_total']*5) + c['comment_id'] )
+    comment_dicts.sort(reverse=True, key=lambda c: 100000*(c['thumbs_up']['count']-c['thumbs_down']['count']-c['abuse_total']['count']*5) + c['comment_id'] )
     return comment_dicts
 
 
-# @dyn.get("/comments/<string:resource>")
+# @dyn.get("/dyn/comments/<string:resource>")
 # @allthethings.utils.no_cache()
 # def get_comments(resource):
 #     if not bool(re.match(r"^md5:[a-f\d]{32}$", resource)):
@@ -615,7 +626,7 @@ def get_comment_dicts(cursor, resources):
 #         )
 
 
-@dyn.get("/md5_reports/<string:md5_input>")
+@dyn.get("/dyn/md5_reports/<string:md5_input>")
 @allthethings.utils.no_cache()
 def md5_reports(md5_input):
     md5_input = md5_input[0:50]
@@ -655,14 +666,14 @@ def md5_reports(md5_input):
         )
 
 
-@dyn.put("/reactions/<int:reaction_type>/<string:resource>")
+@dyn.put("/dyn/reactions/<int:reaction_type>/<string:resource>")
 @allthethings.utils.no_cache()
 def put_comment_reaction(reaction_type, resource):
     account_id = allthethings.utils.get_account_id(request.cookies)
     if account_id is None:
         return "", 403
 
-    with (Session(mariapersist_engine) as mariapersist_session):
+    with Session(mariapersist_engine) as mariapersist_session:
         cursor = allthethings.utils.get_cursor_ping(mariapersist_session)
         resource_type = get_resource_type(resource)
         if resource_type not in ['md5', 'comment']:
@@ -693,8 +704,129 @@ def put_comment_reaction(reaction_type, resource):
         mariapersist_session.commit()
         return "{}"
 
+@dyn.get("/activity")
+@allthethings.utils.public_cache(minutes=1, cloudflare_minutes=1)
+def activity():
+    with mariapersist_engine.connect() as connection:
+        cursor = allthethings.utils.get_cursor_ping_conn(connection)
+        cursor.execute("""
+            SELECT * FROM (
+                SELECT "md5_report" AS activity_type, mariapersist_md5_report.md5_report_id, mariapersist_md5_report.type AS md5_report_type, mariapersist_md5_report.md5, mariapersist_md5_report.better_md5, mariapersist_comments.account_id, mariapersist_md5_report.created, mariapersist_comments.content, mariapersist_accounts.display_name, NULL AS comment_resource, NULL AS parent_comment_resource, NULL AS parent_md5_report_md5, NULL AS reaction_resource, NULL AS reaction_type
+                FROM mariapersist_md5_report
+                INNER JOIN mariapersist_comments ON (mariapersist_comments.resource = CONCAT("md5_report:", mariapersist_md5_report.md5_report_id) AND mariapersist_md5_report.account_id = mariapersist_comments.account_id)
+                INNER JOIN mariapersist_accounts ON (mariapersist_comments.account_id = mariapersist_accounts.account_id)
+                ORDER BY mariapersist_md5_report.created DESC
+                LIMIT 100
+            ) md5_reports UNION SELECT * FROM (
+                SELECT "md5_comment" AS activity_type, NULL AS md5_report_id, NULL AS md5_report_type, NULL AS md5, NULL AS better_md5, mariapersist_comments.account_id, mariapersist_comments.created, mariapersist_comments.content, mariapersist_accounts.display_name, mariapersist_comments.resource AS comment_resource, NULL AS parent_comment_resource, NULL AS parent_md5_report_md5, NULL AS reaction_resource, NULL AS reaction_type
+                FROM mariapersist_comments
+                INNER JOIN mariapersist_accounts ON (mariapersist_comments.account_id = mariapersist_accounts.account_id)
+                WHERE mariapersist_comments.resource LIKE "md5:%"
+                ORDER BY mariapersist_comments.created DESC
+                LIMIT 100
+            ) md5_comments UNION SELECT * FROM (
+                SELECT "nested_comment" AS activity_type, NULL AS md5_report_id, NULL AS md5_report_type, NULL AS md5, NULL AS better_md5, mariapersist_comments.account_id, mariapersist_comments.created, mariapersist_comments.content, mariapersist_accounts.display_name, mariapersist_comments.resource AS comment_resource, parent_comments.resource AS parent_comment_resource, parent_md5_report.md5 AS parent_md5_report_md5, NULL AS reaction_resource, NULL AS reaction_type
+                FROM mariapersist_comments
+                INNER JOIN mariapersist_accounts ON (mariapersist_comments.account_id = mariapersist_accounts.account_id)
+                INNER JOIN mariapersist_comments parent_comments ON (parent_comments.comment_id = REPLACE(mariapersist_comments.resource, "comment:", ""))
+                LEFT JOIN mariapersist_md5_report parent_md5_report ON (parent_md5_report.md5_report_id = REPLACE(parent_comments.resource, "md5_report:", ""))
+                WHERE mariapersist_comments.resource LIKE "comment:%"
+                ORDER BY mariapersist_comments.created DESC
+                LIMIT 100
+            ) nested_comments UNION SELECT * FROM (
+                SELECT "reaction" AS activity_type, NULL AS md5_report_id, NULL AS md5_report_type, NULL AS md5, NULL AS better_md5, mariapersist_reactions.account_id, mariapersist_reactions.created, NULL AS content, mariapersist_accounts.display_name, mariapersist_comments.resource AS comment_resource, parent_comments.resource AS parent_comment_resource, parent_md5_report.md5 AS parent_md5_report_md5, mariapersist_reactions.resource AS reaction_resource, mariapersist_reactions.type AS reaction_type
+                FROM mariapersist_reactions
+                INNER JOIN mariapersist_accounts ON (mariapersist_reactions.account_id = mariapersist_accounts.account_id)
+                LEFT JOIN mariapersist_comments ON (mariapersist_comments.comment_id = REPLACE(mariapersist_reactions.resource, "comment:", ""))
+                LEFT JOIN mariapersist_comments parent_comments ON (parent_comments.comment_id = REPLACE(mariapersist_comments.resource, "comment:", ""))
+                LEFT JOIN mariapersist_md5_report parent_md5_report ON (parent_md5_report.md5_report_id = REPLACE(parent_comments.resource, "md5_report:", ""))
+                WHERE (mariapersist_reactions.resource LIKE "md5:%" OR mariapersist_reactions.resource LIKE "comment:%")
+                ORDER BY mariapersist_reactions.created DESC
+                LIMIT 100
+            ) reactions
+            ORDER BY created DESC
+            LIMIT 100
+            """)
 
-@dyn.put("/lists_update/<string:resource>")
+        activity_items = []
+        for activity_item in cursor.fetchall():
+            new_activity_item = {
+                'activity_type': activity_item['activity_type'],
+                'created': activity_item['created'],
+                'created_delta': activity_item['created'] - datetime.datetime.now(),
+                'account': {
+                    'account_id': activity_item['account_id'],
+                    'display_name': activity_item['display_name'],
+                },
+            }
+            if activity_item['activity_type'] == 'md5_report':
+                new_activity_item = {
+                    **new_activity_item,
+                    'href': "/md5/" + activity_item['md5'].hex(),
+                    'target_description': activity_item['md5'].hex(),
+                    'md5_report': {
+                        'type': activity_item['md5_report_type'],
+                        'better_md5': activity_item['better_md5'].hex() if activity_item['better_md5'] is not None else None,
+                    },
+                    'comment': {
+                        'content': activity_item['content'],  
+                    }
+                }
+            elif activity_item['activity_type'] == 'md5_comment':
+                new_activity_item = {
+                    **new_activity_item,
+                    'href': "/md5/" + activity_item['comment_resource'].replace('md5:', ''),
+                    'target_description': activity_item['comment_resource'].replace('md5:', ''),
+                    'comment': {
+                        'content': activity_item['content'],  
+                    }
+                }
+            elif activity_item['activity_type'] == 'nested_comment':
+                parent_md5 = activity_item['parent_comment_resource'].replace('md5:', '')
+                if activity_item['parent_md5_report_md5'] is not None:
+                    parent_md5 = activity_item['parent_md5_report_md5'].hex()
+                new_activity_item = {
+                    **new_activity_item,
+                    'href': "/md5/" + parent_md5,
+                    'target_description': parent_md5,
+                    'comment': {
+                        'content': activity_item['content'],  
+                    }
+                }
+            elif activity_item['activity_type'] == 'reaction':
+                parent_md5 = activity_item['reaction_resource'].replace('md5:', '')
+                reaction_resource_type = 'md5'
+                if activity_item['comment_resource'] is not None:
+                    parent_md5 = activity_item['comment_resource'].replace('md5:', '')
+                    reaction_resource_type = 'comment'
+                if activity_item['parent_comment_resource'] is not None:
+                    parent_md5 = activity_item['parent_comment_resource'].replace('md5:', '')
+                    reaction_resource_type = 'nested_comment'
+                if activity_item['parent_md5_report_md5'] is not None:
+                    parent_md5 = activity_item['parent_md5_report_md5'].hex()
+                    reaction_resource_type = 'nested_comment'
+                new_activity_item = {
+                    **new_activity_item,
+                    'href': "/md5/" + parent_md5,
+                    'target_description': parent_md5,
+                    'reaction': {
+                        'type': activity_item['reaction_type'],
+                        'reaction_resource_type': reaction_resource_type,
+                    },
+                }
+            activity_items.append(new_activity_item)
+
+        return render_template(
+            "dyn/activity.html",
+            header_active='home/activity',
+            current_account_id=allthethings.utils.get_account_id(request.cookies),
+            activity_items=activity_items,
+            md5_report_type_mapping=allthethings.utils.get_md5_report_type_mapping(),
+        )
+
+
+
+@dyn.put("/dyn/lists_update/<string:resource>")
 @allthethings.utils.no_cache()
 def lists_update(resource):
     account_id = allthethings.utils.get_account_id(request.cookies)
@@ -749,7 +881,7 @@ def lists_update(resource):
         return '{}'
 
 
-@dyn.get("/lists/<string:resource>")
+@dyn.get("/dyn/lists/<string:resource>")
 @allthethings.utils.no_cache()
 def lists(resource):
     with Session(mariapersist_engine) as mariapersist_session:
@@ -784,7 +916,7 @@ def lists(resource):
             resource=resource,
         )
 
-@dyn.get("/search_counts")
+@dyn.get("/dyn/search_counts")
 @allthethings.utils.public_cache(minutes=5, cloudflare_minutes=60*3)
 def search_counts_page():
     search_input = request.args.get("q", "").strip()
@@ -838,7 +970,7 @@ def search_counts_page():
     return r
 
 
-@dyn.put("/account/buy_membership/")
+@dyn.put("/dyn/account/buy_membership/")
 @allthethings.utils.no_cache()
 def account_buy_membership():
     account_id = allthethings.utils.get_account_id(request.cookies)
@@ -1002,7 +1134,7 @@ def account_buy_membership():
         return orjson.dumps({ 'redirect_url': '/account/donations/' + data['donation_id'] })
 
 
-@dyn.put("/account/mark_manual_donation_sent/<string:donation_id>")
+@dyn.put("/dyn/account/mark_manual_donation_sent/<string:donation_id>")
 @allthethings.utils.no_cache()
 def account_mark_manual_donation_sent(donation_id):
     account_id = allthethings.utils.get_account_id(request.cookies)
@@ -1022,7 +1154,7 @@ def account_mark_manual_donation_sent(donation_id):
         return "{}"
 
 
-@dyn.put("/account/cancel_donation/<string:donation_id>")
+@dyn.put("/dyn/account/cancel_donation/<string:donation_id>")
 @allthethings.utils.no_cache()
 def account_cancel_donation(donation_id):
     account_id = allthethings.utils.get_account_id(request.cookies)
@@ -1042,7 +1174,7 @@ def account_cancel_donation(donation_id):
         return "{}"
 
 
-@dyn.get("/recent_downloads/")
+@dyn.get("/dyn/recent_downloads/")
 @allthethings.utils.public_cache(minutes=1, cloudflare_minutes=1)
 @cross_origin()
 def recent_downloads():
@@ -1067,7 +1199,7 @@ def recent_downloads():
                 seen_titles.add(title)
             return orjson.dumps(output)
 
-@dyn.post("/log_search")
+@dyn.post("/dyn/log_search")
 @allthethings.utils.no_cache()
 def log_search():
     # search_input = request.args.get("q", "").strip()
@@ -1077,12 +1209,12 @@ def log_search():
     #         mariapersist_session.commit()
     return ""
 
-@dyn.get("/payment1b_notify/")
+@dyn.get("/dyn/payment1b_notify/")
 @allthethings.utils.no_cache()
 def payment1b_notify():
     return payment1_common_notify(PAYMENT1B_KEY, 'payment1b_notify')
 
-@dyn.get("/payment1c_notify/")
+@dyn.get("/dyn/payment1c_notify/")
 @allthethings.utils.no_cache()
 def payment1c_notify():
     return payment1_common_notify(PAYMENT1C_KEY, 'payment1c_notify')
@@ -1114,7 +1246,7 @@ def payment1_common_notify(sign_key, data_key):
                 return "fail"
     return "success"
 
-@dyn.post("/payment2_notify/")
+@dyn.post("/dyn/payment2_notify/")
 @allthethings.utils.no_cache()
 def payment2_notify():
     sign_str = orjson.dumps(dict(sorted(request.json.items())))
@@ -1129,7 +1261,7 @@ def payment2_notify():
             return "Error happened", 404
     return ""
 
-@dyn.post("/payment3_notify/")
+@dyn.post("/dyn/payment3_notify/")
 @allthethings.utils.no_cache()
 def payment3_notify():
     data = {
@@ -1158,7 +1290,7 @@ def payment3_notify():
     return "SUCCESS"
 
 
-@dyn.post("/hoodpay_notify/")
+@dyn.post("/dyn/hoodpay_notify/")
 @allthethings.utils.no_cache()
 def hoodpay_notify():
     donation_id = request.json['forPaymentEvents']['metadata']['donation_id']
@@ -1174,7 +1306,7 @@ def hoodpay_notify():
         if not hoodpay_request_success:
             return "Error happened", 404
     return ""
-# @dyn.post("/hoodpay_notify/<string:donation_id>")
+# @dyn.post("/dyn/hoodpay_notify/<string:donation_id>")
 # @allthethings.utils.no_cache()
 # def hoodpay_notify(donation_id):
 #     with mariapersist_engine.connect() as connection:
@@ -1189,7 +1321,7 @@ def hoodpay_notify():
 #             return "Error happened", 404
 #     return ""
 
-@dyn.post("/gc_notify/")
+@dyn.post("/dyn/gc_notify/")
 @allthethings.utils.no_cache()
 def gc_notify():
     sig = request.headers['X-GC-NOTIFY-SIG']
