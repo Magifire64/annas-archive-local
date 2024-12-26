@@ -656,7 +656,8 @@ def get_torrents_data():
                 list_to_add = small_file_dicts_grouped_aa[group]
             display_name = small_file['file_path'].split('/')[-1]
             list_to_add.append({
-                "created": small_file['created'].strftime("%Y-%m-%d"), # First, so it gets sorted by first. Also, only year-month-day, so it gets secondarily sorted by file path.
+                "sort_key": small_file['file_path'] if group in ['libgen_li_comics', 'libgen_li_fic', 'libgen_li_magazines', 'libgen_li_standarts', 'libgen_rs_fic', 'libgen_rs_non_fic', 'scihub'] else (small_file['created'].strftime("%Y-%m-%d") + small_file['file_path']),
+                "created": small_file['created'].strftime("%Y-%m-%d"),
                 "file_path": small_file['file_path'],
                 "metadata": metadata,
                 "aa_currently_seeding": allthethings.utils.aa_currently_seeding(metadata),
