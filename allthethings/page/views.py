@@ -603,6 +603,10 @@ def torrent_group_data_from_file_path(file_path):
         group = 'other_metadata'
     if 'isbndb' in file_path:
         group = 'other_metadata'
+    if 'libgenrs_covers' in file_path:
+        group = 'other_metadata'
+    if 'airitibooks_records' in file_path:
+        group = 'other_metadata'
 
     return { 'group': group, 'aac_meta_group': aac_meta_group }
 
