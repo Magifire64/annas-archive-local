@@ -504,7 +504,7 @@ def get_stats_data():
             raise Exception("One of the 'get_stats_data' responses timed out")
 
         # print(f'{orjson.dumps(stats_data_es)=}')
-        print(f'{orjson.dumps(stats_data_esaux)=}')
+        # print(f'{orjson.dumps(stats_data_esaux)=}')
 
         stats_by_group = {
             'lgrs': {'count': 0, 'filesize': 0, 'aa_count': 0, 'torrent_count': 0},
