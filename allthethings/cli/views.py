@@ -192,9 +192,24 @@ def mysql_build_aac_tables_internal():
                 # data_folder = matches[3]
                 primary_id = matches[4].replace(b'"', b'')
 
+                worldcat_edition_cluster_pairs = []
                 if collection == 'worldcat':
-                    if (b'not_found_title_json' in line) or (b'redirect_title_json' in line):
+                    if (b'not_found_title_json' in line) or (b'redirect_title_json' in line) or (b'"other_meta_type":"successful_range_query"' in line) or (b'"other_meta_type":"status_internal_server_error"' in line) or (b'"other_meta_type":"todo_range_query"' in line):
                         return None
+                    elif b'"other_meta_type":"library"' in line:
+                        primary_id = f"library__{orjson.loads(line)['metadata']['registry_id']}".encode()
+                    elif b'"other_meta_type":"search_editions_response"' in line:
+                        primary_id = orjson.loads(line)['metadata']['query'].encode()
+
+                    if b'"search_editions_response/' in line:
+                        for filename in orjson.loads(line)['metadata']['from_filenames']:
+                            if filename.startswith('search_editions_response/'):
+                                query_oclc_id = int(filename.replace('search_editions_response/', ''))
+                                record_oclc_id = int(primary_id.decode())
+                                worldcat_edition_cluster_pairs.append({ 
+                                    'query_oclc_id': query_oclc_id, 
+                                    'record_oclc_id': record_oclc_id, 
+                                })
                 elif collection == 'nexusstc_records':
                     if b'"type":["wiki"]' in line:
                         return None
@@ -237,6 +252,7 @@ def mysql_build_aac_tables_internal():
                     'primary_id': primary_id.decode(),
                     'md5': md5.decode().lower() if md5 is not None else None,
                     'multiple_md5s': multiple_md5s,
+                    'worldcat_edition_cluster_pairs': worldcat_edition_cluster_pairs,
                     'byte_offset': byte_offset,
                     'byte_length': len(line),
                 }
@@ -283,6 +299,10 @@ def mysql_build_aac_tables_internal():
                 cursor.execute(f"DROP TABLE IF EXISTS {table_name}__multiple_md5")
                 cursor.execute(f"CREATE TABLE {table_name}__multiple_md5 (`md5` CHAR(32) CHARACTER SET ascii NOT NULL, `aacid` VARCHAR(250) CHARACTER SET ascii NOT NULL, PRIMARY KEY (`md5`, `aacid`), INDEX `aacid_md5` (`aacid`, `md5`)) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin")
                 tables.append(f"{table_name}__multiple_md5")
+            if collection == 'worldcat':
+                cursor.execute(f"DROP TABLE IF EXISTS {table_name}__edition_cluster_pairs")
+                cursor.execute(f"CREATE TABLE {table_name}__edition_cluster_pairs (`query_oclc_id` BIGINT NOT NULL, `record_oclc_id` BIGINT NOT NULL, PRIMARY KEY (`query_oclc_id`, `record_oclc_id`), INDEX `record_oclc_id` (`record_oclc_id`, `query_oclc_id`)) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin")
+                tables.append(f"{table_name}__edition_cluster_pairs")
 
             cursor.execute(f"LOCK TABLES {' WRITE, '.join(tables)} WRITE")
             # From https://github.com/indygreg/python-zstandard/issues/13#issuecomment-1544313739
@@ -292,6 +312,7 @@ def mysql_build_aac_tables_internal():
                     bytes_in_batch = 0
                     insert_data = []
                     insert_data_multiple_md5s = []
+                    insert_data_worldcat_edition_cluster_pairs = []
                     for line in lines:
                         allthethings.utils.aac_spot_check_line_bytes(line, {})
                         insert_data_line = build_insert_data(line, byte_offset)
@@ -299,6 +320,8 @@ def mysql_build_aac_tables_internal():
                             for md5 in insert_data_line['multiple_md5s']:
                                 insert_data_multiple_md5s.append({ "md5": md5, "aacid": insert_data_line['aacid'] })
                             del insert_data_line['multiple_md5s']
+                            insert_data_worldcat_edition_cluster_pairs += insert_data_line['worldcat_edition_cluster_pairs']
+                            del insert_data_line['worldcat_edition_cluster_pairs']
                             insert_data.append(insert_data_line)
                         line_len = len(line)
                         byte_offset += line_len
@@ -313,6 +336,9 @@ def mysql_build_aac_tables_internal():
                     if len(insert_data_multiple_md5s) > 0:
                         connection.connection.ping(reconnect=True)
                         cursor.executemany(f'{action} INTO {table_name}__multiple_md5 (md5, aacid) VALUES (%(md5)s, %(aacid)s)', insert_data_multiple_md5s)
+                    if len(insert_data_worldcat_edition_cluster_pairs) > 0:
+                        connection.connection.ping(reconnect=True)
+                        cursor.executemany(f'{action} INTO {table_name}__edition_cluster_pairs (query_oclc_id, record_oclc_id) VALUES (%(query_oclc_id)s, %(record_oclc_id)s)', insert_data_worldcat_edition_cluster_pairs)
                     pbar.update(bytes_in_batch)
             connection.connection.ping(reconnect=True)
             cursor.execute("UNLOCK TABLES")
@@ -1130,6 +1156,116 @@ def elastic_build_aarecords_forcemerge_internal():
 def mysql_build_aarecords_codes_numbers():
     mysql_build_aarecords_codes_numbers_internal()
 def mysql_build_aarecords_codes_numbers_internal():
+    CODE_PREFIX_SAMPLING = 0.05             # COLUMN_ADD is too expensive in this case, so we compromise
+    CODE_PREFIX_PARTITION_SIZE = 50_000_000 # When crossed, next prefix will begin a new partition
+    MAX_DB_CONNECTIONS = 5               
+    if SLOW_DATA_IMPORTS:
+        CODE_PREFIX_PARTITION_SIZE = 500000
+
+    tables = list(set(AARECORD_ID_PREFIX_TO_CODES_TABLE_NAME.values()))
+    
+    prefix_counts_summed = {}
+    partition_defs = []
+    
+    with concurrent.futures.ThreadPoolExecutor(max_workers=min(MAX_DB_CONNECTIONS, THREADS)) as executor:
+        def collect_code_prefixes(tablename):
+            with engine.connect() as connection:
+                connection.connection.ping(reconnect=True)
+                cursor = connection.connection.cursor(pymysql.cursors.SSDictCursor)
+
+                cursor.execute(f'SET @code_prefix = "", @cnt := 0, @prev = ""')
+                cursor.execute(f"""ANALYZE SELECT 
+                                LAST_VALUE(
+                                    IF(RAND() < {CODE_PREFIX_SAMPLING} OR NOT COLUMN_EXISTS(@code_prefix, SUBSTRING_INDEX(code, ":", 1)),
+                                        IF(
+                                            SUBSTRING_INDEX(code, ":", 1) = @prev, 
+                                            @cnt := @cnt + 1, 
+                                            LAST_VALUE(@cnt := NVL(COLUMN_GET(@code_prefix := COLUMN_ADD(@code_prefix, @prev, @cnt), SUBSTRING_INDEX(code, ":", 1) as int), 0) + 1, @prev := SUBSTRING_INDEX(code, ":", 1)) 
+                                        ), NULL
+                                    ), 0) as p
+                                FROM {tablename}""")
+                cursor.execute(f'SET @code_prefix = COLUMN_ADD(@code_prefix, @prev, @cnt);')
+
+                cursor.execute(f'SELECT COLUMN_JSON(@code_prefix) as code_prefix;')
+                return orjson.loads(cursor.fetchone()['code_prefix'])
+
+        start = time.perf_counter()
+        results = list(executor.map(collect_code_prefixes, tables))
+
+        prefix_counts_by_table = dict(zip(tables, results))
+        prefix_counts_summed = {k: sum(d.get(k, 0) for d in results) for k in {k for d in results for k in d if k}} 
+        prefix_counts_in_idx_order = sorted(prefix_counts_summed.items(), key=lambda x: x[0]) 
+
+        print(f'Code prefix list ({len(prefix_counts_summed)}) collected in {time.perf_counter() - start:.2f}')
+        est_multiplier = max(1 / CODE_PREFIX_SAMPLING, 1)
+        
+        partition_defs = []
+        acc = [0, [], 0, ""]
+        for code_prefix, count in prefix_counts_in_idx_order:
+            acc[0] += round(count * est_multiplier)
+            acc[1].append(code_prefix)
+            if acc[0] > CODE_PREFIX_PARTITION_SIZE or code_prefix == prefix_counts_in_idx_order[-1][0]:
+                partition_defs.append({"aprox_count": acc[0], "n": acc[2], "bounds": (acc[3], code_prefix + ";"), "prefix_list": acc[1]})
+                acc = [0, [], len(partition_defs), code_prefix + ";"] 
+        
+        print(f"Will build {len(partition_defs)} partitions of aprox {sum([x['aprox_count'] for x in partition_defs])} records")
+
+        def build_partition(opts):
+            with engine.connect() as connection:
+                connection.connection.ping(reconnect=True)
+                cursor = connection.connection.cursor(pymysql.cursors.SSDictCursor)
+
+                # If a table doesn't have anything from the code range, skip it
+                needed_tables = list(filter(lambda x: any([prefix in opts["prefix_list"] for prefix in prefix_counts_by_table[x]]), tables))
+                cursor.execute(f'CREATE OR REPLACE TEMPORARY TABLE aarecords_codes_union (id BIGINT NOT NULL AUTO_INCREMENT, code VARBINARY(680) NOT NULL, aarecord_id VARBINARY(300) NOT NULL, PRIMARY KEY (id)) ENGINE=MERGE UNION=({", ".join(needed_tables)}) INSERT_METHOD=NO;')
+
+                start = time.perf_counter()
+                # This temptable would be created by the query below anyway (except with udfs), just making it more obvious, 
+                # also there's a good chance it's faster this way
+                cursor.execute('CREATE OR REPLACE TEMPORARY TABLE aarecords_codes_new_internal (code VARBINARY(680) NOT NULL, aarecord_id VARBINARY(300) NOT NULL, prefix VARBINARY(20) NOT NULL) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin SELECT code, aarecord_id, SUBSTRING_INDEX(aarecord_id, ":", 1) as prefix FROM aarecords_codes_union WHERE code < %(upper_bound)s AND code >=  %(lower_bound)s ORDER BY code, aarecord_id', {"lower_bound": opts["bounds"][0], "upper_bound": opts["bounds"][1]})
+                sort_time = time.perf_counter() - start
+
+                # Substitute for ROW_NUMBER and DENSE_RANK window functions (proven too slow)
+                # --------------------------------------------------------------
+                start = time.perf_counter()
+                cursor.execute(f'SET @drank := 0, @prev_code := "", @prn := "", @pdr := "", @prn_val := 0, @pdr_val := 0, @prev_prefix := "", @code_same := 0, @prefix_same := 0')
+                cursor.execute(f"""CREATE OR REPLACE TABLE aarecords_codes_new_p{opts["n"]} (code VARBINARY({allthethings.utils.AARECORDS_CODES_CODE_LENGTH}) NOT NULL, aarecord_id VARBINARY({allthethings.utils.AARECORDS_CODES_AARECORD_ID_LENGTH}) NOT NULL, aarecord_id_prefix VARBINARY({allthethings.utils.AARECORDS_CODES_AARECORD_ID_PREFIX_LENGTH}) NOT NULL, row_number_order_by_code BIGINT NOT NULL DEFAULT 0, dense_rank_order_by_code BIGINT NOT NULL DEFAULT 0, row_number_partition_by_aarecord_id_prefix_order_by_code BIGINT NOT NULL DEFAULT 0, dense_rank_partition_by_aarecord_id_prefix_order_by_code BIGINT NOT NULL DEFAULT 0, PRIMARY KEY (code, aarecord_id)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin
+                                SELECT LAST_VALUE(@code_same := y.code = @prev_code, @prefix_same := prefix = @prev_prefix, ROWNUM()) AS row_number_order_by_code,
+                                IF(@code_same, @drank, @drank := @drank + 1) AS dense_rank_order_by_code,
+                                IF(@prefix_same, 
+                                  @prn_val := @prn_val + 1, 
+                                  @prn_val := NVL(COLUMN_GET(@prn := COLUMN_ADD(@prn, @prev_prefix, @prn_val), prefix as int), 0) + 1
+                                ) as row_number_partition_by_aarecord_id_prefix_order_by_code,
+                                IF(@prefix_same, 
+                                  IF(@code_same, @pdr_val, @pdr_val := @pdr_val + 1), 
+                                  @pdr_val := NVL(COLUMN_GET(@pdr := COLUMN_ADD(@pdr, @prev_prefix, @pdr_val), prefix as int), 0) + 1
+                                ) as dense_rank_partition_by_aarecord_id_prefix_order_by_code,
+                                IF(@code_same, @prev_code, @prev_code := code) as code,
+                                aarecord_id,
+                                IF(@prefix_same, prefix, @prev_prefix := prefix) AS aarecord_id_prefix
+                                FROM aarecords_codes_new_internal y 
+                                ;""") # No order by, expecting the table to be sorted
+                agg_time = time.perf_counter() - start
+
+                start = time.perf_counter()
+                cursor.execute(f'ALTER TABLE aarecords_codes_new_p{opts["n"]} ADD INDEX (aarecord_id_prefix, code, aarecord_id)');
+                index_time = time.perf_counter() - start
+
+                opts["time"] = {
+                    "1_sort": sort_time,
+                    "2_agg": agg_time,
+                    "3_index": index_time,
+                }
+
+        start = time.perf_counter()
+        futures = list(map(lambda x: executor.submit(build_partition, x), partition_defs))
+        complete = [future.result() for future in concurrent.futures.as_completed(futures)] # fail fast
+
+        if SLOW_DATA_IMPORTS:
+            print(f'Partitioning breakdown: { orjson.dumps(partition_defs, option=orjson.OPT_SORT_KEYS | orjson.OPT_INDENT_2 ).decode("utf-8") }')
+
+        print(f'Partitions built in {time.perf_counter() - start:.2f} (sort, agg, index) = {(sum([x["time"]["1_sort"] for x in partition_defs]), sum([x["time"]["2_agg"] for x in partition_defs]), sum([x["time"]["3_index"] for x in partition_defs]))}')
+    
     with engine.connect() as connection:
         connection.connection.ping(reconnect=True)
         cursor = connection.connection.cursor(pymysql.cursors.SSDictCursor)
@@ -1138,24 +1274,30 @@ def mysql_build_aarecords_codes_numbers_internal():
             cursor.execute('DROP TABLE IF EXISTS aarecords_codes_new')
             cursor.execute('DROP TABLE IF EXISTS aarecords_codes_prefixes_new')
 
-        print("Creating fresh table aarecords_codes_new") # WARNING! Update the upload excludes, and dump_mariadb_omit_tables.txt.
-        cursor.execute(f'CREATE TABLE aarecords_codes_new (code VARBINARY({allthethings.utils.AARECORDS_CODES_CODE_LENGTH}) NOT NULL, aarecord_id VARBINARY({allthethings.utils.AARECORDS_CODES_AARECORD_ID_LENGTH}) NOT NULL, aarecord_id_prefix VARBINARY({allthethings.utils.AARECORDS_CODES_AARECORD_ID_PREFIX_LENGTH}) NOT NULL, row_number_order_by_code BIGINT NOT NULL, dense_rank_order_by_code BIGINT NOT NULL, row_number_partition_by_aarecord_id_prefix_order_by_code BIGINT NOT NULL, dense_rank_partition_by_aarecord_id_prefix_order_by_code BIGINT NOT NULL, PRIMARY KEY (code, aarecord_id), INDEX aarecord_id_prefix (aarecord_id_prefix, code, aarecord_id)) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin')
-        cursor.execute(f'ALTER TABLE aarecords_codes_new DISABLE KEYS')
-        cursor.execute(f'INSERT INTO aarecords_codes_new SELECT code, aarecord_id, SUBSTRING_INDEX(aarecord_id, ":", 1) AS aarecord_id_prefix, (ROW_NUMBER() OVER (ORDER BY code, aarecord_id)) AS row_number_order_by_code, (DENSE_RANK() OVER (ORDER BY code)) AS dense_rank_order_by_code, (ROW_NUMBER() OVER (PARTITION BY aarecord_id_prefix ORDER BY code, aarecord_id)) AS row_number_partition_by_aarecord_id_prefix_order_by_code, (DENSE_RANK() OVER (PARTITION BY aarecord_id_prefix ORDER BY code)) AS dense_rank_partition_by_aarecord_id_prefix_order_by_code FROM (SELECT code, aarecord_id FROM aarecords_codes_ia UNION ALL SELECT code, aarecord_id FROM aarecords_codes_isbndb UNION ALL SELECT code, aarecord_id FROM aarecords_codes_ol UNION ALL SELECT code, aarecord_id FROM aarecords_codes_duxiu UNION ALL SELECT code, aarecord_id FROM aarecords_codes_oclc UNION ALL SELECT code, aarecord_id FROM aarecords_codes_magzdb UNION ALL SELECT code, aarecord_id FROM aarecords_codes_edsebk UNION ALL SELECT code, aarecord_id FROM aarecords_codes_nexusstc UNION ALL SELECT code, aarecord_id FROM aarecords_codes_cerlalc UNION ALL SELECT code, aarecord_id FROM aarecords_codes_czech_oo42hcks UNION ALL SELECT code, aarecord_id FROM aarecords_codes_gbooks UNION ALL SELECT code, aarecord_id FROM aarecords_codes_goodreads UNION ALL SELECT code, aarecord_id FROM aarecords_codes_isbngrp UNION ALL SELECT code, aarecord_id FROM aarecords_codes_libby UNION ALL SELECT code, aarecord_id FROM aarecords_codes_rgb UNION ALL SELECT code, aarecord_id FROM aarecords_codes_trantor UNION ALL SELECT code, aarecord_id FROM aarecords_codes_main) x ORDER BY code, aarecord_id')
-        # Consider running `myisampack aarecords_codes_new.MYI` here? ~1/3rd space savings? Building index also seems faster this way.
-        cursor.execute(f'ALTER TABLE aarecords_codes_new ENABLE KEYS')
-        cursor.execute(f'CREATE TABLE aarecords_codes_prefixes_new (code_prefix VARBINARY({allthethings.utils.AARECORDS_CODES_CODE_LENGTH}) NOT NULL, PRIMARY KEY (code_prefix)) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin SELECT DISTINCT SUBSTRING_INDEX(code, ":", 1) AS code_prefix FROM aarecords_codes_new')
+        cursor.execute(f'CREATE TABLE aarecords_codes_new (row_number_order_by_code BIGINT NOT NULL DEFAULT 0, dense_rank_order_by_code BIGINT NOT NULL DEFAULT 0, row_number_partition_by_aarecord_id_prefix_order_by_code BIGINT NOT NULL DEFAULT 0, dense_rank_partition_by_aarecord_id_prefix_order_by_code BIGINT NOT NULL DEFAULT 0, code VARBINARY({allthethings.utils.AARECORDS_CODES_CODE_LENGTH}) NOT NULL, aarecord_id VARBINARY({allthethings.utils.AARECORDS_CODES_AARECORD_ID_LENGTH}) NOT NULL, aarecord_id_prefix VARBINARY({allthethings.utils.AARECORDS_CODES_AARECORD_ID_PREFIX_LENGTH}) NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin PARTITION BY RANGE COLUMNS(code) (partition discard values less than (""))')
+        cursor.execute(f'ALTER TABLE aarecords_codes_new ADD PRIMARY KEY (code, aarecord_id), add INDEX (aarecord_id_prefix, code, aarecord_id)');
 
-        cursor.execute('SELECT table_rows FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = "allthethings" and TABLE_NAME = "aarecords_codes_new" LIMIT 1')
-        total = cursor.fetchone()['table_rows']
-        print(f"Found {total=} codes (approximately)")
+        #   Partitions are checked for unique pk and respecting partition rules when we already know the data is correct
+        # ! MariaDB 11.4 onwards supports CONVERT TABLE ... WITHOUT VALIDATION, change to that when updated
+        start = time.perf_counter()
+        for opts in partition_defs:
+            cursor.execute(f'ALTER TABLE aarecords_codes_new CONVERT TABLE aarecords_codes_new_p{opts["n"]} TO PARTITION p{opts["n"]} VALUES LESS THAN ("{opts["bounds"][1]}")')
+
+        print(f'Partitions validated in {time.perf_counter() - start:.2f}')
+
+        cursor.execute(f'CREATE TABLE aarecords_codes_prefixes_new (code_prefix VARBINARY({allthethings.utils.AARECORDS_CODES_CODE_LENGTH}) NOT NULL, PRIMARY KEY (code_prefix)) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin')
+        cursor.executemany(f'INSERT INTO aarecords_codes_prefixes_new (code_prefix) VALUES (%s)', [(code_prefix,) for code_prefix in prefix_counts_summed.keys()])
 
         if SLOW_DATA_IMPORTS:
             connection.connection.ping(reconnect=True)
             cursor = connection.connection.cursor(pymysql.cursors.SSDictCursor)
-            cursor.execute('SELECT MIN(correct) AS min_correct FROM (SELECT ((row_number_order_by_code = ROW_NUMBER() OVER (ORDER BY code, aarecord_id)) AND (dense_rank_order_by_code = DENSE_RANK() OVER (ORDER BY code)) AND (row_number_partition_by_aarecord_id_prefix_order_by_code = ROW_NUMBER() OVER (PARTITION BY aarecord_id_prefix ORDER BY code, aarecord_id)) AND (dense_rank_partition_by_aarecord_id_prefix_order_by_code = DENSE_RANK() OVER (PARTITION BY aarecord_id_prefix ORDER BY code))) AS correct FROM aarecords_codes_new ORDER BY code DESC LIMIT 10) x')
-            if str(cursor.fetchone()['min_correct']) != '1':
-                raise Exception('mysql_build_aarecords_codes_numbers_internal final sanity check failed!')
+            for partition in partition_defs:
+                cursor.execute(f'SELECT * FROM aarecords_codes_new WHERE code >= "{partition["bounds"][0]}" and code < "{partition["bounds"][1]}" ORDER BY code, aarecord_id LIMIT 1')
+                first_in_prefix = cursor.fetchone()
+                start = time.perf_counter()
+                cursor.execute(f'SELECT MIN(correct) AS min_correct FROM (SELECT ((row_number_order_by_code = ROW_NUMBER() OVER (ORDER BY code, aarecord_id) + {first_in_prefix["row_number_order_by_code"] - 1}) AND (dense_rank_order_by_code = DENSE_RANK() OVER (ORDER BY code) + {first_in_prefix["dense_rank_order_by_code"] - 1}) AND (row_number_partition_by_aarecord_id_prefix_order_by_code = ROW_NUMBER() OVER (PARTITION BY aarecord_id_prefix ORDER BY code, aarecord_id) + {first_in_prefix["row_number_partition_by_aarecord_id_prefix_order_by_code"] - 1}) AND (dense_rank_partition_by_aarecord_id_prefix_order_by_code = DENSE_RANK() OVER (PARTITION BY aarecord_id_prefix ORDER BY code) + {first_in_prefix["dense_rank_partition_by_aarecord_id_prefix_order_by_code"] - 1})) AS correct FROM (select * from aarecords_codes_new WHERE code >= "{partition["bounds"][0]}" and code < "{partition["bounds"][1]}" ORDER BY code, aarecord_id LIMIT 1000000) y) x')
+                if str(cursor.fetchone()['min_correct']) != '1':
+                    raise Exception(f'mysql_build_aarecords_codes_numbers_internal final sanity check failed for p#{partition["n"]}!')
 
         connection.connection.ping(reconnect=True)
         cursor = connection.connection.cursor(pymysql.cursors.SSDictCursor)

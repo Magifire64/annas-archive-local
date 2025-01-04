@@ -8,6 +8,7 @@ from sqlalchemy.orm import declarative_base
 from elasticsearch import Elasticsearch
 from flask_mail import Mail
 from config.settings import ELASTICSEARCH_HOST, ELASTICSEARCHAUX_HOST
+import atexit
 
 debug_toolbar = DebugToolbarExtension()
 flask_static_digest = FlaskStaticDigest()
@@ -35,3 +36,8 @@ mariapersist_port = os.getenv("MARIAPERSIST_PORT", "3333")
 mariapersist_db = os.getenv("MARIAPERSIST_DATABASE", mariapersist_user)
 mariapersist_url = f"mysql+pymysql://{mariapersist_user}:{mariapersist_password}@{mariapersist_host}:{mariapersist_port}/{mariapersist_db}?read_timeout=120&write_timeout=120"
 mariapersist_engine = create_engine(mariapersist_url, future=True, isolation_level="AUTOCOMMIT", pool_size=5, max_overflow=2, pool_recycle=300, pool_pre_ping=True)
+
+@atexit.register
+def close_engines():
+    engine.dispose()
+    mariapersist_engine.dispose()
