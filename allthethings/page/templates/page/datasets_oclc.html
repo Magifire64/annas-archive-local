@@ -48,17 +48,78 @@
     ) }}
   </p>
 
+  <!-- TODO:TRANSLATE -->
   <p class="mb-4">
+    <strong>October 2023, initial release:</strong>
     {{ gettext(
         'page.datasets.worldcat.description2',
-        a_scrape=(dict(href="https://annas-archive.li/blog/worldcat-scrape.html") | xmlattr),
-        a_aac=(dict(href="https://annas-archive.li/blog/annas-archive-containers.html") | xmlattr)
+        a_scrape=(dict(href="/blog/worldcat-scrape.html") | xmlattr),
+        a_aac=(dict(href="/blog/annas-archive-containers.html") | xmlattr)
     ) }}
   </p>
 
-  <p class="mb-4">
-    <strong>Update October 2024:</strong> a perceptive volunteer discovered that our "not_found_title_json" entries might be incorrect in some cases. For example, we have a such an entry for ID 1405, even though that appears to be a <a href="https://worldcat.org/title/1405" rel="noopener noreferrer nofollow">legitimate record</a>, suggesting that this might have been a bug in our scraper. Before rescraping everything, we should do some analysis by rescraping some of these records, and investigating if there are some patterns to this bug, such as only certain ID ranges, or original scraper filenames.
+  <p class="">
+    Read the <a {{ dict(href="/blog/annas-archive-containers.html") | xmlattr }}>original blog post</a> for much more detail, but the record types in this original release were:
   </p>
+
+  <ul class="list-inside mb-4 ml-4">
+    <li class="list-disc"><em>title_json:</em> This is the JSON that is loaded when going to a worldcat.org/title/:id page.</li>
+    <li class="list-disc"><em>briefrecords_json:</em> Some scrapes used search endpoints that returned a little bit less JSON, in a briefRecords array.</li>
+    <li class="list-disc"><em>providersearchrequest_json:</em> This API leaked the raw internal search request. It has the most information of all our scrapes, but unfortunately we only have a very small number of records using this method.</li>
+    <li class="list-disc"><em>legacysearch_html:</em> We discovered pages that still used the old search UI. There is very little information in here, but the basics such as title, author, and even ISBN are present.</li>
+    <li class="list-disc"><em>not_found_title_json:</em> Records for which we got a 404 during a “title_json” request.</li>
+    <li class="list-disc"><em>redirect_title_json:</em> We made a request for a certain OCLC ID, but received data for another OCLC ID (which happens when the original records are merged or deduplicated).</li>
+  </ul>
+
+  <p class="mb-4">
+    <strong>October 2024, not_found_title_json bug:</strong> a volunteer “m” discovered that our “not_found_title_json” entries might be incorrect in some cases. For example, we have a such an entry for ID 1405, even though that appears to be a <a href="https://worldcat.org/title/1405" rel="noopener noreferrer nofollow">legitimate record</a>, suggesting that this might have been a bug in our scraper. Before rescraping everything, we should do some analysis by rescraping some of these records, and investigating if there are some patterns to this bug, such as only certain ID ranges, or original scraper filenames.
+  </p>
+
+  <p class="mb-4">
+    Volunteer “m” notes that all of this might be due to a backend bug in the WorldCat website: “From the search-holdings-summary endpoint, a normal response for all editions looks like this: {"totalHoldingCount": 100, "totalEditions": 2}. When the record doesn"t exist, the response is: {"totalHoldingCount": 0, "totalEditions": 0} When it’s a “not_found_title_json” record, but the data <em>does</em> seem to exist, I get a response like this (for 1405, the first example): {"totalHoldingCount": 73} It’s missing the totalEditions field.”
+  </p>
+
+  <p class="mb-4">
+    <strong>December 2024:</strong> we released a new scrape: “annas_archive_meta__aacid__worldcat__20241230T203056Z--20241230T203056Z.jsonl.seekable.zst.torrent”. This includes two new sources of data:
+  </p>
+
+  <p class="mb-4">
+    1. <em>Recursive range queries.</em> As we briefly mentioned in the original blog post, we found some IDs outside our original scrape range of 1 to 1,350,000,000. It appeared that the records went all the way until the 10,000,000,000 range. This is too much to iterate, and we didn't know exactly where the ranges were. Luckily we found a way to scrape ranges of IDs, by searching for e.g. “12345#####”, where # is a wildcard (single character). We could get the total records from the search result, and if it’s big enough, recursively also search for “123450####”, “123451####”, .., “123459####”. This would also match non-IDs (ISBNs, numbers in text, other identifiers), but at least it would ALSO match IDs.
+  </p>
+
+  <ul class="list-inside mb-4 ml-4">
+    <li class="list-disc"><em>briefrecords_json:</em> All scrapes returned data in this format, which we also had in our original release, so we kept this type.
+      <ul class="list-inside mb-4 ml-4">
+        <li class="list-disc">You can identify records from these range scrape because they have a `from_filenames` field with something like "range_query/992350####".</li>
+        <li class="list-disc">Paginated searches (page 2 and futher) are denoted like "range_query/904802####____2".</li>
+        <li class="list-disc">At some point we had a bug in our pagination, which meant that it didn’t actually add the `&page=2` query parameter to the URL. We've still kept those records (in case they happen to have unique results), but they’re marked like "range_query/backup_995980####____2".</li>
+      </ul>
+    </li>
+    <li class="list-disc"><em>other_metadata_type:</em> We wanted to include metadata that doesn’t correspond to OCLC IDs. These contain “other_metadata_type” as their first JSON key.
+      <ul class="list-inside mb-4 ml-4">
+        <li class="list-disc"><em>successful_range_query:</em> Example: <span class="break-all">{"other_meta_type":"successful_range_query","query":"98846#####","from_query":"9884######","search_limit":50,"number_of_records":311,"len_brief_records":50}</span>. Metadata for a single query. Shows where it was recursively derived from (“from_query”). For later queries, shows the value of the “&amp;limit=” parameter, which we varied to help with scraping (when “search_limit” is “null” it was 50). The result of the “numberOfRecords” field, and the actual length of “briefRecords” are both included as well.</li>
+        <li class="list-disc"><em>status_internal_server_error:</em> Apparently there were specific records that caused an internal server error when we queried them. Since this would break lots of higher-level searches, we had no choice but to always recurse down when encountering this case. Example: <span class="break-all"></span></li>
+        <li class="list-disc"><em>todo_range_query:</em> The WorldCat developers appear to have blocked these kinds of wildcard searches, so we had to stop. These ranges are still TODO. You can help by scraping them for us! Example: <span class="break-all">{"other_meta_type":"todo_range_query","query":"7561719###","from_query":"756171####"}</span></li>
+      </ul>
+    </li>
+  </ul>
+
+  <p class="mb-4">
+    2. <em>Edition and holding information.</em> To start answering the question “which rare books do we not yet have”, our incredibly talented and thorough volunteer “m” scraped holding information: how many and which libraries hold a particular item. Holding information can be requested either for “only the current edition”, or “all editions”. We used the latter, in order to cut down on the total number of requests. So we first requested lists of which records are considered the same “editions”, and then holding information for each “edition cluster”.
+  </p>
+
+  <ul class="list-inside mb-4 ml-4">
+    <li class="list-disc"><em>briefrecords_json:</em> Edition scrapes returned records in this format. Like above, you can see in `from_filenames` which edition scrapes they were from, e.g. "search_editions_response/1".
+    </li>
+    <li class="list-disc"><em>search_holdings_all_editions_response:</em> The actual list of libraries that hold a certain OCLC ID. Example: <span class="break-all">{"oclc_number":"0000000000001","type":"search_holdings_all_editions_response","from_filenames":["search_holdings_all_editions_response/1"],"record":{"totalHoldingCount":4,"holdings":[760,104020,87542,4688],"numPublicLibraries":1}}</span></li>
+    <li class="list-disc"><em>search_holdings_summary_all_editions:</em> “Summary response” for a certain OCLC ID, containing the number of holdings and editions (easier to scrape than full holding information). Example: <span class="break-all">{"oclc_number":"0000000000069","type":"search_holdings_summary_all_editions","from_filenames":["search_holdings_summary_all_editions/69"],"record":{"oclc_number":69,"total_holding_count":448,"total_editions":15}}</span></li>
+    <li class="list-disc"><em>other_metadata_type:</em> (like above)
+      <ul class="list-inside mb-4 ml-4">
+        <li class="list-disc"><em>search_editions_response:</em> Example: <span class="break-all">{"other_meta_type":"search_editions_response","query":"0005830191291","number_of_records":1,"len_brief_records":1}</span>.</li>
+        <li class="list-disc"><em>library:</em> Deduplicated library records as encountered in holding endpoints (therefore probably not complete). Example: <span class="break-all">{"other_meta_type":"library","registry_id":"0000000000004","record":{"oclcSymbol":"MWT","registryId":4,"institutionName":"Alabama A&amp;M University","institutionType":"ACADEMIC","alsoCalled":"J. F. Drake Memorial Learning Resources Center","street1":"4900 Meridian Street North","city":"Normal","state":"US-AL","postalCode":"35762","country":"US","latitude":34.78361,"longitude":-86.57018,"distance":413.2236760232868,"distanceUnit":"M"}}</span></li>
+      </ul>
+    </li>
+  </ul>
 
   <p class="font-bold">{{ gettext('page.datasets.common.resources') }}</p>
   <ul class="list-inside mb-4 ml-1">
@@ -66,8 +127,8 @@
     <li class="list-disc"><a href="/torrents#worldcat">{{ gettext('page.datasets.worldcat.torrents') }}</a></li>
     <li class="list-disc"><a href="/db/raw/oclc/1.json">{{ gettext('page.datasets.common.aa_example_record') }}</a></li>
     <li class="list-disc"><a href="https://worldcat.org/">{{ gettext('page.datasets.common.main_website', source=gettext('page.datasets.worldcat.title')) }}</a></li>
-    <li class="list-disc"><a href="https://annas-archive.li/blog/worldcat-scrape.html">{{ gettext('page.datasets.worldcat.blog_announcement') }}</a></li>
+    <li class="list-disc"><a href="/blog/worldcat-scrape.html">{{ gettext('page.datasets.worldcat.blog_announcement') }}</a></li>
     <li class="list-disc"><a href="https://software.annas-archive.li/AnnaArchivist/annas-archive/-/tree/main/data-imports">{{ gettext('page.datasets.common.import_scripts') }}</a></li>
-    <li class="list-disc"><a href="https://annas-archive.li/blog/annas-archive-containers.html">{{ gettext('page.datasets.common.aac') }}</a></li>
+    <li class="list-disc"><a href="/blog/annas-archive-containers.html">{{ gettext('page.datasets.common.aac') }}</a></li>
   </ul>
 {% endblock %}
