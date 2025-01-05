@@ -984,7 +984,8 @@ def elastic_build_aarecords_oclc():
     elastic_build_aarecords_oclc_internal()
 def elastic_build_aarecords_oclc_internal():
     new_tables_internal('aarecords_codes_oclc', 'aarecords_codes_oclc_for_lookup') # WARNING! Update the upload excludes, and dump_mariadb_omit_tables.txt.
-    build_common('annas_archive_meta__aacid__worldcat', lambda batch: [f"oclc:{int(row['primary_id'])}" for row in batch])
+    build_common('annas_archive_meta__aacid__worldcat', lambda batch: [f"oclc:{int(row['primary_id'])}" for row in batch],
+        additional_where='primary_id NOT LIKE "library__%%"')
 
 #################################################################################################
 # ./run flask cli elastic_build_aarecords_edsebk
