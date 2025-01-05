@@ -2862,12 +2862,12 @@ def get_oclc_dicts(session, key, values):
 
     session.connection().connection.ping(reconnect=True)
     cursor = session.connection().connection.cursor(pymysql.cursors.DictCursor)
-    cursor.execute('SELECT primary_id, byte_offset, byte_length FROM annas_archive_meta__aacid__worldcat WHERE primary_id IN %(values)s ORDER BY byte_offset', { "values": [str(val) for val in values] })
+    cursor.execute('SELECT primary_id, byte_offset, byte_length FROM annas_archive_meta__aacid__worldcat WHERE primary_id IN %(values)s ORDER BY byte_offset', { "values": [str(val).zfill(13) for val in values] })
 
     worldcat_oclc_ids = []
     worldcat_offsets_and_lengths = []
     for row in list(cursor.fetchall()):
-        worldcat_oclc_ids.append(str(row['primary_id']))
+        worldcat_oclc_ids.append(str(int(row['primary_id'])))
         worldcat_offsets_and_lengths.append((row['byte_offset'], row['byte_length']))
 
     aac_records_by_oclc_id = collections.defaultdict(list)
@@ -2896,6 +2896,9 @@ def get_oclc_dicts(session, key, values):
         oclc_dict["aa_oclc_derived"]["general_format_multiple"] = []
         oclc_dict["aa_oclc_derived"]["specific_format_multiple"] = []
         oclc_dict["aa_oclc_derived"]["rft_multiple"] = []
+        oclc_dict["aa_oclc_derived"]["total_holding_count_multiple"] = []
+        oclc_dict["aa_oclc_derived"]["total_edition_count_multiple"] = []
+        oclc_dict["aa_oclc_derived"]["library_ids_multiple"] = []
         oclc_dict["aac_records"] = aac_records
 
         for aac_record in aac_records:
@@ -2983,6 +2986,12 @@ def get_oclc_dicts(session, key, values):
                 oclc_dict["aa_oclc_derived"]["specific_format_multiple"] += [orjson.loads(dat)['stdrt2'] for dat in (rft.get('rft_dat') or [])]
                 oclc_dict["aa_oclc_derived"]["isbn_multiple"] += (rft.get('rft.isbn') or [])
                 # TODO: series/volume?
+            elif aac_metadata['type'] == 'search_holdings_all_editions_response':
+                oclc_dict["aa_oclc_derived"]["total_holding_count_multiple"].append(aac_metadata['record']['totalHoldingCount'])
+                oclc_dict["aa_oclc_derived"]["library_ids_multiple"] += aac_metadata['record']['holdings']
+            elif aac_metadata['type'] == 'search_holdings_summary_all_editions':
+                oclc_dict["aa_oclc_derived"]["total_holding_count_multiple"].append(aac_metadata['record']['total_holding_count'])
+                oclc_dict["aa_oclc_derived"]["total_edition_count_multiple"].append(aac_metadata['record']['total_editions'])
             elif aac_metadata['type'] in ['not_found_title_json', 'redirect_title_json']:
                 raise Exception(f"Should not encounter worldcat aac_metadata.type here (must be filtered out at AAC ingestion level): {aac_metadata['type']}")
             else:

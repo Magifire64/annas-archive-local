@@ -149,8 +149,6 @@ def mysql_build_aac_tables_internal():
     for filename in os.listdir(allthethings.utils.aac_path_prefix()):
         if not (filename.startswith('annas_archive_meta__aacid__') and filename.endswith('.jsonl.seekable.zst')):
             continue
-        # if 'worldcat' in filename:
-        #     continue
         collection = filename.split('__')[2]
         file_data_files_by_collection[collection].append(filename)
 
@@ -986,7 +984,7 @@ def elastic_build_aarecords_oclc():
     elastic_build_aarecords_oclc_internal()
 def elastic_build_aarecords_oclc_internal():
     new_tables_internal('aarecords_codes_oclc', 'aarecords_codes_oclc_for_lookup') # WARNING! Update the upload excludes, and dump_mariadb_omit_tables.txt.
-    build_common('annas_archive_meta__aacid__worldcat', lambda batch: [f"oclc:{row['primary_id']}" for row in batch])
+    build_common('annas_archive_meta__aacid__worldcat', lambda batch: [f"oclc:{int(row['primary_id'])}" for row in batch])
 
 #################################################################################################
 # ./run flask cli elastic_build_aarecords_edsebk
