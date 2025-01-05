@@ -1197,7 +1197,7 @@ LGLI_IDENTIFIERS = {
     "nilf": { "label": "NILF", "url": "http://nilf.it/%s/", "description": "Numero Identificativo della Letteratura Fantastica / Fantascienza"},
     "nla": { "label": "NLA", "url": "https://nla.gov.au/nla.cat-vn%s", "description": "National Library of Australia"},
     "noosfere": { "label": "NooSFere", "url": "https://www.noosfere.org/livres/niourf.asp?numlivre=%s", "description": "NooSFere"},
-    "oclcworldcat": { "label": "OCLC/WorldCat", "url": "https://www.worldcat.org/oclc/%s", "description": "Online Computer Library Center"},
+    "oclcworldcat": { "label": "OCLC", "url": "https://www.worldcat.org/oclc/%s", "description": "OCLC/WorldCat ID.", "website": "/datasets/oclc"},
     "openlibrary": { "label": "Open Library", "url": "https://openlibrary.org/books/%s", "description": ""},
     "pii": { "label": "PII", "url": "", "description": "Publisher Item Identifier", "website": "https://en.wikipedia.org/wiki/Publisher_Item_Identifier"},
     "pmcid": { "label": "PMC ID", "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/%s/", "description": "PubMed Central ID"},
@@ -1292,6 +1292,7 @@ UNIFIED_IDENTIFIERS = {
     "rgb": { "label": "Russian State Library ID", "url": "", "description": "Russian State Library ID.", "website": "/datasets/rgb" },
     "trantor": { "label": "Trantor ID", "url": "", "description": "Trantor ID.", "website": "/datasets/trantor" },
     "czech_oo42hcks_filename": { "label": "Czech Metadata Filename", "url": "", "description": "Czech metadata canonical filename.", "website": "/datasets/czech_oo42hcks" },
+    "oclc_library": { "label": "OCLC Library ID", "url": "https://worldcat.org/libraries/%s", "description": "OCLC/WorldCat partner library, from which they ingest metadata. Only added for records with less than 10 total holdings.", "website": "/datasets/oclc" },
     **{LGLI_IDENTIFIERS_MAPPING.get(key, key): value for key, value in LGLI_IDENTIFIERS.items()},
     # Plus more added below!
 }
@@ -1339,6 +1340,9 @@ UNIFIED_CLASSIFICATIONS = {
     "date_libby_meta_scrape": { "label": "Libby Source Scrape Date", "website": "/datasets/libby", "description": "Date Anna’s Archive scraped the Libby collection." },
     "date_rgb_meta_scrape": { "label": "Russian State Library Source Scrape Date", "website": "/datasets/rgb", "description": "Date Anna’s Archive scraped the Russian State Library collection." },
     "date_trantor_meta_scrape": { "label": "Trantor Source Scrape Date", "website": "/datasets/trantor", "description": "Date Anna’s Archive scraped the Trantor collection." },
+    "oclc_holdings": { "label": "OCLC Holdings", "url": "", "description": "Number of library holdings (for all editions) reported by OCLC/WorldCat metadata. 'many' means 20 or more.", "website": "/datasets/oclc" },
+    "oclc_editions": { "label": "OCLC Editions", "url": "", "description": "Number of editions (unique OCLC IDs) reported by OCLC/WorldCat metadata. 'many' means 20 or more.", "website": "/datasets/oclc" },
+    "oclc_holdings_editions": { "label": "OCLC Holdings+Editions", "url": "", "description": "Combined code for oclc_holdings and oclc_editions.", "website": "/datasets/oclc" },
     **{LGLI_CLASSIFICATIONS_MAPPING.get(key, key): value for key, value in LGLI_CLASSIFICATIONS.items()},
     # Plus more added below!
 }

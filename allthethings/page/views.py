@@ -3057,7 +3057,21 @@ def get_oclc_dicts(session, key, values):
         for aac_record in aac_records:
             allthethings.utils.add_identifier_unified(oclc_dict['file_unified_data'], 'aacid', aac_record['aacid'])
 
-        oclc_dict['file_unified_data']["added_date_unified"]["date_oclc_scrape"] = "2023-10-01"
+        total_holding_count = max([len(oclc_dict["aa_oclc_derived"]["library_ids_multiple"])] + oclc_dict["aa_oclc_derived"]["total_holding_count_multiple"], default=0)
+        total_edition_count = max(oclc_dict["aa_oclc_derived"]["total_edition_count_multiple"], default=0)
+        total_holding_count_str = (str(total_holding_count) if total_holding_count < 20 else 'many') if total_holding_count > 0 else None
+        total_edition_count_str = (str(total_edition_count) if total_edition_count < 20 else 'many') if total_edition_count > 0 else None
+        if total_holding_count_str is not None:
+            allthethings.utils.add_classification_unified(oclc_dict['file_unified_data'], 'oclc_holdings', total_holding_count_str)
+        if total_edition_count_str is not None:
+            allthethings.utils.add_classification_unified(oclc_dict['file_unified_data'], 'oclc_editions', total_edition_count_str)
+        if (total_holding_count_str is not None) and (total_edition_count_str is not None):
+            allthethings.utils.add_classification_unified(oclc_dict['file_unified_data'], 'oclc_holdings_editions', f"{total_holding_count_str}/{total_edition_count_str}")
+        if total_holding_count > 0 and total_holding_count < 10:
+            for library_id in oclc_dict["aa_oclc_derived"]["library_ids_multiple"]:
+                allthethings.utils.add_identifier_unified(oclc_dict['file_unified_data'], 'oclc_library', library_id)
+
+        oclc_dict['file_unified_data']["added_date_unified"]["date_oclc_scrape"] = "2025-01-01"
 
         # TODO:
         # * cover_url
