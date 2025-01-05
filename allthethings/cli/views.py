@@ -338,7 +338,7 @@ def mysql_build_aac_tables_internal():
                         cursor.executemany(f'{action} INTO {table_name}__multiple_md5 (md5, aacid) VALUES (%(md5)s, %(aacid)s)', insert_data_multiple_md5s)
                     if len(insert_data_worldcat_edition_cluster_pairs) > 0:
                         connection.connection.ping(reconnect=True)
-                        cursor.executemany(f'{action} INTO {table_name}__edition_cluster_pairs (query_oclc_id, record_oclc_id) VALUES (%(query_oclc_id)s, %(record_oclc_id)s)', insert_data_worldcat_edition_cluster_pairs)
+                        cursor.executemany(f'INSERT IGNORE INTO {table_name}__edition_cluster_pairs (query_oclc_id, record_oclc_id) VALUES (%(query_oclc_id)s, %(record_oclc_id)s)', insert_data_worldcat_edition_cluster_pairs)
                     pbar.update(bytes_in_batch)
             connection.connection.ping(reconnect=True)
             cursor.execute("UNLOCK TABLES")
