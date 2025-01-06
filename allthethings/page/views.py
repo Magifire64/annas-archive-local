@@ -7563,6 +7563,8 @@ def md5_fast_download(md5_input, path_index, domain_index):
             )
         elif request.args.get('direct') == '1':
             return redirect(url, code=302)
+        elif aarecord['file_unified_data']['extension_best'].lower() not in ['pdf']:
+            return redirect(url, code=302)
         else:
             return redirect(f"/view?url={urllib.parse.quote(url)}", code=302)
         
