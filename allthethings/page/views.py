@@ -7729,7 +7729,7 @@ def ipfs_downloads(aarecord_id):
 def search_query_aggs(search_index_long):
     return {
         "search_content_type": { "terms": { "field": "search_only_fields.search_content_type", "size": 200 } },
-        "search_extension": { "terms": { "field": "search_only_fields.search_extension", "size": 9 } },
+        "search_extension": { "terms": { "field": "search_only_fields.search_extension", "size": 20 } },
         "search_access_types": { "terms": { "field": "search_only_fields.search_access_types", "size": 100 } },
         "search_record_sources": { "terms": { "field": "search_only_fields.search_record_sources", "size": 100 } },
         "search_most_likely_language_code": { "terms": { "field": "search_only_fields.search_most_likely_language_code", "size": 70 } },

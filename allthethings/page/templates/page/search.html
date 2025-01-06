@@ -220,9 +220,12 @@
               {% for bucket in search_dict.aggregations.search_extension %}
                 <input type="checkbox" class="hidden js-tristate-yes--ext--{{bucket.key}}" name="ext" value="{{bucket.key}}" {% if bucket.selected %}checked{% endif %}>
                 <input type="checkbox" class="hidden js-tristate-no--ext--{{bucket.key}}" name="ext" value="anti__{{bucket.key}}" {% if bucket.antiselected %}checked{% endif %}>
-                <button class="flex w-full text-left cursor-pointer items-start js-tristate-button--ext--{{bucket.key}} {% if bucket.doc_count == 0 %}opacity-60{% endif %}"><span class="mr-1 pt-[2px] js-tristate-icon--ext--{{bucket.key}}"></span><span class="mr-1 flex-grow">{{bucket.label | replace('-', '&#8209;' | safe)}}</span><span class="mt-0.5 text-sm sm:text-xs text-gray-500">{% if search_dict.had_primary_es_timeout %}~{% endif %}{{'{0:,}'.format(bucket.doc_count)}}</span></button>
+                <button class="flex w-full text-left cursor-pointer items-start js-tristate-button--ext--{{bucket.key}} {% if bucket.doc_count == 0 %}opacity-60{% endif %} {% if (loop.index > 5) and (not bucket.selected) %}hidden js-extension-hidden{% endif %}"><span class="mr-1 pt-[2px] js-tristate-icon--ext--{{bucket.key}}"></span><span class="mr-1 flex-grow">{{bucket.label | replace('-', '&#8209;' | safe)}}</span><span class="mt-0.5 text-sm sm:text-xs text-gray-500">{% if search_dict.had_primary_es_timeout %}~{% endif %}{{'{0:,}'.format(bucket.doc_count)}}</span></button>
                 <script>window.makeTristateCheckbox('ext--' + {{ bucket.key | tojson }});</script>
               {% endfor %}
+              {% if search_dict.aggregations.search_extension | length > 5 %}
+                <a href="#" onclick="event.preventDefault(); event.stopPropagation(); for(var el of document.querySelectorAll('.js-extension-hidden')) { el.classList.remove('hidden') }; event.currentTarget.classList.add('hidden')">{{ gettext('page.search.more') }}</a>
+              {% endif %}
             </div>
           {% endif %}
           <div class="font-bold mb-1">{{ gettext('page.search.filters.access.header') }}</div>
