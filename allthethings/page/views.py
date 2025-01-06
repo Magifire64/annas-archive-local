@@ -7263,6 +7263,21 @@ def render_aarecord(record_id):
             "md5_report_type_mapping": allthethings.utils.get_md5_report_type_mapping()
         }
         return render_template("page/aarecord.html", **render_fields)
+    
+@page.get("/view")
+@allthethings.utils.no_cache()
+def view_page():
+    url_input = request.args.get("url", "").strip()
+    if url_input: 
+        account_id = allthethings.utils.get_account_id(request.cookies)
+        if account_id is None:
+            return redirect("/fast_download_not_member", code=302)
+        with Session(mariapersist_engine) as mariapersist_session:
+            account_fast_download_info = allthethings.utils.get_account_fast_download_info(mariapersist_session, account_id)
+            if account_fast_download_info is None:
+                return redirect("/fast_download_not_member", code=302)
+        return render_template("page/view.html", header_active="", url=url_input)
+    return render_template("page/view.html", header_active="")
 
 @page.get("/scidb")
 @allthethings.utils.public_cache(minutes=5, cloudflare_minutes=60*3)
@@ -7546,9 +7561,11 @@ def md5_fast_download(md5_input, path_index, domain_index):
                 canonical_md5=canonical_md5,
                 fast_partner=True,
             )
-        else:
+        elif request.args.get('direct') == '1':
             return redirect(url, code=302)
-
+        else:
+            return redirect(f"/view?url={urllib.parse.quote(url)}", code=302)
+        
 def compute_download_speed(targeted_seconds, filesize, minimum, maximum):
     return min(maximum, max(minimum, int(filesize/1000/targeted_seconds)))
 
@@ -8156,11 +8173,13 @@ def search_page():
 
     g.hide_search_bar = True
 
+    search_hashes = [record["id"].split("md5:")[1] for record in search_dict["search_aarecords"] if "md5:" in record["id"]]
     r = make_response((render_template(
             "page/search.html",
             header_active="home/search",
             search_input=search_input,
             search_dict=search_dict,
+            search_hashes=search_hashes
         ), 200))
     if had_es_timeout or (len(search_aarecords) == 0):
         r.headers.add('Cache-Control', 'no-cache')

@@ -227,13 +227,17 @@
         </div>
         <p class="mb-1 hidden js-fast-download-member-header-remaining">{{ gettext('page.md5.box.download.header_fast_member', remaining='XXXXXX') }}</p>
         <p class="mb-1 hidden js-fast-download-member-header-no-remaining">{{ gettext('page.md5.box.download.header_fast_member_no_remaining_new') }}</p>
-        <p class="mb-1 hidden js-fast-download-member-header-valid-for">{{ gettext('page.md5.box.download.header_fast_member_valid_for') }}</p>
+        <p class="mb-1 hidden js-fast-download-member-header-valid-for">
+            <span title="Already downloaded" class="text-lg text-green-500 align-[-2.3px] icon-[material-symbols--check-circle-outline]"></span>
+            {{ gettext('page.md5.box.download.header_fast_member_valid_for') }}
+        </p>
 
         <ul class="list-inside mb-4 ml-1">
           {% for label, url, extra in aarecord.additional.fast_partner_urls %}
             {% if label %}
-              <li class="list-disc">{{ gettext('page.md5.box.download.option', num=loop.index, link=(("<a href='" + url + "'" + 'rel="noopener noreferrer nofollow" class="js-download-link">' + label + '</a>') | safe), extra=((((('<a class="text-xs" href="' | safe) + url + ('?no_redirect=1">' | safe) + gettext('page.md5.box.download.no_redirect') + ('</a> ') | safe) | safe) + (extra | safe)) | safe )) }}</li>
-            {% else %}
+              <!-- <li class="list-disc">{{ gettext('page.md5.box.download.option', num=loop.index, link=(("<a href='" + url + "'" + 'rel="noopener noreferrer nofollow" class="js-download-link">' + label + '</a>') | safe), extra=((((('<a class="text-xs" href="' | safe) + url + ('?no_redirect=1">' | safe) + gettext('page.md5.box.download.no_redirect') + ('</a> ') | safe) | safe) + (extra | safe)) | safe )) }}</li> -->
+              <li class="list-disc">{{ gettext('page.md5.box.download.option', num=loop.index, link=(("<a href='" + url + "'" + 'rel="noopener noreferrer nofollow" class="js-download-link">' + label + '</a>') | safe), extra=((((('<a class="text-xs" href="' | safe) + url + ('?direct=1" download>(direct download)</a> ') | safe) + ('<a class="text-xs" href="' | safe) + url + ('?no_redirect=1">' | safe) + gettext('page.md5.box.download.no_redirect') + ('</a> ') | safe)) + (extra | safe)) | safe ) }}</li>
+              {% else %}
               <li class="list-disc">{{ extra | safe }}</li>
             {% endif %}
           {% endfor %}

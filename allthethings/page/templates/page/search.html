@@ -483,11 +483,49 @@
               <div class="mt-8">
                 <div class="bg-gray-100 mx-[-10px] px-[10px]">
                   <div class="italic mt-2">{% if search_dict.max_additional_search_aarecords_reached %}{{ gettext('page.search.results.partial_more', num=(search_dict.additional_search_aarecords | length)) }}{% else %}{{ gettext('page.search.results.partial', num=(search_dict.additional_search_aarecords | length)) }}{% endif %}</div>
-
                   {{ aarecord_list(search_dict.additional_search_aarecords, max_show_immediately=0, table=(search_dict.display_value == 'table')) }}
                 </div>
               </div>
             {% endif %}
+
+            <script>
+              (function () {
+                const addDownloadedStatus = hash => {
+                  const container = document.getElementById("list_aarecord_id__md5:" + hash);
+                  if (container) {
+                    const classes = "{{ 'text-sm mr-0.5' if search_dict.display_value == 'table' else 'text-xl mr-1' }}";
+                    container.insertAdjacentHTML("afterbegin", `<span title="Already downloaded" class="${classes} text-green-500 align-[-2.3px] icon-[material-symbols--check-circle-outline]"></span>`);
+                  }
+                };
+
+                let downloadedHashes = [];
+                for (const [key, value] of Object.entries(localStorage)) {
+                  if (key.startsWith("md5_download_counted_") && value === "1") {
+                    let hash = key.replace("md5_download_counted_", "");
+                    if (hash.length > 0) {
+                      downloadedHashes.push(hash);
+                    }
+                  }
+                }
+
+                downloadedHashes.forEach(addDownloadedStatus);
+
+                const searchHashes = {{ search_hashes | tojson }}.filter(hash => !downloadedHashes.includes(hash));
+                if (searchHashes.length === 0) {
+                  return;
+                }
+                
+                const params = new URLSearchParams({
+                  hashes: searchHashes
+                }).toString();
+                fetch(`/dyn/downloads/check_downloaded?${params}`, { method: "POST" })
+                  .then(res => res.json())
+                  .then(json => {
+                    json.forEach(addDownloadedStatus);
+                  })
+                  .catch(e => {});
+              })();
+            </script>
           </div>
 
           {% if (search_dict.search_aarecords | length) > 0 %}
