@@ -7,6 +7,7 @@ docker exec -it web bash -c 'for f in /app/aacid_small/*.jsonl; do echo "Process
 - records added at the end, from `zstdcat annas_archive_meta__aacid__worldcat__20241230T203056Z--20241230T203056Z.jsonl.seekable.zst | grep '"search_editions_response/1"'`
 - single record aacid__worldcat__20241230T203056Z__JqCXDPVKyXRK2zvSBKK3Lv added (oclc:1193939360) (deliberately removed ISBNs so it doesn't match on that)
 - 10 library records (result of `zstdcat annas_archive_meta__aacid__worldcat__20241230T203056Z--20241230T203056Z.jsonl.seekable.zst | grep '"other_meta_type":"library"' | head`)
+- single record aacid__worldcat__20241230T203056Z__jxeXw98rzNiJbadnrhvkFC added
 
 # zlib3
 - Record with file: 22433983

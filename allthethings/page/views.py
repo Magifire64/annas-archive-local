@@ -2903,7 +2903,13 @@ def get_oclc_dicts(session, key, values):
 
         for aac_record in aac_records:
             aac_metadata = aac_record['metadata']
-            if aac_metadata['type'] in 'title_json':
+            
+            if 'other_meta_type' in aac_metadata:
+                if aac_metadata['other_meta_type'] == 'search_editions_response':
+                    oclc_dict["aa_oclc_derived"]["total_edition_count_multiple"].append(aac_metadata['number_of_records'])
+                else:
+                    raise Exception(f"Unexpected aac_metadata.other_meta_type: {aac_metadata['other_meta_type']=} {aac_record=}")
+            elif aac_metadata['type'] in 'title_json':
                 oclc_dict["aa_oclc_derived"]["title_additional"].append((aac_metadata['record'].get('title') or ''))
                 oclc_dict["aa_oclc_derived"]["author_additional"].append(oclc_get_authors_from_contributors(aac_metadata['record'].get('contributors') or []))
                 oclc_dict["aa_oclc_derived"]["publisher_additional"].append((aac_metadata['record'].get('publisher') or ''))
@@ -2995,7 +3001,7 @@ def get_oclc_dicts(session, key, values):
             elif aac_metadata['type'] in ['not_found_title_json', 'redirect_title_json']:
                 raise Exception(f"Should not encounter worldcat aac_metadata.type here (must be filtered out at AAC ingestion level): {aac_metadata['type']}")
             else:
-                raise Exception(f"Unexpected aac_metadata.type: {aac_metadata['type']}")
+                raise Exception(f"Unexpected aac_metadata.type: {aac_metadata['type']=} {aac_record=}")
 
         oclc_dict["file_unified_data"] = allthethings.utils.make_file_unified_data()
         oclc_dict["file_unified_data"]["title_additional"] = list(dict.fromkeys(filter(len, [re.sub(r'[ ]+', ' ', s.strip(' \n\t,.;[]')) for s in oclc_dict["aa_oclc_derived"]["title_additional"]])))
