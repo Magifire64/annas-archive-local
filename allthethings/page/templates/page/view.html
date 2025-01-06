@@ -1,0 +1,66 @@
+{% extends "layouts/index.html" %}
+
+{% block title %}{{"Viewer"}}{% endblock %}
+
+{% block meta_tags %}
+  <meta name="description" content="View Files" />
+{% endblock %}
+
+{% block main %}
+  <div class="flex flex-row h-full items-center justify-center">
+    {% if url %}
+      <iframe src="/pdfjs/web/viewer.html?file={{ url | urlencode }}" title="webviewer" frameborder="0" class="w-full h-full"></iframe>
+    {% else %}
+      <div id="drop-area" class="p-16 cursor-pointer border-2 border-dashed border-gray-300 rounded-lg text-center bg-gray-50 hover:bg-gray-100">
+        <p>Drop PDF Here or Click to Upload</p>
+        <input type="file" id="file-upload" class="hidden" accept="application/pdf" />
+      </div>
+    {% endif %}
+  </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const dropArea = document.getElementById("drop-area");
+      const fileInput = document.getElementById("file-upload");
+
+      dropArea.addEventListener("dragover", e => {
+        e.preventDefault();
+        dropArea.classList.add("bg-gray-200");
+      });
+
+      dropArea.addEventListener("dragleave", () => {
+        dropArea.classList.remove("bg-gray-200");
+      });
+
+      dropArea.addEventListener("drop", e => {
+        e.preventDefault();
+        dropArea.classList.remove("bg-gray-200");
+        const files = e.dataTransfer.files;
+        if (files.length > 1) {
+          alert("Please upload only one PDF.");
+          return
+        }
+        if (files.length > 0) {
+          handleFileUpload(files[0]);
+        }
+      });
+
+      dropArea.addEventListener("click", () => fileInput.click());
+
+      fileInput.addEventListener("change", e => {
+        const files = fileInput.files;
+        if (files.length > 0) {
+          handleFileUpload(fileInput.files[0]);
+        }
+      });
+
+      function handleFileUpload(file) {
+        if (file.type === "application/pdf") {
+          const fileURL = URL.createObjectURL(file);
+          document.body.innerHTML = `<iframe src="/pdfjs/web/viewer.html?file=${encodeURIComponent(fileURL)}" title="webviewer" frameborder="0" class="w-full h-full"></iframe>`;
+        } else {
+          alert("Please upload a PDF.");
+        }
+      }
+    });
+  </script>
+{% endblock %}

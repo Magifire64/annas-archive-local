@@ -285,6 +285,32 @@ def downloads_increment(md5_input):
         mariapersist_session.commit()
         return ""
 
+@dyn.post("/dyn/downloads/check_downloaded/")
+@allthethings.utils.no_cache()
+def check_downloaded():
+    query_hashes = request.args.get("hashes", "").strip()
+    query_hashes = query_hashes.split(",")
+    if len(query_hashes) == 0 or not query_hashes:
+        return "No hashes", 404
+    
+    # Failing all if one is invalid seems reasonable to me.
+    for hash in query_hashes:
+        canonical_md5 = hash.strip().lower()[0:32]
+        if not allthethings.utils.validate_canonical_md5s([canonical_md5]):
+            return "Non-canonical md5", 404
+    
+    account_id = allthethings.utils.get_account_id(request.cookies)
+    if account_id is None:
+        return "", 403
+    
+    with Session(mariapersist_engine) as mariapersist_session:
+        result = mariapersist_session.connection().execute(text("SELECT HEX(md5) from mariapersist_downloads WHERE account_id = :account_id AND md5 in :hashes").bindparams(account_id=account_id, hashes=[bytes.fromhex(hash) for hash in query_hashes]))
+        downloaded_hashes = [row[0].lower() for row in result.fetchall()]
+        downloaded_hashes = list(set(downloaded_hashes))
+
+    response = make_response(orjson.dumps(downloaded_hashes))
+    return response
+
 @dyn.get("/dyn/downloads/stats/")
 @allthethings.utils.public_cache(minutes=5, cloudflare_minutes=60)
 def downloads_stats_total():
@@ -406,7 +432,6 @@ def md5_summary(md5_input):
                 if canonical_md5 in account_fast_download_info['recently_downloaded_md5s']:
                     download_still_active = 1
         return orjson.dumps({ "reports_count": int(reports_count), "comments_count": int(comments_count), "lists_count": int(lists_count), "downloads_total": int(downloads_total), "great_quality_count": int(great_quality_count), "user_reaction": user_reaction, "downloads_left": downloads_left, "is_member": is_member, "download_still_active": download_still_active })
-
 
 @dyn.put("/dyn/md5_report/<string:md5_input>")
 @allthethings.utils.no_cache()
