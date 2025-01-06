@@ -494,7 +494,8 @@
                   const container = document.getElementById("list_aarecord_id__md5:" + hash);
                   if (container) {
                     const classes = "{{ 'text-sm mr-0.5' if search_dict.display_value == 'table' else 'text-xl mr-1' }}";
-                    container.insertAdjacentHTML("afterbegin", `<span title="Already downloaded" class="${classes} text-green-500 align-[-2.3px] icon-[material-symbols--check-circle-outline]"></span>`);
+                    // TODO:TRANSLATE
+                    container.insertAdjacentHTML("afterbegin", `<span title="Already downloaded" class="${classes} bg-[#0195ff] align-[-2.3px] icon-[material-symbols--check-circle-outline]"></span>`);
                   }
                 };
 
