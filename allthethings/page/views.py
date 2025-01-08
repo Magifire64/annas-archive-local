@@ -7260,7 +7260,8 @@ def render_aarecord(record_id):
             "aarecord_id_split": aarecord['id'].split(':', 1),
             "aarecord": aarecord,
             "md5_problem_type_mapping": get_md5_problem_type_mapping(),
-            "md5_report_type_mapping": allthethings.utils.get_md5_report_type_mapping()
+            "md5_report_type_mapping": allthethings.utils.get_md5_report_type_mapping(),
+            "viewer_supported_extensions": ['pdf'],
         }
         return render_template("page/aarecord.html", **render_fields)
     
@@ -7561,12 +7562,10 @@ def md5_fast_download(md5_input, path_index, domain_index):
                 canonical_md5=canonical_md5,
                 fast_partner=True,
             )
-        elif request.args.get('direct') == '1':
-            return redirect(url, code=302)
-        elif aarecord['file_unified_data']['extension_best'].lower() not in ['pdf']:
-            return redirect(url, code=302)
-        else:
+        elif request.args.get('viewer') == '1':
             return redirect(f"/view?url={urllib.parse.quote(url)}", code=302)
+        else:
+            return redirect(url, code=302)
         
 def compute_download_speed(targeted_seconds, filesize, minimum, maximum):
     return min(maximum, max(minimum, int(filesize/1000/targeted_seconds)))

@@ -270,6 +270,13 @@
     {{ gettext('page.faq.torrents.a6.li2', a_generate=(' href="https://software.annas-archive.li/AnnaArchivist/annas-archive/-/blob/main/data-imports/README.md"' | safe), a_download=(' href="/datasets"' | safe)) }}
   </p>
 
+  <p class="mb-4">
+    <!-- TODO:TRANSLATE -->
+    <strong>Why can't my torrent client open some of your torrent files / magnet links?</strong>
+    <br>
+    Some torrent clients don't support large piece sizes, which a lot of our torrents have (for newer ones we don't do this anymore — even though it’s valid per specs!). So try a different client if you run into this, or complain to the makers of your torrent client.
+  </p>
+
   <h3 class="group mt-4 mb-1 text-xl font-bold" id="security">{{ gettext('page.faq.security.title') }} <a href="#security" class="custom-a invisible group-hover:visible text-gray-400 hover:text-gray-500 font-normal text-sm align-[2px]">§</a></h3>
 
   <p class="mb-4">
