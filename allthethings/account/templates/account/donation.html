@@ -166,7 +166,13 @@
         <p class="mb-4">
           {{ gettext('page.donation.expired') }}
         </p>
+
+        <div class="mb-4"><a href="#" onclick="document.querySelector('.js-donation-instructions-main').classList.remove('hidden'); this.classList.add('hidden')">{{ gettext('page.donation.old_instructions.show_button') }}</a></div>
+
+        <div class="js-donation-instructions-main hidden">
       {% else %}
+        <div>
+      {% endif %}
         <p class="mb-4 mt-6 font-bold"><span class="inline-block font-light rounded-full text-white bg-[#0195ff] w-[1.5em] h-[1.5em] text-center mr-1.5">{{ gettext('page.donation.step1') }}</span>{{ gettext('page.donation.buy_pyusd') }}</p>
 
         <p class="mb-4">
@@ -200,13 +206,19 @@
         <p class="mb-4">
           <button onclick="window.location.reload()" class="bg-[#0195ff] hover:bg-blue-600 px-4 py-1 rounded-md text-white mb-1">{{ gettext('page.donation.refresh_status') }}</button>
         </p>
-      {% endif %}
+      </div>
     {% elif donation_dict.json.method == 'payment2cashapp' %}
       {% if donation_time_expired %}
         <p class="mb-4">
           {{ gettext('page.donation.expired') }}
         </p>
+
+        <div class="mb-4"><a href="#" onclick="document.querySelector('.js-donation-instructions-main').classList.remove('hidden'); this.classList.add('hidden')">{{ gettext('page.donation.old_instructions.show_button') }}</a></div>
+
+        <div class="js-donation-instructions-main hidden">
       {% else %}
+        <div>
+      {% endif %}
         <p class="mb-4 mt-6 font-bold"><span class="inline-block font-light rounded-full text-white bg-[#0195ff] w-[1.5em] h-[1.5em] text-center mr-1.5">{{ gettext('page.donation.step1') }}</span>{{ gettext('page.donation.cash_app_btc.step1') }}</p>
 
         <p class="mb-4">
@@ -243,13 +255,19 @@
         <p class="mb-4">
           <button onclick="window.location.reload()" class="bg-[#0195ff] hover:bg-blue-600 px-4 py-1 rounded-md text-white mb-1">{{ gettext('page.donation.refresh_status') }}</button>
         </p>
-      {% endif %}
+      </div>
     {% elif donation_dict.json.method == 'payment2revolut' %}
       {% if donation_time_expired %}
         <p class="mb-4">
           {{ gettext('page.donation.expired') }}
         </p>
+
+        <div class="mb-4"><a href="#" onclick="document.querySelector('.js-donation-instructions-main').classList.remove('hidden'); this.classList.add('hidden')">{{ gettext('page.donation.old_instructions.show_button') }}</a></div>
+
+        <div class="js-donation-instructions-main hidden">
       {% else %}
+        <div>
+      {% endif %}
         <p class="mb-4 mt-6 font-bold"><span class="inline-block font-light rounded-full text-white bg-[#0195ff] w-[1.5em] h-[1.5em] text-center mr-1.5">{{ gettext('page.donation.step1') }}</span>{{ gettext('page.donation.revolut.step1') }}</p>
 
         <p class="mb-4">
@@ -288,7 +306,7 @@
         <p class="mb-4">
           <button onclick="window.location.reload()" class="bg-[#0195ff] hover:bg-blue-600 px-4 py-1 rounded-md text-white mb-1">{{ gettext('page.donation.refresh_status') }}</button>
         </p>
-      {% endif %}
+      </div>
     {% elif donation_dict.json.method == 'payment2cc' %}
       <h2 class="mt-4 mb-4 text-xl font-bold">{{ gettext('page.donation.credit_debit_card_instructions') }}</h2>
 
@@ -296,7 +314,13 @@
         <p class="mb-4">
           {{ gettext('page.donation.expired') }}
         </p>
+
+        <div class="mb-4"><a href="#" onclick="document.querySelector('.js-donation-instructions-main').classList.remove('hidden'); this.classList.add('hidden')">{{ gettext('page.donation.old_instructions.show_button') }}</a></div>
+
+        <div class="js-donation-instructions-main hidden">
       {% else %}
+        <div>
+      {% endif %}
         <p>
           {{ gettext('page.donation.payment2cc.cc2btc') }}
         </p>
@@ -331,7 +355,7 @@
         <p class="mb-4">
           <button onclick="window.location.reload()" class="bg-[#0195ff] hover:bg-blue-600 px-4 py-1 rounded-md text-white mb-1">{{ gettext('page.donation.refresh_status') }}</button>
         </p>
-      {% endif %}
+      </div>
     {% elif donation_dict.json.method == 'payment2' %}
       <h2 class="mt-4 mb-4 text-xl font-bold">{{ gettext('page.donation.crypto_instructions', coin_name=(donation_dict.json.payment2_request.pay_currency | upper)) }}</h2>
 
@@ -339,13 +363,21 @@
         <p class="mb-4">
           {{ gettext('page.donation.expired') }}
         </p>
+
+        <div class="mb-4"><a href="#" onclick="document.querySelector('.js-donation-instructions-main').classList.remove('hidden'); this.classList.add('hidden')">{{ gettext('page.donation.old_instructions.show_button') }}</a></div>
+
+        <div class="js-donation-instructions-main hidden">
       {% else %}
+        <div>
+      {% endif %}
         <p class="mb-4">
           {{ gettext('page.donation.transfer_amount_to', amount=((donation_pay_amount + ' ' + (donation_dict.json.payment2_request.pay_currency | upper) + ' ' + copy_button(donation_pay_amount)) | safe), account=((donation_dict.json.payment2_request.pay_address + ' ' + copy_button(donation_dict.json.payment2_request.pay_address)) | safe)) }}
         </p>
 
         <p class="mb-4">
           {{ gettext('page.donation.crypto_standard') }}
+          <!-- TODO:TRANSLATE -->
+          Sometimes it can even take up to 12 hours, so be sure to refresh this page (even if it has expired).
         </p>
 
         <p class="mb-4">
@@ -360,7 +392,7 @@
         <p class="mb-4">
           <button onclick="window.location.reload()" class="bg-[#0195ff] hover:bg-blue-600 px-4 py-1 rounded-md text-white mb-1">{{ gettext('page.donation.refresh_status') }}</button>
         </p>
-      {% endif %}
+      </div>
     {% elif donation_dict.json.method in ['amazon', 'amazon_co_uk', 'amazon_fr', 'amazon_it', 'amazon_ca', 'amazon_de', 'amazon_es'] %}
       <p class="mb-4 font-bold">{{ gettext('page.donation.amazon.header') }}</p>
 
@@ -473,7 +505,13 @@
         <p class="mb-4">
           {{ gettext('page.donation.expired') }}
         </p>
+
+        <div class="mb-4"><a href="#" onclick="document.querySelector('.js-donation-instructions-main').classList.remove('hidden'); this.classList.add('hidden')">{{ gettext('page.donation.old_instructions.show_button') }}</a></div>
+
+        <div class="js-donation-instructions-main hidden">
       {% else %}
+        <div>
+      {% endif %}
         <h2 class="mt-4 mb-4 text-xl font-bold">{{ gettext('page.donation.payment.alipay.top_header') }}</h2>
 
         <p class="mb-4 font-bold">{{ gettext('page.donation.payment.alipay.header1', span_circle=(' class="inline-block font-light rounded-full text-white bg-[#0195ff] w-[1.5em] h-[1.5em] text-center mr-1.5"' | safe)) }}</p>
@@ -506,13 +544,19 @@
         <p class="mb-4">
           <button onclick="window.location.reload()" class="bg-[#0195ff] hover:bg-blue-600 px-4 py-1 rounded-md text-white mb-1">{{ gettext('page.donation.refresh_status') }}</button>
         </p>
-      {% endif %}
+      </div>
     {% elif donation_dict.json.method == 'payment3a_cc' %}
       {% if donation_time_expired %}
         <p class="mb-4">
           {{ gettext('page.donation.expired') }}
         </p>
+
+        <div class="mb-4"><a href="#" onclick="document.querySelector('.js-donation-instructions-main').classList.remove('hidden'); this.classList.add('hidden')">{{ gettext('page.donation.old_instructions.show_button') }}</a></div>
+
+        <div class="js-donation-instructions-main hidden">
       {% else %}
+        <div>
+      {% endif %}
         <h2 class="mt-4 mb-4 text-xl font-bold">{{ gettext('page.donation.payment.alipay.top_header') }}</h2>
 
         <p class="mb-4 font-bold">
@@ -582,13 +626,19 @@
         <p class="mb-4">
           <button onclick="window.location.reload()" class="bg-[#0195ff] hover:bg-blue-600 px-4 py-1 rounded-md text-white mb-1">{{ gettext('page.donation.refresh_status') }}</button>
         </p>
-      {% endif %}
+      </div>
     {% elif donation_dict.json.method in ['payment1b_wechat', 'payment1c_wechat', 'payment3b'] %}
       {% if donation_time_expired %}
         <p class="mb-4">
           {{ gettext('page.donation.expired') }}
         </p>
+
+        <div class="mb-4"><a href="#" onclick="document.querySelector('.js-donation-instructions-main').classList.remove('hidden'); this.classList.add('hidden')">{{ gettext('page.donation.old_instructions.show_button') }}</a></div>
+
+        <div class="js-donation-instructions-main hidden">
       {% else %}
+        <div>
+      {% endif %}
         <h2 class="mt-4 mb-4 text-xl font-bold">{{ gettext('page.donation.payment.wechat.top_header') }}</h2>
 
         <p class="mb-4 font-bold">{{ gettext('page.donation.payment.wechat.header1', span_circle=(' class="inline-block font-light rounded-full text-white bg-[#0195ff] w-[1.5em] h-[1.5em] text-center mr-1.5"' | safe)) }}</p>
@@ -613,7 +663,7 @@
         <p class="mb-4">
           <button onclick="window.location.reload()" class="bg-[#0195ff] hover:bg-blue-600 px-4 py-1 rounded-md text-white mb-1">{{ gettext('page.donation.refresh_status') }}</button>
         </p>
-      {% endif %}
+      </div>
     {% elif donation_dict.json.method == 'pix' %}
       <p class="mb-4">
         {{ gettext('page.donation.expired') }}

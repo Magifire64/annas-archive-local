@@ -123,7 +123,7 @@ def account_downloaded_page():
 @account.post("/account")
 @allthethings.utils.no_cache()
 def account_index_post_page():
-    account_id = allthethings.utils.account_id_from_secret_key(request.form['key'])
+    account_id = allthethings.utils.account_id_from_secret_key(request.form['key'].strip())
     if account_id is None:
         return render_template(
             "account/index.html",
