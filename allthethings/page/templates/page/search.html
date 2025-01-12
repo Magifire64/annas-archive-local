@@ -585,7 +585,7 @@
                 const params = new URLSearchParams({
                   hashes: searchHashes
                 }).toString();
-                fetch(`/dyn/downloads/check_downloaded?${params}`, { method: "POST" })
+                fetch(`/dyn/downloads/check_downloaded/?${params}`, { method: "POST" })
                   .then(res => res.json())
                   .then(json => {
                     json.forEach(addDownloadedStatus);
