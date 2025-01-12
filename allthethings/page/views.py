@@ -7253,6 +7253,7 @@ def render_aarecord(record_id):
             # return render_template("page/aarecord_not_found.html", header_active="search", not_found_field=record_id), 404
 
         aarecord = aarecords[0]
+        account_id = allthethings.utils.get_account_id(request.cookies)
 
         render_fields = {
             "header_active": "home/search",
@@ -7262,6 +7263,7 @@ def render_aarecord(record_id):
             "md5_problem_type_mapping": get_md5_problem_type_mapping(),
             "md5_report_type_mapping": allthethings.utils.get_md5_report_type_mapping(),
             "viewer_supported_extensions": ['pdf'],
+            "signed_in": account_id is not None
         }
         return render_template("page/aarecord.html", **render_fields)
     

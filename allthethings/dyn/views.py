@@ -292,7 +292,7 @@ def check_downloaded():
     query_hashes = query_hashes.split(",")
     if len(query_hashes) == 0 or not query_hashes:
         return "No hashes", 404
-    
+        
     # Failing all if one is invalid seems reasonable to me.
     for hash in query_hashes:
         canonical_md5 = hash.strip().lower()[0:32]
@@ -302,13 +302,18 @@ def check_downloaded():
     account_id = allthethings.utils.get_account_id(request.cookies)
     if account_id is None:
         return "", 403
-    
-    with Session(mariapersist_engine) as mariapersist_session:
-        result = mariapersist_session.connection().execute(text("SELECT HEX(md5) from mariapersist_downloads WHERE account_id = :account_id AND md5 in :hashes").bindparams(account_id=account_id, hashes=[bytes.fromhex(hash) for hash in query_hashes]))
-        downloaded_hashes = [row[0].lower() for row in result.fetchall()]
-        downloaded_hashes = list(set(downloaded_hashes))
 
-    response = make_response(orjson.dumps(downloaded_hashes))
+    with Session(mariapersist_engine) as mariapersist_session:
+        cursor = allthethings.utils.get_cursor_ping(mariapersist_session)
+        cursor.execute(
+            "SELECT md5, timestamp from mariapersist_downloads WHERE account_id = %(account_id)s AND md5 in %(hashes)s ORDER BY timestamp ASC", 
+            {"account_id": account_id, "hashes": [bytes.fromhex(hash) for hash in query_hashes]})
+        
+        # Deduplication--keep last (most recent) download instance
+        # Format date beforehand, or orjson will format as iso 8601 with literals (T/Z)
+        downloads = list({download["md5"]: {"md5": download["md5"].hex().lower(), "timestamp": download["timestamp"].strftime("%Y-%m-%d %H:%M:%S") } for download in cursor.fetchall()}.values())
+
+    response = make_response(orjson.dumps(downloads))
     return response
 
 @dyn.get("/dyn/downloads/stats/")

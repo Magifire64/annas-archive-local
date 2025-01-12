@@ -50,8 +50,10 @@
 
   <div class="mb-4 p-6 overflow-hidden bg-black/5 break-words rounded">
     <div class="float-right w-[25%] ml-4 pb-4 aspect-[0.64] relative">
-      <img class="w-full max-h-full absolute" src="{{aarecord.additional.top_box.cover_url}}" alt="" referrerpolicy="no-referrer" onerror="this.parentNode.removeChild(this)" onload="cbg = document.querySelector('.js-cover-background'); cbg.style.aspectRatio = this.clientWidth / this.clientHeight; cbg.style.marginTop = 0" loading="lazy" decoding="async"/>
-      <div class="w-full aspect-[0.85] mt-[7%] js-cover-background" style="background-color: hsl({{ aarecord.additional.top_box.cover_missing_hue_deg }}deg 43% 73%)"></div>
+      <div id="cover_aarecord_id__{{ aarecord.id }}" class="relative overflow-hidden w-full h-full flex flex-col justify-center">
+        <img class="w-full max-h-full absolute" src="{{aarecord.additional.top_box.cover_url}}" alt="" referrerpolicy="no-referrer" onerror="this.parentNode.removeChild(this)" onload="cbg = document.querySelector('.js-cover-background'); cbg.style.aspectRatio = this.clientWidth / this.clientHeight; cbg.style.marginTop = 0" loading="lazy" decoding="async"/>
+        <div class="w-full aspect-[0.85] mt-[7%] js-cover-background" style="background-color: hsl({{ aarecord.additional.top_box.cover_missing_hue_deg }}deg 43% 73%)"></div>
+      </div>
       {% if (aarecord.additional.ol_primary_linked_source_records) | length > 0 %}
         <div class="mt-2 text-xs text-right">
           <div>✅ {{ gettext('page.md5.text.linked_metadata') }}</div>
@@ -71,6 +73,51 @@
         <div class="block mt-2 text-xs text-right"><a href="#md5-tab-discussion" onclick="document.querySelector('#md5-tab-discussion').click();"> {{ gettext('page.md5.text.report_quality') }}</a></div>
       {% endif %}
     </div>
+    <script>
+      (function() {
+        const signedIn = {{ signed_in | tojson }};
+        const addDownloadInfo = downloadEvent => {
+          const coverContainer = document.getElementById("cover_aarecord_id__md5:" + downloadEvent["md5"]);
+          const timestampHtml = `
+          <div class="absolute bottom-0 p-1 text-sm bg-[rgba(200,200,200,0.9)] leading-none w-full flex flex-col gap-1">
+            ${
+              signedIn ? `<a href="/account/downloaded">Downloaded on</a>`
+                    : `<span href="/account/downloaded">Downloaded on</span>`
+            }
+            <span title="{{ gettext('page.search.results.download_time') }}">
+              ${downloadEvent["timestamp"]}
+            </span>
+          </div>
+          `;
+          coverContainer.insertAdjacentHTML("beforeend", timestampHtml);
+        };
+
+        const hash = "{{ aarecord.id }}".split("md5:")[1];
+        if (!hash) {
+          return;
+        }
+
+        const entry = localStorage.getItem("md5_download_counted_new_" + hash);
+        try {
+            const downloadEvent = JSON.parse(entry);
+            if (downloadEvent && typeof downloadEvent === "object" && "md5" in downloadEvent && "timestamp" in downloadEvent) {
+              addDownloadInfo(downloadEvent);
+              return;
+            }
+        } catch { }
+
+        const params = new URLSearchParams({
+          hashes: [hash]
+        }).toString();
+        fetch(`/dyn/downloads/check_downloaded?${params}`, { method: "POST" })
+          .then(res => res.json())
+          .then(json => {
+            json.forEach(addDownloadInfo);
+          })
+          .catch(e => {});
+      })();
+    </script>
+
     <div class="text-sm text-gray-500">{{aarecord.additional.top_box.top_row}}</div>
     <div class="text-3xl font-bold">{{aarecord.additional.top_box.title}}{% if aarecord.additional.top_box.title %}<span class="select-none"> <a class="custom-a text-xs align-[2px] opacity-80 hover:opacity-100" href="/search?q={{ aarecord.additional.top_box.title | urlencode }}">🔍</a></span>{% endif %}</div>
     <div class="text-md">{{aarecord.additional.top_box.publisher_and_edition}}</div>
@@ -362,10 +409,16 @@
             // Increase counter when clicked.
             el.addEventListener("click", function() {
               try {
-                if (window.localStorage['md5_download_counted_' + md5] === "1") {
+                if (window.localStorage['md5_download_counted_new_' + md5]) {
                   return;
                 }
-                window.localStorage['md5_download_counted_' + md5] = "1";
+                
+                const timestamp = new Date().toISOString().replace("T", " ").slice(0, 19);
+                const downloadInstance = {
+                  "md5": md5,
+                  "timestamp": timestamp
+                };
+                window.localStorage['md5_download_counted_new_' + md5] = JSON.stringify(downloadInstance);
               } catch(e) {
                 console.error("Error with localStorage: ", e);
               }
