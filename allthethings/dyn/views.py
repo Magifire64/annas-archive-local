@@ -737,6 +737,12 @@ def put_comment_reaction(reaction_type, resource):
 @dyn.get("/activity")
 @allthethings.utils.public_cache(minutes=1, cloudflare_minutes=1)
 def activity():
+    randomize = request.args.get("randomize", "").strip()
+    filter_type = request.args.get("filter", "").strip()
+    md5_report_type_mapping = allthethings.utils.get_md5_report_type_mapping()
+    if filter_type not in md5_report_type_mapping:
+        filter_type = None
+
     with mariapersist_engine.connect() as connection:
         cursor = allthethings.utils.get_cursor_ping_conn(connection)
         cursor.execute("""
@@ -745,41 +751,54 @@ def activity():
                 FROM mariapersist_md5_report
                 INNER JOIN mariapersist_comments ON (mariapersist_comments.resource = CONCAT("md5_report:", mariapersist_md5_report.md5_report_id) AND mariapersist_md5_report.account_id = mariapersist_comments.account_id)
                 INNER JOIN mariapersist_accounts ON (mariapersist_comments.account_id = mariapersist_accounts.account_id)
-                ORDER BY mariapersist_md5_report.created DESC
+                WHERE (%(filter_type)s IS NULL OR mariapersist_md5_report.type = %(filter_type)s)
+                ORDER BY CASE %(randomize)s WHEN 'true' THEN RAND() ELSE mariapersist_md5_report.created END DESC
                 LIMIT 100
             ) md5_reports UNION SELECT * FROM (
+                SELECT "nested_comment" AS activity_type, NULL AS md5_report_id, NULL AS md5_report_type, NULL AS md5, NULL AS better_md5, mariapersist_comments_2.account_id, mariapersist_comments_2.created, mariapersist_comments_2.content, mariapersist_accounts_2.display_name, mariapersist_comments_2.resource AS comment_resource, parent_comments.resource AS parent_comment_resource, parent_md5_report.md5 AS parent_md5_report_md5, NULL AS reaction_resource, NULL AS reaction_type
+                FROM mariapersist_comments mariapersist_comments_2
+                INNER JOIN mariapersist_accounts mariapersist_accounts_2 ON (mariapersist_comments_2.account_id = mariapersist_accounts_2.account_id)
+                INNER JOIN mariapersist_comments parent_comments ON (parent_comments.comment_id = REPLACE(mariapersist_comments_2.resource, "comment:", ""))
+                INNER JOIN mariapersist_md5_report parent_md5_report ON (parent_md5_report.md5_report_id = REPLACE(parent_comments.resource, "md5_report:", ""))
+                WHERE mariapersist_comments_2.resource LIKE "comment:%%" 
+                    AND (%(filter_type)s IS NULL OR parent_md5_report.type = %(filter_type)s)
+                ORDER BY mariapersist_comments_2.created DESC
+                LIMIT 100
+            ) nested_comments UNION SELECT * FROM (
                 SELECT "md5_comment" AS activity_type, NULL AS md5_report_id, NULL AS md5_report_type, NULL AS md5, NULL AS better_md5, mariapersist_comments.account_id, mariapersist_comments.created, mariapersist_comments.content, mariapersist_accounts.display_name, mariapersist_comments.resource AS comment_resource, NULL AS parent_comment_resource, NULL AS parent_md5_report_md5, NULL AS reaction_resource, NULL AS reaction_type
                 FROM mariapersist_comments
                 INNER JOIN mariapersist_accounts ON (mariapersist_comments.account_id = mariapersist_accounts.account_id)
-                WHERE mariapersist_comments.resource LIKE "md5:%"
+                WHERE mariapersist_comments.resource LIKE "md5:%%"
+                    AND %(filter_type)s IS NULL
+                    AND %(randomize)s != 'true'
                 ORDER BY mariapersist_comments.created DESC
                 LIMIT 100
             ) md5_comments UNION SELECT * FROM (
-                SELECT "nested_comment" AS activity_type, NULL AS md5_report_id, NULL AS md5_report_type, NULL AS md5, NULL AS better_md5, mariapersist_comments.account_id, mariapersist_comments.created, mariapersist_comments.content, mariapersist_accounts.display_name, mariapersist_comments.resource AS comment_resource, parent_comments.resource AS parent_comment_resource, parent_md5_report.md5 AS parent_md5_report_md5, NULL AS reaction_resource, NULL AS reaction_type
-                FROM mariapersist_comments
-                INNER JOIN mariapersist_accounts ON (mariapersist_comments.account_id = mariapersist_accounts.account_id)
-                INNER JOIN mariapersist_comments parent_comments ON (parent_comments.comment_id = REPLACE(mariapersist_comments.resource, "comment:", ""))
-                LEFT JOIN mariapersist_md5_report parent_md5_report ON (parent_md5_report.md5_report_id = REPLACE(parent_comments.resource, "md5_report:", ""))
-                WHERE mariapersist_comments.resource LIKE "comment:%"
-                ORDER BY mariapersist_comments.created DESC
-                LIMIT 100
-            ) nested_comments UNION SELECT * FROM (
                 SELECT "reaction" AS activity_type, NULL AS md5_report_id, NULL AS md5_report_type, NULL AS md5, NULL AS better_md5, mariapersist_reactions.account_id, mariapersist_reactions.created, NULL AS content, mariapersist_accounts.display_name, mariapersist_comments.resource AS comment_resource, parent_comments.resource AS parent_comment_resource, parent_md5_report.md5 AS parent_md5_report_md5, mariapersist_reactions.resource AS reaction_resource, mariapersist_reactions.type AS reaction_type
                 FROM mariapersist_reactions
                 INNER JOIN mariapersist_accounts ON (mariapersist_reactions.account_id = mariapersist_accounts.account_id)
                 LEFT JOIN mariapersist_comments ON (mariapersist_comments.comment_id = REPLACE(mariapersist_reactions.resource, "comment:", ""))
                 LEFT JOIN mariapersist_comments parent_comments ON (parent_comments.comment_id = REPLACE(mariapersist_comments.resource, "comment:", ""))
                 LEFT JOIN mariapersist_md5_report parent_md5_report ON (parent_md5_report.md5_report_id = REPLACE(parent_comments.resource, "md5_report:", ""))
-                WHERE (mariapersist_reactions.resource LIKE "md5:%" OR mariapersist_reactions.resource LIKE "comment:%")
+                WHERE (mariapersist_reactions.resource LIKE "md5:%%" OR mariapersist_reactions.resource LIKE "comment:%%")
+                    AND (%(filter_type)s IS NULL OR parent_md5_report.type = %(filter_type)s)
+                    AND %(randomize)s != 'true'
                 ORDER BY mariapersist_reactions.created DESC
                 LIMIT 100
             ) reactions
-            ORDER BY created DESC
+            ORDER BY CASE WHEN %(randomize)s = 'true' THEN NULL ELSE created END DESC
             LIMIT 100
-            """)
+        """, {"filter_type": filter_type, "randomize": randomize})
+
+        results = cursor.fetchall()
+        
+        all_hashes = ["md5:" + item["md5"].hex() for item in results if item["activity_type"] == "md5_report"]
+        all_aarecords = get_aarecords_elasticsearch(list(all_hashes))
+        aarecords_dict = {rec["id"]: rec for rec in all_aarecords}
 
         activity_items = []
-        for activity_item in cursor.fetchall():
+        nested_comments_map = collections.defaultdict(list)
+        for activity_item in results:
             new_activity_item = {
                 'activity_type': activity_item['activity_type'],
                 'created': activity_item['created'],
@@ -790,17 +809,23 @@ def activity():
                 },
             }
             if activity_item['activity_type'] == 'md5_report':
+                hash_str = "md5:" + activity_item["md5"].hex()
+                aarecord = aarecords_dict.get(hash_str)
+                if aarecord is None:
+                    continue
                 new_activity_item = {
                     **new_activity_item,
                     'href': "/md5/" + activity_item['md5'].hex(),
                     'target_description': activity_item['md5'].hex(),
                     'md5_report': {
+                        'id': activity_item["md5_report_id"],
                         'type': activity_item['md5_report_type'],
                         'better_md5': activity_item['better_md5'].hex() if activity_item['better_md5'] is not None else None,
                     },
                     'comment': {
                         'content': activity_item['content'],  
-                    }
+                    },
+                    'aarecord': aarecord,
                 }
             elif activity_item['activity_type'] == 'md5_comment':
                 new_activity_item = {
@@ -823,6 +848,7 @@ def activity():
                         'content': activity_item['content'],  
                     }
                 }
+                nested_comments_map[activity_item["parent_comment_resource"]].append(new_activity_item)
             elif activity_item['activity_type'] == 'reaction':
                 parent_md5 = activity_item['reaction_resource'].replace('md5:', '')
                 reaction_resource_type = 'md5'
@@ -844,17 +870,23 @@ def activity():
                         'reaction_resource_type': reaction_resource_type,
                     },
                 }
-            activity_items.append(new_activity_item)
+            if activity_item["activity_type"] != "nested_comment" or randomize != "true":
+                activity_items.append(new_activity_item)
 
-        return render_template(
+        for item in activity_items:
+            if item["activity_type"] == "md5_report":
+                item["nested_comments"] = nested_comments_map.get("md5_report:" + str(item["md5_report"]["id"]), [])
+
+        r = make_response(render_template(
             "dyn/activity.html",
-            header_active='home/activity',
+            header_active="home/activity",
             current_account_id=allthethings.utils.get_account_id(request.cookies),
             activity_items=activity_items,
             md5_report_type_mapping=allthethings.utils.get_md5_report_type_mapping(),
-        )
-
-
+        ))
+        if randomize == "true":
+           r.headers.add("Cache-Control", "no-cache")
+        return r
 
 @dyn.put("/dyn/lists_update/<string:resource>")
 @allthethings.utils.no_cache()

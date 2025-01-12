@@ -4,12 +4,41 @@
 {% block body %}
   {% from 'macros/profile_link.html' import profile_link %}
 
+  <div class="mb-6">
+    <form method="GET" action="" class="mb-2">
+      <div class="mb-2">
+        <label for="activity_item-type" class="block text-sm font-medium text-gray-700 mb-1">
+          Filter Reports
+        </label>
+        <select id="report-type" name="filter" class="bg-black/6.7 px-2 py-1 rounded w-full max-w-[400px]">
+          <option value="">Select a type...</option>
+          {% for type, label in md5_report_type_mapping.items() %}
+            <option value="{{ type }}" {% if request.args.get('filter') == type %}selected{% endif %}>{{ label }}</option>
+          {% endfor %}
+        </select>
+        <p class="text-xs text-gray-500 mt-0.5">
+          Shows reports of the selected type along with their replies and reactions.
+        </p>
+      </div>
+      <div class="mb-2">
+        <div class="flex items-center">
+          <input {% if request.args.get('randomize') == 'true' %} checked {% endif %} id="randomize-checkbox" type="checkbox" name="randomize" value="true" class="mr-2">
+          <label for="randomize-checkbox" class="text-sm font-medium text-gray-700">Randomize</label>
+        </div>
+        <p class="text-xs text-gray-500">
+          Only shows standalone reports when checked.
+        </p>
+      </div>
+      <button class="px-4 py-1 bg-[#0195ff] text-white rounded hover:bg-blue-600" type="submit">Search</button>
+    </form>
+  </div>
+  
   {% for activity_item in activity_items %}
     <div class="pb-2 mb-4 border-b">
       <div>
         <div class="text-black/64 text-sm" title="{{ activity_item.created | datetimeformat(format='long') }}">{{ activity_item.created_delta | timedeltaformat(add_direction=True) }}</div>
         {% if activity_item.activity_type == 'md5_report' %}
-          File issue report on <a href="{{ activity_item.href }}">{{ activity_item.target_description }}</a>
+          <!-- File issue report on <a href="{{ activity_item.href }}">{{ activity_item.target_description }}</a> -->
         {% elif activity_item.activity_type == 'md5_comment' %}
           Comment on <a href="{{ activity_item.href }}">{{ activity_item.target_description }}</a>
         {% elif activity_item.activity_type == 'nested_comment' %}
@@ -24,38 +53,85 @@
           {% endif %}
         {% endif %}
       </div>
+      {% if activity_item.activity_type == "md5_report" %}
+        {% from 'macros/aarecord_list.html' import aarecord_list %}
+        {{ aarecord_list([activity_item.aarecord]) }}
 
-      <div class="ml-8">
         <div>
-          {% if activity_item.reaction %}
-            {% if activity_item.reaction.type == 1 %}
-              Reported as abusive by
-            {% elif activity_item.reaction.type == 2 %}
-              {% if activity_item.reaction.reaction_resource_type == 'md5' %}
-                <span class="text-xl text-[#777] align-[-3.2px] icon-[material-symbols--star-outline]"></span> Great file quality
-              {% else %}
-                <span class="text-xl text-[#777] align-[-4px] icon-[tabler--thumb-up]"></span>
-              {% endif %}
-            {% elif activity_item.reaction.type == 3 %}
-              <span class="text-xl text-[#777] align-[-4px] icon-[tabler--thumb-down]"></span>
-            {% endif %}    
+          <div>
+            {{ profile_link(activity_item.account, current_account_id, tag="span") }}
+          </div>
+
+          {% if activity_item.md5_report %}
+            {% if activity_item.md5_report.type %}
+              <div class="flex items-center">
+                <span class="text-[18px] inline-block icon-[uil--exclamation-triangle]"></span>
+                <span class="italic ml-1.5">File issue: {{ md5_report_type_mapping[activity_item.md5_report.type] }}</span>
+              </div>
+            {% endif %}
+            {% if activity_item.md5_report.better_md5 %}<a href="/md5/{{ activity_item.md5_report.better_md5 }}">Better version</a>{% endif %}
           {% endif %}
 
-          {{ profile_link(activity_item.account, current_account_id, tag="span") }}
+          {% if activity_item.comment %}
+          <!-- <div>
+              {{ profile_link(activity_item.account, current_account_id, tag="span") }}
+            </div> -->
+            <div class="border-l-4 border-gray-300 pl-4 text-gray-700 mb-1 mt-2 ml-4">
+              {{ activity_item.comment.content }}
+            </div>
+          {% endif %}
+
+          {% if activity_item.nested_comments %}
+            <div>
+              <button 
+                onclick="document.getElementById('replies-id-{{ activity_item.md5_report.id }}').classList.toggle('hidden')"
+                class="text-blue-500 hover:underline text-sm">
+                View Replies ({{ activity_item.nested_comments | length }})
+              </button>
+              <div id="replies-id-{{ activity_item.md5_report.id }}" class="hidden mt-2 pl-4">
+                {% for reply in activity_item.nested_comments %}
+                  <div class="mb-2">
+                    <p class="text-gray-600 text-sm font-semibold">{{ profile_link(reply.account, current_account_id, tag="span") }}</p>
+                    <div class="whitespace-pre-line">{{ reply.comment.content }}</div>
+                  </div>
+                {% endfor %}
+              </div>
+            </div>
+          {% endif %}
         </div>
+      {% else %}
+        <div class="ml-8">
+          <div>
+            {% if activity_item.reaction %}
+              {% if activity_item.reaction.type == 1 %}
+                Reported as abusive by
+              {% elif activity_item.reaction.type == 2 %}
+                {% if activity_item.reaction.reaction_resource_type == 'md5' %}
+                  <span class="text-xl text-[#777] align-[-3.2px] icon-[material-symbols--star-outline]"></span> Great file quality
+                {% else %}
+                  <span class="text-xl text-[#777] align-[-4px] icon-[tabler--thumb-up]"></span>
+                {% endif %}
+              {% elif activity_item.reaction.type == 3 %}
+                <span class="text-xl text-[#777] align-[-4px] icon-[tabler--thumb-down]"></span>
+              {% endif %}    
+            {% endif %}
 
-        {% if activity_item.md5_report %}
-          {% if activity_item.md5_report.type %}
-            <div><span class='text-[18px] align-text-bottom inline-block icon-[uil--exclamation-triangle]'></span> <span class="italic">File issue: {{ md5_report_type_mapping[activity_item.md5_report.type] }}</span></div>
+            {{ profile_link(activity_item.account, current_account_id, tag="span") }}
+          </div>
+
+          {% if activity_item.md5_report %}
+            {% if activity_item.md5_report.type %}
+              <div><span class='text-[18px] align-text-bottom inline-block icon-[uil--exclamation-triangle]'></span> <span class="italic">File issue: {{ md5_report_type_mapping[activity_item.md5_report.type] }}</span></div>
+            {% endif %}
+
+            {% if activity_item.md5_report.better_md5 %}<div>Better version: /md5/{{ activity_item.md5_report.better_md5 }}</div>{% endif %}
           {% endif %}
 
-          {% if activity_item.md5_report.better_md5 %}<div>Better version: /md5/{{ activity_item.md5_report.better_md5 }}</div>{% endif %}
-        {% endif %}
-
-        {% if activity_item.comment %}
-          <div class="whitespace-pre-line mb-1">{{ activity_item.comment.content }}</div>
-        {% endif %}
-      </div>
+          {% if activity_item.comment %}
+            <div class="whitespace-pre-line mb-1">{{ activity_item.comment.content }}</div>
+          {% endif %}
+        </div>
+      {% endif %}
     </div>
   {% endfor %}
 {% endblock %}
