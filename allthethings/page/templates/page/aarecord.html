@@ -274,11 +274,7 @@
         </div>
         <p class="mb-1 hidden js-fast-download-member-header-remaining">{{ gettext('page.md5.box.download.header_fast_member', remaining='XXXXXX') }}</p>
         <p class="mb-1 hidden js-fast-download-member-header-no-remaining">{{ gettext('page.md5.box.download.header_fast_member_no_remaining_new') }}</p>
-        <p class="mb-1 hidden js-fast-download-member-header-valid-for">
-            <!-- TODO:TRANSLATE -->
-            <span title="Already downloaded" class="text-lg bg-[#0195ff] align-[-3.3px] icon-[material-symbols--check-circle-outline]"></span>
-            {{ gettext('page.md5.box.download.header_fast_member_valid_for') }}
-        </p>
+        <p class="mb-1 hidden js-fast-download-member-header-valid-for">{{ gettext('page.md5.box.download.header_fast_member_valid_for') }}</p>
 
         <ul class="list-inside mb-4 ml-1">
           {% for label, url, extra in aarecord.additional.fast_partner_urls %}
