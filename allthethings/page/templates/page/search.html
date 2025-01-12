@@ -479,35 +479,98 @@
           {% endif %}
 
           <div class="mb-4">
-            {% from 'macros/aarecord_list.html' import aarecord_list %}
-            {{ aarecord_list(search_dict.search_aarecords, table=(search_dict.display_value == 'table')) }}
-
-            {% if (search_dict.additional_search_aarecords | length) > 0 %}
-              <div class="mt-8">
-                <div class="bg-gray-100 mx-[-10px] px-[10px]">
-                  <div class="italic mt-2">{% if search_dict.max_additional_search_aarecords_reached %}{{ gettext('page.search.results.partial_more', num=(search_dict.additional_search_aarecords | length)) }}{% else %}{{ gettext('page.search.results.partial', num=(search_dict.additional_search_aarecords | length)) }}{% endif %}</div>
-                  {{ aarecord_list(search_dict.additional_search_aarecords, max_show_immediately=0, table=(search_dict.display_value == 'table')) }}
+            <div id="aarecord-list">
+              {% from 'macros/aarecord_list.html' import aarecord_list %}
+              {{ aarecord_list(search_dict.search_aarecords, table=(search_dict.display_value == 'table')) }}
+  
+              {% if (search_dict.additional_search_aarecords | length) > 0 %}
+                <div class="mt-8">
+                  <div class="bg-gray-100 mx-[-10px] px-[10px]">
+                    <div class="italic mt-2">{% if search_dict.max_additional_search_aarecords_reached %}{{ gettext('page.search.results.partial_more', num=(search_dict.additional_search_aarecords | length)) }}{% else %}{{ gettext('page.search.results.partial', num=(search_dict.additional_search_aarecords | length)) }}{% endif %}</div>
+                    {{ aarecord_list(search_dict.additional_search_aarecords, max_show_immediately=0, table=(search_dict.display_value == 'table')) }}
+                  </div>
                 </div>
-              </div>
-            {% endif %}
-
+              {% endif %}  
+            </div>
+            
             <script>
-              (function () {
-                const addDownloadedStatus = hash => {
-                  const container = document.getElementById("list_aarecord_id__md5:" + hash);
-                  if (container) {
-                    const classes = "{{ 'text-sm mr-0.5' if search_dict.display_value == 'table' else 'text-xl mr-1' }}";
-                    // TODO:TRANSLATE
-                    container.insertAdjacentHTML("afterbegin", `<span title="Already downloaded" class="${classes} bg-[#0195ff] align-[-2.3px] icon-[material-symbols--check-circle-outline]"></span>`);
+              (function() {
+                const addDownloadedStatus = downloadEvent => {
+                  if ("{{ search_dict.display_value }}" == "table") {
+                    const coverContainer = document.getElementById("table_cover_aarecord_id__md5:" + downloadEvent["md5"]);
+                    const hoverContainer = document.getElementById("hover_cover_aarecord_id__md5:" + downloadEvent["md5"]);
+
+                    if (coverContainer) {
+                      coverContainer.insertAdjacentHTML("beforeend", `<div class="absolute bottom-0 left-0 right-0 p-1 bg-[rgba(200,200,200,0.9)]"></div>`);
+                    }
+                    if (hoverContainer) {
+                      hoverContainer.insertAdjacentHTML("beforeend", `
+                      <div class="absolute bottom-0 p-1 text-sm text-white w-full bg-[rgba(200,200,200,0.9)] leading-none">
+                        <span title="{{ gettext('page.search.results.download_time') }}">${downloadEvent["timestamp"]}</span>
+                      </div>`);
+                    }
+                  } else {
+                    const coverId = "list_cover_aarecord_id__md5:" + downloadEvent["md5"];
+                    const coverContainer = document.getElementById(coverId);
+                    
+                    if (coverContainer) {
+                      coverContainer.insertAdjacentHTML("beforeend", `
+                      <div class="absolute bottom-0 p-1 text-[10px] bg-[rgba(200,200,200,0.9)] leading-none">
+                        <span title="{{ gettext('page.search.results.download_time') }}">${downloadEvent["timestamp"]}</span>
+                      </div>`);
+                    } else {
+                      // It's a comment Node, due to render() behavior in aarecord_list.html
+                      // We could also use a MutationObserver, but this seems sufficient
+                      const walker = document.createTreeWalker(
+                        document.getElementById("aarecord-list"),
+                        NodeFilter.SHOW_COMMENT,
+                        {
+                          acceptNode(node) {
+                            if (node.nodeValue && node.nodeValue.includes(coverId)) {
+                              return NodeFilter.FILTER_ACCEPT;
+                            }
+                            return NodeFilter.FILTER_REJECT;
+                          }
+                        }
+                      );
+                      
+                      const node = walker.nextNode();
+                      if (!node || !node.nodeValue) {
+                        return;
+                      }
+
+                      const tempContainer = document.createElement("div");
+                      tempContainer.innerHTML = node.nodeValue;
+
+                      const coverFrag = tempContainer.querySelector(`[id='${coverId}']`);
+                      if (coverFrag) {
+                        coverFrag.insertAdjacentHTML("beforeend", `
+                        <div class="absolute bottom-0 p-1 text-[10px] bg-[rgba(200,200,200,0.9)] leading-none">
+                          <span title="{{ gettext('page.search.results.download_time') }}">${downloadEvent["timestamp"]}</span>
+                        </div>`);
+                      }
+
+                      node.nodeValue = tempContainer.innerHTML;
+                    }                  
                   }
                 };
 
                 let downloadedHashes = [];
                 for (const [key, value] of Object.entries(localStorage)) {
-                  if (key.startsWith("md5_download_counted_") && value === "1") {
-                    let hash = key.replace("md5_download_counted_", "");
-                    if (hash.length > 0) {
-                      downloadedHashes.push(hash);
+                  if (key.startsWith("md5_download_counted_new_")) {
+                    let downloadEvent;
+                    try {
+                      downloadEvent = JSON.parse(value);
+                      if (!downloadEvent || typeof downloadEvent != "object") {
+                        continue;
+                      }
+                    } catch {
+                      continue;
+                    }
+
+                    if ("md5" in downloadEvent && "timestamp" in downloadEvent) {
+                      addDownloadedStatus(downloadEvent);
+                      downloadedHashes.push(downloadEvent["md5"])
                     }
                   }
                 }
@@ -518,7 +581,7 @@
                 if (searchHashes.length === 0) {
                   return;
                 }
-                
+
                 const params = new URLSearchParams({
                   hashes: searchHashes
                 }).toString();
