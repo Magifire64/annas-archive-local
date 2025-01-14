@@ -6828,8 +6828,8 @@ def get_additional_for_aarecord(aarecord):
         if lgrsnf_torrent_path in torrents_json_aa_currently_seeding_by_torrent_path:
             additional['torrent_paths'].append({ "collection": "libgen_rs_non_fic", "torrent_path": lgrsnf_torrent_path, "file_level1": lgrsnf_filename, "file_level2": "" })
 
-        additional['download_urls'].append((gettext('page.md5.box.download.lgrsnf'), f"https://library.gift/main/{source_record['md5'].lower()}", gettext('page.md5.box.download.extra_also_click_get') if shown_click_get else gettext('page.md5.box.download.extra_click_get')))
-        shown_click_get = True
+        additional['download_urls'].append((gettext('page.md5.box.download.lgrsnf'), f"https://libgen.is/book/index.php?md5={source_record['md5'].upper()}", '')) # Old (we now link to Libgen itself, not to its download server): gettext('page.md5.box.download.extra_also_click_get') if shown_click_get else gettext('page.md5.box.download.extra_click_get')
+        # shown_click_get = True
     for source_record in source_records_by_type['lgrsfic_book']:
         lgrsfic_thousands_dir = (source_record['id'] // 1000) * 1000
         lgrsfic_torrent_path = f"external/libgen_rs_fic/f_{lgrsfic_thousands_dir}.torrent" # Note: no leading zeroes
@@ -6844,8 +6844,8 @@ def get_additional_for_aarecord(aarecord):
         if lgrsfic_torrent_path in torrents_json_aa_currently_seeding_by_torrent_path:
             additional['torrent_paths'].append({ "collection": "libgen_rs_fic", "torrent_path": lgrsfic_torrent_path, "file_level1": lgrsfic_filename, "file_level2": "" })
 
-        additional['download_urls'].append((gettext('page.md5.box.download.lgrsfic'), f"https://library.gift/fiction/{source_record['md5'].lower()}", gettext('page.md5.box.download.extra_also_click_get') if shown_click_get else gettext('page.md5.box.download.extra_click_get')))
-        shown_click_get = True
+        additional['download_urls'].append((gettext('page.md5.box.download.lgrsfic'), f"https://libgen.is/fiction/{source_record['md5'].upper()}", '')) # Old (we now link to Libgen itself, not to its download server): gettext('page.md5.box.download.extra_also_click_get') if shown_click_get else gettext('page.md5.box.download.extra_click_get')
+        # shown_click_get = True
     for source_record in source_records_by_type['lgli_file']:
         lglific_id = source_record['fiction_id']
         if lglific_id > 0:
