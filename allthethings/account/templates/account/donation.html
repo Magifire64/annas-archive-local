@@ -545,7 +545,7 @@
           <button onclick="window.location.reload()" class="bg-[#0195ff] hover:bg-blue-600 px-4 py-1 rounded-md text-white mb-1">{{ gettext('page.donation.refresh_status') }}</button>
         </p>
       </div>
-    {% elif donation_dict.json.method == 'payment3a_cc' %}
+    {% elif donation_dict.json.method in ['payment1b_alipay_cc', 'payment1c_alipay_cc', 'payment1d_alipay_cc', 'payment3a_cc'] %}
       {% if donation_time_expired %}
         <p class="mb-4">
           {{ gettext('page.donation.expired') }}
@@ -590,7 +590,7 @@
         </p>
 
         <p class="mb-4">
-          {{ gettext('page.donation.bank_card_app.step3.desc.1', a_href=(dict(href=donation_dict.json.payment3_request.data.url, class="font-bold", style="color: #0095ff", rel="noopener noreferrer nofollow", target="_blank") | xmlattr)) }}
+          {{ gettext('page.donation.bank_card_app.step3.desc.1', a_href=(dict(href=(donation_dict.json.payment1_url or donation_dict.json.payment3_request.data.url or ''), class="font-bold", style="color: #0095ff", rel="noopener noreferrer nofollow", target="_blank") | xmlattr)) }}
         </p>
 
         <p class="mb-4">
@@ -682,7 +682,7 @@
       </p> -->
     {% endif %}
 
-    {% if donation_dict.json.method not in ['payment1b_alipay', 'payment1b_wechat', 'payment1c_alipay', 'payment1c_wechat', 'payment1d_alipay', 'payment1d_wechat', 'payment2', 'payment2paypal', 'payment2cashapp', 'payment2revolut', 'payment2cc', 'amazon', 'amazon_co_uk', 'amazon_fr', 'amazon_it', 'amazon_ca', 'amazon_de', 'amazon_es', 'hoodpay', 'payment3a', 'payment3a_cc', 'payment3b'] %}
+    {% if donation_dict.json.method not in ['payment1b_alipay', 'payment1b_alipay_cc', 'payment1b_wechat', 'payment1c_alipay', 'payment1c_alipay_cc', 'payment1c_wechat', 'payment1d_alipay', 'payment1d_alipay_cc', 'payment1d_wechat', 'payment2', 'payment2paypal', 'payment2cashapp', 'payment2revolut', 'payment2cc', 'amazon', 'amazon_co_uk', 'amazon_fr', 'amazon_it', 'amazon_ca', 'amazon_de', 'amazon_es', 'hoodpay', 'payment3a', 'payment3a_cc', 'payment3b'] %}
       <p class="mt-8 mb-4 font-bold">{{ gettext('page.donation.footer.header', span_circle=(' class="inline-block font-light rounded-full text-white bg-[#0195ff] w-[1.5em] h-[1.5em] text-center mr-1.5"' | safe), circle_number=(3 if donation_dict.json.method in ['paypal', 'binance'] else 2)) }}
 
       <p class="mb-4">

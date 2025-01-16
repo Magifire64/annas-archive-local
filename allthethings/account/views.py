@@ -395,7 +395,7 @@ def donation_page(donation_id):
             if payment2_status['payment_status'] == 'confirming':
                 donation_confirming = True
 
-        if donation_json['method'] in ['payment1b_alipay', 'payment1b_wechat', 'payment1c_alipay', 'payment1c_wechat', 'payment1d_alipay', 'payment1d_wechat', 'payment3a', 'payment3a_cc', 'payment3b'] and donation['processing_status'] == 0:
+        if donation_json['method'] in ['payment1b_alipay', 'payment1b_alipay_cc', 'payment1b_wechat', 'payment1c_alipay', 'payment1c_alipay_cc', 'payment1c_wechat', 'payment1d_alipay', 'payment1d_alipay_cc', 'payment1d_wechat', 'payment3a', 'payment3a_cc', 'payment3b'] and donation['processing_status'] == 0:
             donation_time_left = donation['created'] - datetime.datetime.now() + datetime.timedelta(minutes=6)
             if donation_time_left < datetime.timedelta(minutes=2):
                 donation_time_left_not_much = True

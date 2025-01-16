@@ -493,10 +493,13 @@ MEMBERSHIP_METHOD_DISCOUNTS = {
     # "alipay": 0,
     # "pix":    0,
     "payment1b_alipay": 0,
+    "payment1b_alipay_cc": 0,
     "payment1b_wechat": 0,
     "payment1c_alipay": 0,
+    "payment1c_alipay_cc": 0,
     "payment1c_wechat": 0,
     "payment1d_alipay": 0,
+    "payment1d_alipay_cc": 0,
     "payment1d_wechat": 0,
     "payment3a": 0,
     "payment3a_cc": 0,
@@ -542,10 +545,13 @@ MEMBERSHIP_METHOD_MINIMUM_CENTS_USD = {
     # "alipay": 0,
     # "pix":    0,
     "payment1b_alipay": 0,
+    "payment1b_alipay_cc": 0,
     "payment1b_wechat": 0,
     "payment1c_alipay": 0,
+    "payment1c_alipay_cc": 0,
     "payment1c_wechat": 0,
     "payment1d_alipay": 0,
+    "payment1d_alipay_cc": 0,
     "payment1d_wechat": 0,
     "payment3a": 0,
     "payment3a_cc": 0,
@@ -555,11 +561,14 @@ MEMBERSHIP_METHOD_MINIMUM_CENTS_USD = {
     "ccexp": 99999999,
 }
 MEMBERSHIP_METHOD_MAXIMUM_CENTS_NATIVE = {
-    "payment1b_alipay": 300000,
-    "payment1b_wechat": 300000,
+    "payment1b_alipay": 100000,
+    "payment1b_alipay_cc": round(100000/MEMBERSHIP_EXCHANGE_RATE_RMB), # Actual number in USD!
+    "payment1b_wechat": 100000,
     "payment1c_alipay": 100000,
+    "payment1c_alipay_cc": round(100000/MEMBERSHIP_EXCHANGE_RATE_RMB), # Actual number in USD!
     "payment1c_wechat": 100000,
     "payment1d_alipay": 100000,
+    "payment1d_alipay_cc": round(100000/MEMBERSHIP_EXCHANGE_RATE_RMB), # Actual number in USD!
     "payment1d_wechat": 100000,
     # "payment3a": 500000,
     # "payment3a_cc": 500000,
@@ -975,7 +984,7 @@ def confirm_membership(cursor, donation_id, data_key, data_value):
     #     return False
 
     donation_json = orjson.loads(donation['json'])
-    if donation_json['method'] not in ['payment1b_alipay', 'payment1b_wechat', 'payment1c_alipay', 'payment1c_wechat', 'payment1d_alipay', 'payment1d_wechat', 'payment2', 'payment2paypal', 'payment2cashapp', 'payment2revolut', 'payment2cc', 'amazon', 'amazon_co_uk', 'amazon_fr', 'amazon_it', 'amazon_ca', 'amazon_de', 'amazon_es', 'hoodpay', 'payment3a', 'payment3a_cc', 'payment3b']:
+    if donation_json['method'] not in ['payment1b_alipay', 'payment1b_alipay_cc', 'payment1b_wechat', 'payment1c_alipay', 'payment1c_alipay_cc', 'payment1c_wechat', 'payment1d_alipay', 'payment1d_alipay_cc', 'payment1d_wechat', 'payment2', 'payment2paypal', 'payment2cashapp', 'payment2revolut', 'payment2cc', 'amazon', 'amazon_co_uk', 'amazon_fr', 'amazon_it', 'amazon_ca', 'amazon_de', 'amazon_es', 'hoodpay', 'payment3a', 'payment3a_cc', 'payment3b']:
         print(f"Warning: failed {data_key} request because method is not valid: {donation_id}")
         return False
 

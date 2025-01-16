@@ -1050,7 +1050,7 @@ def account_buy_membership():
         raise Exception("Invalid costCentsUsdVerification")
 
     donation_type = 0 # manual
-    if method in ['payment1b_alipay', 'payment1b_wechat', 'payment1c_alipay', 'payment1c_wechat', 'payment1d_alipay', 'payment1d_wechat', 'payment2', 'payment2paypal', 'payment2cashapp', 'payment2revolut', 'payment2cc', 'amazon', 'amazon_co_uk', 'amazon_fr', 'amazon_it', 'amazon_ca', 'amazon_de', 'amazon_es', 'hoodpay', 'payment3a', 'payment3a_cc', 'payment3b']:
+    if method in ['payment1b_alipay', 'payment1b_alipay_cc', 'payment1b_wechat', 'payment1c_alipay', 'payment1c_alipay_cc', 'payment1c_wechat', 'payment1d_alipay', 'payment1d_alipay_cc', 'payment1d_wechat', 'payment2', 'payment2paypal', 'payment2cashapp', 'payment2revolut', 'payment2cc', 'amazon', 'amazon_co_uk', 'amazon_fr', 'amazon_it', 'amazon_ca', 'amazon_de', 'amazon_es', 'hoodpay', 'payment3a', 'payment3a_cc', 'payment3b']:
         donation_type = 1
 
     with Session(mariapersist_engine) as mariapersist_session:
@@ -1099,30 +1099,30 @@ def account_buy_membership():
                 print(f"Warning payment3_request error: {donation_json['payment3_request']}")
                 return orjson.dumps({ 'error': gettext('dyn.buy_membership.error.unknown', email="https://annas-archive.li/contact") })
 
-        if method in ['payment1b_alipay', 'payment1b_wechat', 'payment1c_alipay', 'payment1c_wechat', 'payment1d_alipay', 'payment1d_wechat']:
-            if method in ['payment1b_alipay', 'payment1b_wechat']:
+        if method in ['payment1b_alipay', 'payment1b_alipay_cc', 'payment1b_wechat', 'payment1c_alipay', 'payment1c_alipay_cc', 'payment1c_wechat', 'payment1d_alipay', 'payment1d_alipay_cc', 'payment1d_wechat']:
+            if method in ['payment1b_alipay', 'payment1b_alipay_cc', 'payment1b_wechat']:
                 payment1_data = {
                     "pid": PAYMENT1B_ID,
                     "key": PAYMENT1B_KEY,
                     "payment1_url_prefix": "https://anna.zpaycashier.sk/submit.php?",
                     "notify_url": "https://annas-archive.li/dyn/payment1b_notify/",
-                    "type": "alipay" if method == 'payment1b_alipay' else "wxpay",
+                    "type": "alipay" if method in ['payment1b_alipay', 'payment1b_alipay_cc'] else "wxpay",
                 }
-            elif method in ['payment1c_alipay', 'payment1c_wechat']:
+            elif method in ['payment1c_alipay', 'payment1c_alipay_cc', 'payment1c_wechat']:
                 payment1_data = {
                     "pid": PAYMENT1C_ID,
                     "key": PAYMENT1C_KEY,
                     "payment1_url_prefix": "https://api.idapap.top/submit.php?",
                     "notify_url": "https://annas-archive.li/dyn/payment1c_notify/",
-                    "type": "alipay" if method == 'payment1c_alipay' else "wxpay",
+                    "type": "alipay" if method in ['payment1c_alipay', 'payment1c_alipay_cc'] else "wxpay",
                 }
-            elif method in ['payment1d_alipay', 'payment1d_wechat']:
+            elif method in ['payment1d_alipay', 'payment1d_alipay_cc', 'payment1d_wechat']:
                 payment1_data = {
                     "pid": PAYMENT1D_ID,
                     "key": PAYMENT1D_KEY,
                     "payment1_url_prefix": "https://pay.funlou.top/submit.php?",
                     "notify_url": "https://annas-archive.li/dyn/payment1d_notify/",
-                    "type": "alipay" if method == 'payment1d_alipay' else "wxpay",
+                    "type": "alipay" if method in ['payment1d_alipay', 'payment1d_alipay_cc'] else "wxpay",
                 }
             data = {
                 # Note that these are sorted by key.

@@ -149,7 +149,9 @@
           {{ donate_button('amazon', gettext('page.donate.payment.buttons.amazon_cc', amazon='Amazon.com'), discount_percent=0, large=True) }}
         {% endif %}
 
-        {{ donate_button('payment3a_cc', gettext('page.donate.payment.buttons.bank_card_app'), discount_percent=0, large=True) }}
+        <!-- {{ donate_button('payment1b_alipay_cc', gettext('page.donate.payment.buttons.bank_card_app'), discount_percent=0, large=True) }} -->
+        {{ donate_button('payment1d_alipay_cc', gettext('page.donate.payment.buttons.bank_card_app'), discount_percent=0, large=True) }}
+        <!-- {{ donate_button('payment3a_cc', gettext('page.donate.payment.buttons.bank_card_app'), discount_percent=0, large=True) }} -->
         {{ donate_button('payment2', gettext('page.donate.payment.buttons.crypto', bitcoin_icon=''), discount_percent=10, large=True) }}
 
         <!-- {{ donate_button('cc', gettext('page.donate.payment.buttons.credit_debit', bitcoin_icon=''), discount_percent=10) }} -->
@@ -202,17 +204,17 @@
         {{
           shuffle_stable_day([
             donate_button('payment1b_wechat', gettext('page.donate.payment.buttons.wechat') + ' <span class="whitespace-nowrap text-xs">变体R</span>' | safe, discount_percent=0),
-            donate_button('payment1c_wechat', gettext('page.donate.payment.buttons.wechat') + ' <span class="whitespace-nowrap text-xs">变体S</span>' | safe, discount_percent=0),
             donate_button('payment1d_wechat', gettext('page.donate.payment.buttons.wechat') + ' <span class="whitespace-nowrap text-xs">变体T</span>' | safe, discount_percent=0),
           ]) | join('')
         }}
+            <!-- donate_button('payment1c_wechat', gettext('page.donate.payment.buttons.wechat') + ' <span class="whitespace-nowrap text-xs">变体S</span>' | safe, discount_percent=0), -->
         {{
           shuffle_stable_day([
             donate_button('payment1b_alipay', gettext('page.donate.payment.buttons.alipay') + ' <span class="whitespace-nowrap text-xs">变体R</span>' | safe, discount_percent=0),
-            donate_button('payment1c_alipay', gettext('page.donate.payment.buttons.alipay') + ' <span class="whitespace-nowrap text-xs">变体S</span>' | safe, discount_percent=0),
             donate_button('payment1d_alipay', gettext('page.donate.payment.buttons.alipay') + ' <span class="whitespace-nowrap text-xs">变体T</span>' | safe, discount_percent=0),
           ]) | join('')
         }}
+            <!-- donate_button('payment1c_alipay', gettext('page.donate.payment.buttons.alipay') + ' <span class="whitespace-nowrap text-xs">变体S</span>' | safe, discount_percent=0), -->
 
         <!-- {{ donate_button('payment1b', gettext('page.donate.payment.buttons.alipay_wechat') + ' <span class="whitespace-nowrap text-xs">(变体R)</span>' | safe, discount_percent=0) }} -->
         <!-- {{ donate_button('payment1c', gettext('page.donate.payment.buttons.alipay_wechat') + ' <span class="whitespace-nowrap text-xs">(变体S)</span>' | safe, discount_percent=0) }} -->
@@ -402,7 +404,7 @@
       </p>
     </div>
 
-    <div class="js-membership-descr js-membership-descr-payment3a_cc">
+    <div class="js-membership-descr js-membership-descr-payment1b_alipay_cc js-membership-descr-payment1c_alipay_cc js-membership-descr-payment1d_alipay_cc js-membership-descr-payment3a_cc">
       <p class="mb-4">
         {{ gettext('page.donate.payment.desc.bank_card_app') }}
       </p>
