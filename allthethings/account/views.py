@@ -16,7 +16,7 @@ from flask_babel import gettext, force_locale, get_locale
 
 from allthethings.extensions import mariapersist_engine
 from allthethings.page.views import get_aarecords_elasticsearch
-from config.settings import SECRET_KEY, PAYMENT1B_ID, PAYMENT1B_KEY, PAYMENT1C_ID, PAYMENT1C_KEY
+from config.settings import SECRET_KEY
 
 import allthethings.utils
 
@@ -395,7 +395,7 @@ def donation_page(donation_id):
             if payment2_status['payment_status'] == 'confirming':
                 donation_confirming = True
 
-        if donation_json['method'] in ['payment1b_alipay', 'payment1b_wechat', 'payment1c_alipay', 'payment1c_wechat', 'payment3a', 'payment3a_cc', 'payment3b'] and donation['processing_status'] == 0:
+        if donation_json['method'] in ['payment1b_alipay', 'payment1b_wechat', 'payment1c_alipay', 'payment1c_wechat', 'payment1d_alipay', 'payment1d_wechat', 'payment3a', 'payment3a_cc', 'payment3b'] and donation['processing_status'] == 0:
             donation_time_left = donation['created'] - datetime.datetime.now() + datetime.timedelta(minutes=6)
             if donation_time_left < datetime.timedelta(minutes=2):
                 donation_time_left_not_much = True

@@ -24,7 +24,7 @@ from sqlalchemy.orm import Session
 from flask_babel import gettext, get_locale
 
 from allthethings.extensions import es, engine, mariapersist_engine
-from config.settings import PAYMENT1B_ID, PAYMENT1B_KEY, PAYMENT1C_ID, PAYMENT1C_KEY, PAYMENT2_URL, PAYMENT2_API_KEY, PAYMENT2_PROXIES, PAYMENT2_HMAC, PAYMENT2_SIG_HEADER, GC_NOTIFY_SIG, HOODPAY_URL, HOODPAY_AUTH, PAYMENT3_DOMAIN, PAYMENT3_KEY
+from config.settings import PAYMENT1B_ID, PAYMENT1B_KEY, PAYMENT1C_ID, PAYMENT1C_KEY, PAYMENT1D_ID, PAYMENT1D_KEY, PAYMENT2_URL, PAYMENT2_API_KEY, PAYMENT2_PROXIES, PAYMENT2_HMAC, PAYMENT2_SIG_HEADER, GC_NOTIFY_SIG, HOODPAY_URL, HOODPAY_AUTH, PAYMENT3_DOMAIN, PAYMENT3_KEY
 from allthethings.page.views import get_aarecords_elasticsearch, ES_TIMEOUT_PRIMARY, get_torrents_data
 
 import allthethings.utils
@@ -1050,7 +1050,7 @@ def account_buy_membership():
         raise Exception("Invalid costCentsUsdVerification")
 
     donation_type = 0 # manual
-    if method in ['payment1b_alipay', 'payment1b_wechat', 'payment1c_alipay', 'payment1c_wechat', 'payment2', 'payment2paypal', 'payment2cashapp', 'payment2revolut', 'payment2cc', 'amazon', 'amazon_co_uk', 'amazon_fr', 'amazon_it', 'amazon_ca', 'amazon_de', 'amazon_es', 'hoodpay', 'payment3a', 'payment3a_cc', 'payment3b']:
+    if method in ['payment1b_alipay', 'payment1b_wechat', 'payment1c_alipay', 'payment1c_wechat', 'payment1d_alipay', 'payment1d_wechat', 'payment2', 'payment2paypal', 'payment2cashapp', 'payment2revolut', 'payment2cc', 'amazon', 'amazon_co_uk', 'amazon_fr', 'amazon_it', 'amazon_ca', 'amazon_de', 'amazon_es', 'hoodpay', 'payment3a', 'payment3a_cc', 'payment3b']:
         donation_type = 1
 
     with Session(mariapersist_engine) as mariapersist_session:
@@ -1099,7 +1099,7 @@ def account_buy_membership():
                 print(f"Warning payment3_request error: {donation_json['payment3_request']}")
                 return orjson.dumps({ 'error': gettext('dyn.buy_membership.error.unknown', email="https://annas-archive.li/contact") })
 
-        if method in ['payment1b_alipay', 'payment1b_wechat', 'payment1c_alipay', 'payment1c_wechat']:
+        if method in ['payment1b_alipay', 'payment1b_wechat', 'payment1c_alipay', 'payment1c_wechat', 'payment1d_alipay', 'payment1d_wechat']:
             if method in ['payment1b_alipay', 'payment1b_wechat']:
                 payment1_data = {
                     "pid": PAYMENT1B_ID,
@@ -1115,6 +1115,14 @@ def account_buy_membership():
                     "payment1_url_prefix": "https://api.idapap.top/submit.php?",
                     "notify_url": "https://annas-archive.li/dyn/payment1c_notify/",
                     "type": "alipay" if method == 'payment1c_alipay' else "wxpay",
+                }
+            elif method in ['payment1d_alipay', 'payment1d_wechat']:
+                payment1_data = {
+                    "pid": PAYMENT1D_ID,
+                    "key": PAYMENT1D_KEY,
+                    "payment1_url_prefix": "https://pay.funlou.top/submit.php?",
+                    "notify_url": "https://annas-archive.li/dyn/payment1d_notify/",
+                    "type": "alipay" if method == 'payment1d_alipay' else "wxpay",
                 }
             data = {
                 # Note that these are sorted by key.
@@ -1280,6 +1288,11 @@ def payment1b_notify():
 @allthethings.utils.no_cache()
 def payment1c_notify():
     return payment1_common_notify(PAYMENT1C_KEY, 'payment1c_notify')
+
+@dyn.get("/dyn/payment1d_notify/")
+@allthethings.utils.no_cache()
+def payment1d_notify():
+    return payment1_common_notify(PAYMENT1D_KEY, 'payment1d_notify')
 
 def payment1_common_notify(sign_key, data_key):
     data = {
