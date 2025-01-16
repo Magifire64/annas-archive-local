@@ -27,7 +27,7 @@
   <h3 class="group mt-8 mb-1 text-xl font-bold" id="light">{{ gettext('page.volunteering.section.light.heading') }} <a href="#light" class="custom-a invisible group-hover:visible text-gray-400 hover:text-gray-500 font-normal text-sm align-[2px]">§</a></h3>
 
   <p class="mb-4">
-    {{ gettext('page.volunteering.section.light.text1', a_telegram=(a.telegram_volunteers|xmlattr)) }}
+    <!-- {{ gettext('page.volunteering.section.light.text1', a_telegram=(a.telegram_volunteers|xmlattr)) }} -->
     {{ gettext('page.volunteering.section.light.matrix', matrix="#annas:archivecommunication.org") }}
   </p>
 
@@ -62,7 +62,8 @@
     </tr>
     <!-- TODO: fixing file or formatting issues? -->
     <tr class="even:bg-[#f2f2f2]">
-      <td class="p-4">{{ gettext('page.volunteering.table.misc.task', a_telegram=(a.telegram_volunteers|xmlattr)) }}</td>
+      <!-- <td class="p-4">{{ gettext('page.volunteering.table.misc.task', a_telegram=(a.telegram_volunteers|xmlattr)) }}</td> -->
+      <td class="p-4"><!-- TODO:TRANSLATE -->Small tasks posted in our volunteer chat group.</td>
       <td class="p-4">{{ gettext('page.volunteering.table.misc.milestone') }}</td>
     </tr>
   </table>
