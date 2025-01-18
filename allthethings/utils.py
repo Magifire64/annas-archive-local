@@ -2178,6 +2178,7 @@ TORRENT_PATHS_PARTIALLY_BROKEN = [
     'torrents/external/libgen_li_fic/f_3412000.torrent',
     'torrents/external/libgen_li_fic/f_3453000.torrent',
     'torrents/external/libgen_li_comics/c_1137000.torrent',
+    'torrents/external/libgen_li_comics/c_2086000.torrent',
 ]
 
 def build_pagination_pages_with_dots(primary_hits_pages, page_value, large):
