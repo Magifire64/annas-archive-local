@@ -89,6 +89,14 @@ To get Anna's Archive running locally:
 
   Adjust the size of the ElasticSearch heap by modifying `ES_JAVA_OPTS` in `docker-compose.yml` according to your system's available memory.
 
+- **WSL2 InnoDB Preallocation Errors**
+
+  There is a known problem with WSL2 in relation to docker bind mounts. This can be resolved by using docker volumes instead of bind mounts by modifying `"../allthethings-mariapersist-data:/var/lib/mysql/"` in `docker-compose.yml` to be `"mariapersist-data:/var/lib/mysql/"` and adding `volumes: mariapersist-data:` to the same file. See [related issue](https://github.com/CTFd/CTFd/issues/2600#issuecomment-2365065037) for reference.
+
+  Note: If you do this make sure you have enough disk space where your docker volumes are stored.
+
+  There might be more errors associated with this, such as the mounting of `mariapersist-conf/my.cnf` (which is important for loading it on the correct port 3333). Feel free to send Merge Requests for any more issues you find!
+
 ## Architecture Overview
 
 Anna’s Archive is built on a scalable architecture designed to support a large volume of data and users:
