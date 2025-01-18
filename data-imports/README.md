@@ -90,7 +90,7 @@ docker exec -it aa-data-import--mariadb mariadb -u root -ppassword allthethings
 docker exec -it aa-data-import--web /scripts/check_after_imports.sh
 
 # Sanity check to make sure the tables are filled.
-docker exec -it aa-data-import--mariadb mariadb -u root -ppassword allthethings --show-warnings -vv -e 'SELECT table_name, ROUND(((data_length + index_length) / 1000 / 1000 / 1000), 2) AS "Size (GB)" FROM information_schema.TABLES WHERE table_schema = "allthethings" ORDER BY table_name;'
+docker exec -it aa-data-import--mariadb mariadb -u root -ppassword allthethings --show-warnings -vv -e 'SELECT table_name, ROUND(((data_length + index_length) / 1000 / 1000 / 1000), 2) AS "Size (GB)" FROM information_schema.TABLES WHERE table_schema = "allthethings" ORDER BY (data_length + index_length);'
 
 # Calculate derived data:
 docker exec -it aa-data-import--web flask cli mysql_build_computed_all_md5s # Can be skipped when using aa_derived_mirror_metadata.
