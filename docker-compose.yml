@@ -133,32 +133,6 @@ services:
     logging:
       driver: "local"
 
-  mariabackup:
-    container_name: mariabackup
-    image: woolfg/mysql-backup-sidecar:sha-fb85d88-mariadb-10.9
-    network_mode: "${NETWORK_MODE:-bridge}"
-    environment:
-      MYSQL_HOST: "${MARIABACKUP_HOST}"
-      MYSQL_PORT: "${MARIABACKUP_PORT}"
-      MYSQL_USER: "${MARIABACKUP_USER}"
-      MYSQL_PASSWORD: "${MARIABACKUP_PASSWORD}"
-    profiles: ["mariabackup"]
-    restart: "${DOCKER_RESTART_POLICY:-unless-stopped}"
-    stop_grace_period: "3s"
-    volumes:
-      - "../${MARIABACKUP_DIR:-allthethings-mariapersistreplica-data}:/var/lib/mysql/"
-      - "../allthethings-mariabackup-data:/backup"
-    ulimits:
-      memlock:
-        soft: -1
-        hard: -1
-      nproc: 65535
-      nofile:
-        soft: 65535
-        hard: 65535
-    logging:
-      driver: "local"
-
   # redis:
   #   container_name: redis
   #   network_mode: "${NETWORK_MODE:-bridge}"

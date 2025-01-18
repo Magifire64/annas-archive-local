@@ -105,7 +105,6 @@ Anna’s Archive is built on a scalable architecture designed to support a large
       - Static read-only files in AAC (Anna’s Archive Container) format (the "allthethings-file-data/" folder), with accompanying index tables (with byte offsets) in MariaDB.
   - Optional:
     - A persistent data replica ("mariapersistreplica") for backups and redundancy.
-    - "mariabackup" instance for regular backups.
 - **Caching and Proxy Servers:** Recommended setup includes proxy servers (e.g., nginx) in front of the web servers for added control and security (DMCA notices). [Blog post](https://annas-archive.org/blog/how-to-run-a-shadow-library.html).
 
 In our setup, the web and database servers are duplicated multiple times on different servers, with the exception of "mariapersist" which is shared between all servers. The ElasticSearch main server (or both servers) can also be run separately on optimized hardware, since search speed is usually a bottleneck.
@@ -145,7 +144,7 @@ Be sure to exclude a bunch of stuff, most importantly `docker-compose.override.y
 rsync --exclude=.git --exclude=.env --exclude=.env-data-imports --exclude=.DS_Store --exclude=docker-compose.override.yml --exclude=/.pytest_cache/ --exclude=/.ruff_cache/ -av --delete ..
 ```
 
-To set up mariapersistreplica and mariabackup, check out `mariapersistreplica-conf/README.txt`.
+To set up mariapersistreplica, check out `mariapersistreplica-conf/README.txt`.
 
 ## Scraping
 
