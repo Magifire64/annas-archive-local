@@ -291,7 +291,7 @@
             {% if label %}
               <!-- <li class="list-disc">{{ gettext('page.md5.box.download.option', num=loop.index, link=(("<a href='" + url + "'" + 'rel="noopener noreferrer nofollow" class="js-download-link">' + label + '</a>') | safe), extra=((((('<a class="text-xs" href="' | safe) + url + ('?no_redirect=1">' | safe) + gettext('page.md5.box.download.no_redirect') + ('</a> ') | safe) | safe) + (extra | safe)) | safe )) }}</li> -->
               <li class="list-disc">{{ gettext('page.md5.box.download.option', num=loop.index, link=(("<a href='" + url + "'" + 'rel="noopener noreferrer nofollow" class="js-download-link">' + label + '</a>') | safe), extra=(((
-                ((('<a class="text-xs" href="' | safe) + url + ('?viewer=1"><!-- TODO:TRANSLATE -->(open in viewer)</a> ') | safe) if (aarecord.file_unified_data.extension_best | lower) in viewer_supported_extensions else '') + ('<a class="text-xs" href="' | safe) + url + ('?no_redirect=1">' | safe) + gettext('page.md5.box.download.no_redirect') + ('</a> ') | safe)) + (extra | safe)) | safe ) }}</li>
+                ((('<a class="text-xs" href="' | safe) + url + ('?viewer=1"><!-- TODO:TRANSLATE -->(open in viewer)</a> ') | safe) if (aarecord.file_unified_data.extension_best | lower) in viewer_supported_extensions.values() | sum(start=[]) else '') + ('<a class="text-xs" href="' | safe) + url + ('?no_redirect=1">' | safe) + gettext('page.md5.box.download.no_redirect') + ('</a> ') | safe)) + (extra | safe)) | safe ) }}</li>
               {% else %}
               <li class="list-disc">{{ extra | safe }}</li>
             {% endif %}
@@ -313,7 +313,7 @@
               <li class="list-disc">{{ extra | safe }}</li>
             {% endif %}
           {% endfor %}
-          {% if (aarecord.file_unified_data.extension_best | lower) in viewer_supported_extensions %}
+          {% if (aarecord.file_unified_data.extension_best | lower) in viewer_supported_extensions.values() | sum(start=[]) %}
             <!-- TODO:TRANSLATE -->
             <li class="list-disc">After downloading: <a href="/view">Open in our viewer</a></li>
           {% endif %}

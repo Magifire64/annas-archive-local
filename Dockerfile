@@ -105,6 +105,20 @@ RUN unzip /public/pdfjs-4.5.136-dist.zip -d /public/pdfjs
 # Remove lines
 RUN sed -i -e '/if (fileOrigin !== viewerOrigin) {/,+2d' /public/pdfjs/web/viewer.mjs
 
+# Get foliate.js
+RUN git clone --depth 1 https://github.com/johnfactotum/foliate-js /public/foliatejs \
+    && cd /public/foliatejs \
+    && git fetch origin 34b9079a1b7a325febfb3728f632e636d402a372 --depth 1 \
+    && git checkout 34b9079a1b7a325febfb3728f632e636d402a372
+# Monkey patch fetchFile (needed, as important metadata is lost when calling createObjectURL)
+RUN sed -i 's/await fetchFile(file)/await window.parent.fetchFile(file)/g' /public/foliatejs/view.js
+# Monkey patch onLoad to automatically refocus the iframe
+RUN sed -i '/#onLoad({ detail: { doc } }) {/!b;n;a\\t\twindow.top.postMessage("refocus-iframe");' /public/foliatejs/reader.js
+
+# Get djvu.js
+RUN curl -L https://github.com/RussCoder/djvujs/releases/download/L.0.5.4_V.0.10.1/djvu.js --create-dirs -o /public/djvujs/djvu.js 
+RUN curl -L https://github.com/RussCoder/djvujs/releases/download/L.0.5.4_V.0.10.1/djvu_viewer.js --create-dirs -o /public/djvujs/djvu_viewer.js 
+
 COPY --from=assets /app/public /public
 
 COPY . .
