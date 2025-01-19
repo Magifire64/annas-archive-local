@@ -184,6 +184,16 @@ There are also some experimental tests in `test-e2e`. You can run them inside th
 
 (If you are running the tests outside of Docker, you'll need to do `uv playwright install` first.)
 
+### Testing Viewer
+[pdf](http://localtest.me:8000/view?url=/test-files/sample.pdf)\
+[epub](http://localtest.me:8000/view?url=/test-files/sample.epub)\
+[fb2](http://localtest.me:8000/view?url=/test-files/sample.fb2)\
+[mobi](http://localtest.me:8000/view?url=/test-files/sample.mobi)\
+[djvu](http://localtest.me:8000/view?url=/test-files/sample.djvu)\
+[cbz](http://localtest.me:8000/view?url=/test-files/sample.cbz)\
+[azw3](http://localtest.me:8000/view?url=/test-files/sample.azw3)
+
+
 ## License
 
 Released in the public domain under the terms of [CC0](./LICENSE). By contributing you agree to license your code under the same license.

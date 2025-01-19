@@ -7236,6 +7236,9 @@ def rgb_page(rgb_id):
 def trantor_page(trantor_id):
     return render_aarecord(f"trantor:{trantor_id}")
 
+
+VIEWER_SUPPORTED_EXTENSIONS = {"pdfjs": ["pdf"], "foliatejs": ["epub", "fb2", "mobi", "cbz", "azw3"], "djvujs": ["djvu"]}
+
 def render_aarecord(record_id):
     if allthethings.utils.DOWN_FOR_MAINTENANCE:
         return render_template("page/maintenance.html", header_active="")
@@ -7262,7 +7265,7 @@ def render_aarecord(record_id):
             "aarecord": aarecord,
             "md5_problem_type_mapping": get_md5_problem_type_mapping(),
             "md5_report_type_mapping": allthethings.utils.get_md5_report_type_mapping(),
-            "viewer_supported_extensions": ['pdf'],
+            "viewer_supported_extensions": VIEWER_SUPPORTED_EXTENSIONS,
             "signed_in": account_id is not None
         }
         return render_template("page/aarecord.html", **render_fields)
@@ -7279,8 +7282,8 @@ def view_page():
             account_fast_download_info = allthethings.utils.get_account_fast_download_info(mariapersist_session, account_id)
             if account_fast_download_info is None:
                 return redirect("/fast_download_not_member", code=302)
-        return render_template("page/view.html", header_active="", url=url_input)
-    return render_template("page/view.html", header_active="")
+        return render_template("page/view.html", header_active="", url=url_input, viewer_supported_extensions=VIEWER_SUPPORTED_EXTENSIONS)
+    return render_template("page/view.html", header_active="", viewer_supported_extensions=VIEWER_SUPPORTED_EXTENSIONS)
 
 @page.get("/scidb")
 @allthethings.utils.public_cache(minutes=5, cloudflare_minutes=60*3)
