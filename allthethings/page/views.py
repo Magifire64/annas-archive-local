@@ -7854,16 +7854,18 @@ def search_page():
     custom_search_sorting = ['_score']
     if sort_value == "newest":
         custom_search_sorting = [{ "search_only_fields.search_year": "desc" }, '_score']
-    if sort_value == "oldest":
+    elif sort_value == "oldest":
         custom_search_sorting = [{ "search_only_fields.search_year": "asc" }, '_score']
-    if sort_value == "largest":
+    elif sort_value == "largest":
         custom_search_sorting = [{ "search_only_fields.search_filesize": "desc" }, '_score']
-    if sort_value == "smallest":
+    elif sort_value == "smallest":
         custom_search_sorting = [{ "search_only_fields.search_filesize": "asc" }, '_score']
-    if sort_value == "newest_added":
+    elif sort_value == "newest_added":
         custom_search_sorting = [{ "search_only_fields.search_added_date": "desc" }, '_score']
-    if sort_value == "oldest_added":
+    elif sort_value == "oldest_added":
         custom_search_sorting = [{ "search_only_fields.search_added_date": "asc" }, '_score']
+    elif sort_value == "random":
+        custom_search_sorting = "___aa_random_sorting"
 
     main_search_fields = []
     if len(search_input) > 0:
@@ -7959,10 +7961,10 @@ def search_page():
         {
             "size": max_display_results,
             "from": (page_value-1)*max_display_results,
-            "query": search_query,
+            "query": search_query if custom_search_sorting not in ["___aa_random_sorting"] else {"function_score":{"random_score":{}, "query":search_query}},
             "aggs": search_query_aggs(search_index_long),
             "post_filter": { "bool": { "filter": post_filter } },
-            "sort": custom_search_sorting,
+            "sort": custom_search_sorting if custom_search_sorting not in ["___aa_random_sorting"] else ["_score"],
             # "track_total_hits": False, # Set to default
             "timeout": (ES_TIMEOUT_PRIMARY_METADATA if es_handle == es_aux else ES_TIMEOUT_PRIMARY),
             # "knn": { "field": "search_only_fields.search_e5_small_query", "query_vector": list(map(float, get_e5_small_model().encode(f"query: {search_input}", normalize_embeddings=True))), "k": 10, "num_candidates": 1000 },
@@ -8095,8 +8097,8 @@ def search_page():
                         { "index": allthethings.utils.all_virtshards_for_index(search_index_long) },
                         {
                             "size": additional_display_results,
-                            "query": search_query,
-                            "sort": custom_search_sorting,
+                            "query": search_query if custom_search_sorting not in ["___aa_random_sorting"] else {"function_score":{"random_score":{}, "query":search_query}},
+                            "sort": custom_search_sorting if custom_search_sorting not in ["___aa_random_sorting"] else ["_score"],
                             "track_total_hits": False,
                             "timeout": ES_TIMEOUT,
                         },
@@ -8190,6 +8192,6 @@ def search_page():
             search_dict=search_dict,
             search_hashes=search_hashes
         ), 200))
-    if had_es_timeout or (len(search_aarecords) == 0):
+    if had_es_timeout or (len(search_aarecords) == 0) or (custom_search_sorting in ["___aa_random_sorting"]):
         r.headers.add('Cache-Control', 'no-cache')
     return r
