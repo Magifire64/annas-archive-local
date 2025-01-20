@@ -6818,6 +6818,9 @@ def get_additional_for_aarecord(aarecord):
         lgrsnf_thousands_dir = (source_record['id'] // 1000) * 1000
         lgrsnf_torrent_path = f"external/libgen_rs_non_fic/r_{lgrsnf_thousands_dir:03}.torrent"
         lgrsnf_filename = source_record['md5'].lower()
+        if lgrsnf_filename == 'c34722c6cc99b5267399f6acfd25948a':
+            # Weird one-off: the only file in lgrsnf we could find that has an extension!
+            lgrsnf_filename = 'c34722c6cc99b5267399f6acfd25948a.djvu'
         if lgrsnf_thousands_dir <= 4391000:
             lgrsnf_path = f"g4/libgenrs_nonfiction/libgenrs_nonfiction/{lgrsnf_thousands_dir}/{lgrsnf_filename}"
             add_partner_servers(lgrsnf_path, '', aarecord, additional)
