@@ -18,7 +18,7 @@ cd /temp-dir/libgenli_db
 # rclone -vP --include 'libgen_new.*' --max-depth 1 --check-first --checkers 1 --transfers 1 --size-only copy --retries=100 --low-level-retries=1000 --http-url="https://libgen.li/dbdumps/" :http: /temp-dir/libgenli_db/
 
 for i in $(seq -w 1 5); do # retries
-    rclone copy :ftp:/upload/dbbackup/ /temp-dir/libgenli_db/ --ftp-host=ftp.libgen.lc --ftp-user=anonymous --ftp-pass=$(rclone obscure dummy) --size-only --multi-thread-streams=1 --transfers=1 -vv
+    rclone copy :ftp:/upload/dbbackup/ /temp-dir/libgenli_db/ --ftp-host=ftp.libgen.gs --ftp-user=anonymous --ftp-pass=$(rclone obscure dummy) --size-only --multi-thread-streams=1 --transfers=1 -vv
 done
 
 # curl --fail -L -O "https://libgen.li/dbdumps/libgen_new.zip" || curl --fail -L -O "https://libgen.gs/dbdumps/libgen_new.zip" || curl --fail -L -O "https://libgen.vg/dbdumps/libgen_new.zip" || curl --fail -L -O "https://libgen.pm/dbdumps/libgen_new.zip"
@@ -31,8 +31,8 @@ done
     
 #     # Try bewteen these:
 #     # *.li, *.gs, *.vg, *.pm
-#     # curl --fail -L -O "https://libgen.lc/dbdumps/libgen_new.part0${i}.rar" || curl --fail -L -O "https://libgen.li/dbdumps/libgen_new.part0${i}.rar" || curl --fail -L -O "https://libgen.gs/dbdumps/libgen_new.part0${i}.rar" || curl --fail -L -O "https://libgen.vg/dbdumps/libgen_new.part0${i}.rar" || curl --fail -L -O "https://libgen.pm/dbdumps/libgen_new.part0${i}.rar"
+#     # curl --fail -L -O "https://libgen.gs/dbdumps/libgen_new.part0${i}.rar" || curl --fail -L -O "https://libgen.li/dbdumps/libgen_new.part0${i}.rar" || curl --fail -L -O "https://libgen.gs/dbdumps/libgen_new.part0${i}.rar" || curl --fail -L -O "https://libgen.vg/dbdumps/libgen_new.part0${i}.rar" || curl --fail -L -O "https://libgen.pm/dbdumps/libgen_new.part0${i}.rar"
 #     curl --fail -L -O "https://libgen.li/dbdumps/libgen_new.z${i}" || curl --fail -L -O "https://libgen.gs/dbdumps/libgen_new.z${i}" || curl --fail -L -O "https://libgen.vg/dbdumps/libgen_new.z${i}" || curl --fail -L -O "https://libgen.pm/dbdumps/libgen_new.z${i}"
 # done
 
-#for i in $(seq -w 6 47); do curl --fail -L -O "https://libgen.lc/dbdumps/libgen_new.part0${i}.rar" || curl --fail -L -O "https://libgen.li/dbdumps/libgen_new.part0${i}.rar" || curl --fail -L -O "https://libgen.gs/dbdumps/libgen_new.part0${i}.rar" || curl --fail -L -O "https://libgen.vg/dbdumps/libgen_new.part0${i}.rar" || curl --fail -L -O "https://libgen.pm/dbdumps/libgen_new.part0${i}.rar"; done
+#for i in $(seq -w 6 47); do curl --fail -L -O "https://libgen.gs/dbdumps/libgen_new.part0${i}.rar" || curl --fail -L -O "https://libgen.li/dbdumps/libgen_new.part0${i}.rar" || curl --fail -L -O "https://libgen.gs/dbdumps/libgen_new.part0${i}.rar" || curl --fail -L -O "https://libgen.vg/dbdumps/libgen_new.part0${i}.rar" || curl --fail -L -O "https://libgen.pm/dbdumps/libgen_new.part0${i}.rar"; done
