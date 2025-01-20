@@ -85,7 +85,7 @@
       <script>loadViewerByUrl("{{ url }}")</script>
     {% else %} 
       <div id="drop-area" class="p-16 cursor-pointer border-2 border-dashed border-gray-300 rounded-lg text-center bg-gray-50 hover:bg-gray-100">
-        <div class="mb-4">Drop file here or click to upload</div>
+        <div class="mb-4">Drop file here to open (or click)</div>
         <div class="text-gray-500 text-sm">Supported files: {{ viewer_supported_extensions.values() | sum(start=[]) | join(', ') }}</div>
         <input type="file" id="file-upload" class="hidden" accept="{% for ext in viewer_supported_extensions.values() | sum(start=[]) %}.{{ ext }}{% if not loop.last %},{% endif %}{% endfor %}"/>
       </div>

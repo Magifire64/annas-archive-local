@@ -239,14 +239,14 @@
                     for (const el of document.querySelectorAll('.js-download-link')) {
                       el.addEventListener("click", function() {
                         elRemaining.classList.add('hidden');
-                        for (const el of document.querySelector('.js-fast-download-member-header-valid-for')) {
+                        for (const el of document.querySelectorAll('.js-fast-download-member-header-valid-for')) {
                           el.classList.remove('hidden');
                         }
                       });
                     }
                   }
                 } else {
-                  for (const el of document.querySelector('.js-fast-download-member-header-no-remaining')) {
+                  for (const el of document.querySelectorAll('.js-fast-download-member-header-no-remaining')) {
                     el.classList.remove('hidden');
                   }
                 }
@@ -371,9 +371,11 @@
           </li>
           <li class="list-disc mb-2">
             {{ gettext('page.md5.box.download.readers') }}<br>
+            <!-- TODO:TRANSLATE ("Anna’s Archive online viewer") -->
             {{ gettext(
                 'page.md5.box.download.readers.links',
                 links=(format_list([
+                  (a.html_a('Anna’s Archive online viewer', href="/view") | safe),
                   (a.html_a('ReadEra', href="https://readera.org/", **a.external_link) | safe),
                   (a.html_a('Calibre', href="https://calibre-ebook.com/", **a.external_link) | safe),
                 ], style='standard') | safe),
