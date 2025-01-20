@@ -245,7 +245,13 @@
   <p class="mb-4">
     <strong>{{ gettext('page.faq.torrents.q3') }}</strong>
     <br>
-    {{ gettext('page.faq.torrents.a3', a_generate=(' href="https://software.annas-archive.li/AnnaArchivist/annas-archive/-/blob/main/data-imports/README.md"' | safe), a_download=(' href="/torrents#aa_derived_mirror_metadata"' | safe)) }}
+    <!-- TODO:TRANSLATE -->
+    Short answer: not easily.
+  </p>
+
+  <p class="mb-4">
+    <!-- TODO:TRANSLATE -->
+    Long answer: {{ gettext('page.faq.torrents.a3', a_generate=(' href="https://software.annas-archive.li/AnnaArchivist/annas-archive/-/blob/main/data-imports/README.md"' | safe), a_download=(' href="/torrents#aa_derived_mirror_metadata"' | safe)) }} (We do have <a href="https://software.annas-archive.li/AnnaArchivist/annas-archive/-/issues/219">some ideas</a> for the latter case though.) No easy to use tools for filtering down torrents are available yet, but we welcome contributions.
   </p>
 
   <p class="mb-4">
