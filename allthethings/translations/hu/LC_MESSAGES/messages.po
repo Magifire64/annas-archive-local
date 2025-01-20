@@ -122,15 +122,15 @@ msgstr "Állhatatos Adathalmozó"
 msgid "common.membership.tier_name.5"
 msgstr "Lélekvarázsló Levéltáros"
 
-#: allthethings/utils.py:641
+#: allthethings/utils.py:656
 msgid "common.membership.format_currency.total"
 msgstr "%(amount)s összesen"
 
-#: allthethings/utils.py:648
+#: allthethings/utils.py:663
 msgid "common.membership.format_currency.total_with_usd"
 msgstr "%(amount)s (%(amount_usd)s) összesen"
 
-#: allthethings/utils.py:650 allthethings/utils.py:651
+#: allthethings/utils.py:665 allthethings/utils.py:666
 msgid "common.membership.format_currency.amount_with_usd"
 msgstr "%(amount)s (%(amount_usd)s)"
 
@@ -281,7 +281,7 @@ msgid "page.donate.expert.contact_us"
 msgstr "lépjen kapcsolatba velünk"
 
 #: allthethings/account/templates/account/donate.html:101
-#: allthethings/account/templates/account/donation.html:716
+#: allthethings/account/templates/account/donation.html:766
 #: allthethings/page/templates/page/contact.html:22
 #, fuzzy
 msgid "page.donate.small_team"
@@ -325,7 +325,7 @@ msgid "page.donate.payment.select_method"
 msgstr "Kérjük, válasszon fizetési módot."
 
 #: allthethings/account/templates/account/donate.html:132
-#: allthethings/account/templates/account/donate.html:503
+#: allthethings/account/templates/account/donate.html:507
 msgid "page.donate.discount"
 msgstr "-%(percentage)s%%"
 
@@ -342,216 +342,208 @@ msgid "page.donate.payment.buttons.amazon_cc"
 msgstr "%(amazon)s ajándékkártya"
 
 #: allthethings/account/templates/account/donate.html:152
+#: allthethings/account/templates/account/donate.html:153
+#: allthethings/account/templates/account/donate.html:154
 #, fuzzy
 msgid "page.donate.payment.buttons.bank_card_app"
 msgstr "Bankkártya (alkalmazás használatával)"
 
-#: allthethings/account/templates/account/donate.html:153
-#: allthethings/account/templates/account/donate.html:163
-#: allthethings/account/templates/account/donate.html:164
-#: allthethings/account/templates/account/donate.html:450
+#: allthethings/account/templates/account/donate.html:155
+#: allthethings/account/templates/account/donate.html:165
+#: allthethings/account/templates/account/donate.html:166
+#: allthethings/account/templates/account/donate.html:454
 msgid "page.donate.payment.buttons.crypto"
 msgstr "Kripto %(bitcoin_icon)s"
 
-#: allthethings/account/templates/account/donate.html:155
+#: allthethings/account/templates/account/donate.html:157
 msgid "page.donate.payment.buttons.credit_debit"
 msgstr "Hitelkártya/bankkártya"
 
-#: allthethings/account/templates/account/donate.html:156
+#: allthethings/account/templates/account/donate.html:158
 msgid "page.donate.payment.buttons.paypal"
 msgstr "PayPal (USA) %(bitcoin_icon)s"
 
-#: allthethings/account/templates/account/donate.html:157
+#: allthethings/account/templates/account/donate.html:159
 #, fuzzy
 msgid "page.donate.payment.buttons.paypalreg"
 msgstr "PayPal (rendszeres)"
 
-#: allthethings/account/templates/account/donate.html:158
+#: allthethings/account/templates/account/donate.html:160
 #, fuzzy
 msgid "page.donate.payment.buttons.givebutter"
 msgstr "Kártya / PayPal / Venmo"
 
-#: allthethings/account/templates/account/donate.html:160
+#: allthethings/account/templates/account/donate.html:162
 #, fuzzy
 msgid "page.donate.payment.buttons.bmc"
 msgstr "Hitel-/betéti kártya/Apple/Google (BMC)"
 
-#: allthethings/account/templates/account/donate.html:161
-#: allthethings/account/templates/account/donate.html:201
-#: allthethings/account/templates/account/donate.html:210
-#: allthethings/account/templates/account/donate.html:211
-#: allthethings/account/templates/account/donate.html:444
+#: allthethings/account/templates/account/donate.html:163
+#: allthethings/account/templates/account/donate.html:203
+#: allthethings/account/templates/account/donate.html:213
+#: allthethings/account/templates/account/donate.html:214
+#: allthethings/account/templates/account/donate.html:448
 msgid "page.donate.payment.buttons.alipay"
 msgstr "Alipay"
 
-#: allthethings/account/templates/account/donate.html:162
+#: allthethings/account/templates/account/donate.html:164
 msgid "page.donate.payment.buttons.pix"
 msgstr "Pix (Brazília)"
 
-#: allthethings/account/templates/account/donate.html:166
+#: allthethings/account/templates/account/donate.html:168
 msgid "page.donate.payment.buttons.cashapp"
 msgstr "Cash App"
 
-#: allthethings/account/templates/account/donate.html:167
+#: allthethings/account/templates/account/donate.html:169
 #, fuzzy
 msgid "page.donate.payment.buttons.revolut"
 msgstr "Revolut"
 
-#: allthethings/account/templates/account/donate.html:168
+#: allthethings/account/templates/account/donate.html:170
 msgid "page.donate.payment.buttons.paypal_plain"
 msgstr "PayPal"
 
-#: allthethings/account/templates/account/donate.html:169
+#: allthethings/account/templates/account/donate.html:171
 #, fuzzy
 msgid "page.donate.payment.buttons.bank_card"
 msgstr "Bankkártya"
 
-#: allthethings/account/templates/account/donate.html:170
+#: allthethings/account/templates/account/donate.html:172
 #, fuzzy
 msgid "page.donate.payment.buttons.credit_debit_backup"
 msgstr "Hitel-/betéti kártya (tartalék)"
 
-#: allthethings/account/templates/account/donate.html:171
+#: allthethings/account/templates/account/donate.html:173
 msgid "page.donate.payment.buttons.credit_debit2"
 msgstr "Hitelkártya/bankkártya 2"
 
-#: allthethings/account/templates/account/donate.html:173
+#: allthethings/account/templates/account/donate.html:175
 #, fuzzy
 msgid "page.donate.payment.buttons.binance"
 msgstr "Binance"
 
-#: allthethings/account/templates/account/donate.html:200
-#: allthethings/account/templates/account/donate.html:204
-#: allthethings/account/templates/account/donate.html:205
-#: allthethings/account/templates/account/donate.html:447
+#: allthethings/account/templates/account/donate.html:202
+#: allthethings/account/templates/account/donate.html:206
+#: allthethings/account/templates/account/donate.html:207
+#: allthethings/account/templates/account/donate.html:451
 #, fuzzy
 msgid "page.donate.payment.buttons.wechat"
 msgstr "WeChat"
 
-#: allthethings/account/templates/account/donate.html:215
-#: allthethings/account/templates/account/donate.html:216
+#: allthethings/account/templates/account/donate.html:219
+#: allthethings/account/templates/account/donate.html:220
 msgid "page.donate.payment.buttons.alipay_wechat"
 msgstr "Alipay / WeChat"
 
-#: allthethings/account/templates/account/donate.html:235
+#: allthethings/account/templates/account/donate.html:239
 msgid "page.donate.payment.desc.crypto"
 msgstr "A kriptovaluták segítségével BTC, ETH, XMR és SOL segítségével adományozhatsz. Akkor használd ezt a lehetőséget, ha már jártas vagy a kriptovalutában."
 
-#: allthethings/account/templates/account/donate.html:239
+#: allthethings/account/templates/account/donate.html:243
 msgid "page.donate.payment.desc.crypto2"
 msgstr "Kriptovalutával adományozhatsz BTC, ETH, XMR és más segítségével."
-
-#: allthethings/account/templates/account/donate.html:242
-#: allthethings/account/templates/account/donate.html:452
-#, fuzzy
-msgid "page.donate.payment.desc.crypto_suggestion_dynamic"
-msgstr "Ha először használ kriptovalutát, javasoljuk, hogy használja a %(options)s-t Bitcoin (az eredeti és leggyakrabban használt kriptovaluta) vásárlására és adományozására."
-
-#: allthethings/account/templates/account/donate.html:245
-#: allthethings/account/templates/account/donate.html:455
-#, fuzzy
-msgid "page.donate.payment.processor.binance"
-msgstr "Binance"
 
 #: allthethings/account/templates/account/donate.html:246
 #: allthethings/account/templates/account/donate.html:456
 #, fuzzy
+msgid "page.donate.payment.desc.crypto_suggestion_dynamic"
+msgstr "Ha először használ kriptovalutát, javasoljuk, hogy használja a %(options)s-t Bitcoin (az eredeti és leggyakrabban használt kriptovaluta) vásárlására és adományozására."
+
+#: allthethings/account/templates/account/donate.html:249
+#: allthethings/account/templates/account/donate.html:459
+#, fuzzy
+msgid "page.donate.payment.processor.binance"
+msgstr "Binance"
+
+#: allthethings/account/templates/account/donate.html:250
+#: allthethings/account/templates/account/donate.html:460
+#, fuzzy
 msgid "page.donate.payment.processor.coinbase"
 msgstr "Coinbase"
 
-#: allthethings/account/templates/account/donate.html:247
-#: allthethings/account/templates/account/donate.html:457
+#: allthethings/account/templates/account/donate.html:251
+#: allthethings/account/templates/account/donate.html:461
 #, fuzzy
 msgid "page.donate.payment.processor.kraken"
 msgstr "Kraken"
 
-#: allthethings/account/templates/account/donate.html:255
+#: allthethings/account/templates/account/donate.html:259
 msgid "page.donate.payment.desc.paypal"
 msgstr "A PayPal US segítségével történő adományozáshoz a PayPal Crypto-t fogjuk használni, amely lehetővé teszi számunkra, hogy anonimak maradjunk. Köszönjük, hogy időt szánsz arra, hogy megtanulod, hogyan adományozhatsz ezzel a módszerrel, mivel ez sokat segít nekünk."
 
-#: allthethings/account/templates/account/donate.html:256
+#: allthethings/account/templates/account/donate.html:260
 msgid "page.donate.payment.desc.paypal_short"
 msgstr "Adományozás PayPal segítségével."
 
-#: allthethings/account/templates/account/donate.html:262
+#: allthethings/account/templates/account/donate.html:266
 msgid "page.donate.payment.desc.cashapp"
 msgstr "Adományozás Cash App használatával."
 
-#: allthethings/account/templates/account/donate.html:263
+#: allthethings/account/templates/account/donate.html:267
 msgid "page.donate.payment.desc.cashapp_easy"
 msgstr "Ha van Cash App-ed, ez a legegyszerűbb módja az adományozásnak!"
 
-#: allthethings/account/templates/account/donate.html:266
-#: allthethings/account/templates/account/donate.html:276
+#: allthethings/account/templates/account/donate.html:270
+#: allthethings/account/templates/account/donate.html:280
 msgid "page.donate.payment.desc.cashapp_fee"
 msgstr "Megjegyzés: az %(amount)s alatti tranzakciók esetében a Cash App %(fee)s díjat számíthat fel. %(amount)s vagy annál nagyobb összegek esetén ingyenes!"
 
-#: allthethings/account/templates/account/donate.html:272
+#: allthethings/account/templates/account/donate.html:276
 #, fuzzy
 msgid "page.donate.payment.desc.revolut"
 msgstr "Adományozzon Revolut használatával."
 
-#: allthethings/account/templates/account/donate.html:273
+#: allthethings/account/templates/account/donate.html:277
 #, fuzzy
 msgid "page.donate.payment.desc.revolut_easy"
 msgstr "Ha van Revolut fiókja, ez a legegyszerűbb módja az adományozásnak!"
 
-#: allthethings/account/templates/account/donate.html:282
-#: allthethings/account/templates/account/donate.html:398
+#: allthethings/account/templates/account/donate.html:286
+#: allthethings/account/templates/account/donate.html:402
 msgid "page.donate.payment.desc.credit_debit"
 msgstr "Adományozás hitel- vagy bankkártyával."
 
-#: allthethings/account/templates/account/donate.html:283
+#: allthethings/account/templates/account/donate.html:287
 msgid "page.donate.payment.desc.google_apple"
 msgstr "A Google Pay és az Apple Pay is működhet."
 
-#: allthethings/account/templates/account/donate.html:284
+#: allthethings/account/templates/account/donate.html:288
 msgid "page.donate.payment.desc.elimate_discount"
 msgstr "Megjegyzés: kis összegű adományok esetén a bankkártyadíjak eltörölhetik a %(discount)s%% kedvezményt, ezért hosszabb előfizetéseket ajánlunk."
 
-#: allthethings/account/templates/account/donate.html:285
+#: allthethings/account/templates/account/donate.html:289
 msgid "page.donate.payment.desc.longer_subs"
 msgstr "Vedd figyelembe, hogy a kis adományok esetében a díjak magasak, ezért hosszabb előfizetéseket ajánlunk."
 
-#: allthethings/account/templates/account/donate.html:291
+#: allthethings/account/templates/account/donate.html:295
 #, fuzzy
 msgid "page.donate.payment.desc.binance_p1"
 msgstr "A Binance segítségével hitel-/betéti kártyával vagy bankszámlával vásárolhat Bitcoint, majd adományozhatja nekünk. Így biztonságosak és névtelenek maradhatunk az adományok fogadásakor."
 
-#: allthethings/account/templates/account/donate.html:295
+#: allthethings/account/templates/account/donate.html:299
 #, fuzzy
 msgid "page.donate.payment.desc.binance_p2"
 msgstr "A Binance szinte minden országban elérhető, és támogatja a legtöbb bankot és hitel-/betéti kártyát. Jelenleg ez a fő ajánlásunk. Nagyra értékeljük, hogy időt szán arra, hogy megtanulja, hogyan adományozhat ezen a módon, mivel ez sokat segít nekünk."
 
-#: allthethings/account/templates/account/donate.html:301
+#: allthethings/account/templates/account/donate.html:305
 #, fuzzy
 msgid "page.donate.payment.desc.paypalreg"
 msgstr "Adományozzon a szokásos PayPal fiókjával."
 
-#: allthethings/account/templates/account/donate.html:307
+#: allthethings/account/templates/account/donate.html:311
 #, fuzzy
 msgid "page.donate.payment.desc.givebutter"
 msgstr "Adományozzon hitel-/bankkártyával, PayPal-lal vagy Venmo-val. A következő oldalon választhat ezek közül."
 
-#: allthethings/account/templates/account/donate.html:313
-#: allthethings/account/templates/account/donate.html:325
-#: allthethings/account/templates/account/donate.html:337
-#: allthethings/account/templates/account/donate.html:349
-#: allthethings/account/templates/account/donate.html:361
-#: allthethings/account/templates/account/donate.html:373
-#: allthethings/account/templates/account/donate.html:385
+#: allthethings/account/templates/account/donate.html:317
+#: allthethings/account/templates/account/donate.html:329
+#: allthethings/account/templates/account/donate.html:341
+#: allthethings/account/templates/account/donate.html:353
+#: allthethings/account/templates/account/donate.html:365
+#: allthethings/account/templates/account/donate.html:377
+#: allthethings/account/templates/account/donate.html:389
 msgid "page.donate.payment.desc.amazon"
 msgstr "Adományozás Amazon ajándékkártya használatával."
-
-#: allthethings/account/templates/account/donate.html:314
-#: allthethings/account/templates/account/donate.html:326
-#: allthethings/account/templates/account/donate.html:338
-#: allthethings/account/templates/account/donate.html:350
-#: allthethings/account/templates/account/donate.html:362
-#: allthethings/account/templates/account/donate.html:374
-#: allthethings/account/templates/account/donate.html:386
-msgid "page.donate.payment.desc.amazon_round"
-msgstr "Vedd figyelembe, hogy a viszonteladóink által elfogadott összegekre kell kerekítenünk (minimum %(minimum)s)."
 
 #: allthethings/account/templates/account/donate.html:318
 #: allthethings/account/templates/account/donate.html:330
@@ -560,336 +552,346 @@ msgstr "Vedd figyelembe, hogy a viszonteladóink által elfogadott összegekre k
 #: allthethings/account/templates/account/donate.html:366
 #: allthethings/account/templates/account/donate.html:378
 #: allthethings/account/templates/account/donate.html:390
-#: allthethings/account/templates/account/donation.html:373
+msgid "page.donate.payment.desc.amazon_round"
+msgstr "Vedd figyelembe, hogy a viszonteladóink által elfogadott összegekre kell kerekítenünk (minimum %(minimum)s)."
+
+#: allthethings/account/templates/account/donate.html:322
+#: allthethings/account/templates/account/donate.html:334
+#: allthethings/account/templates/account/donate.html:346
+#: allthethings/account/templates/account/donate.html:358
+#: allthethings/account/templates/account/donate.html:370
+#: allthethings/account/templates/account/donate.html:382
+#: allthethings/account/templates/account/donate.html:394
+#: allthethings/account/templates/account/donation.html:405
 msgid "page.donate.payment.desc.amazon_com"
 msgstr "<strong>FONTOS:</strong> Csak az Amazon.com-ot támogatjuk, más Amazon-weboldalakat nem. Például a .de, .co.uk, .ca oldalakat NEM támogatjuk."
 
-#: allthethings/account/templates/account/donate.html:319
-#: allthethings/account/templates/account/donate.html:331
-#: allthethings/account/templates/account/donate.html:343
-#: allthethings/account/templates/account/donate.html:355
-#: allthethings/account/templates/account/donate.html:367
-#: allthethings/account/templates/account/donate.html:379
-#: allthethings/account/templates/account/donate.html:391
+#: allthethings/account/templates/account/donate.html:323
+#: allthethings/account/templates/account/donate.html:335
+#: allthethings/account/templates/account/donate.html:347
+#: allthethings/account/templates/account/donate.html:359
+#: allthethings/account/templates/account/donate.html:371
+#: allthethings/account/templates/account/donate.html:383
+#: allthethings/account/templates/account/donate.html:395
 #, fuzzy
 msgid "page.donate.payment.desc.amazon_cc"
 msgstr "<strong>FONTOS:</strong> Ez az opció a %(amazon)s számára van. Ha egy másik Amazon weboldalt szeretne használni, válassza ki fent."
 
-#: allthethings/account/templates/account/donate.html:399
+#: allthethings/account/templates/account/donate.html:403
 #, fuzzy
 msgid "page.donate.payment.desc.credit_debit_backup"
 msgstr "Ez a módszer egy kriptovaluta szolgáltatót használ köztes átváltásként. Ez kissé zavaró lehet, ezért kérjük, csak akkor használja ezt a módszert, ha más fizetési módok nem működnek. Ez sem működik minden országban."
 
-#: allthethings/account/templates/account/donate.html:405
+#: allthethings/account/templates/account/donate.html:409
 #, fuzzy
 msgid "page.donate.payment.desc.bank_card_app"
 msgstr "Adományozzon hitel-/betéti kártyával az Alipay alkalmazáson keresztül (szuper könnyű beállítani)."
 
-#: allthethings/account/templates/account/donate.html:409
-#: allthethings/account/templates/account/donation.html:519
+#: allthethings/account/templates/account/donate.html:413
+#: allthethings/account/templates/account/donation.html:563
 #, fuzzy
 msgid "page.donate.payment.desc.bank_card_app.step1.header"
 msgstr "<span %(style)s>1</span>Telepítse az Alipay alkalmazást"
 
-#: allthethings/account/templates/account/donate.html:413
-#: allthethings/account/templates/account/donation.html:523
+#: allthethings/account/templates/account/donate.html:417
+#: allthethings/account/templates/account/donation.html:567
 #, fuzzy
 msgid "page.donate.payment.desc.bank_card_app.step1.desc1"
 msgstr "Telepítse az Alipay alkalmazást az <a %(a_app_store)s>Apple App Store</a>-ból vagy a <a %(a_play_store)s>Google Play Store</a>-ból."
 
-#: allthethings/account/templates/account/donate.html:417
-#: allthethings/account/templates/account/donation.html:527
+#: allthethings/account/templates/account/donate.html:421
+#: allthethings/account/templates/account/donation.html:571
 #, fuzzy
 msgid "page.donate.payment.desc.bank_card_app.step1.desc2"
 msgstr "Regisztráljon a telefonszámával."
 
-#: allthethings/account/templates/account/donate.html:418
-#: allthethings/account/templates/account/donation.html:528
+#: allthethings/account/templates/account/donate.html:422
+#: allthethings/account/templates/account/donation.html:572
 #, fuzzy
 msgid "page.donate.payment.desc.bank_card_app.step1.desc3"
 msgstr "További személyes adatok megadása nem szükséges."
 
-#: allthethings/account/templates/account/donate.html:422
-#: allthethings/account/templates/account/donation.html:532
+#: allthethings/account/templates/account/donate.html:426
+#: allthethings/account/templates/account/donation.html:576
 #, fuzzy
 msgid "page.donate.payment.desc.bank_card_app.step2.header"
 msgstr "<span %(style)s>2</span>Adjon hozzá bankkártyát"
 
-#: allthethings/account/templates/account/donate.html:430
-#: allthethings/account/templates/account/donation.html:540
+#: allthethings/account/templates/account/donate.html:434
+#: allthethings/account/templates/account/donation.html:584
 #, fuzzy
 msgid "page.donate.payment.desc.bank_card_app.step2.desc1"
 msgstr "Támogatott: Visa, MasterCard, JCB, Diners Club és Discover."
 
-#: allthethings/account/templates/account/donate.html:431
-#: allthethings/account/templates/account/donation.html:541
+#: allthethings/account/templates/account/donate.html:435
+#: allthethings/account/templates/account/donation.html:585
 #, fuzzy
 msgid "page.donate.payment.desc.bank_card_app.step2.desc2"
 msgstr "További információért lásd <a %(a_alipay)s>ezt az útmutatót</a>."
 
-#: allthethings/account/templates/account/donate.html:437
+#: allthethings/account/templates/account/donate.html:441
 #, fuzzy
 msgid "page.donate.payment.desc.credit_debit_explained"
 msgstr "Nem tudunk közvetlenül hitel-/betéti kártyákat elfogadni, mert a bankok nem akarnak velünk dolgozni. ☹ Azonban több mód is van a hitel-/betéti kártyák használatára más fizetési módokon keresztül:"
 
-#: allthethings/account/templates/account/donate.html:441
+#: allthethings/account/templates/account/donate.html:445
 msgid "page.donate.payment.buttons.amazon"
 msgstr "Amazon Ajándékkártya"
 
-#: allthethings/account/templates/account/donate.html:442
+#: allthethings/account/templates/account/donate.html:446
 #, fuzzy
 msgid "page.donate.ccexp.amazon_com"
 msgstr "Küldjön nekünk Amazon.com ajándékkártyákat hitel-/betéti kártyájával."
 
-#: allthethings/account/templates/account/donate.html:445
+#: allthethings/account/templates/account/donate.html:449
 #, fuzzy
 msgid "page.donate.ccexp.alipay"
 msgstr "Az Alipay támogatja a nemzetközi hitel-/betéti kártyákat. További információkért lásd <a %(a_alipay)s>ezt az útmutatót</a>."
 
-#: allthethings/account/templates/account/donate.html:448
+#: allthethings/account/templates/account/donate.html:452
 #, fuzzy
 msgid "page.donate.ccexp.wechat"
 msgstr "A WeChat (Weixin Pay) támogatja a nemzetközi hitel-/betéti kártyákat. A WeChat alkalmazásban menjen a „Én => Szolgáltatások => Pénztárca => Kártya hozzáadása” menüpontra. Ha ezt nem látja, engedélyezze a „Én => Beállítások => Általános => Eszközök => Weixin Pay => Engedélyezés” menüpontban."
 
-#: allthethings/account/templates/account/donate.html:451
+#: allthethings/account/templates/account/donate.html:455
 #, fuzzy
 msgid "page.donate.ccexp.crypto"
 msgstr "Kredit-/betéti kártyával vásárolhat kriptovalutát."
 
-#: allthethings/account/templates/account/donate.html:461
+#: allthethings/account/templates/account/donate.html:465
 #, fuzzy
 msgid "page.donate.payment.desc.crypto_express_services"
 msgstr "Kripto expressz szolgáltatások"
 
-#: allthethings/account/templates/account/donate.html:463
+#: allthethings/account/templates/account/donate.html:467
 #, fuzzy
 msgid "page.donation.ccexp.crypto_express_services.1"
 msgstr "Az expressz szolgáltatások kényelmesek, de magasabb díjakat számítanak fel."
 
-#: allthethings/account/templates/account/donate.html:464
+#: allthethings/account/templates/account/donate.html:468
 #, fuzzy
 msgid "page.donation.ccexp.crypto_express_services.2"
 msgstr "Használhatja ezt kriptotőzsde helyett, ha gyorsan szeretne nagyobb adományt tenni, és nem bánja a 5-10 dolláros díjat."
 
-#: allthethings/account/templates/account/donate.html:467
+#: allthethings/account/templates/account/donate.html:471
 #, fuzzy
 msgid "page.donation.ccexp.crypto_express_services.3"
 msgstr "Ügyeljen arra, hogy a pontos kripto összeget küldje el, amely az adományozási oldalon látható, ne az $USD összeget."
 
-#: allthethings/account/templates/account/donate.html:468
+#: allthethings/account/templates/account/donate.html:472
 #, fuzzy
 msgid "page.donation.ccexp.crypto_express_services.4"
 msgstr "Ellenkező esetben a díjat levonják, és nem tudjuk automatikusan feldolgozni a tagságát."
 
-#: allthethings/account/templates/account/donate.html:471
-#: allthethings/account/templates/account/donation.html:304
+#: allthethings/account/templates/account/donate.html:475
+#: allthethings/account/templates/account/donation.html:328
 #, fuzzy
 msgid "page.donation.payment2cc.method.paybis"
 msgstr "(minimum: %(minimum)s)"
 
-#: allthethings/account/templates/account/donate.html:472
-#: allthethings/account/templates/account/donation.html:305
+#: allthethings/account/templates/account/donate.html:476
+#: allthethings/account/templates/account/donation.html:329
 #, fuzzy
 msgid "page.donation.payment2cc.method.switchere"
 msgstr "(minimum: %(minimum)s az országtól függően, az első tranzakcióhoz nincs szükség ellenőrzésre)"
 
-#: allthethings/account/templates/account/donate.html:473
-#: allthethings/account/templates/account/donation.html:306
+#: allthethings/account/templates/account/donate.html:477
+#: allthethings/account/templates/account/donation.html:330
 #, fuzzy
 msgid "page.donation.payment2cc.method.munzen"
 msgstr "(minimum: %(minimum)s, az első tranzakcióhoz nincs szükség ellenőrzésre)"
 
-#: allthethings/account/templates/account/donate.html:474
-#: allthethings/account/templates/account/donation.html:307
+#: allthethings/account/templates/account/donate.html:478
+#: allthethings/account/templates/account/donation.html:331
 #, fuzzy
 msgid "page.donation.payment2cc.method.mercuryo"
 msgstr "(minimum: %(minimum)s)"
 
-#: allthethings/account/templates/account/donate.html:475
-#: allthethings/account/templates/account/donation.html:308
+#: allthethings/account/templates/account/donate.html:479
+#: allthethings/account/templates/account/donation.html:332
 #, fuzzy
 msgid "page.donation.payment2cc.method.moonpay"
 msgstr "(minimum: %(minimum)s)"
 
-#: allthethings/account/templates/account/donate.html:476
-#: allthethings/account/templates/account/donation.html:309
+#: allthethings/account/templates/account/donate.html:480
+#: allthethings/account/templates/account/donation.html:333
 #, fuzzy
 msgid "page.donation.payment2cc.method.coingate"
 msgstr "(minimum: %(minimum)s, az első tranzakcióhoz nincs szükség ellenőrzésre)"
 
-#: allthethings/account/templates/account/donate.html:478
-#: allthethings/account/templates/account/donation.html:311
+#: allthethings/account/templates/account/donate.html:482
+#: allthethings/account/templates/account/donation.html:335
 #, fuzzy
 msgid "page.donation.payment2cc.cc2btc.outdated"
 msgstr "Ha bármelyik információ elavult, kérjük, írjon nekünk e-mailt, hogy értesítsen minket."
 
-#: allthethings/account/templates/account/donate.html:485
+#: allthethings/account/templates/account/donate.html:489
 #, fuzzy
 msgid "page.donate.payment.desc.bmc"
 msgstr "Hitelkártyák, bankkártyák, Apple Pay és Google Pay esetén a “Buy Me a Coffee” (BMC <span class=\"icon-[ph--coffee-fill] text-lg align-text-bottom\"></span>) szolgáltatást használjuk. Rendszerükben egy “kávé” 5 dollárnak felel meg, így az adománya az 5 dollár többszörösére lesz kerekítve."
 
-#: allthethings/account/templates/account/donate.html:492
+#: allthethings/account/templates/account/donate.html:496
 msgid "page.donate.duration.intro"
 msgstr "Válaszd ki, hogy mennyi időre szeretnél feliratkozni."
 
-#: allthethings/account/templates/account/donate.html:509
+#: allthethings/account/templates/account/donate.html:513
 msgid "page.donate.duration.1_mo"
 msgstr "1 hónap"
 
-#: allthethings/account/templates/account/donate.html:510
+#: allthethings/account/templates/account/donate.html:514
 msgid "page.donate.duration.3_mo"
 msgstr "3 hónap"
 
-#: allthethings/account/templates/account/donate.html:511
+#: allthethings/account/templates/account/donate.html:515
 msgid "page.donate.duration.6_mo"
 msgstr "6 hónap"
 
-#: allthethings/account/templates/account/donate.html:512
+#: allthethings/account/templates/account/donate.html:516
 msgid "page.donate.duration.12_mo"
 msgstr "12 hónap"
 
-#: allthethings/account/templates/account/donate.html:513
+#: allthethings/account/templates/account/donate.html:517
 msgid "page.donate.duration.24_mo"
 msgstr "24 hónap"
 
-#: allthethings/account/templates/account/donate.html:514
+#: allthethings/account/templates/account/donate.html:518
 #, fuzzy
 msgid "page.donate.duration.48_mo"
 msgstr "48 hónap"
 
-#: allthethings/account/templates/account/donate.html:515
+#: allthethings/account/templates/account/donate.html:519
 #, fuzzy
 msgid "page.donate.duration.96_mo"
 msgstr "96 hónap"
 
-#: allthethings/account/templates/account/donate.html:518
+#: allthethings/account/templates/account/donate.html:522
 msgid "page.donate.duration.summary"
 msgstr "<div %(div_monthly_cost)s></div><div %(div_after)s>után<span %(span_discount)s></span> kedvezmények</div><div %(div_total)s></div><div %(div_duration)s></div>"
 
-#: allthethings/account/templates/account/donate.html:525
+#: allthethings/account/templates/account/donate.html:529
 msgid "page.donate.payment.minimum_method"
 msgstr "Ez a fizetési mód legalább %(amount)s összeget igényel. Kérjük válasszon más időtartamot vagy fizetési módot."
 
-#: allthethings/account/templates/account/donate.html:526
 #: allthethings/account/templates/account/donate.html:530
+#: allthethings/account/templates/account/donate.html:534
 #, fuzzy
 msgid "page.donate.buttons.donate"
 msgstr "Adományozás"
 
-#: allthethings/account/templates/account/donate.html:529
+#: allthethings/account/templates/account/donate.html:533
 msgid "page.donate.payment.maximum_method"
 msgstr "Ez a fizetési mód csak maximum %(amount)s engedélyez. Kérjük válasszon más időtartamot vagy fizetési módot."
 
-#: allthethings/account/templates/account/donate.html:536
+#: allthethings/account/templates/account/donate.html:540
 msgid "page.donate.login2"
 msgstr "Hogy taggá válhass, <a %(a_login)s>Lépj Be vagy Regisztrálj</a>. Köszönjük a támogatásodat!"
 
-#: allthethings/account/templates/account/donate.html:543
+#: allthethings/account/templates/account/donate.html:547
 msgid "page.donate.payment.crypto_select"
 msgstr "Válaszd ki az általad preferált kripto érmét:"
 
-#: allthethings/account/templates/account/donate.html:548
+#: allthethings/account/templates/account/donate.html:552
 #, fuzzy
 msgid "page.donate.currency_lowest_minimum"
 msgstr "(legalacsonyabb minimális összeg)"
 
-#: allthethings/account/templates/account/donate.html:551
+#: allthethings/account/templates/account/donate.html:555
 #, fuzzy
 msgid "page.donate.coinbase_eth"
 msgstr "(használja, amikor Ethereumot küld a Coinbase-ről)"
 
-#: allthethings/account/templates/account/donate.html:563
-#: allthethings/account/templates/account/donate.html:564
+#: allthethings/account/templates/account/donate.html:567
 #: allthethings/account/templates/account/donate.html:568
-#: allthethings/account/templates/account/donate.html:570
+#: allthethings/account/templates/account/donate.html:572
+#: allthethings/account/templates/account/donate.html:574
 #, fuzzy
 msgid "page.donate.currency_warning_high_minimum"
 msgstr "(figyelem: magas minimális összeg)"
 
-#: allthethings/account/templates/account/donate.html:579
+#: allthethings/account/templates/account/donate.html:583
 msgid "page.donate.submit.confirm"
 msgstr "Kattints az adományozás gombra az adományozás megerősítéséhez."
 
-#: allthethings/account/templates/account/donate.html:587
+#: allthethings/account/templates/account/donate.html:591
 msgid "page.donate.submit.button"
 msgstr "Adományozás <span %(span_cost)s></span> <span %(span_label)s></span>"
 
-#: allthethings/account/templates/account/donate.html:592
+#: allthethings/account/templates/account/donate.html:596
 msgid "page.donate.submit.cancel_note"
 msgstr "Az adományozást még lemondhatod a kifizetés során."
 
-#: allthethings/account/templates/account/donate.html:596
+#: allthethings/account/templates/account/donate.html:600
 msgid "page.donate.submit.success"
 msgstr "✅ Átirányítás az adományozási oldalra…"
 
-#: allthethings/account/templates/account/donate.html:597
+#: allthethings/account/templates/account/donate.html:601
 msgid "page.donate.submit.failure"
 msgstr "❌Valami rosszul sikerült. Töltsd újra az oldalt és próbáld meg újra."
 
-#: allthethings/account/templates/account/donate.html:651
+#: allthethings/account/templates/account/donate.html:655
 msgid "page.donate.duration.summary.discount"
 msgstr "%(percentage)s%%"
 
-#: allthethings/account/templates/account/donate.html:652
+#: allthethings/account/templates/account/donate.html:656
 msgid "page.donate.duration.summary.monthly_cost"
 msgstr "%(monthly_cost)s / hó"
 
-#: allthethings/account/templates/account/donate.html:655
+#: allthethings/account/templates/account/donate.html:659
 msgid "page.donate.duration.summary.duration.1_mo"
 msgstr "1 hónapra"
 
-#: allthethings/account/templates/account/donate.html:656
+#: allthethings/account/templates/account/donate.html:660
 msgid "page.donate.duration.summary.duration.3_mo"
 msgstr "3 hónapra"
 
-#: allthethings/account/templates/account/donate.html:657
+#: allthethings/account/templates/account/donate.html:661
 msgid "page.donate.duration.summary.duration.6_mo"
 msgstr "6 hónapra"
 
-#: allthethings/account/templates/account/donate.html:658
+#: allthethings/account/templates/account/donate.html:662
 msgid "page.donate.duration.summary.duration.12_mo"
 msgstr "12 hónapra"
 
-#: allthethings/account/templates/account/donate.html:659
+#: allthethings/account/templates/account/donate.html:663
 msgid "page.donate.duration.summary.duration.24_mo"
 msgstr "24 hónapra"
 
-#: allthethings/account/templates/account/donate.html:660
+#: allthethings/account/templates/account/donate.html:664
 #, fuzzy
 msgid "page.donate.duration.summary.duration.48_mo"
 msgstr "48 hónapra"
 
-#: allthethings/account/templates/account/donate.html:661
+#: allthethings/account/templates/account/donate.html:665
 #, fuzzy
 msgid "page.donate.duration.summary.duration.96_mo"
 msgstr "96 hónapra"
 
-#: allthethings/account/templates/account/donate.html:665
+#: allthethings/account/templates/account/donate.html:669
 msgid "page.donate.submit.button.label.1_mo"
 msgstr "1 hónapra “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:666
+#: allthethings/account/templates/account/donate.html:670
 msgid "page.donate.submit.button.label.3_mo"
 msgstr "3 hónapra “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:667
+#: allthethings/account/templates/account/donate.html:671
 msgid "page.donate.submit.button.label.6_mo"
 msgstr "6 hónapra “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:668
+#: allthethings/account/templates/account/donate.html:672
 msgid "page.donate.submit.button.label.12_mo"
 msgstr "12 hónapra “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:669
+#: allthethings/account/templates/account/donate.html:673
 msgid "page.donate.submit.button.label.24_mo"
 msgstr "24 hónapra “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:670
+#: allthethings/account/templates/account/donate.html:674
 #, fuzzy
 msgid "page.donate.submit.button.label.48_mo"
 msgstr "48 hónapra „%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:671
+#: allthethings/account/templates/account/donate.html:675
 #, fuzzy
 msgid "page.donate.submit.button.label.96_mo"
 msgstr "96 hónapra “%(tier_name)s”"
@@ -954,6 +956,14 @@ msgstr "Már fizettél. Ha mégis át szeretnéd nézni a fizetési utasítások
 
 #: allthethings/account/templates/account/donation.html:52
 #: allthethings/account/templates/account/donation.html:68
+#: allthethings/account/templates/account/donation.html:170
+#: allthethings/account/templates/account/donation.html:216
+#: allthethings/account/templates/account/donation.html:265
+#: allthethings/account/templates/account/donation.html:318
+#: allthethings/account/templates/account/donation.html:367
+#: allthethings/account/templates/account/donation.html:509
+#: allthethings/account/templates/account/donation.html:554
+#: allthethings/account/templates/account/donation.html:636
 msgid "page.donation.old_instructions.show_button"
 msgstr "Régi fizetési utasítások megjelenítése"
 
@@ -983,18 +993,18 @@ msgstr "<strong>Fontos megjegyzés:</strong> A kriptodevizák árai erősen inga
 #: allthethings/account/templates/account/donation.html:95
 #: allthethings/account/templates/account/donation.html:116
 #: allthethings/account/templates/account/donation.html:167
-#: allthethings/account/templates/account/donation.html:207
-#: allthethings/account/templates/account/donation.html:250
-#: allthethings/account/templates/account/donation.html:297
-#: allthethings/account/templates/account/donation.html:340
-#: allthethings/account/templates/account/donation.html:407
-#: allthethings/account/templates/account/donation.html:423
-#: allthethings/account/templates/account/donation.html:441
-#: allthethings/account/templates/account/donation.html:457
-#: allthethings/account/templates/account/donation.html:474
-#: allthethings/account/templates/account/donation.html:513
-#: allthethings/account/templates/account/donation.html:589
-#: allthethings/account/templates/account/donation.html:619
+#: allthethings/account/templates/account/donation.html:213
+#: allthethings/account/templates/account/donation.html:262
+#: allthethings/account/templates/account/donation.html:315
+#: allthethings/account/templates/account/donation.html:364
+#: allthethings/account/templates/account/donation.html:439
+#: allthethings/account/templates/account/donation.html:455
+#: allthethings/account/templates/account/donation.html:473
+#: allthethings/account/templates/account/donation.html:489
+#: allthethings/account/templates/account/donation.html:506
+#: allthethings/account/templates/account/donation.html:551
+#: allthethings/account/templates/account/donation.html:633
+#: allthethings/account/templates/account/donation.html:669
 msgid "page.donation.expired"
 msgstr "Ez az adomány lejárt. Kérjük, töröld és hozz létre egy újat."
 
@@ -1015,7 +1025,7 @@ msgid "page.donate.submit.header1"
 msgstr "<span %(span_circle)s>1</span>Bitcoin vásárlása Paypalon"
 
 #: allthethings/account/templates/account/donation.html:122
-#: allthethings/account/templates/account/donation.html:173
+#: allthethings/account/templates/account/donation.html:179
 msgid "page.donate.one_time_payment.paypal.text2"
 msgstr "Találd meg a “Crypto” oldalt a PayPal alkalmazásban vagy a PayPal weboldalon. Ez általában a “Pénzügyek” alatt található."
 
@@ -1036,7 +1046,7 @@ msgid "page.donation.payment.paypal.text5"
 msgstr "Add meg a Bitcoin (BTC) címünket címzettként, és kövesd az utasításokat a(z) %(total)s értékű adomány elküldéséhez:"
 
 #: allthethings/account/templates/account/donation.html:140
-#: allthethings/account/templates/account/donation.html:293
+#: allthethings/account/templates/account/donation.html:311
 msgid "page.donation.credit_debit_card_instructions"
 msgstr "Hitelkártya / bankkártya utasítások"
 
@@ -1053,439 +1063,439 @@ msgid "page.donation.stepbystep_below"
 msgstr "Lásd az alábbi lépésről-lépésre útmutatót."
 
 #: allthethings/account/templates/account/donation.html:149
-#: allthethings/account/templates/account/donation.html:192
-#: allthethings/account/templates/account/donation.html:235
-#: allthethings/account/templates/account/donation.html:280
-#: allthethings/account/templates/account/donation.html:323
-#: allthethings/account/templates/account/donation.html:352
-#: allthethings/account/templates/account/donation.html:388
-#: allthethings/account/templates/account/donation.html:498
-#: allthethings/account/templates/account/donation.html:574
-#: allthethings/account/templates/account/donation.html:605
+#: allthethings/account/templates/account/donation.html:198
+#: allthethings/account/templates/account/donation.html:247
+#: allthethings/account/templates/account/donation.html:298
+#: allthethings/account/templates/account/donation.html:347
+#: allthethings/account/templates/account/donation.html:384
+#: allthethings/account/templates/account/donation.html:420
+#: allthethings/account/templates/account/donation.html:536
+#: allthethings/account/templates/account/donation.html:618
+#: allthethings/account/templates/account/donation.html:655
 msgid "page.donation.status_header"
 msgstr "Állapot:"
 
 #: allthethings/account/templates/account/donation.html:149
-#: allthethings/account/templates/account/donation.html:192
-#: allthethings/account/templates/account/donation.html:235
-#: allthethings/account/templates/account/donation.html:280
-#: allthethings/account/templates/account/donation.html:323
-#: allthethings/account/templates/account/donation.html:352
-#: allthethings/account/templates/account/donation.html:498
-#: allthethings/account/templates/account/donation.html:574
-#: allthethings/account/templates/account/donation.html:605
+#: allthethings/account/templates/account/donation.html:198
+#: allthethings/account/templates/account/donation.html:247
+#: allthethings/account/templates/account/donation.html:298
+#: allthethings/account/templates/account/donation.html:347
+#: allthethings/account/templates/account/donation.html:384
+#: allthethings/account/templates/account/donation.html:536
+#: allthethings/account/templates/account/donation.html:618
+#: allthethings/account/templates/account/donation.html:655
 msgid "page.donation.waiting_for_confirmation_refresh"
 msgstr "Megerősítésre vár (frissítsd az oldalt, hogy ellenőrizd)…"
 
 #: allthethings/account/templates/account/donation.html:149
-#: allthethings/account/templates/account/donation.html:192
-#: allthethings/account/templates/account/donation.html:235
-#: allthethings/account/templates/account/donation.html:280
-#: allthethings/account/templates/account/donation.html:323
-#: allthethings/account/templates/account/donation.html:352
-#: allthethings/account/templates/account/donation.html:498
-#: allthethings/account/templates/account/donation.html:574
-#: allthethings/account/templates/account/donation.html:605
+#: allthethings/account/templates/account/donation.html:198
+#: allthethings/account/templates/account/donation.html:247
+#: allthethings/account/templates/account/donation.html:298
+#: allthethings/account/templates/account/donation.html:347
+#: allthethings/account/templates/account/donation.html:384
+#: allthethings/account/templates/account/donation.html:536
+#: allthethings/account/templates/account/donation.html:618
+#: allthethings/account/templates/account/donation.html:655
 msgid "page.donation.waiting_for_transfer_refresh"
 msgstr "Átvitelre vár ( frissítsd az oldalt, hogy ellenőrizd)…"
 
 #: allthethings/account/templates/account/donation.html:150
-#: allthethings/account/templates/account/donation.html:193
-#: allthethings/account/templates/account/donation.html:236
-#: allthethings/account/templates/account/donation.html:281
-#: allthethings/account/templates/account/donation.html:324
-#: allthethings/account/templates/account/donation.html:353
-#: allthethings/account/templates/account/donation.html:499
-#: allthethings/account/templates/account/donation.html:575
-#: allthethings/account/templates/account/donation.html:606
+#: allthethings/account/templates/account/donation.html:199
+#: allthethings/account/templates/account/donation.html:248
+#: allthethings/account/templates/account/donation.html:299
+#: allthethings/account/templates/account/donation.html:348
+#: allthethings/account/templates/account/donation.html:385
+#: allthethings/account/templates/account/donation.html:537
+#: allthethings/account/templates/account/donation.html:619
+#: allthethings/account/templates/account/donation.html:656
 msgid "page.donation.time_left_header"
 msgstr "Hátramaradt idő:"
 
 #: allthethings/account/templates/account/donation.html:150
-#: allthethings/account/templates/account/donation.html:193
-#: allthethings/account/templates/account/donation.html:236
-#: allthethings/account/templates/account/donation.html:281
-#: allthethings/account/templates/account/donation.html:324
-#: allthethings/account/templates/account/donation.html:353
-#: allthethings/account/templates/account/donation.html:499
-#: allthethings/account/templates/account/donation.html:575
-#: allthethings/account/templates/account/donation.html:606
+#: allthethings/account/templates/account/donation.html:199
+#: allthethings/account/templates/account/donation.html:248
+#: allthethings/account/templates/account/donation.html:299
+#: allthethings/account/templates/account/donation.html:348
+#: allthethings/account/templates/account/donation.html:385
+#: allthethings/account/templates/account/donation.html:537
+#: allthethings/account/templates/account/donation.html:619
+#: allthethings/account/templates/account/donation.html:656
 msgid "page.donation.might_want_to_cancel"
 msgstr "(lehet, hogy törölnöd kell és létre kell hoznod egy új adományt)"
 
 #: allthethings/account/templates/account/donation.html:154
-#: allthethings/account/templates/account/donation.html:197
-#: allthethings/account/templates/account/donation.html:240
-#: allthethings/account/templates/account/donation.html:285
-#: allthethings/account/templates/account/donation.html:328
-#: allthethings/account/templates/account/donation.html:357
-#: allthethings/account/templates/account/donation.html:503
-#: allthethings/account/templates/account/donation.html:579
-#: allthethings/account/templates/account/donation.html:610
+#: allthethings/account/templates/account/donation.html:203
+#: allthethings/account/templates/account/donation.html:252
+#: allthethings/account/templates/account/donation.html:303
+#: allthethings/account/templates/account/donation.html:352
+#: allthethings/account/templates/account/donation.html:389
+#: allthethings/account/templates/account/donation.html:541
+#: allthethings/account/templates/account/donation.html:623
+#: allthethings/account/templates/account/donation.html:660
 msgid "page.donation.reset_timer"
 msgstr "Az időzítő visszaállításához egyszerűen hozz létre egy új adományt."
 
 #: allthethings/account/templates/account/donation.html:158
-#: allthethings/account/templates/account/donation.html:201
-#: allthethings/account/templates/account/donation.html:244
-#: allthethings/account/templates/account/donation.html:289
-#: allthethings/account/templates/account/donation.html:332
-#: allthethings/account/templates/account/donation.html:361
-#: allthethings/account/templates/account/donation.html:392
-#: allthethings/account/templates/account/donation.html:507
-#: allthethings/account/templates/account/donation.html:583
-#: allthethings/account/templates/account/donation.html:614
+#: allthethings/account/templates/account/donation.html:207
+#: allthethings/account/templates/account/donation.html:256
+#: allthethings/account/templates/account/donation.html:307
+#: allthethings/account/templates/account/donation.html:356
+#: allthethings/account/templates/account/donation.html:393
+#: allthethings/account/templates/account/donation.html:424
+#: allthethings/account/templates/account/donation.html:545
+#: allthethings/account/templates/account/donation.html:627
+#: allthethings/account/templates/account/donation.html:664
 msgid "page.donation.refresh_status"
 msgstr "Állapot frissítése"
 
 #: allthethings/account/templates/account/donation.html:162
-#: allthethings/account/templates/account/donation.html:714
+#: allthethings/account/templates/account/donation.html:764
 msgid "page.donation.footer.issues_contact"
 msgstr "Ha bármilyen problémába ütköznél, kérjük, lépj velünk kapcsolatba a(z) %(email)s címen, és adj meg minél több információt (például képernyőképeket)."
 
-#: allthethings/account/templates/account/donation.html:170
-#: allthethings/account/templates/account/donation.html:210
-#: allthethings/account/templates/account/donation.html:253
+#: allthethings/account/templates/account/donation.html:176
+#: allthethings/account/templates/account/donation.html:222
+#: allthethings/account/templates/account/donation.html:271
 #, fuzzy
 msgid "page.donation.step1"
 msgstr "1"
 
-#: allthethings/account/templates/account/donation.html:170
+#: allthethings/account/templates/account/donation.html:176
 msgid "page.donation.buy_pyusd"
 msgstr "Vásárolj PYUSD érmét PayPal-on"
 
-#: allthethings/account/templates/account/donation.html:177
+#: allthethings/account/templates/account/donation.html:183
 msgid "page.donation.pyusd.instructions"
 msgstr "Kövesd az utasításokat a PYUSD érme vásárlásához (PayPal USD)."
 
-#: allthethings/account/templates/account/donation.html:178
+#: allthethings/account/templates/account/donation.html:184
 msgid "page.donation.pyusd.more"
 msgstr "Vásárolj egy kicsit többet (javasoljuk, hogy %(more)s-al többet), mint az adományozandó összeg (%(amount)s), a tranzakciós díjak fedezésére. A maradékot megtartod."
 
-#: allthethings/account/templates/account/donation.html:181
-#: allthethings/account/templates/account/donation.html:220
-#: allthethings/account/templates/account/donation.html:263
+#: allthethings/account/templates/account/donation.html:187
+#: allthethings/account/templates/account/donation.html:232
+#: allthethings/account/templates/account/donation.html:281
 #, fuzzy
 msgid "page.donation.step2"
 msgstr "2"
 
-#: allthethings/account/templates/account/donation.html:184
+#: allthethings/account/templates/account/donation.html:190
 msgid "page.donation.pyusd.transfer"
 msgstr "Menj a \"PYUSD\" oldalra a PayPal alkalmazásban vagy a weboldalon. Nyomd meg az \"Átutalás\" gombot %(icon)s, majd a \"Küldés\" gombot."
 
-#: allthethings/account/templates/account/donation.html:188
-#: allthethings/account/templates/account/donation.html:227
-#: allthethings/account/templates/account/donation.html:272
-#: allthethings/account/templates/account/donation.html:344
+#: allthethings/account/templates/account/donation.html:194
+#: allthethings/account/templates/account/donation.html:239
+#: allthethings/account/templates/account/donation.html:290
+#: allthethings/account/templates/account/donation.html:374
 msgid "page.donation.transfer_amount_to"
 msgstr "%(amount)s átutalása a fiókba: %(account)s"
 
-#: allthethings/account/templates/account/donation.html:210
+#: allthethings/account/templates/account/donation.html:222
 #, fuzzy
 msgid "page.donation.cash_app_btc.step1"
 msgstr "Vásároljon Bitcoint (BTC) a Cash App-on"
 
-#: allthethings/account/templates/account/donation.html:213
+#: allthethings/account/templates/account/donation.html:225
 #, fuzzy
 msgid "page.donation.cash_app_btc.step1.text1"
 msgstr "Lépjen a Cash App „Bitcoin” (BTC) oldalára."
 
-#: allthethings/account/templates/account/donation.html:217
+#: allthethings/account/templates/account/donation.html:229
 #, fuzzy
 msgid "page.donation.cash_app_btc.step1.more"
 msgstr "Vásároljon egy kicsit többet (ajánljuk, hogy %(more)s többet), mint amennyit adományoz (%(amount)s), hogy fedezze a tranzakciós díjakat. A megmaradt összeget megtarthatja."
 
-#: allthethings/account/templates/account/donation.html:220
+#: allthethings/account/templates/account/donation.html:232
 #, fuzzy
 msgid "page.donation.cash_app_btc.step2"
 msgstr "Utalja át a Bitcoint a címünkre"
 
-#: allthethings/account/templates/account/donation.html:223
+#: allthethings/account/templates/account/donation.html:235
 #, fuzzy
 msgid "page.donation.cash_app_btc.step2.transfer"
 msgstr "Kattintson a „Send bitcoin” gombra, hogy „kivonást” hajtson végre. Váltson dollárról BTC-re a %(icon)s ikon megnyomásával. Adja meg az alábbi BTC összeget, majd kattintson a „Send” gombra. Ha elakad, nézze meg <a %(help_video)s>ezt a videót</a>."
 
-#: allthethings/account/templates/account/donation.html:231
+#: allthethings/account/templates/account/donation.html:243
 #, fuzzy
 msgid "page.donation.cash_app_btc.step2.rush_priority"
 msgstr "Kis adományok esetén (25 dollár alatt) szükség lehet a Rush vagy Priority használatára."
 
-#: allthethings/account/templates/account/donation.html:253
+#: allthethings/account/templates/account/donation.html:271
 #, fuzzy
 msgid "page.donation.revolut.step1"
 msgstr "Vásároljon Bitcoint (BTC) a Revolut-on"
 
-#: allthethings/account/templates/account/donation.html:256
+#: allthethings/account/templates/account/donation.html:274
 #, fuzzy
 msgid "page.donation.revolut.step1.text1"
 msgstr "Lépjen a Revolut „Crypto” oldalára, hogy Bitcoint (BTC) vásároljon."
 
-#: allthethings/account/templates/account/donation.html:260
+#: allthethings/account/templates/account/donation.html:278
 #, fuzzy
 msgid "page.donation.revolut.step1.more"
 msgstr "Vásároljon egy kicsit többet (ajánljuk, hogy %(more)s többet), mint amennyit adományoz (%(amount)s), hogy fedezze a tranzakciós díjakat. A megmaradt összeget megtarthatja."
 
-#: allthethings/account/templates/account/donation.html:263
+#: allthethings/account/templates/account/donation.html:281
 #, fuzzy
 msgid "page.donation.revolut.step2"
 msgstr "Utalja át a Bitcoint a címünkre"
 
-#: allthethings/account/templates/account/donation.html:266
+#: allthethings/account/templates/account/donation.html:284
 #, fuzzy
 msgid "page.donation.revolut.step2.transfer"
 msgstr "Kattintson a „Send bitcoin” gombra, hogy „kivonást” hajtson végre. Váltson euróról BTC-re a %(icon)s ikon megnyomásával. Adja meg az alábbi BTC összeget, majd kattintson a „Send” gombra. Ha elakad, nézze meg <a %(help_video)s>ezt a videót</a>."
 
-#: allthethings/account/templates/account/donation.html:269
+#: allthethings/account/templates/account/donation.html:287
 #, fuzzy
 msgid "page.donation.revolut.btc_amount_below"
 msgstr "Feltétlenül az alábbi BTC összeget használja, <em>NE</em> eurót vagy dollárt, különben nem kapjuk meg a megfelelő összeget, és nem tudjuk automatikusan megerősíteni a tagságát."
 
-#: allthethings/account/templates/account/donation.html:276
+#: allthethings/account/templates/account/donation.html:294
 #, fuzzy
 msgid "page.donation.revolut.step2.rush_priority"
 msgstr "Kis adományok esetén (25 dollár alatt) szükség lehet a Rush vagy Priority használatára."
 
-#: allthethings/account/templates/account/donation.html:301
+#: allthethings/account/templates/account/donation.html:325
 #, fuzzy
 msgid "page.donation.payment2cc.cc2btc"
 msgstr "Használja bármelyik alábbi „hitelkártya Bitcoinra” expressz szolgáltatást, amelyek csak néhány percet vesznek igénybe:"
 
-#: allthethings/account/templates/account/donation.html:314
+#: allthethings/account/templates/account/donation.html:338
 #, fuzzy
 msgid "page.donation.payment2cc.cc2btc.form"
 msgstr "Töltse ki az alábbi adatokat az űrlapon:"
 
-#: allthethings/account/templates/account/donation.html:318
+#: allthethings/account/templates/account/donation.html:342
 #, fuzzy
 msgid "page.donation.payment2cc.cc2btc.btc_amount"
 msgstr "BTC / Bitcoin összeg:"
 
-#: allthethings/account/templates/account/donation.html:318
+#: allthethings/account/templates/account/donation.html:342
 #, fuzzy
 msgid "page.donation.payment2cc.exact_amount"
 msgstr "Kérjük, használja ezt a <span %(underline)s>pontos összeget</span>. Teljes költsége magasabb lehet a hitelkártya díjak miatt. Kis összegeknél ez sajnos több lehet, mint a kedvezményünk."
 
-#: allthethings/account/templates/account/donation.html:319
+#: allthethings/account/templates/account/donation.html:343
 #, fuzzy
 msgid "page.donation.payment2cc.cc2btc.btc_address"
 msgstr "BTC / Bitcoin cím (külső pénztárca):"
 
-#: allthethings/account/templates/account/donation.html:336
+#: allthethings/account/templates/account/donation.html:360
 msgid "page.donation.crypto_instructions"
 msgstr "%(coin_name)s instrukciók"
 
-#: allthethings/account/templates/account/donation.html:348
+#: allthethings/account/templates/account/donation.html:378
 #, fuzzy
 msgid "page.donation.crypto_standard"
 msgstr "Csak a kriptovaluták standard verzióját támogatjuk, nem egzotikus hálózatokat vagy érmék verzióit. A tranzakció megerősítése akár egy órát is igénybe vehet, a kriptovalutától függően."
 
-#: allthethings/account/templates/account/donation.html:365
+#: allthethings/account/templates/account/donation.html:397
 msgid "page.donation.amazon.header"
 msgstr "Amazon ajándékkártya"
 
-#: allthethings/account/templates/account/donation.html:368
+#: allthethings/account/templates/account/donation.html:400
 msgid "page.donation.amazon.form_instructions"
 msgstr "Kérjük, használd a <a %(a_form)s>hivatalos Amazon.com űrlapot</a>, hogy küldj nekünk egy %(amount)s értékű ajándékkártyát az alábbi e-mail címre."
 
-#: allthethings/account/templates/account/donation.html:369
+#: allthethings/account/templates/account/donation.html:401
 msgid "page.donation.amazon.only_official"
 msgstr "Más ajándékkártyákat nem tudunk elfogadni, <strong>csak közvetlenül az Amazon.com hivatalos űrlapjáról</strong> küldött ajándékkártyákat. Nem tudjuk visszaküldeni az ajándékkártyát, ha nem ezt az űrlapot használja."
 
-#: allthethings/account/templates/account/donation.html:374
+#: allthethings/account/templates/account/donation.html:406
 #, fuzzy
 msgid "page.donate.payment.desc.amazon_message_1"
 msgstr "Adja meg a pontos összeget: %(amount)s"
 
-#: allthethings/account/templates/account/donation.html:375
+#: allthethings/account/templates/account/donation.html:407
 msgid "page.donate.payment.desc.amazon_message"
 msgstr "Kérem, NE írja meg saját üzenetét."
 
-#: allthethings/account/templates/account/donation.html:379
+#: allthethings/account/templates/account/donation.html:411
 msgid "page.donation.amazon.form_to"
 msgstr "“To” címzett e-mail címe az űrlapon:"
 
-#: allthethings/account/templates/account/donation.html:382
+#: allthethings/account/templates/account/donation.html:414
 msgid "page.donation.amazon.unique"
 msgstr "Egyedi a fiókodhoz, ne oszd meg."
 
-#: allthethings/account/templates/account/donation.html:383
+#: allthethings/account/templates/account/donation.html:415
 #, fuzzy
 msgid "page.donation.amazon.only_use_once"
 msgstr "Csak egyszer használható."
 
-#: allthethings/account/templates/account/donation.html:388
+#: allthethings/account/templates/account/donation.html:420
 msgid "page.donation.amazon.waiting_gift_card"
 msgstr "Várakozás az ajándékkártyára... (frissítsd az oldalt az ellenőrzéshez)"
 
-#: allthethings/account/templates/account/donation.html:396
+#: allthethings/account/templates/account/donation.html:428
 msgid "page.donation.amazon.confirm_automated"
 msgstr "Az ajándékkártya elküldése után automatizált rendszerünk néhány percen belül visszaigazolja azt. Ha ez nem működik, próbáld meg újra elküldeni az ajándékkártyát (<a %(a_instr)s>utasítások</a>)."
 
-#: allthethings/account/templates/account/donation.html:397
+#: allthethings/account/templates/account/donation.html:429
 msgid "page.donation.amazon.doesnt_work"
 msgstr "Ha még ez sem működik, írj nekünk egy e-mailt, és Anna kézzel átnézi (ez eltarthat néhány napig), és feltétlenül említsd meg, ha már próbáltad újra elküldeni."
 
-#: allthethings/account/templates/account/donation.html:400
+#: allthethings/account/templates/account/donation.html:432
 msgid "page.donation.amazon.example"
 msgstr "Például:"
 
-#: allthethings/account/templates/account/donation.html:436
-#: allthethings/account/templates/account/donation.html:453
-#: allthethings/account/templates/account/donation.html:469
-#: allthethings/account/templates/account/donation.html:494
-#: allthethings/account/templates/account/donation.html:570
-#: allthethings/account/templates/account/donation.html:631
+#: allthethings/account/templates/account/donation.html:468
+#: allthethings/account/templates/account/donation.html:485
+#: allthethings/account/templates/account/donation.html:501
+#: allthethings/account/templates/account/donation.html:532
+#: allthethings/account/templates/account/donation.html:614
+#: allthethings/account/templates/account/donation.html:681
 msgid "page.donate.strange_account"
 msgstr "Lehet hogy az account neve vagy a kép az oldalon furán néz majd ki. Ne aggódj! Ezeket az accountokat az adományozási partnereink kezelik. Az accountjainkat nem törték fel."
 
-#: allthethings/account/templates/account/donation.html:460
-#: allthethings/account/templates/account/donation.html:477
-#: allthethings/account/templates/account/donation.html:516
+#: allthethings/account/templates/account/donation.html:492
+#: allthethings/account/templates/account/donation.html:515
+#: allthethings/account/templates/account/donation.html:560
 msgid "page.donation.payment.alipay.top_header"
 msgstr "Alipay utasítások"
 
-#: allthethings/account/templates/account/donation.html:462
-#: allthethings/account/templates/account/donation.html:479
+#: allthethings/account/templates/account/donation.html:494
+#: allthethings/account/templates/account/donation.html:517
 msgid "page.donation.payment.alipay.header1"
 msgstr "<span %(span_circle)s>1</span>Adományozás Alipayen"
 
-#: allthethings/account/templates/account/donation.html:465
-#: allthethings/account/templates/account/donation.html:482
+#: allthethings/account/templates/account/donation.html:497
+#: allthethings/account/templates/account/donation.html:520
 #, fuzzy
 msgid "page.donation.payment.alipay.text1_new"
 msgstr "Adományozza a teljes összeget %(total)s ezen az <a %(a_account)s>Alipay fiókon</a> keresztül"
 
-#: allthethings/account/templates/account/donation.html:486
-#: allthethings/account/templates/account/donation.html:562
-#: allthethings/account/templates/account/donation.html:601
+#: allthethings/account/templates/account/donation.html:524
+#: allthethings/account/templates/account/donation.html:606
+#: allthethings/account/templates/account/donation.html:651
 #, fuzzy
 msgid "page.donation.page_blocked"
 msgstr "Ha a támogatási oldal blokkolva van, próbáljon meg egy másik internetkapcsolatot (pl. VPN vagy mobilinternet)."
 
-#: allthethings/account/templates/account/donation.html:490
-#: allthethings/account/templates/account/donation.html:566
+#: allthethings/account/templates/account/donation.html:528
+#: allthethings/account/templates/account/donation.html:610
 #, fuzzy
 msgid "page.donation.payment.alipay.error"
 msgstr "Sajnos az Alipay oldal gyakran csak <strong>Kína szárazföldi területéről</strong> érhető el. Lehet, hogy ideiglenesen le kell tiltania a VPN-jét, vagy használnia kell egy VPN-t Kína szárazföldi területére (vagy néha Hongkong is működik)."
 
-#: allthethings/account/templates/account/donation.html:545
+#: allthethings/account/templates/account/donation.html:589
 #, fuzzy
 msgid "page.donation.bank_card_app.step3.header"
 msgstr "<span %(style)s>3</span>Tegyen adományt (QR-kód beolvasása vagy gomb megnyomása)"
 
-#: allthethings/account/templates/account/donation.html:549
+#: allthethings/account/templates/account/donation.html:593
 #, fuzzy
 msgid "page.donation.bank_card_app.step3.desc.1"
 msgstr "Nyissa meg a <a %(a_href)s>QR-kód adományozási oldalt</a>."
 
-#: allthethings/account/templates/account/donation.html:553
+#: allthethings/account/templates/account/donation.html:597
 #, fuzzy
 msgid "page.donation.bank_card_app.step3.desc.2"
 msgstr "Olvassa be a QR-kódot az Alipay alkalmazással, vagy nyomja meg a gombot az Alipay alkalmazás megnyitásához."
 
-#: allthethings/account/templates/account/donation.html:554
+#: allthethings/account/templates/account/donation.html:598
 #, fuzzy
 msgid "page.donation.bank_card_app.step3.desc.3"
 msgstr "Kérjük, legyen türelemmel; az oldal betöltése eltarthat egy ideig, mivel Kínában van."
 
-#: allthethings/account/templates/account/donation.html:592
+#: allthethings/account/templates/account/donation.html:642
 #, fuzzy
 msgid "page.donation.payment.wechat.top_header"
 msgstr "WeChat utasítások"
 
-#: allthethings/account/templates/account/donation.html:594
+#: allthethings/account/templates/account/donation.html:644
 #, fuzzy
 msgid "page.donation.payment.wechat.header1"
 msgstr "<span %(span_circle)s>1</span>Adományozzon WeChaten"
 
-#: allthethings/account/templates/account/donation.html:597
+#: allthethings/account/templates/account/donation.html:647
 #, fuzzy
 msgid "page.donation.payment.wechat.text1"
 msgstr "Adományozza a teljes %(total)s összeget <a %(a_account)s>ezen a WeChat fiókon</a> keresztül"
 
-#: allthethings/account/templates/account/donation.html:622
+#: allthethings/account/templates/account/donation.html:672
 msgid "page.donation.payment.pix.top_header"
 msgstr "Pix utasítások"
 
-#: allthethings/account/templates/account/donation.html:624
+#: allthethings/account/templates/account/donation.html:674
 msgid "page.donation.payment.pix.header1"
 msgstr "<span %(span_circle)s>1</span>Adományozás Pixen"
 
-#: allthethings/account/templates/account/donation.html:627
+#: allthethings/account/templates/account/donation.html:677
 msgid "page.donation.payment.pix.text1"
 msgstr "Adományozd a teljes %(total)s értékű összeget <a %(a_account)s> ezt a Pix fiókot használva"
 
-#: allthethings/account/templates/account/donation.html:636
+#: allthethings/account/templates/account/donation.html:686
 msgid "page.donation.footer.header"
 msgstr "<span %(span_circle)s>%(circle_number)s</span>Küldd el nekünk e-mailben a nyugtát"
 
-#: allthethings/account/templates/account/donation.html:640
+#: allthethings/account/templates/account/donation.html:690
 #, fuzzy
 msgid "page.donation.footer.verification"
 msgstr "Küldjön nyugtát vagy képernyőképet a személyes ellenőrzési címére. NE használja ezt az e-mail címet a PayPal adományához."
 
-#: allthethings/account/templates/account/donation.html:642
+#: allthethings/account/templates/account/donation.html:692
 msgid "page.donation.footer.text1"
 msgstr "Küldd el a nyugtát vagy képernyőképet a személyes ellenőrző címedre:"
 
-#: allthethings/account/templates/account/donation.html:652
+#: allthethings/account/templates/account/donation.html:702
 msgid "page.donation.footer.crypto_note"
 msgstr "Ha a kriptovaluta árfolyama a tranzakció során ingadozott, mindenképpen mellékeld a nyugtát, amelyen az eredeti árfolyam szerepel. Nagyra értékeljük, hogy veszed a fáradtságot a kripto használatára, ez sokat segít nekünk!"
 
-#: allthethings/account/templates/account/donation.html:657
+#: allthethings/account/templates/account/donation.html:707
 msgid "page.donation.footer.text2"
 msgstr "Ha elküldted e-mailben a nyugtát, kattints erre a gombra, hogy Anna manuálisan átnézhesse azt (ez eltarthat néhány napig):"
 
-#: allthethings/account/templates/account/donation.html:667
+#: allthethings/account/templates/account/donation.html:717
 msgid "page.donation.footer.button"
 msgstr "Igen, elküldtem a nyugtát e-mailben"
 
-#: allthethings/account/templates/account/donation.html:670
+#: allthethings/account/templates/account/donation.html:720
 msgid "page.donation.footer.success"
 msgstr "✅ Köszönjük az adományt! Anna néhány napon belül manuálisan aktiválja a tagságodat."
 
-#: allthethings/account/templates/account/donation.html:671
+#: allthethings/account/templates/account/donation.html:721
 msgid "page.donation.footer.failure"
 msgstr "❌ Valami rosszul sikerült. Töltsd újra az oldalt, és próbáld meg újra."
 
-#: allthethings/account/templates/account/donation.html:676
+#: allthethings/account/templates/account/donation.html:726
 msgid "page.donation.stepbystep"
 msgstr "Lépésről-lépésre útmutató"
 
-#: allthethings/account/templates/account/donation.html:678
+#: allthethings/account/templates/account/donation.html:728
 msgid "page.donation.crypto_dont_worry"
 msgstr "A lépések egy része kriptotárcákat említ, de ne aggódj, ehhez nem kell semmit sem tanulnod a kriptovalutáról."
 
-#: allthethings/account/templates/account/donation.html:680
+#: allthethings/account/templates/account/donation.html:730
 msgid "page.donation.hoodpay.step1"
 msgstr "1. Add meg az e-mailed."
 
-#: allthethings/account/templates/account/donation.html:686
+#: allthethings/account/templates/account/donation.html:736
 msgid "page.donation.hoodpay.step2"
 msgstr "2. Válaszd ki a fizetési módot."
 
-#: allthethings/account/templates/account/donation.html:692
+#: allthethings/account/templates/account/donation.html:742
 msgid "page.donation.hoodpay.step3"
 msgstr "3. Ismét válaszd ki a fizetési módot."
 
-#: allthethings/account/templates/account/donation.html:698
+#: allthethings/account/templates/account/donation.html:748
 msgid "page.donation.hoodpay.step4"
 msgstr "Válaszd a “Self-hosted” pénztárcát."
 
-#: allthethings/account/templates/account/donation.html:704
+#: allthethings/account/templates/account/donation.html:754
 msgid "page.donation.hoodpay.step5"
 msgstr "5. Kattints a \"Megerősítem a tulajdonjogot\" gombra."
 
-#: allthethings/account/templates/account/donation.html:710
+#: allthethings/account/templates/account/donation.html:760
 msgid "page.donation.hoodpay.step6"
 msgstr "6. Kapni fogsz egy e-mailes átvételi elismervényt. Kérjük, küldd el nekünk, és mi a lehető leghamarabb visszaigazoljuk adományodat."
 
-#: allthethings/account/templates/account/donation.html:715
+#: allthethings/account/templates/account/donation.html:765
 #, fuzzy
 msgid "page.donate.wait_new"
 msgstr "Kérjük, várjon legalább <span %(span_hours)s>24 órát</span> (és frissítse ezt az oldalt), mielőtt kapcsolatba lépne velünk."
 
-#: allthethings/account/templates/account/donation.html:716
+#: allthethings/account/templates/account/donation.html:766
 #, fuzzy
 msgid "page.donate.mistake"
 msgstr "Ha hibát követett el a fizetés során, nem tudunk visszatérítést biztosítani, de igyekszünk helyrehozni a dolgot."
@@ -1623,11 +1633,11 @@ msgstr "Lépj kapcsolatba Annával az %(email)s e-mail címen, ha szeretnéd mag
 #: allthethings/page/templates/page/home.html:77
 #: allthethings/page/templates/page/home.html:82
 #: allthethings/page/templates/page/home.html:90
-#: allthethings/page/templates/page/search.html:345
-#: allthethings/page/templates/page/search.html:444
+#: allthethings/page/templates/page/search.html:349
+#: allthethings/page/templates/page/search.html:448
 #: allthethings/templates/layouts/index.html:248
 #: allthethings/templates/layouts/index.html:252
-#: allthethings/templates/layouts/index.html:605
+#: allthethings/templates/layouts/index.html:608
 #, fuzzy
 msgid "page.contact.title"
 msgstr "Kapcsolattartó e-mail"
@@ -1638,23 +1648,23 @@ msgid "page.account.logged_in.membership_multiple"
 msgstr "Több tagságot is kombinálhatsz (a 24 óránkénti gyors letöltések összege összeadódik)."
 
 #: allthethings/account/templates/account/index.html:41
-#: allthethings/templates/layouts/index.html:557
-#: allthethings/templates/layouts/index.html:564
-#: allthethings/templates/layouts/index.html:573
+#: allthethings/templates/layouts/index.html:560
+#: allthethings/templates/layouts/index.html:567
+#: allthethings/templates/layouts/index.html:576
 msgid "layout.index.header.nav.public_profile"
 msgstr "Nyilvános profil"
 
 #: allthethings/account/templates/account/index.html:42
-#: allthethings/templates/layouts/index.html:558
-#: allthethings/templates/layouts/index.html:565
-#: allthethings/templates/layouts/index.html:574
+#: allthethings/templates/layouts/index.html:561
+#: allthethings/templates/layouts/index.html:568
+#: allthethings/templates/layouts/index.html:577
 msgid "layout.index.header.nav.downloaded_files"
 msgstr "Letöltött fájlok"
 
 #: allthethings/account/templates/account/index.html:43
-#: allthethings/templates/layouts/index.html:559
-#: allthethings/templates/layouts/index.html:566
-#: allthethings/templates/layouts/index.html:575
+#: allthethings/templates/layouts/index.html:562
+#: allthethings/templates/layouts/index.html:569
+#: allthethings/templates/layouts/index.html:578
 msgid "layout.index.header.nav.my_donations"
 msgstr "Adományaim"
 
@@ -1801,136 +1811,136 @@ msgstr "Még nincsenek listák"
 msgid "page.profile.lists.new_list"
 msgstr "Új listát készíthetsz egy fájl megkeresésével és a \"Listák\" fül megnyitásával."
 
-#: allthethings/dyn/views.py:906 allthethings/dyn/views.py:970
-#: allthethings/dyn/views.py:981
+#: allthethings/dyn/views.py:1100 allthethings/dyn/views.py:1172
+#: allthethings/dyn/views.py:1183
 msgid "dyn.buy_membership.error.unknown"
 msgstr "Ismeretlen hiba történt. Kérjük, lépj kapcsolatba velünk a %(email)s címen egy képernyőképpel."
 
-#: allthethings/dyn/views.py:955 allthethings/dyn/views.py:975
+#: allthethings/dyn/views.py:1157 allthethings/dyn/views.py:1177
 msgid "dyn.buy_membership.error.minimum"
 msgstr "Ennek az érmének a szokásosnál magasabb a minimális értéke. Kérjük, válassz más időtartamot vagy más érmét."
 
-#: allthethings/dyn/views.py:967
+#: allthethings/dyn/views.py:1169
 msgid "dyn.buy_membership.error.try_again"
 msgstr "A kérést nem sikerült teljesíteni. Kérjük, próbálja újra néhány perc múlva, és ha ez továbbra is megtörténik, forduljon hozzánk a %(email)s képernyőképpel."
 
-#: allthethings/dyn/views.py:978
+#: allthethings/dyn/views.py:1180
 #, fuzzy
 msgid "dyn.buy_membership.error.wait"
 msgstr "Hiba a fizetés feldolgozása során. Kérjük, várjon egy pillanatot, majd próbálja újra. Ha a probléma több mint 24 órán keresztül fennáll, kérjük, lépjen kapcsolatba velünk a %(email)s címen egy képernyőképpel."
 
-#: allthethings/page/views.py:5536
+#: allthethings/page/views.py:5575
 #, fuzzy
 msgid "page.md5.box.download.affected_files"
 msgstr "%(count)s érintett oldalak"
 
-#: allthethings/page/views.py:6533
+#: allthethings/page/views.py:6563
 msgid "common.md5_problem_type_mapping.lgrsnf_visible"
 msgstr "Nem látható a Libgen.rs Nem-Fikció"
 
-#: allthethings/page/views.py:6534
+#: allthethings/page/views.py:6564
 msgid "common.md5_problem_type_mapping.lgrsfic_visible"
 msgstr "Nem látható a Libgen.rs Fikció"
 
-#: allthethings/page/views.py:6535
+#: allthethings/page/views.py:6565
 msgid "common.md5_problem_type_mapping.lgli_visible"
 msgstr "Nem látható Libgen.li-ben"
 
-#: allthethings/page/views.py:6536
+#: allthethings/page/views.py:6566
 msgid "common.md5_problem_type_mapping.lgli_broken"
 msgstr "A Libgen.li-en hibásként jelölve"
 
-#: allthethings/page/views.py:6537
+#: allthethings/page/views.py:6567
 msgid "common.md5_problem_type_mapping.zlib_missing"
 msgstr "Hiányzik a Z-Library-ból"
 
-#: allthethings/page/views.py:6538
+#: allthethings/page/views.py:6568
 #, fuzzy
 msgid "common.md5_problem_type_mapping.zlib_spam"
 msgstr "A Z-Library-ben „spam”-ként megjelölve"
 
-#: allthethings/page/views.py:6539
+#: allthethings/page/views.py:6569
 #, fuzzy
 msgid "common.md5_problem_type_mapping.zlib_bad_file"
 msgstr "A Z-Library-ben „rossz fájl”-ként megjelölve"
 
-#: allthethings/page/views.py:6540
+#: allthethings/page/views.py:6570
 #, fuzzy
 msgid "common.md5_problem_type_mapping.duxiu_pdg_broken_files"
 msgstr "Nem minden oldalt lehetett PDF-be konvertálni"
 
-#: allthethings/page/views.py:6541
+#: allthethings/page/views.py:6571
 #, fuzzy
 msgid "common.md5_problem_type_mapping.upload_exiftool_failed"
 msgstr "Az exiftool futtatása sikertelen volt ezen a fájlon"
 
-#: allthethings/page/views.py:6547
+#: allthethings/page/views.py:6577
 msgid "common.md5_content_type_mapping.book_unknown"
 msgstr "Könyv (ismeretlen)"
 
-#: allthethings/page/views.py:6548
+#: allthethings/page/views.py:6578
 msgid "common.md5_content_type_mapping.book_nonfiction"
 msgstr "Könyv (nem-fikció)"
 
-#: allthethings/page/views.py:6549
+#: allthethings/page/views.py:6579
 msgid "common.md5_content_type_mapping.book_fiction"
 msgstr "Könyv (fikció)"
 
-#: allthethings/page/views.py:6550
+#: allthethings/page/views.py:6580
 msgid "common.md5_content_type_mapping.journal_article"
 msgstr "Folyóirati cikk"
 
-#: allthethings/page/views.py:6551
+#: allthethings/page/views.py:6581
 msgid "common.md5_content_type_mapping.standards_document"
 msgstr "Szabványok dokumentuma"
 
-#: allthethings/page/views.py:6552
+#: allthethings/page/views.py:6582
 msgid "common.md5_content_type_mapping.magazine"
 msgstr "Magazin"
 
-#: allthethings/page/views.py:6553
+#: allthethings/page/views.py:6583
 msgid "common.md5_content_type_mapping.book_comic"
 msgstr "Képregény"
 
-#: allthethings/page/views.py:6554
+#: allthethings/page/views.py:6584
 msgid "common.md5_content_type_mapping.musical_score"
 msgstr "Zenei partitúra"
 
-#: allthethings/page/views.py:6555
+#: allthethings/page/views.py:6585
 #, fuzzy
 msgid "common.md5_content_type_mapping.audiobook"
 msgstr "Hangoskönyv"
 
-#: allthethings/page/views.py:6556
+#: allthethings/page/views.py:6586
 msgid "common.md5_content_type_mapping.other"
 msgstr "Egyéb"
 
-#: allthethings/page/views.py:6562
+#: allthethings/page/views.py:6592
 msgid "common.access_types_mapping.aa_download"
 msgstr "Partner Szerver letöltés"
 
-#: allthethings/page/views.py:6563
+#: allthethings/page/views.py:6593
 #, fuzzy
 msgid "common.access_types_mapping.aa_scidb"
 msgstr "SciDB"
 
-#: allthethings/page/views.py:6564
+#: allthethings/page/views.py:6594
 msgid "common.access_types_mapping.external_download"
 msgstr "Külső letöltés"
 
-#: allthethings/page/views.py:6565
+#: allthethings/page/views.py:6595
 msgid "common.access_types_mapping.external_borrow"
 msgstr "Külső kölcsönzés"
 
-#: allthethings/page/views.py:6566
+#: allthethings/page/views.py:6596
 msgid "common.access_types_mapping.external_borrow_printdisabled"
 msgstr "Külső kölcsönzés (nyomtatás kikapcsolva)"
 
-#: allthethings/page/views.py:6567
+#: allthethings/page/views.py:6597
 msgid "common.access_types_mapping.meta_explore"
 msgstr "Metaadat felfedezése"
 
-#: allthethings/page/views.py:6568
+#: allthethings/page/views.py:6598
 #, fuzzy
 msgid "common.access_types_mapping.torrents_available"
 msgstr "Torrentekben található"
@@ -1938,60 +1948,60 @@ msgstr "Torrentekben található"
 #: allthethings/page/templates/page/datasets.html:43
 #: allthethings/page/templates/page/datasets.html:254
 #: allthethings/page/templates/page/datasets_lgrs.html:25
-#: allthethings/page/views.py:6574
+#: allthethings/page/views.py:6604
 msgid "common.record_sources_mapping.lgrs"
 msgstr "Libgen.rs"
 
 #: allthethings/page/templates/page/datasets.html:80
 #: allthethings/page/templates/page/datasets.html:317
 #: allthethings/page/templates/page/datasets_lgli.html:29
-#: allthethings/page/views.py:6575
+#: allthethings/page/views.py:6605
 msgid "common.record_sources_mapping.lgli"
 msgstr "Libgen.li"
 
 #: allthethings/page/templates/page/datasets.html:98
 #: allthethings/page/templates/page/datasets.html:352
 #: allthethings/page/templates/page/datasets_zlib.html:25
-#: allthethings/page/views.py:6576
+#: allthethings/page/views.py:6606
 msgid "common.record_sources_mapping.zlib"
 msgstr "Z-Library"
 
 #: allthethings/page/templates/page/datasets.html:114
-#: allthethings/page/views.py:6577
+#: allthethings/page/views.py:6607
 #, fuzzy
 msgid "common.record_sources_mapping.zlibzh"
 msgstr "Z-Library kínai"
 
-#: allthethings/page/views.py:6578
+#: allthethings/page/views.py:6608
 #, fuzzy
 msgid "common.record_sources_mapping.ia"
 msgstr "IA"
 
-#: allthethings/page/views.py:6579
+#: allthethings/page/views.py:6609
 msgid "common.record_sources_mapping.isbndb"
 msgstr "ISBNdb"
 
 #: allthethings/page/templates/page/datasets.html:525
 #: allthethings/page/templates/page/datasets_ol.html:25
-#: allthethings/page/views.py:6580
+#: allthethings/page/views.py:6610
 msgid "common.record_sources_mapping.ol"
 msgstr "OpenLibrary"
 
 #: allthethings/page/templates/page/datasets.html:60
-#: allthethings/page/views.py:6581
+#: allthethings/page/views.py:6611
 msgid "common.record_sources_mapping.scihub"
 msgstr "Sci-Hub"
 
 #: allthethings/page/templates/page/datasets.html:541
 #: allthethings/page/templates/page/datasets_oclc.html:25
-#: allthethings/page/views.py:6582
+#: allthethings/page/views.py:6612
 msgid "common.record_sources_mapping.oclc"
 msgstr "OCLC (WorldCat)"
 
 #: allthethings/page/templates/page/datasets.html:148
 #: allthethings/page/templates/page/datasets.html:399
 #: allthethings/page/templates/page/datasets_duxiu.html:25
-#: allthethings/page/views.py:6583
+#: allthethings/page/views.py:6613
 #, fuzzy
 msgid "common.record_sources_mapping.duxiu"
 msgstr "DuXiu 读秀"
@@ -1999,373 +2009,371 @@ msgstr "DuXiu 读秀"
 #: allthethings/page/templates/page/datasets.html:164
 #: allthethings/page/templates/page/datasets.html:433
 #: allthethings/page/templates/page/datasets_upload.html:25
-#: allthethings/page/views.py:6584
+#: allthethings/page/views.py:6614
 #, fuzzy
 msgid "common.record_sources_mapping.uploads"
 msgstr "Feltöltések az AA-ra"
 
 #: allthethings/page/templates/page/datasets.html:180
-#: allthethings/page/views.py:6585
+#: allthethings/page/views.py:6615
 #, fuzzy
 msgid "common.record_sources_mapping.magzdb"
 msgstr "MagzDB"
 
 #: allthethings/page/templates/page/datasets.html:196
-#: allthethings/page/views.py:6586
+#: allthethings/page/views.py:6616
 #, fuzzy
 msgid "common.record_sources_mapping.nexusstc"
 msgstr "Nexus/STC"
 
-#: allthethings/page/views.py:6587
+#: allthethings/page/views.py:6617
 #, fuzzy
 msgid "common.record_sources_mapping.edsebk"
 msgstr "EBSCOhost eBook Index"
 
-#: allthethings/page/views.py:6588
+#: allthethings/page/views.py:6618
 #, fuzzy
 msgid "common.record_sources_mapping.cerlalc"
 msgstr "Cerlalc"
 
-#: allthethings/page/views.py:6589
+#: allthethings/page/views.py:6619
 #, fuzzy
 msgid "common.record_sources_mapping.czech_oo42hcks"
 msgstr "Cseh metaadat"
 
-#: allthethings/page/views.py:6590
+#: allthethings/page/views.py:6620
 #, fuzzy
 msgid "common.record_sources_mapping.gbooks"
 msgstr "Google Könyvek"
 
-#: allthethings/page/views.py:6591
+#: allthethings/page/views.py:6621
 #, fuzzy
 msgid "common.record_sources_mapping.goodreads"
 msgstr "Goodreads"
 
-#: allthethings/page/views.py:6592
+#: allthethings/page/views.py:6622
 #, fuzzy
 msgid "common.record_sources_mapping.isbngrp"
 msgstr "ISBN GRP"
 
-#: allthethings/page/views.py:6593
+#: allthethings/page/views.py:6623
 #, fuzzy
 msgid "common.record_sources_mapping.libby"
 msgstr "Libby"
 
-#: allthethings/page/views.py:6594
+#: allthethings/page/views.py:6624
 #, fuzzy
 msgid "common.record_sources_mapping.rgb"
 msgstr "Orosz Állami Könyvtár"
 
-#: allthethings/page/views.py:6595
+#: allthethings/page/views.py:6625
 #, fuzzy
 msgid "common.record_sources_mapping.trantor"
 msgstr "Trantor"
 
-#: allthethings/page/views.py:6601
+#: allthethings/page/views.py:6631
 #, fuzzy
 msgid "common.specific_search_fields.title"
 msgstr "Cím"
 
-#: allthethings/page/views.py:6602
+#: allthethings/page/views.py:6632
 #, fuzzy
 msgid "common.specific_search_fields.author"
 msgstr "Szerző"
 
-#: allthethings/page/views.py:6603
+#: allthethings/page/views.py:6633
 #, fuzzy
 msgid "common.specific_search_fields.publisher"
 msgstr "Kiadó"
 
-#: allthethings/page/views.py:6604
+#: allthethings/page/views.py:6634
 #, fuzzy
 msgid "common.specific_search_fields.edition_varia"
 msgstr "Kiadás"
 
-#: allthethings/page/views.py:6605
+#: allthethings/page/views.py:6635
 #, fuzzy
 msgid "common.specific_search_fields.year"
 msgstr "Megjelenés éve"
 
-#: allthethings/page/views.py:6606
+#: allthethings/page/views.py:6636
 #, fuzzy
 msgid "common.specific_search_fields.original_filename"
 msgstr "Eredeti fájlnév"
 
-#: allthethings/page/views.py:6607
+#: allthethings/page/views.py:6637
 #, fuzzy
 msgid "common.specific_search_fields.description_comments"
 msgstr "Leírás és metaadat-megjegyzések"
 
-#: allthethings/page/views.py:6631 allthethings/page/views.py:6632
+#: allthethings/page/views.py:6661 allthethings/page/views.py:6662
 #, fuzzy
 msgid "page.md5.box.download.temporarily_unavailable"
 msgstr "Partner Szerver letöltések ideiglenesen nem elérhetők ehhez a fájlhoz."
 
-#: allthethings/page/views.py:6636
+#: allthethings/page/views.py:6666
 msgid "common.md5.servers.fast_partner"
 msgstr "Gyors Partner Szerver #%(number)s"
 
-#: allthethings/page/views.py:6636
+#: allthethings/page/views.py:6666
 #, fuzzy
 msgid "common.md5.servers.fast_partner.recommended2"
 msgstr "(ajánlott)"
 
-#: allthethings/page/views.py:6636
+#: allthethings/page/views.py:6666
 #, fuzzy
 msgid "common.md5.servers.no_browser_verification_or_waitlists"
 msgstr "(nincs böngészőellenőrzés vagy várólista)"
 
 #: allthethings/page/templates/page/partner_download.html:37
-#: allthethings/page/views.py:6639 allthethings/page/views.py:6641
+#: allthethings/page/views.py:6669 allthethings/page/views.py:6671
 msgid "common.md5.servers.slow_partner"
 msgstr "Lassú Partner Szerver #%(number)s"
 
-#: allthethings/page/views.py:6639
+#: allthethings/page/views.py:6669
 #, fuzzy
 msgid "common.md5.servers.faster_with_waitlist"
 msgstr "(kicsit gyorsabb, de várólistával)"
 
-#: allthethings/page/views.py:6641
+#: allthethings/page/views.py:6671
 #, fuzzy
 msgid "common.md5.servers.slow_no_waitlist"
 msgstr "(nincs várólista, de nagyon lassú lehet)"
 
-#: allthethings/page/views.py:6728 allthethings/page/views.py:6950
+#: allthethings/page/views.py:6758 allthethings/page/views.py:6983
 msgid "page.md5.box.download.scihub"
 msgstr "Sci-Hub: %(doi)s"
 
-#: allthethings/page/views.py:6805
+#: allthethings/page/views.py:6838
 msgid "page.md5.box.download.lgrsnf"
 msgstr "Libgen.rs Nem-Fikció"
 
-#: allthethings/page/views.py:6805 allthethings/page/views.py:6821
-#: allthethings/page/views.py:6882
-msgid "page.md5.box.download.extra_also_click_get"
-msgstr "(kattints a „GET” gombra is a tetején)"
-
-#: allthethings/page/views.py:6805 allthethings/page/views.py:6821
-#: allthethings/page/views.py:6882
-msgid "page.md5.box.download.extra_click_get"
-msgstr "(kattints felül a „GET” gombra)"
-
-#: allthethings/page/views.py:6821
+#: allthethings/page/views.py:6854
 msgid "page.md5.box.download.lgrsfic"
 msgstr "Libgen.rs Fikció"
 
-#: allthethings/page/views.py:6882
+#: allthethings/page/views.py:6915
 msgid "page.md5.box.download.lgli"
 msgstr "Libgen.li"
 
-#: allthethings/page/views.py:6882
+#: allthethings/page/views.py:6915
+msgid "page.md5.box.download.extra_also_click_get"
+msgstr "(kattints a „GET” gombra is a tetején)"
+
+#: allthethings/page/views.py:6915
+msgid "page.md5.box.download.extra_click_get"
+msgstr "(kattints felül a „GET” gombra)"
+
+#: allthethings/page/views.py:6915
 #, fuzzy
 msgid "page.md5.box.download.libgen_ads"
 msgstr "hirdetéseikről ismert, hogy rosszindulatú szoftvereket tartalmaznak, ezért használjon hirdetésblokkolót, vagy ne kattintson a hirdetésekre"
 
-#: allthethings/page/views.py:6886
+#: allthethings/page/views.py:6919
 #, fuzzy
 msgid "page.md5.box.download.nexusstc"
 msgstr "Nexus/STC"
 
-#: allthethings/page/views.py:6886
+#: allthethings/page/views.py:6919
 #, fuzzy
 msgid "page.md5.box.download.nexusstc_unreliable"
 msgstr "(A Nexus/STC fájlok letöltése megbízhatatlan lehet)"
 
-#: allthethings/page/views.py:6933 allthethings/page/views.py:6937
+#: allthethings/page/views.py:6966 allthethings/page/views.py:6970
 #, fuzzy
 msgid "page.md5.box.download.zlib"
 msgstr "Z-Library"
 
-#: allthethings/page/views.py:6934 allthethings/page/views.py:6938
+#: allthethings/page/views.py:6967 allthethings/page/views.py:6971
 msgid "page.md5.box.download.zlib_tor"
 msgstr "Z-Library a Tor-on"
 
-#: allthethings/page/views.py:6934 allthethings/page/views.py:6938
+#: allthethings/page/views.py:6967 allthethings/page/views.py:6971
 msgid "page.md5.box.download.zlib_tor_extra"
 msgstr "(Tor Böngészőt igényel)"
 
-#: allthethings/page/views.py:6941
+#: allthethings/page/views.py:6974
 #, fuzzy
 msgid "page.md5.box.download.magzdb"
 msgstr "MagzDB"
 
-#: allthethings/page/views.py:6946
+#: allthethings/page/views.py:6979
 msgid "page.md5.box.download.ia_borrow"
 msgstr "Kölcsönzés az Internet Archive-ból"
 
-#: allthethings/page/views.py:6946
+#: allthethings/page/views.py:6979
 msgid "page.md5.box.download.print_disabled_only"
 msgstr "(nyomtatás csak a támogatók számára engedélyezett)"
 
-#: allthethings/page/views.py:6950
+#: allthethings/page/views.py:6983
 msgid "page.md5.box.download.scihub_maybe"
 msgstr "(a hozzátartozó DOI lehet nem elérhető a Sci-Hub-on)"
 
-#: allthethings/page/views.py:6953
+#: allthethings/page/views.py:6986
 #, fuzzy
 msgid "page.md5.box.download.manualslib"
 msgstr "ManualsLib"
 
-#: allthethings/page/views.py:6956
+#: allthethings/page/views.py:6989
 #, fuzzy
 msgid "page.md5.box.download.pubmed"
 msgstr "PubMed"
 
-#: allthethings/page/views.py:6963
+#: allthethings/page/views.py:6996
 #, fuzzy
 msgid "page.md5.box.download.collection"
 msgstr "gyűjtemény"
 
-#: allthethings/page/views.py:6964
+#: allthethings/page/views.py:6997
 #, fuzzy
 msgid "page.md5.box.download.torrent"
 msgstr "torrent"
 
-#: allthethings/page/views.py:6970
+#: allthethings/page/views.py:7003
 msgid "page.md5.box.download.bulk_torrents"
 msgstr "Tömeges torrent letöltések"
 
-#: allthethings/page/views.py:6970
+#: allthethings/page/views.py:7003
 msgid "page.md5.box.download.experts_only"
 msgstr "(csak szakértők)"
 
-#: allthethings/page/views.py:6977
+#: allthethings/page/views.py:7010
 msgid "page.md5.box.download.aa_isbn"
 msgstr "ISBN keresése Anna Archívumában"
 
-#: allthethings/page/views.py:6978
+#: allthethings/page/views.py:7011
 msgid "page.md5.box.download.other_isbn"
 msgstr "ISBN keresése több különböző adatbázisokban"
 
-#: allthethings/page/views.py:6979
+#: allthethings/page/views.py:7012
 msgid "page.md5.box.download.original_isbndb"
 msgstr "Eredeti nyilvántartás keresése ISBNdb-n"
 
-#: allthethings/page/views.py:6981
+#: allthethings/page/views.py:7014
 msgid "page.md5.box.download.aa_openlib"
 msgstr "Open Library ID keresése Anna Archívumában"
 
-#: allthethings/page/views.py:6982
+#: allthethings/page/views.py:7015
 msgid "page.md5.box.download.original_openlib"
 msgstr "Eredeti nyilvántartás keresése Open Library-ben"
 
-#: allthethings/page/views.py:6984
+#: allthethings/page/views.py:7017
 msgid "page.md5.box.download.aa_oclc"
 msgstr "Keressen Anna archívumában az OCLC (WorldCat) számot"
 
-#: allthethings/page/views.py:6985
+#: allthethings/page/views.py:7018
 msgid "page.md5.box.download.original_oclc"
 msgstr "Keresse meg az eredeti rekordot a WorldCatben"
 
-#: allthethings/page/views.py:6987
+#: allthethings/page/views.py:7020
 #, fuzzy
 msgid "page.md5.box.download.aa_duxiu"
 msgstr "Keressen DuXiu SSID számot az Anna Archívumában"
 
-#: allthethings/page/views.py:6988
+#: allthethings/page/views.py:7021
 #, fuzzy
 msgid "page.md5.box.download.original_duxiu"
 msgstr "Keresés manuálisan a DuXiu-n"
 
-#: allthethings/page/views.py:6990
+#: allthethings/page/views.py:7023
 #, fuzzy
 msgid "page.md5.box.download.aa_cadal"
 msgstr "Keresés Anna Archívumában CADAL SSNO szám alapján"
 
-#: allthethings/page/views.py:6991
+#: allthethings/page/views.py:7024
 #, fuzzy
 msgid "page.md5.box.download.original_cadal"
 msgstr "Eredeti rekord keresése a CADAL-ban"
 
-#: allthethings/page/views.py:6995
+#: allthethings/page/views.py:7028
 #, fuzzy
 msgid "page.md5.box.download.aa_dxid"
 msgstr "Keresés Anna Archívumában DuXiu DXID szám alapján"
 
-#: allthethings/page/views.py:6998
+#: allthethings/page/views.py:7031
 #, fuzzy
 msgid "page.md5.box.download.edsebk"
 msgstr "EBSCOhost eBook Index"
 
-#: allthethings/page/views.py:7003 allthethings/page/views.py:7004
+#: allthethings/page/views.py:7036 allthethings/page/views.py:7037
 msgid "page.md5.box.download.scidb"
 msgstr "Anna Archívuma🧬 SciDB"
 
-#: allthethings/page/views.py:7003 allthethings/page/views.py:7004
+#: allthethings/page/views.py:7036 allthethings/page/views.py:7037
 msgid "common.md5.servers.no_browser_verification"
 msgstr "(nincs szükség böngésző-ellenőrzésre)"
 
-#: allthethings/page/views.py:7029
+#: allthethings/page/views.py:7062
 #, fuzzy
 msgid "page.md5.top_row.isbndb"
 msgstr "ISBNdb %(id)s}"
 
-#: allthethings/page/views.py:7030
+#: allthethings/page/views.py:7063
 #, fuzzy
 msgid "page.md5.top_row.oclc"
 msgstr "OCLC %(id)s}"
 
-#: allthethings/page/views.py:7031
+#: allthethings/page/views.py:7064
 #, fuzzy
 msgid "page.md5.top_row.duxiu_ssid"
 msgstr "DuXiu SSID %(id)s}"
 
-#: allthethings/page/views.py:7032
+#: allthethings/page/views.py:7065
 #, fuzzy
 msgid "page.md5.top_row.cadal_ssno"
 msgstr "CADAL SSNO %(id)s}"
 
-#: allthethings/page/views.py:7033
+#: allthethings/page/views.py:7066
 #, fuzzy
 msgid "page.md5.top_row.magzdb"
 msgstr "MagzDB %(id)s}"
 
-#: allthethings/page/views.py:7034
+#: allthethings/page/views.py:7067
 #, fuzzy
 msgid "page.md5.top_row.nexusstc"
 msgstr "Nexus/STC %(id)s}"
 
-#: allthethings/page/views.py:7035
+#: allthethings/page/views.py:7068
 #, fuzzy
 msgid "page.md5.top_row.edsebk"
 msgstr "EBSCOhost edsebk %(id)s}"
 
-#: allthethings/page/views.py:7036
+#: allthethings/page/views.py:7069
 #, fuzzy
 msgid "page.md5.top_row.cerlalc"
 msgstr "Cerlalc %(id)s}"
 
-#: allthethings/page/views.py:7037
+#: allthethings/page/views.py:7070
 #, fuzzy
 msgid "page.md5.top_row.czech_oo42hcks"
 msgstr "Cseh metaadat %(id)s}"
 
-#: allthethings/page/views.py:7038
+#: allthethings/page/views.py:7071
 #, fuzzy
 msgid "page.md5.top_row.gbooks"
 msgstr "Google Könyvek %(id)s}"
 
-#: allthethings/page/views.py:7039
+#: allthethings/page/views.py:7072
 #, fuzzy
 msgid "page.md5.top_row.goodreads"
 msgstr "Goodreads %(id)s}"
 
-#: allthethings/page/views.py:7040
+#: allthethings/page/views.py:7073
 #, fuzzy
 msgid "page.md5.top_row.isbngrp"
 msgstr "ISBN GRP %(id)s}"
 
-#: allthethings/page/views.py:7041
+#: allthethings/page/views.py:7074
 #, fuzzy
 msgid "page.md5.top_row.libby"
 msgstr "Libby %(id)s}"
 
-#: allthethings/page/views.py:7042
+#: allthethings/page/views.py:7075
 #, fuzzy
 msgid "page.md5.top_row.rgb"
 msgstr "RSL %(id)s}"
 
-#: allthethings/page/views.py:7043
+#: allthethings/page/views.py:7076
 #, fuzzy
 msgid "page.md5.top_row.trantor"
 msgstr "Trantor %(id)s}"
@@ -2385,57 +2393,57 @@ msgstr "Trantor %(id)s}"
 #: allthethings/page/templates/page/datasets_scihub.html:18
 #: allthethings/page/templates/page/datasets_upload.html:18
 #: allthethings/page/templates/page/datasets_zlib.html:18
-#: allthethings/page/views.py:7067
+#: allthethings/page/views.py:7100
 #, fuzzy
 msgid "page.datasets.sources.metadata.header"
 msgstr "Metaadat"
 
-#: allthethings/page/views.py:7080
+#: allthethings/page/views.py:7113
 #, fuzzy
 msgid "page.md5.box.descr_title"
 msgstr "leírás"
 
-#: allthethings/page/views.py:7081
+#: allthethings/page/views.py:7114
 #, fuzzy
 msgid "page.md5.box.alternative_filename"
 msgstr "Alternatív fájlnév"
 
-#: allthethings/page/views.py:7082
+#: allthethings/page/views.py:7115
 #, fuzzy
 msgid "page.md5.box.alternative_title"
 msgstr "Alternatív cím"
 
-#: allthethings/page/views.py:7083
+#: allthethings/page/views.py:7116
 #, fuzzy
 msgid "page.md5.box.alternative_author"
 msgstr "Alternatív szerző"
 
-#: allthethings/page/views.py:7084
+#: allthethings/page/views.py:7117
 #, fuzzy
 msgid "page.md5.box.alternative_publisher"
 msgstr "Alternatív kiadó"
 
-#: allthethings/page/views.py:7085
+#: allthethings/page/views.py:7118
 #, fuzzy
 msgid "page.md5.box.alternative_edition"
 msgstr "Alternatív kiadás"
 
-#: allthethings/page/views.py:7086
+#: allthethings/page/views.py:7119
 #, fuzzy
 msgid "page.md5.box.alternative_extension"
 msgstr "Alternatív kiterjesztés"
 
-#: allthethings/page/views.py:7087
+#: allthethings/page/views.py:7120
 #, fuzzy
 msgid "page.md5.box.metadata_comments_title"
 msgstr "metaadat megjegyzések"
 
-#: allthethings/page/views.py:7088
+#: allthethings/page/views.py:7121
 #, fuzzy
 msgid "page.md5.box.alternative_description"
 msgstr "Alternatív leírás"
 
-#: allthethings/page/views.py:7089
+#: allthethings/page/views.py:7122
 #, fuzzy
 msgid "page.md5.box.date_open_sourced_title"
 msgstr "nyílt forráskódúvá válás dátuma"
@@ -2494,157 +2502,168 @@ msgstr "Nexus/STC ID %(id)s metaadat rekord"
 msgid "page.md5.header.meta_desc"
 msgstr "Ez egy metaadat nyilvántartás, nem egy letölthető fájl. Ezt az URL-t használhatja, amikor <a %(a_request)s>fájlt kér</a>."
 
-#: allthethings/page/templates/page/aarecord.html:57
+#: allthethings/page/templates/page/aarecord.html:59
 #, fuzzy
 msgid "page.md5.text.linked_metadata"
 msgstr "Metaadat a kapcsolt rekordból"
 
-#: allthethings/page/templates/page/aarecord.html:58
+#: allthethings/page/templates/page/aarecord.html:60
 #, fuzzy
 msgid "page.md5.text.linked_metadata_openlib"
 msgstr "Metaadat javítása az Open Library-n"
 
-#: allthethings/page/templates/page/aarecord.html:61
+#: allthethings/page/templates/page/aarecord.html:63
 #, fuzzy
 msgid "page.md5.warning.multiple_links"
 msgstr "Figyelem: több kapcsolt rekord:"
 
-#: allthethings/page/templates/page/aarecord.html:69
+#: allthethings/page/templates/page/aarecord.html:71
 #, fuzzy
 msgid "page.md5.header.improve_metadata"
 msgstr "Metaadatok javítása"
 
-#: allthethings/page/templates/page/aarecord.html:71
+#: allthethings/page/templates/page/aarecord.html:73
 #, fuzzy
 msgid "page.md5.text.report_quality"
 msgstr "Fájl minőségének jelentése"
 
-#: allthethings/page/templates/page/aarecord.html:95
+#: allthethings/page/templates/page/aarecord.html:87
+#: allthethings/page/templates/page/search.html:510
+#: allthethings/page/templates/page/search.html:520
+#: allthethings/page/templates/page/search.html:550
+#: allthethings/templates/macros/aarecord_list.html:118
+#, fuzzy
+msgid "page.search.results.download_time"
+msgstr "Letöltési idő"
+
+#: allthethings/page/templates/page/aarecord.html:142
 #, fuzzy
 msgid "page.md5.codes.url"
 msgstr "URL:"
 
-#: allthethings/page/templates/page/aarecord.html:96
+#: allthethings/page/templates/page/aarecord.html:143
 #, fuzzy
 msgid "page.md5.codes.website"
 msgstr "Weboldal:"
 
-#: allthethings/page/templates/page/aarecord.html:97
+#: allthethings/page/templates/page/aarecord.html:144
 #, fuzzy
 msgid "page.md5.codes.aa_abbr"
 msgstr "AA:"
 
-#: allthethings/page/templates/page/aarecord.html:97
+#: allthethings/page/templates/page/aarecord.html:144
 #, fuzzy
 msgid "page.md5.codes.aa_search"
 msgstr "Keressen az Anna Archívumában a következőre: “%(name)s”"
 
-#: allthethings/page/templates/page/aarecord.html:98
+#: allthethings/page/templates/page/aarecord.html:145
 #, fuzzy
 msgid "page.md5.codes.code_explorer"
 msgstr "Kódok Felfedezője:"
 
-#: allthethings/page/templates/page/aarecord.html:98
+#: allthethings/page/templates/page/aarecord.html:145
 #, fuzzy
 msgid "page.md5.codes.code_search"
 msgstr "Megtekintés a Kódok Felfedezőjében „%(name)s”"
 
-#: allthethings/page/templates/page/aarecord.html:117
+#: allthethings/page/templates/page/aarecord.html:164
 #, fuzzy
 msgid "page.md5.box.descr_read_more"
 msgstr "Olvasson tovább…"
 
-#: allthethings/page/templates/page/aarecord.html:133
+#: allthethings/page/templates/page/aarecord.html:180
 msgid "page.md5.tabs.downloads"
 msgstr "Letöltések (%(count)s)"
 
-#: allthethings/page/templates/page/aarecord.html:133
+#: allthethings/page/templates/page/aarecord.html:180
 msgid "page.md5.tabs.borrow"
 msgstr "Kölcsönzés (%(count)s)"
 
-#: allthethings/page/templates/page/aarecord.html:133
+#: allthethings/page/templates/page/aarecord.html:180
 msgid "page.md5.tabs.explore_metadata"
 msgstr "Metaadatok felfedezése (%(count)s)"
 
-#: allthethings/page/templates/page/aarecord.html:135
+#: allthethings/page/templates/page/aarecord.html:183
 msgid "page.md5.tabs.lists"
 msgstr "Listák (%(count)s)"
 
-#: allthethings/page/templates/page/aarecord.html:136
+#: allthethings/page/templates/page/aarecord.html:184
 msgid "page.md5.tabs.stats"
 msgstr "Statisztikák (%(count)s)"
 
-#: allthethings/page/templates/page/aarecord.html:138
+#: allthethings/page/templates/page/aarecord.html:186
 msgid "common.tech_details"
 msgstr "Műszaki adatok (angolul)"
 
-#: allthethings/page/templates/page/aarecord.html:207
+#: allthethings/page/templates/page/aarecord.html:265
 msgid "page.md5.box.issues.text1"
 msgstr "<span class=\"font-bold\">❌Ez a fájl problémás lehet, ezért elrejtettük a forrás könyvtárat.</span> Néha ez a szerzői jog jogosultja kérésére történik, néha pedig azért, mert egy jobb alternatíva elérhető, de néha azért mert maga a fájl problémás. Lehet hogy ettől még le lehet tölteni, de mi azt javasoljuk hogy keress egy alternatív fájlt. Több részlet:"
 
-#: allthethings/page/templates/page/aarecord.html:212
+#: allthethings/page/templates/page/aarecord.html:270
 msgid "page.md5.box.download.better_file"
 msgstr "Ennek a fájlnak egy jobb változata lehet elérhető itt: %(link)s"
 
-#: allthethings/page/templates/page/aarecord.html:217
+#: allthethings/page/templates/page/aarecord.html:275
 msgid "page.md5.box.issues.text2"
 msgstr "Ha mégis letöltöd ezt a fájlt, csak megbízható és naprakész programmal nyisd meg."
 
-#: allthethings/page/templates/page/aarecord.html:222
+#: allthethings/page/templates/page/aarecord.html:280
 #, fuzzy
 msgid "page.md5.box.download.header_fast_only"
 msgstr "🚀 Gyors letöltések"
 
-#: allthethings/page/templates/page/aarecord.html:224
+#: allthethings/page/templates/page/aarecord.html:282
 #, fuzzy
 msgid "page.md5.box.download.header_fast_no_member"
 msgstr "<strong>🚀 Gyors letöltések</strong> Válj <a %(a_membership)s>taggá</a>, hogy támogasd a könyvek, cikkek és egyéb dokumentumok hosszútávú megőrzését. Hálánk jeléül a támogatásodért gyors letöltéseket kapsz. ❤️"
 
-#: allthethings/page/templates/page/aarecord.html:225
+#: allthethings/page/templates/page/aarecord.html:283
 #: allthethings/templates/layouts/index.html:233
 #, fuzzy
 msgid "layout.index.header.banner.fundraiser.this_month"
 msgstr "Ha ebben a hónapban adományozol, <strong>dupla</strong> gyors letöltést kapsz."
 
-#: allthethings/page/templates/page/aarecord.html:227
+#: allthethings/page/templates/page/aarecord.html:285
 #, fuzzy
 msgid "page.md5.box.download.header_fast_member"
 msgstr "<strong>🚀 Gyors letöltések</strong> Ma még %(remaining)s van hátra. Köszönjük, hogy tag vagy! ❤️"
 
-#: allthethings/page/templates/page/aarecord.html:228
+#: allthethings/page/templates/page/aarecord.html:286
 #, fuzzy
 msgid "page.md5.box.download.header_fast_member_no_remaining_new"
 msgstr "<strong>🚀 Gyors letöltések</strong> A mai napon elfogytak a gyors letöltéseid."
 
-#: allthethings/page/templates/page/aarecord.html:229
+#: allthethings/page/templates/page/aarecord.html:287
 #, fuzzy
 msgid "page.md5.box.download.header_fast_member_valid_for"
 msgstr "<strong>🚀 Gyors letöltések</strong> Ezt a fájlt nemrég töltötted le. A linkek egy ideig érvényesek maradnak."
 
-#: allthethings/page/templates/page/aarecord.html:234
-#: allthethings/page/templates/page/aarecord.html:251
-#: allthethings/page/templates/page/aarecord.html:283
+#: allthethings/page/templates/page/aarecord.html:292
+#: allthethings/page/templates/page/aarecord.html:293
+#: allthethings/page/templates/page/aarecord.html:311
+#: allthethings/page/templates/page/aarecord.html:347
 msgid "page.md5.box.download.option"
 msgstr "Opció #%(num)d: %(link)s %(extra)s"
 
-#: allthethings/page/templates/page/aarecord.html:234
+#: allthethings/page/templates/page/aarecord.html:292
+#: allthethings/page/templates/page/aarecord.html:294
 #, fuzzy
 msgid "page.md5.box.download.no_redirect"
 msgstr "(nincs átirányítás)"
 
-#: allthethings/page/templates/page/aarecord.html:239
+#: allthethings/page/templates/page/aarecord.html:299
 #: allthethings/templates/layouts/index.html:276
 #, fuzzy
 msgid "layout.index.header.banner.refer"
 msgstr "Ajánljon egy barátot, és mindketten %(percentage)s%% bónusz gyors letöltést kapnak!"
 
-#: allthethings/page/templates/page/aarecord.html:239
+#: allthethings/page/templates/page/aarecord.html:299
 #: allthethings/page/templates/page/home.html:25
 #: allthethings/page/templates/page/home.html:34
 #: allthethings/page/templates/page/home.html:71
 #: allthethings/page/templates/page/home.html:124
-#: allthethings/page/templates/page/search.html:357
-#: allthethings/page/templates/page/search.html:421
+#: allthethings/page/templates/page/search.html:361
+#: allthethings/page/templates/page/search.html:425
 #: allthethings/templates/layouts/index.html:270
 #: allthethings/templates/layouts/index.html:276
 #: allthethings/templates/layouts/index.html:403
@@ -2654,248 +2673,248 @@ msgstr "Ajánljon egy barátot, és mindketten %(percentage)s%% bónusz gyors le
 msgid "layout.index.header.learn_more"
 msgstr "Tudjon meg többet…"
 
-#: allthethings/page/templates/page/aarecord.html:246
+#: allthethings/page/templates/page/aarecord.html:306
 #, fuzzy
 msgid "page.md5.box.download.header_slow_only"
 msgstr "🐢 Lassú letöltések"
 
-#: allthethings/page/templates/page/aarecord.html:247
+#: allthethings/page/templates/page/aarecord.html:307
 #, fuzzy
 msgid "page.md5.box.download.trusted_partners"
 msgstr "Megbízható partnerektől."
 
-#: allthethings/page/templates/page/aarecord.html:247
+#: allthethings/page/templates/page/aarecord.html:307
 #, fuzzy
 msgid "page.md5.box.download.slow_faq"
 msgstr "További információk a <a %(a_slow)s>GYIK</a>-ban."
 
-#: allthethings/page/templates/page/aarecord.html:247
+#: allthethings/page/templates/page/aarecord.html:307
 msgid "common.md5.servers.browser_verification_unlimited"
 msgstr "(<a %(a_browser)s>böngésző-ellenőrzést</a> igényelhet - korlátlan letöltés!)"
 
-#: allthethings/page/templates/page/aarecord.html:262
+#: allthethings/page/templates/page/aarecord.html:326
 #, fuzzy
 msgid "page.md5.box.external_downloads"
 msgstr "külső letöltések megjelenítése"
 
-#: allthethings/page/templates/page/aarecord.html:263
+#: allthethings/page/templates/page/aarecord.html:327
 #, fuzzy
 msgid "page.md5.box.download.header_external"
 msgstr "Külső letöltések"
 
-#: allthethings/page/templates/page/aarecord.html:288
+#: allthethings/page/templates/page/aarecord.html:352
 msgid "page.md5.box.download.no_found"
 msgstr "Nem található letöltés."
 
-#: allthethings/page/templates/page/aarecord.html:294
+#: allthethings/page/templates/page/aarecord.html:358
 msgid "page.md5.box.download.no_issues_notice"
 msgstr "Minden tükör ugyanazt a fájlt szolgálja ki, és biztonságosan használhatónak kell lennie. Ennek ellenére mindig legyen óvatos, amikor fájlokat tölt le az internetről. Például ügyeljen arra, hogy eszközeit folyamatosan frissítse."
 
-#: allthethings/page/templates/page/aarecord.html:300
+#: allthethings/page/templates/page/aarecord.html:364
 #: allthethings/page/templates/page/partner_download.html:83
 #, fuzzy
 msgid "page.md5.box.download.dl_managers"
 msgstr "Nagy fájlok esetén javasoljuk letöltéskezelő használatát a megszakítások elkerülése érdekében."
 
-#: allthethings/page/templates/page/aarecord.html:301
+#: allthethings/page/templates/page/aarecord.html:365
 #: allthethings/page/templates/page/partner_download.html:84
 #, fuzzy
 msgid "page.md5.box.download.dl_managers.links"
 msgstr "Ajánlott letöltéskezelők: %(links)s"
 
-#: allthethings/page/templates/page/aarecord.html:309
+#: allthethings/page/templates/page/aarecord.html:373
 #, fuzzy
 msgid "page.md5.box.download.readers"
 msgstr "A fájl megnyitásához ebook vagy PDF olvasóra lesz szüksége, a fájl formátumától függően."
 
-#: allthethings/page/templates/page/aarecord.html:310
+#: allthethings/page/templates/page/aarecord.html:374
 #, fuzzy
 msgid "page.md5.box.download.readers.links"
 msgstr "Ajánlott ebook olvasók: %(links)s"
 
-#: allthethings/page/templates/page/aarecord.html:319
+#: allthethings/page/templates/page/aarecord.html:383
 #, fuzzy
 msgid "page.md5.box.download.conversion"
 msgstr "Használjon online eszközöket a formátumok közötti átalakításhoz."
 
-#: allthethings/page/templates/page/aarecord.html:320
+#: allthethings/page/templates/page/aarecord.html:384
 #, fuzzy
 msgid "page.md5.box.download.conversion.links"
 msgstr "Ajánlott átalakító eszközök: %(links)s"
 
-#: allthethings/page/templates/page/aarecord.html:328
+#: allthethings/page/templates/page/aarecord.html:392
 #, fuzzy
 msgid "page.md5.box.download.sendtokindle"
 msgstr "PDF és EPUB fájlokat is küldhet Kindle vagy Kobo eReader készülékére."
 
-#: allthethings/page/templates/page/aarecord.html:329
+#: allthethings/page/templates/page/aarecord.html:393
 #, fuzzy
 msgid "page.md5.box.download.sendtokindle.links"
 msgstr "Ajánlott eszközök: %(links)s"
 
-#: allthethings/page/templates/page/aarecord.html:332
+#: allthethings/page/templates/page/aarecord.html:396
 #, fuzzy
 msgid "page.md5.box.download.link.send_to_kindle"
 msgstr "Amazon „Küldés Kindle-re”"
 
-#: allthethings/page/templates/page/aarecord.html:333
+#: allthethings/page/templates/page/aarecord.html:397
 #, fuzzy
 msgid "page.md5.box.download.link.send_to_kobokindle"
 msgstr "djazz „Küldés Kobo/Kindle-re”"
 
-#: allthethings/page/templates/page/aarecord.html:338
+#: allthethings/page/templates/page/aarecord.html:402
 #, fuzzy
 msgid "page.md5.box.download.support"
 msgstr "Támogassa a szerzőket és a könyvtárakat"
 
-#: allthethings/page/templates/page/aarecord.html:339
+#: allthethings/page/templates/page/aarecord.html:403
 #, fuzzy
 msgid "page.md5.box.download.support.authors"
 msgstr "Ha tetszik ez, és megengedheti magának, fontolja meg az eredeti megvásárlását, vagy támogassa közvetlenül a szerzőket."
 
-#: allthethings/page/templates/page/aarecord.html:340
+#: allthethings/page/templates/page/aarecord.html:404
 #, fuzzy
 msgid "page.md5.box.download.support.libraries"
 msgstr "Ha elérhető a helyi könyvtárában, fontolja meg, hogy ott kölcsönözze ki ingyen."
 
-#: allthethings/page/templates/page/aarecord.html:371
+#: allthethings/page/templates/page/aarecord.html:442
 #, fuzzy
 msgid "page.md5.quality.header"
 msgstr "Fájl minősége"
 
-#: allthethings/page/templates/page/aarecord.html:374
+#: allthethings/page/templates/page/aarecord.html:445
 #, fuzzy
 msgid "page.md5.quality.report"
 msgstr "Segítsd a közösséget a fájl minőségének jelentésével! 🙌"
 
-#: allthethings/page/templates/page/aarecord.html:378
+#: allthethings/page/templates/page/aarecord.html:449
 #, fuzzy
 msgid "page.md5.quality.report_issue"
 msgstr "Fájlprobléma jelentése (%(count)s)"
 
-#: allthethings/page/templates/page/aarecord.html:380
+#: allthethings/page/templates/page/aarecord.html:451
 #, fuzzy
 msgid "page.md5.quality.great_quality"
 msgstr "Kiváló fájlminőség (%(count)s)"
 
-#: allthethings/page/templates/page/aarecord.html:380
+#: allthethings/page/templates/page/aarecord.html:451
 #, fuzzy
 msgid "page.md5.quality.add_comment"
 msgstr "Hozzászólás hozzáadása (%(count)s)"
 
-#: allthethings/page/templates/page/aarecord.html:383
+#: allthethings/page/templates/page/aarecord.html:454
 #, fuzzy
 msgid "page.md5.quality.logged_out_login"
 msgstr "Kérjük, <a %(a_login)s>jelentkezz be</a>."
 
-#: allthethings/page/templates/page/aarecord.html:387
+#: allthethings/page/templates/page/aarecord.html:458
 #, fuzzy
 msgid "page.md5.quality.what_is_wrong"
 msgstr "Mi a probléma ezzel a fájllal?"
 
-#: allthethings/page/templates/page/aarecord.html:397
+#: allthethings/page/templates/page/aarecord.html:468
 #, fuzzy
 msgid "page.md5.quality.copyright"
 msgstr "Kérjük, használd a <a %(a_copyright)s>DMCA / Szerzői jogi igénylőlapot</a>."
 
-#: allthethings/page/templates/page/aarecord.html:402
+#: allthethings/page/templates/page/aarecord.html:473
 #, fuzzy
 msgid "page.md5.quality.describe_the_issue"
 msgstr "Írd le a problémát (kötelező)"
 
-#: allthethings/page/templates/page/aarecord.html:403
+#: allthethings/page/templates/page/aarecord.html:474
 #, fuzzy
 msgid "page.md5.quality.issue_description"
 msgstr "Probléma leírása"
 
-#: allthethings/page/templates/page/aarecord.html:407
+#: allthethings/page/templates/page/aarecord.html:478
 #, fuzzy
 msgid "page.md5.quality.better_md5.text1"
 msgstr "E fájl jobb verziójának MD5-je (ha alkalmazható)."
 
-#: allthethings/page/templates/page/aarecord.html:407
+#: allthethings/page/templates/page/aarecord.html:478
 #, fuzzy
 msgid "page.md5.quality.better_md5.text2"
 msgstr "Töltsd ki ezt, ha van egy másik fájl, amely szorosan illeszkedik ehhez a fájlhoz (ugyanaz a kiadás, ugyanaz a fájlkiterjesztés, ha találsz ilyet), amelyet az embereknek ennek a fájlnak a helyett kellene használniuk. Ha tudsz egy jobb verzióról ezen a fájlon kívül Anna’s Archive-ban, akkor kérjük, <a %(a_upload)s>töltsd fel</a>."
 
-#: allthethings/page/templates/page/aarecord.html:410
+#: allthethings/page/templates/page/aarecord.html:481
 #, fuzzy
 msgid "page.md5.quality.better_md5.line1"
 msgstr "Az md5-öt az URL-ből szerezheted meg, pl."
 
-#: allthethings/page/templates/page/aarecord.html:417
+#: allthethings/page/templates/page/aarecord.html:488
 #, fuzzy
 msgid "page.md5.quality.submit_report"
 msgstr "Jelentés beküldése"
 
-#: allthethings/page/templates/page/aarecord.html:422
+#: allthethings/page/templates/page/aarecord.html:493
 #, fuzzy
 msgid "page.md5.quality.improve_the_metadata"
 msgstr "Tanulja meg, hogyan <a %(a_metadata)s>javíthatja a metaadatokat</a> ehhez a fájlhoz saját maga."
 
-#: allthethings/page/templates/page/aarecord.html:426
+#: allthethings/page/templates/page/aarecord.html:497
 #, fuzzy
 msgid "page.md5.quality.report_thanks"
 msgstr "Köszönjük, hogy beküldte jelentését. Ez az oldalon megjelenik, és manuálisan is át lesz nézve Anna által (amíg nem lesz megfelelő moderációs rendszerünk)."
 
-#: allthethings/page/templates/page/aarecord.html:427
+#: allthethings/page/templates/page/aarecord.html:498
 #, fuzzy
 msgid "page.md5.quality.report_error"
 msgstr "Valami hiba történt. Kérjük, töltse újra az oldalt, és próbálja meg újra."
 
-#: allthethings/page/templates/page/aarecord.html:433
+#: allthethings/page/templates/page/aarecord.html:504
 #, fuzzy
 msgid "page.md5.quality.great.summary"
 msgstr "Ha ez a fájl kiváló minőségű, itt bármit megbeszélhet róla! Ha nem, kérjük, használja a „Fájlprobléma jelentése” gombot."
 
-#: allthethings/page/templates/page/aarecord.html:435
+#: allthethings/page/templates/page/aarecord.html:506
 #, fuzzy
 msgid "page.md5.quality.loved_the_book"
 msgstr "Imádtam ezt a könyvet!"
 
-#: allthethings/page/templates/page/aarecord.html:437
+#: allthethings/page/templates/page/aarecord.html:508
 #, fuzzy
 msgid "page.md5.quality.submit_comment"
 msgstr "Hozzászólás írása"
 
-#: allthethings/page/templates/page/aarecord.html:441
+#: allthethings/page/templates/page/aarecord.html:512
 #, fuzzy
 msgid "page.md5.quality.comment_thanks"
 msgstr "Hozzászólást hagyott. Előfordulhat, hogy egy percbe telik, mire megjelenik."
 
-#: allthethings/page/templates/page/aarecord.html:442
+#: allthethings/page/templates/page/aarecord.html:513
 #, fuzzy
 msgid "page.md5.quality.comment_error"
 msgstr "Valami hiba történt. Kérjük, töltse újra az oldalt, és próbálja meg újra."
 
-#: allthethings/page/templates/page/aarecord.html:452
-#: allthethings/page/templates/page/aarecord.html:453
-#: allthethings/page/templates/page/torrents.html:36
-#: allthethings/page/templates/page/torrents.html:37
+#: allthethings/page/templates/page/aarecord.html:522
+#: allthethings/page/templates/page/aarecord.html:523
+#: allthethings/page/templates/page/torrents.html:40
+#: allthethings/page/templates/page/torrents.html:41
 msgid "common.english_only"
 msgstr "A szöveg alább folytatódik angolul."
 
-#: allthethings/page/templates/page/aarecord.html:474
+#: allthethings/page/templates/page/aarecord.html:544
 #, fuzzy
 msgid "page.md5.text.stats.total_downloads"
 msgstr "Összes letöltés: %(total)s"
 
-#: allthethings/page/templates/page/aarecord.html:506
+#: allthethings/page/templates/page/aarecord.html:576
 #, fuzzy
 msgid "page.md5.text.md5_info.text1"
 msgstr "A „fájl MD5” egy hash, amelyet a fájl tartalmából számítanak ki, és ésszerűen egyedi az adott tartalom alapján. Az összes árnyékkönyvtár, amelyet itt indexeltünk, elsősorban az MD5-öket használja a fájlok azonosítására."
 
-#: allthethings/page/templates/page/aarecord.html:510
+#: allthethings/page/templates/page/aarecord.html:580
 #, fuzzy
 msgid "page.md5.text.md5_info.text2"
 msgstr "Egy fájl több árnyékkönyvtárban is megjelenhet. Az általunk összeállított különféle adatállományokról további információkért tekintse meg a <a %(a_datasets)s>Datasets oldalt</a>."
 
-#: allthethings/page/templates/page/aarecord.html:514
+#: allthethings/page/templates/page/aarecord.html:584
 #, fuzzy
 msgid "page.md5.text.ia_info.text1"
 msgstr "Ez egy fájl, amelyet az <a %(a_ia)s>IA irányított digitális kölcsönzési</a> könyvtára kezel, és az Anna Archívuma indexelte a kereséshez. Az általunk összeállított különféle adatállományokról további információkért tekintse meg a <a %(a_datasets)s>Datasets oldalt</a>."
 
-#: allthethings/page/templates/page/aarecord.html:519
+#: allthethings/page/templates/page/aarecord.html:589
 #, fuzzy
 msgid "page.md5.text.file_info.text1"
 msgstr "Az adott fájlra vonatkozó információkért tekintse meg a <a %(a_href)s>JSON fájlt</a>."
@@ -3590,7 +3609,7 @@ msgstr "Gyűjteményünket csak metaadat forrásokkal is gazdagítjuk, amelyeket
 
 #: allthethings/page/templates/page/datasets.html:505
 #: allthethings/page/templates/page/faq.html:191
-#: allthethings/page/templates/page/search.html:392
+#: allthethings/page/templates/page/search.html:396
 #, fuzzy
 msgid "page.faq.metadata.inspiration"
 msgstr "Az inspirációnk az metaadatok gyűjtésére Aaron Swartz célja volt, hogy „minden valaha megjelent könyvnek legyen egy weboldala”, amelyhez létrehozta az <a %(a_openlib)s>Open Library</a>-t. Az a projekt jól haladt, de egyedi helyzetünk lehetővé teszi számunkra, hogy olyan metaadatokat szerezzünk, amelyeket ők nem tudnak. Egy másik inspiráció az volt, hogy megtudjuk, <a %(a_blog)s>hány könyv van a világon</a>, hogy kiszámolhassuk, hány könyvet kell még megmentenünk."
@@ -3673,11 +3692,11 @@ msgstr "Bár a könyveket félig nyilvánosan terjesztették, meglehetősen neh�
 #: allthethings/page/templates/page/datasets_lgrs.html:81
 #: allthethings/page/templates/page/datasets_magzdb.html:66
 #: allthethings/page/templates/page/datasets_nexusstc.html:72
-#: allthethings/page/templates/page/datasets_oclc.html:63
+#: allthethings/page/templates/page/datasets_oclc.html:120
 #: allthethings/page/templates/page/datasets_ol.html:44
-#: allthethings/page/templates/page/datasets_other_metadata.html:150
+#: allthethings/page/templates/page/datasets_other_metadata.html:72
 #: allthethings/page/templates/page/datasets_scihub.html:90
-#: allthethings/page/templates/page/datasets_upload.html:221
+#: allthethings/page/templates/page/datasets_upload.html:104
 #: allthethings/page/templates/page/datasets_zlib.html:63
 #, fuzzy
 msgid "page.datasets.common.resources"
@@ -3690,7 +3709,7 @@ msgstr "Erőforrások"
 #: allthethings/page/templates/page/datasets_magzdb.html:68
 #: allthethings/page/templates/page/datasets_nexusstc.html:74
 #: allthethings/page/templates/page/datasets_scihub.html:92
-#: allthethings/page/templates/page/datasets_upload.html:223
+#: allthethings/page/templates/page/datasets_upload.html:106
 #: allthethings/page/templates/page/datasets_zlib.html:67
 #: allthethings/page/templates/page/datasets_zlib.html:74
 #, fuzzy
@@ -3704,7 +3723,7 @@ msgstr "Összes fájl: %(count)s"
 #: allthethings/page/templates/page/datasets_magzdb.html:69
 #: allthethings/page/templates/page/datasets_nexusstc.html:75
 #: allthethings/page/templates/page/datasets_scihub.html:93
-#: allthethings/page/templates/page/datasets_upload.html:224
+#: allthethings/page/templates/page/datasets_upload.html:107
 #: allthethings/page/templates/page/datasets_zlib.html:68
 #: allthethings/page/templates/page/datasets_zlib.html:75
 #, fuzzy
@@ -3718,7 +3737,7 @@ msgstr "Összes fájlméret: %(size)s"
 #: allthethings/page/templates/page/datasets_magzdb.html:70
 #: allthethings/page/templates/page/datasets_nexusstc.html:76
 #: allthethings/page/templates/page/datasets_scihub.html:94
-#: allthethings/page/templates/page/datasets_upload.html:225
+#: allthethings/page/templates/page/datasets_upload.html:108
 #: allthethings/page/templates/page/datasets_zlib.html:69
 #: allthethings/page/templates/page/datasets_zlib.html:76
 #, fuzzy
@@ -3731,7 +3750,7 @@ msgstr "Anna Archívuma által tükrözött fájlok: %(count)s (%(percent)s%%)"
 #: allthethings/page/templates/page/datasets_lgrs.html:86
 #: allthethings/page/templates/page/datasets_magzdb.html:71
 #: allthethings/page/templates/page/datasets_nexusstc.html:77
-#: allthethings/page/templates/page/datasets_oclc.html:65
+#: allthethings/page/templates/page/datasets_oclc.html:122
 #: allthethings/page/templates/page/datasets_ol.html:46
 #: allthethings/page/templates/page/datasets_zlib.html:79
 #, fuzzy
@@ -3748,10 +3767,10 @@ msgstr "Torrentek Anna Archívumából"
 #: allthethings/page/templates/page/datasets_ia.html:79
 #: allthethings/page/templates/page/datasets_lgli.html:113
 #: allthethings/page/templates/page/datasets_lgrs.html:90
-#: allthethings/page/templates/page/datasets_oclc.html:67
+#: allthethings/page/templates/page/datasets_oclc.html:124
 #: allthethings/page/templates/page/datasets_ol.html:47
 #: allthethings/page/templates/page/datasets_scihub.html:96
-#: allthethings/page/templates/page/datasets_upload.html:227
+#: allthethings/page/templates/page/datasets_upload.html:110
 #, fuzzy
 msgid "page.datasets.common.aa_example_record"
 msgstr "Példa rekord Anna Archívumában"
@@ -3767,11 +3786,11 @@ msgstr "Blogbejegyzésünk erről az adatról"
 #: allthethings/page/templates/page/datasets_lgrs.html:101
 #: allthethings/page/templates/page/datasets_magzdb.html:78
 #: allthethings/page/templates/page/datasets_nexusstc.html:92
-#: allthethings/page/templates/page/datasets_oclc.html:70
+#: allthethings/page/templates/page/datasets_oclc.html:127
 #: allthethings/page/templates/page/datasets_ol.html:50
-#: allthethings/page/templates/page/datasets_other_metadata.html:153
+#: allthethings/page/templates/page/datasets_other_metadata.html:75
 #: allthethings/page/templates/page/datasets_scihub.html:104
-#: allthethings/page/templates/page/datasets_upload.html:228
+#: allthethings/page/templates/page/datasets_upload.html:111
 #: allthethings/page/templates/page/datasets_zlib.html:87
 #, fuzzy
 msgid "page.datasets.common.import_scripts"
@@ -3783,11 +3802,11 @@ msgstr "Metaadat importálási szkriptek"
 #: allthethings/page/templates/page/datasets_lgrs.html:102
 #: allthethings/page/templates/page/datasets_magzdb.html:79
 #: allthethings/page/templates/page/datasets_nexusstc.html:93
-#: allthethings/page/templates/page/datasets_oclc.html:71
+#: allthethings/page/templates/page/datasets_oclc.html:128
 #: allthethings/page/templates/page/datasets_ol.html:51
-#: allthethings/page/templates/page/datasets_other_metadata.html:154
+#: allthethings/page/templates/page/datasets_other_metadata.html:76
 #: allthethings/page/templates/page/datasets_scihub.html:105
-#: allthethings/page/templates/page/datasets_upload.html:229
+#: allthethings/page/templates/page/datasets_upload.html:112
 #: allthethings/page/templates/page/datasets_zlib.html:88
 #, fuzzy
 msgid "page.datasets.common.aac"
@@ -3833,7 +3852,7 @@ msgstr "inkrementális új kiadások, AAC használatával. Csak a 2023-01-01 ut�
 #: allthethings/page/templates/page/datasets_ia.html:80
 #: allthethings/page/templates/page/datasets_lgli.html:114
 #: allthethings/page/templates/page/datasets_lgrs.html:91
-#: allthethings/page/templates/page/datasets_oclc.html:68
+#: allthethings/page/templates/page/datasets_oclc.html:125
 #: allthethings/page/templates/page/datasets_ol.html:48
 #: allthethings/page/templates/page/datasets_scihub.html:97
 #, fuzzy
@@ -4128,7 +4147,7 @@ msgstr "Csakúgy, mint a Z-Library gyűjteménynél, mindet egy nagy .tar fájlb
 
 #: allthethings/page/templates/page/datasets_oclc.html:4
 #: allthethings/page/templates/page/datasets_oclc.html:7
-#: allthethings/page/templates/page/datasets_oclc.html:68
+#: allthethings/page/templates/page/datasets_oclc.html:125
 #, fuzzy
 msgid "page.datasets.worldcat.title"
 msgstr "OCLC (WorldCat)"
@@ -4138,17 +4157,17 @@ msgstr "OCLC (WorldCat)"
 msgid "page.datasets.worldcat.description"
 msgstr "<a %(a_worldcat)s>A WorldCat</a> egy tulajdonosi adatbázis, amelyet a non-profit <a %(a_oclc)s>OCLC</a> üzemeltet, és amely könyvtárak metaadat-rekordjait gyűjti össze a világ minden tájáról. Valószínűleg ez a legnagyobb könyvtári metaadat-gyűjtemény a világon."
 
-#: allthethings/page/templates/page/datasets_oclc.html:52
+#: allthethings/page/templates/page/datasets_oclc.html:54
 #, fuzzy
 msgid "page.datasets.worldcat.description2"
 msgstr "2023 októberében <a %(a_scrape)s>kiadtunk</a> egy átfogó lementést az OCLC (WorldCat) adatbázisról, az <a %(a_aac)s>Anna Archívum Konténerek formátumban</a>."
 
-#: allthethings/page/templates/page/datasets_oclc.html:66
+#: allthethings/page/templates/page/datasets_oclc.html:123
 #, fuzzy
 msgid "page.datasets.worldcat.torrents"
 msgstr "Torrentek az Anna Archívum által"
 
-#: allthethings/page/templates/page/datasets_oclc.html:69
+#: allthethings/page/templates/page/datasets_oclc.html:126
 #, fuzzy
 msgid "page.datasets.worldcat.blog_announcement"
 msgstr "Blogbejegyzésünk erről az adatról"
@@ -4170,22 +4189,22 @@ msgstr "Az Open Library az Internet Archive nyílt forráskódú projektje, amel
 msgid "page.datesets.openlib.link_metadata"
 msgstr "Metaadat"
 
-#: allthethings/page/templates/page/datasets_other_metadata.html:92
+#: allthethings/page/templates/page/datasets_other_metadata.html:61
 #, fuzzy
 msgid "page.datasets.isbndb.release1.title"
 msgstr "1. kiadás (2022-10-31)"
 
-#: allthethings/page/templates/page/datasets_other_metadata.html:93
+#: allthethings/page/templates/page/datasets_other_metadata.html:61
 #, fuzzy
 msgid "page.datasets.isbndb.release1.text1"
 msgstr "Ez egy nagy mennyiségű hívás dumpja az isbndb.com-ra 2022 szeptemberében. Megpróbáltuk lefedni az összes ISBN tartományt. Ez körülbelül 30,9 millió rekordot jelent. A weboldalukon azt állítják, hogy valójában 32,6 millió rekordjuk van, így valahogy kihagyhattunk néhányat, vagy <em>ők</em> hibázhattak valamit."
 
-#: allthethings/page/templates/page/datasets_other_metadata.html:94
+#: allthethings/page/templates/page/datasets_other_metadata.html:61
 #, fuzzy
 msgid "page.datasets.isbndb.release1.text2"
 msgstr "A JSON válaszok nagyjából nyersek a szerverükről. Egy adatminőségi probléma, amit észrevettünk, hogy az ISBN-13 számoknál, amelyek más előtaggal kezdődnek, mint a „978-”, még mindig tartalmaznak egy „isbn” mezőt, amely egyszerűen az ISBN-13 szám az első 3 számjegy levágásával (és az ellenőrző szám újraszámításával). Ez nyilvánvalóan hibás, de így csinálják, ezért nem változtattuk meg."
 
-#: allthethings/page/templates/page/datasets_other_metadata.html:95
+#: allthethings/page/templates/page/datasets_other_metadata.html:61
 #, fuzzy
 msgid "page.datasets.isbndb.release1.text3"
 msgstr "Egy másik potenciális probléma, amivel találkozhat, az az, hogy az „isbn13” mező duplikált, így nem használható elsődleges kulcsként egy adatbázisban. Az „isbn13”+„isbn” mezők kombinációja viszont egyedinek tűnik."
@@ -4278,162 +4297,189 @@ msgstr "Sok algyűjtemény maga is al-algyűjteményekből áll (pl. különböz
 msgid "page.datasets.upload.subs.heading"
 msgstr "Az algyűjtemények a következők:"
 
+#: allthethings/page/templates/page/datasets_upload.html:63
+#: allthethings/page/templates/page/datasets_upload.html:64
 #: allthethings/page/templates/page/datasets_upload.html:65
+#: allthethings/page/templates/page/datasets_upload.html:66
+#: allthethings/page/templates/page/datasets_upload.html:67
+#: allthethings/page/templates/page/datasets_upload.html:68
+#: allthethings/page/templates/page/datasets_upload.html:69
+#: allthethings/page/templates/page/datasets_upload.html:70
+#: allthethings/page/templates/page/datasets_upload.html:71
 #: allthethings/page/templates/page/datasets_upload.html:72
+#: allthethings/page/templates/page/datasets_upload.html:73
+#: allthethings/page/templates/page/datasets_upload.html:74
+#: allthethings/page/templates/page/datasets_upload.html:75
+#: allthethings/page/templates/page/datasets_upload.html:76
+#: allthethings/page/templates/page/datasets_upload.html:77
+#: allthethings/page/templates/page/datasets_upload.html:78
 #: allthethings/page/templates/page/datasets_upload.html:79
+#: allthethings/page/templates/page/datasets_upload.html:80
+#: allthethings/page/templates/page/datasets_upload.html:81
+#: allthethings/page/templates/page/datasets_upload.html:82
+#: allthethings/page/templates/page/datasets_upload.html:83
+#: allthethings/page/templates/page/datasets_upload.html:84
+#: allthethings/page/templates/page/datasets_upload.html:85
 #: allthethings/page/templates/page/datasets_upload.html:86
+#: allthethings/page/templates/page/datasets_upload.html:87
+#: allthethings/page/templates/page/datasets_upload.html:88
+#: allthethings/page/templates/page/datasets_upload.html:89
+#: allthethings/page/templates/page/datasets_upload.html:90
+#: allthethings/page/templates/page/datasets_upload.html:91
+#: allthethings/page/templates/page/datasets_upload.html:92
 #: allthethings/page/templates/page/datasets_upload.html:93
-#: allthethings/page/templates/page/datasets_upload.html:100
-#: allthethings/page/templates/page/datasets_upload.html:107
-#: allthethings/page/templates/page/datasets_upload.html:114
-#: allthethings/page/templates/page/datasets_upload.html:121
-#: allthethings/page/templates/page/datasets_upload.html:128
-#: allthethings/page/templates/page/datasets_upload.html:135
-#: allthethings/page/templates/page/datasets_upload.html:142
-#: allthethings/page/templates/page/datasets_upload.html:149
-#: allthethings/page/templates/page/datasets_upload.html:156
-#: allthethings/page/templates/page/datasets_upload.html:163
-#: allthethings/page/templates/page/datasets_upload.html:170
-#: allthethings/page/templates/page/datasets_upload.html:177
-#: allthethings/page/templates/page/datasets_upload.html:184
-#: allthethings/page/templates/page/datasets_upload.html:191
-#: allthethings/page/templates/page/datasets_upload.html:198
-#: allthethings/page/templates/page/datasets_upload.html:212
+#: allthethings/page/templates/page/datasets_upload.html:94
+#: allthethings/page/templates/page/datasets_upload.html:95
+#: allthethings/page/templates/page/datasets_upload.html:96
+#: allthethings/page/templates/page/datasets_upload.html:97
+#: allthethings/page/templates/page/datasets_upload.html:98
+#: allthethings/page/templates/page/datasets_upload.html:99
 #, fuzzy
 msgid "page.datasets.upload.action.browse"
 msgstr "böngészés"
 
+#: allthethings/page/templates/page/datasets_upload.html:63
+#: allthethings/page/templates/page/datasets_upload.html:64
+#: allthethings/page/templates/page/datasets_upload.html:65
 #: allthethings/page/templates/page/datasets_upload.html:66
+#: allthethings/page/templates/page/datasets_upload.html:67
+#: allthethings/page/templates/page/datasets_upload.html:68
+#: allthethings/page/templates/page/datasets_upload.html:69
+#: allthethings/page/templates/page/datasets_upload.html:70
+#: allthethings/page/templates/page/datasets_upload.html:71
+#: allthethings/page/templates/page/datasets_upload.html:72
 #: allthethings/page/templates/page/datasets_upload.html:73
+#: allthethings/page/templates/page/datasets_upload.html:74
+#: allthethings/page/templates/page/datasets_upload.html:75
+#: allthethings/page/templates/page/datasets_upload.html:76
+#: allthethings/page/templates/page/datasets_upload.html:77
+#: allthethings/page/templates/page/datasets_upload.html:78
+#: allthethings/page/templates/page/datasets_upload.html:79
 #: allthethings/page/templates/page/datasets_upload.html:80
+#: allthethings/page/templates/page/datasets_upload.html:81
+#: allthethings/page/templates/page/datasets_upload.html:82
+#: allthethings/page/templates/page/datasets_upload.html:83
+#: allthethings/page/templates/page/datasets_upload.html:84
+#: allthethings/page/templates/page/datasets_upload.html:85
+#: allthethings/page/templates/page/datasets_upload.html:86
 #: allthethings/page/templates/page/datasets_upload.html:87
+#: allthethings/page/templates/page/datasets_upload.html:88
+#: allthethings/page/templates/page/datasets_upload.html:89
+#: allthethings/page/templates/page/datasets_upload.html:90
+#: allthethings/page/templates/page/datasets_upload.html:91
+#: allthethings/page/templates/page/datasets_upload.html:92
+#: allthethings/page/templates/page/datasets_upload.html:93
 #: allthethings/page/templates/page/datasets_upload.html:94
-#: allthethings/page/templates/page/datasets_upload.html:101
-#: allthethings/page/templates/page/datasets_upload.html:108
-#: allthethings/page/templates/page/datasets_upload.html:115
-#: allthethings/page/templates/page/datasets_upload.html:122
-#: allthethings/page/templates/page/datasets_upload.html:129
-#: allthethings/page/templates/page/datasets_upload.html:136
-#: allthethings/page/templates/page/datasets_upload.html:143
-#: allthethings/page/templates/page/datasets_upload.html:150
-#: allthethings/page/templates/page/datasets_upload.html:157
-#: allthethings/page/templates/page/datasets_upload.html:164
-#: allthethings/page/templates/page/datasets_upload.html:171
-#: allthethings/page/templates/page/datasets_upload.html:178
-#: allthethings/page/templates/page/datasets_upload.html:185
-#: allthethings/page/templates/page/datasets_upload.html:192
-#: allthethings/page/templates/page/datasets_upload.html:199
-#: allthethings/page/templates/page/datasets_upload.html:213
+#: allthethings/page/templates/page/datasets_upload.html:95
+#: allthethings/page/templates/page/datasets_upload.html:96
+#: allthethings/page/templates/page/datasets_upload.html:97
+#: allthethings/page/templates/page/datasets_upload.html:98
+#: allthethings/page/templates/page/datasets_upload.html:99
 #, fuzzy
 msgid "page.datasets.upload.action.search"
 msgstr "keresés"
 
-#: allthethings/page/templates/page/datasets_upload.html:67
+#: allthethings/page/templates/page/datasets_upload.html:63
 #, fuzzy
 msgid "page.datasets.upload.source.aaaaarg"
 msgstr "Az <a %(a_href)s>aaaaarg.fail</a>-ról. Elég teljesnek tűnik. Önkéntesünktől, „cgiym”-től."
 
-#: allthethings/page/templates/page/datasets_upload.html:74
+#: allthethings/page/templates/page/datasets_upload.html:64
 #, fuzzy
 msgid "page.datasets.upload.source.acm"
 msgstr "Az <a %(a_href)s><q>ACM Digital Library 2020</q></a> torrentből. Elég nagy átfedés van a meglévő tanulmánygyűjteményekkel, de nagyon kevés MD5 egyezés, ezért úgy döntöttünk, hogy teljesen megtartjuk."
 
-#: allthethings/page/templates/page/datasets_upload.html:81
-#, fuzzy
-msgid "page.datasets.upload.source.alexandrina"
-msgstr "A <a %(a_href)s><q>Bibliotheca Alexandrina</q></a> gyűjteményből, pontos eredet nem tisztázott. Részben a the-eye.eu-ról, részben más forrásokból."
-
-#: allthethings/page/templates/page/datasets_upload.html:88
+#: allthethings/page/templates/page/datasets_upload.html:67
 #, fuzzy
 msgid "page.datasets.upload.source.bibliotik"
 msgstr "Egy privát könyv torrent weboldalról, <a %(a_href)s>Bibliotik</a> (gyakran „Bib”-ként emlegetik), amelynek könyveit név szerint (A.torrent, B.torrent) csomagolták torrentekbe és terjesztették a the-eye.eu-n keresztül."
 
-#: allthethings/page/templates/page/datasets_upload.html:95
+#: allthethings/page/templates/page/datasets_upload.html:68
 #, fuzzy
 msgid "page.datasets.upload.source.bpb9v_cadal"
 msgstr "Önkéntesünktől, „bpb9v”-től. További információ a <a %(a_href)s>CADAL</a>-ról, lásd a megjegyzéseket a <a %(a_duxiu)s>DuXiu adatállomány oldalán</a>."
 
-#: allthethings/page/templates/page/datasets_upload.html:102
+#: allthethings/page/templates/page/datasets_upload.html:69
 #, fuzzy
 msgid "page.datasets.upload.source.bpb9v_direct"
 msgstr "További anyagok önkéntesünktől, „bpb9v”-től, főként DuXiu fájlok, valamint egy „WenQu” és „SuperStar_Journals” mappa (a SuperStar a DuXiu mögött álló cég)."
 
-#: allthethings/page/templates/page/datasets_upload.html:109
+#: allthethings/page/templates/page/datasets_upload.html:70
 #, fuzzy
 msgid "page.datasets.upload.source.cgiym_chinese"
 msgstr "Önkéntesünk, „cgiym” által, különféle forrásokból származó kínai szövegek (al-könyvtárakként ábrázolva), beleértve a <a %(a_href)s>China Machine Press</a>-t (egy jelentős kínai kiadó)."
 
-#: allthethings/page/templates/page/datasets_upload.html:116
+#: allthethings/page/templates/page/datasets_upload.html:71
 #, fuzzy
 msgid "page.datasets.upload.source.cgiym_more"
 msgstr "Nem kínai gyűjtemények (al-könyvtárakként ábrázolva) önkéntesünktől, „cgiym”-től."
 
-#: allthethings/page/templates/page/datasets_upload.html:123
+#: allthethings/page/templates/page/datasets_upload.html:73
 #, fuzzy
 msgid "page.datasets.upload.source.degruyter"
 msgstr "Könyvek a <a %(a_href)s>De Gruyter</a> tudományos kiadótól, néhány nagy torrentből gyűjtve."
 
-#: allthethings/page/templates/page/datasets_upload.html:130
+#: allthethings/page/templates/page/datasets_upload.html:74
 #, fuzzy
 msgid "page.datasets.upload.source.docer"
 msgstr "A <a %(a_href)s>docer.pl</a> lekaparása, egy lengyel fájlmegosztó weboldal, amely könyvekre és más írott művekre összpontosít. 2023 végén kaparta le önkéntes „p”. Nincs jó metaadatunk az eredeti weboldalról (még fájlkiterjesztések sem), de könyvszerű fájlokat szűrtünk, és gyakran sikerült metaadatokat kinyerni magukból a fájlokból."
 
-#: allthethings/page/templates/page/datasets_upload.html:137
+#: allthethings/page/templates/page/datasets_upload.html:75
 #, fuzzy
 msgid "page.datasets.upload.source.duxiu_epub"
 msgstr "DuXiu epubok, közvetlenül a DuXiu-tól, „w” önkéntes által gyűjtve. Csak a legújabb DuXiu könyvek érhetők el közvetlenül e-könyveken keresztül, így ezek többsége valószínűleg új."
 
-#: allthethings/page/templates/page/datasets_upload.html:144
+#: allthethings/page/templates/page/datasets_upload.html:76
 #, fuzzy
 msgid "page.datasets.upload.source.duxiu_main"
 msgstr "A fennmaradó DuXiu fájlok „m” önkéntestől, amelyek nem voltak a DuXiu saját PDG formátumában (a fő <a %(a_href)s>DuXiu adatállomány</a>). Sok eredeti forrásból gyűjtve, sajnos anélkül, hogy ezeket a forrásokat megőrizték volna a fájlútvonalban."
 
-#: allthethings/page/templates/page/datasets_upload.html:151
+#: allthethings/page/templates/page/datasets_upload.html:83
 #, fuzzy
 msgid "page.datasets.upload.source.japanese_manga"
 msgstr "Gyűjtemény, amelyet egy japán manga kiadótól kapart le „t” önkéntes."
 
-#: allthethings/page/templates/page/datasets_upload.html:158
+#: allthethings/page/templates/page/datasets_upload.html:84
 #, fuzzy
 msgid "page.datasets.upload.source.longquan_archives"
 msgstr "<a %(a_href)s>Longquan válogatott bírósági archívumai</a>, „c” önkéntes által biztosítva."
 
-#: allthethings/page/templates/page/datasets_upload.html:165
+#: allthethings/page/templates/page/datasets_upload.html:85
 #, fuzzy
 msgid "page.datasets.upload.source.magzdb"
 msgstr "A <a %(a_href)s>magzdb.org</a> lekaparása, a Library Genesis szövetségese (a libgen.rs kezdőlapján van linkelve), de nem akarták közvetlenül biztosítani a fájljaikat. „p” önkéntes szerezte meg 2023 végén."
 
-#: allthethings/page/templates/page/datasets_upload.html:172
+#: allthethings/page/templates/page/datasets_upload.html:87
 #, fuzzy
 msgid "page.datasets.upload.source.misc"
 msgstr "Különféle kisebb feltöltések, amelyek túl kicsik ahhoz, hogy saját algyűjteményként szerepeljenek, de könyvtárakként vannak megjelenítve."
 
-#: allthethings/page/templates/page/datasets_upload.html:179
+#: allthethings/page/templates/page/datasets_upload.html:91
 #, fuzzy
 msgid "page.datasets.upload.source.polish"
 msgstr "Önkéntes „o” gyűjteménye, aki lengyel könyveket gyűjtött közvetlenül az eredeti kiadási („scene”) weboldalakról."
 
-#: allthethings/page/templates/page/datasets_upload.html:186
+#: allthethings/page/templates/page/datasets_upload.html:92
 #, fuzzy
 msgid "page.datasets.upload.source.shuge"
 msgstr "A <a %(a_href)s>shuge.org</a> önkéntesek „cgiym” és „woz9ts” által összeállított gyűjteményei."
 
-#: allthethings/page/templates/page/datasets_upload.html:193
+#: allthethings/page/templates/page/datasets_upload.html:94
 #, fuzzy
 msgid "page.datasets.upload.source.trantor"
 msgstr "<a %(a_href)s>„Trantor Birodalmi Könyvtára”</a> (a kitalált könyvtár után elnevezve), 2022-ben „t” önkéntes által lekaparva."
 
-#: allthethings/page/templates/page/datasets_upload.html:200
+#: allthethings/page/templates/page/datasets_upload.html:98
 #, fuzzy
 msgid "page.datasets.upload.source.woz9ts_direct"
 msgstr "Al-al-gyűjtemények (könyvtárakként ábrázolva) „woz9ts” önkéntestől: <a %(a_program_think)s>program-think</a>, <a %(a_haodoo)s>haodoo</a>, <a %(a_skqs)s>skqs</a> (által <a %(a_sikuquanshu)s>Dizhi(迪志)</a> Tajvanon), mebook (mebook.cc, 我的小书屋, az én kis könyvszobám — woz9ts: „Ez az oldal főként magas minőségű e-könyv fájlok megosztására összpontosít, amelyek közül néhányat maga a tulajdonos szedett össze. A tulajdonost <a %(a_arrested)s>2019-ben letartóztatták</a>, és valaki gyűjteményt készített az általa megosztott fájlokból.”)."
 
-#: allthethings/page/templates/page/datasets_upload.html:214
+#: allthethings/page/templates/page/datasets_upload.html:99
 #, fuzzy
 msgid "page.datasets.upload.source.woz9ts_duxiu"
 msgstr "A „woz9ts” önkéntestől származó fennmaradó DuXiu fájlok, amelyek nem voltak a DuXiu saját PDG formátumában (még PDF-re kell konvertálni)."
 
-#: allthethings/page/templates/page/datasets_upload.html:226
+#: allthethings/page/templates/page/datasets_upload.html:109
 #, fuzzy
 msgid "page.datasets.upload.aa_torrents"
 msgstr "Torrentek Anna Archívumától"
@@ -4987,122 +5033,122 @@ msgstr "1. Minden gyűjteménynek vagy kiadásnak megvan a saját metaadata. Pé
 msgid "page.faq.torrents.a6.li2"
 msgstr "2. Javasoljuk, hogy <a %(a_generate)s>generálja</a> vagy <a %(a_download)s>töltse le</a> az ElasticSearch és MariaDB adatbázisainkat. Ezek tartalmazzák az Anna’s Archive minden rekordjának megfelelő torrent fájlok térképét (ha elérhető), az ElasticSearch JSON „torrent_paths” mezőjében."
 
-#: allthethings/page/templates/page/faq.html:273
+#: allthethings/page/templates/page/faq.html:280
 #, fuzzy
 msgid "page.faq.security.title"
 msgstr "Van felelős bejelentési programjuk?"
 
-#: allthethings/page/templates/page/faq.html:276
+#: allthethings/page/templates/page/faq.html:283
 #, fuzzy
 msgid "page.faq.security.text1"
 msgstr "Üdvözöljük a biztonsági kutatókat, hogy keressenek sebezhetőségeket rendszereinkben. Nagy hívei vagyunk a felelős közzétételnek. Lépjen kapcsolatba velünk <a %(a_contact)s>itt</a>."
 
-#: allthethings/page/templates/page/faq.html:280
+#: allthethings/page/templates/page/faq.html:287
 #, fuzzy
 msgid "page.faq.security.text2"
 msgstr "Jelenleg nem tudunk hibajavítási jutalmakat adni, kivéve azokat a sebezhetőségeket, amelyeknek <a %(a_link)s>potenciáljuk van az anonimitásunk veszélyeztetésére</a>, ezekért 10 000-50 000 dollár közötti jutalmakat kínálunk. Szeretnénk a jövőben szélesebb körű hibajavítási jutalmakat kínálni! Kérjük, vegye figyelembe, hogy a szociális mérnöki támadások kívül esnek a hatókörön."
 
-#: allthethings/page/templates/page/faq.html:284
+#: allthethings/page/templates/page/faq.html:291
 #, fuzzy
 msgid "page.faq.security.text3"
 msgstr "Ha érdekli az offenzív biztonság, és szeretne segíteni a világ tudásának és kultúrájának archiválásában, mindenképpen vegye fel velünk a kapcsolatot. Számos módon segíthet."
 
-#: allthethings/page/templates/page/faq.html:287
+#: allthethings/page/templates/page/faq.html:294
 #, fuzzy
 msgid "page.faq.resources.title"
 msgstr "Vannak további források az Anna Archívumról?"
 
-#: allthethings/page/templates/page/faq.html:290
+#: allthethings/page/templates/page/faq.html:297
 #, fuzzy
 msgid "page.faq.resources.annas_blog"
 msgstr "<a %(a_blog)s>Anna Blogja</a>, <a %(a_reddit_u)s>Reddit</a>, <a %(a_reddit_r)s>Subreddit</a> — rendszeres frissítések"
 
-#: allthethings/page/templates/page/faq.html:291
+#: allthethings/page/templates/page/faq.html:298
 #, fuzzy
 msgid "page.faq.resources.annas_software"
 msgstr "<a %(a_software)s>Anna Archívuma</a> — a mi nyílt forráskódunk"
 
-#: allthethings/page/templates/page/faq.html:292
+#: allthethings/page/templates/page/faq.html:299
 #, fuzzy
 msgid "page.faq.resources.translate"
 msgstr "<a %(a_translate)s>Fordítás az Anna Archívumán</a> — a fordítórendszerünk"
 
-#: allthethings/page/templates/page/faq.html:293
+#: allthethings/page/templates/page/faq.html:300
 #, fuzzy
 msgid "page.faq.resources.datasets"
 msgstr "<a %(a_datasets)s>Adatkészletek</a> — az adatokról"
 
-#: allthethings/page/templates/page/faq.html:294
+#: allthethings/page/templates/page/faq.html:301
 #, fuzzy
 msgid "page.faq.resources.domains"
 msgstr "<a %(a_li)s>.li</a>, <a %(a_se)s>.se</a>, <a %(a_org)s>.org</a> — alternatív domainek"
 
-#: allthethings/page/templates/page/faq.html:295
+#: allthethings/page/templates/page/faq.html:302
 #, fuzzy
 msgid "page.faq.resources.wikipedia"
 msgstr "<a %(a_wikipedia)s>Wikipedia</a> — többet rólunk (kérjük, segítsen naprakészen tartani ezt az oldalt, vagy hozzon létre egyet a saját nyelvén!)"
 
-#: allthethings/page/templates/page/faq.html:298
+#: allthethings/page/templates/page/faq.html:305
 #, fuzzy
 msgid "page.faq.copyright.title"
 msgstr "Hogyan jelenthetem a szerzői jog megsértését?"
 
-#: allthethings/page/templates/page/faq.html:301
+#: allthethings/page/templates/page/faq.html:308
 #, fuzzy
 msgid "page.faq.copyright.text1"
 msgstr "Nem tárolunk itt semmilyen szerzői joggal védett anyagot. Keresőmotor vagyunk, és mint ilyen, csak olyan metaadatokat indexelünk, amelyek már nyilvánosan elérhetők. Amikor ezekről a külső forrásokból tölt le, javasoljuk, hogy ellenőrizze a jogszabályokat az Ön joghatósága szerint, hogy mi engedélyezett. Nem vagyunk felelősek mások által tárolt tartalmakért."
 
-#: allthethings/page/templates/page/faq.html:305
+#: allthethings/page/templates/page/faq.html:312
 #, fuzzy
 msgid "page.faq.copyright.text2"
 msgstr "Ha panasza van az itt látottakkal kapcsolatban, a legjobb, ha felveszi a kapcsolatot az eredeti weboldallal. Rendszeresen frissítjük adatbázisunkat az ő változásaikkal. Ha valóban úgy gondolja, hogy érvényes DMCA panasszal rendelkezik, amelyre válaszolnunk kellene, kérjük, töltse ki a <a %(a_copyright)s>DMCA / Szerzői jogi panasz űrlapot</a>. Komolyan vesszük a panaszait, és a lehető leghamarabb válaszolunk."
 
-#: allthethings/page/templates/page/faq.html:308
+#: allthethings/page/templates/page/faq.html:315
 #, fuzzy
 msgid "page.faq.hate.title"
 msgstr "Utálom, ahogy ezt a projektet vezeted!"
 
-#: allthethings/page/templates/page/faq.html:311
+#: allthethings/page/templates/page/faq.html:318
 #, fuzzy
 msgid "page.faq.hate.text1"
 msgstr "Szeretnénk emlékeztetni mindenkit, hogy minden kódunk és adatunk teljesen nyílt forráskódú. Ez egyedülálló az ilyen projektek között — nem tudunk más olyan projektről, amely hasonlóan hatalmas katalógussal rendelkezik és teljesen nyílt forráskódú. Nagyon örülnénk, ha bárki, aki úgy gondolja, hogy rosszul működtetjük a projektünket, venné a kódunkat és adatainkat, és létrehozná saját árnyékkönyvtárát! Ezt nem rosszindulatból mondjuk — őszintén úgy gondoljuk, hogy ez nagyszerű lenne, mivel ez mindenki számára magasabb szintet jelentene, és jobban megőrizné az emberiség örökségét."
 
-#: allthethings/page/templates/page/faq.html:314
+#: allthethings/page/templates/page/faq.html:321
 #, fuzzy
 msgid "page.faq.uptime.title"
 msgstr "Van rendelkezésére álló üzemidő-figyelő?"
 
-#: allthethings/page/templates/page/faq.html:317
+#: allthethings/page/templates/page/faq.html:324
 #, fuzzy
 msgid "page.faq.uptime.text1"
 msgstr "Kérjük, tekintse meg <a %(a_href)s>ezt a kiváló projektet</a>."
 
-#: allthethings/page/templates/page/faq.html:330
+#: allthethings/page/templates/page/faq.html:337
 #, fuzzy
 msgid "page.faq.physical.title"
 msgstr "Hogyan adományozhatok könyveket vagy más fizikai anyagokat?"
 
-#: allthethings/page/templates/page/faq.html:333
+#: allthethings/page/templates/page/faq.html:340
 #, fuzzy
 msgid "page.faq.physical.text1"
 msgstr "Kérjük, küldje el őket az <a %(a_archive)s>Internet Archive</a>-nak. Ők megfelelően megőrzik azokat."
 
-#: allthethings/page/templates/page/faq.html:336
+#: allthethings/page/templates/page/faq.html:343
 #, fuzzy
 msgid "page.faq.anna.title"
 msgstr "Ki Anna?"
 
-#: allthethings/page/templates/page/faq.html:340
+#: allthethings/page/templates/page/faq.html:347
 #, fuzzy
 msgid "page.faq.anna.text1"
 msgstr "Ön Anna!"
 
-#: allthethings/page/templates/page/faq.html:344
+#: allthethings/page/templates/page/faq.html:351
 #, fuzzy
 msgid "page.faq.favorite.title"
 msgstr "Melyek a kedvenc könyvei?"
 
-#: allthethings/page/templates/page/faq.html:347
+#: allthethings/page/templates/page/faq.html:354
 #, fuzzy
 msgid "page.faq.favorite.text1"
 msgstr "Itt van néhány könyv, amelyek különleges jelentőséggel bírnak az árnyékkönyvtárak és a digitális megőrzés világában:"
@@ -5137,28 +5183,28 @@ msgstr "Keresés"
 #: allthethings/page/templates/page/scidb_home.html:3
 #: allthethings/page/templates/page/scidb_home.html:6
 #: allthethings/templates/layouts/index.html:493
-#: allthethings/templates/layouts/index.html:506
-#: allthethings/templates/layouts/index.html:521
-#: allthethings/templates/layouts/index.html:588
+#: allthethings/templates/layouts/index.html:507
+#: allthethings/templates/layouts/index.html:523
+#: allthethings/templates/layouts/index.html:591
 msgid "page.home.scidb.header"
 msgstr "SciDB"
 
 #: allthethings/page/templates/page/home.html:19
-#: allthethings/templates/layouts/index.html:541
+#: allthethings/templates/layouts/index.html:544
 msgid "layout.index.header.nav.beta"
 msgstr "béta"
 
 #: allthethings/page/templates/page/home.html:22
 #: allthethings/page/templates/page/scidb_home.html:9
-#: allthethings/page/templates/page/search.html:355
-#: allthethings/page/templates/page/search.html:419
+#: allthethings/page/templates/page/search.html:359
+#: allthethings/page/templates/page/search.html:423
 #, fuzzy
 msgid "page.home.scidb.scihub_paused"
 msgstr "A Sci-Hub <a %(a_paused)s>szüneteltette</a> az új cikkek feltöltését."
 
 #: allthethings/page/templates/page/home.html:23
-#: allthethings/page/templates/page/search.html:356
-#: allthethings/page/templates/page/search.html:420
+#: allthethings/page/templates/page/search.html:360
+#: allthethings/page/templates/page/search.html:424
 #, fuzzy
 msgid "page.home.scidb.continuation"
 msgstr "🧬&nbsp;SciDB a Sci-Hub folytatása."
@@ -5194,17 +5240,17 @@ msgid "page.home.torrents.body"
 msgstr "Hatalmasat segíthetsz torrentek vetésével. <a %(a_torrents)s>Tanulj többet…</a>"
 
 #: allthethings/page/templates/page/home.html:47
-#: allthethings/page/templates/page/torrents.html:75
+#: allthethings/page/templates/page/torrents.html:79
 msgid "page.home.torrents.legend_less"
 msgstr "<%(count)s seeders"
 
 #: allthethings/page/templates/page/home.html:48
-#: allthethings/page/templates/page/torrents.html:76
+#: allthethings/page/templates/page/torrents.html:80
 msgid "page.home.torrents.legend_range"
 msgstr "%(count_min)s–%(count_max)s seeders"
 
 #: allthethings/page/templates/page/home.html:49
-#: allthethings/page/templates/page/torrents.html:77
+#: allthethings/page/templates/page/torrents.html:81
 msgid "page.home.torrents.legend_greater"
 msgstr ">%(count)s seeders"
 
@@ -5237,8 +5283,8 @@ msgid "page.home.payment_processor.body"
 msgstr "Ha magas kockázatú anonim fizetési feldolgozót üzemeltet, kérjük, lépjen kapcsolatba velünk. Olyan embereket is keresünk, akik ízléses kis hirdetéseket szeretnének elhelyezni. Minden bevétel a megőrzési erőfeszítéseinket támogatja."
 
 #: allthethings/page/templates/page/home.html:98
-#: allthethings/templates/layouts/index.html:529
-#: allthethings/templates/layouts/index.html:608
+#: allthethings/templates/layouts/index.html:532
+#: allthethings/templates/layouts/index.html:611
 msgid "layout.index.header.nav.annasblog"
 msgstr "Anna Blogja ↗"
 
@@ -5761,7 +5807,7 @@ msgid "page.search.tabs.metadata"
 msgstr "Metaadat"
 
 #: allthethings/page/templates/page/search.html:107
-#: allthethings/templates/layouts/index.html:537
+#: allthethings/templates/layouts/index.html:540
 msgid "common.search.placeholder"
 msgstr "Keresés cím, szerző, nyelv, fájltípus, ISBN, MD5,…"
 
@@ -5775,7 +5821,7 @@ msgid "page.search.search_settings"
 msgstr "Keresési beállítások"
 
 #: allthethings/page/templates/page/search.html:136
-#: allthethings/page/templates/page/search.html:274
+#: allthethings/page/templates/page/search.html:278
 msgid "page.search.submit"
 msgstr "Keresés"
 
@@ -5784,8 +5830,8 @@ msgid "page.search.too_long_broad_query"
 msgstr "A keresés túl sokáig tartott, ami általános a széles körű lekérdezéseknél. Előfordulhat, hogy a szűrőszámlálások nem pontosak."
 
 #: allthethings/page/templates/page/search.html:145
-#: allthethings/page/templates/page/search.html:448
-#: allthethings/page/templates/page/search.html:455
+#: allthethings/page/templates/page/search.html:452
+#: allthethings/page/templates/page/search.html:459
 msgid "page.search.too_inaccurate"
 msgstr "A keresés túl sokáig tartott, ami azt jelenti, hogy pontatlan eredményeket láthat. Néha az oldal <a %(a_reload)s>újratöltése</a> segít."
 
@@ -5810,7 +5856,7 @@ msgid "page.search.advanced.header"
 msgstr "Haladó"
 
 #: allthethings/page/templates/page/search.html:159
-#: allthethings/page/templates/page/search.html:292
+#: allthethings/page/templates/page/search.html:296
 #, fuzzy
 msgid "page.search.advanced.description_comments"
 msgstr "Leírások és metaadat-megjegyzések keresése"
@@ -5831,229 +5877,230 @@ msgid "page.search.advanced.field.year_published"
 msgstr "Kiadás éve"
 
 #: allthethings/page/templates/page/search.html:208
-#: allthethings/page/templates/page/search.html:300
-#: allthethings/page/templates/page/search.html:303
+#: allthethings/page/templates/page/search.html:304
+#: allthethings/page/templates/page/search.html:307
 msgid "page.search.filters.content.header"
 msgstr "Tartalom"
 
 #: allthethings/page/templates/page/search.html:218
-#: allthethings/page/templates/page/search.html:306
-#: allthethings/page/templates/page/search.html:309
+#: allthethings/page/templates/page/search.html:310
+#: allthethings/page/templates/page/search.html:313
 msgid "page.search.filters.filetype.header"
 msgstr "Fájltípus"
 
-#: allthethings/page/templates/page/search.html:228
-#: allthethings/page/templates/page/search.html:312
-#: allthethings/page/templates/page/search.html:315
+#: allthethings/page/templates/page/search.html:227
+#: allthethings/page/templates/page/search.html:259
+msgid "page.search.more"
+msgstr "tovább…"
+
+#: allthethings/page/templates/page/search.html:231
+#: allthethings/page/templates/page/search.html:316
+#: allthethings/page/templates/page/search.html:319
 msgid "page.search.filters.access.header"
 msgstr "Hozzáférés"
 
-#: allthethings/page/templates/page/search.html:237
-#: allthethings/page/templates/page/search.html:318
-#: allthethings/page/templates/page/search.html:321
+#: allthethings/page/templates/page/search.html:240
+#: allthethings/page/templates/page/search.html:322
+#: allthethings/page/templates/page/search.html:325
 msgid "page.search.filters.source.header"
 msgstr "Forrás"
 
-#: allthethings/page/templates/page/search.html:242
+#: allthethings/page/templates/page/search.html:245
 #, fuzzy
 msgid "page.search.filters.source.scraped"
 msgstr "kaparva és nyílt forráskódúvá téve az AA által"
 
-#: allthethings/page/templates/page/search.html:247
-#: allthethings/page/templates/page/search.html:327
-#: allthethings/page/templates/page/search.html:330
+#: allthethings/page/templates/page/search.html:250
+#: allthethings/page/templates/page/search.html:331
+#: allthethings/page/templates/page/search.html:334
 msgid "page.search.filters.language.header"
 msgstr "Nyelv"
 
-#: allthethings/page/templates/page/search.html:256
-msgid "page.search.more"
-msgstr "tovább…"
-
-#: allthethings/page/templates/page/search.html:261
-#: allthethings/page/templates/page/search.html:324
+#: allthethings/page/templates/page/search.html:264
+#: allthethings/page/templates/page/search.html:328
 msgid "page.search.filters.order_by.header"
 msgstr "Rendezés"
 
-#: allthethings/page/templates/page/search.html:264
+#: allthethings/page/templates/page/search.html:267
 msgid "page.search.filters.sorting.most_relevant"
 msgstr "Legrelevánsabb"
 
-#: allthethings/page/templates/page/search.html:265
-#: allthethings/page/templates/page/search.html:269
-#: allthethings/page/templates/page/search.html:324
+#: allthethings/page/templates/page/search.html:268
+#: allthethings/page/templates/page/search.html:272
+#: allthethings/page/templates/page/search.html:328
 msgid "page.search.filters.sorting.newest"
 msgstr "Legújabb"
 
-#: allthethings/page/templates/page/search.html:265
-#: allthethings/page/templates/page/search.html:266
-#: allthethings/page/templates/page/search.html:324
+#: allthethings/page/templates/page/search.html:268
+#: allthethings/page/templates/page/search.html:269
+#: allthethings/page/templates/page/search.html:328
 msgid "page.search.filters.sorting.note_publication_year"
 msgstr "(megjelenési év)"
 
-#: allthethings/page/templates/page/search.html:266
-#: allthethings/page/templates/page/search.html:270
-#: allthethings/page/templates/page/search.html:324
+#: allthethings/page/templates/page/search.html:269
+#: allthethings/page/templates/page/search.html:273
+#: allthethings/page/templates/page/search.html:328
 msgid "page.search.filters.sorting.oldest"
 msgstr "Legrégebbi"
 
-#: allthethings/page/templates/page/search.html:267
-#: allthethings/page/templates/page/search.html:324
+#: allthethings/page/templates/page/search.html:270
+#: allthethings/page/templates/page/search.html:328
 msgid "page.search.filters.sorting.largest"
 msgstr "Legnagyobb"
 
-#: allthethings/page/templates/page/search.html:267
-#: allthethings/page/templates/page/search.html:268
-#: allthethings/page/templates/page/search.html:324
+#: allthethings/page/templates/page/search.html:270
+#: allthethings/page/templates/page/search.html:271
+#: allthethings/page/templates/page/search.html:328
 msgid "page.search.filters.sorting.note_filesize"
 msgstr "(fájl méret)"
 
-#: allthethings/page/templates/page/search.html:268
-#: allthethings/page/templates/page/search.html:324
+#: allthethings/page/templates/page/search.html:271
+#: allthethings/page/templates/page/search.html:328
 msgid "page.search.filters.sorting.smallest"
 msgstr "Legkisebb"
 
-#: allthethings/page/templates/page/search.html:269
-#: allthethings/page/templates/page/search.html:270
-#: allthethings/page/templates/page/search.html:324
+#: allthethings/page/templates/page/search.html:272
+#: allthethings/page/templates/page/search.html:273
+#: allthethings/page/templates/page/search.html:328
 #, fuzzy
 msgid "page.search.filters.sorting.note_open_sourced"
 msgstr "(nyílt forráskódú)"
 
-#: allthethings/page/templates/page/search.html:278
+#: allthethings/page/templates/page/search.html:282
 msgid "page.search.header.update_info"
 msgstr "A keresési index havonta frissül. Jelenleg %(last_data_refresh_date)s-ig tartalmaz bejegyzéseket. Technikai részletekért lásd az %(link_open_tag)sadatbázisok oldalt</a>."
 
-#: allthethings/page/templates/page/search.html:280
+#: allthethings/page/templates/page/search.html:284
 #, fuzzy
 msgid "page.search.header.codes_explorer"
 msgstr "A kódok szerinti keresési index felfedezéséhez használja a <a %(a_href)s>Codes Explorer</a> eszközt."
 
-#: allthethings/page/templates/page/search.html:338
+#: allthethings/page/templates/page/search.html:342
 msgid "page.search.results.search_downloads"
 msgstr "A mezőbe beírva kereshetsz a %(count)s közvetlenül letölthető fájlok katalógusában, amelyeket <a %(a_preserve)s>örökre megőrzünk</a>."
 
-#: allthethings/page/templates/page/search.html:339
+#: allthethings/page/templates/page/search.html:343
 #, fuzzy
 msgid "page.search.results.help_preserve"
 msgstr "Valójában bárki segíthet ezeknek a fájloknak a megőrzésében azáltal, hogy vetőmagként szolgál <a %(a_torrents)s>egységes torrentlistánkhoz</a>."
 
-#: allthethings/page/templates/page/search.html:342
+#: allthethings/page/templates/page/search.html:346
 msgid "page.search.results.most_comprehensive"
 msgstr "Jelenleg mi rendelkezünk a világ legátfogóbb nyitott katalógusával a könyvek, publikációk és egyéb írásos művek tekintetében. Tükrözzük a Sci-Hub, a Library Genesis, a Z-Library, <a %(a_datasets)s>és még sok más</a> könyvtárat."
 
-#: allthethings/page/templates/page/search.html:345
+#: allthethings/page/templates/page/search.html:349
 msgid "page.search.results.other_shadow_libs"
 msgstr "Ha további \"árnyékkönyvtárakat\" találsz, amelyeket tükröznünk kellene, vagy ha bármilyen kérdésed van, lépj velünk kapcsolatba az %(email)s címen."
 
-#: allthethings/page/templates/page/search.html:346
+#: allthethings/page/templates/page/search.html:350
 msgid "page.search.results.dmca"
 msgstr "DMCA / szerzői jogi igények tekintetében <a %(a_copyright)s>kattints ide</a>."
 
-#: allthethings/page/templates/page/search.html:350
-#: allthethings/page/templates/page/search.html:365
-#: allthethings/page/templates/page/search.html:379
-#: allthethings/page/templates/page/search.html:403
-#: allthethings/page/templates/page/search.html:411
+#: allthethings/page/templates/page/search.html:354
+#: allthethings/page/templates/page/search.html:369
+#: allthethings/page/templates/page/search.html:383
+#: allthethings/page/templates/page/search.html:407
+#: allthethings/page/templates/page/search.html:415
 msgid "page.search.results.shortcuts"
 msgstr "Tipp: használd a \"/\" (keresési fókusz), \"enter\" (keresés), \"j\" (fel), \"k\" (le) billentyűkombinációkat a gyorsabb navigációhoz."
 
-#: allthethings/page/templates/page/search.html:354
-#: allthethings/page/templates/page/search.html:418
+#: allthethings/page/templates/page/search.html:358
+#: allthethings/page/templates/page/search.html:422
 #, fuzzy
 msgid "page.search.results.looking_for_papers"
 msgstr "Cikkeket keres?"
 
-#: allthethings/page/templates/page/search.html:361
+#: allthethings/page/templates/page/search.html:365
 #, fuzzy
 msgid "page.search.results.search_journals"
 msgstr "Írj be a mezőbe, hogy keresd katalógusunkban a %(count)s tudományos dolgozatokat és folyóiratcikkeket, amelyeket <a %(a_preserve)s>örökre megőrzünk</a>."
 
-#: allthethings/page/templates/page/search.html:369
+#: allthethings/page/templates/page/search.html:373
 msgid "page.search.results.search_digital_lending"
 msgstr "Írj a mezőbe, hogy fájlokat keress a digitális kölcsönzőkönyvtárakban."
 
-#: allthethings/page/templates/page/search.html:372
+#: allthethings/page/templates/page/search.html:376
 msgid "page.search.results.digital_lending_info"
 msgstr "Ez a keresési index jelenleg az Internet Archive Kontrollált Digitális Kölcsönzési Könyvtárának metaadatait tartalmazza. <a %(a_datasets)s>Bővebben az adatkészleteinkről</a>."
 
-#: allthethings/page/templates/page/search.html:375
+#: allthethings/page/templates/page/search.html:379
 msgid "page.search.results.digital_lending_info_more"
 msgstr "További digitális kölcsönkönyvtárakért lásd: <a %(a_wikipedia)s>Wikipédia</a> és <a %(a_mobileread)s>MobileRead Wiki</a>."
 
-#: allthethings/page/templates/page/search.html:383
-#: allthethings/page/templates/page/search.html:430
+#: allthethings/page/templates/page/search.html:387
+#: allthethings/page/templates/page/search.html:434
 msgid "page.search.results.search_metadata"
 msgstr "Írj a mezőbe a könyvtárak metaadatainak kereséséhez. Ez hasznos lehet<a %(a_request)s>fájlok kérése esetén</a>."
 
-#: allthethings/page/templates/page/search.html:387
-#: allthethings/page/templates/page/search.html:434
+#: allthethings/page/templates/page/search.html:391
+#: allthethings/page/templates/page/search.html:438
 msgid "page.search.results.metadata_info"
 msgstr "Ez a keresési index jelenleg az ISBNdb és az Open Library metaadatait tartalmazza. <a %(a_datasets)s>Bővebben az adatkészleteinkről</a>."
 
-#: allthethings/page/templates/page/search.html:388
-#: allthethings/page/templates/page/search.html:435
+#: allthethings/page/templates/page/search.html:392
+#: allthethings/page/templates/page/search.html:439
 #, fuzzy
 msgid "page.search.results.metadata_no_merging"
 msgstr "A metaadatok esetében az eredeti rekordokat mutatjuk. Nem végezzük el a rekordok egyesítését."
 
-#: allthethings/page/templates/page/search.html:399
+#: allthethings/page/templates/page/search.html:403
 msgid "page.search.results.metadata_info_more"
 msgstr "Világszerte sok-sok metaadat-forrás létezik az írott művekhez. <a %(a_wikipedia)s >Ez a Wikipédia-oldal</a> jó kiindulópont, de ha tudsz más jó listát, kérjük, jelezd nekünk."
 
-#: allthethings/page/templates/page/search.html:407
+#: allthethings/page/templates/page/search.html:411
 msgid "page.search.results.search_generic"
 msgstr "Írj a mezőbe a kereséshez."
 
-#: allthethings/page/templates/page/search.html:426
+#: allthethings/page/templates/page/search.html:430
 #, fuzzy
 msgid "page.search.results.these_are_records"
 msgstr "Ezek metaadat rekordok, <span %(classname)s>nem</span> letölthető fájlok."
 
-#: allthethings/page/templates/page/search.html:442
+#: allthethings/page/templates/page/search.html:446
 msgid "page.search.results.error.header"
 msgstr "Hiba a keresés során."
 
-#: allthethings/page/templates/page/search.html:444
+#: allthethings/page/templates/page/search.html:448
 msgid "page.search.results.error.unknown"
 msgstr "Próbáld meg <a %(a_reload)s>az oldal újratöltését</a>. Ha a probléma továbbra is fennáll, írj nekünk a %(email)s e-mail címre."
 
-#: allthethings/page/templates/page/search.html:457
+#: allthethings/page/templates/page/search.html:461
 #, fuzzy
 msgid "page.search.results.none"
 msgstr "<span class=\"font-bold\">Nincs fájl találat.</span> Próbálj meg keresni kevesebb kifejezéssel vagy kevesebb szűrőkkel."
 
-#: allthethings/page/templates/page/search.html:460
+#: allthethings/page/templates/page/search.html:464
 #, fuzzy
 msgid "page.search.results.incorrectly_slow"
 msgstr "➡️ Néha ez helytelenül történik, amikor a keresőszerver lassú. Ilyen esetekben az <a %(a_attrs)s>újratöltés</a> segíthet."
 
-#: allthethings/page/templates/page/search.html:467
+#: allthethings/page/templates/page/search.html:471
 msgid "page.search.found_matches.main"
 msgstr "Találtunk egyezéseket a következőben: %(in)s. Az URL-re hivatkozhat. <a %(a_request)s>Fájl kérésekor</a> ott található."
 
-#: allthethings/page/templates/page/search.html:467
+#: allthethings/page/templates/page/search.html:471
 #, fuzzy
 msgid "page.search.found_matches.journals"
 msgstr "Folyóiratcikkek (%(count)s)"
 
-#: allthethings/page/templates/page/search.html:467
+#: allthethings/page/templates/page/search.html:471
 msgid "page.search.found_matches.digital_lending"
 msgstr "Digital Lending (%(count)s)"
 
-#: allthethings/page/templates/page/search.html:467
+#: allthethings/page/templates/page/search.html:471
 msgid "page.search.found_matches.metadata"
 msgstr "Metadata (%(count)s)"
 
-#: allthethings/page/templates/page/search.html:474
+#: allthethings/page/templates/page/search.html:478
 #, fuzzy
 msgid "page.search.results.numbers_pages"
 msgstr "Eredmények %(from)s-%(to)s (%(total)s összesen)"
 
-#: allthethings/page/templates/page/search.html:485
+#: allthethings/page/templates/page/search.html:490
 msgid "page.search.results.partial_more"
 msgstr "%(num)d+ részleges találatok"
 
-#: allthethings/page/templates/page/search.html:485
+#: allthethings/page/templates/page/search.html:490
 msgid "page.search.results.partial"
 msgstr "%(num)d részleges találatok"
 
@@ -6178,47 +6225,47 @@ msgstr "%(links)s linkek vagy képernyőképek a teljesített kérésekről."
 msgid "page.volunteering.table.misc.task"
 msgstr "Kis feladatok, amelyeket az <a %(a_telegram)s>önkéntesek csevegésében a Telegramon</a> posztolunk. Általában tagságért, néha kis jutalmakért."
 
-#: allthethings/page/templates/page/volunteering.html:66
+#: allthethings/page/templates/page/volunteering.html:67
 #, fuzzy
 msgid "page.volunteering.table.misc.milestone"
 msgstr "A feladattól függ."
 
-#: allthethings/page/templates/page/volunteering.html:70
+#: allthethings/page/templates/page/volunteering.html:71
 #, fuzzy
 msgid "page.volunteering.section.bounties.heading"
 msgstr "Jutalmak"
 
-#: allthethings/page/templates/page/volunteering.html:73
+#: allthethings/page/templates/page/volunteering.html:74
 #, fuzzy
 msgid "page.volunteering.section.bounties.text1"
 msgstr "Mindig keresünk olyan embereket, akik szilárd programozási vagy támadó biztonsági készségekkel rendelkeznek, hogy bekapcsolódjanak. Komoly hatást gyakorolhat a emberiség örökségének megőrzésére."
 
-#: allthethings/page/templates/page/volunteering.html:77
+#: allthethings/page/templates/page/volunteering.html:78
 #, fuzzy
 msgid "page.volunteering.section.bounties.text2"
 msgstr "Köszönetképpen tagságot adunk a jelentős hozzájárulásokért. Nagy köszönetképpen pénzbeli jutalmakat adunk különösen fontos és nehéz feladatokért. Ezt nem szabad munkahelyi pótlékként tekinteni, de ez egy extra ösztönző és segíthet a felmerülő költségek fedezésében."
 
-#: allthethings/page/templates/page/volunteering.html:81
+#: allthethings/page/templates/page/volunteering.html:82
 #, fuzzy
 msgid "page.volunteering.section.bounties.text3"
 msgstr "A legtöbb kódunk nyílt forráskódú, és ezt kérjük az Ön kódjától is, amikor jutalmat ítélünk oda. Vannak kivételek, amelyeket egyénileg meg tudunk beszélni."
 
-#: allthethings/page/templates/page/volunteering.html:85
+#: allthethings/page/templates/page/volunteering.html:86
 #, fuzzy
 msgid "page.volunteering.section.bounties.text4"
 msgstr "A jutalmakat az első személy kapja, aki teljesít egy feladatot. Nyugodtan kommentáljon egy jutalomjegyet, hogy mások tudják, hogy dolgozik valamin, így mások visszatarthatják magukat vagy kapcsolatba léphetnek Önnel, hogy csapatot alkossanak. De vegye figyelembe, hogy mások is szabadon dolgozhatnak rajta, és megpróbálhatják megelőzni Önt. Azonban nem ítélünk oda jutalmat hanyag munkáért. Ha két magas színvonalú benyújtás közel egy időben történik (egy-két napon belül), saját belátásunk szerint dönthetünk úgy, hogy mindkettőnek jutalmat adunk, például 100%% az első benyújtásért és 50%% a második benyújtásért (tehát összesen 150%%)."
 
-#: allthethings/page/templates/page/volunteering.html:89
+#: allthethings/page/templates/page/volunteering.html:90
 #, fuzzy
 msgid "page.volunteering.section.bounties.text5"
 msgstr "A nagyobb jutalmak esetén (különösen az adatgyűjtési jutalmaknál) kérjük, vegye fel velünk a kapcsolatot, amikor ~5%%-át teljesítette, és biztos benne, hogy módszere skálázható lesz a teljes mérföldkőre. Meg kell osztania velünk a módszerét, hogy visszajelzést adhassunk. Így dönthetünk arról is, hogy mit tegyünk, ha több ember is közel áll a jutalomhoz, például több embernek is odaítélhetjük, ösztönözhetjük az embereket a csapatmunkára stb."
 
-#: allthethings/page/templates/page/volunteering.html:93
+#: allthethings/page/templates/page/volunteering.html:94
 #, fuzzy
 msgid "page.volunteering.section.bounties.text6"
 msgstr "FIGYELMEZTETÉS: a magas jutalmú feladatok <span %(bold)s>nehezek</span> — érdemes lehet könnyebbekkel kezdeni."
 
-#: allthethings/page/templates/page/volunteering.html:97
+#: allthethings/page/templates/page/volunteering.html:98
 #, fuzzy
 msgid "page.volunteering.section.bounties.text7"
 msgstr "Látogasson el <a %(a_gitlab)s>Gitlab issues listánkra</a>, és rendezze „Label priority” szerint. Ez nagyjából megmutatja a feladatok sorrendjét, amelyek számunkra fontosak. Az explicit jutalom nélküli feladatok is jogosultak a tagságra, különösen azok, amelyek „Accepted” és „Anna kedvence” jelöléssel vannak ellátva. Érdemes lehet egy „Kezdő projekt”-tel kezdeni."
@@ -6258,8 +6305,8 @@ msgstr "Érvényes a hónap végéig."
 #: allthethings/templates/layouts/index.html:227
 #: allthethings/templates/layouts/index.html:233
 #: allthethings/templates/layouts/index.html:267
-#: allthethings/templates/layouts/index.html:533
-#: allthethings/templates/layouts/index.html:590
+#: allthethings/templates/layouts/index.html:536
+#: allthethings/templates/layouts/index.html:593
 #, fuzzy
 msgid "layout.index.header.nav.donate"
 msgstr "Adományozás"
@@ -6295,149 +6342,144 @@ msgid "layout.index.header.recent_downloads"
 msgstr "Legutóbbi letöltések:"
 
 #: allthethings/templates/layouts/index.html:492
-#: allthethings/templates/layouts/index.html:505
-#: allthethings/templates/layouts/index.html:520
-#: allthethings/templates/layouts/index.html:587
+#: allthethings/templates/layouts/index.html:506
+#: allthethings/templates/layouts/index.html:522
+#: allthethings/templates/layouts/index.html:590
 msgid "layout.index.header.nav.search"
 msgstr "Keresés"
 
 #: allthethings/templates/layouts/index.html:494
-#: allthethings/templates/layouts/index.html:507
-#: allthethings/templates/layouts/index.html:522
-#: allthethings/templates/layouts/index.html:589
-#: allthethings/templates/layouts/index.html:615
+#: allthethings/templates/layouts/index.html:508
+#: allthethings/templates/layouts/index.html:524
+#: allthethings/templates/layouts/index.html:592
+#: allthethings/templates/layouts/index.html:618
 #, fuzzy
 msgid "layout.index.header.nav.faq"
 msgstr "GYIK"
 
 #: allthethings/templates/layouts/index.html:495
-#: allthethings/templates/layouts/index.html:508
-#: allthethings/templates/layouts/index.html:523
-#: allthethings/templates/layouts/index.html:616
+#: allthethings/templates/layouts/index.html:509
+#: allthethings/templates/layouts/index.html:525
+#: allthethings/templates/layouts/index.html:619
 #, fuzzy
 msgid "layout.index.header.nav.improve_metadata"
 msgstr "Metaadatok javítása"
 
 #: allthethings/templates/layouts/index.html:496
-#: allthethings/templates/layouts/index.html:509
-#: allthethings/templates/layouts/index.html:524
-#: allthethings/templates/layouts/index.html:617
+#: allthethings/templates/layouts/index.html:510
+#: allthethings/templates/layouts/index.html:526
+#: allthethings/templates/layouts/index.html:620
 #, fuzzy
 msgid "layout.index.header.nav.volunteering"
 msgstr "Önkéntesség és Jutalmak"
 
 #: allthethings/templates/layouts/index.html:497
-#: allthethings/templates/layouts/index.html:510
-#: allthethings/templates/layouts/index.html:525
-#: allthethings/templates/layouts/index.html:618
+#: allthethings/templates/layouts/index.html:511
+#: allthethings/templates/layouts/index.html:527
+#: allthethings/templates/layouts/index.html:621
 msgid "layout.index.header.nav.datasets"
 msgstr "Adatbázisok"
 
 #: allthethings/templates/layouts/index.html:498
-#: allthethings/templates/layouts/index.html:511
-#: allthethings/templates/layouts/index.html:526
-#: allthethings/templates/layouts/index.html:619
+#: allthethings/templates/layouts/index.html:512
+#: allthethings/templates/layouts/index.html:528
+#: allthethings/templates/layouts/index.html:622
 msgid "layout.index.header.nav.torrents"
 msgstr "Torrentek"
 
-#: allthethings/templates/layouts/index.html:499
-#: allthethings/templates/layouts/index.html:512
-#: allthethings/templates/layouts/index.html:527
-#: allthethings/templates/layouts/index.html:620
+#: allthethings/templates/layouts/index.html:500
+#: allthethings/templates/layouts/index.html:514
+#: allthethings/templates/layouts/index.html:530
+#: allthethings/templates/layouts/index.html:624
 #, fuzzy
 msgid "layout.index.header.nav.codes"
 msgstr "Kódok Felfedezője"
 
-#: allthethings/templates/layouts/index.html:500
-#: allthethings/templates/layouts/index.html:513
-#: allthethings/templates/layouts/index.html:528
-#: allthethings/templates/layouts/index.html:621
+#: allthethings/templates/layouts/index.html:501
+#: allthethings/templates/layouts/index.html:515
+#: allthethings/templates/layouts/index.html:531
+#: allthethings/templates/layouts/index.html:625
 msgid "layout.index.header.nav.llm_data"
 msgstr "LLM adat"
 
-#: allthethings/templates/layouts/index.html:501
-#: allthethings/templates/layouts/index.html:514
-#: allthethings/templates/layouts/index.html:519
-#: allthethings/templates/layouts/index.html:586
+#: allthethings/templates/layouts/index.html:502
+#: allthethings/templates/layouts/index.html:516
+#: allthethings/templates/layouts/index.html:521
+#: allthethings/templates/layouts/index.html:589
 msgid "layout.index.header.nav.home"
 msgstr "Főoldal"
 
-#: allthethings/templates/layouts/index.html:530
-#: allthethings/templates/layouts/index.html:609
+#: allthethings/templates/layouts/index.html:533
+#: allthethings/templates/layouts/index.html:612
 msgid "layout.index.header.nav.annassoftware"
 msgstr "Anna Szoftvere ↗"
 
-#: allthethings/templates/layouts/index.html:531
-#: allthethings/templates/layouts/index.html:610
+#: allthethings/templates/layouts/index.html:534
+#: allthethings/templates/layouts/index.html:613
 msgid "layout.index.header.nav.translate"
 msgstr "Fordítás ↗"
 
-#: allthethings/templates/layouts/index.html:544
-#: allthethings/templates/layouts/index.html:548
-#: allthethings/templates/layouts/index.html:553
+#: allthethings/templates/layouts/index.html:547
+#: allthethings/templates/layouts/index.html:551
+#: allthethings/templates/layouts/index.html:556
 msgid "layout.index.header.nav.login_register"
 msgstr "Bejelentkezés / Regisztráció"
 
-#: allthethings/templates/layouts/index.html:560
-#: allthethings/templates/layouts/index.html:567
-#: allthethings/templates/layouts/index.html:572
+#: allthethings/templates/layouts/index.html:563
+#: allthethings/templates/layouts/index.html:570
+#: allthethings/templates/layouts/index.html:575
 msgid "layout.index.header.nav.account"
 msgstr "Fiók"
 
-#: allthethings/templates/layouts/index.html:585
+#: allthethings/templates/layouts/index.html:588
 msgid "layout.index.footer.list1.header"
 msgstr "Anna Archívuma"
 
-#: allthethings/templates/layouts/index.html:604
+#: allthethings/templates/layouts/index.html:607
 msgid "layout.index.footer.list2.header"
 msgstr "Tartsd a kapcsolatot"
 
-#: allthethings/templates/layouts/index.html:606
+#: allthethings/templates/layouts/index.html:609
 msgid "layout.index.footer.list2.dmca_copyright"
 msgstr "DMCA / jogvédelmi kérelmek"
 
-#: allthethings/templates/layouts/index.html:607
+#: allthethings/templates/layouts/index.html:610
 msgid "layout.index.footer.list2.reddit"
 msgstr "Reddit"
 
-#: allthethings/templates/layouts/index.html:607
+#: allthethings/templates/layouts/index.html:610
 msgid "layout.index.footer.list2.telegram"
 msgstr "Telegram"
 
-#: allthethings/templates/layouts/index.html:614
+#: allthethings/templates/layouts/index.html:617
 #, fuzzy
 msgid "layout.index.header.nav.advanced"
 msgstr "Haladó"
 
-#: allthethings/templates/layouts/index.html:622
+#: allthethings/templates/layouts/index.html:626
 msgid "layout.index.header.nav.security"
 msgstr "Biztonság"
 
-#: allthethings/templates/layouts/index.html:626
+#: allthethings/templates/layouts/index.html:630
 msgid "layout.index.footer.list3.header"
 msgstr "Alternatívák"
 
-#: allthethings/templates/layouts/index.html:630
+#: allthethings/templates/layouts/index.html:634
 #, fuzzy
 msgid "layout.index.footer.list3.link.slum"
 msgstr "SLUM (%(unaffiliated)s)"
 
-#: allthethings/templates/layouts/index.html:630
+#: allthethings/templates/layouts/index.html:634
 #, fuzzy
 msgid "layout.index.footer.list3.link.unaffiliated"
 msgstr "független"
 
-#: allthethings/templates/macros/aarecord_list.html:90
-#: allthethings/templates/macros/aarecord_list.html:125
+#: allthethings/templates/macros/aarecord_list.html:92
+#: allthethings/templates/macros/aarecord_list.html:127
 msgid "page.search.results.issues"
 msgstr "❌ Ez a fájl lehet problémás."
 
-#: allthethings/templates/macros/aarecord_list.html:116
-#, fuzzy
-msgid "page.search.results.download_time"
-msgstr "Letöltési idő"
-
-#: allthethings/templates/macros/aarecord_list.html:116
+#: allthethings/templates/macros/aarecord_list.html:118
 msgid "page.search.results.fast_download"
 msgstr "Gyors letöltés"
 
@@ -7041,4 +7083,7 @@ msgstr "Következő"
 
 #~ msgid "common.md5.servers.fast_partner.recommended"
 #~ msgstr "(%(recommended)s)"
+
+#~ msgid "page.datasets.upload.source.alexandrina"
+#~ msgstr "A <a %(a_href)s><q>Bibliotheca Alexandrina</q></a> gyűjteményből, pontos eredet nem tisztázott. Részben a the-eye.eu-ról, részben más forrásokból."
 

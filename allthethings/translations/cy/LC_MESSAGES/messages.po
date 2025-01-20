@@ -144,17 +144,17 @@ msgstr "Casglwr Data Disglair"
 msgid "common.membership.tier_name.5"
 msgstr "Archifydd Anhygoel"
 
-#: allthethings/utils.py:641
+#: allthethings/utils.py:656
 #, fuzzy
 msgid "common.membership.format_currency.total"
 msgstr "%(amount)s i gyd"
 
-#: allthethings/utils.py:648
+#: allthethings/utils.py:663
 #, fuzzy
 msgid "common.membership.format_currency.total_with_usd"
 msgstr "%(amount)s (%(amount_usd)s) i gyd"
 
-#: allthethings/utils.py:650 allthethings/utils.py:651
+#: allthethings/utils.py:665 allthethings/utils.py:666
 #, fuzzy
 msgid "common.membership.format_currency.amount_with_usd"
 msgstr "%(amount)s (%(amount_usd)s)"
@@ -325,7 +325,7 @@ msgid "page.donate.expert.contact_us"
 msgstr "cysylltwch â ni"
 
 #: allthethings/account/templates/account/donate.html:101
-#: allthethings/account/templates/account/donation.html:716
+#: allthethings/account/templates/account/donation.html:766
 #: allthethings/page/templates/page/contact.html:22
 #, fuzzy
 msgid "page.donate.small_team"
@@ -372,7 +372,7 @@ msgid "page.donate.payment.select_method"
 msgstr "Dewiswch ddull talu os gwelwch yn dda."
 
 #: allthethings/account/templates/account/donate.html:132
-#: allthethings/account/templates/account/donate.html:503
+#: allthethings/account/templates/account/donate.html:507
 #, fuzzy
 msgid "page.donate.discount"
 msgstr "-%(percentage)s%%"
@@ -391,238 +391,229 @@ msgid "page.donate.payment.buttons.amazon_cc"
 msgstr "%(amazon)s cerdyn anrheg"
 
 #: allthethings/account/templates/account/donate.html:152
+#: allthethings/account/templates/account/donate.html:153
+#: allthethings/account/templates/account/donate.html:154
 #, fuzzy
 msgid "page.donate.payment.buttons.bank_card_app"
 msgstr "Cerdyn banc (gan ddefnyddio ap)"
 
-#: allthethings/account/templates/account/donate.html:153
-#: allthethings/account/templates/account/donate.html:163
-#: allthethings/account/templates/account/donate.html:164
-#: allthethings/account/templates/account/donate.html:450
+#: allthethings/account/templates/account/donate.html:155
+#: allthethings/account/templates/account/donate.html:165
+#: allthethings/account/templates/account/donate.html:166
+#: allthethings/account/templates/account/donate.html:454
 #, fuzzy
 msgid "page.donate.payment.buttons.crypto"
 msgstr "Crypto %(bitcoin_icon)s"
 
-#: allthethings/account/templates/account/donate.html:155
+#: allthethings/account/templates/account/donate.html:157
 #, fuzzy
 msgid "page.donate.payment.buttons.credit_debit"
 msgstr "Cerdyn credyd/debyd"
 
-#: allthethings/account/templates/account/donate.html:156
+#: allthethings/account/templates/account/donate.html:158
 #, fuzzy
 msgid "page.donate.payment.buttons.paypal"
 msgstr "PayPal (US) %(bitcoin_icon)s"
 
-#: allthethings/account/templates/account/donate.html:157
+#: allthethings/account/templates/account/donate.html:159
 #, fuzzy
 msgid "page.donate.payment.buttons.paypalreg"
 msgstr "PayPal (arferol)"
 
-#: allthethings/account/templates/account/donate.html:158
+#: allthethings/account/templates/account/donate.html:160
 #, fuzzy
 msgid "page.donate.payment.buttons.givebutter"
 msgstr "Cerdyn / PayPal / Venmo"
 
-#: allthethings/account/templates/account/donate.html:160
+#: allthethings/account/templates/account/donate.html:162
 #, fuzzy
 msgid "page.donate.payment.buttons.bmc"
 msgstr "Credyd/debyd/Apple/Google (BMC)"
 
-#: allthethings/account/templates/account/donate.html:161
-#: allthethings/account/templates/account/donate.html:201
-#: allthethings/account/templates/account/donate.html:210
-#: allthethings/account/templates/account/donate.html:211
-#: allthethings/account/templates/account/donate.html:444
+#: allthethings/account/templates/account/donate.html:163
+#: allthethings/account/templates/account/donate.html:203
+#: allthethings/account/templates/account/donate.html:213
+#: allthethings/account/templates/account/donate.html:214
+#: allthethings/account/templates/account/donate.html:448
 #, fuzzy
 msgid "page.donate.payment.buttons.alipay"
 msgstr "Alipay"
 
-#: allthethings/account/templates/account/donate.html:162
+#: allthethings/account/templates/account/donate.html:164
 #, fuzzy
 msgid "page.donate.payment.buttons.pix"
 msgstr "Pix (Brazil)"
 
-#: allthethings/account/templates/account/donate.html:166
+#: allthethings/account/templates/account/donate.html:168
 #, fuzzy
 msgid "page.donate.payment.buttons.cashapp"
 msgstr "Cash App"
 
-#: allthethings/account/templates/account/donate.html:167
+#: allthethings/account/templates/account/donate.html:169
 #, fuzzy
 msgid "page.donate.payment.buttons.revolut"
 msgstr "Revolut"
 
-#: allthethings/account/templates/account/donate.html:168
+#: allthethings/account/templates/account/donate.html:170
 #, fuzzy
 msgid "page.donate.payment.buttons.paypal_plain"
 msgstr "PayPal"
 
-#: allthethings/account/templates/account/donate.html:169
+#: allthethings/account/templates/account/donate.html:171
 #, fuzzy
 msgid "page.donate.payment.buttons.bank_card"
 msgstr "Cerdyn banc"
 
-#: allthethings/account/templates/account/donate.html:170
+#: allthethings/account/templates/account/donate.html:172
 #, fuzzy
 msgid "page.donate.payment.buttons.credit_debit_backup"
 msgstr "Cerdyn credyd/debyd (wrth gefn)"
 
-#: allthethings/account/templates/account/donate.html:171
+#: allthethings/account/templates/account/donate.html:173
 #, fuzzy
 msgid "page.donate.payment.buttons.credit_debit2"
 msgstr "Cerdyn credyd/debyd 2"
 
-#: allthethings/account/templates/account/donate.html:173
+#: allthethings/account/templates/account/donate.html:175
 #, fuzzy
 msgid "page.donate.payment.buttons.binance"
 msgstr "Binance"
 
-#: allthethings/account/templates/account/donate.html:200
-#: allthethings/account/templates/account/donate.html:204
-#: allthethings/account/templates/account/donate.html:205
-#: allthethings/account/templates/account/donate.html:447
+#: allthethings/account/templates/account/donate.html:202
+#: allthethings/account/templates/account/donate.html:206
+#: allthethings/account/templates/account/donate.html:207
+#: allthethings/account/templates/account/donate.html:451
 #, fuzzy
 msgid "page.donate.payment.buttons.wechat"
 msgstr "WeChat"
 
-#: allthethings/account/templates/account/donate.html:215
-#: allthethings/account/templates/account/donate.html:216
+#: allthethings/account/templates/account/donate.html:219
+#: allthethings/account/templates/account/donate.html:220
 #, fuzzy
 msgid "page.donate.payment.buttons.alipay_wechat"
 msgstr "Alipay 支付宝 / WeChat 微信"
 
-#: allthethings/account/templates/account/donate.html:235
+#: allthethings/account/templates/account/donate.html:239
 #, fuzzy
 msgid "page.donate.payment.desc.crypto"
 msgstr "Gyda crypto gallwch roi gan ddefnyddio BTC, ETH, XMR, a SOL. Defnyddiwch yr opsiwn hwn os ydych eisoes yn gyfarwydd â cryptocurrency."
 
-#: allthethings/account/templates/account/donate.html:239
+#: allthethings/account/templates/account/donate.html:243
 #, fuzzy
 msgid "page.donate.payment.desc.crypto2"
 msgstr "Gyda crypto gallwch roi gan ddefnyddio BTC, ETH, XMR, a mwy."
 
-#: allthethings/account/templates/account/donate.html:242
-#: allthethings/account/templates/account/donate.html:452
+#: allthethings/account/templates/account/donate.html:246
+#: allthethings/account/templates/account/donate.html:456
 #, fuzzy
 msgid "page.donate.payment.desc.crypto_suggestion_dynamic"
 msgstr "Os ydych yn defnyddio crypto am y tro cyntaf, rydym yn awgrymu defnyddio %(options)s i brynu a rhoi Bitcoin (y cryptocurrency gwreiddiol a mwyaf defnyddiedig)."
 
-#: allthethings/account/templates/account/donate.html:245
-#: allthethings/account/templates/account/donate.html:455
+#: allthethings/account/templates/account/donate.html:249
+#: allthethings/account/templates/account/donate.html:459
 #, fuzzy
 msgid "page.donate.payment.processor.binance"
 msgstr "Binance"
 
-#: allthethings/account/templates/account/donate.html:246
-#: allthethings/account/templates/account/donate.html:456
+#: allthethings/account/templates/account/donate.html:250
+#: allthethings/account/templates/account/donate.html:460
 #, fuzzy
 msgid "page.donate.payment.processor.coinbase"
 msgstr "Coinbase"
 
-#: allthethings/account/templates/account/donate.html:247
-#: allthethings/account/templates/account/donate.html:457
+#: allthethings/account/templates/account/donate.html:251
+#: allthethings/account/templates/account/donate.html:461
 #, fuzzy
 msgid "page.donate.payment.processor.kraken"
 msgstr "Kraken"
 
-#: allthethings/account/templates/account/donate.html:255
+#: allthethings/account/templates/account/donate.html:259
 #, fuzzy
 msgid "page.donate.payment.desc.paypal"
 msgstr "I roi rhodd gan ddefnyddio PayPal US, rydym yn mynd i ddefnyddio PayPal Crypto, sy'n ein galluogi i aros yn ddienw. Rydym yn gwerthfawrogi eich bod yn cymryd yr amser i ddysgu sut i roi rhodd gan ddefnyddio'r dull hwn, gan ei fod yn ein helpu ni'n fawr."
 
-#: allthethings/account/templates/account/donate.html:256
+#: allthethings/account/templates/account/donate.html:260
 #, fuzzy
 msgid "page.donate.payment.desc.paypal_short"
 msgstr "Rhoi rhodd gan ddefnyddio PayPal."
 
-#: allthethings/account/templates/account/donate.html:262
+#: allthethings/account/templates/account/donate.html:266
 #, fuzzy
 msgid "page.donate.payment.desc.cashapp"
 msgstr "Rhoi rhodd gan ddefnyddio Cash App."
 
-#: allthethings/account/templates/account/donate.html:263
+#: allthethings/account/templates/account/donate.html:267
 #, fuzzy
 msgid "page.donate.payment.desc.cashapp_easy"
 msgstr "Os oes gennych Cash App, dyma'r ffordd hawsaf i roi rhodd!"
 
-#: allthethings/account/templates/account/donate.html:266
-#: allthethings/account/templates/account/donate.html:276
+#: allthethings/account/templates/account/donate.html:270
+#: allthethings/account/templates/account/donate.html:280
 #, fuzzy
 msgid "page.donate.payment.desc.cashapp_fee"
 msgstr "Nodwch y gall Cash App godi ffi o %(fee)s ar gyfer trafodion o dan %(amount)s. Am %(amount)s neu fwy, mae'n rhad ac am ddim!"
 
-#: allthethings/account/templates/account/donate.html:272
+#: allthethings/account/templates/account/donate.html:276
 #, fuzzy
 msgid "page.donate.payment.desc.revolut"
 msgstr "Rhoddwch gan ddefnyddio Revolut."
 
-#: allthethings/account/templates/account/donate.html:273
+#: allthethings/account/templates/account/donate.html:277
 #, fuzzy
 msgid "page.donate.payment.desc.revolut_easy"
 msgstr "Os oes gennych Revolut, dyma'r ffordd hawsaf i roi!"
 
-#: allthethings/account/templates/account/donate.html:282
-#: allthethings/account/templates/account/donate.html:398
+#: allthethings/account/templates/account/donate.html:286
+#: allthethings/account/templates/account/donate.html:402
 #, fuzzy
 msgid "page.donate.payment.desc.credit_debit"
 msgstr "Rhoi rhodd gyda cherdyn credyd neu ddebyd."
 
-#: allthethings/account/templates/account/donate.html:283
+#: allthethings/account/templates/account/donate.html:287
 #, fuzzy
 msgid "page.donate.payment.desc.google_apple"
 msgstr "Efallai y bydd Google Pay ac Apple Pay hefyd yn gweithio."
 
-#: allthethings/account/templates/account/donate.html:284
+#: allthethings/account/templates/account/donate.html:288
 #, fuzzy
 msgid "page.donate.payment.desc.elimate_discount"
 msgstr "Nodwch y gall y ffioedd cerdyn credyd ddileu ein %(discount)s%% disgownt ar gyfer rhoddion bach, felly rydym yn argymell tanysgrifiadau hirach."
 
-#: allthethings/account/templates/account/donate.html:285
+#: allthethings/account/templates/account/donate.html:289
 #, fuzzy
 msgid "page.donate.payment.desc.longer_subs"
 msgstr "Nodwch y gall y ffioedd fod yn uchel ar gyfer rhoddion bach, felly rydym yn argymell tanysgrifiadau hirach."
 
-#: allthethings/account/templates/account/donate.html:291
+#: allthethings/account/templates/account/donate.html:295
 #, fuzzy
 msgid "page.donate.payment.desc.binance_p1"
 msgstr "Gyda Binance, rydych yn prynu Bitcoin gyda cherdyn credyd/debyd neu gyfrif banc, ac yna'n rhoi'r Bitcoin hwnnw i ni. Fel hyn gallwn aros yn ddiogel ac yn ddienw wrth dderbyn eich rhodd."
 
-#: allthethings/account/templates/account/donate.html:295
+#: allthethings/account/templates/account/donate.html:299
 #, fuzzy
 msgid "page.donate.payment.desc.binance_p2"
 msgstr "Mae Binance ar gael ym mron pob gwlad, ac yn cefnogi'r rhan fwyaf o fanciau a chardiau credyd/debyd. Dyma ein prif argymhelliad ar hyn o bryd. Rydym yn gwerthfawrogi eich amser i ddysgu sut i roi gan ddefnyddio'r dull hwn, gan ei fod yn ein helpu ni'n fawr."
 
-#: allthethings/account/templates/account/donate.html:301
+#: allthethings/account/templates/account/donate.html:305
 #, fuzzy
 msgid "page.donate.payment.desc.paypalreg"
 msgstr "Rhoddwch gan ddefnyddio eich cyfrif PayPal arferol."
 
-#: allthethings/account/templates/account/donate.html:307
+#: allthethings/account/templates/account/donate.html:311
 #, fuzzy
 msgid "page.donate.payment.desc.givebutter"
 msgstr "Rhoddwch gan ddefnyddio cerdyn credyd/debyd, PayPal, neu Venmo. Gallwch ddewis rhwng y rhain ar y dudalen nesaf."
 
-#: allthethings/account/templates/account/donate.html:313
-#: allthethings/account/templates/account/donate.html:325
-#: allthethings/account/templates/account/donate.html:337
-#: allthethings/account/templates/account/donate.html:349
-#: allthethings/account/templates/account/donate.html:361
-#: allthethings/account/templates/account/donate.html:373
-#: allthethings/account/templates/account/donate.html:385
+#: allthethings/account/templates/account/donate.html:317
+#: allthethings/account/templates/account/donate.html:329
+#: allthethings/account/templates/account/donate.html:341
+#: allthethings/account/templates/account/donate.html:353
+#: allthethings/account/templates/account/donate.html:365
+#: allthethings/account/templates/account/donate.html:377
+#: allthethings/account/templates/account/donate.html:389
 #, fuzzy
 msgid "page.donate.payment.desc.amazon"
 msgstr "Rhoddwch gan ddefnyddio cerdyn rhodd Amazon."
-
-#: allthethings/account/templates/account/donate.html:314
-#: allthethings/account/templates/account/donate.html:326
-#: allthethings/account/templates/account/donate.html:338
-#: allthethings/account/templates/account/donate.html:350
-#: allthethings/account/templates/account/donate.html:362
-#: allthethings/account/templates/account/donate.html:374
-#: allthethings/account/templates/account/donate.html:386
-#, fuzzy
-msgid "page.donate.payment.desc.amazon_round"
-msgstr "Sylwch fod angen i ni grynhoi i symiau a dderbynnir gan ein hailwerthwyr (lleiafswm %(minimum)s)."
 
 #: allthethings/account/templates/account/donate.html:318
 #: allthethings/account/templates/account/donate.html:330
@@ -631,366 +622,377 @@ msgstr "Sylwch fod angen i ni grynhoi i symiau a dderbynnir gan ein hailwerthwyr
 #: allthethings/account/templates/account/donate.html:366
 #: allthethings/account/templates/account/donate.html:378
 #: allthethings/account/templates/account/donate.html:390
-#: allthethings/account/templates/account/donation.html:373
+#, fuzzy
+msgid "page.donate.payment.desc.amazon_round"
+msgstr "Sylwch fod angen i ni grynhoi i symiau a dderbynnir gan ein hailwerthwyr (lleiafswm %(minimum)s)."
+
+#: allthethings/account/templates/account/donate.html:322
+#: allthethings/account/templates/account/donate.html:334
+#: allthethings/account/templates/account/donate.html:346
+#: allthethings/account/templates/account/donate.html:358
+#: allthethings/account/templates/account/donate.html:370
+#: allthethings/account/templates/account/donate.html:382
+#: allthethings/account/templates/account/donate.html:394
+#: allthethings/account/templates/account/donation.html:405
 #, fuzzy
 msgid "page.donate.payment.desc.amazon_com"
 msgstr "<strong>PWYSIG:</strong> Dim ond Amazon.com rydym yn ei gefnogi, nid gwefannau Amazon eraill. Er enghraifft, .de, .co.uk, .ca, NID ydynt yn cael eu cefnogi."
 
-#: allthethings/account/templates/account/donate.html:319
-#: allthethings/account/templates/account/donate.html:331
-#: allthethings/account/templates/account/donate.html:343
-#: allthethings/account/templates/account/donate.html:355
-#: allthethings/account/templates/account/donate.html:367
-#: allthethings/account/templates/account/donate.html:379
-#: allthethings/account/templates/account/donate.html:391
+#: allthethings/account/templates/account/donate.html:323
+#: allthethings/account/templates/account/donate.html:335
+#: allthethings/account/templates/account/donate.html:347
+#: allthethings/account/templates/account/donate.html:359
+#: allthethings/account/templates/account/donate.html:371
+#: allthethings/account/templates/account/donate.html:383
+#: allthethings/account/templates/account/donate.html:395
 #, fuzzy
 msgid "page.donate.payment.desc.amazon_cc"
 msgstr "<strong>PWYSIG:</strong> Mae'r opsiwn hwn ar gyfer %(amazon)s. Os ydych chi am ddefnyddio gwefan Amazon arall, dewiswch hi uchod."
 
-#: allthethings/account/templates/account/donate.html:399
+#: allthethings/account/templates/account/donate.html:403
 #, fuzzy
 msgid "page.donate.payment.desc.credit_debit_backup"
 msgstr "Mae'r dull hwn yn defnyddio darparwr cryptocurrency fel trosi canolradd. Gall hyn fod ychydig yn ddryslyd, felly defnyddiwch y dull hwn yn unig os nad yw dulliau talu eraill yn gweithio. Hefyd, nid yw'n gweithio ym mhob gwlad."
 
-#: allthethings/account/templates/account/donate.html:405
+#: allthethings/account/templates/account/donate.html:409
 #, fuzzy
 msgid "page.donate.payment.desc.bank_card_app"
 msgstr "Rhowch rodd gan ddefnyddio cerdyn credyd/debyd, drwy ap Alipay (hawdd iawn i'w sefydlu)."
 
-#: allthethings/account/templates/account/donate.html:409
-#: allthethings/account/templates/account/donation.html:519
+#: allthethings/account/templates/account/donate.html:413
+#: allthethings/account/templates/account/donation.html:563
 #, fuzzy
 msgid "page.donate.payment.desc.bank_card_app.step1.header"
 msgstr "<span %(style)s>1</span>Gosod ap Alipay"
 
-#: allthethings/account/templates/account/donate.html:413
-#: allthethings/account/templates/account/donation.html:523
+#: allthethings/account/templates/account/donate.html:417
+#: allthethings/account/templates/account/donation.html:567
 #, fuzzy
 msgid "page.donate.payment.desc.bank_card_app.step1.desc1"
 msgstr "Gosodwch yr ap Alipay o'r <a %(a_app_store)s>Apple App Store</a> neu <a %(a_play_store)s>Google Play Store</a>."
 
-#: allthethings/account/templates/account/donate.html:417
-#: allthethings/account/templates/account/donation.html:527
+#: allthethings/account/templates/account/donate.html:421
+#: allthethings/account/templates/account/donation.html:571
 #, fuzzy
 msgid "page.donate.payment.desc.bank_card_app.step1.desc2"
 msgstr "Cofrestrwch gan ddefnyddio eich rhif ffôn."
 
-#: allthethings/account/templates/account/donate.html:418
-#: allthethings/account/templates/account/donation.html:528
+#: allthethings/account/templates/account/donate.html:422
+#: allthethings/account/templates/account/donation.html:572
 #, fuzzy
 msgid "page.donate.payment.desc.bank_card_app.step1.desc3"
 msgstr "Nid oes angen unrhyw fanylion personol pellach."
 
-#: allthethings/account/templates/account/donate.html:422
-#: allthethings/account/templates/account/donation.html:532
+#: allthethings/account/templates/account/donate.html:426
+#: allthethings/account/templates/account/donation.html:576
 #, fuzzy
 msgid "page.donate.payment.desc.bank_card_app.step2.header"
 msgstr "<span %(style)s>2</span>Ychwanegu cerdyn banc"
 
-#: allthethings/account/templates/account/donate.html:430
-#: allthethings/account/templates/account/donation.html:540
+#: allthethings/account/templates/account/donate.html:434
+#: allthethings/account/templates/account/donation.html:584
 #, fuzzy
 msgid "page.donate.payment.desc.bank_card_app.step2.desc1"
 msgstr "Cefnogir: Visa, MasterCard, JCB, Diners Club a Discover."
 
-#: allthethings/account/templates/account/donate.html:431
-#: allthethings/account/templates/account/donation.html:541
+#: allthethings/account/templates/account/donate.html:435
+#: allthethings/account/templates/account/donation.html:585
 #, fuzzy
 msgid "page.donate.payment.desc.bank_card_app.step2.desc2"
 msgstr "Gweler <a %(a_alipay)s>y canllaw hwn</a> am fwy o wybodaeth."
 
-#: allthethings/account/templates/account/donate.html:437
+#: allthethings/account/templates/account/donate.html:441
 #, fuzzy
 msgid "page.donate.payment.desc.credit_debit_explained"
 msgstr "Ni allwn gefnogi cardiau credyd/debyd yn uniongyrchol, oherwydd nid yw banciau eisiau gweithio gyda ni. ☹ Fodd bynnag, mae sawl ffordd i ddefnyddio cardiau credyd/debyd beth bynnag, gan ddefnyddio dulliau talu eraill:"
 
-#: allthethings/account/templates/account/donate.html:441
+#: allthethings/account/templates/account/donate.html:445
 #, fuzzy
 msgid "page.donate.payment.buttons.amazon"
 msgstr "Cerdyn Rhodd Amazon"
 
-#: allthethings/account/templates/account/donate.html:442
+#: allthethings/account/templates/account/donate.html:446
 #, fuzzy
 msgid "page.donate.ccexp.amazon_com"
 msgstr "Anfonwch gardiau rhodd Amazon.com atom gan ddefnyddio eich cerdyn credyd/debyd."
 
-#: allthethings/account/templates/account/donate.html:445
+#: allthethings/account/templates/account/donate.html:449
 #, fuzzy
 msgid "page.donate.ccexp.alipay"
 msgstr "Mae Alipay yn cefnogi cardiau credyd/debyd rhyngwladol. Gweler <a %(a_alipay)s>y canllaw hwn</a> am fwy o wybodaeth."
 
-#: allthethings/account/templates/account/donate.html:448
+#: allthethings/account/templates/account/donate.html:452
 #, fuzzy
 msgid "page.donate.ccexp.wechat"
 msgstr "Mae WeChat (Weixin Pay) yn cefnogi cardiau credyd/debyd rhyngwladol. Yn yr ap WeChat, ewch i “Me => Services => Wallet => Add a Card”. Os nad ydych yn gweld hynny, ei alluogi gan ddefnyddio “Me => Settings => General => Tools => Weixin Pay => Enable”."
 
-#: allthethings/account/templates/account/donate.html:451
+#: allthethings/account/templates/account/donate.html:455
 #, fuzzy
 msgid "page.donate.ccexp.crypto"
 msgstr "Gallwch brynu crypto gan ddefnyddio cardiau credyd/debyd."
 
-#: allthethings/account/templates/account/donate.html:461
+#: allthethings/account/templates/account/donate.html:465
 #, fuzzy
 msgid "page.donate.payment.desc.crypto_express_services"
 msgstr "Gwasanaethau crypto cyflym"
 
-#: allthethings/account/templates/account/donate.html:463
+#: allthethings/account/templates/account/donate.html:467
 #, fuzzy
 msgid "page.donation.ccexp.crypto_express_services.1"
 msgstr "Mae gwasanaethau cyflym yn gyfleus, ond yn codi ffioedd uwch."
 
-#: allthethings/account/templates/account/donate.html:464
+#: allthethings/account/templates/account/donate.html:468
 #, fuzzy
 msgid "page.donation.ccexp.crypto_express_services.2"
 msgstr "Gallwch ddefnyddio hyn yn lle cyfnewidfa crypto os ydych yn chwilio i wneud rhodd fwy yn gyflym ac nid oes gennych broblem â ffi o $5-10."
 
-#: allthethings/account/templates/account/donate.html:467
+#: allthethings/account/templates/account/donate.html:471
 #, fuzzy
 msgid "page.donation.ccexp.crypto_express_services.3"
 msgstr "Sicrhewch eich bod yn anfon yr union swm crypto a ddangosir ar y dudalen rhoddion, nid y swm mewn $USD."
 
-#: allthethings/account/templates/account/donate.html:468
+#: allthethings/account/templates/account/donate.html:472
 #, fuzzy
 msgid "page.donation.ccexp.crypto_express_services.4"
 msgstr "Fel arall, bydd y ffi yn cael ei thynnu a ni allwn brosesu eich aelodaeth yn awtomatig."
 
-#: allthethings/account/templates/account/donate.html:471
-#: allthethings/account/templates/account/donation.html:304
+#: allthethings/account/templates/account/donate.html:475
+#: allthethings/account/templates/account/donation.html:328
 #, fuzzy
 msgid "page.donation.payment2cc.method.paybis"
 msgstr "(isafswm: %(minimum)s)"
 
-#: allthethings/account/templates/account/donate.html:472
-#: allthethings/account/templates/account/donation.html:305
+#: allthethings/account/templates/account/donate.html:476
+#: allthethings/account/templates/account/donation.html:329
 #, fuzzy
 msgid "page.donation.payment2cc.method.switchere"
 msgstr "(isafswm: %(minimum)s yn dibynnu ar y wlad, dim dilysiad ar gyfer y trafodiad cyntaf)"
 
-#: allthethings/account/templates/account/donate.html:473
-#: allthethings/account/templates/account/donation.html:306
+#: allthethings/account/templates/account/donate.html:477
+#: allthethings/account/templates/account/donation.html:330
 #, fuzzy
 msgid "page.donation.payment2cc.method.munzen"
 msgstr "(isafswm: %(minimum)s, dim dilysiad ar gyfer y trafodiad cyntaf)"
 
-#: allthethings/account/templates/account/donate.html:474
-#: allthethings/account/templates/account/donation.html:307
+#: allthethings/account/templates/account/donate.html:478
+#: allthethings/account/templates/account/donation.html:331
 #, fuzzy
 msgid "page.donation.payment2cc.method.mercuryo"
 msgstr "(isafswm: %(minimum)s)"
 
-#: allthethings/account/templates/account/donate.html:475
-#: allthethings/account/templates/account/donation.html:308
+#: allthethings/account/templates/account/donate.html:479
+#: allthethings/account/templates/account/donation.html:332
 #, fuzzy
 msgid "page.donation.payment2cc.method.moonpay"
 msgstr "(isafswm: %(minimum)s)"
 
-#: allthethings/account/templates/account/donate.html:476
-#: allthethings/account/templates/account/donation.html:309
+#: allthethings/account/templates/account/donate.html:480
+#: allthethings/account/templates/account/donation.html:333
 #, fuzzy
 msgid "page.donation.payment2cc.method.coingate"
 msgstr "(isafswm: %(minimum)s)"
 
-#: allthethings/account/templates/account/donate.html:478
-#: allthethings/account/templates/account/donation.html:311
+#: allthethings/account/templates/account/donate.html:482
+#: allthethings/account/templates/account/donation.html:335
 #, fuzzy
 msgid "page.donation.payment2cc.cc2btc.outdated"
 msgstr "Os yw unrhyw un o’r wybodaeth hon yn hen, anfonwch e-bost atom i roi gwybod i ni."
 
-#: allthethings/account/templates/account/donate.html:485
+#: allthethings/account/templates/account/donate.html:489
 #, fuzzy
 msgid "page.donate.payment.desc.bmc"
 msgstr "Ar gyfer cardiau credyd, cardiau debyd, Apple Pay, a Google Pay, rydym yn defnyddio “Buy Me a Coffee” (BMC <span class=\"icon-[ph--coffee-fill] text-lg align-text-bottom\"></span>). Yn eu system, mae un “coffi” yn gyfwerth â $5, felly bydd eich rhodd yn cael ei rowndio i'r lluosrif agosaf o 5."
 
-#: allthethings/account/templates/account/donate.html:492
+#: allthethings/account/templates/account/donate.html:496
 #, fuzzy
 msgid "page.donate.duration.intro"
 msgstr "Dewiswch pa mor hir rydych chi am danysgrifio."
 
-#: allthethings/account/templates/account/donate.html:509
+#: allthethings/account/templates/account/donate.html:513
 #, fuzzy
 msgid "page.donate.duration.1_mo"
 msgstr "1 mis"
 
-#: allthethings/account/templates/account/donate.html:510
+#: allthethings/account/templates/account/donate.html:514
 #, fuzzy
 msgid "page.donate.duration.3_mo"
 msgstr "3 mis"
 
-#: allthethings/account/templates/account/donate.html:511
+#: allthethings/account/templates/account/donate.html:515
 #, fuzzy
 msgid "page.donate.duration.6_mo"
 msgstr "6 mis"
 
-#: allthethings/account/templates/account/donate.html:512
+#: allthethings/account/templates/account/donate.html:516
 #, fuzzy
 msgid "page.donate.duration.12_mo"
 msgstr "12 mis"
 
-#: allthethings/account/templates/account/donate.html:513
+#: allthethings/account/templates/account/donate.html:517
 #, fuzzy
 msgid "page.donate.duration.24_mo"
 msgstr "24 mis"
 
-#: allthethings/account/templates/account/donate.html:514
+#: allthethings/account/templates/account/donate.html:518
 #, fuzzy
 msgid "page.donate.duration.48_mo"
 msgstr "48 mis"
 
-#: allthethings/account/templates/account/donate.html:515
+#: allthethings/account/templates/account/donate.html:519
 #, fuzzy
 msgid "page.donate.duration.96_mo"
 msgstr "96 mis"
 
-#: allthethings/account/templates/account/donate.html:518
+#: allthethings/account/templates/account/donate.html:522
 #, fuzzy
 msgid "page.donate.duration.summary"
 msgstr "<div %(div_monthly_cost)s></div><div %(div_after)s>ar ôl <span %(span_discount)s></span> gostyngiadau</div><div %(div_total)s></div><div %(div_duration)s></div>"
 
-#: allthethings/account/templates/account/donate.html:525
+#: allthethings/account/templates/account/donate.html:529
 #, fuzzy
 msgid "page.donate.payment.minimum_method"
 msgstr "Mae'r dull talu hwn yn gofyn am isafswm o %(amount)s. Dewiswch hyd neu ddull talu gwahanol."
 
-#: allthethings/account/templates/account/donate.html:526
 #: allthethings/account/templates/account/donate.html:530
+#: allthethings/account/templates/account/donate.html:534
 #, fuzzy
 msgid "page.donate.buttons.donate"
 msgstr "Rhoi"
 
-#: allthethings/account/templates/account/donate.html:529
+#: allthethings/account/templates/account/donate.html:533
 #, fuzzy
 msgid "page.donate.payment.maximum_method"
 msgstr "Mae'r dull talu hwn yn caniatáu uchafswm o %(amount)s yn unig. Dewiswch hyd neu ddull talu gwahanol."
 
-#: allthethings/account/templates/account/donate.html:536
+#: allthethings/account/templates/account/donate.html:540
 #, fuzzy
 msgid "page.donate.login2"
 msgstr "I ddod yn aelod, os gwelwch yn dda <a %(a_login)s>Mewngofnodwch neu Cofrestrwch</a>. Diolch am eich cefnogaeth!"
 
-#: allthethings/account/templates/account/donate.html:543
+#: allthethings/account/templates/account/donate.html:547
 #, fuzzy
 msgid "page.donate.payment.crypto_select"
 msgstr "Dewiswch eich darn arian crypto dewisol:"
 
-#: allthethings/account/templates/account/donate.html:548
+#: allthethings/account/templates/account/donate.html:552
 #, fuzzy
 msgid "page.donate.currency_lowest_minimum"
 msgstr "(swm lleiaf isaf)"
 
-#: allthethings/account/templates/account/donate.html:551
+#: allthethings/account/templates/account/donate.html:555
 #, fuzzy
 msgid "page.donate.coinbase_eth"
 msgstr "(defnyddiwch wrth anfon Ethereum o Coinbase)"
 
-#: allthethings/account/templates/account/donate.html:563
-#: allthethings/account/templates/account/donate.html:564
+#: allthethings/account/templates/account/donate.html:567
 #: allthethings/account/templates/account/donate.html:568
-#: allthethings/account/templates/account/donate.html:570
+#: allthethings/account/templates/account/donate.html:572
+#: allthethings/account/templates/account/donate.html:574
 #, fuzzy
 msgid "page.donate.currency_warning_high_minimum"
 msgstr "(rhybudd: swm lleiaf uchel)"
 
-#: allthethings/account/templates/account/donate.html:579
+#: allthethings/account/templates/account/donate.html:583
 #, fuzzy
 msgid "page.donate.submit.confirm"
 msgstr "Cliciwch y botwm rhoi i gadarnhau'r rhodd hon."
 
-#: allthethings/account/templates/account/donate.html:587
+#: allthethings/account/templates/account/donate.html:591
 #, fuzzy
 msgid "page.donate.submit.button"
 msgstr "Rhoi <span %(span_cost)s></span> <span %(span_label)s></span>"
 
-#: allthethings/account/templates/account/donate.html:592
+#: allthethings/account/templates/account/donate.html:596
 #, fuzzy
 msgid "page.donate.submit.cancel_note"
 msgstr "Gallwch ddal i ganslo'r rhodd yn ystod y ddesg dalu."
 
-#: allthethings/account/templates/account/donate.html:596
+#: allthethings/account/templates/account/donate.html:600
 #, fuzzy
 msgid "page.donate.submit.success"
 msgstr "✅ Yn ailgyfeirio i'r dudalen rhoi…"
 
-#: allthethings/account/templates/account/donate.html:597
+#: allthethings/account/templates/account/donate.html:601
 #, fuzzy
 msgid "page.donate.submit.failure"
 msgstr "❌ Aeth rhywbeth o'i le. Ail-lwythwch y dudalen a cheisiwch eto."
 
-#: allthethings/account/templates/account/donate.html:651
+#: allthethings/account/templates/account/donate.html:655
 #, fuzzy
 msgid "page.donate.duration.summary.discount"
 msgstr "%(percentage)s%%"
 
-#: allthethings/account/templates/account/donate.html:652
+#: allthethings/account/templates/account/donate.html:656
 #, fuzzy
 msgid "page.donate.duration.summary.monthly_cost"
 msgstr "%(monthly_cost)s / mis"
 
-#: allthethings/account/templates/account/donate.html:655
+#: allthethings/account/templates/account/donate.html:659
 #, fuzzy
 msgid "page.donate.duration.summary.duration.1_mo"
 msgstr "am 1 mis"
 
-#: allthethings/account/templates/account/donate.html:656
+#: allthethings/account/templates/account/donate.html:660
 #, fuzzy
 msgid "page.donate.duration.summary.duration.3_mo"
 msgstr "am 3 mis"
 
-#: allthethings/account/templates/account/donate.html:657
+#: allthethings/account/templates/account/donate.html:661
 #, fuzzy
 msgid "page.donate.duration.summary.duration.6_mo"
 msgstr "am 6 mis"
 
-#: allthethings/account/templates/account/donate.html:658
+#: allthethings/account/templates/account/donate.html:662
 #, fuzzy
 msgid "page.donate.duration.summary.duration.12_mo"
 msgstr "am 12 mis"
 
-#: allthethings/account/templates/account/donate.html:659
+#: allthethings/account/templates/account/donate.html:663
 #, fuzzy
 msgid "page.donate.duration.summary.duration.24_mo"
 msgstr "am 24 mis"
 
-#: allthethings/account/templates/account/donate.html:660
+#: allthethings/account/templates/account/donate.html:664
 #, fuzzy
 msgid "page.donate.duration.summary.duration.48_mo"
 msgstr "am 48 mis"
 
-#: allthethings/account/templates/account/donate.html:661
+#: allthethings/account/templates/account/donate.html:665
 #, fuzzy
 msgid "page.donate.duration.summary.duration.96_mo"
 msgstr "am 96 mis"
 
-#: allthethings/account/templates/account/donate.html:665
+#: allthethings/account/templates/account/donate.html:669
 #, fuzzy
 msgid "page.donate.submit.button.label.1_mo"
 msgstr "am 1 mis “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:666
+#: allthethings/account/templates/account/donate.html:670
 #, fuzzy
 msgid "page.donate.submit.button.label.3_mo"
 msgstr "am 3 mis “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:667
+#: allthethings/account/templates/account/donate.html:671
 #, fuzzy
 msgid "page.donate.submit.button.label.6_mo"
 msgstr "am 6 mis “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:668
+#: allthethings/account/templates/account/donate.html:672
 #, fuzzy
 msgid "page.donate.submit.button.label.12_mo"
 msgstr "am 12 mis “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:669
+#: allthethings/account/templates/account/donate.html:673
 #, fuzzy
 msgid "page.donate.submit.button.label.24_mo"
 msgstr "am 24 mis “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:670
+#: allthethings/account/templates/account/donate.html:674
 #, fuzzy
 msgid "page.donate.submit.button.label.48_mo"
 msgstr "am 48 mis “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:671
+#: allthethings/account/templates/account/donate.html:675
 #, fuzzy
 msgid "page.donate.submit.button.label.96_mo"
 msgstr "am 96 mis “%(tier_name)s”"
@@ -1068,6 +1070,14 @@ msgstr "Rydych eisoes wedi talu. Os ydych am adolygu'r cyfarwyddiadau talu beth 
 
 #: allthethings/account/templates/account/donation.html:52
 #: allthethings/account/templates/account/donation.html:68
+#: allthethings/account/templates/account/donation.html:170
+#: allthethings/account/templates/account/donation.html:216
+#: allthethings/account/templates/account/donation.html:265
+#: allthethings/account/templates/account/donation.html:318
+#: allthethings/account/templates/account/donation.html:367
+#: allthethings/account/templates/account/donation.html:509
+#: allthethings/account/templates/account/donation.html:554
+#: allthethings/account/templates/account/donation.html:636
 #, fuzzy
 msgid "page.donation.old_instructions.show_button"
 msgstr "Dangos cyfarwyddiadau talu hen"
@@ -1101,18 +1111,18 @@ msgstr "<strong>Nodyn pwysig:</strong> Gall prisiau crypto amrywio'n wyllt, weit
 #: allthethings/account/templates/account/donation.html:95
 #: allthethings/account/templates/account/donation.html:116
 #: allthethings/account/templates/account/donation.html:167
-#: allthethings/account/templates/account/donation.html:207
-#: allthethings/account/templates/account/donation.html:250
-#: allthethings/account/templates/account/donation.html:297
-#: allthethings/account/templates/account/donation.html:340
-#: allthethings/account/templates/account/donation.html:407
-#: allthethings/account/templates/account/donation.html:423
-#: allthethings/account/templates/account/donation.html:441
-#: allthethings/account/templates/account/donation.html:457
-#: allthethings/account/templates/account/donation.html:474
-#: allthethings/account/templates/account/donation.html:513
-#: allthethings/account/templates/account/donation.html:589
-#: allthethings/account/templates/account/donation.html:619
+#: allthethings/account/templates/account/donation.html:213
+#: allthethings/account/templates/account/donation.html:262
+#: allthethings/account/templates/account/donation.html:315
+#: allthethings/account/templates/account/donation.html:364
+#: allthethings/account/templates/account/donation.html:439
+#: allthethings/account/templates/account/donation.html:455
+#: allthethings/account/templates/account/donation.html:473
+#: allthethings/account/templates/account/donation.html:489
+#: allthethings/account/templates/account/donation.html:506
+#: allthethings/account/templates/account/donation.html:551
+#: allthethings/account/templates/account/donation.html:633
+#: allthethings/account/templates/account/donation.html:669
 #, fuzzy
 msgid "page.donation.expired"
 msgstr "Mae'r rhodd hon wedi dod i ben. Canslwch a chreu un newydd os gwelwch yn dda."
@@ -1138,7 +1148,7 @@ msgid "page.donate.submit.header1"
 msgstr "<span %(span_circle)s>1</span>Prynu Bitcoin ar Paypal"
 
 #: allthethings/account/templates/account/donation.html:122
-#: allthethings/account/templates/account/donation.html:173
+#: allthethings/account/templates/account/donation.html:179
 #, fuzzy
 msgid "page.donate.one_time_payment.paypal.text2"
 msgstr "Dewch o hyd i'r dudalen \"Crypto\" yn eich ap neu wefan PayPal. Mae hyn fel arfer o dan \"Finances\"."
@@ -1164,7 +1174,7 @@ msgid "page.donation.payment.paypal.text5"
 msgstr "Nodwch ein cyfeiriad Bitcoin (BTC) fel y derbynnydd, a dilynwch y cyfarwyddiadau i anfon eich rhodd o %(total)s:"
 
 #: allthethings/account/templates/account/donation.html:140
-#: allthethings/account/templates/account/donation.html:293
+#: allthethings/account/templates/account/donation.html:311
 #, fuzzy
 msgid "page.donation.credit_debit_card_instructions"
 msgstr "Cyfarwyddiadau cerdyn credyd / debyd"
@@ -1185,484 +1195,484 @@ msgid "page.donation.stepbystep_below"
 msgstr "Gweler y canllaw cam wrth gam isod."
 
 #: allthethings/account/templates/account/donation.html:149
-#: allthethings/account/templates/account/donation.html:192
-#: allthethings/account/templates/account/donation.html:235
-#: allthethings/account/templates/account/donation.html:280
-#: allthethings/account/templates/account/donation.html:323
-#: allthethings/account/templates/account/donation.html:352
-#: allthethings/account/templates/account/donation.html:388
-#: allthethings/account/templates/account/donation.html:498
-#: allthethings/account/templates/account/donation.html:574
-#: allthethings/account/templates/account/donation.html:605
+#: allthethings/account/templates/account/donation.html:198
+#: allthethings/account/templates/account/donation.html:247
+#: allthethings/account/templates/account/donation.html:298
+#: allthethings/account/templates/account/donation.html:347
+#: allthethings/account/templates/account/donation.html:384
+#: allthethings/account/templates/account/donation.html:420
+#: allthethings/account/templates/account/donation.html:536
+#: allthethings/account/templates/account/donation.html:618
+#: allthethings/account/templates/account/donation.html:655
 #, fuzzy
 msgid "page.donation.status_header"
 msgstr "Statws:"
 
 #: allthethings/account/templates/account/donation.html:149
-#: allthethings/account/templates/account/donation.html:192
-#: allthethings/account/templates/account/donation.html:235
-#: allthethings/account/templates/account/donation.html:280
-#: allthethings/account/templates/account/donation.html:323
-#: allthethings/account/templates/account/donation.html:352
-#: allthethings/account/templates/account/donation.html:498
-#: allthethings/account/templates/account/donation.html:574
-#: allthethings/account/templates/account/donation.html:605
+#: allthethings/account/templates/account/donation.html:198
+#: allthethings/account/templates/account/donation.html:247
+#: allthethings/account/templates/account/donation.html:298
+#: allthethings/account/templates/account/donation.html:347
+#: allthethings/account/templates/account/donation.html:384
+#: allthethings/account/templates/account/donation.html:536
+#: allthethings/account/templates/account/donation.html:618
+#: allthethings/account/templates/account/donation.html:655
 #, fuzzy
 msgid "page.donation.waiting_for_confirmation_refresh"
 msgstr "Yn aros am gadarnhad (adnewyddwch y dudalen i wirio)…"
 
 #: allthethings/account/templates/account/donation.html:149
-#: allthethings/account/templates/account/donation.html:192
-#: allthethings/account/templates/account/donation.html:235
-#: allthethings/account/templates/account/donation.html:280
-#: allthethings/account/templates/account/donation.html:323
-#: allthethings/account/templates/account/donation.html:352
-#: allthethings/account/templates/account/donation.html:498
-#: allthethings/account/templates/account/donation.html:574
-#: allthethings/account/templates/account/donation.html:605
+#: allthethings/account/templates/account/donation.html:198
+#: allthethings/account/templates/account/donation.html:247
+#: allthethings/account/templates/account/donation.html:298
+#: allthethings/account/templates/account/donation.html:347
+#: allthethings/account/templates/account/donation.html:384
+#: allthethings/account/templates/account/donation.html:536
+#: allthethings/account/templates/account/donation.html:618
+#: allthethings/account/templates/account/donation.html:655
 #, fuzzy
 msgid "page.donation.waiting_for_transfer_refresh"
 msgstr "Yn aros am drosglwyddiad (adnewyddwch y dudalen i wirio)…"
 
 #: allthethings/account/templates/account/donation.html:150
-#: allthethings/account/templates/account/donation.html:193
-#: allthethings/account/templates/account/donation.html:236
-#: allthethings/account/templates/account/donation.html:281
-#: allthethings/account/templates/account/donation.html:324
-#: allthethings/account/templates/account/donation.html:353
-#: allthethings/account/templates/account/donation.html:499
-#: allthethings/account/templates/account/donation.html:575
-#: allthethings/account/templates/account/donation.html:606
+#: allthethings/account/templates/account/donation.html:199
+#: allthethings/account/templates/account/donation.html:248
+#: allthethings/account/templates/account/donation.html:299
+#: allthethings/account/templates/account/donation.html:348
+#: allthethings/account/templates/account/donation.html:385
+#: allthethings/account/templates/account/donation.html:537
+#: allthethings/account/templates/account/donation.html:619
+#: allthethings/account/templates/account/donation.html:656
 #, fuzzy
 msgid "page.donation.time_left_header"
 msgstr "Amser sy'n weddill:"
 
 #: allthethings/account/templates/account/donation.html:150
-#: allthethings/account/templates/account/donation.html:193
-#: allthethings/account/templates/account/donation.html:236
-#: allthethings/account/templates/account/donation.html:281
-#: allthethings/account/templates/account/donation.html:324
-#: allthethings/account/templates/account/donation.html:353
-#: allthethings/account/templates/account/donation.html:499
-#: allthethings/account/templates/account/donation.html:575
-#: allthethings/account/templates/account/donation.html:606
+#: allthethings/account/templates/account/donation.html:199
+#: allthethings/account/templates/account/donation.html:248
+#: allthethings/account/templates/account/donation.html:299
+#: allthethings/account/templates/account/donation.html:348
+#: allthethings/account/templates/account/donation.html:385
+#: allthethings/account/templates/account/donation.html:537
+#: allthethings/account/templates/account/donation.html:619
+#: allthethings/account/templates/account/donation.html:656
 #, fuzzy
 msgid "page.donation.might_want_to_cancel"
 msgstr "(efallai y byddwch am ganslo a chreu rhodd newydd)"
 
 #: allthethings/account/templates/account/donation.html:154
-#: allthethings/account/templates/account/donation.html:197
-#: allthethings/account/templates/account/donation.html:240
-#: allthethings/account/templates/account/donation.html:285
-#: allthethings/account/templates/account/donation.html:328
-#: allthethings/account/templates/account/donation.html:357
-#: allthethings/account/templates/account/donation.html:503
-#: allthethings/account/templates/account/donation.html:579
-#: allthethings/account/templates/account/donation.html:610
+#: allthethings/account/templates/account/donation.html:203
+#: allthethings/account/templates/account/donation.html:252
+#: allthethings/account/templates/account/donation.html:303
+#: allthethings/account/templates/account/donation.html:352
+#: allthethings/account/templates/account/donation.html:389
+#: allthethings/account/templates/account/donation.html:541
+#: allthethings/account/templates/account/donation.html:623
+#: allthethings/account/templates/account/donation.html:660
 #, fuzzy
 msgid "page.donation.reset_timer"
 msgstr "I ailosod y cloc, crëwch rodd newydd yn syml."
 
 #: allthethings/account/templates/account/donation.html:158
-#: allthethings/account/templates/account/donation.html:201
-#: allthethings/account/templates/account/donation.html:244
-#: allthethings/account/templates/account/donation.html:289
-#: allthethings/account/templates/account/donation.html:332
-#: allthethings/account/templates/account/donation.html:361
-#: allthethings/account/templates/account/donation.html:392
-#: allthethings/account/templates/account/donation.html:507
-#: allthethings/account/templates/account/donation.html:583
-#: allthethings/account/templates/account/donation.html:614
+#: allthethings/account/templates/account/donation.html:207
+#: allthethings/account/templates/account/donation.html:256
+#: allthethings/account/templates/account/donation.html:307
+#: allthethings/account/templates/account/donation.html:356
+#: allthethings/account/templates/account/donation.html:393
+#: allthethings/account/templates/account/donation.html:424
+#: allthethings/account/templates/account/donation.html:545
+#: allthethings/account/templates/account/donation.html:627
+#: allthethings/account/templates/account/donation.html:664
 #, fuzzy
 msgid "page.donation.refresh_status"
 msgstr "Diweddaru statws"
 
 #: allthethings/account/templates/account/donation.html:162
-#: allthethings/account/templates/account/donation.html:714
+#: allthethings/account/templates/account/donation.html:764
 #, fuzzy
 msgid "page.donation.footer.issues_contact"
 msgstr "Os byddwch yn wynebu unrhyw broblemau, cysylltwch â ni yn %(email)s a chynnwys cymaint o wybodaeth â phosibl (megis sgrinluniau)."
 
-#: allthethings/account/templates/account/donation.html:170
-#: allthethings/account/templates/account/donation.html:210
-#: allthethings/account/templates/account/donation.html:253
+#: allthethings/account/templates/account/donation.html:176
+#: allthethings/account/templates/account/donation.html:222
+#: allthethings/account/templates/account/donation.html:271
 #, fuzzy
 msgid "page.donation.step1"
 msgstr "1"
 
-#: allthethings/account/templates/account/donation.html:170
+#: allthethings/account/templates/account/donation.html:176
 #, fuzzy
 msgid "page.donation.buy_pyusd"
 msgstr "Prynwch PYUSD coin ar PayPal"
 
-#: allthethings/account/templates/account/donation.html:177
+#: allthethings/account/templates/account/donation.html:183
 #, fuzzy
 msgid "page.donation.pyusd.instructions"
 msgstr "Dilynwch y cyfarwyddiadau i brynu PYUSD coin (PayPal USD)."
 
-#: allthethings/account/templates/account/donation.html:178
+#: allthethings/account/templates/account/donation.html:184
 #, fuzzy
 msgid "page.donation.pyusd.more"
 msgstr "Prynwch ychydig yn fwy (rydym yn argymell %(more)s yn fwy) na'r swm rydych yn ei roi (%(amount)s), i dalu am ffioedd trafodion. Byddwch yn cadw unrhyw beth sy'n weddill."
 
-#: allthethings/account/templates/account/donation.html:181
-#: allthethings/account/templates/account/donation.html:220
-#: allthethings/account/templates/account/donation.html:263
+#: allthethings/account/templates/account/donation.html:187
+#: allthethings/account/templates/account/donation.html:232
+#: allthethings/account/templates/account/donation.html:281
 #, fuzzy
 msgid "page.donation.step2"
 msgstr "2"
 
-#: allthethings/account/templates/account/donation.html:184
+#: allthethings/account/templates/account/donation.html:190
 #, fuzzy
 msgid "page.donation.pyusd.transfer"
 msgstr "Ewch i'r dudalen “PYUSD” yn eich ap neu wefan PayPal. Pwyswch y botwm “Trosglwyddo” %(icon)s, ac yna “Anfon”."
 
-#: allthethings/account/templates/account/donation.html:188
-#: allthethings/account/templates/account/donation.html:227
-#: allthethings/account/templates/account/donation.html:272
-#: allthethings/account/templates/account/donation.html:344
+#: allthethings/account/templates/account/donation.html:194
+#: allthethings/account/templates/account/donation.html:239
+#: allthethings/account/templates/account/donation.html:290
+#: allthethings/account/templates/account/donation.html:374
 #, fuzzy
 msgid "page.donation.transfer_amount_to"
 msgstr "Trosglwyddo %(amount)s i %(account)s"
 
-#: allthethings/account/templates/account/donation.html:210
+#: allthethings/account/templates/account/donation.html:222
 #, fuzzy
 msgid "page.donation.cash_app_btc.step1"
 msgstr "Prynwch Bitcoin (BTC) ar Cash App"
 
-#: allthethings/account/templates/account/donation.html:213
+#: allthethings/account/templates/account/donation.html:225
 #, fuzzy
 msgid "page.donation.cash_app_btc.step1.text1"
 msgstr "Ewch i'r dudalen “Bitcoin” (BTC) yn Cash App."
 
-#: allthethings/account/templates/account/donation.html:217
+#: allthethings/account/templates/account/donation.html:229
 #, fuzzy
 msgid "page.donation.cash_app_btc.step1.more"
 msgstr "Prynwch ychydig yn fwy (rydym yn argymell %(more)s yn fwy) na'r swm rydych yn ei roi (%(amount)s), i dalu am ffioedd trafodion. Byddwch yn cadw unrhyw beth sy'n weddill."
 
-#: allthethings/account/templates/account/donation.html:220
+#: allthethings/account/templates/account/donation.html:232
 #, fuzzy
 msgid "page.donation.cash_app_btc.step2"
 msgstr "Trosglwyddwch y Bitcoin i'n cyfeiriad"
 
-#: allthethings/account/templates/account/donation.html:223
+#: allthethings/account/templates/account/donation.html:235
 #, fuzzy
 msgid "page.donation.cash_app_btc.step2.transfer"
 msgstr "Cliciwch y botwm “Anfon bitcoin” i wneud “tynnu'n ôl”. Newidiwch o ddoleri i BTC trwy wasgu'r eicon %(icon)s. Rhowch y swm BTC isod a chliciwch “Anfon”. Gweler <a %(help_video)s>y fideo hwn</a> os ydych yn cael trafferth."
 
-#: allthethings/account/templates/account/donation.html:231
+#: allthethings/account/templates/account/donation.html:243
 #, fuzzy
 msgid "page.donation.cash_app_btc.step2.rush_priority"
 msgstr "Ar gyfer rhoddion bach (o dan $25), efallai y bydd angen i chi ddefnyddio Rush neu Priority."
 
-#: allthethings/account/templates/account/donation.html:253
+#: allthethings/account/templates/account/donation.html:271
 #, fuzzy
 msgid "page.donation.revolut.step1"
 msgstr "Prynwch Bitcoin (BTC) ar Revolut"
 
-#: allthethings/account/templates/account/donation.html:256
+#: allthethings/account/templates/account/donation.html:274
 #, fuzzy
 msgid "page.donation.revolut.step1.text1"
 msgstr "Ewch i’r dudalen “Crypto” ar Revolut i brynu Bitcoin (BTC)."
 
-#: allthethings/account/templates/account/donation.html:260
+#: allthethings/account/templates/account/donation.html:278
 #, fuzzy
 msgid "page.donation.revolut.step1.more"
 msgstr "Prynwch ychydig yn fwy (rydym yn argymell %(more)s yn fwy) na’r swm rydych yn ei roi (%(amount)s), i dalu am ffioedd trafodion. Byddwch yn cadw unrhyw beth sy’n weddill."
 
-#: allthethings/account/templates/account/donation.html:263
+#: allthethings/account/templates/account/donation.html:281
 #, fuzzy
 msgid "page.donation.revolut.step2"
 msgstr "Trosglwyddwch y Bitcoin i’n cyfeiriad ni"
 
-#: allthethings/account/templates/account/donation.html:266
+#: allthethings/account/templates/account/donation.html:284
 #, fuzzy
 msgid "page.donation.revolut.step2.transfer"
 msgstr "Cliciwch y botwm “Anfon bitcoin” i wneud “tynnu’n ôl”. Newidiwch o ewros i BTC trwy wasgu’r eicon %(icon)s. Nodwch y swm BTC isod a chliciwch “Anfon”. Gweler <a %(help_video)s>y fideo hwn</a> os ydych yn cael trafferth."
 
-#: allthethings/account/templates/account/donation.html:269
+#: allthethings/account/templates/account/donation.html:287
 #, fuzzy
 msgid "page.donation.revolut.btc_amount_below"
 msgstr "Gwnewch yn siŵr eich bod yn defnyddio'r swm BTC isod, <em>NID</em> ewros neu ddoleri, fel arall ni fyddwn yn derbyn y swm cywir ac ni allwn gadarnhau eich aelodaeth yn awtomatig."
 
-#: allthethings/account/templates/account/donation.html:276
+#: allthethings/account/templates/account/donation.html:294
 #, fuzzy
 msgid "page.donation.revolut.step2.rush_priority"
 msgstr "Ar gyfer rhoddion bach (o dan $25) efallai y bydd angen i chi ddefnyddio Rush neu Priority."
 
-#: allthethings/account/templates/account/donation.html:301
+#: allthethings/account/templates/account/donation.html:325
 #, fuzzy
 msgid "page.donation.payment2cc.cc2btc"
 msgstr "Defnyddiwch unrhyw un o’r gwasanaethau “carden gredyd i Bitcoin” cyflym canlynol, sy’n cymryd ychydig funudau yn unig:"
 
-#: allthethings/account/templates/account/donation.html:314
+#: allthethings/account/templates/account/donation.html:338
 #, fuzzy
 msgid "page.donation.payment2cc.cc2btc.form"
 msgstr "Llenwch y manylion canlynol yn y ffurflen:"
 
-#: allthethings/account/templates/account/donation.html:318
+#: allthethings/account/templates/account/donation.html:342
 #, fuzzy
 msgid "page.donation.payment2cc.cc2btc.btc_amount"
 msgstr "Swm BTC / Bitcoin:"
 
-#: allthethings/account/templates/account/donation.html:318
+#: allthethings/account/templates/account/donation.html:342
 #, fuzzy
 msgid "page.donation.payment2cc.exact_amount"
 msgstr "Defnyddiwch y <span %(underline)s>union swm</span> hwn. Efallai y bydd eich cyfanswm cost yn uwch oherwydd ffioedd carden gredyd. Ar gyfer symiau bach gall hyn fod yn fwy na’n disgownt, yn anffodus."
 
-#: allthethings/account/templates/account/donation.html:319
+#: allthethings/account/templates/account/donation.html:343
 #, fuzzy
 msgid "page.donation.payment2cc.cc2btc.btc_address"
 msgstr "Cyfeiriad BTC / Bitcoin (waled allanol):"
 
-#: allthethings/account/templates/account/donation.html:336
+#: allthethings/account/templates/account/donation.html:360
 #, fuzzy
 msgid "page.donation.crypto_instructions"
 msgstr "Cyfarwyddiadau %(coin_name)s"
 
-#: allthethings/account/templates/account/donation.html:348
+#: allthethings/account/templates/account/donation.html:378
 #, fuzzy
 msgid "page.donation.crypto_standard"
 msgstr "Rydym ond yn cefnogi'r fersiwn safonol o arian crypto, dim rhwydweithiau neu fersiynau ecsotig o arian. Gall gymryd hyd at awr i gadarnhau'r trafodyn, yn dibynnu ar yr arian."
 
-#: allthethings/account/templates/account/donation.html:365
+#: allthethings/account/templates/account/donation.html:397
 #, fuzzy
 msgid "page.donation.amazon.header"
 msgstr "Cerdyn rhodd Amazon"
 
-#: allthethings/account/templates/account/donation.html:368
+#: allthethings/account/templates/account/donation.html:400
 #, fuzzy
 msgid "page.donation.amazon.form_instructions"
 msgstr "Defnyddiwch y <a %(a_form)s>ffurflen swyddogol Amazon.com</a> i anfon cerdyn anrheg o %(amount)s i'r cyfeiriad e-bost isod."
 
-#: allthethings/account/templates/account/donation.html:369
+#: allthethings/account/templates/account/donation.html:401
 #, fuzzy
 msgid "page.donation.amazon.only_official"
 msgstr "Ni allwn dderbyn dulliau eraill o gardiau anrheg, <strong>dim ond a anfonir yn uniongyrchol o'r ffurflen swyddogol ar Amazon.com</strong>. Ni allwn ddychwelyd eich cerdyn anrheg os nad ydych yn defnyddio'r ffurflen hon."
 
-#: allthethings/account/templates/account/donation.html:374
+#: allthethings/account/templates/account/donation.html:406
 #, fuzzy
 msgid "page.donate.payment.desc.amazon_message_1"
 msgstr "Rhowch y swm union: %(amount)s"
 
-#: allthethings/account/templates/account/donation.html:375
+#: allthethings/account/templates/account/donation.html:407
 #, fuzzy
 msgid "page.donate.payment.desc.amazon_message"
 msgstr "Peidiwch â ysgrifennu eich neges eich hun."
 
-#: allthethings/account/templates/account/donation.html:379
+#: allthethings/account/templates/account/donation.html:411
 #, fuzzy
 msgid "page.donation.amazon.form_to"
 msgstr "Cyfeiriad e-bost y derbynnydd yn y ffurflen:"
 
-#: allthethings/account/templates/account/donation.html:382
+#: allthethings/account/templates/account/donation.html:414
 #, fuzzy
 msgid "page.donation.amazon.unique"
 msgstr "Unigryw i'ch cyfrif, peidiwch â rhannu."
 
-#: allthethings/account/templates/account/donation.html:383
+#: allthethings/account/templates/account/donation.html:415
 #, fuzzy
 msgid "page.donation.amazon.only_use_once"
 msgstr "Defnyddiwch unwaith yn unig."
 
-#: allthethings/account/templates/account/donation.html:388
+#: allthethings/account/templates/account/donation.html:420
 #, fuzzy
 msgid "page.donation.amazon.waiting_gift_card"
 msgstr "Yn aros am gerdyn anrheg... (adnewyddwch y dudalen i wirio)"
 
-#: allthethings/account/templates/account/donation.html:396
+#: allthethings/account/templates/account/donation.html:428
 #, fuzzy
 msgid "page.donation.amazon.confirm_automated"
 msgstr "Ar ôl anfon eich cerdyn anrheg, bydd ein system awtomatig yn ei gadarnhau o fewn ychydig funudau. Os nad yw hyn yn gweithio, ceisiwch anfon eich cerdyn anrheg eto (<a %(a_instr)s>cyfarwyddiadau</a>)."
 
-#: allthethings/account/templates/account/donation.html:397
+#: allthethings/account/templates/account/donation.html:429
 #, fuzzy
 msgid "page.donation.amazon.doesnt_work"
 msgstr "Os nad yw hynny'n gweithio o hyd, anfonwch e-bost atom ac fe fydd Anna yn ei adolygu â llaw (gall hyn gymryd ychydig ddyddiau), a sicrhewch eich bod yn sôn os ydych wedi ceisio anfon eto."
 
-#: allthethings/account/templates/account/donation.html:400
+#: allthethings/account/templates/account/donation.html:432
 #, fuzzy
 msgid "page.donation.amazon.example"
 msgstr "Enghraifft:"
 
-#: allthethings/account/templates/account/donation.html:436
-#: allthethings/account/templates/account/donation.html:453
-#: allthethings/account/templates/account/donation.html:469
-#: allthethings/account/templates/account/donation.html:494
-#: allthethings/account/templates/account/donation.html:570
-#: allthethings/account/templates/account/donation.html:631
+#: allthethings/account/templates/account/donation.html:468
+#: allthethings/account/templates/account/donation.html:485
+#: allthethings/account/templates/account/donation.html:501
+#: allthethings/account/templates/account/donation.html:532
+#: allthethings/account/templates/account/donation.html:614
+#: allthethings/account/templates/account/donation.html:681
 #, fuzzy
 msgid "page.donate.strange_account"
 msgstr "Sylwch y gall enw'r cyfrif neu'r llun edrych yn rhyfedd. Dim angen poeni! Mae'r cyfrifon hyn yn cael eu rheoli gan ein partneriaid rhoddion. Nid yw ein cyfrifon wedi cael eu hacio."
 
-#: allthethings/account/templates/account/donation.html:460
-#: allthethings/account/templates/account/donation.html:477
-#: allthethings/account/templates/account/donation.html:516
+#: allthethings/account/templates/account/donation.html:492
+#: allthethings/account/templates/account/donation.html:515
+#: allthethings/account/templates/account/donation.html:560
 #, fuzzy
 msgid "page.donation.payment.alipay.top_header"
 msgstr "Cyfarwyddiadau Alipay"
 
-#: allthethings/account/templates/account/donation.html:462
-#: allthethings/account/templates/account/donation.html:479
+#: allthethings/account/templates/account/donation.html:494
+#: allthethings/account/templates/account/donation.html:517
 #, fuzzy
 msgid "page.donation.payment.alipay.header1"
 msgstr "<span %(span_circle)s>1</span>Rhoi ar Alipay"
 
-#: allthethings/account/templates/account/donation.html:465
-#: allthethings/account/templates/account/donation.html:482
+#: allthethings/account/templates/account/donation.html:497
+#: allthethings/account/templates/account/donation.html:520
 #, fuzzy
 msgid "page.donation.payment.alipay.text1_new"
 msgstr "Rhoddwch y swm cyfan o %(total)s gan ddefnyddio <a %(a_account)s>y cyfrif Alipay hwn</a>"
 
-#: allthethings/account/templates/account/donation.html:486
-#: allthethings/account/templates/account/donation.html:562
-#: allthethings/account/templates/account/donation.html:601
+#: allthethings/account/templates/account/donation.html:524
+#: allthethings/account/templates/account/donation.html:606
+#: allthethings/account/templates/account/donation.html:651
 #, fuzzy
 msgid "page.donation.page_blocked"
 msgstr "Os yw'r dudalen rhoddion yn cael ei rhwystro, ceisiwch gysylltiad rhyngrwyd gwahanol (e.e. VPN neu ryngrwyd ffôn)."
 
-#: allthethings/account/templates/account/donation.html:490
-#: allthethings/account/templates/account/donation.html:566
+#: allthethings/account/templates/account/donation.html:528
+#: allthethings/account/templates/account/donation.html:610
 #, fuzzy
 msgid "page.donation.payment.alipay.error"
 msgstr "Yn anffodus, mae'r dudalen Alipay yn aml yn hygyrch yn unig o <strong>dir mawr Tsieina</strong>. Efallai y bydd angen i chi analluogi eich VPN dros dro, neu ddefnyddio VPN i dir mawr Tsieina (neu weithiau mae Hong Kong hefyd yn gweithio)."
 
-#: allthethings/account/templates/account/donation.html:545
+#: allthethings/account/templates/account/donation.html:589
 #, fuzzy
 msgid "page.donation.bank_card_app.step3.header"
 msgstr "<span %(style)s>3</span>Gwneud rhodd (sganiwch y cod QR neu pwyswch y botwm)"
 
-#: allthethings/account/templates/account/donation.html:549
+#: allthethings/account/templates/account/donation.html:593
 #, fuzzy
 msgid "page.donation.bank_card_app.step3.desc.1"
 msgstr "Agorwch y <a %(a_href)s>tudalen rhodd cod QR</a>."
 
-#: allthethings/account/templates/account/donation.html:553
+#: allthethings/account/templates/account/donation.html:597
 #, fuzzy
 msgid "page.donation.bank_card_app.step3.desc.2"
 msgstr "Sganiwch y cod QR gyda'r ap Alipay, neu pwyswch y botwm i agor yr ap Alipay."
 
-#: allthethings/account/templates/account/donation.html:554
+#: allthethings/account/templates/account/donation.html:598
 #, fuzzy
 msgid "page.donation.bank_card_app.step3.desc.3"
 msgstr "Byddwch yn amyneddgar; efallai y bydd y dudalen yn cymryd peth amser i lwytho gan ei bod yn Tsieina."
 
-#: allthethings/account/templates/account/donation.html:592
+#: allthethings/account/templates/account/donation.html:642
 #, fuzzy
 msgid "page.donation.payment.wechat.top_header"
 msgstr "Cyfarwyddiadau WeChat"
 
-#: allthethings/account/templates/account/donation.html:594
+#: allthethings/account/templates/account/donation.html:644
 #, fuzzy
 msgid "page.donation.payment.wechat.header1"
 msgstr "<span %(span_circle)s>1</span>Rhowch ar WeChat"
 
-#: allthethings/account/templates/account/donation.html:597
+#: allthethings/account/templates/account/donation.html:647
 #, fuzzy
 msgid "page.donation.payment.wechat.text1"
 msgstr "Rhowch y cyfanswm o %(total)s gan ddefnyddio <a %(a_account)s>y cyfrif WeChat hwn</a>"
 
-#: allthethings/account/templates/account/donation.html:622
+#: allthethings/account/templates/account/donation.html:672
 #, fuzzy
 msgid "page.donation.payment.pix.top_header"
 msgstr "Cyfarwyddiadau Pix"
 
-#: allthethings/account/templates/account/donation.html:624
+#: allthethings/account/templates/account/donation.html:674
 #, fuzzy
 msgid "page.donation.payment.pix.header1"
 msgstr "<span %(span_circle)s>1</span>Rhowch ar Pix"
 
-#: allthethings/account/templates/account/donation.html:627
+#: allthethings/account/templates/account/donation.html:677
 #, fuzzy
 msgid "page.donation.payment.pix.text1"
 msgstr "Rhowch y cyfanswm o %(total)s gan ddefnyddio <a %(a_account)s>y cyfrif Pix hwn"
 
-#: allthethings/account/templates/account/donation.html:636
+#: allthethings/account/templates/account/donation.html:686
 #, fuzzy
 msgid "page.donation.footer.header"
 msgstr "<span %(span_circle)s>%(circle_number)s</span>Anfonwch y dderbynneb atom"
 
-#: allthethings/account/templates/account/donation.html:640
+#: allthethings/account/templates/account/donation.html:690
 #, fuzzy
 msgid "page.donation.footer.verification"
 msgstr "Anfonwch dderbynneb neu lun sgrin i’ch cyfeiriad dilysu personol. Peidiwch â defnyddio’r cyfeiriad e-bost hwn ar gyfer eich rhodd PayPal."
 
-#: allthethings/account/templates/account/donation.html:642
+#: allthethings/account/templates/account/donation.html:692
 #, fuzzy
 msgid "page.donation.footer.text1"
 msgstr "Anfonwch dderbynneb neu lun sgrin i'ch cyfeiriad dilysu personol:"
 
-#: allthethings/account/templates/account/donation.html:652
+#: allthethings/account/templates/account/donation.html:702
 #, fuzzy
 msgid "page.donation.footer.crypto_note"
 msgstr "Os yw'r gyfradd gyfnewid crypto wedi amrywio yn ystod y trafodiad, sicrhewch gynnwys y dderbynneb sy'n dangos y gyfradd gyfnewid wreiddiol. Rydym yn gwerthfawrogi'n fawr eich bod wedi cymryd y drafferth i ddefnyddio crypto, mae'n ein helpu ni'n fawr!"
 
-#: allthethings/account/templates/account/donation.html:657
+#: allthethings/account/templates/account/donation.html:707
 #, fuzzy
 msgid "page.donation.footer.text2"
 msgstr "Pan fyddwch wedi e-bostio'ch derbynneb, cliciwch y botwm hwn, fel y gall Anna ei adolygu â llaw (gall hyn gymryd ychydig ddyddiau):"
 
-#: allthethings/account/templates/account/donation.html:667
+#: allthethings/account/templates/account/donation.html:717
 #, fuzzy
 msgid "page.donation.footer.button"
 msgstr "Ie, rwyf wedi e-bostio fy nherbynneb"
 
-#: allthethings/account/templates/account/donation.html:670
+#: allthethings/account/templates/account/donation.html:720
 #, fuzzy
 msgid "page.donation.footer.success"
 msgstr "✅ Diolch am eich rhodd! Bydd Anna yn actifadu eich aelodaeth â llaw o fewn ychydig ddyddiau."
 
-#: allthethings/account/templates/account/donation.html:671
+#: allthethings/account/templates/account/donation.html:721
 #, fuzzy
 msgid "page.donation.footer.failure"
 msgstr "❌ Aeth rhywbeth o'i le. Ail-lwythwch y dudalen a cheisiwch eto."
 
-#: allthethings/account/templates/account/donation.html:676
+#: allthethings/account/templates/account/donation.html:726
 #, fuzzy
 msgid "page.donation.stepbystep"
 msgstr "Canllaw cam wrth gam"
 
-#: allthethings/account/templates/account/donation.html:678
+#: allthethings/account/templates/account/donation.html:728
 #, fuzzy
 msgid "page.donation.crypto_dont_worry"
 msgstr "Mae rhai o'r camau'n sôn am waledi crypto, ond peidiwch â phoeni, nid oes rhaid i chi ddysgu unrhyw beth am crypto ar gyfer hyn."
 
-#: allthethings/account/templates/account/donation.html:680
+#: allthethings/account/templates/account/donation.html:730
 #, fuzzy
 msgid "page.donation.hoodpay.step1"
 msgstr "1. Rhowch eich e-bost."
 
-#: allthethings/account/templates/account/donation.html:686
+#: allthethings/account/templates/account/donation.html:736
 #, fuzzy
 msgid "page.donation.hoodpay.step2"
 msgstr "2. Dewiswch eich dull talu."
 
-#: allthethings/account/templates/account/donation.html:692
+#: allthethings/account/templates/account/donation.html:742
 #, fuzzy
 msgid "page.donation.hoodpay.step3"
 msgstr "3. Dewiswch eich dull talu eto."
 
-#: allthethings/account/templates/account/donation.html:698
+#: allthethings/account/templates/account/donation.html:748
 #, fuzzy
 msgid "page.donation.hoodpay.step4"
 msgstr "4. Dewiswch waled “Hunan-letya”."
 
-#: allthethings/account/templates/account/donation.html:704
+#: allthethings/account/templates/account/donation.html:754
 #, fuzzy
 msgid "page.donation.hoodpay.step5"
 msgstr "5. Cliciwch “Rwy'n cadarnhau perchnogaeth”."
 
-#: allthethings/account/templates/account/donation.html:710
+#: allthethings/account/templates/account/donation.html:760
 #, fuzzy
 msgid "page.donation.hoodpay.step6"
 msgstr "6. Dylech dderbyn derbynneb e-bost. Anfonwch hwnnw atom, a byddwn yn cadarnhau eich rhodd cyn gynted â phosibl."
 
-#: allthethings/account/templates/account/donation.html:715
+#: allthethings/account/templates/account/donation.html:765
 #, fuzzy
 msgid "page.donate.wait_new"
 msgstr "Arhoswch o leiaf <span %(span_hours)s>24 awr</span> (a diweddaru'r dudalen hon) cyn cysylltu â ni."
 
-#: allthethings/account/templates/account/donation.html:716
+#: allthethings/account/templates/account/donation.html:766
 #, fuzzy
 msgid "page.donate.mistake"
 msgstr "Os gwnaethoch gamgymeriad yn ystod y taliad, ni allwn wneud ad-daliadau, ond byddwn yn ceisio ei gywiro."
@@ -1814,11 +1824,11 @@ msgstr "Cysylltwch ag Anna yn %(email)s os oes gennych ddiddordeb mewn uwchraddi
 #: allthethings/page/templates/page/home.html:77
 #: allthethings/page/templates/page/home.html:82
 #: allthethings/page/templates/page/home.html:90
-#: allthethings/page/templates/page/search.html:345
-#: allthethings/page/templates/page/search.html:444
+#: allthethings/page/templates/page/search.html:349
+#: allthethings/page/templates/page/search.html:448
 #: allthethings/templates/layouts/index.html:248
 #: allthethings/templates/layouts/index.html:252
-#: allthethings/templates/layouts/index.html:605
+#: allthethings/templates/layouts/index.html:608
 #, fuzzy
 msgid "page.contact.title"
 msgstr "E-bost cyswllt"
@@ -1830,25 +1840,25 @@ msgid "page.account.logged_in.membership_multiple"
 msgstr "Gallwch gyfuno sawl aelodaeth (bydd llwythiadau cyflym fesul 24 awr yn cael eu hychwanegu gyda'i gilydd)."
 
 #: allthethings/account/templates/account/index.html:41
-#: allthethings/templates/layouts/index.html:557
-#: allthethings/templates/layouts/index.html:564
-#: allthethings/templates/layouts/index.html:573
+#: allthethings/templates/layouts/index.html:560
+#: allthethings/templates/layouts/index.html:567
+#: allthethings/templates/layouts/index.html:576
 #, fuzzy
 msgid "layout.index.header.nav.public_profile"
 msgstr "Proffil cyhoeddus"
 
 #: allthethings/account/templates/account/index.html:42
-#: allthethings/templates/layouts/index.html:558
-#: allthethings/templates/layouts/index.html:565
-#: allthethings/templates/layouts/index.html:574
+#: allthethings/templates/layouts/index.html:561
+#: allthethings/templates/layouts/index.html:568
+#: allthethings/templates/layouts/index.html:577
 #, fuzzy
 msgid "layout.index.header.nav.downloaded_files"
 msgstr "Ffeiliau wedi'u lawrlwytho"
 
 #: allthethings/account/templates/account/index.html:43
-#: allthethings/templates/layouts/index.html:559
-#: allthethings/templates/layouts/index.html:566
-#: allthethings/templates/layouts/index.html:575
+#: allthethings/templates/layouts/index.html:562
+#: allthethings/templates/layouts/index.html:569
+#: allthethings/templates/layouts/index.html:578
 #, fuzzy
 msgid "layout.index.header.nav.my_donations"
 msgstr "Fy rhoddion"
@@ -2028,158 +2038,158 @@ msgstr "Dim rhestrau eto"
 msgid "page.profile.lists.new_list"
 msgstr "Creu rhestr newydd trwy ddod o hyd i ffeil a chlicio ar y tab “Rhestrau”."
 
-#: allthethings/dyn/views.py:906 allthethings/dyn/views.py:970
-#: allthethings/dyn/views.py:981
+#: allthethings/dyn/views.py:1100 allthethings/dyn/views.py:1172
+#: allthethings/dyn/views.py:1183
 #, fuzzy
 msgid "dyn.buy_membership.error.unknown"
 msgstr "Digwyddodd gwall anhysbys. Cysylltwch â ni yn %(email)s gyda sgrinlun."
 
-#: allthethings/dyn/views.py:955 allthethings/dyn/views.py:975
+#: allthethings/dyn/views.py:1157 allthethings/dyn/views.py:1177
 #, fuzzy
 msgid "dyn.buy_membership.error.minimum"
 msgstr "Mae gan yr arian hwn isafswm uwch na'r arfer. Dewiswch hyd gwahanol neu arian gwahanol."
 
-#: allthethings/dyn/views.py:967
+#: allthethings/dyn/views.py:1169
 #, fuzzy
 msgid "dyn.buy_membership.error.try_again"
 msgstr "Methu cwblhau'r cais. Rhowch gynnig arall arni mewn ychydig funudau, ac os yw'n parhau i ddigwydd cysylltwch â ni yn %(email)s gyda sgrinlun."
 
-#: allthethings/dyn/views.py:978
+#: allthethings/dyn/views.py:1180
 #, fuzzy
 msgid "dyn.buy_membership.error.wait"
 msgstr "Gwall wrth brosesu taliad. Arhoswch funud a cheisiwch eto. Os bydd y broblem yn parhau am fwy na 24 awr, cysylltwch â ni yn %(email)s gyda sgrinlun."
 
-#: allthethings/page/views.py:5536
+#: allthethings/page/views.py:5575
 #, fuzzy
 msgid "page.md5.box.download.affected_files"
 msgstr "%(count)s tudalennau yr effeithiwyd arnynt"
 
-#: allthethings/page/views.py:6533
+#: allthethings/page/views.py:6563
 #, fuzzy
 msgid "common.md5_problem_type_mapping.lgrsnf_visible"
 msgstr "Ddim yn weladwy yn Libgen.rs Non-Fiction"
 
-#: allthethings/page/views.py:6534
+#: allthethings/page/views.py:6564
 #, fuzzy
 msgid "common.md5_problem_type_mapping.lgrsfic_visible"
 msgstr "Ddim yn weladwy yn Libgen.rs Fiction"
 
-#: allthethings/page/views.py:6535
+#: allthethings/page/views.py:6565
 #, fuzzy
 msgid "common.md5_problem_type_mapping.lgli_visible"
 msgstr "Ddim yn weladwy yn Libgen.li"
 
-#: allthethings/page/views.py:6536
+#: allthethings/page/views.py:6566
 #, fuzzy
 msgid "common.md5_problem_type_mapping.lgli_broken"
 msgstr "Wedi'i farcio'n dorri yn Libgen.li"
 
-#: allthethings/page/views.py:6537
+#: allthethings/page/views.py:6567
 #, fuzzy
 msgid "common.md5_problem_type_mapping.zlib_missing"
 msgstr "Ar goll o Z-Library"
 
-#: allthethings/page/views.py:6538
+#: allthethings/page/views.py:6568
 #, fuzzy
 msgid "common.md5_problem_type_mapping.zlib_spam"
 msgstr "Wedi'i farcio fel “sbam” yn Z-Library"
 
-#: allthethings/page/views.py:6539
+#: allthethings/page/views.py:6569
 #, fuzzy
 msgid "common.md5_problem_type_mapping.zlib_bad_file"
 msgstr "Wedi'i farcio fel “ffeil wael” yn Z-Library"
 
-#: allthethings/page/views.py:6540
+#: allthethings/page/views.py:6570
 #, fuzzy
 msgid "common.md5_problem_type_mapping.duxiu_pdg_broken_files"
 msgstr "Ni ellid trosi pob tudalen i PDF"
 
-#: allthethings/page/views.py:6541
+#: allthethings/page/views.py:6571
 #, fuzzy
 msgid "common.md5_problem_type_mapping.upload_exiftool_failed"
 msgstr "Methodd exiftool yn rhedeg ar y ffeil hon"
 
-#: allthethings/page/views.py:6547
+#: allthethings/page/views.py:6577
 #, fuzzy
 msgid "common.md5_content_type_mapping.book_unknown"
 msgstr "Llyfr (anhysbys)"
 
-#: allthethings/page/views.py:6548
+#: allthethings/page/views.py:6578
 #, fuzzy
 msgid "common.md5_content_type_mapping.book_nonfiction"
 msgstr "Llyfr (anfuglen)"
 
-#: allthethings/page/views.py:6549
+#: allthethings/page/views.py:6579
 #, fuzzy
 msgid "common.md5_content_type_mapping.book_fiction"
 msgstr "Llyfr (ffuglen)"
 
-#: allthethings/page/views.py:6550
+#: allthethings/page/views.py:6580
 #, fuzzy
 msgid "common.md5_content_type_mapping.journal_article"
 msgstr "Erthygl cylchgrawn"
 
-#: allthethings/page/views.py:6551
+#: allthethings/page/views.py:6581
 #, fuzzy
 msgid "common.md5_content_type_mapping.standards_document"
 msgstr "Dogfen safonau"
 
-#: allthethings/page/views.py:6552
+#: allthethings/page/views.py:6582
 #, fuzzy
 msgid "common.md5_content_type_mapping.magazine"
 msgstr "Cylchgrawn"
 
-#: allthethings/page/views.py:6553
+#: allthethings/page/views.py:6583
 #, fuzzy
 msgid "common.md5_content_type_mapping.book_comic"
 msgstr "Llyfr comig"
 
-#: allthethings/page/views.py:6554
+#: allthethings/page/views.py:6584
 #, fuzzy
 msgid "common.md5_content_type_mapping.musical_score"
 msgstr "Sgôr gerddorol"
 
-#: allthethings/page/views.py:6555
+#: allthethings/page/views.py:6585
 #, fuzzy
 msgid "common.md5_content_type_mapping.audiobook"
 msgstr "Llyfr Sain"
 
-#: allthethings/page/views.py:6556
+#: allthethings/page/views.py:6586
 #, fuzzy
 msgid "common.md5_content_type_mapping.other"
 msgstr "Arall"
 
-#: allthethings/page/views.py:6562
+#: allthethings/page/views.py:6592
 #, fuzzy
 msgid "common.access_types_mapping.aa_download"
 msgstr "Lawrlwytho gweinydd partner"
 
-#: allthethings/page/views.py:6563
+#: allthethings/page/views.py:6593
 #, fuzzy
 msgid "common.access_types_mapping.aa_scidb"
 msgstr "SciDB"
 
-#: allthethings/page/views.py:6564
+#: allthethings/page/views.py:6594
 #, fuzzy
 msgid "common.access_types_mapping.external_download"
 msgstr "Llwytho allanol"
 
-#: allthethings/page/views.py:6565
+#: allthethings/page/views.py:6595
 #, fuzzy
 msgid "common.access_types_mapping.external_borrow"
 msgstr "Benthyciad allanol"
 
-#: allthethings/page/views.py:6566
+#: allthethings/page/views.py:6596
 #, fuzzy
 msgid "common.access_types_mapping.external_borrow_printdisabled"
 msgstr "Benthyciad allanol (print wedi'i anablu)"
 
-#: allthethings/page/views.py:6567
+#: allthethings/page/views.py:6597
 #, fuzzy
 msgid "common.access_types_mapping.meta_explore"
 msgstr "Archwilio metadata"
 
-#: allthethings/page/views.py:6568
+#: allthethings/page/views.py:6598
 #, fuzzy
 msgid "common.access_types_mapping.torrents_available"
 msgstr "Wedi'i gynnwys mewn torrents"
@@ -2187,7 +2197,7 @@ msgstr "Wedi'i gynnwys mewn torrents"
 #: allthethings/page/templates/page/datasets.html:43
 #: allthethings/page/templates/page/datasets.html:254
 #: allthethings/page/templates/page/datasets_lgrs.html:25
-#: allthethings/page/views.py:6574
+#: allthethings/page/views.py:6604
 #, fuzzy
 msgid "common.record_sources_mapping.lgrs"
 msgstr "Libgen.rs"
@@ -2195,7 +2205,7 @@ msgstr "Libgen.rs"
 #: allthethings/page/templates/page/datasets.html:80
 #: allthethings/page/templates/page/datasets.html:317
 #: allthethings/page/templates/page/datasets_lgli.html:29
-#: allthethings/page/views.py:6575
+#: allthethings/page/views.py:6605
 #, fuzzy
 msgid "common.record_sources_mapping.lgli"
 msgstr "Libgen.li"
@@ -2203,43 +2213,43 @@ msgstr "Libgen.li"
 #: allthethings/page/templates/page/datasets.html:98
 #: allthethings/page/templates/page/datasets.html:352
 #: allthethings/page/templates/page/datasets_zlib.html:25
-#: allthethings/page/views.py:6576
+#: allthethings/page/views.py:6606
 #, fuzzy
 msgid "common.record_sources_mapping.zlib"
 msgstr "Llyfrgell Z"
 
 #: allthethings/page/templates/page/datasets.html:114
-#: allthethings/page/views.py:6577
+#: allthethings/page/views.py:6607
 #, fuzzy
 msgid "common.record_sources_mapping.zlibzh"
 msgstr "Z-Library Tsieineaidd"
 
-#: allthethings/page/views.py:6578
+#: allthethings/page/views.py:6608
 #, fuzzy
 msgid "common.record_sources_mapping.ia"
 msgstr "IA"
 
-#: allthethings/page/views.py:6579
+#: allthethings/page/views.py:6609
 #, fuzzy
 msgid "common.record_sources_mapping.isbndb"
 msgstr "ISBNdb"
 
 #: allthethings/page/templates/page/datasets.html:525
 #: allthethings/page/templates/page/datasets_ol.html:25
-#: allthethings/page/views.py:6580
+#: allthethings/page/views.py:6610
 #, fuzzy
 msgid "common.record_sources_mapping.ol"
 msgstr "OpenLibrary"
 
 #: allthethings/page/templates/page/datasets.html:60
-#: allthethings/page/views.py:6581
+#: allthethings/page/views.py:6611
 #, fuzzy
 msgid "common.record_sources_mapping.scihub"
 msgstr "Sci-Hub"
 
 #: allthethings/page/templates/page/datasets.html:541
 #: allthethings/page/templates/page/datasets_oclc.html:25
-#: allthethings/page/views.py:6582
+#: allthethings/page/views.py:6612
 #, fuzzy
 msgid "common.record_sources_mapping.oclc"
 msgstr "OCLC (WorldCat)"
@@ -2247,7 +2257,7 @@ msgstr "OCLC (WorldCat)"
 #: allthethings/page/templates/page/datasets.html:148
 #: allthethings/page/templates/page/datasets.html:399
 #: allthethings/page/templates/page/datasets_duxiu.html:25
-#: allthethings/page/views.py:6583
+#: allthethings/page/views.py:6613
 #, fuzzy
 msgid "common.record_sources_mapping.duxiu"
 msgstr "DuXiu 读秀"
@@ -2255,397 +2265,395 @@ msgstr "DuXiu 读秀"
 #: allthethings/page/templates/page/datasets.html:164
 #: allthethings/page/templates/page/datasets.html:433
 #: allthethings/page/templates/page/datasets_upload.html:25
-#: allthethings/page/views.py:6584
+#: allthethings/page/views.py:6614
 #, fuzzy
 msgid "common.record_sources_mapping.uploads"
 msgstr "Llwythiadau i AA"
 
 #: allthethings/page/templates/page/datasets.html:180
-#: allthethings/page/views.py:6585
+#: allthethings/page/views.py:6615
 #, fuzzy
 msgid "common.record_sources_mapping.magzdb"
 msgstr "MagzDB"
 
 #: allthethings/page/templates/page/datasets.html:196
-#: allthethings/page/views.py:6586
+#: allthethings/page/views.py:6616
 #, fuzzy
 msgid "common.record_sources_mapping.nexusstc"
 msgstr "Nexus/STC"
 
-#: allthethings/page/views.py:6587
+#: allthethings/page/views.py:6617
 #, fuzzy
 msgid "common.record_sources_mapping.edsebk"
 msgstr "Mynegai eLyfrau EBSCOhost"
 
-#: allthethings/page/views.py:6588
+#: allthethings/page/views.py:6618
 #, fuzzy
 msgid "common.record_sources_mapping.cerlalc"
 msgstr "Cerlalc"
 
-#: allthethings/page/views.py:6589
+#: allthethings/page/views.py:6619
 #, fuzzy
 msgid "common.record_sources_mapping.czech_oo42hcks"
 msgstr "Metadata Tsiec"
 
-#: allthethings/page/views.py:6590
+#: allthethings/page/views.py:6620
 #, fuzzy
 msgid "common.record_sources_mapping.gbooks"
 msgstr "Llyfrau Google"
 
-#: allthethings/page/views.py:6591
+#: allthethings/page/views.py:6621
 #, fuzzy
 msgid "common.record_sources_mapping.goodreads"
 msgstr "Goodreads"
 
-#: allthethings/page/views.py:6592
+#: allthethings/page/views.py:6622
 #, fuzzy
 msgid "common.record_sources_mapping.isbngrp"
 msgstr "ISBN GRP"
 
-#: allthethings/page/views.py:6593
+#: allthethings/page/views.py:6623
 #, fuzzy
 msgid "common.record_sources_mapping.libby"
 msgstr "Libby"
 
-#: allthethings/page/views.py:6594
+#: allthethings/page/views.py:6624
 #, fuzzy
 msgid "common.record_sources_mapping.rgb"
 msgstr "Llyfrgell Wladol Rwsia"
 
-#: allthethings/page/views.py:6595
+#: allthethings/page/views.py:6625
 #, fuzzy
 msgid "common.record_sources_mapping.trantor"
 msgstr "Trantor"
 
-#: allthethings/page/views.py:6601
+#: allthethings/page/views.py:6631
 #, fuzzy
 msgid "common.specific_search_fields.title"
 msgstr "Teitl"
 
-#: allthethings/page/views.py:6602
+#: allthethings/page/views.py:6632
 #, fuzzy
 msgid "common.specific_search_fields.author"
 msgstr "Awdur"
 
-#: allthethings/page/views.py:6603
+#: allthethings/page/views.py:6633
 #, fuzzy
 msgid "common.specific_search_fields.publisher"
 msgstr "Cyhoeddwr"
 
-#: allthethings/page/views.py:6604
+#: allthethings/page/views.py:6634
 #, fuzzy
 msgid "common.specific_search_fields.edition_varia"
 msgstr "Argraffiad"
 
-#: allthethings/page/views.py:6605
+#: allthethings/page/views.py:6635
 #, fuzzy
 msgid "common.specific_search_fields.year"
 msgstr "Blwyddyn cyhoeddi"
 
-#: allthethings/page/views.py:6606
+#: allthethings/page/views.py:6636
 #, fuzzy
 msgid "common.specific_search_fields.original_filename"
 msgstr "Enw ffeil gwreiddiol"
 
-#: allthethings/page/views.py:6607
+#: allthethings/page/views.py:6637
 #, fuzzy
 msgid "common.specific_search_fields.description_comments"
 msgstr "Disgrifiad a sylwadau metadata"
 
-#: allthethings/page/views.py:6631 allthethings/page/views.py:6632
+#: allthethings/page/views.py:6661 allthethings/page/views.py:6662
 #, fuzzy
 msgid "page.md5.box.download.temporarily_unavailable"
 msgstr "Nid yw lawrlwythiadau Gweinydd Partner ar gael dros dro ar gyfer y ffeil hon."
 
-#: allthethings/page/views.py:6636
+#: allthethings/page/views.py:6666
 #, fuzzy
 msgid "common.md5.servers.fast_partner"
 msgstr "Gweinydd Partner Cyflym #%(number)s"
 
-#: allthethings/page/views.py:6636
+#: allthethings/page/views.py:6666
 #, fuzzy
 msgid "common.md5.servers.fast_partner.recommended2"
 msgstr "(argymhellir)"
 
-#: allthethings/page/views.py:6636
+#: allthethings/page/views.py:6666
 #, fuzzy
 msgid "common.md5.servers.no_browser_verification_or_waitlists"
 msgstr "(dim dilysiad porwr na rhestrau aros)"
 
 #: allthethings/page/templates/page/partner_download.html:37
-#: allthethings/page/views.py:6639 allthethings/page/views.py:6641
+#: allthethings/page/views.py:6669 allthethings/page/views.py:6671
 #, fuzzy
 msgid "common.md5.servers.slow_partner"
 msgstr "Gweinydd Partner Araf #%(number)s"
 
-#: allthethings/page/views.py:6639
+#: allthethings/page/views.py:6669
 #, fuzzy
 msgid "common.md5.servers.faster_with_waitlist"
 msgstr "(ychydig yn gyflymach ond gyda rhestr aros)"
 
-#: allthethings/page/views.py:6641
+#: allthethings/page/views.py:6671
 #, fuzzy
 msgid "common.md5.servers.slow_no_waitlist"
 msgstr "(dim rhestr aros, ond gall fod yn araf iawn)"
 
-#: allthethings/page/views.py:6728 allthethings/page/views.py:6950
+#: allthethings/page/views.py:6758 allthethings/page/views.py:6983
 #, fuzzy
 msgid "page.md5.box.download.scihub"
 msgstr "Sci-Hub: %(doi)s"
 
-#: allthethings/page/views.py:6805
+#: allthethings/page/views.py:6838
 #, fuzzy
 msgid "page.md5.box.download.lgrsnf"
 msgstr "Libgen.rs Ffeithiol"
 
-#: allthethings/page/views.py:6805 allthethings/page/views.py:6821
-#: allthethings/page/views.py:6882
-#, fuzzy
-msgid "page.md5.box.download.extra_also_click_get"
-msgstr "(hefyd cliciwch “GET” ar y brig)"
-
-#: allthethings/page/views.py:6805 allthethings/page/views.py:6821
-#: allthethings/page/views.py:6882
-#, fuzzy
-msgid "page.md5.box.download.extra_click_get"
-msgstr "(cliciwch “GET” ar y brig)"
-
-#: allthethings/page/views.py:6821
+#: allthethings/page/views.py:6854
 #, fuzzy
 msgid "page.md5.box.download.lgrsfic"
 msgstr "Libgen.rs Ffuglen"
 
-#: allthethings/page/views.py:6882
+#: allthethings/page/views.py:6915
 #, fuzzy
 msgid "page.md5.box.download.lgli"
 msgstr "Libgen.li"
 
-#: allthethings/page/views.py:6882
+#: allthethings/page/views.py:6915
+#, fuzzy
+msgid "page.md5.box.download.extra_also_click_get"
+msgstr "(hefyd cliciwch “GET” ar y brig)"
+
+#: allthethings/page/views.py:6915
+#, fuzzy
+msgid "page.md5.box.download.extra_click_get"
+msgstr "(cliciwch “GET” ar y brig)"
+
+#: allthethings/page/views.py:6915
 #, fuzzy
 msgid "page.md5.box.download.libgen_ads"
 msgstr "mae eu hysbysebion yn hysbys am gynnwys meddalwedd maleisus, felly defnyddiwch rwystro hysbysebion neu peidiwch â chlicio ar hysbysebion"
 
-#: allthethings/page/views.py:6886
+#: allthethings/page/views.py:6919
 #, fuzzy
 msgid "page.md5.box.download.nexusstc"
 msgstr "Nexus/STC"
 
-#: allthethings/page/views.py:6886
+#: allthethings/page/views.py:6919
 #, fuzzy
 msgid "page.md5.box.download.nexusstc_unreliable"
 msgstr "(Gall ffeiliau Nexus/STC fod yn annibynadwy i'w lawrlwytho)"
 
-#: allthethings/page/views.py:6933 allthethings/page/views.py:6937
+#: allthethings/page/views.py:6966 allthethings/page/views.py:6970
 #, fuzzy
 msgid "page.md5.box.download.zlib"
 msgstr "Z-Library"
 
-#: allthethings/page/views.py:6934 allthethings/page/views.py:6938
+#: allthethings/page/views.py:6967 allthethings/page/views.py:6971
 #, fuzzy
 msgid "page.md5.box.download.zlib_tor"
 msgstr "Z-Library ar Tor"
 
-#: allthethings/page/views.py:6934 allthethings/page/views.py:6938
+#: allthethings/page/views.py:6967 allthethings/page/views.py:6971
 #, fuzzy
 msgid "page.md5.box.download.zlib_tor_extra"
 msgstr "(yn gofyn am Borwr Tor)"
 
-#: allthethings/page/views.py:6941
+#: allthethings/page/views.py:6974
 #, fuzzy
 msgid "page.md5.box.download.magzdb"
 msgstr "MagzDB"
 
-#: allthethings/page/views.py:6946
+#: allthethings/page/views.py:6979
 #, fuzzy
 msgid "page.md5.box.download.ia_borrow"
 msgstr "Benthyca o'r Internet Archive"
 
-#: allthethings/page/views.py:6946
+#: allthethings/page/views.py:6979
 #, fuzzy
 msgid "page.md5.box.download.print_disabled_only"
 msgstr "(dim ond i ddeiliaid print anabl)"
 
-#: allthethings/page/views.py:6950
+#: allthethings/page/views.py:6983
 #, fuzzy
 msgid "page.md5.box.download.scihub_maybe"
 msgstr "(efallai na fydd DOI cysylltiedig ar gael yn Sci-Hub)"
 
-#: allthethings/page/views.py:6953
+#: allthethings/page/views.py:6986
 #, fuzzy
 msgid "page.md5.box.download.manualslib"
 msgstr "ManualsLib"
 
-#: allthethings/page/views.py:6956
+#: allthethings/page/views.py:6989
 #, fuzzy
 msgid "page.md5.box.download.pubmed"
 msgstr "PubMed"
 
-#: allthethings/page/views.py:6963
+#: allthethings/page/views.py:6996
 #, fuzzy
 msgid "page.md5.box.download.collection"
 msgstr "casgliad"
 
-#: allthethings/page/views.py:6964
+#: allthethings/page/views.py:6997
 #, fuzzy
 msgid "page.md5.box.download.torrent"
 msgstr "torrent"
 
-#: allthethings/page/views.py:6970
+#: allthethings/page/views.py:7003
 #, fuzzy
 msgid "page.md5.box.download.bulk_torrents"
 msgstr "Lawrlwythiadau torrent swmpus"
 
-#: allthethings/page/views.py:6970
+#: allthethings/page/views.py:7003
 #, fuzzy
 msgid "page.md5.box.download.experts_only"
 msgstr "(arbenigwyr yn unig)"
 
-#: allthethings/page/views.py:6977
+#: allthethings/page/views.py:7010
 #, fuzzy
 msgid "page.md5.box.download.aa_isbn"
 msgstr "Chwilio Archif Anna am ISBN"
 
-#: allthethings/page/views.py:6978
+#: allthethings/page/views.py:7011
 #, fuzzy
 msgid "page.md5.box.download.other_isbn"
 msgstr "Chwilio amrywiol gronfeydd data eraill am ISBN"
 
-#: allthethings/page/views.py:6979
+#: allthethings/page/views.py:7012
 #, fuzzy
 msgid "page.md5.box.download.original_isbndb"
 msgstr "Dod o hyd i'r cofnod gwreiddiol yn ISBNdb"
 
-#: allthethings/page/views.py:6981
+#: allthethings/page/views.py:7014
 #, fuzzy
 msgid "page.md5.box.download.aa_openlib"
 msgstr "Chwilio Archif Anna am ID Llyfrgell Agored"
 
-#: allthethings/page/views.py:6982
+#: allthethings/page/views.py:7015
 #, fuzzy
 msgid "page.md5.box.download.original_openlib"
 msgstr "Dod o hyd i'r cofnod gwreiddiol yn Llyfrgell Agored"
 
-#: allthethings/page/views.py:6984
+#: allthethings/page/views.py:7017
 #, fuzzy
 msgid "page.md5.box.download.aa_oclc"
 msgstr "Chwilio Archif Anna am rif OCLC (WorldCat)"
 
-#: allthethings/page/views.py:6985
+#: allthethings/page/views.py:7018
 #, fuzzy
 msgid "page.md5.box.download.original_oclc"
 msgstr "Dod o hyd i'r cofnod gwreiddiol yn WorldCat"
 
-#: allthethings/page/views.py:6987
+#: allthethings/page/views.py:7020
 #, fuzzy
 msgid "page.md5.box.download.aa_duxiu"
 msgstr "Chwilio Archif Anna am rif SSID DuXiu"
 
-#: allthethings/page/views.py:6988
+#: allthethings/page/views.py:7021
 #, fuzzy
 msgid "page.md5.box.download.original_duxiu"
 msgstr "Chwilio â llaw ar DuXiu"
 
-#: allthethings/page/views.py:6990
+#: allthethings/page/views.py:7023
 #, fuzzy
 msgid "page.md5.box.download.aa_cadal"
 msgstr "Chwilio Archif Anna am rif SSNO CADAL"
 
-#: allthethings/page/views.py:6991
+#: allthethings/page/views.py:7024
 #, fuzzy
 msgid "page.md5.box.download.original_cadal"
 msgstr "Dod o hyd i'r cofnod gwreiddiol yn CADAL"
 
-#: allthethings/page/views.py:6995
+#: allthethings/page/views.py:7028
 #, fuzzy
 msgid "page.md5.box.download.aa_dxid"
 msgstr "Chwilio Archif Anna am rif DXID DuXiu"
 
-#: allthethings/page/views.py:6998
+#: allthethings/page/views.py:7031
 #, fuzzy
 msgid "page.md5.box.download.edsebk"
 msgstr "Mynegai eLyfrau EBSCOhost"
 
-#: allthethings/page/views.py:7003 allthethings/page/views.py:7004
+#: allthethings/page/views.py:7036 allthethings/page/views.py:7037
 #, fuzzy
 msgid "page.md5.box.download.scidb"
 msgstr "Archif Anna 🧬 SciDB"
 
-#: allthethings/page/views.py:7003 allthethings/page/views.py:7004
+#: allthethings/page/views.py:7036 allthethings/page/views.py:7037
 #, fuzzy
 msgid "common.md5.servers.no_browser_verification"
 msgstr "(dim ond dim dilysu porwr)"
 
-#: allthethings/page/views.py:7029
+#: allthethings/page/views.py:7062
 #, fuzzy
 msgid "page.md5.top_row.isbndb"
 msgstr "ISBNdb %(id)s}"
 
-#: allthethings/page/views.py:7030
+#: allthethings/page/views.py:7063
 #, fuzzy
 msgid "page.md5.top_row.oclc"
 msgstr "OCLC %(id)s}"
 
-#: allthethings/page/views.py:7031
+#: allthethings/page/views.py:7064
 #, fuzzy
 msgid "page.md5.top_row.duxiu_ssid"
 msgstr "DuXiu SSID %(id)s}"
 
-#: allthethings/page/views.py:7032
+#: allthethings/page/views.py:7065
 #, fuzzy
 msgid "page.md5.top_row.cadal_ssno"
 msgstr "CADAL SSNO %(id)s}"
 
-#: allthethings/page/views.py:7033
+#: allthethings/page/views.py:7066
 #, fuzzy
 msgid "page.md5.top_row.magzdb"
 msgstr "MagzDB %(id)s}"
 
-#: allthethings/page/views.py:7034
+#: allthethings/page/views.py:7067
 #, fuzzy
 msgid "page.md5.top_row.nexusstc"
 msgstr "Nexus/STC %(id)s}"
 
-#: allthethings/page/views.py:7035
+#: allthethings/page/views.py:7068
 #, fuzzy
 msgid "page.md5.top_row.edsebk"
 msgstr "EBSCOhost edsebk %(id)s}"
 
-#: allthethings/page/views.py:7036
+#: allthethings/page/views.py:7069
 #, fuzzy
 msgid "page.md5.top_row.cerlalc"
 msgstr "Cerlalc %(id)s}"
 
-#: allthethings/page/views.py:7037
+#: allthethings/page/views.py:7070
 #, fuzzy
 msgid "page.md5.top_row.czech_oo42hcks"
 msgstr "Metadata Tsiec %(id)s}"
 
-#: allthethings/page/views.py:7038
+#: allthethings/page/views.py:7071
 #, fuzzy
 msgid "page.md5.top_row.gbooks"
 msgstr "Google Books %(id)s}"
 
-#: allthethings/page/views.py:7039
+#: allthethings/page/views.py:7072
 #, fuzzy
 msgid "page.md5.top_row.goodreads"
 msgstr "Goodreads %(id)s}"
 
-#: allthethings/page/views.py:7040
+#: allthethings/page/views.py:7073
 #, fuzzy
 msgid "page.md5.top_row.isbngrp"
 msgstr "ISBN GRP %(id)s}"
 
-#: allthethings/page/views.py:7041
+#: allthethings/page/views.py:7074
 #, fuzzy
 msgid "page.md5.top_row.libby"
 msgstr "Libby %(id)s}"
 
-#: allthethings/page/views.py:7042
+#: allthethings/page/views.py:7075
 #, fuzzy
 msgid "page.md5.top_row.rgb"
 msgstr "RSL %(id)s}"
 
-#: allthethings/page/views.py:7043
+#: allthethings/page/views.py:7076
 #, fuzzy
 msgid "page.md5.top_row.trantor"
 msgstr "Trantor %(id)s}"
@@ -2665,57 +2673,57 @@ msgstr "Trantor %(id)s}"
 #: allthethings/page/templates/page/datasets_scihub.html:18
 #: allthethings/page/templates/page/datasets_upload.html:18
 #: allthethings/page/templates/page/datasets_zlib.html:18
-#: allthethings/page/views.py:7067
+#: allthethings/page/views.py:7100
 #, fuzzy
 msgid "page.datasets.sources.metadata.header"
 msgstr "Metadata"
 
-#: allthethings/page/views.py:7080
+#: allthethings/page/views.py:7113
 #, fuzzy
 msgid "page.md5.box.descr_title"
 msgstr "disgrifiad"
 
-#: allthethings/page/views.py:7081
+#: allthethings/page/views.py:7114
 #, fuzzy
 msgid "page.md5.box.alternative_filename"
 msgstr "Enw ffeil amgen"
 
-#: allthethings/page/views.py:7082
+#: allthethings/page/views.py:7115
 #, fuzzy
 msgid "page.md5.box.alternative_title"
 msgstr "Teitl arall"
 
-#: allthethings/page/views.py:7083
+#: allthethings/page/views.py:7116
 #, fuzzy
 msgid "page.md5.box.alternative_author"
 msgstr "Awdur amgen"
 
-#: allthethings/page/views.py:7084
+#: allthethings/page/views.py:7117
 #, fuzzy
 msgid "page.md5.box.alternative_publisher"
 msgstr "Cyhoeddwr amgen"
 
-#: allthethings/page/views.py:7085
+#: allthethings/page/views.py:7118
 #, fuzzy
 msgid "page.md5.box.alternative_edition"
 msgstr "Argraffiad amgen"
 
-#: allthethings/page/views.py:7086
+#: allthethings/page/views.py:7119
 #, fuzzy
 msgid "page.md5.box.alternative_extension"
 msgstr "Estyniad amgen"
 
-#: allthethings/page/views.py:7087
+#: allthethings/page/views.py:7120
 #, fuzzy
 msgid "page.md5.box.metadata_comments_title"
 msgstr "sylwadau metadata"
 
-#: allthethings/page/views.py:7088
+#: allthethings/page/views.py:7121
 #, fuzzy
 msgid "page.md5.box.alternative_description"
 msgstr "Disgrifiad arall"
 
-#: allthethings/page/views.py:7089
+#: allthethings/page/views.py:7122
 #, fuzzy
 msgid "page.md5.box.date_open_sourced_title"
 msgstr "dyddiad agor ffynhonnell"
@@ -2781,167 +2789,178 @@ msgstr "Cofnod metadata Nexus/STC ID %(id)s"
 msgid "page.md5.header.meta_desc"
 msgstr "Mae hwn yn gofnod metadata, nid ffeil y gellir ei lawrlwytho. Gallwch ddefnyddio'r URL hwn wrth <a %(a_request)s>gofyn am ffeil</a>."
 
-#: allthethings/page/templates/page/aarecord.html:57
+#: allthethings/page/templates/page/aarecord.html:59
 #, fuzzy
 msgid "page.md5.text.linked_metadata"
 msgstr "Metadata o'r cofnod cysylltiedig"
 
-#: allthethings/page/templates/page/aarecord.html:58
+#: allthethings/page/templates/page/aarecord.html:60
 #, fuzzy
 msgid "page.md5.text.linked_metadata_openlib"
 msgstr "Gwella metadata ar Open Library"
 
-#: allthethings/page/templates/page/aarecord.html:61
+#: allthethings/page/templates/page/aarecord.html:63
 #, fuzzy
 msgid "page.md5.warning.multiple_links"
 msgstr "Rhybudd: cofnodion cysylltiedig lluosog:"
 
-#: allthethings/page/templates/page/aarecord.html:69
+#: allthethings/page/templates/page/aarecord.html:71
 #, fuzzy
 msgid "page.md5.header.improve_metadata"
 msgstr "Gwella metadata"
 
-#: allthethings/page/templates/page/aarecord.html:71
+#: allthethings/page/templates/page/aarecord.html:73
 #, fuzzy
 msgid "page.md5.text.report_quality"
 msgstr "Adrodd ansawdd ffeil"
 
-#: allthethings/page/templates/page/aarecord.html:95
+#: allthethings/page/templates/page/aarecord.html:87
+#: allthethings/page/templates/page/search.html:510
+#: allthethings/page/templates/page/search.html:520
+#: allthethings/page/templates/page/search.html:550
+#: allthethings/templates/macros/aarecord_list.html:118
+#, fuzzy
+msgid "page.search.results.download_time"
+msgstr "Amser lawrlwytho"
+
+#: allthethings/page/templates/page/aarecord.html:142
 #, fuzzy
 msgid "page.md5.codes.url"
 msgstr "URL:"
 
-#: allthethings/page/templates/page/aarecord.html:96
+#: allthethings/page/templates/page/aarecord.html:143
 #, fuzzy
 msgid "page.md5.codes.website"
 msgstr "Gwefan:"
 
-#: allthethings/page/templates/page/aarecord.html:97
+#: allthethings/page/templates/page/aarecord.html:144
 #, fuzzy
 msgid "page.md5.codes.aa_abbr"
 msgstr "AA:"
 
-#: allthethings/page/templates/page/aarecord.html:97
+#: allthethings/page/templates/page/aarecord.html:144
 #, fuzzy
 msgid "page.md5.codes.aa_search"
 msgstr "Chwilio Archif Anna am “%(name)s”"
 
-#: allthethings/page/templates/page/aarecord.html:98
+#: allthethings/page/templates/page/aarecord.html:145
 #, fuzzy
 msgid "page.md5.codes.code_explorer"
 msgstr "Archwiliwr Codau:"
 
-#: allthethings/page/templates/page/aarecord.html:98
+#: allthethings/page/templates/page/aarecord.html:145
 #, fuzzy
 msgid "page.md5.codes.code_search"
 msgstr "Gweld yn Archwiliwr Codau “%(name)s”"
 
-#: allthethings/page/templates/page/aarecord.html:117
+#: allthethings/page/templates/page/aarecord.html:164
 #, fuzzy
 msgid "page.md5.box.descr_read_more"
 msgstr "Darllen mwy…"
 
-#: allthethings/page/templates/page/aarecord.html:133
+#: allthethings/page/templates/page/aarecord.html:180
 #, fuzzy
 msgid "page.md5.tabs.downloads"
 msgstr "Lawrlwythiadau (%(count)s)"
 
-#: allthethings/page/templates/page/aarecord.html:133
+#: allthethings/page/templates/page/aarecord.html:180
 #, fuzzy
 msgid "page.md5.tabs.borrow"
 msgstr "Benthyg (%(count)s)"
 
-#: allthethings/page/templates/page/aarecord.html:133
+#: allthethings/page/templates/page/aarecord.html:180
 #, fuzzy
 msgid "page.md5.tabs.explore_metadata"
 msgstr "Archwilio metadata (%(count)s)"
 
-#: allthethings/page/templates/page/aarecord.html:135
+#: allthethings/page/templates/page/aarecord.html:183
 #, fuzzy
 msgid "page.md5.tabs.lists"
 msgstr "Rhestrau (%(count)s)"
 
-#: allthethings/page/templates/page/aarecord.html:136
+#: allthethings/page/templates/page/aarecord.html:184
 #, fuzzy
 msgid "page.md5.tabs.stats"
 msgstr "Ystadegau (%(count)s)"
 
-#: allthethings/page/templates/page/aarecord.html:138
+#: allthethings/page/templates/page/aarecord.html:186
 #, fuzzy
 msgid "common.tech_details"
 msgstr "Manylion technegol"
 
-#: allthethings/page/templates/page/aarecord.html:207
+#: allthethings/page/templates/page/aarecord.html:265
 #, fuzzy
 msgid "page.md5.box.issues.text1"
 msgstr "<span class=\"font-bold\">❌ Efallai bod gan y ffeil hon broblemau, ac mae wedi'i chuddio o lyfrgell ffynhonnell.</span> Weithiau mae hyn ar gais deiliad hawlfraint, weithiau oherwydd bod dewis gwell ar gael, ond weithiau oherwydd problem gyda'r ffeil ei hun. Efallai y bydd yn iawn i'w lawrlwytho, ond rydym yn argymell chwilio am ffeil arall yn gyntaf. Mwy o fanylion:"
 
-#: allthethings/page/templates/page/aarecord.html:212
+#: allthethings/page/templates/page/aarecord.html:270
 #, fuzzy
 msgid "page.md5.box.download.better_file"
 msgstr "Efallai bod fersiwn gwell o'r ffeil hon ar gael yn %(link)s"
 
-#: allthethings/page/templates/page/aarecord.html:217
+#: allthethings/page/templates/page/aarecord.html:275
 #, fuzzy
 msgid "page.md5.box.issues.text2"
 msgstr "Os ydych chi'n dal i fod eisiau lawrlwytho'r ffeil hon, sicrhewch eich bod yn defnyddio meddalwedd dibynadwy, wedi'i diweddaru i'w hagor."
 
-#: allthethings/page/templates/page/aarecord.html:222
+#: allthethings/page/templates/page/aarecord.html:280
 #, fuzzy
 msgid "page.md5.box.download.header_fast_only"
 msgstr "🚀 Lawrlwythiadau cyflym"
 
-#: allthethings/page/templates/page/aarecord.html:224
+#: allthethings/page/templates/page/aarecord.html:282
 #, fuzzy
 msgid "page.md5.box.download.header_fast_no_member"
 msgstr "<strong>🚀 Lawrlwythiadau cyflym</strong> Dewch yn <a %(a_membership)s>aelod</a> i gefnogi cadwraeth hirdymor llyfrau, papurau, a mwy. I ddangos ein diolch am eich cefnogaeth, cewch lawrlwythiadau cyflym. ❤️"
 
-#: allthethings/page/templates/page/aarecord.html:225
+#: allthethings/page/templates/page/aarecord.html:283
 #: allthethings/templates/layouts/index.html:233
 #, fuzzy
 msgid "layout.index.header.banner.fundraiser.this_month"
 msgstr "Os byddwch yn rhoi rhodd y mis hwn, byddwch yn cael <strong>dwbl</strong> nifer y lawrlwythiadau cyflym."
 
-#: allthethings/page/templates/page/aarecord.html:227
+#: allthethings/page/templates/page/aarecord.html:285
 #, fuzzy
 msgid "page.md5.box.download.header_fast_member"
 msgstr "<strong>🚀 Lawrlwythiadau cyflym</strong> Mae gennych %(remaining)s ar ôl heddiw. Diolch am fod yn aelod! ❤️"
 
-#: allthethings/page/templates/page/aarecord.html:228
+#: allthethings/page/templates/page/aarecord.html:286
 #, fuzzy
 msgid "page.md5.box.download.header_fast_member_no_remaining_new"
 msgstr "<strong>🚀 Lawrlwythiadau cyflym</strong> Rydych wedi rhedeg allan o lawrlwythiadau cyflym am heddiw."
 
-#: allthethings/page/templates/page/aarecord.html:229
+#: allthethings/page/templates/page/aarecord.html:287
 #, fuzzy
 msgid "page.md5.box.download.header_fast_member_valid_for"
 msgstr "<strong>🚀 Lawrlwythiadau cyflym</strong> Rydych wedi lawrlwytho'r ffeil hon yn ddiweddar. Mae dolenni'n parhau'n ddilys am ychydig."
 
-#: allthethings/page/templates/page/aarecord.html:234
-#: allthethings/page/templates/page/aarecord.html:251
-#: allthethings/page/templates/page/aarecord.html:283
+#: allthethings/page/templates/page/aarecord.html:292
+#: allthethings/page/templates/page/aarecord.html:293
+#: allthethings/page/templates/page/aarecord.html:311
+#: allthethings/page/templates/page/aarecord.html:347
 #, fuzzy
 msgid "page.md5.box.download.option"
 msgstr "Dewis #%(num)d: %(link)s %(extra)s"
 
-#: allthethings/page/templates/page/aarecord.html:234
+#: allthethings/page/templates/page/aarecord.html:292
+#: allthethings/page/templates/page/aarecord.html:294
 #, fuzzy
 msgid "page.md5.box.download.no_redirect"
 msgstr "(dim ailgyfeirio)"
 
-#: allthethings/page/templates/page/aarecord.html:239
+#: allthethings/page/templates/page/aarecord.html:299
 #: allthethings/templates/layouts/index.html:276
 #, fuzzy
 msgid "layout.index.header.banner.refer"
 msgstr "Cyfeiriwch ffrind, a byddwch chi a'ch ffrind yn cael %(percentage)s%% lawrlwythiadau cyflym bonws!"
 
-#: allthethings/page/templates/page/aarecord.html:239
+#: allthethings/page/templates/page/aarecord.html:299
 #: allthethings/page/templates/page/home.html:25
 #: allthethings/page/templates/page/home.html:34
 #: allthethings/page/templates/page/home.html:71
 #: allthethings/page/templates/page/home.html:124
-#: allthethings/page/templates/page/search.html:357
-#: allthethings/page/templates/page/search.html:421
+#: allthethings/page/templates/page/search.html:361
+#: allthethings/page/templates/page/search.html:425
 #: allthethings/templates/layouts/index.html:270
 #: allthethings/templates/layouts/index.html:276
 #: allthethings/templates/layouts/index.html:403
@@ -2951,252 +2970,252 @@ msgstr "Cyfeiriwch ffrind, a byddwch chi a'ch ffrind yn cael %(percentage)s%% la
 msgid "layout.index.header.learn_more"
 msgstr "Dysgu mwy…"
 
-#: allthethings/page/templates/page/aarecord.html:246
+#: allthethings/page/templates/page/aarecord.html:306
 #, fuzzy
 msgid "page.md5.box.download.header_slow_only"
 msgstr "🐢 Lawrlwythiadau araf"
 
-#: allthethings/page/templates/page/aarecord.html:247
+#: allthethings/page/templates/page/aarecord.html:307
 #, fuzzy
 msgid "page.md5.box.download.trusted_partners"
 msgstr "Gan bartneriaid dibynadwy."
 
-#: allthethings/page/templates/page/aarecord.html:247
+#: allthethings/page/templates/page/aarecord.html:307
 #, fuzzy
 msgid "page.md5.box.download.slow_faq"
 msgstr "Mwy o wybodaeth yn y <a %(a_slow)s>Cwestiynau Cyffredin</a>."
 
-#: allthethings/page/templates/page/aarecord.html:247
+#: allthethings/page/templates/page/aarecord.html:307
 #, fuzzy
 msgid "common.md5.servers.browser_verification_unlimited"
 msgstr "(efallai y bydd angen <a %(a_browser)s>gwirio porwr</a> — lawrlwythiadau diderfyn!)"
 
-#: allthethings/page/templates/page/aarecord.html:262
+#: allthethings/page/templates/page/aarecord.html:326
 #, fuzzy
 msgid "page.md5.box.external_downloads"
 msgstr "dangos lawrlwythiadau allanol"
 
-#: allthethings/page/templates/page/aarecord.html:263
+#: allthethings/page/templates/page/aarecord.html:327
 #, fuzzy
 msgid "page.md5.box.download.header_external"
 msgstr "Lawrlwythiadau allanol"
 
-#: allthethings/page/templates/page/aarecord.html:288
+#: allthethings/page/templates/page/aarecord.html:352
 #, fuzzy
 msgid "page.md5.box.download.no_found"
 msgstr "Dim lawrlwythiadau wedi'u darganfod."
 
-#: allthethings/page/templates/page/aarecord.html:294
+#: allthethings/page/templates/page/aarecord.html:358
 #, fuzzy
 msgid "page.md5.box.download.no_issues_notice"
 msgstr "Mae gan bob opsiwn lawrlwytho yr un ffeil, ac mae'n ddiogel i'w defnyddio. Wedi dweud hynny, byddwch bob amser yn ofalus wrth lawrlwytho ffeiliau o'r rhyngrwyd, yn enwedig o safleoedd allanol i Archif Anna. Er enghraifft, sicrhewch eich bod yn cadw eich dyfeisiau wedi'u diweddaru."
 
-#: allthethings/page/templates/page/aarecord.html:300
+#: allthethings/page/templates/page/aarecord.html:364
 #: allthethings/page/templates/page/partner_download.html:83
 #, fuzzy
 msgid "page.md5.box.download.dl_managers"
 msgstr "Ar gyfer ffeiliau mawr, rydym yn argymell defnyddio rheolwr lawrlwytho i atal tarfu."
 
-#: allthethings/page/templates/page/aarecord.html:301
+#: allthethings/page/templates/page/aarecord.html:365
 #: allthethings/page/templates/page/partner_download.html:84
 #, fuzzy
 msgid "page.md5.box.download.dl_managers.links"
 msgstr "Rheolwyr lawrlwytho a argymhellir: %(links)s"
 
-#: allthethings/page/templates/page/aarecord.html:309
+#: allthethings/page/templates/page/aarecord.html:373
 #, fuzzy
 msgid "page.md5.box.download.readers"
 msgstr "Bydd angen darllenydd e-lyfr neu PDF arnoch i agor y ffeil, yn dibynnu ar y fformat ffeil."
 
-#: allthethings/page/templates/page/aarecord.html:310
+#: allthethings/page/templates/page/aarecord.html:374
 #, fuzzy
 msgid "page.md5.box.download.readers.links"
 msgstr "Darllenwyr e-lyfrau a argymhellir: %(links)s"
 
-#: allthethings/page/templates/page/aarecord.html:319
+#: allthethings/page/templates/page/aarecord.html:383
 #, fuzzy
 msgid "page.md5.box.download.conversion"
 msgstr "Defnyddiwch offer ar-lein i drosi rhwng fformatau."
 
-#: allthethings/page/templates/page/aarecord.html:320
+#: allthethings/page/templates/page/aarecord.html:384
 #, fuzzy
 msgid "page.md5.box.download.conversion.links"
 msgstr "Offer trosi a argymhellir: %(links)s"
 
-#: allthethings/page/templates/page/aarecord.html:328
+#: allthethings/page/templates/page/aarecord.html:392
 #, fuzzy
 msgid "page.md5.box.download.sendtokindle"
 msgstr "Gallwch anfon ffeiliau PDF ac EPUB i'ch Kindle neu Kobo eReader."
 
-#: allthethings/page/templates/page/aarecord.html:329
+#: allthethings/page/templates/page/aarecord.html:393
 #, fuzzy
 msgid "page.md5.box.download.sendtokindle.links"
 msgstr "Offer a argymhellir: %(links)s"
 
-#: allthethings/page/templates/page/aarecord.html:332
+#: allthethings/page/templates/page/aarecord.html:396
 #, fuzzy
 msgid "page.md5.box.download.link.send_to_kindle"
 msgstr "“Anfon i Kindle” gan Amazon"
 
-#: allthethings/page/templates/page/aarecord.html:333
+#: allthethings/page/templates/page/aarecord.html:397
 #, fuzzy
 msgid "page.md5.box.download.link.send_to_kobokindle"
 msgstr "“Anfon i Kobo/Kindle” gan djazz"
 
-#: allthethings/page/templates/page/aarecord.html:338
+#: allthethings/page/templates/page/aarecord.html:402
 #, fuzzy
 msgid "page.md5.box.download.support"
 msgstr "Cefnogi awduron a llyfrgelloedd"
 
-#: allthethings/page/templates/page/aarecord.html:339
+#: allthethings/page/templates/page/aarecord.html:403
 #, fuzzy
 msgid "page.md5.box.download.support.authors"
 msgstr "Os ydych chi'n hoffi hyn ac yn gallu ei fforddio, ystyriwch brynu'r gwreiddiol, neu gefnogi'r awduron yn uniongyrchol."
 
-#: allthethings/page/templates/page/aarecord.html:340
+#: allthethings/page/templates/page/aarecord.html:404
 #, fuzzy
 msgid "page.md5.box.download.support.libraries"
 msgstr "Os yw hwn ar gael yn eich llyfrgell leol, ystyriwch ei fenthyg am ddim yno."
 
-#: allthethings/page/templates/page/aarecord.html:371
+#: allthethings/page/templates/page/aarecord.html:442
 #, fuzzy
 msgid "page.md5.quality.header"
 msgstr "Ansawdd ffeil"
 
-#: allthethings/page/templates/page/aarecord.html:374
+#: allthethings/page/templates/page/aarecord.html:445
 #, fuzzy
 msgid "page.md5.quality.report"
 msgstr "Helpwch y gymuned trwy adrodd ansawdd y ffeil hon! 🙌"
 
-#: allthethings/page/templates/page/aarecord.html:378
+#: allthethings/page/templates/page/aarecord.html:449
 #, fuzzy
 msgid "page.md5.quality.report_issue"
 msgstr "Adrodd problem ffeil (%(count)s)"
 
-#: allthethings/page/templates/page/aarecord.html:380
+#: allthethings/page/templates/page/aarecord.html:451
 #, fuzzy
 msgid "page.md5.quality.great_quality"
 msgstr "Ansawdd ffeil gwych (%(count)s)"
 
-#: allthethings/page/templates/page/aarecord.html:380
+#: allthethings/page/templates/page/aarecord.html:451
 #, fuzzy
 msgid "page.md5.quality.add_comment"
 msgstr "Ychwanegu sylw (%(count)s)"
 
-#: allthethings/page/templates/page/aarecord.html:383
+#: allthethings/page/templates/page/aarecord.html:454
 #, fuzzy
 msgid "page.md5.quality.logged_out_login"
 msgstr "Os gwelwch yn dda <a %(a_login)s>mewngofnodi</a>."
 
-#: allthethings/page/templates/page/aarecord.html:387
+#: allthethings/page/templates/page/aarecord.html:458
 #, fuzzy
 msgid "page.md5.quality.what_is_wrong"
 msgstr "Beth sy'n bod ar y ffeil hon?"
 
-#: allthethings/page/templates/page/aarecord.html:397
+#: allthethings/page/templates/page/aarecord.html:468
 #, fuzzy
 msgid "page.md5.quality.copyright"
 msgstr "Defnyddiwch y <a %(a_copyright)s>ffurflen hawliad DMCA / Hawlfraint</a>."
 
-#: allthethings/page/templates/page/aarecord.html:402
+#: allthethings/page/templates/page/aarecord.html:473
 #, fuzzy
 msgid "page.md5.quality.describe_the_issue"
 msgstr "Disgrifiwch y broblem (gofynnol)"
 
-#: allthethings/page/templates/page/aarecord.html:403
+#: allthethings/page/templates/page/aarecord.html:474
 #, fuzzy
 msgid "page.md5.quality.issue_description"
 msgstr "Disgrifiad o'r broblem"
 
-#: allthethings/page/templates/page/aarecord.html:407
+#: allthethings/page/templates/page/aarecord.html:478
 #, fuzzy
 msgid "page.md5.quality.better_md5.text1"
 msgstr "MD5 o fersiwn gwell o'r ffeil hon (os yn berthnasol)."
 
-#: allthethings/page/templates/page/aarecord.html:407
+#: allthethings/page/templates/page/aarecord.html:478
 #, fuzzy
 msgid "page.md5.quality.better_md5.text2"
 msgstr "Llenwch hyn os oes ffeil arall sy'n cyfateb yn agos i'r ffeil hon (yr un argraffiad, yr un estyniad ffeil os gallwch ddod o hyd i un), y dylai pobl ei ddefnyddio yn lle'r ffeil hon. Os ydych chi'n gwybod am fersiwn gwell o'r ffeil hon y tu allan i Archif Anna, yna os gwelwch yn dda <a %(a_upload)s>lanlwythwch hi</a>."
 
-#: allthethings/page/templates/page/aarecord.html:410
+#: allthethings/page/templates/page/aarecord.html:481
 #, fuzzy
 msgid "page.md5.quality.better_md5.line1"
 msgstr "Gallwch gael yr md5 o'r URL, e.e."
 
-#: allthethings/page/templates/page/aarecord.html:417
+#: allthethings/page/templates/page/aarecord.html:488
 #, fuzzy
 msgid "page.md5.quality.submit_report"
 msgstr "Cyflwyno adroddiad"
 
-#: allthethings/page/templates/page/aarecord.html:422
+#: allthethings/page/templates/page/aarecord.html:493
 #, fuzzy
 msgid "page.md5.quality.improve_the_metadata"
 msgstr "Dysgwch sut i <a %(a_metadata)s>wella'r metadata</a> ar gyfer y ffeil hon eich hun."
 
-#: allthethings/page/templates/page/aarecord.html:426
+#: allthethings/page/templates/page/aarecord.html:497
 #, fuzzy
 msgid "page.md5.quality.report_thanks"
 msgstr "Diolch am gyflwyno eich adroddiad. Bydd yn cael ei ddangos ar y dudalen hon, yn ogystal â chael ei adolygu'n llaw gan Anna (nes bod gennym system gymedroli briodol)."
 
-#: allthethings/page/templates/page/aarecord.html:427
+#: allthethings/page/templates/page/aarecord.html:498
 #, fuzzy
 msgid "page.md5.quality.report_error"
 msgstr "Aeth rhywbeth o'i le. Ail-lwythwch y dudalen a cheisiwch eto."
 
-#: allthethings/page/templates/page/aarecord.html:433
+#: allthethings/page/templates/page/aarecord.html:504
 #, fuzzy
 msgid "page.md5.quality.great.summary"
 msgstr "Os oes gan y ffeil hon ansawdd gwych, gallwch drafod unrhyw beth amdani yma! Os nad yw, defnyddiwch y botwm “Adrodd problem ffeil”."
 
-#: allthethings/page/templates/page/aarecord.html:435
+#: allthethings/page/templates/page/aarecord.html:506
 #, fuzzy
 msgid "page.md5.quality.loved_the_book"
 msgstr "Roeddwn i wrth fy modd â'r llyfr hwn!"
 
-#: allthethings/page/templates/page/aarecord.html:437
+#: allthethings/page/templates/page/aarecord.html:508
 #, fuzzy
 msgid "page.md5.quality.submit_comment"
 msgstr "Gadael sylw"
 
-#: allthethings/page/templates/page/aarecord.html:441
+#: allthethings/page/templates/page/aarecord.html:512
 #, fuzzy
 msgid "page.md5.quality.comment_thanks"
 msgstr "Rydych wedi gadael sylw. Efallai y bydd yn cymryd munud iddo ymddangos."
 
-#: allthethings/page/templates/page/aarecord.html:442
+#: allthethings/page/templates/page/aarecord.html:513
 #, fuzzy
 msgid "page.md5.quality.comment_error"
 msgstr "Aeth rhywbeth o'i le. Ail-lwythwch y dudalen a cheisiwch eto."
 
-#: allthethings/page/templates/page/aarecord.html:452
-#: allthethings/page/templates/page/aarecord.html:453
-#: allthethings/page/templates/page/torrents.html:36
-#: allthethings/page/templates/page/torrents.html:37
+#: allthethings/page/templates/page/aarecord.html:522
+#: allthethings/page/templates/page/aarecord.html:523
+#: allthethings/page/templates/page/torrents.html:40
+#: allthethings/page/templates/page/torrents.html:41
 #, fuzzy
 msgid "common.english_only"
 msgstr "Mae'r testun isod yn parhau yn Saesneg."
 
-#: allthethings/page/templates/page/aarecord.html:474
+#: allthethings/page/templates/page/aarecord.html:544
 #, fuzzy
 msgid "page.md5.text.stats.total_downloads"
 msgstr "Cyfanswm lawrlwythiadau: %(total)s"
 
-#: allthethings/page/templates/page/aarecord.html:506
+#: allthethings/page/templates/page/aarecord.html:576
 #, fuzzy
 msgid "page.md5.text.md5_info.text1"
 msgstr "Mae “MD5 ffeil” yn hash sy'n cael ei gyfrifo o gynnwys y ffeil, ac mae'n eithaf unigryw yn seiliedig ar y cynnwys hwnnw. Mae'r holl lyfrgelloedd cysgodol yr ydym wedi'u mynegeio yma yn defnyddio MD5s yn bennaf i adnabod ffeiliau."
 
-#: allthethings/page/templates/page/aarecord.html:510
+#: allthethings/page/templates/page/aarecord.html:580
 #, fuzzy
 msgid "page.md5.text.md5_info.text2"
 msgstr "Efallai y bydd ffeil yn ymddangos mewn sawl llyfrgell gysgodol. Am wybodaeth am y datasets amrywiol yr ydym wedi'u llunio, gweler y <a %(a_datasets)s>Tudalen Datasets</a>."
 
-#: allthethings/page/templates/page/aarecord.html:514
+#: allthethings/page/templates/page/aarecord.html:584
 #, fuzzy
 msgid "page.md5.text.ia_info.text1"
 msgstr "Mae hon yn ffeil a reolir gan lyfrgell <a %(a_ia)s>Benthyca Digidol Rheoledig IA</a>, ac wedi'i mynegeio gan Archif Anna ar gyfer chwilio. Am wybodaeth am y datasets amrywiol yr ydym wedi'u llunio, gweler y <a %(a_datasets)s>Tudalen Datasets</a>."
 
-#: allthethings/page/templates/page/aarecord.html:519
+#: allthethings/page/templates/page/aarecord.html:589
 #, fuzzy
 msgid "page.md5.text.file_info.text1"
 msgstr "Am wybodaeth am y ffeil benodol hon, edrychwch ar ei <a %(a_href)s>ffeil JSON</a>."
@@ -3905,7 +3924,7 @@ msgstr "Rydym hefyd yn cyfoethogi ein casgliad gyda ffynonellau metadata yn unig
 
 #: allthethings/page/templates/page/datasets.html:505
 #: allthethings/page/templates/page/faq.html:191
-#: allthethings/page/templates/page/search.html:392
+#: allthethings/page/templates/page/search.html:396
 #, fuzzy
 msgid "page.faq.metadata.inspiration"
 msgstr "Ein hysbrydoliaeth ar gyfer casglu metadata yw nod Aaron Swartz o “un dudalen we ar gyfer pob llyfr a gyhoeddwyd erioed”, y creodd <a %(a_openlib)s>Open Library</a> ar ei gyfer. Mae'r prosiect hwnnw wedi gwneud yn dda, ond mae ein sefyllfa unigryw yn ein galluogi i gael metadata na allant hwy. Ysbrydoliaeth arall oedd ein hawydd i wybod <a %(a_blog)s>faint o lyfrau sydd yn y byd</a>, fel y gallwn gyfrifo faint o lyfrau sydd gennym ar ôl i'w hachub."
@@ -3988,11 +4007,11 @@ msgstr "Er bod y llyfrau wedi cael eu dosbarthu'n lled-gyhoeddus, mae'n eithaf a
 #: allthethings/page/templates/page/datasets_lgrs.html:81
 #: allthethings/page/templates/page/datasets_magzdb.html:66
 #: allthethings/page/templates/page/datasets_nexusstc.html:72
-#: allthethings/page/templates/page/datasets_oclc.html:63
+#: allthethings/page/templates/page/datasets_oclc.html:120
 #: allthethings/page/templates/page/datasets_ol.html:44
-#: allthethings/page/templates/page/datasets_other_metadata.html:150
+#: allthethings/page/templates/page/datasets_other_metadata.html:72
 #: allthethings/page/templates/page/datasets_scihub.html:90
-#: allthethings/page/templates/page/datasets_upload.html:221
+#: allthethings/page/templates/page/datasets_upload.html:104
 #: allthethings/page/templates/page/datasets_zlib.html:63
 #, fuzzy
 msgid "page.datasets.common.resources"
@@ -4005,7 +4024,7 @@ msgstr "Adnoddau"
 #: allthethings/page/templates/page/datasets_magzdb.html:68
 #: allthethings/page/templates/page/datasets_nexusstc.html:74
 #: allthethings/page/templates/page/datasets_scihub.html:92
-#: allthethings/page/templates/page/datasets_upload.html:223
+#: allthethings/page/templates/page/datasets_upload.html:106
 #: allthethings/page/templates/page/datasets_zlib.html:67
 #: allthethings/page/templates/page/datasets_zlib.html:74
 #, fuzzy
@@ -4019,7 +4038,7 @@ msgstr "Cyfanswm ffeiliau: %(count)s"
 #: allthethings/page/templates/page/datasets_magzdb.html:69
 #: allthethings/page/templates/page/datasets_nexusstc.html:75
 #: allthethings/page/templates/page/datasets_scihub.html:93
-#: allthethings/page/templates/page/datasets_upload.html:224
+#: allthethings/page/templates/page/datasets_upload.html:107
 #: allthethings/page/templates/page/datasets_zlib.html:68
 #: allthethings/page/templates/page/datasets_zlib.html:75
 #, fuzzy
@@ -4033,7 +4052,7 @@ msgstr "Cyfanswm maint ffeiliau: %(size)s"
 #: allthethings/page/templates/page/datasets_magzdb.html:70
 #: allthethings/page/templates/page/datasets_nexusstc.html:76
 #: allthethings/page/templates/page/datasets_scihub.html:94
-#: allthethings/page/templates/page/datasets_upload.html:225
+#: allthethings/page/templates/page/datasets_upload.html:108
 #: allthethings/page/templates/page/datasets_zlib.html:69
 #: allthethings/page/templates/page/datasets_zlib.html:76
 #, fuzzy
@@ -4046,7 +4065,7 @@ msgstr "Ffeiliau wedi'u hadlewyrchu gan Archif Anna: %(count)s (%(percent)s%%)"
 #: allthethings/page/templates/page/datasets_lgrs.html:86
 #: allthethings/page/templates/page/datasets_magzdb.html:71
 #: allthethings/page/templates/page/datasets_nexusstc.html:77
-#: allthethings/page/templates/page/datasets_oclc.html:65
+#: allthethings/page/templates/page/datasets_oclc.html:122
 #: allthethings/page/templates/page/datasets_ol.html:46
 #: allthethings/page/templates/page/datasets_zlib.html:79
 #, fuzzy
@@ -4063,10 +4082,10 @@ msgstr "Torrents gan Archif Anna"
 #: allthethings/page/templates/page/datasets_ia.html:79
 #: allthethings/page/templates/page/datasets_lgli.html:113
 #: allthethings/page/templates/page/datasets_lgrs.html:90
-#: allthethings/page/templates/page/datasets_oclc.html:67
+#: allthethings/page/templates/page/datasets_oclc.html:124
 #: allthethings/page/templates/page/datasets_ol.html:47
 #: allthethings/page/templates/page/datasets_scihub.html:96
-#: allthethings/page/templates/page/datasets_upload.html:227
+#: allthethings/page/templates/page/datasets_upload.html:110
 #, fuzzy
 msgid "page.datasets.common.aa_example_record"
 msgstr "Cofnod enghreifftiol ar Archif Anna"
@@ -4082,11 +4101,11 @@ msgstr "Ein cofnod blog am y data hwn"
 #: allthethings/page/templates/page/datasets_lgrs.html:101
 #: allthethings/page/templates/page/datasets_magzdb.html:78
 #: allthethings/page/templates/page/datasets_nexusstc.html:92
-#: allthethings/page/templates/page/datasets_oclc.html:70
+#: allthethings/page/templates/page/datasets_oclc.html:127
 #: allthethings/page/templates/page/datasets_ol.html:50
-#: allthethings/page/templates/page/datasets_other_metadata.html:153
+#: allthethings/page/templates/page/datasets_other_metadata.html:75
 #: allthethings/page/templates/page/datasets_scihub.html:104
-#: allthethings/page/templates/page/datasets_upload.html:228
+#: allthethings/page/templates/page/datasets_upload.html:111
 #: allthethings/page/templates/page/datasets_zlib.html:87
 #, fuzzy
 msgid "page.datasets.common.import_scripts"
@@ -4098,11 +4117,11 @@ msgstr "Sgriptiau ar gyfer mewnforio metadata"
 #: allthethings/page/templates/page/datasets_lgrs.html:102
 #: allthethings/page/templates/page/datasets_magzdb.html:79
 #: allthethings/page/templates/page/datasets_nexusstc.html:93
-#: allthethings/page/templates/page/datasets_oclc.html:71
+#: allthethings/page/templates/page/datasets_oclc.html:128
 #: allthethings/page/templates/page/datasets_ol.html:51
-#: allthethings/page/templates/page/datasets_other_metadata.html:154
+#: allthethings/page/templates/page/datasets_other_metadata.html:76
 #: allthethings/page/templates/page/datasets_scihub.html:105
-#: allthethings/page/templates/page/datasets_upload.html:229
+#: allthethings/page/templates/page/datasets_upload.html:112
 #: allthethings/page/templates/page/datasets_zlib.html:88
 #, fuzzy
 msgid "page.datasets.common.aac"
@@ -4148,7 +4167,7 @@ msgstr "rhyddhau newydd cynyddol, gan ddefnyddio AAC. Dim ond metadata gyda stam
 #: allthethings/page/templates/page/datasets_ia.html:80
 #: allthethings/page/templates/page/datasets_lgli.html:114
 #: allthethings/page/templates/page/datasets_lgrs.html:91
-#: allthethings/page/templates/page/datasets_oclc.html:68
+#: allthethings/page/templates/page/datasets_oclc.html:125
 #: allthethings/page/templates/page/datasets_ol.html:48
 #: allthethings/page/templates/page/datasets_scihub.html:97
 #, fuzzy
@@ -4443,7 +4462,7 @@ msgstr "Yn union fel gyda'r casgliad Z-Library, rydym wedi rhoi'r cyfan mewn ffe
 
 #: allthethings/page/templates/page/datasets_oclc.html:4
 #: allthethings/page/templates/page/datasets_oclc.html:7
-#: allthethings/page/templates/page/datasets_oclc.html:68
+#: allthethings/page/templates/page/datasets_oclc.html:125
 #, fuzzy
 msgid "page.datasets.worldcat.title"
 msgstr "OCLC (WorldCat)"
@@ -4453,17 +4472,17 @@ msgstr "OCLC (WorldCat)"
 msgid "page.datasets.worldcat.description"
 msgstr "<a %(a_worldcat)s>WorldCat</a> yw cronfa ddata berchnogol gan y sefydliad dielw <a %(a_oclc)s>OCLC</a>, sy'n casglu cofnodion metadata o lyfrgelloedd ledled y byd. Mae'n debygol mai dyma'r casgliad metadata llyfrgell fwyaf yn y byd."
 
-#: allthethings/page/templates/page/datasets_oclc.html:52
+#: allthethings/page/templates/page/datasets_oclc.html:54
 #, fuzzy
 msgid "page.datasets.worldcat.description2"
 msgstr "Ym mis Hydref 2023 rydym <a %(a_scrape)s>wedi rhyddhau</a> sgrap cynhwysfawr o gronfa ddata OCLC (WorldCat), yn y <a %(a_aac)s>fformat Cynwysyddion Archif Anna</a>."
 
-#: allthethings/page/templates/page/datasets_oclc.html:66
+#: allthethings/page/templates/page/datasets_oclc.html:123
 #, fuzzy
 msgid "page.datasets.worldcat.torrents"
 msgstr "Torrenti gan Archif Anna"
 
-#: allthethings/page/templates/page/datasets_oclc.html:69
+#: allthethings/page/templates/page/datasets_oclc.html:126
 #, fuzzy
 msgid "page.datasets.worldcat.blog_announcement"
 msgstr "Ein post blog am y data hwn"
@@ -4485,22 +4504,22 @@ msgstr "Mae Open Library yn brosiect ffynhonnell agored gan yr Internet Archive 
 msgid "page.datesets.openlib.link_metadata"
 msgstr "Metadata"
 
-#: allthethings/page/templates/page/datasets_other_metadata.html:92
+#: allthethings/page/templates/page/datasets_other_metadata.html:61
 #, fuzzy
 msgid "page.datasets.isbndb.release1.title"
 msgstr "Rhyddhad 1 (2022-10-31)"
 
-#: allthethings/page/templates/page/datasets_other_metadata.html:93
+#: allthethings/page/templates/page/datasets_other_metadata.html:61
 #, fuzzy
 msgid "page.datasets.isbndb.release1.text1"
 msgstr "Mae hwn yn ddymp o lawer o alwadau i isbndb.com yn ystod mis Medi 2022. Ceisiasom gwmpasu'r holl ystodau ISBN. Mae tua 30.9 miliwn o gofnodion. Ar eu gwefan maent yn honni bod ganddynt mewn gwirionedd 32.6 miliwn o gofnodion, felly efallai ein bod wedi colli rhai, neu <em>efallai</em> eu bod yn gwneud rhywbeth o'i le."
 
-#: allthethings/page/templates/page/datasets_other_metadata.html:94
+#: allthethings/page/templates/page/datasets_other_metadata.html:61
 #, fuzzy
 msgid "page.datasets.isbndb.release1.text2"
 msgstr "Mae'r ymatebion JSON yn eithaf crai o'u gweinydd. Un mater ansawdd data a sylwyd gennym, yw bod ar gyfer rhifau ISBN-13 sy'n dechrau gyda rhagddodiad gwahanol i “978-”, maent yn dal i gynnwys maes “isbn” sy'n syml yw'r rhif ISBN-13 gyda'r tri rhif cyntaf wedi'u torri i ffwrdd (a'r digid gwirio wedi'i ailgyfrifo). Mae hyn yn amlwg yn anghywir, ond dyma sut maent yn ymddangos i'w wneud, felly ni wnaethom ei newid."
 
-#: allthethings/page/templates/page/datasets_other_metadata.html:95
+#: allthethings/page/templates/page/datasets_other_metadata.html:61
 #, fuzzy
 msgid "page.datasets.isbndb.release1.text3"
 msgstr "Mater posibl arall y gallech ddod ar ei draws, yw'r ffaith bod maes “isbn13” yn cynnwys dyblygu, felly ni allwch ei ddefnyddio fel allwedd gynradd mewn cronfa ddata. Mae'n ymddangos bod meysydd “isbn13”+“isbn” wedi'u cyfuno yn unigryw."
@@ -4593,162 +4612,189 @@ msgstr "Mae llawer o is-gasgliadau eu hunain yn cynnwys is-is-gasgliadau (e.e. o
 msgid "page.datasets.upload.subs.heading"
 msgstr "Yr is-gasgliadau yw:"
 
+#: allthethings/page/templates/page/datasets_upload.html:63
+#: allthethings/page/templates/page/datasets_upload.html:64
 #: allthethings/page/templates/page/datasets_upload.html:65
+#: allthethings/page/templates/page/datasets_upload.html:66
+#: allthethings/page/templates/page/datasets_upload.html:67
+#: allthethings/page/templates/page/datasets_upload.html:68
+#: allthethings/page/templates/page/datasets_upload.html:69
+#: allthethings/page/templates/page/datasets_upload.html:70
+#: allthethings/page/templates/page/datasets_upload.html:71
 #: allthethings/page/templates/page/datasets_upload.html:72
+#: allthethings/page/templates/page/datasets_upload.html:73
+#: allthethings/page/templates/page/datasets_upload.html:74
+#: allthethings/page/templates/page/datasets_upload.html:75
+#: allthethings/page/templates/page/datasets_upload.html:76
+#: allthethings/page/templates/page/datasets_upload.html:77
+#: allthethings/page/templates/page/datasets_upload.html:78
 #: allthethings/page/templates/page/datasets_upload.html:79
+#: allthethings/page/templates/page/datasets_upload.html:80
+#: allthethings/page/templates/page/datasets_upload.html:81
+#: allthethings/page/templates/page/datasets_upload.html:82
+#: allthethings/page/templates/page/datasets_upload.html:83
+#: allthethings/page/templates/page/datasets_upload.html:84
+#: allthethings/page/templates/page/datasets_upload.html:85
 #: allthethings/page/templates/page/datasets_upload.html:86
+#: allthethings/page/templates/page/datasets_upload.html:87
+#: allthethings/page/templates/page/datasets_upload.html:88
+#: allthethings/page/templates/page/datasets_upload.html:89
+#: allthethings/page/templates/page/datasets_upload.html:90
+#: allthethings/page/templates/page/datasets_upload.html:91
+#: allthethings/page/templates/page/datasets_upload.html:92
 #: allthethings/page/templates/page/datasets_upload.html:93
-#: allthethings/page/templates/page/datasets_upload.html:100
-#: allthethings/page/templates/page/datasets_upload.html:107
-#: allthethings/page/templates/page/datasets_upload.html:114
-#: allthethings/page/templates/page/datasets_upload.html:121
-#: allthethings/page/templates/page/datasets_upload.html:128
-#: allthethings/page/templates/page/datasets_upload.html:135
-#: allthethings/page/templates/page/datasets_upload.html:142
-#: allthethings/page/templates/page/datasets_upload.html:149
-#: allthethings/page/templates/page/datasets_upload.html:156
-#: allthethings/page/templates/page/datasets_upload.html:163
-#: allthethings/page/templates/page/datasets_upload.html:170
-#: allthethings/page/templates/page/datasets_upload.html:177
-#: allthethings/page/templates/page/datasets_upload.html:184
-#: allthethings/page/templates/page/datasets_upload.html:191
-#: allthethings/page/templates/page/datasets_upload.html:198
-#: allthethings/page/templates/page/datasets_upload.html:212
+#: allthethings/page/templates/page/datasets_upload.html:94
+#: allthethings/page/templates/page/datasets_upload.html:95
+#: allthethings/page/templates/page/datasets_upload.html:96
+#: allthethings/page/templates/page/datasets_upload.html:97
+#: allthethings/page/templates/page/datasets_upload.html:98
+#: allthethings/page/templates/page/datasets_upload.html:99
 #, fuzzy
 msgid "page.datasets.upload.action.browse"
 msgstr "pori"
 
+#: allthethings/page/templates/page/datasets_upload.html:63
+#: allthethings/page/templates/page/datasets_upload.html:64
+#: allthethings/page/templates/page/datasets_upload.html:65
 #: allthethings/page/templates/page/datasets_upload.html:66
+#: allthethings/page/templates/page/datasets_upload.html:67
+#: allthethings/page/templates/page/datasets_upload.html:68
+#: allthethings/page/templates/page/datasets_upload.html:69
+#: allthethings/page/templates/page/datasets_upload.html:70
+#: allthethings/page/templates/page/datasets_upload.html:71
+#: allthethings/page/templates/page/datasets_upload.html:72
 #: allthethings/page/templates/page/datasets_upload.html:73
+#: allthethings/page/templates/page/datasets_upload.html:74
+#: allthethings/page/templates/page/datasets_upload.html:75
+#: allthethings/page/templates/page/datasets_upload.html:76
+#: allthethings/page/templates/page/datasets_upload.html:77
+#: allthethings/page/templates/page/datasets_upload.html:78
+#: allthethings/page/templates/page/datasets_upload.html:79
 #: allthethings/page/templates/page/datasets_upload.html:80
+#: allthethings/page/templates/page/datasets_upload.html:81
+#: allthethings/page/templates/page/datasets_upload.html:82
+#: allthethings/page/templates/page/datasets_upload.html:83
+#: allthethings/page/templates/page/datasets_upload.html:84
+#: allthethings/page/templates/page/datasets_upload.html:85
+#: allthethings/page/templates/page/datasets_upload.html:86
 #: allthethings/page/templates/page/datasets_upload.html:87
+#: allthethings/page/templates/page/datasets_upload.html:88
+#: allthethings/page/templates/page/datasets_upload.html:89
+#: allthethings/page/templates/page/datasets_upload.html:90
+#: allthethings/page/templates/page/datasets_upload.html:91
+#: allthethings/page/templates/page/datasets_upload.html:92
+#: allthethings/page/templates/page/datasets_upload.html:93
 #: allthethings/page/templates/page/datasets_upload.html:94
-#: allthethings/page/templates/page/datasets_upload.html:101
-#: allthethings/page/templates/page/datasets_upload.html:108
-#: allthethings/page/templates/page/datasets_upload.html:115
-#: allthethings/page/templates/page/datasets_upload.html:122
-#: allthethings/page/templates/page/datasets_upload.html:129
-#: allthethings/page/templates/page/datasets_upload.html:136
-#: allthethings/page/templates/page/datasets_upload.html:143
-#: allthethings/page/templates/page/datasets_upload.html:150
-#: allthethings/page/templates/page/datasets_upload.html:157
-#: allthethings/page/templates/page/datasets_upload.html:164
-#: allthethings/page/templates/page/datasets_upload.html:171
-#: allthethings/page/templates/page/datasets_upload.html:178
-#: allthethings/page/templates/page/datasets_upload.html:185
-#: allthethings/page/templates/page/datasets_upload.html:192
-#: allthethings/page/templates/page/datasets_upload.html:199
-#: allthethings/page/templates/page/datasets_upload.html:213
+#: allthethings/page/templates/page/datasets_upload.html:95
+#: allthethings/page/templates/page/datasets_upload.html:96
+#: allthethings/page/templates/page/datasets_upload.html:97
+#: allthethings/page/templates/page/datasets_upload.html:98
+#: allthethings/page/templates/page/datasets_upload.html:99
 #, fuzzy
 msgid "page.datasets.upload.action.search"
 msgstr "chwilio"
 
-#: allthethings/page/templates/page/datasets_upload.html:67
+#: allthethings/page/templates/page/datasets_upload.html:63
 #, fuzzy
 msgid "page.datasets.upload.source.aaaaarg"
 msgstr "O <a %(a_href)s>aaaaarg.fail</a>. Ymddengys yn weddol gyflawn. Gan ein gwirfoddolwr “cgiym”."
 
-#: allthethings/page/templates/page/datasets_upload.html:74
+#: allthethings/page/templates/page/datasets_upload.html:64
 #, fuzzy
 msgid "page.datasets.upload.source.acm"
 msgstr "O <a %(a_href)s><q>ACM Digital Library 2020</q></a> torrent. Mae ganddo ormodedd eithaf uchel gyda chasgliadau papurau presennol, ond ychydig iawn o gyfatebion MD5, felly penderfynasom ei gadw'n gyfan gwbl."
 
-#: allthethings/page/templates/page/datasets_upload.html:81
-#, fuzzy
-msgid "page.datasets.upload.source.alexandrina"
-msgstr "O gasgliad <a %(a_href)s><q>Bibliotheca Alexandrina,</q></a> tarddiad uniongyrchol yn aneglur. Yn rhannol o the-eye.eu, yn rhannol o ffynonellau eraill."
-
-#: allthethings/page/templates/page/datasets_upload.html:88
+#: allthethings/page/templates/page/datasets_upload.html:67
 #, fuzzy
 msgid "page.datasets.upload.source.bibliotik"
 msgstr "O wefan torrent llyfrau preifat, <a %(a_href)s>Bibliotik</a> (a elwir yn aml yn “Bib”), lle cafodd llyfrau eu pecynnu mewn torrents yn ôl enw (A.torrent, B.torrent) a'u dosbarthu trwy the-eye.eu."
 
-#: allthethings/page/templates/page/datasets_upload.html:95
+#: allthethings/page/templates/page/datasets_upload.html:68
 #, fuzzy
 msgid "page.datasets.upload.source.bpb9v_cadal"
 msgstr "Gan ein gwirfoddolwr “bpb9v”. Am fwy o wybodaeth am <a %(a_href)s>CADAL</a>, gweler y nodiadau ar ein <a %(a_duxiu)s>tudalen set ddata DuXiu</a>."
 
-#: allthethings/page/templates/page/datasets_upload.html:102
+#: allthethings/page/templates/page/datasets_upload.html:69
 #, fuzzy
 msgid "page.datasets.upload.source.bpb9v_direct"
 msgstr "Mwy gan ein gwirfoddolwr “bpb9v”, yn bennaf ffeiliau DuXiu, yn ogystal â ffolder “WenQu” a “SuperStar_Journals” (SuperStar yw'r cwmni y tu ôl i DuXiu)."
 
-#: allthethings/page/templates/page/datasets_upload.html:109
+#: allthethings/page/templates/page/datasets_upload.html:70
 #, fuzzy
 msgid "page.datasets.upload.source.cgiym_chinese"
 msgstr "Gan ein gwirfoddolwr “cgiym”, testunau Tsieineaidd o wahanol ffynonellau (a gynrychiolir fel is-gyfeiriaduron), gan gynnwys o <a %(a_href)s>China Machine Press</a> (cyhoeddwr mawr yn Tsieina)."
 
-#: allthethings/page/templates/page/datasets_upload.html:116
+#: allthethings/page/templates/page/datasets_upload.html:71
 #, fuzzy
 msgid "page.datasets.upload.source.cgiym_more"
 msgstr "Casgliadau nad ydynt yn Tsieineaidd (a gynrychiolir fel is-gyfeiriaduron) gan ein gwirfoddolwr “cgiym”."
 
-#: allthethings/page/templates/page/datasets_upload.html:123
+#: allthethings/page/templates/page/datasets_upload.html:73
 #, fuzzy
 msgid "page.datasets.upload.source.degruyter"
 msgstr "Llyfrau o'r tŷ cyhoeddi academaidd <a %(a_href)s>De Gruyter</a>, wedi'u casglu o ychydig o torrents mawr."
 
-#: allthethings/page/templates/page/datasets_upload.html:130
+#: allthethings/page/templates/page/datasets_upload.html:74
 #, fuzzy
 msgid "page.datasets.upload.source.docer"
 msgstr "Sgrap o <a %(a_href)s>docer.pl</a>, gwefan rhannu ffeiliau Pwyleg sy'n canolbwyntio ar lyfrau a gweithiau ysgrifenedig eraill. Wedi'i sgrapio ddiwedd 2023 gan wirfoddolwr “p”. Nid oes gennym fetadata da o'r wefan wreiddiol (hyd yn oed dim estyniadau ffeiliau), ond fe wnaethom hidlo am ffeiliau tebyg i lyfrau ac roeddem yn aml yn gallu echdynnu metadata o'r ffeiliau eu hunain."
 
-#: allthethings/page/templates/page/datasets_upload.html:137
+#: allthethings/page/templates/page/datasets_upload.html:75
 #, fuzzy
 msgid "page.datasets.upload.source.duxiu_epub"
 msgstr "DuXiu epubs, yn uniongyrchol o DuXiu, wedi'u casglu gan wirfoddolwr “w”. Dim ond llyfrau DuXiu diweddar sydd ar gael yn uniongyrchol trwy ebooks, felly mae'n rhaid bod y rhan fwyaf o'r rhain yn ddiweddar."
 
-#: allthethings/page/templates/page/datasets_upload.html:144
+#: allthethings/page/templates/page/datasets_upload.html:76
 #, fuzzy
 msgid "page.datasets.upload.source.duxiu_main"
 msgstr "Ffeiliau DuXiu sy'n weddill gan wirfoddolwr “m”, nad oeddent yn fformat PDG perchnogol DuXiu (y prif <a %(a_href)s>set ddata DuXiu</a>). Wedi'u casglu o lawer o ffynonellau gwreiddiol, yn anffodus heb gadw'r ffynonellau hynny yn y llwybr ffeil."
 
-#: allthethings/page/templates/page/datasets_upload.html:151
+#: allthethings/page/templates/page/datasets_upload.html:83
 #, fuzzy
 msgid "page.datasets.upload.source.japanese_manga"
 msgstr "Casgliad wedi'i sgrapio o gyhoeddwr Manga Siapaneaidd gan wirfoddolwr “t”."
 
-#: allthethings/page/templates/page/datasets_upload.html:158
+#: allthethings/page/templates/page/datasets_upload.html:84
 #, fuzzy
 msgid "page.datasets.upload.source.longquan_archives"
 msgstr "<a %(a_href)s>Archifau barnwrol dethol Longquan</a>, a ddarparwyd gan wirfoddolwr “c”."
 
-#: allthethings/page/templates/page/datasets_upload.html:165
+#: allthethings/page/templates/page/datasets_upload.html:85
 #, fuzzy
 msgid "page.datasets.upload.source.magzdb"
 msgstr "Sgrap o <a %(a_href)s>magzdb.org</a>, cynghreiriad o Library Genesis (mae'n gysylltiedig ar hafan libgen.rs) ond nad oeddent am ddarparu eu ffeiliau'n uniongyrchol. Wedi'i gael gan wirfoddolwr “p” ddiwedd 2023."
 
-#: allthethings/page/templates/page/datasets_upload.html:172
+#: allthethings/page/templates/page/datasets_upload.html:87
 #, fuzzy
 msgid "page.datasets.upload.source.misc"
 msgstr "Amrywiol uwchlwythiadau bach, yn rhy fach i fod yn is-gasgliad eu hunain, ond wedi'u cynrychioli fel cyfeiriaduron."
 
-#: allthethings/page/templates/page/datasets_upload.html:179
+#: allthethings/page/templates/page/datasets_upload.html:91
 #, fuzzy
 msgid "page.datasets.upload.source.polish"
 msgstr "Casgliad gwirfoddolwr “o” a gasglodd lyfrau Pwyleg yn uniongyrchol o wefannau rhyddhau gwreiddiol (“scene”)."
 
-#: allthethings/page/templates/page/datasets_upload.html:186
+#: allthethings/page/templates/page/datasets_upload.html:92
 #, fuzzy
 msgid "page.datasets.upload.source.shuge"
 msgstr "Casgliadau cyfunol o <a %(a_href)s>shuge.org</a> gan wirfoddolwyr “cgiym” a “woz9ts”."
 
-#: allthethings/page/templates/page/datasets_upload.html:193
+#: allthethings/page/templates/page/datasets_upload.html:94
 #, fuzzy
 msgid "page.datasets.upload.source.trantor"
 msgstr "<a %(a_href)s>“Llyfrgell Ymerodrol Trantor”</a> (a enwir ar ôl y llyfrgell ffuglennol), wedi'i sgrapio yn 2022 gan wirfoddolwr “t”."
 
-#: allthethings/page/templates/page/datasets_upload.html:200
+#: allthethings/page/templates/page/datasets_upload.html:98
 #, fuzzy
 msgid "page.datasets.upload.source.woz9ts_direct"
 msgstr "Is-is-gasgliadau (a gynrychiolir fel cyfeiriaduron) gan wirfoddolwr “woz9ts”: <a %(a_program_think)s>program-think</a>, <a %(a_haodoo)s>haodoo</a>, <a %(a_skqs)s>skqs</a> (gan <a %(a_sikuquanshu)s>Dizhi(迪志)</a> yn Taiwan), mebook (mebook.cc, 我的小书屋, fy ystafell lyfrau fach — woz9ts: “Mae'r wefan hon yn canolbwyntio'n bennaf ar rannu ffeiliau ebook o ansawdd uchel, mae rhai ohonynt wedi'u gosod gan y perchennog ei hun. Cafodd y perchennog ei <a %(a_arrested)s>arestio</a> yn 2019 a gwnaeth rhywun gasgliad o'r ffeiliau a rannodd.”)."
 
-#: allthethings/page/templates/page/datasets_upload.html:214
+#: allthethings/page/templates/page/datasets_upload.html:99
 #, fuzzy
 msgid "page.datasets.upload.source.woz9ts_duxiu"
 msgstr "Ffeiliau DuXiu sy’n weddill gan wirfoddolwr “woz9ts”, nad oeddent yn fformat PDG perchnogol DuXiu (i’w trosi i PDF o hyd)."
 
-#: allthethings/page/templates/page/datasets_upload.html:226
+#: allthethings/page/templates/page/datasets_upload.html:109
 #, fuzzy
 msgid "page.datasets.upload.aa_torrents"
 msgstr "Torrenti gan Archif Anna"
@@ -5325,122 +5371,122 @@ msgstr "1. Mae gan bob casgliad neu ryddhad ei metadata ei hun. Er enghraifft, m
 msgid "page.faq.torrents.a6.li2"
 msgstr "2. Rydym yn argymell <a %(a_generate)s>creu</a> neu <a %(a_download)s>lawrlwytho</a> ein cronfeydd data ElasticSearch a MariaDB. Mae'r rhain yn cynnwys mapio ar gyfer pob cofnod yn Archif Anna i'w ffeiliau torrent cyfatebol (os ydynt ar gael), o dan \"torrent_paths\" yn JSON ElasticSearch."
 
-#: allthethings/page/templates/page/faq.html:273
+#: allthethings/page/templates/page/faq.html:280
 #, fuzzy
 msgid "page.faq.security.title"
 msgstr "Oes gennych raglen datgelu cyfrifol?"
 
-#: allthethings/page/templates/page/faq.html:276
+#: allthethings/page/templates/page/faq.html:283
 #, fuzzy
 msgid "page.faq.security.text1"
 msgstr "Rydym yn croesawu ymchwilwyr diogelwch i chwilio am fregusrwydd yn ein systemau. Rydym yn gefnogwyr mawr o ddatgelu cyfrifol. Cysylltwch â ni <a %(a_contact)s>yma</a>."
 
-#: allthethings/page/templates/page/faq.html:280
+#: allthethings/page/templates/page/faq.html:287
 #, fuzzy
 msgid "page.faq.security.text2"
 msgstr "Ar hyn o bryd, nid ydym yn gallu dyfarnu gwobrau chwilod, heblaw am fregusrwydd sydd â'r <a %(a_link)s >potensial i beryglu ein hanhysbysrwydd</a>, lle rydym yn cynnig gwobrau yn yr ystod $10k-50k. Hoffem gynnig cwmpas ehangach ar gyfer gwobrau chwilod yn y dyfodol! Sylwer bod ymosodiadau peirianneg gymdeithasol y tu allan i gwmpas."
 
-#: allthethings/page/templates/page/faq.html:284
+#: allthethings/page/templates/page/faq.html:291
 #, fuzzy
 msgid "page.faq.security.text3"
 msgstr "Os oes gennych ddiddordeb mewn diogelwch ymosodol, ac eisiau helpu i archifo gwybodaeth a diwylliant y byd, gwnewch yn siŵr eich bod yn cysylltu â ni. Mae llawer o ffyrdd y gallwch helpu."
 
-#: allthethings/page/templates/page/faq.html:287
+#: allthethings/page/templates/page/faq.html:294
 #, fuzzy
 msgid "page.faq.resources.title"
 msgstr "A oes mwy o adnoddau am Archif Anna?"
 
-#: allthethings/page/templates/page/faq.html:290
+#: allthethings/page/templates/page/faq.html:297
 #, fuzzy
 msgid "page.faq.resources.annas_blog"
 msgstr "<a %(a_blog)s>Blog Anna</a>, <a %(a_reddit_u)s>Reddit</a>, <a %(a_reddit_r)s>Is-reddit</a> — diweddariadau rheolaidd"
 
-#: allthethings/page/templates/page/faq.html:291
+#: allthethings/page/templates/page/faq.html:298
 #, fuzzy
 msgid "page.faq.resources.annas_software"
 msgstr "<a %(a_software)s>Meddalwedd Anna</a> — ein cod ffynhonnell agored"
 
-#: allthethings/page/templates/page/faq.html:292
+#: allthethings/page/templates/page/faq.html:299
 #, fuzzy
 msgid "page.faq.resources.translate"
 msgstr "<a %(a_translate)s>Cyfieithu ar Feddalwedd Anna</a> — ein system gyfieithu"
 
-#: allthethings/page/templates/page/faq.html:293
+#: allthethings/page/templates/page/faq.html:300
 #, fuzzy
 msgid "page.faq.resources.datasets"
 msgstr "<a %(a_datasets)s>Datasets</a> — am y data"
 
-#: allthethings/page/templates/page/faq.html:294
+#: allthethings/page/templates/page/faq.html:301
 #, fuzzy
 msgid "page.faq.resources.domains"
 msgstr "<a %(a_li)s>.li</a>, <a %(a_se)s>.se</a>, <a %(a_org)s>.org</a> — parthau amgen"
 
-#: allthethings/page/templates/page/faq.html:295
+#: allthethings/page/templates/page/faq.html:302
 #, fuzzy
 msgid "page.faq.resources.wikipedia"
 msgstr "<a %(a_wikipedia)s>Wicipedia</a> — mwy amdanom ni (os gwelwch yn dda helpwch i gadw'r dudalen hon wedi'i diweddaru, neu crëwch un ar gyfer eich iaith eich hun!)"
 
-#: allthethings/page/templates/page/faq.html:298
+#: allthethings/page/templates/page/faq.html:305
 #, fuzzy
 msgid "page.faq.copyright.title"
 msgstr "Sut ydw i'n riportio tor-cyfraith hawlfraint?"
 
-#: allthethings/page/templates/page/faq.html:301
+#: allthethings/page/templates/page/faq.html:308
 #, fuzzy
 msgid "page.faq.copyright.text1"
 msgstr "Nid ydym yn cynnal unrhyw ddeunyddiau hawlfraint yma. Rydym yn beiriant chwilio, ac felly dim ond mynegeio metadata sydd eisoes ar gael yn gyhoeddus yr ydym yn ei wneud. Wrth lawrlwytho o'r ffynonellau allanol hyn, byddem yn awgrymu eich bod yn gwirio'r cyfreithiau yn eich awdurdodaeth ynghylch yr hyn a ganiateir. Nid ydym yn gyfrifol am gynnwys a gynhelir gan eraill."
 
-#: allthethings/page/templates/page/faq.html:305
+#: allthethings/page/templates/page/faq.html:312
 #, fuzzy
 msgid "page.faq.copyright.text2"
 msgstr "Os oes gennych gwynion am yr hyn a welwch yma, eich bet gorau yw cysylltu â'r wefan wreiddiol. Rydym yn tynnu eu newidiadau i mewn i'n cronfa ddata yn rheolaidd. Os ydych wir yn meddwl bod gennych gŵyn DMCA ddilys y dylem ymateb iddi, llenwch y <a %(a_copyright)s>ffurflen hawliad DMCA / Hawlfraint</a>. Rydym yn cymryd eich cwynion o ddifrif, a byddwn yn cysylltu â chi cyn gynted â phosibl."
 
-#: allthethings/page/templates/page/faq.html:308
+#: allthethings/page/templates/page/faq.html:315
 #, fuzzy
 msgid "page.faq.hate.title"
 msgstr "Rwy'n casáu sut rydych chi'n rhedeg y prosiect hwn!"
 
-#: allthethings/page/templates/page/faq.html:311
+#: allthethings/page/templates/page/faq.html:318
 #, fuzzy
 msgid "page.faq.hate.text1"
 msgstr "Hoffem hefyd atgoffa pawb bod ein holl god a data yn hollol agored. Mae hyn yn unigryw ar gyfer prosiectau fel ein un ni — nid ydym yn ymwybodol o unrhyw brosiect arall gyda chatalog mor enfawr sydd hefyd yn hollol agored. Rydym yn croesawu unrhyw un sy'n meddwl ein bod yn rhedeg ein prosiect yn wael i gymryd ein cod a'n data a sefydlu eu llyfrgell gysgodol eu hunain! Nid ydym yn dweud hyn allan o ddig neu rywbeth — rydym yn wirioneddol yn meddwl y byddai hyn yn wych gan y byddai'n codi'r safon i bawb, ac yn well cadw treftadaeth dynoliaeth."
 
-#: allthethings/page/templates/page/faq.html:314
+#: allthethings/page/templates/page/faq.html:321
 #, fuzzy
 msgid "page.faq.uptime.title"
 msgstr "Oes gennych chi fonitor amser gweithredu?"
 
-#: allthethings/page/templates/page/faq.html:317
+#: allthethings/page/templates/page/faq.html:324
 #, fuzzy
 msgid "page.faq.uptime.text1"
 msgstr "Gweler <a %(a_href)s>y prosiect rhagorol hwn</a>."
 
-#: allthethings/page/templates/page/faq.html:330
+#: allthethings/page/templates/page/faq.html:337
 #, fuzzy
 msgid "page.faq.physical.title"
 msgstr "Sut mae rhoi llyfrau neu ddeunyddiau corfforol eraill?"
 
-#: allthethings/page/templates/page/faq.html:333
+#: allthethings/page/templates/page/faq.html:340
 #, fuzzy
 msgid "page.faq.physical.text1"
 msgstr "Anfonwch nhw at yr <a %(a_archive)s>Internet Archive</a>. Byddant yn eu cadw'n iawn."
 
-#: allthethings/page/templates/page/faq.html:336
+#: allthethings/page/templates/page/faq.html:343
 #, fuzzy
 msgid "page.faq.anna.title"
 msgstr "Pwy yw Anna?"
 
-#: allthethings/page/templates/page/faq.html:340
+#: allthethings/page/templates/page/faq.html:347
 #, fuzzy
 msgid "page.faq.anna.text1"
 msgstr "Chi yw Anna!"
 
-#: allthethings/page/templates/page/faq.html:344
+#: allthethings/page/templates/page/faq.html:351
 #, fuzzy
 msgid "page.faq.favorite.title"
 msgstr "Beth yw eich hoff lyfrau?"
 
-#: allthethings/page/templates/page/faq.html:347
+#: allthethings/page/templates/page/faq.html:354
 #, fuzzy
 msgid "page.faq.favorite.text1"
 msgstr "Dyma rai llyfrau sydd â phwysigrwydd arbennig i fyd llyfrgelloedd cysgodol a chadwraeth ddigidol:"
@@ -5479,30 +5525,30 @@ msgstr "Chwilio"
 #: allthethings/page/templates/page/scidb_home.html:3
 #: allthethings/page/templates/page/scidb_home.html:6
 #: allthethings/templates/layouts/index.html:493
-#: allthethings/templates/layouts/index.html:506
-#: allthethings/templates/layouts/index.html:521
-#: allthethings/templates/layouts/index.html:588
+#: allthethings/templates/layouts/index.html:507
+#: allthethings/templates/layouts/index.html:523
+#: allthethings/templates/layouts/index.html:591
 #, fuzzy
 msgid "page.home.scidb.header"
 msgstr "SciDB"
 
 #: allthethings/page/templates/page/home.html:19
-#: allthethings/templates/layouts/index.html:541
+#: allthethings/templates/layouts/index.html:544
 #, fuzzy
 msgid "layout.index.header.nav.beta"
 msgstr "beta"
 
 #: allthethings/page/templates/page/home.html:22
 #: allthethings/page/templates/page/scidb_home.html:9
-#: allthethings/page/templates/page/search.html:355
-#: allthethings/page/templates/page/search.html:419
+#: allthethings/page/templates/page/search.html:359
+#: allthethings/page/templates/page/search.html:423
 #, fuzzy
 msgid "page.home.scidb.scihub_paused"
 msgstr "Mae Sci-Hub wedi <a %(a_paused)s>oedi</a> uwchlwytho papurau newydd."
 
 #: allthethings/page/templates/page/home.html:23
-#: allthethings/page/templates/page/search.html:356
-#: allthethings/page/templates/page/search.html:420
+#: allthethings/page/templates/page/search.html:360
+#: allthethings/page/templates/page/search.html:424
 #, fuzzy
 msgid "page.home.scidb.continuation"
 msgstr "🧬&nbsp;Mae SciDB yn barhad o Sci-Hub."
@@ -5545,19 +5591,19 @@ msgid "page.home.torrents.body"
 msgstr "Gallwch helpu'n aruthrol drwy hau torrents. <a %(a_torrents)s>Dysgwch fwy…</a>"
 
 #: allthethings/page/templates/page/home.html:47
-#: allthethings/page/templates/page/torrents.html:75
+#: allthethings/page/templates/page/torrents.html:79
 #, fuzzy
 msgid "page.home.torrents.legend_less"
 msgstr "<%(count)s hauwyr"
 
 #: allthethings/page/templates/page/home.html:48
-#: allthethings/page/templates/page/torrents.html:76
+#: allthethings/page/templates/page/torrents.html:80
 #, fuzzy
 msgid "page.home.torrents.legend_range"
 msgstr "%(count_min)s–%(count_max)s hauwyr"
 
 #: allthethings/page/templates/page/home.html:49
-#: allthethings/page/templates/page/torrents.html:77
+#: allthethings/page/templates/page/torrents.html:81
 #, fuzzy
 msgid "page.home.torrents.legend_greater"
 msgstr ">%(count)s hauwyr"
@@ -5593,8 +5639,8 @@ msgid "page.home.payment_processor.body"
 msgstr "Os ydych yn rhedeg prosesydd taliadau dienw risg uchel, cysylltwch â ni. Rydym hefyd yn chwilio am bobl sy'n edrych i osod hysbysebion bach chwaethus. Mae'r holl elw yn mynd at ein hymdrechion cadwraeth."
 
 #: allthethings/page/templates/page/home.html:98
-#: allthethings/templates/layouts/index.html:529
-#: allthethings/templates/layouts/index.html:608
+#: allthethings/templates/layouts/index.html:532
+#: allthethings/templates/layouts/index.html:611
 #, fuzzy
 msgid "layout.index.header.nav.annasblog"
 msgstr "Blog Anna ↗"
@@ -6138,7 +6184,7 @@ msgid "page.search.tabs.metadata"
 msgstr "Metadata"
 
 #: allthethings/page/templates/page/search.html:107
-#: allthethings/templates/layouts/index.html:537
+#: allthethings/templates/layouts/index.html:540
 #, fuzzy
 msgid "common.search.placeholder"
 msgstr "Teitl, awdur, DOI, ISBN, MD5, …"
@@ -6155,7 +6201,7 @@ msgid "page.search.search_settings"
 msgstr "Gosodiadau chwilio"
 
 #: allthethings/page/templates/page/search.html:136
-#: allthethings/page/templates/page/search.html:274
+#: allthethings/page/templates/page/search.html:278
 #, fuzzy
 msgid "page.search.submit"
 msgstr "Chwilio"
@@ -6166,8 +6212,8 @@ msgid "page.search.too_long_broad_query"
 msgstr "Cymerodd y chwiliad yn rhy hir, sy'n gyffredin ar gyfer ymholiadau eang. Efallai na fydd y cyfrifon hidlo yn gywir."
 
 #: allthethings/page/templates/page/search.html:145
-#: allthethings/page/templates/page/search.html:448
-#: allthethings/page/templates/page/search.html:455
+#: allthethings/page/templates/page/search.html:452
+#: allthethings/page/templates/page/search.html:459
 #, fuzzy
 msgid "page.search.too_inaccurate"
 msgstr "Cymerodd y chwiliad yn rhy hir, sy'n golygu efallai y gwelwch ganlyniadau anghywir. Weithiau mae <a %(a_reload)s>ail-lwytho</a> y dudalen yn helpu."
@@ -6193,7 +6239,7 @@ msgid "page.search.advanced.header"
 msgstr "Uwch"
 
 #: allthethings/page/templates/page/search.html:159
-#: allthethings/page/templates/page/search.html:292
+#: allthethings/page/templates/page/search.html:296
 #, fuzzy
 msgid "page.search.advanced.description_comments"
 msgstr "Chwilio disgrifiadau a sylwadau metadata"
@@ -6214,262 +6260,263 @@ msgid "page.search.advanced.field.year_published"
 msgstr "Blwyddyn cyhoeddi"
 
 #: allthethings/page/templates/page/search.html:208
-#: allthethings/page/templates/page/search.html:300
-#: allthethings/page/templates/page/search.html:303
+#: allthethings/page/templates/page/search.html:304
+#: allthethings/page/templates/page/search.html:307
 #, fuzzy
 msgid "page.search.filters.content.header"
 msgstr "Cynnwys"
 
 #: allthethings/page/templates/page/search.html:218
-#: allthethings/page/templates/page/search.html:306
-#: allthethings/page/templates/page/search.html:309
+#: allthethings/page/templates/page/search.html:310
+#: allthethings/page/templates/page/search.html:313
 #, fuzzy
 msgid "page.search.filters.filetype.header"
 msgstr "Math o ffeil"
 
-#: allthethings/page/templates/page/search.html:228
-#: allthethings/page/templates/page/search.html:312
-#: allthethings/page/templates/page/search.html:315
-#, fuzzy
-msgid "page.search.filters.access.header"
-msgstr "Mynediad"
-
-#: allthethings/page/templates/page/search.html:237
-#: allthethings/page/templates/page/search.html:318
-#: allthethings/page/templates/page/search.html:321
-#, fuzzy
-msgid "page.search.filters.source.header"
-msgstr "Ffynhonnell"
-
-#: allthethings/page/templates/page/search.html:242
-#, fuzzy
-msgid "page.search.filters.source.scraped"
-msgstr "wedi'i sgrapio a'i agor-ffynhonnell gan AA"
-
-#: allthethings/page/templates/page/search.html:247
-#: allthethings/page/templates/page/search.html:327
-#: allthethings/page/templates/page/search.html:330
-#, fuzzy
-msgid "page.search.filters.language.header"
-msgstr "Iaith"
-
-#: allthethings/page/templates/page/search.html:256
+#: allthethings/page/templates/page/search.html:227
+#: allthethings/page/templates/page/search.html:259
 #, fuzzy
 msgid "page.search.more"
 msgstr "mwy…"
 
-#: allthethings/page/templates/page/search.html:261
-#: allthethings/page/templates/page/search.html:324
+#: allthethings/page/templates/page/search.html:231
+#: allthethings/page/templates/page/search.html:316
+#: allthethings/page/templates/page/search.html:319
+#, fuzzy
+msgid "page.search.filters.access.header"
+msgstr "Mynediad"
+
+#: allthethings/page/templates/page/search.html:240
+#: allthethings/page/templates/page/search.html:322
+#: allthethings/page/templates/page/search.html:325
+#, fuzzy
+msgid "page.search.filters.source.header"
+msgstr "Ffynhonnell"
+
+#: allthethings/page/templates/page/search.html:245
+#, fuzzy
+msgid "page.search.filters.source.scraped"
+msgstr "wedi'i sgrapio a'i agor-ffynhonnell gan AA"
+
+#: allthethings/page/templates/page/search.html:250
+#: allthethings/page/templates/page/search.html:331
+#: allthethings/page/templates/page/search.html:334
+#, fuzzy
+msgid "page.search.filters.language.header"
+msgstr "Iaith"
+
+#: allthethings/page/templates/page/search.html:264
+#: allthethings/page/templates/page/search.html:328
 #, fuzzy
 msgid "page.search.filters.order_by.header"
 msgstr "Trefnu yn ôl"
 
-#: allthethings/page/templates/page/search.html:264
+#: allthethings/page/templates/page/search.html:267
 #, fuzzy
 msgid "page.search.filters.sorting.most_relevant"
 msgstr "Mwyaf perthnasol"
 
-#: allthethings/page/templates/page/search.html:265
-#: allthethings/page/templates/page/search.html:269
-#: allthethings/page/templates/page/search.html:324
+#: allthethings/page/templates/page/search.html:268
+#: allthethings/page/templates/page/search.html:272
+#: allthethings/page/templates/page/search.html:328
 #, fuzzy
 msgid "page.search.filters.sorting.newest"
 msgstr "Diweddaraf"
 
-#: allthethings/page/templates/page/search.html:265
-#: allthethings/page/templates/page/search.html:266
-#: allthethings/page/templates/page/search.html:324
+#: allthethings/page/templates/page/search.html:268
+#: allthethings/page/templates/page/search.html:269
+#: allthethings/page/templates/page/search.html:328
 #, fuzzy
 msgid "page.search.filters.sorting.note_publication_year"
 msgstr "(blwyddyn cyhoeddi)"
 
-#: allthethings/page/templates/page/search.html:266
-#: allthethings/page/templates/page/search.html:270
-#: allthethings/page/templates/page/search.html:324
+#: allthethings/page/templates/page/search.html:269
+#: allthethings/page/templates/page/search.html:273
+#: allthethings/page/templates/page/search.html:328
 #, fuzzy
 msgid "page.search.filters.sorting.oldest"
 msgstr "Hynaf"
 
-#: allthethings/page/templates/page/search.html:267
-#: allthethings/page/templates/page/search.html:324
+#: allthethings/page/templates/page/search.html:270
+#: allthethings/page/templates/page/search.html:328
 #, fuzzy
 msgid "page.search.filters.sorting.largest"
 msgstr "Mwyaf"
 
-#: allthethings/page/templates/page/search.html:267
-#: allthethings/page/templates/page/search.html:268
-#: allthethings/page/templates/page/search.html:324
+#: allthethings/page/templates/page/search.html:270
+#: allthethings/page/templates/page/search.html:271
+#: allthethings/page/templates/page/search.html:328
 #, fuzzy
 msgid "page.search.filters.sorting.note_filesize"
 msgstr "(maint ffeil)"
 
-#: allthethings/page/templates/page/search.html:268
-#: allthethings/page/templates/page/search.html:324
+#: allthethings/page/templates/page/search.html:271
+#: allthethings/page/templates/page/search.html:328
 #, fuzzy
 msgid "page.search.filters.sorting.smallest"
 msgstr "Lleiaf"
 
-#: allthethings/page/templates/page/search.html:269
-#: allthethings/page/templates/page/search.html:270
-#: allthethings/page/templates/page/search.html:324
+#: allthethings/page/templates/page/search.html:272
+#: allthethings/page/templates/page/search.html:273
+#: allthethings/page/templates/page/search.html:328
 #, fuzzy
 msgid "page.search.filters.sorting.note_open_sourced"
 msgstr "(ffynhonnell agored)"
 
-#: allthethings/page/templates/page/search.html:278
+#: allthethings/page/templates/page/search.html:282
 #, fuzzy
 msgid "page.search.header.update_info"
 msgstr "Mae'r mynegai chwilio yn cael ei ddiweddaru'n fisol. Ar hyn o bryd mae'n cynnwys cofnodion hyd at %(last_data_refresh_date)s. Am fwy o wybodaeth dechnegol, gweler y <a %(link_open_tag)s>tudalen datasets</a>."
 
-#: allthethings/page/templates/page/search.html:280
+#: allthethings/page/templates/page/search.html:284
 #, fuzzy
 msgid "page.search.header.codes_explorer"
 msgstr "I archwilio'r mynegai chwilio yn ôl codau, defnyddiwch y <a %(a_href)s>Archwiliwr Codau</a>."
 
-#: allthethings/page/templates/page/search.html:338
+#: allthethings/page/templates/page/search.html:342
 #, fuzzy
 msgid "page.search.results.search_downloads"
 msgstr "Teipiwch yn y blwch i chwilio ein catalog o %(count)s ffeiliau y gellir eu lawrlwytho'n uniongyrchol, yr ydym yn <a %(a_preserve)s>eu cadw am byth</a>."
 
-#: allthethings/page/templates/page/search.html:339
+#: allthethings/page/templates/page/search.html:343
 #, fuzzy
 msgid "page.search.results.help_preserve"
 msgstr "Mewn gwirionedd, gall unrhyw un helpu i gadw'r ffeiliau hyn trwy hadu ein <a %(a_torrents)s>rhestr unedig o dorrents</a>."
 
-#: allthethings/page/templates/page/search.html:342
+#: allthethings/page/templates/page/search.html:346
 #, fuzzy
 msgid "page.search.results.most_comprehensive"
 msgstr "Ar hyn o bryd mae gennym y catalog agored mwyaf cynhwysfawr o lyfrau, papurau, a gweithiau ysgrifenedig eraill yn y byd. Rydym yn adlewyrchu Sci-Hub, Library Genesis, Z-Library, <a %(a_datasets)s>a mwy</a>."
 
-#: allthethings/page/templates/page/search.html:345
+#: allthethings/page/templates/page/search.html:349
 #, fuzzy
 msgid "page.search.results.other_shadow_libs"
 msgstr "Os byddwch yn dod o hyd i “lyfrgelloedd cysgodol” eraill y dylem eu hadlewyrchu, neu os oes gennych unrhyw gwestiynau, cysylltwch â ni yn %(email)s."
 
-#: allthethings/page/templates/page/search.html:346
+#: allthethings/page/templates/page/search.html:350
 #, fuzzy
 msgid "page.search.results.dmca"
 msgstr "Ar gyfer hawliadau DMCA / hawlfraint <a %(a_copyright)s>cliciwch yma</a>."
 
-#: allthethings/page/templates/page/search.html:350
-#: allthethings/page/templates/page/search.html:365
-#: allthethings/page/templates/page/search.html:379
-#: allthethings/page/templates/page/search.html:403
-#: allthethings/page/templates/page/search.html:411
+#: allthethings/page/templates/page/search.html:354
+#: allthethings/page/templates/page/search.html:369
+#: allthethings/page/templates/page/search.html:383
+#: allthethings/page/templates/page/search.html:407
+#: allthethings/page/templates/page/search.html:415
 #, fuzzy
 msgid "page.search.results.shortcuts"
 msgstr "Awgrym: defnyddiwch fysellau llwybr byr “/” (ffocws chwilio), “enter” (chwilio), “j” (i fyny), “k” (i lawr), “<” (tudalen flaenorol), “>” (tudalen nesaf) ar gyfer llywio cyflymach."
 
-#: allthethings/page/templates/page/search.html:354
-#: allthethings/page/templates/page/search.html:418
+#: allthethings/page/templates/page/search.html:358
+#: allthethings/page/templates/page/search.html:422
 #, fuzzy
 msgid "page.search.results.looking_for_papers"
 msgstr "Chwilio am bapurau?"
 
-#: allthethings/page/templates/page/search.html:361
+#: allthethings/page/templates/page/search.html:365
 #, fuzzy
 msgid "page.search.results.search_journals"
 msgstr "Teipiwch yn y blwch i chwilio ein catalog o %(count)s papurau academaidd ac erthyglau cyfnodolion, yr ydym yn <a %(a_preserve)s>eu cadw am byth</a>."
 
-#: allthethings/page/templates/page/search.html:369
+#: allthethings/page/templates/page/search.html:373
 #, fuzzy
 msgid "page.search.results.search_digital_lending"
 msgstr "Teipiwch yn y blwch i chwilio am ffeiliau mewn llyfrgelloedd benthyca digidol."
 
-#: allthethings/page/templates/page/search.html:372
+#: allthethings/page/templates/page/search.html:376
 #, fuzzy
 msgid "page.search.results.digital_lending_info"
 msgstr "Mae'r mynegai chwilio hwn ar hyn o bryd yn cynnwys metadata o lyfrgell Benthyca Digidol Rheoledig yr Internet Archive. <a %(a_datasets)s>Mwy am ein datasets</a>."
 
-#: allthethings/page/templates/page/search.html:375
+#: allthethings/page/templates/page/search.html:379
 #, fuzzy
 msgid "page.search.results.digital_lending_info_more"
 msgstr "Am fwy o lyfrgelloedd benthyca digidol, gweler <a %(a_wikipedia)s>Wicipedia</a> a'r <a %(a_mobileread)s>MobileRead Wiki</a>."
 
-#: allthethings/page/templates/page/search.html:383
-#: allthethings/page/templates/page/search.html:430
+#: allthethings/page/templates/page/search.html:387
+#: allthethings/page/templates/page/search.html:434
 #, fuzzy
 msgid "page.search.results.search_metadata"
 msgstr "Teipiwch yn y blwch i chwilio am metadata o lyfrgelloedd. Gall hyn fod yn ddefnyddiol wrth <a %(a_request)s>ofyn am ffeil</a>."
 
-#: allthethings/page/templates/page/search.html:387
-#: allthethings/page/templates/page/search.html:434
+#: allthethings/page/templates/page/search.html:391
+#: allthethings/page/templates/page/search.html:438
 #, fuzzy
 msgid "page.search.results.metadata_info"
 msgstr "Mae'r mynegai chwilio hwn ar hyn o bryd yn cynnwys metadata o wahanol ffynonellau metadata. <a %(a_datasets)s>Mwy am ein datasets</a>."
 
-#: allthethings/page/templates/page/search.html:388
-#: allthethings/page/templates/page/search.html:435
+#: allthethings/page/templates/page/search.html:392
+#: allthethings/page/templates/page/search.html:439
 #, fuzzy
 msgid "page.search.results.metadata_no_merging"
 msgstr "Ar gyfer metadata, rydym yn dangos y cofnodion gwreiddiol. Nid ydym yn uno cofnodion."
 
-#: allthethings/page/templates/page/search.html:399
+#: allthethings/page/templates/page/search.html:403
 #, fuzzy
 msgid "page.search.results.metadata_info_more"
 msgstr "Mae llawer iawn o ffynonellau metadata ar gyfer gweithiau ysgrifenedig ledled y byd. <a %(a_wikipedia)s>Mae'r dudalen Wicipedia hon</a> yn fan cychwyn da, ond os ydych chi'n gwybod am restrau da eraill, rhowch wybod i ni."
 
-#: allthethings/page/templates/page/search.html:407
+#: allthethings/page/templates/page/search.html:411
 #, fuzzy
 msgid "page.search.results.search_generic"
 msgstr "Teipiwch yn y blwch i chwilio."
 
-#: allthethings/page/templates/page/search.html:426
+#: allthethings/page/templates/page/search.html:430
 #, fuzzy
 msgid "page.search.results.these_are_records"
 msgstr "Mae'r rhain yn gofnodion metadata, <span %(classname)s>nid</span> ffeiliau y gellir eu lawrlwytho."
 
-#: allthethings/page/templates/page/search.html:442
+#: allthethings/page/templates/page/search.html:446
 #, fuzzy
 msgid "page.search.results.error.header"
 msgstr "Gwall yn ystod chwilio."
 
-#: allthethings/page/templates/page/search.html:444
+#: allthethings/page/templates/page/search.html:448
 #, fuzzy
 msgid "page.search.results.error.unknown"
 msgstr "Ceisiwch <a %(a_reload)s>ail-lwytho'r dudalen</a>. Os yw'r broblem yn parhau, anfonwch e-bost atom yn %(email)s."
 
-#: allthethings/page/templates/page/search.html:457
+#: allthethings/page/templates/page/search.html:461
 #, fuzzy
 msgid "page.search.results.none"
 msgstr "<span class=\"font-bold\">Dim ffeiliau wedi'u darganfod.</span> Ceisiwch dermau chwilio a hidlwyr llai neu wahanol."
 
-#: allthethings/page/templates/page/search.html:460
+#: allthethings/page/templates/page/search.html:464
 #, fuzzy
 msgid "page.search.results.incorrectly_slow"
 msgstr "➡️ Weithiau mae hyn yn digwydd yn anghywir pan fydd y gweinydd chwilio yn araf. Mewn achosion o'r fath, gall <a %(a_attrs)s>ail-lwytho</a> helpu."
 
-#: allthethings/page/templates/page/search.html:467
+#: allthethings/page/templates/page/search.html:471
 #, fuzzy
 msgid "page.search.found_matches.main"
 msgstr "Rydym wedi dod o hyd i gyfatebiadau yn: %(in)s. Gallwch gyfeirio at y URL a geir yno wrth <a %(a_request)s>ofyn am ffeil</a>."
 
-#: allthethings/page/templates/page/search.html:467
+#: allthethings/page/templates/page/search.html:471
 #, fuzzy
 msgid "page.search.found_matches.journals"
 msgstr "Erthyglau Cyfnodolion (%(count)s)"
 
-#: allthethings/page/templates/page/search.html:467
+#: allthethings/page/templates/page/search.html:471
 #, fuzzy
 msgid "page.search.found_matches.digital_lending"
 msgstr "Benthyca Digidol (%(count)s)"
 
-#: allthethings/page/templates/page/search.html:467
+#: allthethings/page/templates/page/search.html:471
 #, fuzzy
 msgid "page.search.found_matches.metadata"
 msgstr "Metadata (%(count)s)"
 
-#: allthethings/page/templates/page/search.html:474
+#: allthethings/page/templates/page/search.html:478
 #, fuzzy
 msgid "page.search.results.numbers_pages"
 msgstr "Canlyniadau %(from)s-%(to)s (%(total)s i gyd)"
 
-#: allthethings/page/templates/page/search.html:485
+#: allthethings/page/templates/page/search.html:490
 #, fuzzy
 msgid "page.search.results.partial_more"
 msgstr "%(num)d+ cyfatebiadau rhannol"
 
-#: allthethings/page/templates/page/search.html:485
+#: allthethings/page/templates/page/search.html:490
 #, fuzzy
 msgid "page.search.results.partial"
 msgstr "%(num)d cyfatebiadau rhannol"
@@ -6595,47 +6642,47 @@ msgstr "%(links)s dolenni neu sgrinluniau o geisiadau rydych chi wedi'u cyflawni
 msgid "page.volunteering.table.misc.task"
 msgstr "Tasgau bach a bostiwyd ar ein <a %(a_telegram)s>sgwrs gwirfoddolwyr ar Telegram</a>. Fel arfer ar gyfer aelodaeth, weithiau ar gyfer gwobrau bach."
 
-#: allthethings/page/templates/page/volunteering.html:66
+#: allthethings/page/templates/page/volunteering.html:67
 #, fuzzy
 msgid "page.volunteering.table.misc.milestone"
 msgstr "Yn dibynnu ar y dasg."
 
-#: allthethings/page/templates/page/volunteering.html:70
+#: allthethings/page/templates/page/volunteering.html:71
 #, fuzzy
 msgid "page.volunteering.section.bounties.heading"
 msgstr "Gwobrau"
 
-#: allthethings/page/templates/page/volunteering.html:73
+#: allthethings/page/templates/page/volunteering.html:74
 #, fuzzy
 msgid "page.volunteering.section.bounties.text1"
 msgstr "Rydym bob amser yn chwilio am bobl gyda sgiliau rhaglenni cadarn neu sgiliau diogelwch ymosodol i gymryd rhan. Gallwch wneud gwahaniaeth mawr wrth gadw treftadaeth dynoliaeth."
 
-#: allthethings/page/templates/page/volunteering.html:77
+#: allthethings/page/templates/page/volunteering.html:78
 #, fuzzy
 msgid "page.volunteering.section.bounties.text2"
 msgstr "Fel diolch, rydym yn rhoi aelodaeth am gyfraniadau cadarn. Fel diolch mawr, rydym yn rhoi gwobrau ariannol am dasgau arbennig o bwysig ac anodd. Ni ddylid ystyried hyn fel amnewid am swydd, ond mae'n gymhelliant ychwanegol a gall helpu gyda chostau a godir."
 
-#: allthethings/page/templates/page/volunteering.html:81
+#: allthethings/page/templates/page/volunteering.html:82
 #, fuzzy
 msgid "page.volunteering.section.bounties.text3"
 msgstr "Mae'r rhan fwyaf o'n cod yn ffynhonnell agored, a byddwn yn gofyn hynny am eich cod hefyd wrth ddyfarnu'r wobr. Mae rhai eithriadau y gallwn eu trafod ar sail unigol."
 
-#: allthethings/page/templates/page/volunteering.html:85
+#: allthethings/page/templates/page/volunteering.html:86
 #, fuzzy
 msgid "page.volunteering.section.bounties.text4"
 msgstr "Dyfernir gwobrau i'r person cyntaf i gwblhau tasg. Mae croeso i chi roi sylw ar docyn gwobr i roi gwybod i eraill eich bod yn gweithio ar rywbeth, fel y gall eraill aros neu gysylltu â chi i ffurfio tîm. Ond byddwch yn ymwybodol bod eraill yn dal i fod yn rhydd i weithio arno hefyd a cheisio eich curo i'r wobr. Fodd bynnag, nid ydym yn dyfarnu gwobrau am waith di-ofal. Os gwneir dau gyflwyniad o ansawdd uchel yn agos at ei gilydd (o fewn diwrnod neu ddau), efallai y byddwn yn dewis dyfarnu gwobrau i'r ddau, yn ôl ein disgresiwn, er enghraifft 100%% am y cyflwyniad cyntaf a 50%% am yr ail gyflwyniad (felly 150%% i gyd)."
 
-#: allthethings/page/templates/page/volunteering.html:89
+#: allthethings/page/templates/page/volunteering.html:90
 #, fuzzy
 msgid "page.volunteering.section.bounties.text5"
 msgstr "Ar gyfer y gwobrau mwy (yn enwedig gwobrau sgrapio), cysylltwch â ni pan fyddwch wedi cwblhau ~5%% ohono, ac rydych yn hyderus y bydd eich dull yn graddio i'r garreg filltir lawn. Bydd yn rhaid i chi rannu eich dull gyda ni fel y gallwn roi adborth. Hefyd, fel hyn gallwn benderfynu beth i'w wneud os oes sawl person yn agos at wobr, megis dyfarnu i sawl person, annog pobl i ffurfio tîm, ac ati."
 
-#: allthethings/page/templates/page/volunteering.html:93
+#: allthethings/page/templates/page/volunteering.html:94
 #, fuzzy
 msgid "page.volunteering.section.bounties.text6"
 msgstr "RHybudd: mae'r tasgau gwobr uchel yn <span %(bold)s>anodd</span> — efallai y bydd yn ddoeth dechrau gyda rhai haws."
 
-#: allthethings/page/templates/page/volunteering.html:97
+#: allthethings/page/templates/page/volunteering.html:98
 #, fuzzy
 msgid "page.volunteering.section.bounties.text7"
 msgstr "Ewch i'n <a %(a_gitlab)s>rhestr materion Gitlab</a> a didoli yn ôl “Blaenoriaeth Label”. Mae hyn yn dangos yn fras y drefn o dasgau rydym yn poeni amdanynt. Mae tasgau heb wobrau penodol yn dal i fod yn gymwys i gael aelodaeth, yn enwedig y rhai wedi'u marcio “Derbyniwyd” ac “Hoff Anna”. Efallai y byddwch am ddechrau gyda “Prosiect cychwynnol”."
@@ -6678,8 +6725,8 @@ msgstr "Yn ddilys tan ddiwedd y mis hwn."
 #: allthethings/templates/layouts/index.html:227
 #: allthethings/templates/layouts/index.html:233
 #: allthethings/templates/layouts/index.html:267
-#: allthethings/templates/layouts/index.html:533
-#: allthethings/templates/layouts/index.html:590
+#: allthethings/templates/layouts/index.html:536
+#: allthethings/templates/layouts/index.html:593
 #, fuzzy
 msgid "layout.index.header.nav.donate"
 msgstr "Rhoi rhodd"
@@ -6720,166 +6767,161 @@ msgid "layout.index.header.recent_downloads"
 msgstr "Lawrlwythiadau diweddar:"
 
 #: allthethings/templates/layouts/index.html:492
-#: allthethings/templates/layouts/index.html:505
-#: allthethings/templates/layouts/index.html:520
-#: allthethings/templates/layouts/index.html:587
+#: allthethings/templates/layouts/index.html:506
+#: allthethings/templates/layouts/index.html:522
+#: allthethings/templates/layouts/index.html:590
 #, fuzzy
 msgid "layout.index.header.nav.search"
 msgstr "Chwilio"
 
 #: allthethings/templates/layouts/index.html:494
-#: allthethings/templates/layouts/index.html:507
-#: allthethings/templates/layouts/index.html:522
-#: allthethings/templates/layouts/index.html:589
-#: allthethings/templates/layouts/index.html:615
+#: allthethings/templates/layouts/index.html:508
+#: allthethings/templates/layouts/index.html:524
+#: allthethings/templates/layouts/index.html:592
+#: allthethings/templates/layouts/index.html:618
 #, fuzzy
 msgid "layout.index.header.nav.faq"
 msgstr "Cwestiynau Cyffredin"
 
 #: allthethings/templates/layouts/index.html:495
-#: allthethings/templates/layouts/index.html:508
-#: allthethings/templates/layouts/index.html:523
-#: allthethings/templates/layouts/index.html:616
+#: allthethings/templates/layouts/index.html:509
+#: allthethings/templates/layouts/index.html:525
+#: allthethings/templates/layouts/index.html:619
 #, fuzzy
 msgid "layout.index.header.nav.improve_metadata"
 msgstr "Gwella metadata"
 
 #: allthethings/templates/layouts/index.html:496
-#: allthethings/templates/layouts/index.html:509
-#: allthethings/templates/layouts/index.html:524
-#: allthethings/templates/layouts/index.html:617
+#: allthethings/templates/layouts/index.html:510
+#: allthethings/templates/layouts/index.html:526
+#: allthethings/templates/layouts/index.html:620
 #, fuzzy
 msgid "layout.index.header.nav.volunteering"
 msgstr "Gwirfoddoli & Gwobrau"
 
 #: allthethings/templates/layouts/index.html:497
-#: allthethings/templates/layouts/index.html:510
-#: allthethings/templates/layouts/index.html:525
-#: allthethings/templates/layouts/index.html:618
+#: allthethings/templates/layouts/index.html:511
+#: allthethings/templates/layouts/index.html:527
+#: allthethings/templates/layouts/index.html:621
 #, fuzzy
 msgid "layout.index.header.nav.datasets"
 msgstr "Setiau Data"
 
 #: allthethings/templates/layouts/index.html:498
-#: allthethings/templates/layouts/index.html:511
-#: allthethings/templates/layouts/index.html:526
-#: allthethings/templates/layouts/index.html:619
+#: allthethings/templates/layouts/index.html:512
+#: allthethings/templates/layouts/index.html:528
+#: allthethings/templates/layouts/index.html:622
 #, fuzzy
 msgid "layout.index.header.nav.torrents"
 msgstr "Torrents"
 
-#: allthethings/templates/layouts/index.html:499
-#: allthethings/templates/layouts/index.html:512
-#: allthethings/templates/layouts/index.html:527
-#: allthethings/templates/layouts/index.html:620
+#: allthethings/templates/layouts/index.html:500
+#: allthethings/templates/layouts/index.html:514
+#: allthethings/templates/layouts/index.html:530
+#: allthethings/templates/layouts/index.html:624
 #, fuzzy
 msgid "layout.index.header.nav.codes"
 msgstr "Archwiliwr Codau"
 
-#: allthethings/templates/layouts/index.html:500
-#: allthethings/templates/layouts/index.html:513
-#: allthethings/templates/layouts/index.html:528
-#: allthethings/templates/layouts/index.html:621
+#: allthethings/templates/layouts/index.html:501
+#: allthethings/templates/layouts/index.html:515
+#: allthethings/templates/layouts/index.html:531
+#: allthethings/templates/layouts/index.html:625
 #, fuzzy
 msgid "layout.index.header.nav.llm_data"
 msgstr "Data LLM"
 
-#: allthethings/templates/layouts/index.html:501
-#: allthethings/templates/layouts/index.html:514
-#: allthethings/templates/layouts/index.html:519
-#: allthethings/templates/layouts/index.html:586
+#: allthethings/templates/layouts/index.html:502
+#: allthethings/templates/layouts/index.html:516
+#: allthethings/templates/layouts/index.html:521
+#: allthethings/templates/layouts/index.html:589
 #, fuzzy
 msgid "layout.index.header.nav.home"
 msgstr "Hafan"
 
-#: allthethings/templates/layouts/index.html:530
-#: allthethings/templates/layouts/index.html:609
+#: allthethings/templates/layouts/index.html:533
+#: allthethings/templates/layouts/index.html:612
 #, fuzzy
 msgid "layout.index.header.nav.annassoftware"
 msgstr "Meddalwedd Anna ↗"
 
-#: allthethings/templates/layouts/index.html:531
-#: allthethings/templates/layouts/index.html:610
+#: allthethings/templates/layouts/index.html:534
+#: allthethings/templates/layouts/index.html:613
 #, fuzzy
 msgid "layout.index.header.nav.translate"
 msgstr "Cyfieithu ↗"
 
-#: allthethings/templates/layouts/index.html:544
-#: allthethings/templates/layouts/index.html:548
-#: allthethings/templates/layouts/index.html:553
+#: allthethings/templates/layouts/index.html:547
+#: allthethings/templates/layouts/index.html:551
+#: allthethings/templates/layouts/index.html:556
 #, fuzzy
 msgid "layout.index.header.nav.login_register"
 msgstr "Mewngofnodi / Cofrestru"
 
-#: allthethings/templates/layouts/index.html:560
-#: allthethings/templates/layouts/index.html:567
-#: allthethings/templates/layouts/index.html:572
+#: allthethings/templates/layouts/index.html:563
+#: allthethings/templates/layouts/index.html:570
+#: allthethings/templates/layouts/index.html:575
 #, fuzzy
 msgid "layout.index.header.nav.account"
 msgstr "Cyfrif"
 
-#: allthethings/templates/layouts/index.html:585
+#: allthethings/templates/layouts/index.html:588
 #, fuzzy
 msgid "layout.index.footer.list1.header"
 msgstr "Archif Anna"
 
-#: allthethings/templates/layouts/index.html:604
+#: allthethings/templates/layouts/index.html:607
 #, fuzzy
 msgid "layout.index.footer.list2.header"
 msgstr "Cadwch mewn cysylltiad"
 
-#: allthethings/templates/layouts/index.html:606
+#: allthethings/templates/layouts/index.html:609
 #, fuzzy
 msgid "layout.index.footer.list2.dmca_copyright"
 msgstr "Hawliadau DMCA / hawlfraint"
 
-#: allthethings/templates/layouts/index.html:607
+#: allthethings/templates/layouts/index.html:610
 #, fuzzy
 msgid "layout.index.footer.list2.reddit"
 msgstr "Reddit"
 
-#: allthethings/templates/layouts/index.html:607
+#: allthethings/templates/layouts/index.html:610
 #, fuzzy
 msgid "layout.index.footer.list2.telegram"
 msgstr "Telegram"
 
-#: allthethings/templates/layouts/index.html:614
+#: allthethings/templates/layouts/index.html:617
 #, fuzzy
 msgid "layout.index.header.nav.advanced"
 msgstr "Uwch"
 
-#: allthethings/templates/layouts/index.html:622
+#: allthethings/templates/layouts/index.html:626
 #, fuzzy
 msgid "layout.index.header.nav.security"
 msgstr "Diogelwch"
 
-#: allthethings/templates/layouts/index.html:626
+#: allthethings/templates/layouts/index.html:630
 #, fuzzy
 msgid "layout.index.footer.list3.header"
 msgstr "Dewisiadau Amgen"
 
-#: allthethings/templates/layouts/index.html:630
+#: allthethings/templates/layouts/index.html:634
 #, fuzzy
 msgid "layout.index.footer.list3.link.slum"
 msgstr "SLUM (%(unaffiliated)s)"
 
-#: allthethings/templates/layouts/index.html:630
+#: allthethings/templates/layouts/index.html:634
 #, fuzzy
 msgid "layout.index.footer.list3.link.unaffiliated"
 msgstr "anghyfaffiliated"
 
-#: allthethings/templates/macros/aarecord_list.html:90
-#: allthethings/templates/macros/aarecord_list.html:125
+#: allthethings/templates/macros/aarecord_list.html:92
+#: allthethings/templates/macros/aarecord_list.html:127
 #, fuzzy
 msgid "page.search.results.issues"
 msgstr "❌ Efallai bod problemau gyda'r ffeil hon."
 
-#: allthethings/templates/macros/aarecord_list.html:116
-#, fuzzy
-msgid "page.search.results.download_time"
-msgstr "Amser lawrlwytho"
-
-#: allthethings/templates/macros/aarecord_list.html:116
+#: allthethings/templates/macros/aarecord_list.html:118
 #, fuzzy
 msgid "page.search.results.fast_download"
 msgstr "Lawrlwytho cyflym"
@@ -7063,4 +7105,7 @@ msgstr "Nesaf"
 
 #~ msgid "common.md5.servers.fast_partner.recommended"
 #~ msgstr "(%(recommended)s)"
+
+#~ msgid "page.datasets.upload.source.alexandrina"
+#~ msgstr "O gasgliad <a %(a_href)s><q>Bibliotheca Alexandrina,</q></a> tarddiad uniongyrchol yn aneglur. Yn rhannol o the-eye.eu, yn rhannol o ffynonellau eraill."
 

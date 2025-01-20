@@ -144,17 +144,17 @@ msgstr "Dzirkstošais Datuvācējs"
 msgid "common.membership.tier_name.5"
 msgstr "Apbrīnojamais Arhīvists"
 
-#: allthethings/utils.py:641
+#: allthethings/utils.py:656
 #, fuzzy
 msgid "common.membership.format_currency.total"
 msgstr "%(amount)s kopā"
 
-#: allthethings/utils.py:648
+#: allthethings/utils.py:663
 #, fuzzy
 msgid "common.membership.format_currency.total_with_usd"
 msgstr "%(amount)s (%(amount_usd)s) kopā"
 
-#: allthethings/utils.py:650 allthethings/utils.py:651
+#: allthethings/utils.py:665 allthethings/utils.py:666
 #, fuzzy
 msgid "common.membership.format_currency.amount_with_usd"
 msgstr "%(amount)s (%(amount_usd)s)"
@@ -325,7 +325,7 @@ msgid "page.donate.expert.contact_us"
 msgstr "sazinieties ar mums"
 
 #: allthethings/account/templates/account/donate.html:101
-#: allthethings/account/templates/account/donation.html:716
+#: allthethings/account/templates/account/donation.html:766
 #: allthethings/page/templates/page/contact.html:22
 #, fuzzy
 msgid "page.donate.small_team"
@@ -372,7 +372,7 @@ msgid "page.donate.payment.select_method"
 msgstr "Lūdzu, izvēlieties maksājuma metodi."
 
 #: allthethings/account/templates/account/donate.html:132
-#: allthethings/account/templates/account/donate.html:503
+#: allthethings/account/templates/account/donate.html:507
 #, fuzzy
 msgid "page.donate.discount"
 msgstr "-%(percentage)s%%"
@@ -391,238 +391,229 @@ msgid "page.donate.payment.buttons.amazon_cc"
 msgstr "%(amazon)s dāvanu karte"
 
 #: allthethings/account/templates/account/donate.html:152
+#: allthethings/account/templates/account/donate.html:153
+#: allthethings/account/templates/account/donate.html:154
 #, fuzzy
 msgid "page.donate.payment.buttons.bank_card_app"
 msgstr "Bankas karte (izmantojot lietotni)"
 
-#: allthethings/account/templates/account/donate.html:153
-#: allthethings/account/templates/account/donate.html:163
-#: allthethings/account/templates/account/donate.html:164
-#: allthethings/account/templates/account/donate.html:450
+#: allthethings/account/templates/account/donate.html:155
+#: allthethings/account/templates/account/donate.html:165
+#: allthethings/account/templates/account/donate.html:166
+#: allthethings/account/templates/account/donate.html:454
 #, fuzzy
 msgid "page.donate.payment.buttons.crypto"
 msgstr "Kriptovalūta %(bitcoin_icon)s"
 
-#: allthethings/account/templates/account/donate.html:155
+#: allthethings/account/templates/account/donate.html:157
 #, fuzzy
 msgid "page.donate.payment.buttons.credit_debit"
 msgstr "Kredītkarte/debetkarte"
 
-#: allthethings/account/templates/account/donate.html:156
+#: allthethings/account/templates/account/donate.html:158
 #, fuzzy
 msgid "page.donate.payment.buttons.paypal"
 msgstr "PayPal (ASV) %(bitcoin_icon)s"
 
-#: allthethings/account/templates/account/donate.html:157
+#: allthethings/account/templates/account/donate.html:159
 #, fuzzy
 msgid "page.donate.payment.buttons.paypalreg"
 msgstr "PayPal (regulārs)"
 
-#: allthethings/account/templates/account/donate.html:158
+#: allthethings/account/templates/account/donate.html:160
 #, fuzzy
 msgid "page.donate.payment.buttons.givebutter"
 msgstr "Karte / PayPal / Venmo"
 
-#: allthethings/account/templates/account/donate.html:160
+#: allthethings/account/templates/account/donate.html:162
 #, fuzzy
 msgid "page.donate.payment.buttons.bmc"
 msgstr "Kredītkarte/debetkarte/Apple/Google (BMC)"
 
-#: allthethings/account/templates/account/donate.html:161
-#: allthethings/account/templates/account/donate.html:201
-#: allthethings/account/templates/account/donate.html:210
-#: allthethings/account/templates/account/donate.html:211
-#: allthethings/account/templates/account/donate.html:444
+#: allthethings/account/templates/account/donate.html:163
+#: allthethings/account/templates/account/donate.html:203
+#: allthethings/account/templates/account/donate.html:213
+#: allthethings/account/templates/account/donate.html:214
+#: allthethings/account/templates/account/donate.html:448
 #, fuzzy
 msgid "page.donate.payment.buttons.alipay"
 msgstr "Alipay"
 
-#: allthethings/account/templates/account/donate.html:162
+#: allthethings/account/templates/account/donate.html:164
 #, fuzzy
 msgid "page.donate.payment.buttons.pix"
 msgstr "Pix (Brazil)"
 
-#: allthethings/account/templates/account/donate.html:166
+#: allthethings/account/templates/account/donate.html:168
 #, fuzzy
 msgid "page.donate.payment.buttons.cashapp"
 msgstr "Cash App"
 
-#: allthethings/account/templates/account/donate.html:167
+#: allthethings/account/templates/account/donate.html:169
 #, fuzzy
 msgid "page.donate.payment.buttons.revolut"
 msgstr "Revolut"
 
-#: allthethings/account/templates/account/donate.html:168
+#: allthethings/account/templates/account/donate.html:170
 #, fuzzy
 msgid "page.donate.payment.buttons.paypal_plain"
 msgstr "PayPal"
 
-#: allthethings/account/templates/account/donate.html:169
+#: allthethings/account/templates/account/donate.html:171
 #, fuzzy
 msgid "page.donate.payment.buttons.bank_card"
 msgstr "Bankas karte"
 
-#: allthethings/account/templates/account/donate.html:170
+#: allthethings/account/templates/account/donate.html:172
 #, fuzzy
 msgid "page.donate.payment.buttons.credit_debit_backup"
 msgstr "Kredītkarte/debetkarte (rezerves)"
 
-#: allthethings/account/templates/account/donate.html:171
+#: allthethings/account/templates/account/donate.html:173
 #, fuzzy
 msgid "page.donate.payment.buttons.credit_debit2"
 msgstr "Kredītkarte/debetkarte 2"
 
-#: allthethings/account/templates/account/donate.html:173
+#: allthethings/account/templates/account/donate.html:175
 #, fuzzy
 msgid "page.donate.payment.buttons.binance"
 msgstr "Binance"
 
-#: allthethings/account/templates/account/donate.html:200
-#: allthethings/account/templates/account/donate.html:204
-#: allthethings/account/templates/account/donate.html:205
-#: allthethings/account/templates/account/donate.html:447
+#: allthethings/account/templates/account/donate.html:202
+#: allthethings/account/templates/account/donate.html:206
+#: allthethings/account/templates/account/donate.html:207
+#: allthethings/account/templates/account/donate.html:451
 #, fuzzy
 msgid "page.donate.payment.buttons.wechat"
 msgstr "WeChat"
 
-#: allthethings/account/templates/account/donate.html:215
-#: allthethings/account/templates/account/donate.html:216
+#: allthethings/account/templates/account/donate.html:219
+#: allthethings/account/templates/account/donate.html:220
 #, fuzzy
 msgid "page.donate.payment.buttons.alipay_wechat"
 msgstr "Alipay 支付宝 / WeChat 微信"
 
-#: allthethings/account/templates/account/donate.html:235
+#: allthethings/account/templates/account/donate.html:239
 #, fuzzy
 msgid "page.donate.payment.desc.crypto"
 msgstr "Ar kriptovalūtu jūs varat ziedot, izmantojot BTC, ETH, XMR un SOL. Izmantojiet šo iespēju, ja jau esat pazīstams ar kriptovalūtu."
 
-#: allthethings/account/templates/account/donate.html:239
+#: allthethings/account/templates/account/donate.html:243
 #, fuzzy
 msgid "page.donate.payment.desc.crypto2"
 msgstr "Ar kriptovalūtu jūs varat ziedot, izmantojot BTC, ETH, XMR un citas."
 
-#: allthethings/account/templates/account/donate.html:242
-#: allthethings/account/templates/account/donate.html:452
+#: allthethings/account/templates/account/donate.html:246
+#: allthethings/account/templates/account/donate.html:456
 #, fuzzy
 msgid "page.donate.payment.desc.crypto_suggestion_dynamic"
 msgstr "Ja jūs pirmo reizi izmantojat kriptovalūtu, mēs iesakām izmantot %(options)s, lai iegādātos un ziedotu Bitcoin (oriģinālo un visbiežāk izmantoto kriptovalūtu)."
 
-#: allthethings/account/templates/account/donate.html:245
-#: allthethings/account/templates/account/donate.html:455
+#: allthethings/account/templates/account/donate.html:249
+#: allthethings/account/templates/account/donate.html:459
 #, fuzzy
 msgid "page.donate.payment.processor.binance"
 msgstr "Binance"
 
-#: allthethings/account/templates/account/donate.html:246
-#: allthethings/account/templates/account/donate.html:456
+#: allthethings/account/templates/account/donate.html:250
+#: allthethings/account/templates/account/donate.html:460
 #, fuzzy
 msgid "page.donate.payment.processor.coinbase"
 msgstr "Coinbase"
 
-#: allthethings/account/templates/account/donate.html:247
-#: allthethings/account/templates/account/donate.html:457
+#: allthethings/account/templates/account/donate.html:251
+#: allthethings/account/templates/account/donate.html:461
 #, fuzzy
 msgid "page.donate.payment.processor.kraken"
 msgstr "Kraken"
 
-#: allthethings/account/templates/account/donate.html:255
+#: allthethings/account/templates/account/donate.html:259
 #, fuzzy
 msgid "page.donate.payment.desc.paypal"
 msgstr "Lai ziedotu, izmantojot PayPal US, mēs izmantosim PayPal Crypto, kas ļauj mums palikt anonīmiem. Mēs novērtējam, ka veltāt laiku, lai iemācītos ziedot, izmantojot šo metodi, jo tas mums ļoti palīdz."
 
-#: allthethings/account/templates/account/donate.html:256
+#: allthethings/account/templates/account/donate.html:260
 #, fuzzy
 msgid "page.donate.payment.desc.paypal_short"
 msgstr "Ziedojiet, izmantojot PayPal."
 
-#: allthethings/account/templates/account/donate.html:262
+#: allthethings/account/templates/account/donate.html:266
 #, fuzzy
 msgid "page.donate.payment.desc.cashapp"
 msgstr "Ziedot, izmantojot Cash App."
 
-#: allthethings/account/templates/account/donate.html:263
+#: allthethings/account/templates/account/donate.html:267
 #, fuzzy
 msgid "page.donate.payment.desc.cashapp_easy"
 msgstr "Ja jums ir Cash App, tas ir vienkāršākais veids, kā ziedot!"
 
-#: allthethings/account/templates/account/donate.html:266
-#: allthethings/account/templates/account/donate.html:276
+#: allthethings/account/templates/account/donate.html:270
+#: allthethings/account/templates/account/donate.html:280
 #, fuzzy
 msgid "page.donate.payment.desc.cashapp_fee"
 msgstr "Ņemiet vērā, ka par darījumiem, kas ir mazāki par %(amount)s, Cash App var iekasēt %(fee)s maksu. Par %(amount)s vai vairāk, tas ir bez maksas!"
 
-#: allthethings/account/templates/account/donate.html:272
+#: allthethings/account/templates/account/donate.html:276
 #, fuzzy
 msgid "page.donate.payment.desc.revolut"
 msgstr "Ziedot, izmantojot Revolut."
 
-#: allthethings/account/templates/account/donate.html:273
+#: allthethings/account/templates/account/donate.html:277
 #, fuzzy
 msgid "page.donate.payment.desc.revolut_easy"
 msgstr "Ja jums ir Revolut, tas ir visvieglākais veids, kā ziedot!"
 
-#: allthethings/account/templates/account/donate.html:282
-#: allthethings/account/templates/account/donate.html:398
+#: allthethings/account/templates/account/donate.html:286
+#: allthethings/account/templates/account/donate.html:402
 #, fuzzy
 msgid "page.donate.payment.desc.credit_debit"
 msgstr "Ziedot ar kredītkarti vai debetkarti."
 
-#: allthethings/account/templates/account/donate.html:283
+#: allthethings/account/templates/account/donate.html:287
 #, fuzzy
 msgid "page.donate.payment.desc.google_apple"
 msgstr "Google Pay un Apple Pay arī varētu darboties."
 
-#: allthethings/account/templates/account/donate.html:284
+#: allthethings/account/templates/account/donate.html:288
 #, fuzzy
 msgid "page.donate.payment.desc.elimate_discount"
 msgstr "Ņemiet vērā, ka mazu ziedojumu gadījumā kredītkartes maksas var iznīcināt mūsu %(discount)s%% atlaidi, tāpēc mēs iesakām ilgākus abonementus."
 
-#: allthethings/account/templates/account/donate.html:285
+#: allthethings/account/templates/account/donate.html:289
 #, fuzzy
 msgid "page.donate.payment.desc.longer_subs"
 msgstr "Ņemiet vērā, ka mazu ziedojumu gadījumā maksas ir augstas, tāpēc mēs iesakām ilgākus abonementus."
 
-#: allthethings/account/templates/account/donate.html:291
+#: allthethings/account/templates/account/donate.html:295
 #, fuzzy
 msgid "page.donate.payment.desc.binance_p1"
 msgstr "Ar Binance jūs pērkat Bitcoin ar kredītkarti/debetkarti vai bankas kontu un pēc tam ziedojat šo Bitcoin mums. Tādā veidā mēs varam palikt droši un anonīmi, pieņemot jūsu ziedojumu."
 
-#: allthethings/account/templates/account/donate.html:295
+#: allthethings/account/templates/account/donate.html:299
 #, fuzzy
 msgid "page.donate.payment.desc.binance_p2"
 msgstr "Binance ir pieejams gandrīz katrā valstī un atbalsta lielāko daļu banku un kredītkartes/debetkartes. Šobrīd tas ir mūsu galvenais ieteikums. Mēs novērtējam, ka jūs veltāt laiku, lai iemācītos ziedot, izmantojot šo metodi, jo tas mums ļoti palīdz."
 
-#: allthethings/account/templates/account/donate.html:301
+#: allthethings/account/templates/account/donate.html:305
 #, fuzzy
 msgid "page.donate.payment.desc.paypalreg"
 msgstr "Ziedot, izmantojot savu regulāro PayPal kontu."
 
-#: allthethings/account/templates/account/donate.html:307
+#: allthethings/account/templates/account/donate.html:311
 #, fuzzy
 msgid "page.donate.payment.desc.givebutter"
 msgstr "Ziedot, izmantojot kredītkarti/debetkarti, PayPal vai Venmo. Jūs varat izvēlēties starp šiem nākamajā lapā."
 
-#: allthethings/account/templates/account/donate.html:313
-#: allthethings/account/templates/account/donate.html:325
-#: allthethings/account/templates/account/donate.html:337
-#: allthethings/account/templates/account/donate.html:349
-#: allthethings/account/templates/account/donate.html:361
-#: allthethings/account/templates/account/donate.html:373
-#: allthethings/account/templates/account/donate.html:385
+#: allthethings/account/templates/account/donate.html:317
+#: allthethings/account/templates/account/donate.html:329
+#: allthethings/account/templates/account/donate.html:341
+#: allthethings/account/templates/account/donate.html:353
+#: allthethings/account/templates/account/donate.html:365
+#: allthethings/account/templates/account/donate.html:377
+#: allthethings/account/templates/account/donate.html:389
 #, fuzzy
 msgid "page.donate.payment.desc.amazon"
 msgstr "Ziedot, izmantojot Amazon dāvanu karti."
-
-#: allthethings/account/templates/account/donate.html:314
-#: allthethings/account/templates/account/donate.html:326
-#: allthethings/account/templates/account/donate.html:338
-#: allthethings/account/templates/account/donate.html:350
-#: allthethings/account/templates/account/donate.html:362
-#: allthethings/account/templates/account/donate.html:374
-#: allthethings/account/templates/account/donate.html:386
-#, fuzzy
-msgid "page.donate.payment.desc.amazon_round"
-msgstr "Ņemiet vērā, ka mums ir jānoapaļo summas, ko pieņem mūsu tālākpārdevēji (minimums %(minimum)s)."
 
 #: allthethings/account/templates/account/donate.html:318
 #: allthethings/account/templates/account/donate.html:330
@@ -631,366 +622,377 @@ msgstr "Ņemiet vērā, ka mums ir jānoapaļo summas, ko pieņem mūsu tālākp
 #: allthethings/account/templates/account/donate.html:366
 #: allthethings/account/templates/account/donate.html:378
 #: allthethings/account/templates/account/donate.html:390
-#: allthethings/account/templates/account/donation.html:373
+#, fuzzy
+msgid "page.donate.payment.desc.amazon_round"
+msgstr "Ņemiet vērā, ka mums ir jānoapaļo summas, ko pieņem mūsu tālākpārdevēji (minimums %(minimum)s)."
+
+#: allthethings/account/templates/account/donate.html:322
+#: allthethings/account/templates/account/donate.html:334
+#: allthethings/account/templates/account/donate.html:346
+#: allthethings/account/templates/account/donate.html:358
+#: allthethings/account/templates/account/donate.html:370
+#: allthethings/account/templates/account/donate.html:382
+#: allthethings/account/templates/account/donate.html:394
+#: allthethings/account/templates/account/donation.html:405
 #, fuzzy
 msgid "page.donate.payment.desc.amazon_com"
 msgstr "<strong>SVARĪGI:</strong> Mēs atbalstām tikai Amazon.com, nevis citus Amazon tīmekļa vietnes. Piemēram, .de, .co.uk, .ca, NAV atbalstīti."
 
-#: allthethings/account/templates/account/donate.html:319
-#: allthethings/account/templates/account/donate.html:331
-#: allthethings/account/templates/account/donate.html:343
-#: allthethings/account/templates/account/donate.html:355
-#: allthethings/account/templates/account/donate.html:367
-#: allthethings/account/templates/account/donate.html:379
-#: allthethings/account/templates/account/donate.html:391
+#: allthethings/account/templates/account/donate.html:323
+#: allthethings/account/templates/account/donate.html:335
+#: allthethings/account/templates/account/donate.html:347
+#: allthethings/account/templates/account/donate.html:359
+#: allthethings/account/templates/account/donate.html:371
+#: allthethings/account/templates/account/donate.html:383
+#: allthethings/account/templates/account/donate.html:395
 #, fuzzy
 msgid "page.donate.payment.desc.amazon_cc"
 msgstr "<strong>SVARĪGI:</strong> Šī opcija ir paredzēta %(amazon)s. Ja vēlaties izmantot citu Amazon vietni, izvēlieties to augstāk."
 
-#: allthethings/account/templates/account/donate.html:399
+#: allthethings/account/templates/account/donate.html:403
 #, fuzzy
 msgid "page.donate.payment.desc.credit_debit_backup"
 msgstr "Šī metode izmanto kriptovalūtas nodrošinātāju kā starpnieku konversijai. Tas var būt nedaudz mulsinoši, tāpēc, lūdzu, izmantojiet šo metodi tikai tad, ja citas maksājumu metodes nedarbojas. Tā arī nedarbojas visās valstīs."
 
-#: allthethings/account/templates/account/donate.html:405
+#: allthethings/account/templates/account/donate.html:409
 #, fuzzy
 msgid "page.donate.payment.desc.bank_card_app"
 msgstr "Ziedojiet, izmantojot kredītkarti/debetkarti, caur Alipay lietotni (ļoti viegli iestatīt)."
 
-#: allthethings/account/templates/account/donate.html:409
-#: allthethings/account/templates/account/donation.html:519
+#: allthethings/account/templates/account/donate.html:413
+#: allthethings/account/templates/account/donation.html:563
 #, fuzzy
 msgid "page.donate.payment.desc.bank_card_app.step1.header"
 msgstr "<span %(style)s>1</span>Instalējiet Alipay lietotni"
 
-#: allthethings/account/templates/account/donate.html:413
-#: allthethings/account/templates/account/donation.html:523
+#: allthethings/account/templates/account/donate.html:417
+#: allthethings/account/templates/account/donation.html:567
 #, fuzzy
 msgid "page.donate.payment.desc.bank_card_app.step1.desc1"
 msgstr "Instalējiet Alipay lietotni no <a %(a_app_store)s>Apple App Store</a> vai <a %(a_play_store)s>Google Play Store</a>."
 
-#: allthethings/account/templates/account/donate.html:417
-#: allthethings/account/templates/account/donation.html:527
+#: allthethings/account/templates/account/donate.html:421
+#: allthethings/account/templates/account/donation.html:571
 #, fuzzy
 msgid "page.donate.payment.desc.bank_card_app.step1.desc2"
 msgstr "Reģistrējieties, izmantojot savu tālruņa numuru."
 
-#: allthethings/account/templates/account/donate.html:418
-#: allthethings/account/templates/account/donation.html:528
+#: allthethings/account/templates/account/donate.html:422
+#: allthethings/account/templates/account/donation.html:572
 #, fuzzy
 msgid "page.donate.payment.desc.bank_card_app.step1.desc3"
 msgstr "Nav nepieciešama papildu personiskā informācija."
 
-#: allthethings/account/templates/account/donate.html:422
-#: allthethings/account/templates/account/donation.html:532
+#: allthethings/account/templates/account/donate.html:426
+#: allthethings/account/templates/account/donation.html:576
 #, fuzzy
 msgid "page.donate.payment.desc.bank_card_app.step2.header"
 msgstr "<span %(style)s>2</span>Pievienojiet bankas karti"
 
-#: allthethings/account/templates/account/donate.html:430
-#: allthethings/account/templates/account/donation.html:540
+#: allthethings/account/templates/account/donate.html:434
+#: allthethings/account/templates/account/donation.html:584
 #, fuzzy
 msgid "page.donate.payment.desc.bank_card_app.step2.desc1"
 msgstr "Atbalstītās: Visa, MasterCard, JCB, Diners Club un Discover."
 
-#: allthethings/account/templates/account/donate.html:431
-#: allthethings/account/templates/account/donation.html:541
+#: allthethings/account/templates/account/donate.html:435
+#: allthethings/account/templates/account/donation.html:585
 #, fuzzy
 msgid "page.donate.payment.desc.bank_card_app.step2.desc2"
 msgstr "Lai iegūtu vairāk informācijas, skatiet <a %(a_alipay)s>šo ceļvedi</a>."
 
-#: allthethings/account/templates/account/donate.html:437
+#: allthethings/account/templates/account/donate.html:441
 #, fuzzy
 msgid "page.donate.payment.desc.credit_debit_explained"
 msgstr "Mēs nevaram tieši atbalstīt kredītkartes/debetkartes, jo bankas nevēlas ar mums sadarboties. ☹ Tomēr ir vairāki veidi, kā izmantot kredītkartes/debetkartes, izmantojot citas maksājumu metodes:"
 
-#: allthethings/account/templates/account/donate.html:441
+#: allthethings/account/templates/account/donate.html:445
 #, fuzzy
 msgid "page.donate.payment.buttons.amazon"
 msgstr "Amazon dāvanu karte"
 
-#: allthethings/account/templates/account/donate.html:442
+#: allthethings/account/templates/account/donate.html:446
 #, fuzzy
 msgid "page.donate.ccexp.amazon_com"
 msgstr "Sūtiet mums Amazon.com dāvanu kartes, izmantojot savu kredītkarti/debetkarti."
 
-#: allthethings/account/templates/account/donate.html:445
+#: allthethings/account/templates/account/donate.html:449
 #, fuzzy
 msgid "page.donate.ccexp.alipay"
 msgstr "Alipay atbalsta starptautiskās kredītkartes/debetkartes. Skatiet <a %(a_alipay)s>šo ceļvedi</a> vairāk informācijas."
 
-#: allthethings/account/templates/account/donate.html:448
+#: allthethings/account/templates/account/donate.html:452
 #, fuzzy
 msgid "page.donate.ccexp.wechat"
 msgstr "WeChat (Weixin Pay) atbalsta starptautiskās kredītkartes/debetkartes. WeChat lietotnē dodieties uz “Me => Services => Wallet => Add a Card”. Ja to neredzat, aktivizējiet to, izmantojot “Me => Settings => General => Tools => Weixin Pay => Enable”."
 
-#: allthethings/account/templates/account/donate.html:451
+#: allthethings/account/templates/account/donate.html:455
 #, fuzzy
 msgid "page.donate.ccexp.crypto"
 msgstr "Jūs varat iegādāties kriptovalūtu, izmantojot kredītkartes/debetkartes."
 
-#: allthethings/account/templates/account/donate.html:461
+#: allthethings/account/templates/account/donate.html:465
 #, fuzzy
 msgid "page.donate.payment.desc.crypto_express_services"
 msgstr "Kripto ekspress pakalpojumi"
 
-#: allthethings/account/templates/account/donate.html:463
+#: allthethings/account/templates/account/donate.html:467
 #, fuzzy
 msgid "page.donation.ccexp.crypto_express_services.1"
 msgstr "Ekspress pakalpojumi ir ērti, bet tiem ir augstākas maksas."
 
-#: allthethings/account/templates/account/donate.html:464
+#: allthethings/account/templates/account/donate.html:468
 #, fuzzy
 msgid "page.donation.ccexp.crypto_express_services.2"
 msgstr "Jūs varat izmantot šo, nevis kripto biržu, ja vēlaties ātri veikt lielāku ziedojumu un jums nav iebildumu pret maksu $5-10."
 
-#: allthethings/account/templates/account/donate.html:467
+#: allthethings/account/templates/account/donate.html:471
 #, fuzzy
 msgid "page.donation.ccexp.crypto_express_services.3"
 msgstr "Pārliecinieties, ka nosūtāt precīzu kripto summu, kas norādīta ziedojumu lapā, nevis summu $USD."
 
-#: allthethings/account/templates/account/donate.html:468
+#: allthethings/account/templates/account/donate.html:472
 #, fuzzy
 msgid "page.donation.ccexp.crypto_express_services.4"
 msgstr "Pretējā gadījumā maksa tiks atskaitīta, un mēs nevarēsim automātiski apstrādāt jūsu dalību."
 
-#: allthethings/account/templates/account/donate.html:471
-#: allthethings/account/templates/account/donation.html:304
+#: allthethings/account/templates/account/donate.html:475
+#: allthethings/account/templates/account/donation.html:328
 #, fuzzy
 msgid "page.donation.payment2cc.method.paybis"
 msgstr "(minimums: %(minimum)s)"
 
-#: allthethings/account/templates/account/donate.html:472
-#: allthethings/account/templates/account/donation.html:305
+#: allthethings/account/templates/account/donate.html:476
+#: allthethings/account/templates/account/donation.html:329
 #, fuzzy
 msgid "page.donation.payment2cc.method.switchere"
 msgstr "(minimums: %(minimum)s atkarībā no valsts, nav nepieciešama verifikācija pirmajai transakcijai)"
 
-#: allthethings/account/templates/account/donate.html:473
-#: allthethings/account/templates/account/donation.html:306
+#: allthethings/account/templates/account/donate.html:477
+#: allthethings/account/templates/account/donation.html:330
 #, fuzzy
 msgid "page.donation.payment2cc.method.munzen"
 msgstr "(minimums: %(minimum)s, nav nepieciešama verifikācija pirmajai transakcijai)"
 
-#: allthethings/account/templates/account/donate.html:474
-#: allthethings/account/templates/account/donation.html:307
+#: allthethings/account/templates/account/donate.html:478
+#: allthethings/account/templates/account/donation.html:331
 #, fuzzy
 msgid "page.donation.payment2cc.method.mercuryo"
 msgstr "(minimums: %(minimum)s)"
 
-#: allthethings/account/templates/account/donate.html:475
-#: allthethings/account/templates/account/donation.html:308
+#: allthethings/account/templates/account/donate.html:479
+#: allthethings/account/templates/account/donation.html:332
 #, fuzzy
 msgid "page.donation.payment2cc.method.moonpay"
 msgstr "(minimums: %(minimum)s)"
 
-#: allthethings/account/templates/account/donate.html:476
-#: allthethings/account/templates/account/donation.html:309
+#: allthethings/account/templates/account/donate.html:480
+#: allthethings/account/templates/account/donation.html:333
 #, fuzzy
 msgid "page.donation.payment2cc.method.coingate"
 msgstr "(minimums: %(minimum)s, nav nepieciešama verifikācija pirmajai transakcijai)"
 
-#: allthethings/account/templates/account/donate.html:478
-#: allthethings/account/templates/account/donation.html:311
+#: allthethings/account/templates/account/donate.html:482
+#: allthethings/account/templates/account/donation.html:335
 #, fuzzy
 msgid "page.donation.payment2cc.cc2btc.outdated"
 msgstr "Ja kāda no šīm informācijām ir novecojusi, lūdzu, rakstiet mums e-pastu, lai mēs to varētu atjaunināt."
 
-#: allthethings/account/templates/account/donate.html:485
+#: allthethings/account/templates/account/donate.html:489
 #, fuzzy
 msgid "page.donate.payment.desc.bmc"
 msgstr "Kredītkartēm, debetkartēm, Apple Pay un Google Pay mēs izmantojam “Buy Me a Coffee” (BMC <span class=\"icon-[ph--coffee-fill] text-lg align-text-bottom\"></span>). Viņu sistēmā viena “kafija” ir vienāda ar $5, tāpēc jūsu ziedojums tiks noapaļots līdz tuvākajam 5 reizinājumam."
 
-#: allthethings/account/templates/account/donate.html:492
+#: allthethings/account/templates/account/donate.html:496
 #, fuzzy
 msgid "page.donate.duration.intro"
 msgstr "Izvēlieties, cik ilgi vēlaties abonēt."
 
-#: allthethings/account/templates/account/donate.html:509
+#: allthethings/account/templates/account/donate.html:513
 #, fuzzy
 msgid "page.donate.duration.1_mo"
 msgstr "1 mēnesis"
 
-#: allthethings/account/templates/account/donate.html:510
+#: allthethings/account/templates/account/donate.html:514
 #, fuzzy
 msgid "page.donate.duration.3_mo"
 msgstr "3 mēneši"
 
-#: allthethings/account/templates/account/donate.html:511
+#: allthethings/account/templates/account/donate.html:515
 #, fuzzy
 msgid "page.donate.duration.6_mo"
 msgstr "6 mēneši"
 
-#: allthethings/account/templates/account/donate.html:512
+#: allthethings/account/templates/account/donate.html:516
 #, fuzzy
 msgid "page.donate.duration.12_mo"
 msgstr "12 mēneši"
 
-#: allthethings/account/templates/account/donate.html:513
+#: allthethings/account/templates/account/donate.html:517
 #, fuzzy
 msgid "page.donate.duration.24_mo"
 msgstr "24 mēneši"
 
-#: allthethings/account/templates/account/donate.html:514
+#: allthethings/account/templates/account/donate.html:518
 #, fuzzy
 msgid "page.donate.duration.48_mo"
 msgstr "48 mēneši"
 
-#: allthethings/account/templates/account/donate.html:515
+#: allthethings/account/templates/account/donate.html:519
 #, fuzzy
 msgid "page.donate.duration.96_mo"
 msgstr "96 mēneši"
 
-#: allthethings/account/templates/account/donate.html:518
+#: allthethings/account/templates/account/donate.html:522
 #, fuzzy
 msgid "page.donate.duration.summary"
 msgstr "<div %(div_monthly_cost)s></div><div %(div_after)s>pēc <span %(span_discount)s></span> atlaidēm</div><div %(div_total)s></div><div %(div_duration)s></div>"
 
-#: allthethings/account/templates/account/donate.html:525
+#: allthethings/account/templates/account/donate.html:529
 #, fuzzy
 msgid "page.donate.payment.minimum_method"
 msgstr "Šī maksājuma metode prasa minimālo summu %(amount)s. Lūdzu, izvēlieties citu ilgumu vai maksājuma metodi."
 
-#: allthethings/account/templates/account/donate.html:526
 #: allthethings/account/templates/account/donate.html:530
+#: allthethings/account/templates/account/donate.html:534
 #, fuzzy
 msgid "page.donate.buttons.donate"
 msgstr "Ziedot"
 
-#: allthethings/account/templates/account/donate.html:529
+#: allthethings/account/templates/account/donate.html:533
 #, fuzzy
 msgid "page.donate.payment.maximum_method"
 msgstr "Šī maksājuma metode atļauj maksimālo summu %(amount)s. Lūdzu, izvēlieties citu ilgumu vai maksājuma metodi."
 
-#: allthethings/account/templates/account/donate.html:536
+#: allthethings/account/templates/account/donate.html:540
 #, fuzzy
 msgid "page.donate.login2"
 msgstr "Lai kļūtu par biedru, lūdzu, <a %(a_login)s>Piesakieties vai Reģistrējieties</a>. Paldies par jūsu atbalstu!"
 
-#: allthethings/account/templates/account/donate.html:543
+#: allthethings/account/templates/account/donate.html:547
 #, fuzzy
 msgid "page.donate.payment.crypto_select"
 msgstr "Izvēlieties savu vēlamo kriptovalūtu:"
 
-#: allthethings/account/templates/account/donate.html:548
+#: allthethings/account/templates/account/donate.html:552
 #, fuzzy
 msgid "page.donate.currency_lowest_minimum"
 msgstr "(zemākā minimālā summa)"
 
-#: allthethings/account/templates/account/donate.html:551
+#: allthethings/account/templates/account/donate.html:555
 #, fuzzy
 msgid "page.donate.coinbase_eth"
 msgstr "(izmantojiet, sūtot Ethereum no Coinbase)"
 
-#: allthethings/account/templates/account/donate.html:563
-#: allthethings/account/templates/account/donate.html:564
+#: allthethings/account/templates/account/donate.html:567
 #: allthethings/account/templates/account/donate.html:568
-#: allthethings/account/templates/account/donate.html:570
+#: allthethings/account/templates/account/donate.html:572
+#: allthethings/account/templates/account/donate.html:574
 #, fuzzy
 msgid "page.donate.currency_warning_high_minimum"
 msgstr "(brīdinājums: augsta minimālā summa)"
 
-#: allthethings/account/templates/account/donate.html:579
+#: allthethings/account/templates/account/donate.html:583
 #, fuzzy
 msgid "page.donate.submit.confirm"
 msgstr "Noklikšķiniet uz ziedojuma pogas, lai apstiprinātu šo ziedojumu."
 
-#: allthethings/account/templates/account/donate.html:587
+#: allthethings/account/templates/account/donate.html:591
 #, fuzzy
 msgid "page.donate.submit.button"
 msgstr "Ziedot <span %(span_cost)s></span> <span %(span_label)s></span>"
 
-#: allthethings/account/templates/account/donate.html:592
+#: allthethings/account/templates/account/donate.html:596
 #, fuzzy
 msgid "page.donate.submit.cancel_note"
 msgstr "Jūs joprojām varat atcelt ziedojumu izrakstīšanās laikā."
 
-#: allthethings/account/templates/account/donate.html:596
+#: allthethings/account/templates/account/donate.html:600
 #, fuzzy
 msgid "page.donate.submit.success"
 msgstr "✅ Pāradresācija uz ziedojumu lapu…"
 
-#: allthethings/account/templates/account/donate.html:597
+#: allthethings/account/templates/account/donate.html:601
 #, fuzzy
 msgid "page.donate.submit.failure"
 msgstr "❌ Kaut kas nogāja greizi. Lūdzu, pārlādējiet lapu un mēģiniet vēlreiz."
 
-#: allthethings/account/templates/account/donate.html:651
+#: allthethings/account/templates/account/donate.html:655
 #, fuzzy
 msgid "page.donate.duration.summary.discount"
 msgstr "%(percentage)s%%"
 
-#: allthethings/account/templates/account/donate.html:652
+#: allthethings/account/templates/account/donate.html:656
 #, fuzzy
 msgid "page.donate.duration.summary.monthly_cost"
 msgstr "%(monthly_cost)s / mēnesī"
 
-#: allthethings/account/templates/account/donate.html:655
+#: allthethings/account/templates/account/donate.html:659
 #, fuzzy
 msgid "page.donate.duration.summary.duration.1_mo"
 msgstr "uz 1 mēnesi"
 
-#: allthethings/account/templates/account/donate.html:656
+#: allthethings/account/templates/account/donate.html:660
 #, fuzzy
 msgid "page.donate.duration.summary.duration.3_mo"
 msgstr "uz 3 mēnešiem"
 
-#: allthethings/account/templates/account/donate.html:657
+#: allthethings/account/templates/account/donate.html:661
 #, fuzzy
 msgid "page.donate.duration.summary.duration.6_mo"
 msgstr "uz 6 mēnešiem"
 
-#: allthethings/account/templates/account/donate.html:658
+#: allthethings/account/templates/account/donate.html:662
 #, fuzzy
 msgid "page.donate.duration.summary.duration.12_mo"
 msgstr "uz 12 mēnešiem"
 
-#: allthethings/account/templates/account/donate.html:659
+#: allthethings/account/templates/account/donate.html:663
 #, fuzzy
 msgid "page.donate.duration.summary.duration.24_mo"
 msgstr "uz 24 mēnešiem"
 
-#: allthethings/account/templates/account/donate.html:660
+#: allthethings/account/templates/account/donate.html:664
 #, fuzzy
 msgid "page.donate.duration.summary.duration.48_mo"
 msgstr "uz 48 mēnešiem"
 
-#: allthethings/account/templates/account/donate.html:661
+#: allthethings/account/templates/account/donate.html:665
 #, fuzzy
 msgid "page.donate.duration.summary.duration.96_mo"
 msgstr "uz 96 mēnešiem"
 
-#: allthethings/account/templates/account/donate.html:665
+#: allthethings/account/templates/account/donate.html:669
 #, fuzzy
 msgid "page.donate.submit.button.label.1_mo"
 msgstr "uz 1 mēnesi “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:666
+#: allthethings/account/templates/account/donate.html:670
 #, fuzzy
 msgid "page.donate.submit.button.label.3_mo"
 msgstr "uz 3 mēnešiem “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:667
+#: allthethings/account/templates/account/donate.html:671
 #, fuzzy
 msgid "page.donate.submit.button.label.6_mo"
 msgstr "uz 6 mēnešiem “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:668
+#: allthethings/account/templates/account/donate.html:672
 #, fuzzy
 msgid "page.donate.submit.button.label.12_mo"
 msgstr "uz 12 mēnešiem “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:669
+#: allthethings/account/templates/account/donate.html:673
 #, fuzzy
 msgid "page.donate.submit.button.label.24_mo"
 msgstr "uz 24 mēnešiem “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:670
+#: allthethings/account/templates/account/donate.html:674
 #, fuzzy
 msgid "page.donate.submit.button.label.48_mo"
 msgstr "uz 48 mēnešiem “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:671
+#: allthethings/account/templates/account/donate.html:675
 #, fuzzy
 msgid "page.donate.submit.button.label.96_mo"
 msgstr "uz 96 mēnešiem “%(tier_name)s”"
@@ -1068,6 +1070,14 @@ msgstr "Jūs jau esat samaksājis. Ja vēlaties pārskatīt maksājuma instrukci
 
 #: allthethings/account/templates/account/donation.html:52
 #: allthethings/account/templates/account/donation.html:68
+#: allthethings/account/templates/account/donation.html:170
+#: allthethings/account/templates/account/donation.html:216
+#: allthethings/account/templates/account/donation.html:265
+#: allthethings/account/templates/account/donation.html:318
+#: allthethings/account/templates/account/donation.html:367
+#: allthethings/account/templates/account/donation.html:509
+#: allthethings/account/templates/account/donation.html:554
+#: allthethings/account/templates/account/donation.html:636
 #, fuzzy
 msgid "page.donation.old_instructions.show_button"
 msgstr "Rādīt vecās maksājuma instrukcijas"
@@ -1101,18 +1111,18 @@ msgstr "<strong>Svarīga piezīme:</strong> Kriptovalūtu cenas var svārstītie
 #: allthethings/account/templates/account/donation.html:95
 #: allthethings/account/templates/account/donation.html:116
 #: allthethings/account/templates/account/donation.html:167
-#: allthethings/account/templates/account/donation.html:207
-#: allthethings/account/templates/account/donation.html:250
-#: allthethings/account/templates/account/donation.html:297
-#: allthethings/account/templates/account/donation.html:340
-#: allthethings/account/templates/account/donation.html:407
-#: allthethings/account/templates/account/donation.html:423
-#: allthethings/account/templates/account/donation.html:441
-#: allthethings/account/templates/account/donation.html:457
-#: allthethings/account/templates/account/donation.html:474
-#: allthethings/account/templates/account/donation.html:513
-#: allthethings/account/templates/account/donation.html:589
-#: allthethings/account/templates/account/donation.html:619
+#: allthethings/account/templates/account/donation.html:213
+#: allthethings/account/templates/account/donation.html:262
+#: allthethings/account/templates/account/donation.html:315
+#: allthethings/account/templates/account/donation.html:364
+#: allthethings/account/templates/account/donation.html:439
+#: allthethings/account/templates/account/donation.html:455
+#: allthethings/account/templates/account/donation.html:473
+#: allthethings/account/templates/account/donation.html:489
+#: allthethings/account/templates/account/donation.html:506
+#: allthethings/account/templates/account/donation.html:551
+#: allthethings/account/templates/account/donation.html:633
+#: allthethings/account/templates/account/donation.html:669
 #, fuzzy
 msgid "page.donation.expired"
 msgstr "Šis ziedojums ir beidzies. Lūdzu, atceliet un izveidojiet jaunu."
@@ -1138,7 +1148,7 @@ msgid "page.donate.submit.header1"
 msgstr "<span %(span_circle)s>1</span>Pērciet Bitcoin vietnē Paypal"
 
 #: allthethings/account/templates/account/donation.html:122
-#: allthethings/account/templates/account/donation.html:173
+#: allthethings/account/templates/account/donation.html:179
 #, fuzzy
 msgid "page.donate.one_time_payment.paypal.text2"
 msgstr "Atrodiet “Kripto” lapu savā PayPal lietotnē vai vietnē. Parasti tā atrodas sadaļā “Finanses”."
@@ -1164,7 +1174,7 @@ msgid "page.donation.payment.paypal.text5"
 msgstr "Ievadiet mūsu Bitcoin (BTC) adresi kā saņēmēju un izpildiet norādījumus, lai nosūtītu savu ziedojumu %(total)s:"
 
 #: allthethings/account/templates/account/donation.html:140
-#: allthethings/account/templates/account/donation.html:293
+#: allthethings/account/templates/account/donation.html:311
 #, fuzzy
 msgid "page.donation.credit_debit_card_instructions"
 msgstr "Kredītkartes / debetkartes norādījumi"
@@ -1185,484 +1195,484 @@ msgid "page.donation.stepbystep_below"
 msgstr "Skatiet soli pa solim ceļvedi zemāk."
 
 #: allthethings/account/templates/account/donation.html:149
-#: allthethings/account/templates/account/donation.html:192
-#: allthethings/account/templates/account/donation.html:235
-#: allthethings/account/templates/account/donation.html:280
-#: allthethings/account/templates/account/donation.html:323
-#: allthethings/account/templates/account/donation.html:352
-#: allthethings/account/templates/account/donation.html:388
-#: allthethings/account/templates/account/donation.html:498
-#: allthethings/account/templates/account/donation.html:574
-#: allthethings/account/templates/account/donation.html:605
+#: allthethings/account/templates/account/donation.html:198
+#: allthethings/account/templates/account/donation.html:247
+#: allthethings/account/templates/account/donation.html:298
+#: allthethings/account/templates/account/donation.html:347
+#: allthethings/account/templates/account/donation.html:384
+#: allthethings/account/templates/account/donation.html:420
+#: allthethings/account/templates/account/donation.html:536
+#: allthethings/account/templates/account/donation.html:618
+#: allthethings/account/templates/account/donation.html:655
 #, fuzzy
 msgid "page.donation.status_header"
 msgstr "Statuss:"
 
 #: allthethings/account/templates/account/donation.html:149
-#: allthethings/account/templates/account/donation.html:192
-#: allthethings/account/templates/account/donation.html:235
-#: allthethings/account/templates/account/donation.html:280
-#: allthethings/account/templates/account/donation.html:323
-#: allthethings/account/templates/account/donation.html:352
-#: allthethings/account/templates/account/donation.html:498
-#: allthethings/account/templates/account/donation.html:574
-#: allthethings/account/templates/account/donation.html:605
+#: allthethings/account/templates/account/donation.html:198
+#: allthethings/account/templates/account/donation.html:247
+#: allthethings/account/templates/account/donation.html:298
+#: allthethings/account/templates/account/donation.html:347
+#: allthethings/account/templates/account/donation.html:384
+#: allthethings/account/templates/account/donation.html:536
+#: allthethings/account/templates/account/donation.html:618
+#: allthethings/account/templates/account/donation.html:655
 #, fuzzy
 msgid "page.donation.waiting_for_confirmation_refresh"
 msgstr "Gaida apstiprinājumu (atsvaidziniet lapu, lai pārbaudītu)…"
 
 #: allthethings/account/templates/account/donation.html:149
-#: allthethings/account/templates/account/donation.html:192
-#: allthethings/account/templates/account/donation.html:235
-#: allthethings/account/templates/account/donation.html:280
-#: allthethings/account/templates/account/donation.html:323
-#: allthethings/account/templates/account/donation.html:352
-#: allthethings/account/templates/account/donation.html:498
-#: allthethings/account/templates/account/donation.html:574
-#: allthethings/account/templates/account/donation.html:605
+#: allthethings/account/templates/account/donation.html:198
+#: allthethings/account/templates/account/donation.html:247
+#: allthethings/account/templates/account/donation.html:298
+#: allthethings/account/templates/account/donation.html:347
+#: allthethings/account/templates/account/donation.html:384
+#: allthethings/account/templates/account/donation.html:536
+#: allthethings/account/templates/account/donation.html:618
+#: allthethings/account/templates/account/donation.html:655
 #, fuzzy
 msgid "page.donation.waiting_for_transfer_refresh"
 msgstr "Gaida pārskaitījumu (atsvaidziniet lapu, lai pārbaudītu)…"
 
 #: allthethings/account/templates/account/donation.html:150
-#: allthethings/account/templates/account/donation.html:193
-#: allthethings/account/templates/account/donation.html:236
-#: allthethings/account/templates/account/donation.html:281
-#: allthethings/account/templates/account/donation.html:324
-#: allthethings/account/templates/account/donation.html:353
-#: allthethings/account/templates/account/donation.html:499
-#: allthethings/account/templates/account/donation.html:575
-#: allthethings/account/templates/account/donation.html:606
+#: allthethings/account/templates/account/donation.html:199
+#: allthethings/account/templates/account/donation.html:248
+#: allthethings/account/templates/account/donation.html:299
+#: allthethings/account/templates/account/donation.html:348
+#: allthethings/account/templates/account/donation.html:385
+#: allthethings/account/templates/account/donation.html:537
+#: allthethings/account/templates/account/donation.html:619
+#: allthethings/account/templates/account/donation.html:656
 #, fuzzy
 msgid "page.donation.time_left_header"
 msgstr "Atlikušais laiks:"
 
 #: allthethings/account/templates/account/donation.html:150
-#: allthethings/account/templates/account/donation.html:193
-#: allthethings/account/templates/account/donation.html:236
-#: allthethings/account/templates/account/donation.html:281
-#: allthethings/account/templates/account/donation.html:324
-#: allthethings/account/templates/account/donation.html:353
-#: allthethings/account/templates/account/donation.html:499
-#: allthethings/account/templates/account/donation.html:575
-#: allthethings/account/templates/account/donation.html:606
+#: allthethings/account/templates/account/donation.html:199
+#: allthethings/account/templates/account/donation.html:248
+#: allthethings/account/templates/account/donation.html:299
+#: allthethings/account/templates/account/donation.html:348
+#: allthethings/account/templates/account/donation.html:385
+#: allthethings/account/templates/account/donation.html:537
+#: allthethings/account/templates/account/donation.html:619
+#: allthethings/account/templates/account/donation.html:656
 #, fuzzy
 msgid "page.donation.might_want_to_cancel"
 msgstr "(jūs varētu vēlēties atcelt un izveidot jaunu ziedojumu)"
 
 #: allthethings/account/templates/account/donation.html:154
-#: allthethings/account/templates/account/donation.html:197
-#: allthethings/account/templates/account/donation.html:240
-#: allthethings/account/templates/account/donation.html:285
-#: allthethings/account/templates/account/donation.html:328
-#: allthethings/account/templates/account/donation.html:357
-#: allthethings/account/templates/account/donation.html:503
-#: allthethings/account/templates/account/donation.html:579
-#: allthethings/account/templates/account/donation.html:610
+#: allthethings/account/templates/account/donation.html:203
+#: allthethings/account/templates/account/donation.html:252
+#: allthethings/account/templates/account/donation.html:303
+#: allthethings/account/templates/account/donation.html:352
+#: allthethings/account/templates/account/donation.html:389
+#: allthethings/account/templates/account/donation.html:541
+#: allthethings/account/templates/account/donation.html:623
+#: allthethings/account/templates/account/donation.html:660
 #, fuzzy
 msgid "page.donation.reset_timer"
 msgstr "Lai atiestatītu taimeri, vienkārši izveidojiet jaunu ziedojumu."
 
 #: allthethings/account/templates/account/donation.html:158
-#: allthethings/account/templates/account/donation.html:201
-#: allthethings/account/templates/account/donation.html:244
-#: allthethings/account/templates/account/donation.html:289
-#: allthethings/account/templates/account/donation.html:332
-#: allthethings/account/templates/account/donation.html:361
-#: allthethings/account/templates/account/donation.html:392
-#: allthethings/account/templates/account/donation.html:507
-#: allthethings/account/templates/account/donation.html:583
-#: allthethings/account/templates/account/donation.html:614
+#: allthethings/account/templates/account/donation.html:207
+#: allthethings/account/templates/account/donation.html:256
+#: allthethings/account/templates/account/donation.html:307
+#: allthethings/account/templates/account/donation.html:356
+#: allthethings/account/templates/account/donation.html:393
+#: allthethings/account/templates/account/donation.html:424
+#: allthethings/account/templates/account/donation.html:545
+#: allthethings/account/templates/account/donation.html:627
+#: allthethings/account/templates/account/donation.html:664
 #, fuzzy
 msgid "page.donation.refresh_status"
 msgstr "Atjaunināt statusu"
 
 #: allthethings/account/templates/account/donation.html:162
-#: allthethings/account/templates/account/donation.html:714
+#: allthethings/account/templates/account/donation.html:764
 #, fuzzy
 msgid "page.donation.footer.issues_contact"
 msgstr "Ja rodas kādas problēmas, lūdzu, sazinieties ar mums pa %(email)s un iekļaujiet pēc iespējas vairāk informācijas (piemēram, ekrānuzņēmumus)."
 
-#: allthethings/account/templates/account/donation.html:170
-#: allthethings/account/templates/account/donation.html:210
-#: allthethings/account/templates/account/donation.html:253
+#: allthethings/account/templates/account/donation.html:176
+#: allthethings/account/templates/account/donation.html:222
+#: allthethings/account/templates/account/donation.html:271
 #, fuzzy
 msgid "page.donation.step1"
 msgstr "1"
 
-#: allthethings/account/templates/account/donation.html:170
+#: allthethings/account/templates/account/donation.html:176
 #, fuzzy
 msgid "page.donation.buy_pyusd"
 msgstr "Iegādājieties PYUSD monētu PayPal"
 
-#: allthethings/account/templates/account/donation.html:177
+#: allthethings/account/templates/account/donation.html:183
 #, fuzzy
 msgid "page.donation.pyusd.instructions"
 msgstr "Izpildiet norādījumus, lai iegādātos PYUSD monētu (PayPal USD)."
 
-#: allthethings/account/templates/account/donation.html:178
+#: allthethings/account/templates/account/donation.html:184
 #, fuzzy
 msgid "page.donation.pyusd.more"
 msgstr "Nopērciet nedaudz vairāk (mēs iesakām %(more)s vairāk) nekā ziedojat (%(amount)s), lai segtu transakcijas maksas. Jūs paturēsiet visu, kas paliks pāri."
 
-#: allthethings/account/templates/account/donation.html:181
-#: allthethings/account/templates/account/donation.html:220
-#: allthethings/account/templates/account/donation.html:263
+#: allthethings/account/templates/account/donation.html:187
+#: allthethings/account/templates/account/donation.html:232
+#: allthethings/account/templates/account/donation.html:281
 #, fuzzy
 msgid "page.donation.step2"
 msgstr "2"
 
-#: allthethings/account/templates/account/donation.html:184
+#: allthethings/account/templates/account/donation.html:190
 #, fuzzy
 msgid "page.donation.pyusd.transfer"
 msgstr "Dodieties uz “PYUSD” lapu savā PayPal lietotnē vai vietnē. Nospiediet pogu “Pārskaitīt” %(icon)s, un pēc tam “Sūtīt”."
 
-#: allthethings/account/templates/account/donation.html:188
-#: allthethings/account/templates/account/donation.html:227
-#: allthethings/account/templates/account/donation.html:272
-#: allthethings/account/templates/account/donation.html:344
+#: allthethings/account/templates/account/donation.html:194
+#: allthethings/account/templates/account/donation.html:239
+#: allthethings/account/templates/account/donation.html:290
+#: allthethings/account/templates/account/donation.html:374
 #, fuzzy
 msgid "page.donation.transfer_amount_to"
 msgstr "Pārskaitiet %(amount)s uz %(account)s"
 
-#: allthethings/account/templates/account/donation.html:210
+#: allthethings/account/templates/account/donation.html:222
 #, fuzzy
 msgid "page.donation.cash_app_btc.step1"
 msgstr "Pirkt Bitcoin (BTC) lietotnē Cash App"
 
-#: allthethings/account/templates/account/donation.html:213
+#: allthethings/account/templates/account/donation.html:225
 #, fuzzy
 msgid "page.donation.cash_app_btc.step1.text1"
 msgstr "Dodieties uz “Bitcoin” (BTC) lapu lietotnē Cash App."
 
-#: allthethings/account/templates/account/donation.html:217
+#: allthethings/account/templates/account/donation.html:229
 #, fuzzy
 msgid "page.donation.cash_app_btc.step1.more"
 msgstr "Pērciet nedaudz vairāk (mēs iesakām %(more)s vairāk) nekā ziedojamā summa (%(amount)s), lai segtu transakcijas maksas. Jūs paturēsiet visu, kas paliks pāri."
 
-#: allthethings/account/templates/account/donation.html:220
+#: allthethings/account/templates/account/donation.html:232
 #, fuzzy
 msgid "page.donation.cash_app_btc.step2"
 msgstr "Pārskaitiet Bitcoin uz mūsu adresi"
 
-#: allthethings/account/templates/account/donation.html:223
+#: allthethings/account/templates/account/donation.html:235
 #, fuzzy
 msgid "page.donation.cash_app_btc.step2.transfer"
 msgstr "Noklikšķiniet uz pogas “Sūtīt bitcoin”, lai veiktu “izņemšanu”. Pārslēdzieties no dolāriem uz BTC, nospiežot %(icon)s ikonu. Ievadiet BTC summu zemāk un noklikšķiniet uz “Sūtīt”. Ja esat apmulsis, skatiet <a %(help_video)s>šo video</a>."
 
-#: allthethings/account/templates/account/donation.html:231
+#: allthethings/account/templates/account/donation.html:243
 #, fuzzy
 msgid "page.donation.cash_app_btc.step2.rush_priority"
 msgstr "Mazām ziedojumiem (zem $25) jums, iespējams, būs jāizmanto Rush vai Priority."
 
-#: allthethings/account/templates/account/donation.html:253
+#: allthethings/account/templates/account/donation.html:271
 #, fuzzy
 msgid "page.donation.revolut.step1"
 msgstr "Pirkt Bitcoin (BTC) lietotnē Revolut"
 
-#: allthethings/account/templates/account/donation.html:256
+#: allthethings/account/templates/account/donation.html:274
 #, fuzzy
 msgid "page.donation.revolut.step1.text1"
 msgstr "Dodieties uz “Crypto” lapu lietotnē Revolut, lai iegādātos Bitcoin (BTC)."
 
-#: allthethings/account/templates/account/donation.html:260
+#: allthethings/account/templates/account/donation.html:278
 #, fuzzy
 msgid "page.donation.revolut.step1.more"
 msgstr "Pērciet nedaudz vairāk (mēs iesakām %(more)s vairāk) nekā ziedojamā summa (%(amount)s), lai segtu transakcijas maksas. Jūs paturēsiet visu, kas paliks pāri."
 
-#: allthethings/account/templates/account/donation.html:263
+#: allthethings/account/templates/account/donation.html:281
 #, fuzzy
 msgid "page.donation.revolut.step2"
 msgstr "Pārskaitiet Bitcoin uz mūsu adresi"
 
-#: allthethings/account/templates/account/donation.html:266
+#: allthethings/account/templates/account/donation.html:284
 #, fuzzy
 msgid "page.donation.revolut.step2.transfer"
 msgstr "Noklikšķiniet uz pogas “Sūtīt bitcoin”, lai veiktu “izņemšanu”. Pārslēdzieties no eiro uz BTC, nospiežot %(icon)s ikonu. Ievadiet BTC summu zemāk un noklikšķiniet uz “Sūtīt”. Ja esat apmulsis, skatiet <a %(help_video)s>šo video</a>."
 
-#: allthethings/account/templates/account/donation.html:269
+#: allthethings/account/templates/account/donation.html:287
 #, fuzzy
 msgid "page.donation.revolut.btc_amount_below"
 msgstr "Noteikti izmantojiet zemāk norādīto BTC summu, <em>NE</em> eiro vai dolārus, citādi mēs nesaņemsim pareizo summu un nevarēsim automātiski apstiprināt jūsu dalību."
 
-#: allthethings/account/templates/account/donation.html:276
+#: allthethings/account/templates/account/donation.html:294
 #, fuzzy
 msgid "page.donation.revolut.step2.rush_priority"
 msgstr "Mazām ziedojumiem (zem $25) jums, iespējams, būs jāizmanto Rush vai Priority."
 
-#: allthethings/account/templates/account/donation.html:301
+#: allthethings/account/templates/account/donation.html:325
 #, fuzzy
 msgid "page.donation.payment2cc.cc2btc"
 msgstr "Izmantojiet kādu no šiem “kredītkartes uz Bitcoin” ekspress pakalpojumiem, kas aizņem tikai dažas minūtes:"
 
-#: allthethings/account/templates/account/donation.html:314
+#: allthethings/account/templates/account/donation.html:338
 #, fuzzy
 msgid "page.donation.payment2cc.cc2btc.form"
 msgstr "Aizpildiet šādu informāciju formā:"
 
-#: allthethings/account/templates/account/donation.html:318
+#: allthethings/account/templates/account/donation.html:342
 #, fuzzy
 msgid "page.donation.payment2cc.cc2btc.btc_amount"
 msgstr "BTC / Bitcoin summa:"
 
-#: allthethings/account/templates/account/donation.html:318
+#: allthethings/account/templates/account/donation.html:342
 #, fuzzy
 msgid "page.donation.payment2cc.exact_amount"
 msgstr "Lūdzu, izmantojiet šo <span %(underline)s>precīzo summu</span>. Jūsu kopējās izmaksas var būt augstākas kredītkartes maksas dēļ. Mazām summām tas diemžēl var pārsniegt mūsu atlaidi."
 
-#: allthethings/account/templates/account/donation.html:319
+#: allthethings/account/templates/account/donation.html:343
 #, fuzzy
 msgid "page.donation.payment2cc.cc2btc.btc_address"
 msgstr "BTC / Bitcoin adrese (ārējais maks):"
 
-#: allthethings/account/templates/account/donation.html:336
+#: allthethings/account/templates/account/donation.html:360
 #, fuzzy
 msgid "page.donation.crypto_instructions"
 msgstr "%(coin_name)s instrukcijas"
 
-#: allthethings/account/templates/account/donation.html:348
+#: allthethings/account/templates/account/donation.html:378
 #, fuzzy
 msgid "page.donation.crypto_standard"
 msgstr "Mēs atbalstām tikai standarta kriptovalūtu versijas, nevis eksotiskus tīklus vai monētu versijas. Atkarībā no monētas, transakcijas apstiprināšana var aizņemt līdz stundai."
 
-#: allthethings/account/templates/account/donation.html:365
+#: allthethings/account/templates/account/donation.html:397
 #, fuzzy
 msgid "page.donation.amazon.header"
 msgstr "Amazon dāvanu karte"
 
-#: allthethings/account/templates/account/donation.html:368
+#: allthethings/account/templates/account/donation.html:400
 #, fuzzy
 msgid "page.donation.amazon.form_instructions"
 msgstr "Lūdzu, izmantojiet <a %(a_form)s>oficiālo Amazon.com formu</a>, lai nosūtītu mums dāvanu karti %(amount)s uz zemāk norādīto e-pasta adresi."
 
-#: allthethings/account/templates/account/donation.html:369
+#: allthethings/account/templates/account/donation.html:401
 #, fuzzy
 msgid "page.donation.amazon.only_official"
 msgstr "Mēs nevaram pieņemt citas dāvanu karšu metodes, <strong>tikai nosūtītas tieši no oficiālās formas Amazon.com</strong>. Mēs nevaram atgriezt jūsu dāvanu karti, ja neizmantojat šo formu."
 
-#: allthethings/account/templates/account/donation.html:374
+#: allthethings/account/templates/account/donation.html:406
 #, fuzzy
 msgid "page.donate.payment.desc.amazon_message_1"
 msgstr "Ievadiet precīzu summu: %(amount)s"
 
-#: allthethings/account/templates/account/donation.html:375
+#: allthethings/account/templates/account/donation.html:407
 #, fuzzy
 msgid "page.donate.payment.desc.amazon_message"
 msgstr "Lūdzu, NERAKSTIET savu ziņojumu."
 
-#: allthethings/account/templates/account/donation.html:379
+#: allthethings/account/templates/account/donation.html:411
 #, fuzzy
 msgid "page.donation.amazon.form_to"
 msgstr "“Kam” saņēmēja e-pasts formā:"
 
-#: allthethings/account/templates/account/donation.html:382
+#: allthethings/account/templates/account/donation.html:414
 #, fuzzy
 msgid "page.donation.amazon.unique"
 msgstr "Unikāls jūsu kontam, nedalieties."
 
-#: allthethings/account/templates/account/donation.html:383
+#: allthethings/account/templates/account/donation.html:415
 #, fuzzy
 msgid "page.donation.amazon.only_use_once"
 msgstr "Izmantojiet tikai vienu reizi."
 
-#: allthethings/account/templates/account/donation.html:388
+#: allthethings/account/templates/account/donation.html:420
 #, fuzzy
 msgid "page.donation.amazon.waiting_gift_card"
 msgstr "Gaidām dāvanu karti… (atsvaidziniet lapu, lai pārbaudītu)"
 
-#: allthethings/account/templates/account/donation.html:396
+#: allthethings/account/templates/account/donation.html:428
 #, fuzzy
 msgid "page.donation.amazon.confirm_automated"
 msgstr "Pēc dāvanu kartes nosūtīšanas mūsu automatizētā sistēma to apstiprinās dažu minūšu laikā. Ja tas nedarbojas, mēģiniet nosūtīt dāvanu karti vēlreiz (<a %(a_instr)s>instrukcijas</a>)."
 
-#: allthethings/account/templates/account/donation.html:397
+#: allthethings/account/templates/account/donation.html:429
 #, fuzzy
 msgid "page.donation.amazon.doesnt_work"
 msgstr "Ja tas joprojām nedarbojas, lūdzu, rakstiet mums e-pastu, un Anna to manuāli pārskatīs (tas var aizņemt dažas dienas), un noteikti pieminiet, ja jau esat mēģinājis nosūtīt vēlreiz."
 
-#: allthethings/account/templates/account/donation.html:400
+#: allthethings/account/templates/account/donation.html:432
 #, fuzzy
 msgid "page.donation.amazon.example"
 msgstr "Piemērs:"
 
-#: allthethings/account/templates/account/donation.html:436
-#: allthethings/account/templates/account/donation.html:453
-#: allthethings/account/templates/account/donation.html:469
-#: allthethings/account/templates/account/donation.html:494
-#: allthethings/account/templates/account/donation.html:570
-#: allthethings/account/templates/account/donation.html:631
+#: allthethings/account/templates/account/donation.html:468
+#: allthethings/account/templates/account/donation.html:485
+#: allthethings/account/templates/account/donation.html:501
+#: allthethings/account/templates/account/donation.html:532
+#: allthethings/account/templates/account/donation.html:614
+#: allthethings/account/templates/account/donation.html:681
 #, fuzzy
 msgid "page.donate.strange_account"
 msgstr "Ņemiet vērā, ka konta nosaukums vai attēls var izskatīties dīvaini. Nav jāuztraucas! Šos kontus pārvalda mūsu ziedojumu partneri. Mūsu konti nav uzlauzti."
 
-#: allthethings/account/templates/account/donation.html:460
-#: allthethings/account/templates/account/donation.html:477
-#: allthethings/account/templates/account/donation.html:516
+#: allthethings/account/templates/account/donation.html:492
+#: allthethings/account/templates/account/donation.html:515
+#: allthethings/account/templates/account/donation.html:560
 #, fuzzy
 msgid "page.donation.payment.alipay.top_header"
 msgstr "Alipay instrukcijas"
 
-#: allthethings/account/templates/account/donation.html:462
-#: allthethings/account/templates/account/donation.html:479
+#: allthethings/account/templates/account/donation.html:494
+#: allthethings/account/templates/account/donation.html:517
 #, fuzzy
 msgid "page.donation.payment.alipay.header1"
 msgstr "<span %(span_circle)s>1</span>Ziedojiet Alipay"
 
-#: allthethings/account/templates/account/donation.html:465
-#: allthethings/account/templates/account/donation.html:482
+#: allthethings/account/templates/account/donation.html:497
+#: allthethings/account/templates/account/donation.html:520
 #, fuzzy
 msgid "page.donation.payment.alipay.text1_new"
 msgstr "Ziedojiet kopējo summu %(total)s, izmantojot <a %(a_account)s>šo Alipay kontu</a>"
 
-#: allthethings/account/templates/account/donation.html:486
-#: allthethings/account/templates/account/donation.html:562
-#: allthethings/account/templates/account/donation.html:601
+#: allthethings/account/templates/account/donation.html:524
+#: allthethings/account/templates/account/donation.html:606
+#: allthethings/account/templates/account/donation.html:651
 #, fuzzy
 msgid "page.donation.page_blocked"
 msgstr "Ja ziedojumu lapa tiek bloķēta, mēģiniet izmantot citu interneta savienojumu (piemēram, VPN vai telefona internetu)."
 
-#: allthethings/account/templates/account/donation.html:490
-#: allthethings/account/templates/account/donation.html:566
+#: allthethings/account/templates/account/donation.html:528
+#: allthethings/account/templates/account/donation.html:610
 #, fuzzy
 msgid "page.donation.payment.alipay.error"
 msgstr "Diemžēl Alipay lapa bieži ir pieejama tikai no <strong>Ķīnas kontinentālās daļas</strong>. Jums, iespējams, būs īslaicīgi jāatspējo savs VPN vai jāizmanto VPN uz Ķīnas kontinentālo daļu (vai dažreiz arī Honkonga darbojas)."
 
-#: allthethings/account/templates/account/donation.html:545
+#: allthethings/account/templates/account/donation.html:589
 #, fuzzy
 msgid "page.donation.bank_card_app.step3.header"
 msgstr "<span %(style)s>3</span>Veiciet ziedojumu (noskenējiet QR kodu vai nospiediet pogu)"
 
-#: allthethings/account/templates/account/donation.html:549
+#: allthethings/account/templates/account/donation.html:593
 #, fuzzy
 msgid "page.donation.bank_card_app.step3.desc.1"
 msgstr "Atveriet <a %(a_href)s>QR koda ziedojumu lapu</a>."
 
-#: allthethings/account/templates/account/donation.html:553
+#: allthethings/account/templates/account/donation.html:597
 #, fuzzy
 msgid "page.donation.bank_card_app.step3.desc.2"
 msgstr "Noskenējiet QR kodu ar Alipay lietotni vai nospiediet pogu, lai atvērtu Alipay lietotni."
 
-#: allthethings/account/templates/account/donation.html:554
+#: allthethings/account/templates/account/donation.html:598
 #, fuzzy
 msgid "page.donation.bank_card_app.step3.desc.3"
 msgstr "Lūdzu, esiet pacietīgi; lapas ielāde var aizņemt kādu laiku, jo tā atrodas Ķīnā."
 
-#: allthethings/account/templates/account/donation.html:592
+#: allthethings/account/templates/account/donation.html:642
 #, fuzzy
 msgid "page.donation.payment.wechat.top_header"
 msgstr "WeChat instrukcijas"
 
-#: allthethings/account/templates/account/donation.html:594
+#: allthethings/account/templates/account/donation.html:644
 #, fuzzy
 msgid "page.donation.payment.wechat.header1"
 msgstr "<span %(span_circle)s>1</span>Ziedot, izmantojot WeChat"
 
-#: allthethings/account/templates/account/donation.html:597
+#: allthethings/account/templates/account/donation.html:647
 #, fuzzy
 msgid "page.donation.payment.wechat.text1"
 msgstr "Ziedojiet kopējo summu %(total)s, izmantojot <a %(a_account)s>šo WeChat kontu</a>"
 
-#: allthethings/account/templates/account/donation.html:622
+#: allthethings/account/templates/account/donation.html:672
 #, fuzzy
 msgid "page.donation.payment.pix.top_header"
 msgstr "Pix instrukcijas"
 
-#: allthethings/account/templates/account/donation.html:624
+#: allthethings/account/templates/account/donation.html:674
 #, fuzzy
 msgid "page.donation.payment.pix.header1"
 msgstr "<span %(span_circle)s>1</span>Ziedot, izmantojot Pix"
 
-#: allthethings/account/templates/account/donation.html:627
+#: allthethings/account/templates/account/donation.html:677
 #, fuzzy
 msgid "page.donation.payment.pix.text1"
 msgstr "Ziedojiet kopējo summu %(total)s, izmantojot <a %(a_account)s>šo Pix kontu</a>"
 
-#: allthethings/account/templates/account/donation.html:636
+#: allthethings/account/templates/account/donation.html:686
 #, fuzzy
 msgid "page.donation.footer.header"
 msgstr "<span %(span_circle)s>%(circle_number)s</span>Nosūtiet mums kvīti pa e-pastu"
 
-#: allthethings/account/templates/account/donation.html:640
+#: allthethings/account/templates/account/donation.html:690
 #, fuzzy
 msgid "page.donation.footer.verification"
 msgstr "Nosūtiet kvīti vai ekrānuzņēmumu uz savu personīgo verifikācijas adresi. Nelietojiet šo e-pasta adresi PayPal ziedojumam."
 
-#: allthethings/account/templates/account/donation.html:642
+#: allthethings/account/templates/account/donation.html:692
 #, fuzzy
 msgid "page.donation.footer.text1"
 msgstr "Nosūtiet kvīti vai ekrānuzņēmumu uz jūsu personīgo verifikācijas adresi:"
 
-#: allthethings/account/templates/account/donation.html:652
+#: allthethings/account/templates/account/donation.html:702
 #, fuzzy
 msgid "page.donation.footer.crypto_note"
 msgstr "Ja kriptovalūtas maiņas kurss darījuma laikā mainījās, noteikti iekļaujiet kvīti, kurā redzams sākotnējais maiņas kurss. Mēs ļoti novērtējam, ka izmantojat kriptovalūtu, tas mums ļoti palīdz!"
 
-#: allthethings/account/templates/account/donation.html:657
+#: allthethings/account/templates/account/donation.html:707
 #, fuzzy
 msgid "page.donation.footer.text2"
 msgstr "Kad esat nosūtījis kvīti pa e-pastu, noklikšķiniet uz šīs pogas, lai Anna to manuāli pārskatītu (tas var aizņemt dažas dienas):"
 
-#: allthethings/account/templates/account/donation.html:667
+#: allthethings/account/templates/account/donation.html:717
 #, fuzzy
 msgid "page.donation.footer.button"
 msgstr "Jā, es nosūtīju kvīti pa e-pastu"
 
-#: allthethings/account/templates/account/donation.html:670
+#: allthethings/account/templates/account/donation.html:720
 #, fuzzy
 msgid "page.donation.footer.success"
 msgstr "✅ Paldies par jūsu ziedojumu! Anna manuāli aktivizēs jūsu dalību dažu dienu laikā."
 
-#: allthethings/account/templates/account/donation.html:671
+#: allthethings/account/templates/account/donation.html:721
 #, fuzzy
 msgid "page.donation.footer.failure"
 msgstr "❌ Kaut kas nogāja greizi. Lūdzu, pārlādējiet lapu un mēģiniet vēlreiz."
 
-#: allthethings/account/templates/account/donation.html:676
+#: allthethings/account/templates/account/donation.html:726
 #, fuzzy
 msgid "page.donation.stepbystep"
 msgstr "Soli pa solim ceļvedis"
 
-#: allthethings/account/templates/account/donation.html:678
+#: allthethings/account/templates/account/donation.html:728
 #, fuzzy
 msgid "page.donation.crypto_dont_worry"
 msgstr "Daži soļi piemin kriptovalūtas makus, bet neuztraucieties, jums nav jāapgūst nekas par kriptovalūtu."
 
-#: allthethings/account/templates/account/donation.html:680
+#: allthethings/account/templates/account/donation.html:730
 #, fuzzy
 msgid "page.donation.hoodpay.step1"
 msgstr "1. Ievadiet savu e-pastu."
 
-#: allthethings/account/templates/account/donation.html:686
+#: allthethings/account/templates/account/donation.html:736
 #, fuzzy
 msgid "page.donation.hoodpay.step2"
 msgstr "2. Izvēlieties maksājuma metodi."
 
-#: allthethings/account/templates/account/donation.html:692
+#: allthethings/account/templates/account/donation.html:742
 #, fuzzy
 msgid "page.donation.hoodpay.step3"
 msgstr "3. Vēlreiz izvēlieties maksājuma metodi."
 
-#: allthethings/account/templates/account/donation.html:698
+#: allthethings/account/templates/account/donation.html:748
 #, fuzzy
 msgid "page.donation.hoodpay.step4"
 msgstr "4. Izvēlieties “Pašhostēts” maks."
 
-#: allthethings/account/templates/account/donation.html:704
+#: allthethings/account/templates/account/donation.html:754
 #, fuzzy
 msgid "page.donation.hoodpay.step5"
 msgstr "5. Noklikšķiniet uz “Es apstiprinu īpašumtiesības”."
 
-#: allthethings/account/templates/account/donation.html:710
+#: allthethings/account/templates/account/donation.html:760
 #, fuzzy
 msgid "page.donation.hoodpay.step6"
 msgstr "6. Jums vajadzētu saņemt e-pasta kvīti. Lūdzu, nosūtiet to mums, un mēs pēc iespējas ātrāk apstiprināsim jūsu ziedojumu."
 
-#: allthethings/account/templates/account/donation.html:715
+#: allthethings/account/templates/account/donation.html:765
 #, fuzzy
 msgid "page.donate.wait_new"
 msgstr "Lūdzu, uzgaidiet vismaz <span %(span_hours)s>24 stundas</span> (un atsvaidziniet šo lapu) pirms sazināties ar mums."
 
-#: allthethings/account/templates/account/donation.html:716
+#: allthethings/account/templates/account/donation.html:766
 #, fuzzy
 msgid "page.donate.mistake"
 msgstr "Ja maksājuma laikā pieļāvāt kļūdu, mēs nevaram veikt atmaksu, bet centīsimies to labot."
@@ -1814,11 +1824,11 @@ msgstr "Sazinieties ar Annu pa %(email)s, ja vēlaties paaugstināt savu dalību
 #: allthethings/page/templates/page/home.html:77
 #: allthethings/page/templates/page/home.html:82
 #: allthethings/page/templates/page/home.html:90
-#: allthethings/page/templates/page/search.html:345
-#: allthethings/page/templates/page/search.html:444
+#: allthethings/page/templates/page/search.html:349
+#: allthethings/page/templates/page/search.html:448
 #: allthethings/templates/layouts/index.html:248
 #: allthethings/templates/layouts/index.html:252
-#: allthethings/templates/layouts/index.html:605
+#: allthethings/templates/layouts/index.html:608
 #, fuzzy
 msgid "page.contact.title"
 msgstr "Kontakta e-pasts"
@@ -1830,25 +1840,25 @@ msgid "page.account.logged_in.membership_multiple"
 msgstr "Jūs varat apvienot vairākas dalības (ātrās lejupielādes 24 stundu laikā tiks summētas)."
 
 #: allthethings/account/templates/account/index.html:41
-#: allthethings/templates/layouts/index.html:557
-#: allthethings/templates/layouts/index.html:564
-#: allthethings/templates/layouts/index.html:573
+#: allthethings/templates/layouts/index.html:560
+#: allthethings/templates/layouts/index.html:567
+#: allthethings/templates/layouts/index.html:576
 #, fuzzy
 msgid "layout.index.header.nav.public_profile"
 msgstr "Publiskais profils"
 
 #: allthethings/account/templates/account/index.html:42
-#: allthethings/templates/layouts/index.html:558
-#: allthethings/templates/layouts/index.html:565
-#: allthethings/templates/layouts/index.html:574
+#: allthethings/templates/layouts/index.html:561
+#: allthethings/templates/layouts/index.html:568
+#: allthethings/templates/layouts/index.html:577
 #, fuzzy
 msgid "layout.index.header.nav.downloaded_files"
 msgstr "Lejupielādētie faili"
 
 #: allthethings/account/templates/account/index.html:43
-#: allthethings/templates/layouts/index.html:559
-#: allthethings/templates/layouts/index.html:566
-#: allthethings/templates/layouts/index.html:575
+#: allthethings/templates/layouts/index.html:562
+#: allthethings/templates/layouts/index.html:569
+#: allthethings/templates/layouts/index.html:578
 #, fuzzy
 msgid "layout.index.header.nav.my_donations"
 msgstr "Mani ziedojumi"
@@ -2028,158 +2038,158 @@ msgstr "Vēl nav sarakstu"
 msgid "page.profile.lists.new_list"
 msgstr "Izveidojiet jaunu sarakstu, atrodot failu un atverot cilni “Saraksti”."
 
-#: allthethings/dyn/views.py:906 allthethings/dyn/views.py:970
-#: allthethings/dyn/views.py:981
+#: allthethings/dyn/views.py:1100 allthethings/dyn/views.py:1172
+#: allthethings/dyn/views.py:1183
 #, fuzzy
 msgid "dyn.buy_membership.error.unknown"
 msgstr "Radās nezināma kļūda. Lūdzu, sazinieties ar mums pa %(email)s un pievienojiet ekrānuzņēmumu."
 
-#: allthethings/dyn/views.py:955 allthethings/dyn/views.py:975
+#: allthethings/dyn/views.py:1157 allthethings/dyn/views.py:1177
 #, fuzzy
 msgid "dyn.buy_membership.error.minimum"
 msgstr "Šai monētai ir augstāks minimālais limits nekā parasti. Lūdzu, izvēlieties citu ilgumu vai citu monētu."
 
-#: allthethings/dyn/views.py:967
+#: allthethings/dyn/views.py:1169
 #, fuzzy
 msgid "dyn.buy_membership.error.try_again"
 msgstr "Pieprasījumu nevarēja izpildīt. Lūdzu, mēģiniet vēlreiz pēc dažām minūtēm, un, ja problēma turpinās, sazinieties ar mums pa %(email)s un pievienojiet ekrānuzņēmumu."
 
-#: allthethings/dyn/views.py:978
+#: allthethings/dyn/views.py:1180
 #, fuzzy
 msgid "dyn.buy_membership.error.wait"
 msgstr "Maksājumu apstrādes kļūda. Lūdzu, uzgaidiet mirkli un mēģiniet vēlreiz. Ja problēma saglabājas vairāk nekā 24 stundas, lūdzu, sazinieties ar mums pa %(email)s un pievienojiet ekrānuzņēmumu."
 
-#: allthethings/page/views.py:5536
+#: allthethings/page/views.py:5575
 #, fuzzy
 msgid "page.md5.box.download.affected_files"
 msgstr "%(count)s ietekmētās lapas"
 
-#: allthethings/page/views.py:6533
+#: allthethings/page/views.py:6563
 #, fuzzy
 msgid "common.md5_problem_type_mapping.lgrsnf_visible"
 msgstr "Nav redzams Libgen.rs Non-Fiction"
 
-#: allthethings/page/views.py:6534
+#: allthethings/page/views.py:6564
 #, fuzzy
 msgid "common.md5_problem_type_mapping.lgrsfic_visible"
 msgstr "Nav redzams Libgen.rs Fiction"
 
-#: allthethings/page/views.py:6535
+#: allthethings/page/views.py:6565
 #, fuzzy
 msgid "common.md5_problem_type_mapping.lgli_visible"
 msgstr "Nav redzams Libgen.li"
 
-#: allthethings/page/views.py:6536
+#: allthethings/page/views.py:6566
 #, fuzzy
 msgid "common.md5_problem_type_mapping.lgli_broken"
 msgstr "Atzīmēts kā bojāts Libgen.li"
 
-#: allthethings/page/views.py:6537
+#: allthethings/page/views.py:6567
 #, fuzzy
 msgid "common.md5_problem_type_mapping.zlib_missing"
 msgstr "Trūkst no Z-Library"
 
-#: allthethings/page/views.py:6538
+#: allthethings/page/views.py:6568
 #, fuzzy
 msgid "common.md5_problem_type_mapping.zlib_spam"
 msgstr "Atzīmēts kā “spam” Z-Library"
 
-#: allthethings/page/views.py:6539
+#: allthethings/page/views.py:6569
 #, fuzzy
 msgid "common.md5_problem_type_mapping.zlib_bad_file"
 msgstr "Atzīmēts kā “slikts fails” Z-Library"
 
-#: allthethings/page/views.py:6540
+#: allthethings/page/views.py:6570
 #, fuzzy
 msgid "common.md5_problem_type_mapping.duxiu_pdg_broken_files"
 msgstr "Ne visas lapas varēja konvertēt uz PDF"
 
-#: allthethings/page/views.py:6541
+#: allthethings/page/views.py:6571
 #, fuzzy
 msgid "common.md5_problem_type_mapping.upload_exiftool_failed"
 msgstr "Exiftool palaišana neizdevās šajā failā"
 
-#: allthethings/page/views.py:6547
+#: allthethings/page/views.py:6577
 #, fuzzy
 msgid "common.md5_content_type_mapping.book_unknown"
 msgstr "Grāmata (nezināma)"
 
-#: allthethings/page/views.py:6548
+#: allthethings/page/views.py:6578
 #, fuzzy
 msgid "common.md5_content_type_mapping.book_nonfiction"
 msgstr "Grāmata (dokumentālā)"
 
-#: allthethings/page/views.py:6549
+#: allthethings/page/views.py:6579
 #, fuzzy
 msgid "common.md5_content_type_mapping.book_fiction"
 msgstr "Grāmata (daiļliteratūra)"
 
-#: allthethings/page/views.py:6550
+#: allthethings/page/views.py:6580
 #, fuzzy
 msgid "common.md5_content_type_mapping.journal_article"
 msgstr "Žurnāla raksts"
 
-#: allthethings/page/views.py:6551
+#: allthethings/page/views.py:6581
 #, fuzzy
 msgid "common.md5_content_type_mapping.standards_document"
 msgstr "Standartu dokuments"
 
-#: allthethings/page/views.py:6552
+#: allthethings/page/views.py:6582
 #, fuzzy
 msgid "common.md5_content_type_mapping.magazine"
 msgstr "Žurnāls"
 
-#: allthethings/page/views.py:6553
+#: allthethings/page/views.py:6583
 #, fuzzy
 msgid "common.md5_content_type_mapping.book_comic"
 msgstr "Komiksu grāmata"
 
-#: allthethings/page/views.py:6554
+#: allthethings/page/views.py:6584
 #, fuzzy
 msgid "common.md5_content_type_mapping.musical_score"
 msgstr "Mūzikas partitūra"
 
-#: allthethings/page/views.py:6555
+#: allthethings/page/views.py:6585
 #, fuzzy
 msgid "common.md5_content_type_mapping.audiobook"
 msgstr "Audiogrāmata"
 
-#: allthethings/page/views.py:6556
+#: allthethings/page/views.py:6586
 #, fuzzy
 msgid "common.md5_content_type_mapping.other"
 msgstr "Cits"
 
-#: allthethings/page/views.py:6562
+#: allthethings/page/views.py:6592
 #, fuzzy
 msgid "common.access_types_mapping.aa_download"
 msgstr "Partneru servera lejupielāde"
 
-#: allthethings/page/views.py:6563
+#: allthethings/page/views.py:6593
 #, fuzzy
 msgid "common.access_types_mapping.aa_scidb"
 msgstr "SciDB"
 
-#: allthethings/page/views.py:6564
+#: allthethings/page/views.py:6594
 #, fuzzy
 msgid "common.access_types_mapping.external_download"
 msgstr "Ārējā lejupielāde"
 
-#: allthethings/page/views.py:6565
+#: allthethings/page/views.py:6595
 #, fuzzy
 msgid "common.access_types_mapping.external_borrow"
 msgstr "Ārējā aizņemšanās"
 
-#: allthethings/page/views.py:6566
+#: allthethings/page/views.py:6596
 #, fuzzy
 msgid "common.access_types_mapping.external_borrow_printdisabled"
 msgstr "Ārējā aizņemšanās (drukas ierobežojums)"
 
-#: allthethings/page/views.py:6567
+#: allthethings/page/views.py:6597
 #, fuzzy
 msgid "common.access_types_mapping.meta_explore"
 msgstr "Izpētīt metadatus"
 
-#: allthethings/page/views.py:6568
+#: allthethings/page/views.py:6598
 #, fuzzy
 msgid "common.access_types_mapping.torrents_available"
 msgstr "Iekļauts torrentos"
@@ -2187,7 +2197,7 @@ msgstr "Iekļauts torrentos"
 #: allthethings/page/templates/page/datasets.html:43
 #: allthethings/page/templates/page/datasets.html:254
 #: allthethings/page/templates/page/datasets_lgrs.html:25
-#: allthethings/page/views.py:6574
+#: allthethings/page/views.py:6604
 #, fuzzy
 msgid "common.record_sources_mapping.lgrs"
 msgstr "Libgen.rs"
@@ -2195,7 +2205,7 @@ msgstr "Libgen.rs"
 #: allthethings/page/templates/page/datasets.html:80
 #: allthethings/page/templates/page/datasets.html:317
 #: allthethings/page/templates/page/datasets_lgli.html:29
-#: allthethings/page/views.py:6575
+#: allthethings/page/views.py:6605
 #, fuzzy
 msgid "common.record_sources_mapping.lgli"
 msgstr "Libgen.li"
@@ -2203,43 +2213,43 @@ msgstr "Libgen.li"
 #: allthethings/page/templates/page/datasets.html:98
 #: allthethings/page/templates/page/datasets.html:352
 #: allthethings/page/templates/page/datasets_zlib.html:25
-#: allthethings/page/views.py:6576
+#: allthethings/page/views.py:6606
 #, fuzzy
 msgid "common.record_sources_mapping.zlib"
 msgstr "Z-Library"
 
 #: allthethings/page/templates/page/datasets.html:114
-#: allthethings/page/views.py:6577
+#: allthethings/page/views.py:6607
 #, fuzzy
 msgid "common.record_sources_mapping.zlibzh"
 msgstr "Z-Library Chinese"
 
-#: allthethings/page/views.py:6578
+#: allthethings/page/views.py:6608
 #, fuzzy
 msgid "common.record_sources_mapping.ia"
 msgstr "IA"
 
-#: allthethings/page/views.py:6579
+#: allthethings/page/views.py:6609
 #, fuzzy
 msgid "common.record_sources_mapping.isbndb"
 msgstr "ISBNdb"
 
 #: allthethings/page/templates/page/datasets.html:525
 #: allthethings/page/templates/page/datasets_ol.html:25
-#: allthethings/page/views.py:6580
+#: allthethings/page/views.py:6610
 #, fuzzy
 msgid "common.record_sources_mapping.ol"
 msgstr "OpenLibrary"
 
 #: allthethings/page/templates/page/datasets.html:60
-#: allthethings/page/views.py:6581
+#: allthethings/page/views.py:6611
 #, fuzzy
 msgid "common.record_sources_mapping.scihub"
 msgstr "Nederīgs pieprasījums. Apmeklējiet [X23X]."
 
 #: allthethings/page/templates/page/datasets.html:541
 #: allthethings/page/templates/page/datasets_oclc.html:25
-#: allthethings/page/views.py:6582
+#: allthethings/page/views.py:6612
 #, fuzzy
 msgid "common.record_sources_mapping.oclc"
 msgstr "OCLC (WorldCat)"
@@ -2247,7 +2257,7 @@ msgstr "OCLC (WorldCat)"
 #: allthethings/page/templates/page/datasets.html:148
 #: allthethings/page/templates/page/datasets.html:399
 #: allthethings/page/templates/page/datasets_duxiu.html:25
-#: allthethings/page/views.py:6583
+#: allthethings/page/views.py:6613
 #, fuzzy
 msgid "common.record_sources_mapping.duxiu"
 msgstr "DuXiu 读秀"
@@ -2255,397 +2265,395 @@ msgstr "DuXiu 读秀"
 #: allthethings/page/templates/page/datasets.html:164
 #: allthethings/page/templates/page/datasets.html:433
 #: allthethings/page/templates/page/datasets_upload.html:25
-#: allthethings/page/views.py:6584
+#: allthethings/page/views.py:6614
 #, fuzzy
 msgid "common.record_sources_mapping.uploads"
 msgstr "Augšupielādes uz AA"
 
 #: allthethings/page/templates/page/datasets.html:180
-#: allthethings/page/views.py:6585
+#: allthethings/page/views.py:6615
 #, fuzzy
 msgid "common.record_sources_mapping.magzdb"
 msgstr "MagzDB"
 
 #: allthethings/page/templates/page/datasets.html:196
-#: allthethings/page/views.py:6586
+#: allthethings/page/views.py:6616
 #, fuzzy
 msgid "common.record_sources_mapping.nexusstc"
 msgstr "Nexus/STC"
 
-#: allthethings/page/views.py:6587
+#: allthethings/page/views.py:6617
 #, fuzzy
 msgid "common.record_sources_mapping.edsebk"
 msgstr "EBSCOhost e-grāmatu indekss"
 
-#: allthethings/page/views.py:6588
+#: allthethings/page/views.py:6618
 #, fuzzy
 msgid "common.record_sources_mapping.cerlalc"
 msgstr "Cerlalc"
 
-#: allthethings/page/views.py:6589
+#: allthethings/page/views.py:6619
 #, fuzzy
 msgid "common.record_sources_mapping.czech_oo42hcks"
 msgstr "Čehu metadati"
 
-#: allthethings/page/views.py:6590
+#: allthethings/page/views.py:6620
 #, fuzzy
 msgid "common.record_sources_mapping.gbooks"
 msgstr "Google grāmatas"
 
-#: allthethings/page/views.py:6591
+#: allthethings/page/views.py:6621
 #, fuzzy
 msgid "common.record_sources_mapping.goodreads"
 msgstr "Goodreads"
 
-#: allthethings/page/views.py:6592
+#: allthethings/page/views.py:6622
 #, fuzzy
 msgid "common.record_sources_mapping.isbngrp"
 msgstr "ISBN GRP"
 
-#: allthethings/page/views.py:6593
+#: allthethings/page/views.py:6623
 #, fuzzy
 msgid "common.record_sources_mapping.libby"
 msgstr "Libby"
 
-#: allthethings/page/views.py:6594
+#: allthethings/page/views.py:6624
 #, fuzzy
 msgid "common.record_sources_mapping.rgb"
 msgstr "Krievijas Valsts bibliotēka"
 
-#: allthethings/page/views.py:6595
+#: allthethings/page/views.py:6625
 #, fuzzy
 msgid "common.record_sources_mapping.trantor"
 msgstr "Trantor"
 
-#: allthethings/page/views.py:6601
+#: allthethings/page/views.py:6631
 #, fuzzy
 msgid "common.specific_search_fields.title"
 msgstr "Nosaukums"
 
-#: allthethings/page/views.py:6602
+#: allthethings/page/views.py:6632
 #, fuzzy
 msgid "common.specific_search_fields.author"
 msgstr "Autors"
 
-#: allthethings/page/views.py:6603
+#: allthethings/page/views.py:6633
 #, fuzzy
 msgid "common.specific_search_fields.publisher"
 msgstr "Izdevējs"
 
-#: allthethings/page/views.py:6604
+#: allthethings/page/views.py:6634
 #, fuzzy
 msgid "common.specific_search_fields.edition_varia"
 msgstr "Izdevums"
 
-#: allthethings/page/views.py:6605
+#: allthethings/page/views.py:6635
 #, fuzzy
 msgid "common.specific_search_fields.year"
 msgstr "Publicēšanas gads"
 
-#: allthethings/page/views.py:6606
+#: allthethings/page/views.py:6636
 #, fuzzy
 msgid "common.specific_search_fields.original_filename"
 msgstr "Oriģinālais faila nosaukums"
 
-#: allthethings/page/views.py:6607
+#: allthethings/page/views.py:6637
 #, fuzzy
 msgid "common.specific_search_fields.description_comments"
 msgstr "Apraksts un metadatu komentāri"
 
-#: allthethings/page/views.py:6631 allthethings/page/views.py:6632
+#: allthethings/page/views.py:6661 allthethings/page/views.py:6662
 #, fuzzy
 msgid "page.md5.box.download.temporarily_unavailable"
 msgstr "Partneru servera lejupielādes uz laiku nav pieejamas šim failam."
 
-#: allthethings/page/views.py:6636
+#: allthethings/page/views.py:6666
 #, fuzzy
 msgid "common.md5.servers.fast_partner"
 msgstr "Ātrais partneru serveris #%(number)s"
 
-#: allthethings/page/views.py:6636
+#: allthethings/page/views.py:6666
 #, fuzzy
 msgid "common.md5.servers.fast_partner.recommended2"
 msgstr "(ieteicams)"
 
-#: allthethings/page/views.py:6636
+#: allthethings/page/views.py:6666
 #, fuzzy
 msgid "common.md5.servers.no_browser_verification_or_waitlists"
 msgstr "(nav pārlūkprogrammas verifikācijas vai gaidīšanas sarakstu)"
 
 #: allthethings/page/templates/page/partner_download.html:37
-#: allthethings/page/views.py:6639 allthethings/page/views.py:6641
+#: allthethings/page/views.py:6669 allthethings/page/views.py:6671
 #, fuzzy
 msgid "common.md5.servers.slow_partner"
 msgstr "Lēnais partneru serveris #%(number)s"
 
-#: allthethings/page/views.py:6639
+#: allthethings/page/views.py:6669
 #, fuzzy
 msgid "common.md5.servers.faster_with_waitlist"
 msgstr "(nedaudz ātrāks, bet ar gaidīšanas sarakstu)"
 
-#: allthethings/page/views.py:6641
+#: allthethings/page/views.py:6671
 #, fuzzy
 msgid "common.md5.servers.slow_no_waitlist"
 msgstr "(nav gaidīšanas saraksta, bet var būt ļoti lēns)"
 
-#: allthethings/page/views.py:6728 allthethings/page/views.py:6950
+#: allthethings/page/views.py:6758 allthethings/page/views.py:6983
 #, fuzzy
 msgid "page.md5.box.download.scihub"
 msgstr "Sci-Hub: %(doi)s"
 
-#: allthethings/page/views.py:6805
+#: allthethings/page/views.py:6838
 #, fuzzy
 msgid "page.md5.box.download.lgrsnf"
 msgstr "Libgen.rs Ne-fantastika"
 
-#: allthethings/page/views.py:6805 allthethings/page/views.py:6821
-#: allthethings/page/views.py:6882
-#, fuzzy
-msgid "page.md5.box.download.extra_also_click_get"
-msgstr "(arī noklikšķiniet uz “GET” augšpusē)"
-
-#: allthethings/page/views.py:6805 allthethings/page/views.py:6821
-#: allthethings/page/views.py:6882
-#, fuzzy
-msgid "page.md5.box.download.extra_click_get"
-msgstr "(noklikšķiniet uz “GET” augšpusē)"
-
-#: allthethings/page/views.py:6821
+#: allthethings/page/views.py:6854
 #, fuzzy
 msgid "page.md5.box.download.lgrsfic"
 msgstr "Libgen.rs Fantastika"
 
-#: allthethings/page/views.py:6882
+#: allthethings/page/views.py:6915
 #, fuzzy
 msgid "page.md5.box.download.lgli"
 msgstr "Libgen.li"
 
-#: allthethings/page/views.py:6882
+#: allthethings/page/views.py:6915
+#, fuzzy
+msgid "page.md5.box.download.extra_also_click_get"
+msgstr "(arī noklikšķiniet uz “GET” augšpusē)"
+
+#: allthethings/page/views.py:6915
+#, fuzzy
+msgid "page.md5.box.download.extra_click_get"
+msgstr "(noklikšķiniet uz “GET” augšpusē)"
+
+#: allthethings/page/views.py:6915
 #, fuzzy
 msgid "page.md5.box.download.libgen_ads"
 msgstr "viņu reklāmās var būt ļaunprātīga programmatūra, tāpēc izmantojiet reklāmu bloķētāju vai neklikšķiniet uz reklāmām"
 
-#: allthethings/page/views.py:6886
+#: allthethings/page/views.py:6919
 #, fuzzy
 msgid "page.md5.box.download.nexusstc"
 msgstr "Nexus/STC"
 
-#: allthethings/page/views.py:6886
+#: allthethings/page/views.py:6919
 #, fuzzy
 msgid "page.md5.box.download.nexusstc_unreliable"
 msgstr "(Nexus/STC faili var būt neuzticami lejupielādei)"
 
-#: allthethings/page/views.py:6933 allthethings/page/views.py:6937
+#: allthethings/page/views.py:6966 allthethings/page/views.py:6970
 #, fuzzy
 msgid "page.md5.box.download.zlib"
 msgstr "Z-Library"
 
-#: allthethings/page/views.py:6934 allthethings/page/views.py:6938
+#: allthethings/page/views.py:6967 allthethings/page/views.py:6971
 #, fuzzy
 msgid "page.md5.box.download.zlib_tor"
 msgstr "Z-Bibliotēka Tor tīklā"
 
-#: allthethings/page/views.py:6934 allthethings/page/views.py:6938
+#: allthethings/page/views.py:6967 allthethings/page/views.py:6971
 #, fuzzy
 msgid "page.md5.box.download.zlib_tor_extra"
 msgstr "(prasa Tor pārlūku)"
 
-#: allthethings/page/views.py:6941
+#: allthethings/page/views.py:6974
 #, fuzzy
 msgid "page.md5.box.download.magzdb"
 msgstr "MagzDB"
 
-#: allthethings/page/views.py:6946
+#: allthethings/page/views.py:6979
 #, fuzzy
 msgid "page.md5.box.download.ia_borrow"
 msgstr "Aizņemties no Internet Archive"
 
-#: allthethings/page/views.py:6946
+#: allthethings/page/views.py:6979
 #, fuzzy
 msgid "page.md5.box.download.print_disabled_only"
 msgstr "(tikai drukas ierobežojumu apmeklētājiem)"
 
-#: allthethings/page/views.py:6950
+#: allthethings/page/views.py:6983
 #, fuzzy
 msgid "page.md5.box.download.scihub_maybe"
 msgstr "(saistītais DOI var nebūt pieejams Sci-Hub)"
 
-#: allthethings/page/views.py:6953
+#: allthethings/page/views.py:6986
 #, fuzzy
 msgid "page.md5.box.download.manualslib"
 msgstr "ManualsLib"
 
-#: allthethings/page/views.py:6956
+#: allthethings/page/views.py:6989
 #, fuzzy
 msgid "page.md5.box.download.pubmed"
 msgstr "PubMed"
 
-#: allthethings/page/views.py:6963
+#: allthethings/page/views.py:6996
 #, fuzzy
 msgid "page.md5.box.download.collection"
 msgstr "kolekcija"
 
-#: allthethings/page/views.py:6964
+#: allthethings/page/views.py:6997
 #, fuzzy
 msgid "page.md5.box.download.torrent"
 msgstr "torrents"
 
-#: allthethings/page/views.py:6970
+#: allthethings/page/views.py:7003
 #, fuzzy
 msgid "page.md5.box.download.bulk_torrents"
 msgstr "Masveida torrentu lejupielādes"
 
-#: allthethings/page/views.py:6970
+#: allthethings/page/views.py:7003
 #, fuzzy
 msgid "page.md5.box.download.experts_only"
 msgstr "(tikai ekspertiem)"
 
-#: allthethings/page/views.py:6977
+#: allthethings/page/views.py:7010
 #, fuzzy
 msgid "page.md5.box.download.aa_isbn"
 msgstr "Meklēt Annas Arhīvā pēc ISBN"
 
-#: allthethings/page/views.py:6978
+#: allthethings/page/views.py:7011
 #, fuzzy
 msgid "page.md5.box.download.other_isbn"
 msgstr "Meklēt dažādās citās datubāzēs pēc ISBN"
 
-#: allthethings/page/views.py:6979
+#: allthethings/page/views.py:7012
 #, fuzzy
 msgid "page.md5.box.download.original_isbndb"
 msgstr "Atrast oriģinālo ierakstu ISBNdb"
 
-#: allthethings/page/views.py:6981
+#: allthethings/page/views.py:7014
 #, fuzzy
 msgid "page.md5.box.download.aa_openlib"
 msgstr "Meklēt Annas Arhīvā pēc Open Library ID"
 
-#: allthethings/page/views.py:6982
+#: allthethings/page/views.py:7015
 #, fuzzy
 msgid "page.md5.box.download.original_openlib"
 msgstr "Atrast oriģinālo ierakstu Open Library"
 
-#: allthethings/page/views.py:6984
+#: allthethings/page/views.py:7017
 #, fuzzy
 msgid "page.md5.box.download.aa_oclc"
 msgstr "Meklēt Annas Arhīvā pēc OCLC (WorldCat) numura"
 
-#: allthethings/page/views.py:6985
+#: allthethings/page/views.py:7018
 #, fuzzy
 msgid "page.md5.box.download.original_oclc"
 msgstr "Atrast oriģinālo ierakstu WorldCat"
 
-#: allthethings/page/views.py:6987
+#: allthethings/page/views.py:7020
 #, fuzzy
 msgid "page.md5.box.download.aa_duxiu"
 msgstr "Meklēt Annas Arhīvā pēc DuXiu SSID numura"
 
-#: allthethings/page/views.py:6988
+#: allthethings/page/views.py:7021
 #, fuzzy
 msgid "page.md5.box.download.original_duxiu"
 msgstr "Meklēt manuāli DuXiu"
 
-#: allthethings/page/views.py:6990
+#: allthethings/page/views.py:7023
 #, fuzzy
 msgid "page.md5.box.download.aa_cadal"
 msgstr "Meklēt Annas Arhīvā pēc CADAL SSNO numura"
 
-#: allthethings/page/views.py:6991
+#: allthethings/page/views.py:7024
 #, fuzzy
 msgid "page.md5.box.download.original_cadal"
 msgstr "Atrast oriģinālo ierakstu CADAL"
 
-#: allthethings/page/views.py:6995
+#: allthethings/page/views.py:7028
 #, fuzzy
 msgid "page.md5.box.download.aa_dxid"
 msgstr "Meklēt Annas Arhīvā pēc DuXiu DXID numura"
 
-#: allthethings/page/views.py:6998
+#: allthethings/page/views.py:7031
 #, fuzzy
 msgid "page.md5.box.download.edsebk"
 msgstr "EBSCOhost e-grāmatu indekss"
 
-#: allthethings/page/views.py:7003 allthethings/page/views.py:7004
+#: allthethings/page/views.py:7036 allthethings/page/views.py:7037
 #, fuzzy
 msgid "page.md5.box.download.scidb"
 msgstr "Annas Arhīvs 🧬 SciDB"
 
-#: allthethings/page/views.py:7003 allthethings/page/views.py:7004
+#: allthethings/page/views.py:7036 allthethings/page/views.py:7037
 #, fuzzy
 msgid "common.md5.servers.no_browser_verification"
 msgstr "(nav nepieciešama pārlūkprogrammas verifikācija)"
 
-#: allthethings/page/views.py:7029
+#: allthethings/page/views.py:7062
 #, fuzzy
 msgid "page.md5.top_row.isbndb"
 msgstr "ISBNdb %(id)s}"
 
-#: allthethings/page/views.py:7030
+#: allthethings/page/views.py:7063
 #, fuzzy
 msgid "page.md5.top_row.oclc"
 msgstr "OCLC %(id)s}"
 
-#: allthethings/page/views.py:7031
+#: allthethings/page/views.py:7064
 #, fuzzy
 msgid "page.md5.top_row.duxiu_ssid"
 msgstr "DuXiu SSID %(id)s}"
 
-#: allthethings/page/views.py:7032
+#: allthethings/page/views.py:7065
 #, fuzzy
 msgid "page.md5.top_row.cadal_ssno"
 msgstr "CADAL SSNO %(id)s}"
 
-#: allthethings/page/views.py:7033
+#: allthethings/page/views.py:7066
 #, fuzzy
 msgid "page.md5.top_row.magzdb"
 msgstr "MagzDB %(id)s}"
 
-#: allthethings/page/views.py:7034
+#: allthethings/page/views.py:7067
 #, fuzzy
 msgid "page.md5.top_row.nexusstc"
 msgstr "Nexus/STC %(id)s}"
 
-#: allthethings/page/views.py:7035
+#: allthethings/page/views.py:7068
 #, fuzzy
 msgid "page.md5.top_row.edsebk"
 msgstr "EBSCOhost edsebk %(id)s}"
 
-#: allthethings/page/views.py:7036
+#: allthethings/page/views.py:7069
 #, fuzzy
 msgid "page.md5.top_row.cerlalc"
 msgstr "Cerlalc %(id)s}"
 
-#: allthethings/page/views.py:7037
+#: allthethings/page/views.py:7070
 #, fuzzy
 msgid "page.md5.top_row.czech_oo42hcks"
 msgstr "Čehu metadati %(id)s}"
 
-#: allthethings/page/views.py:7038
+#: allthethings/page/views.py:7071
 #, fuzzy
 msgid "page.md5.top_row.gbooks"
 msgstr "Google Grāmatas %(id)s}"
 
-#: allthethings/page/views.py:7039
+#: allthethings/page/views.py:7072
 #, fuzzy
 msgid "page.md5.top_row.goodreads"
 msgstr "Goodreads %(id)s}"
 
-#: allthethings/page/views.py:7040
+#: allthethings/page/views.py:7073
 #, fuzzy
 msgid "page.md5.top_row.isbngrp"
 msgstr "ISBN GRP %(id)s}"
 
-#: allthethings/page/views.py:7041
+#: allthethings/page/views.py:7074
 #, fuzzy
 msgid "page.md5.top_row.libby"
 msgstr "Libby %(id)s}"
 
-#: allthethings/page/views.py:7042
+#: allthethings/page/views.py:7075
 #, fuzzy
 msgid "page.md5.top_row.rgb"
 msgstr "RSL %(id)s}"
 
-#: allthethings/page/views.py:7043
+#: allthethings/page/views.py:7076
 #, fuzzy
 msgid "page.md5.top_row.trantor"
 msgstr "Trantor %(id)s}"
@@ -2665,57 +2673,57 @@ msgstr "Trantor %(id)s}"
 #: allthethings/page/templates/page/datasets_scihub.html:18
 #: allthethings/page/templates/page/datasets_upload.html:18
 #: allthethings/page/templates/page/datasets_zlib.html:18
-#: allthethings/page/views.py:7067
+#: allthethings/page/views.py:7100
 #, fuzzy
 msgid "page.datasets.sources.metadata.header"
 msgstr "Metadati"
 
-#: allthethings/page/views.py:7080
+#: allthethings/page/views.py:7113
 #, fuzzy
 msgid "page.md5.box.descr_title"
 msgstr "apraksts"
 
-#: allthethings/page/views.py:7081
+#: allthethings/page/views.py:7114
 #, fuzzy
 msgid "page.md5.box.alternative_filename"
 msgstr "Alternatīvais faila nosaukums"
 
-#: allthethings/page/views.py:7082
+#: allthethings/page/views.py:7115
 #, fuzzy
 msgid "page.md5.box.alternative_title"
 msgstr "Alternatīvais nosaukums"
 
-#: allthethings/page/views.py:7083
+#: allthethings/page/views.py:7116
 #, fuzzy
 msgid "page.md5.box.alternative_author"
 msgstr "Alternatīvais autors"
 
-#: allthethings/page/views.py:7084
+#: allthethings/page/views.py:7117
 #, fuzzy
 msgid "page.md5.box.alternative_publisher"
 msgstr "Alternatīvais izdevējs"
 
-#: allthethings/page/views.py:7085
+#: allthethings/page/views.py:7118
 #, fuzzy
 msgid "page.md5.box.alternative_edition"
 msgstr "Alternatīvais izdevums"
 
-#: allthethings/page/views.py:7086
+#: allthethings/page/views.py:7119
 #, fuzzy
 msgid "page.md5.box.alternative_extension"
 msgstr "Alternatīvais paplašinājums"
 
-#: allthethings/page/views.py:7087
+#: allthethings/page/views.py:7120
 #, fuzzy
 msgid "page.md5.box.metadata_comments_title"
 msgstr "metadatu komentāri"
 
-#: allthethings/page/views.py:7088
+#: allthethings/page/views.py:7121
 #, fuzzy
 msgid "page.md5.box.alternative_description"
 msgstr "Alternatīvais apraksts"
 
-#: allthethings/page/views.py:7089
+#: allthethings/page/views.py:7122
 #, fuzzy
 msgid "page.md5.box.date_open_sourced_title"
 msgstr "atvēršanas datums"
@@ -2781,167 +2789,178 @@ msgstr "Nexus/STC ID %(id)s metadatu ieraksts"
 msgid "page.md5.header.meta_desc"
 msgstr "Šis ir metadatu ieraksts, nevis lejupielādējams fails. Jūs varat izmantot šo URL, kad <a %(a_request)s>pieprasāt failu</a>."
 
-#: allthethings/page/templates/page/aarecord.html:57
+#: allthethings/page/templates/page/aarecord.html:59
 #, fuzzy
 msgid "page.md5.text.linked_metadata"
 msgstr "Metadati no saistītā ieraksta"
 
-#: allthethings/page/templates/page/aarecord.html:58
+#: allthethings/page/templates/page/aarecord.html:60
 #, fuzzy
 msgid "page.md5.text.linked_metadata_openlib"
 msgstr "Uzlabot metadatus Open Library"
 
-#: allthethings/page/templates/page/aarecord.html:61
+#: allthethings/page/templates/page/aarecord.html:63
 #, fuzzy
 msgid "page.md5.warning.multiple_links"
 msgstr "Brīdinājums: vairāki saistītie ieraksti:"
 
-#: allthethings/page/templates/page/aarecord.html:69
+#: allthethings/page/templates/page/aarecord.html:71
 #, fuzzy
 msgid "page.md5.header.improve_metadata"
 msgstr "Uzlabot metadatus"
 
-#: allthethings/page/templates/page/aarecord.html:71
+#: allthethings/page/templates/page/aarecord.html:73
 #, fuzzy
 msgid "page.md5.text.report_quality"
 msgstr "Ziņot par faila kvalitāti"
 
-#: allthethings/page/templates/page/aarecord.html:95
+#: allthethings/page/templates/page/aarecord.html:87
+#: allthethings/page/templates/page/search.html:510
+#: allthethings/page/templates/page/search.html:520
+#: allthethings/page/templates/page/search.html:550
+#: allthethings/templates/macros/aarecord_list.html:118
+#, fuzzy
+msgid "page.search.results.download_time"
+msgstr "Lejupielādes laiks"
+
+#: allthethings/page/templates/page/aarecord.html:142
 #, fuzzy
 msgid "page.md5.codes.url"
 msgstr "URL:"
 
-#: allthethings/page/templates/page/aarecord.html:96
+#: allthethings/page/templates/page/aarecord.html:143
 #, fuzzy
 msgid "page.md5.codes.website"
 msgstr "Vietne:"
 
-#: allthethings/page/templates/page/aarecord.html:97
+#: allthethings/page/templates/page/aarecord.html:144
 #, fuzzy
 msgid "page.md5.codes.aa_abbr"
 msgstr "AA:"
 
-#: allthethings/page/templates/page/aarecord.html:97
+#: allthethings/page/templates/page/aarecord.html:144
 #, fuzzy
 msgid "page.md5.codes.aa_search"
 msgstr "Meklēt Annas Arhīvā “%(name)s”"
 
-#: allthethings/page/templates/page/aarecord.html:98
+#: allthethings/page/templates/page/aarecord.html:145
 #, fuzzy
 msgid "page.md5.codes.code_explorer"
 msgstr "Kodu Pētnieks:"
 
-#: allthethings/page/templates/page/aarecord.html:98
+#: allthethings/page/templates/page/aarecord.html:145
 #, fuzzy
 msgid "page.md5.codes.code_search"
 msgstr "Skatīt Kodu Pētniekā “%(name)s”"
 
-#: allthethings/page/templates/page/aarecord.html:117
+#: allthethings/page/templates/page/aarecord.html:164
 #, fuzzy
 msgid "page.md5.box.descr_read_more"
 msgstr "Lasīt vairāk…"
 
-#: allthethings/page/templates/page/aarecord.html:133
+#: allthethings/page/templates/page/aarecord.html:180
 #, fuzzy
 msgid "page.md5.tabs.downloads"
 msgstr "Lejupielādes (%(count)s)"
 
-#: allthethings/page/templates/page/aarecord.html:133
+#: allthethings/page/templates/page/aarecord.html:180
 #, fuzzy
 msgid "page.md5.tabs.borrow"
 msgstr "Aizņemties (%(count)s)"
 
-#: allthethings/page/templates/page/aarecord.html:133
+#: allthethings/page/templates/page/aarecord.html:180
 #, fuzzy
 msgid "page.md5.tabs.explore_metadata"
 msgstr "Izpētīt metadatus (%(count)s)"
 
-#: allthethings/page/templates/page/aarecord.html:135
+#: allthethings/page/templates/page/aarecord.html:183
 #, fuzzy
 msgid "page.md5.tabs.lists"
 msgstr "Saraksti (%(count)s)"
 
-#: allthethings/page/templates/page/aarecord.html:136
+#: allthethings/page/templates/page/aarecord.html:184
 #, fuzzy
 msgid "page.md5.tabs.stats"
 msgstr "Statistika (%(count)s)"
 
-#: allthethings/page/templates/page/aarecord.html:138
+#: allthethings/page/templates/page/aarecord.html:186
 #, fuzzy
 msgid "common.tech_details"
 msgstr "Tehniskās detaļas"
 
-#: allthethings/page/templates/page/aarecord.html:207
+#: allthethings/page/templates/page/aarecord.html:265
 #, fuzzy
 msgid "page.md5.box.issues.text1"
 msgstr "<span class=\"font-bold\">❌ Šim failam var būt problēmas, un tas ir paslēpts no avota bibliotēkas.</span> Dažreiz tas notiek pēc autortiesību īpašnieka pieprasījuma, dažreiz tāpēc, ka ir pieejama labāka alternatīva, bet dažreiz tas ir saistīts ar pašu failu. Iespējams, ka to joprojām var lejupielādēt, bet mēs iesakām vispirms meklēt alternatīvu failu. Vairāk informācijas:"
 
-#: allthethings/page/templates/page/aarecord.html:212
+#: allthethings/page/templates/page/aarecord.html:270
 #, fuzzy
 msgid "page.md5.box.download.better_file"
 msgstr "Labāka šī faila versija var būt pieejama vietnē %(link)s"
 
-#: allthethings/page/templates/page/aarecord.html:217
+#: allthethings/page/templates/page/aarecord.html:275
 #, fuzzy
 msgid "page.md5.box.issues.text2"
 msgstr "Ja jūs joprojām vēlaties lejupielādēt šo failu, pārliecinieties, ka izmantojat tikai uzticamu, atjauninātu programmatūru, lai to atvērtu."
 
-#: allthethings/page/templates/page/aarecord.html:222
+#: allthethings/page/templates/page/aarecord.html:280
 #, fuzzy
 msgid "page.md5.box.download.header_fast_only"
 msgstr "🚀 Ātra lejupielāde"
 
-#: allthethings/page/templates/page/aarecord.html:224
+#: allthethings/page/templates/page/aarecord.html:282
 #, fuzzy
 msgid "page.md5.box.download.header_fast_no_member"
 msgstr "<strong>🚀 Ātras lejupielādes</strong> Kļūstiet par <a %(a_membership)s>biedru</a>, lai atbalstītu grāmatu, rakstu un citu materiālu ilgtermiņa saglabāšanu. Lai izrādītu pateicību par jūsu atbalstu, jūs saņemat ātras lejupielādes. ❤️"
 
-#: allthethings/page/templates/page/aarecord.html:225
+#: allthethings/page/templates/page/aarecord.html:283
 #: allthethings/templates/layouts/index.html:233
 #, fuzzy
 msgid "layout.index.header.banner.fundraiser.this_month"
 msgstr "Ja šomēnes ziedosiet, jūs saņemsiet <strong>dubultu</strong> ātro lejupielāžu skaitu."
 
-#: allthethings/page/templates/page/aarecord.html:227
+#: allthethings/page/templates/page/aarecord.html:285
 #, fuzzy
 msgid "page.md5.box.download.header_fast_member"
 msgstr "<strong>🚀 Ātras lejupielādes</strong> Jums šodien ir atlikušas %(remaining)s. Paldies, ka esat biedrs! ❤️"
 
-#: allthethings/page/templates/page/aarecord.html:228
+#: allthethings/page/templates/page/aarecord.html:286
 #, fuzzy
 msgid "page.md5.box.download.header_fast_member_no_remaining_new"
 msgstr "<strong>🚀 Ātras lejupielādes</strong> Jūs esat izsmēlis ātro lejupielāžu limitu šodienai."
 
-#: allthethings/page/templates/page/aarecord.html:229
+#: allthethings/page/templates/page/aarecord.html:287
 #, fuzzy
 msgid "page.md5.box.download.header_fast_member_valid_for"
 msgstr "<strong>🚀 Ātras lejupielādes</strong> Jūs nesen lejupielādējāt šo failu. Saites paliek derīgas kādu laiku."
 
-#: allthethings/page/templates/page/aarecord.html:234
-#: allthethings/page/templates/page/aarecord.html:251
-#: allthethings/page/templates/page/aarecord.html:283
+#: allthethings/page/templates/page/aarecord.html:292
+#: allthethings/page/templates/page/aarecord.html:293
+#: allthethings/page/templates/page/aarecord.html:311
+#: allthethings/page/templates/page/aarecord.html:347
 #, fuzzy
 msgid "page.md5.box.download.option"
 msgstr "Opcija #%(num)d: %(link)s %(extra)s"
 
-#: allthethings/page/templates/page/aarecord.html:234
+#: allthethings/page/templates/page/aarecord.html:292
+#: allthethings/page/templates/page/aarecord.html:294
 #, fuzzy
 msgid "page.md5.box.download.no_redirect"
 msgstr "(nav bez novirzīšanas)"
 
-#: allthethings/page/templates/page/aarecord.html:239
+#: allthethings/page/templates/page/aarecord.html:299
 #: allthethings/templates/layouts/index.html:276
 #, fuzzy
 msgid "layout.index.header.banner.refer"
 msgstr "Iesakiet draugu, un gan jūs, gan jūsu draugs saņems %(percentage)s%% bonusa ātrās lejupielādes!"
 
-#: allthethings/page/templates/page/aarecord.html:239
+#: allthethings/page/templates/page/aarecord.html:299
 #: allthethings/page/templates/page/home.html:25
 #: allthethings/page/templates/page/home.html:34
 #: allthethings/page/templates/page/home.html:71
 #: allthethings/page/templates/page/home.html:124
-#: allthethings/page/templates/page/search.html:357
-#: allthethings/page/templates/page/search.html:421
+#: allthethings/page/templates/page/search.html:361
+#: allthethings/page/templates/page/search.html:425
 #: allthethings/templates/layouts/index.html:270
 #: allthethings/templates/layouts/index.html:276
 #: allthethings/templates/layouts/index.html:403
@@ -2951,252 +2970,252 @@ msgstr "Iesakiet draugu, un gan jūs, gan jūsu draugs saņems %(percentage)s%% 
 msgid "layout.index.header.learn_more"
 msgstr "Uzzināt vairāk…"
 
-#: allthethings/page/templates/page/aarecord.html:246
+#: allthethings/page/templates/page/aarecord.html:306
 #, fuzzy
 msgid "page.md5.box.download.header_slow_only"
 msgstr "🐢 Lēnas lejupielādes"
 
-#: allthethings/page/templates/page/aarecord.html:247
+#: allthethings/page/templates/page/aarecord.html:307
 #, fuzzy
 msgid "page.md5.box.download.trusted_partners"
 msgstr "No uzticamiem partneriem."
 
-#: allthethings/page/templates/page/aarecord.html:247
+#: allthethings/page/templates/page/aarecord.html:307
 #, fuzzy
 msgid "page.md5.box.download.slow_faq"
 msgstr "Vairāk informācijas <a %(a_slow)s>BUJ</a>."
 
-#: allthethings/page/templates/page/aarecord.html:247
+#: allthethings/page/templates/page/aarecord.html:307
 #, fuzzy
 msgid "common.md5.servers.browser_verification_unlimited"
 msgstr "(var būt nepieciešama <a %(a_browser)s>pārlūkprogrammas verifikācija</a> — neierobežotas lejupielādes!)"
 
-#: allthethings/page/templates/page/aarecord.html:262
+#: allthethings/page/templates/page/aarecord.html:326
 #, fuzzy
 msgid "page.md5.box.external_downloads"
 msgstr "rādīt ārējās lejupielādes"
 
-#: allthethings/page/templates/page/aarecord.html:263
+#: allthethings/page/templates/page/aarecord.html:327
 #, fuzzy
 msgid "page.md5.box.download.header_external"
 msgstr "Ārējas lejupielādes"
 
-#: allthethings/page/templates/page/aarecord.html:288
+#: allthethings/page/templates/page/aarecord.html:352
 #, fuzzy
 msgid "page.md5.box.download.no_found"
 msgstr "Nav atrastas lejupielādes."
 
-#: allthethings/page/templates/page/aarecord.html:294
+#: allthethings/page/templates/page/aarecord.html:358
 #, fuzzy
 msgid "page.md5.box.download.no_issues_notice"
 msgstr "Visas lejupielādes iespējas satur to pašu failu un būtu drošas lietošanai. Tomēr vienmēr esiet piesardzīgi, lejupielādējot failus no interneta, īpaši no vietnēm ārpus Annas Arhīva. Piemēram, pārliecinieties, ka jūsu ierīces ir atjauninātas."
 
-#: allthethings/page/templates/page/aarecord.html:300
+#: allthethings/page/templates/page/aarecord.html:364
 #: allthethings/page/templates/page/partner_download.html:83
 #, fuzzy
 msgid "page.md5.box.download.dl_managers"
 msgstr "Lieliem failiem mēs iesakām izmantot lejupielādes pārvaldnieku, lai novērstu pārtraukumus."
 
-#: allthethings/page/templates/page/aarecord.html:301
+#: allthethings/page/templates/page/aarecord.html:365
 #: allthethings/page/templates/page/partner_download.html:84
 #, fuzzy
 msgid "page.md5.box.download.dl_managers.links"
 msgstr "Ieteicamie lejupielādes pārvaldnieki: %(links)s"
 
-#: allthethings/page/templates/page/aarecord.html:309
+#: allthethings/page/templates/page/aarecord.html:373
 #, fuzzy
 msgid "page.md5.box.download.readers"
 msgstr "Lai atvērtu failu, atkarībā no faila formāta, jums būs nepieciešams e-grāmatu vai PDF lasītājs."
 
-#: allthethings/page/templates/page/aarecord.html:310
+#: allthethings/page/templates/page/aarecord.html:374
 #, fuzzy
 msgid "page.md5.box.download.readers.links"
 msgstr "Ieteicamie e-grāmatu lasītāji: %(links)s"
 
-#: allthethings/page/templates/page/aarecord.html:319
+#: allthethings/page/templates/page/aarecord.html:383
 #, fuzzy
 msgid "page.md5.box.download.conversion"
 msgstr "Izmantojiet tiešsaistes rīkus, lai konvertētu starp formātiem."
 
-#: allthethings/page/templates/page/aarecord.html:320
+#: allthethings/page/templates/page/aarecord.html:384
 #, fuzzy
 msgid "page.md5.box.download.conversion.links"
 msgstr "Ieteicamie konvertēšanas rīki: %(links)s"
 
-#: allthethings/page/templates/page/aarecord.html:328
+#: allthethings/page/templates/page/aarecord.html:392
 #, fuzzy
 msgid "page.md5.box.download.sendtokindle"
 msgstr "Jūs varat nosūtīt gan PDF, gan EPUB failus uz savu Kindle vai Kobo e-lasītāju."
 
-#: allthethings/page/templates/page/aarecord.html:329
+#: allthethings/page/templates/page/aarecord.html:393
 #, fuzzy
 msgid "page.md5.box.download.sendtokindle.links"
 msgstr "Ieteicamie rīki: %(links)s"
 
-#: allthethings/page/templates/page/aarecord.html:332
+#: allthethings/page/templates/page/aarecord.html:396
 #, fuzzy
 msgid "page.md5.box.download.link.send_to_kindle"
 msgstr "Amazon “Send to Kindle”"
 
-#: allthethings/page/templates/page/aarecord.html:333
+#: allthethings/page/templates/page/aarecord.html:397
 #, fuzzy
 msgid "page.md5.box.download.link.send_to_kobokindle"
 msgstr "djazz “Send to Kobo/Kindle”"
 
-#: allthethings/page/templates/page/aarecord.html:338
+#: allthethings/page/templates/page/aarecord.html:402
 #, fuzzy
 msgid "page.md5.box.download.support"
 msgstr "Atbalstiet autorus un bibliotēkas"
 
-#: allthethings/page/templates/page/aarecord.html:339
+#: allthethings/page/templates/page/aarecord.html:403
 #, fuzzy
 msgid "page.md5.box.download.support.authors"
 msgstr "Ja jums tas patīk un varat to atļauties, apsveriet iespēju iegādāties oriģinālu vai atbalstīt autorus tieši."
 
-#: allthethings/page/templates/page/aarecord.html:340
+#: allthethings/page/templates/page/aarecord.html:404
 #, fuzzy
 msgid "page.md5.box.download.support.libraries"
 msgstr "Ja tas ir pieejams jūsu vietējā bibliotēkā, apsveriet iespēju to aizņemties tur bez maksas."
 
-#: allthethings/page/templates/page/aarecord.html:371
+#: allthethings/page/templates/page/aarecord.html:442
 #, fuzzy
 msgid "page.md5.quality.header"
 msgstr "Faila kvalitāte"
 
-#: allthethings/page/templates/page/aarecord.html:374
+#: allthethings/page/templates/page/aarecord.html:445
 #, fuzzy
 msgid "page.md5.quality.report"
 msgstr "Palīdziet kopienai, ziņojot par šī faila kvalitāti! 🙌"
 
-#: allthethings/page/templates/page/aarecord.html:378
+#: allthethings/page/templates/page/aarecord.html:449
 #, fuzzy
 msgid "page.md5.quality.report_issue"
 msgstr "Ziņot par faila problēmu (%(count)s)"
 
-#: allthethings/page/templates/page/aarecord.html:380
+#: allthethings/page/templates/page/aarecord.html:451
 #, fuzzy
 msgid "page.md5.quality.great_quality"
 msgstr "Lieliska faila kvalitāte (%(count)s)"
 
-#: allthethings/page/templates/page/aarecord.html:380
+#: allthethings/page/templates/page/aarecord.html:451
 #, fuzzy
 msgid "page.md5.quality.add_comment"
 msgstr "Pievienot komentāru (%(count)s)"
 
-#: allthethings/page/templates/page/aarecord.html:383
+#: allthethings/page/templates/page/aarecord.html:454
 #, fuzzy
 msgid "page.md5.quality.logged_out_login"
 msgstr "Lūdzu, <a %(a_login)s>piesakieties</a>."
 
-#: allthethings/page/templates/page/aarecord.html:387
+#: allthethings/page/templates/page/aarecord.html:458
 #, fuzzy
 msgid "page.md5.quality.what_is_wrong"
 msgstr "Kas ir nepareizi ar šo failu?"
 
-#: allthethings/page/templates/page/aarecord.html:397
+#: allthethings/page/templates/page/aarecord.html:468
 #, fuzzy
 msgid "page.md5.quality.copyright"
 msgstr "Lūdzu, izmantojiet <a %(a_copyright)s>DMCA / Autortiesību prasības veidlapu</a>."
 
-#: allthethings/page/templates/page/aarecord.html:402
+#: allthethings/page/templates/page/aarecord.html:473
 #, fuzzy
 msgid "page.md5.quality.describe_the_issue"
 msgstr "Aprakstiet problēmu (obligāti)"
 
-#: allthethings/page/templates/page/aarecord.html:403
+#: allthethings/page/templates/page/aarecord.html:474
 #, fuzzy
 msgid "page.md5.quality.issue_description"
 msgstr "Problēmas apraksts"
 
-#: allthethings/page/templates/page/aarecord.html:407
+#: allthethings/page/templates/page/aarecord.html:478
 #, fuzzy
 msgid "page.md5.quality.better_md5.text1"
 msgstr "Labākas versijas MD5 šim failam (ja piemērojams)."
 
-#: allthethings/page/templates/page/aarecord.html:407
+#: allthethings/page/templates/page/aarecord.html:478
 #, fuzzy
 msgid "page.md5.quality.better_md5.text2"
 msgstr "Aizpildiet šo, ja ir cits fails, kas cieši atbilst šim failam (tāds pats izdevums, tāds pats faila paplašinājums, ja varat atrast), kuru cilvēkiem vajadzētu izmantot šī faila vietā. Ja zināt labāku šī faila versiju ārpus Annas Arhīva, lūdzu, <a %(a_upload)s>augšupielādējiet to</a>."
 
-#: allthethings/page/templates/page/aarecord.html:410
+#: allthethings/page/templates/page/aarecord.html:481
 #, fuzzy
 msgid "page.md5.quality.better_md5.line1"
 msgstr "Jūs varat iegūt md5 no URL, piemēram,"
 
-#: allthethings/page/templates/page/aarecord.html:417
+#: allthethings/page/templates/page/aarecord.html:488
 #, fuzzy
 msgid "page.md5.quality.submit_report"
 msgstr "Iesniegt ziņojumu"
 
-#: allthethings/page/templates/page/aarecord.html:422
+#: allthethings/page/templates/page/aarecord.html:493
 #, fuzzy
 msgid "page.md5.quality.improve_the_metadata"
 msgstr "Uzziniet, kā <a %(a_metadata)s>uzlabot metadatus</a> šim failam pašam."
 
-#: allthethings/page/templates/page/aarecord.html:426
+#: allthethings/page/templates/page/aarecord.html:497
 #, fuzzy
 msgid "page.md5.quality.report_thanks"
 msgstr "Paldies par jūsu ziņojuma iesniegšanu. Tas tiks parādīts šajā lapā, kā arī manuāli pārskatīts Annas (līdz mums būs pienācīga moderācijas sistēma)."
 
-#: allthethings/page/templates/page/aarecord.html:427
+#: allthethings/page/templates/page/aarecord.html:498
 #, fuzzy
 msgid "page.md5.quality.report_error"
 msgstr "Kaut kas nogāja greizi. Lūdzu, pārlādējiet lapu un mēģiniet vēlreiz."
 
-#: allthethings/page/templates/page/aarecord.html:433
+#: allthethings/page/templates/page/aarecord.html:504
 #, fuzzy
 msgid "page.md5.quality.great.summary"
 msgstr "Ja šim failam ir lieliska kvalitāte, jūs varat apspriest visu par to šeit! Ja nē, lūdzu, izmantojiet pogu “Ziņot par faila problēmu”."
 
-#: allthethings/page/templates/page/aarecord.html:435
+#: allthethings/page/templates/page/aarecord.html:506
 #, fuzzy
 msgid "page.md5.quality.loved_the_book"
 msgstr "Man ļoti patika šī grāmata!"
 
-#: allthethings/page/templates/page/aarecord.html:437
+#: allthethings/page/templates/page/aarecord.html:508
 #, fuzzy
 msgid "page.md5.quality.submit_comment"
 msgstr "Atstāt komentāru"
 
-#: allthethings/page/templates/page/aarecord.html:441
+#: allthethings/page/templates/page/aarecord.html:512
 #, fuzzy
 msgid "page.md5.quality.comment_thanks"
 msgstr "Jūs atstājāt komentāru. Tas var aizņemt minūti, lai tas parādītos."
 
-#: allthethings/page/templates/page/aarecord.html:442
+#: allthethings/page/templates/page/aarecord.html:513
 #, fuzzy
 msgid "page.md5.quality.comment_error"
 msgstr "Kaut kas nogāja greizi. Lūdzu, pārlādējiet lapu un mēģiniet vēlreiz."
 
-#: allthethings/page/templates/page/aarecord.html:452
-#: allthethings/page/templates/page/aarecord.html:453
-#: allthethings/page/templates/page/torrents.html:36
-#: allthethings/page/templates/page/torrents.html:37
+#: allthethings/page/templates/page/aarecord.html:522
+#: allthethings/page/templates/page/aarecord.html:523
+#: allthethings/page/templates/page/torrents.html:40
+#: allthethings/page/templates/page/torrents.html:41
 #, fuzzy
 msgid "common.english_only"
 msgstr "Teksts zemāk turpinās angļu valodā."
 
-#: allthethings/page/templates/page/aarecord.html:474
+#: allthethings/page/templates/page/aarecord.html:544
 #, fuzzy
 msgid "page.md5.text.stats.total_downloads"
 msgstr "Kopējie lejupielādes: %(total)s"
 
-#: allthethings/page/templates/page/aarecord.html:506
+#: allthethings/page/templates/page/aarecord.html:576
 #, fuzzy
 msgid "page.md5.text.md5_info.text1"
 msgstr "“Faila MD5” ir hešs, kas tiek aprēķināts no faila satura un ir diezgan unikāls, pamatojoties uz šo saturu. Visas ēnu bibliotēkas, kuras mēs esam indeksējuši šeit, galvenokārt izmanto MD5, lai identificētu failus."
 
-#: allthethings/page/templates/page/aarecord.html:510
+#: allthethings/page/templates/page/aarecord.html:580
 #, fuzzy
 msgid "page.md5.text.md5_info.text2"
 msgstr "Fails var parādīties vairākās ēnu bibliotēkās. Lai iegūtu informāciju par dažādiem datu kopumiem, kurus mēs esam apkopojuši, skatiet <a %(a_datasets)s>Datu kopumu lapu</a>."
 
-#: allthethings/page/templates/page/aarecord.html:514
+#: allthethings/page/templates/page/aarecord.html:584
 #, fuzzy
 msgid "page.md5.text.ia_info.text1"
 msgstr "Šis ir fails, ko pārvalda <a %(a_ia)s>IA kontrolētā digitālā aizdošana</a> bibliotēka un indeksēts Annas Arhīvā meklēšanai. Lai iegūtu informāciju par dažādiem datu kopumiem, kurus mēs esam apkopojuši, skatiet <a %(a_datasets)s>Datu kopumu lapu</a>."
 
-#: allthethings/page/templates/page/aarecord.html:519
+#: allthethings/page/templates/page/aarecord.html:589
 #, fuzzy
 msgid "page.md5.text.file_info.text1"
 msgstr "Lai iegūtu informāciju par šo konkrēto failu, skatiet tā <a %(a_href)s>JSON failu</a>."
@@ -3901,7 +3920,7 @@ msgstr "Mēs arī bagātinām savu kolekciju ar tikai metadatu avotiem, kurus va
 
 #: allthethings/page/templates/page/datasets.html:505
 #: allthethings/page/templates/page/faq.html:191
-#: allthethings/page/templates/page/search.html:392
+#: allthethings/page/templates/page/search.html:396
 #, fuzzy
 msgid "page.faq.metadata.inspiration"
 msgstr "Mūsu iedvesma metadatu vākšanai ir Ārona Švarca mērķis “viena tīmekļa lapa katrai jebkad publicētai grāmatai”, kuram viņš izveidoja <a %(a_openlib)s>Open Library</a>. Šis projekts ir veiksmīgs, bet mūsu unikālā pozīcija ļauj mums iegūt metadatus, kurus viņi nevar. Vēl viena iedvesma bija mūsu vēlme zināt <a %(a_blog)s>cik daudz grāmatu ir pasaulē</a>, lai mēs varētu aprēķināt, cik daudz grāmatu mums vēl ir jāglābj."
@@ -3984,11 +4003,11 @@ msgstr "Lai gan grāmatas ir daļēji publiski izplatītas, tās ir diezgan grū
 #: allthethings/page/templates/page/datasets_lgrs.html:81
 #: allthethings/page/templates/page/datasets_magzdb.html:66
 #: allthethings/page/templates/page/datasets_nexusstc.html:72
-#: allthethings/page/templates/page/datasets_oclc.html:63
+#: allthethings/page/templates/page/datasets_oclc.html:120
 #: allthethings/page/templates/page/datasets_ol.html:44
-#: allthethings/page/templates/page/datasets_other_metadata.html:150
+#: allthethings/page/templates/page/datasets_other_metadata.html:72
 #: allthethings/page/templates/page/datasets_scihub.html:90
-#: allthethings/page/templates/page/datasets_upload.html:221
+#: allthethings/page/templates/page/datasets_upload.html:104
 #: allthethings/page/templates/page/datasets_zlib.html:63
 #, fuzzy
 msgid "page.datasets.common.resources"
@@ -4001,7 +4020,7 @@ msgstr "Resursi"
 #: allthethings/page/templates/page/datasets_magzdb.html:68
 #: allthethings/page/templates/page/datasets_nexusstc.html:74
 #: allthethings/page/templates/page/datasets_scihub.html:92
-#: allthethings/page/templates/page/datasets_upload.html:223
+#: allthethings/page/templates/page/datasets_upload.html:106
 #: allthethings/page/templates/page/datasets_zlib.html:67
 #: allthethings/page/templates/page/datasets_zlib.html:74
 #, fuzzy
@@ -4015,7 +4034,7 @@ msgstr "Kopējais failu skaits: %(count)s"
 #: allthethings/page/templates/page/datasets_magzdb.html:69
 #: allthethings/page/templates/page/datasets_nexusstc.html:75
 #: allthethings/page/templates/page/datasets_scihub.html:93
-#: allthethings/page/templates/page/datasets_upload.html:224
+#: allthethings/page/templates/page/datasets_upload.html:107
 #: allthethings/page/templates/page/datasets_zlib.html:68
 #: allthethings/page/templates/page/datasets_zlib.html:75
 #, fuzzy
@@ -4029,7 +4048,7 @@ msgstr "Kopējais failu izmērs: %(size)s"
 #: allthethings/page/templates/page/datasets_magzdb.html:70
 #: allthethings/page/templates/page/datasets_nexusstc.html:76
 #: allthethings/page/templates/page/datasets_scihub.html:94
-#: allthethings/page/templates/page/datasets_upload.html:225
+#: allthethings/page/templates/page/datasets_upload.html:108
 #: allthethings/page/templates/page/datasets_zlib.html:69
 #: allthethings/page/templates/page/datasets_zlib.html:76
 #, fuzzy
@@ -4042,7 +4061,7 @@ msgstr "Faili, ko spoguļo Annas Arhīvs: %(count)s (%(percent)s%%)"
 #: allthethings/page/templates/page/datasets_lgrs.html:86
 #: allthethings/page/templates/page/datasets_magzdb.html:71
 #: allthethings/page/templates/page/datasets_nexusstc.html:77
-#: allthethings/page/templates/page/datasets_oclc.html:65
+#: allthethings/page/templates/page/datasets_oclc.html:122
 #: allthethings/page/templates/page/datasets_ol.html:46
 #: allthethings/page/templates/page/datasets_zlib.html:79
 #, fuzzy
@@ -4059,10 +4078,10 @@ msgstr "Torrenti no Annas Arhīva"
 #: allthethings/page/templates/page/datasets_ia.html:79
 #: allthethings/page/templates/page/datasets_lgli.html:113
 #: allthethings/page/templates/page/datasets_lgrs.html:90
-#: allthethings/page/templates/page/datasets_oclc.html:67
+#: allthethings/page/templates/page/datasets_oclc.html:124
 #: allthethings/page/templates/page/datasets_ol.html:47
 #: allthethings/page/templates/page/datasets_scihub.html:96
-#: allthethings/page/templates/page/datasets_upload.html:227
+#: allthethings/page/templates/page/datasets_upload.html:110
 #, fuzzy
 msgid "page.datasets.common.aa_example_record"
 msgstr "Piemēra ieraksts Annas Arhīvā"
@@ -4078,11 +4097,11 @@ msgstr "Mūsu emūru ieraksts par šiem datiem"
 #: allthethings/page/templates/page/datasets_lgrs.html:101
 #: allthethings/page/templates/page/datasets_magzdb.html:78
 #: allthethings/page/templates/page/datasets_nexusstc.html:92
-#: allthethings/page/templates/page/datasets_oclc.html:70
+#: allthethings/page/templates/page/datasets_oclc.html:127
 #: allthethings/page/templates/page/datasets_ol.html:50
-#: allthethings/page/templates/page/datasets_other_metadata.html:153
+#: allthethings/page/templates/page/datasets_other_metadata.html:75
 #: allthethings/page/templates/page/datasets_scihub.html:104
-#: allthethings/page/templates/page/datasets_upload.html:228
+#: allthethings/page/templates/page/datasets_upload.html:111
 #: allthethings/page/templates/page/datasets_zlib.html:87
 #, fuzzy
 msgid "page.datasets.common.import_scripts"
@@ -4094,11 +4113,11 @@ msgstr "Skripti metadatu importēšanai"
 #: allthethings/page/templates/page/datasets_lgrs.html:102
 #: allthethings/page/templates/page/datasets_magzdb.html:79
 #: allthethings/page/templates/page/datasets_nexusstc.html:93
-#: allthethings/page/templates/page/datasets_oclc.html:71
+#: allthethings/page/templates/page/datasets_oclc.html:128
 #: allthethings/page/templates/page/datasets_ol.html:51
-#: allthethings/page/templates/page/datasets_other_metadata.html:154
+#: allthethings/page/templates/page/datasets_other_metadata.html:76
 #: allthethings/page/templates/page/datasets_scihub.html:105
-#: allthethings/page/templates/page/datasets_upload.html:229
+#: allthethings/page/templates/page/datasets_upload.html:112
 #: allthethings/page/templates/page/datasets_zlib.html:88
 #, fuzzy
 msgid "page.datasets.common.aac"
@@ -4144,7 +4163,7 @@ msgstr "pakāpeniski jauni izlaidumi, izmantojot AAC. Satur tikai metadatus ar l
 #: allthethings/page/templates/page/datasets_ia.html:80
 #: allthethings/page/templates/page/datasets_lgli.html:114
 #: allthethings/page/templates/page/datasets_lgrs.html:91
-#: allthethings/page/templates/page/datasets_oclc.html:68
+#: allthethings/page/templates/page/datasets_oclc.html:125
 #: allthethings/page/templates/page/datasets_ol.html:48
 #: allthethings/page/templates/page/datasets_scihub.html:97
 #, fuzzy
@@ -4439,7 +4458,7 @@ msgstr "Tāpat kā ar Z-Library kolekciju, mēs tos visus ievietojām lielā .ta
 
 #: allthethings/page/templates/page/datasets_oclc.html:4
 #: allthethings/page/templates/page/datasets_oclc.html:7
-#: allthethings/page/templates/page/datasets_oclc.html:68
+#: allthethings/page/templates/page/datasets_oclc.html:125
 #, fuzzy
 msgid "page.datasets.worldcat.title"
 msgstr "OCLC (WorldCat)"
@@ -4449,17 +4468,17 @@ msgstr "OCLC (WorldCat)"
 msgid "page.datasets.worldcat.description"
 msgstr "<a %(a_worldcat)s>WorldCat</a> ir patentēta datubāze, ko pārvalda bezpeļņas organizācija <a %(a_oclc)s>OCLC</a>, kas apkopo metadatu ierakstus no bibliotēkām visā pasaulē. Iespējams, tā ir lielākā bibliotēku metadatu kolekcija pasaulē."
 
-#: allthethings/page/templates/page/datasets_oclc.html:52
+#: allthethings/page/templates/page/datasets_oclc.html:54
 #, fuzzy
 msgid "page.datasets.worldcat.description2"
 msgstr "2023. gada oktobrī mēs <a %(a_scrape)s>izlaidām</a> visaptverošu OCLC (WorldCat) datubāzes skrāpējumu, <a %(a_aac)s>Annas Arhīva Konteineru formātā</a>."
 
-#: allthethings/page/templates/page/datasets_oclc.html:66
+#: allthethings/page/templates/page/datasets_oclc.html:123
 #, fuzzy
 msgid "page.datasets.worldcat.torrents"
 msgstr "Torrenti no Annas Arhīva"
 
-#: allthethings/page/templates/page/datasets_oclc.html:69
+#: allthethings/page/templates/page/datasets_oclc.html:126
 #, fuzzy
 msgid "page.datasets.worldcat.blog_announcement"
 msgstr "Mūsu emuāra ieraksts par šiem datiem"
@@ -4481,22 +4500,22 @@ msgstr "Open Library ir atvērtā koda projekts no Internet Archive, lai katalog
 msgid "page.datesets.openlib.link_metadata"
 msgstr "Metadati"
 
-#: allthethings/page/templates/page/datasets_other_metadata.html:92
+#: allthethings/page/templates/page/datasets_other_metadata.html:61
 #, fuzzy
 msgid "page.datasets.isbndb.release1.title"
 msgstr "Izlaidums 1 (2022-10-31)"
 
-#: allthethings/page/templates/page/datasets_other_metadata.html:93
+#: allthethings/page/templates/page/datasets_other_metadata.html:61
 #, fuzzy
 msgid "page.datasets.isbndb.release1.text1"
 msgstr "Šis ir daudz zvanu uz isbndb.com izgāztuve 2022. gada septembrī. Mēs mēģinājām aptvert visus ISBN diapazonus. Tie ir aptuveni 30,9 miljoni ierakstu. Viņu mājaslapā viņi apgalvo, ka viņiem faktiski ir 32,6 miljoni ierakstu, tāpēc mēs, iespējams, kaut kā esam palaiduši garām dažus, vai <em>viņi</em> varētu kaut ko darīt nepareizi."
 
-#: allthethings/page/templates/page/datasets_other_metadata.html:94
+#: allthethings/page/templates/page/datasets_other_metadata.html:61
 #, fuzzy
 msgid "page.datasets.isbndb.release1.text2"
 msgstr "JSON atbildes ir gandrīz neapstrādātas no viņu servera. Viena datu kvalitātes problēma, ko mēs pamanījām, ir tā, ka ISBN-13 numuriem, kas sākas ar citu prefiksu nekā “978-”, viņi joprojām iekļauj “isbn” lauku, kas vienkārši ir ISBN-13 numurs ar pirmajiem 3 numuriem noņemtiem (un pārbaudes cipars pārrēķināts). Tas acīmredzami ir nepareizi, bet tā viņi to dara, tāpēc mēs to nemainījām."
 
-#: allthethings/page/templates/page/datasets_other_metadata.html:95
+#: allthethings/page/templates/page/datasets_other_metadata.html:61
 #, fuzzy
 msgid "page.datasets.isbndb.release1.text3"
 msgstr "Vēl viena potenciāla problēma, ar kuru jūs varētu saskarties, ir fakts, ka “isbn13” laukam ir dublikāti, tāpēc jūs to nevarat izmantot kā primāro atslēgu datubāzē. “isbn13”+“isbn” lauki kopā šķiet unikāli."
@@ -4589,162 +4608,189 @@ msgstr "Daudzas apakškolekcijas pašas sastāv no apakš-apakškolekcijām (pie
 msgid "page.datasets.upload.subs.heading"
 msgstr "Apakškolekcijas ir:"
 
+#: allthethings/page/templates/page/datasets_upload.html:63
+#: allthethings/page/templates/page/datasets_upload.html:64
 #: allthethings/page/templates/page/datasets_upload.html:65
+#: allthethings/page/templates/page/datasets_upload.html:66
+#: allthethings/page/templates/page/datasets_upload.html:67
+#: allthethings/page/templates/page/datasets_upload.html:68
+#: allthethings/page/templates/page/datasets_upload.html:69
+#: allthethings/page/templates/page/datasets_upload.html:70
+#: allthethings/page/templates/page/datasets_upload.html:71
 #: allthethings/page/templates/page/datasets_upload.html:72
+#: allthethings/page/templates/page/datasets_upload.html:73
+#: allthethings/page/templates/page/datasets_upload.html:74
+#: allthethings/page/templates/page/datasets_upload.html:75
+#: allthethings/page/templates/page/datasets_upload.html:76
+#: allthethings/page/templates/page/datasets_upload.html:77
+#: allthethings/page/templates/page/datasets_upload.html:78
 #: allthethings/page/templates/page/datasets_upload.html:79
+#: allthethings/page/templates/page/datasets_upload.html:80
+#: allthethings/page/templates/page/datasets_upload.html:81
+#: allthethings/page/templates/page/datasets_upload.html:82
+#: allthethings/page/templates/page/datasets_upload.html:83
+#: allthethings/page/templates/page/datasets_upload.html:84
+#: allthethings/page/templates/page/datasets_upload.html:85
 #: allthethings/page/templates/page/datasets_upload.html:86
+#: allthethings/page/templates/page/datasets_upload.html:87
+#: allthethings/page/templates/page/datasets_upload.html:88
+#: allthethings/page/templates/page/datasets_upload.html:89
+#: allthethings/page/templates/page/datasets_upload.html:90
+#: allthethings/page/templates/page/datasets_upload.html:91
+#: allthethings/page/templates/page/datasets_upload.html:92
 #: allthethings/page/templates/page/datasets_upload.html:93
-#: allthethings/page/templates/page/datasets_upload.html:100
-#: allthethings/page/templates/page/datasets_upload.html:107
-#: allthethings/page/templates/page/datasets_upload.html:114
-#: allthethings/page/templates/page/datasets_upload.html:121
-#: allthethings/page/templates/page/datasets_upload.html:128
-#: allthethings/page/templates/page/datasets_upload.html:135
-#: allthethings/page/templates/page/datasets_upload.html:142
-#: allthethings/page/templates/page/datasets_upload.html:149
-#: allthethings/page/templates/page/datasets_upload.html:156
-#: allthethings/page/templates/page/datasets_upload.html:163
-#: allthethings/page/templates/page/datasets_upload.html:170
-#: allthethings/page/templates/page/datasets_upload.html:177
-#: allthethings/page/templates/page/datasets_upload.html:184
-#: allthethings/page/templates/page/datasets_upload.html:191
-#: allthethings/page/templates/page/datasets_upload.html:198
-#: allthethings/page/templates/page/datasets_upload.html:212
+#: allthethings/page/templates/page/datasets_upload.html:94
+#: allthethings/page/templates/page/datasets_upload.html:95
+#: allthethings/page/templates/page/datasets_upload.html:96
+#: allthethings/page/templates/page/datasets_upload.html:97
+#: allthethings/page/templates/page/datasets_upload.html:98
+#: allthethings/page/templates/page/datasets_upload.html:99
 #, fuzzy
 msgid "page.datasets.upload.action.browse"
 msgstr "pārlūkot"
 
+#: allthethings/page/templates/page/datasets_upload.html:63
+#: allthethings/page/templates/page/datasets_upload.html:64
+#: allthethings/page/templates/page/datasets_upload.html:65
 #: allthethings/page/templates/page/datasets_upload.html:66
+#: allthethings/page/templates/page/datasets_upload.html:67
+#: allthethings/page/templates/page/datasets_upload.html:68
+#: allthethings/page/templates/page/datasets_upload.html:69
+#: allthethings/page/templates/page/datasets_upload.html:70
+#: allthethings/page/templates/page/datasets_upload.html:71
+#: allthethings/page/templates/page/datasets_upload.html:72
 #: allthethings/page/templates/page/datasets_upload.html:73
+#: allthethings/page/templates/page/datasets_upload.html:74
+#: allthethings/page/templates/page/datasets_upload.html:75
+#: allthethings/page/templates/page/datasets_upload.html:76
+#: allthethings/page/templates/page/datasets_upload.html:77
+#: allthethings/page/templates/page/datasets_upload.html:78
+#: allthethings/page/templates/page/datasets_upload.html:79
 #: allthethings/page/templates/page/datasets_upload.html:80
+#: allthethings/page/templates/page/datasets_upload.html:81
+#: allthethings/page/templates/page/datasets_upload.html:82
+#: allthethings/page/templates/page/datasets_upload.html:83
+#: allthethings/page/templates/page/datasets_upload.html:84
+#: allthethings/page/templates/page/datasets_upload.html:85
+#: allthethings/page/templates/page/datasets_upload.html:86
 #: allthethings/page/templates/page/datasets_upload.html:87
+#: allthethings/page/templates/page/datasets_upload.html:88
+#: allthethings/page/templates/page/datasets_upload.html:89
+#: allthethings/page/templates/page/datasets_upload.html:90
+#: allthethings/page/templates/page/datasets_upload.html:91
+#: allthethings/page/templates/page/datasets_upload.html:92
+#: allthethings/page/templates/page/datasets_upload.html:93
 #: allthethings/page/templates/page/datasets_upload.html:94
-#: allthethings/page/templates/page/datasets_upload.html:101
-#: allthethings/page/templates/page/datasets_upload.html:108
-#: allthethings/page/templates/page/datasets_upload.html:115
-#: allthethings/page/templates/page/datasets_upload.html:122
-#: allthethings/page/templates/page/datasets_upload.html:129
-#: allthethings/page/templates/page/datasets_upload.html:136
-#: allthethings/page/templates/page/datasets_upload.html:143
-#: allthethings/page/templates/page/datasets_upload.html:150
-#: allthethings/page/templates/page/datasets_upload.html:157
-#: allthethings/page/templates/page/datasets_upload.html:164
-#: allthethings/page/templates/page/datasets_upload.html:171
-#: allthethings/page/templates/page/datasets_upload.html:178
-#: allthethings/page/templates/page/datasets_upload.html:185
-#: allthethings/page/templates/page/datasets_upload.html:192
-#: allthethings/page/templates/page/datasets_upload.html:199
-#: allthethings/page/templates/page/datasets_upload.html:213
+#: allthethings/page/templates/page/datasets_upload.html:95
+#: allthethings/page/templates/page/datasets_upload.html:96
+#: allthethings/page/templates/page/datasets_upload.html:97
+#: allthethings/page/templates/page/datasets_upload.html:98
+#: allthethings/page/templates/page/datasets_upload.html:99
 #, fuzzy
 msgid "page.datasets.upload.action.search"
 msgstr "meklēt"
 
-#: allthethings/page/templates/page/datasets_upload.html:67
+#: allthethings/page/templates/page/datasets_upload.html:63
 #, fuzzy
 msgid "page.datasets.upload.source.aaaaarg"
 msgstr "No <a %(a_href)s>aaaaarg.fail</a>. Izskatās diezgan pilnīgs. No mūsu brīvprātīgā “cgiym”."
 
-#: allthethings/page/templates/page/datasets_upload.html:74
+#: allthethings/page/templates/page/datasets_upload.html:64
 #, fuzzy
 msgid "page.datasets.upload.source.acm"
 msgstr "No <a %(a_href)s><q>ACM Digital Library 2020</q></a> torrenta. Ir diezgan liela pārklāšanās ar esošajām rakstu kolekcijām, bet ļoti maz MD5 atbilstību, tāpēc mēs nolēmām to pilnībā saglabāt."
 
-#: allthethings/page/templates/page/datasets_upload.html:81
-#, fuzzy
-msgid "page.datasets.upload.source.alexandrina"
-msgstr "No kolekcijas <a %(a_href)s><q>Bibliotheca Alexandrina,</q></a> precīza izcelsme nav skaidra. Daļēji no the-eye.eu, daļēji no citiem avotiem."
-
-#: allthethings/page/templates/page/datasets_upload.html:88
+#: allthethings/page/templates/page/datasets_upload.html:67
 #, fuzzy
 msgid "page.datasets.upload.source.bibliotik"
 msgstr "No privātas grāmatu torrenta vietnes, <a %(a_href)s>Bibliotik</a> (bieži dēvēta par “Bib”), kuras grāmatas tika apvienotas torrentos pēc nosaukuma (A.torrent, B.torrent) un izplatītas caur the-eye.eu."
 
-#: allthethings/page/templates/page/datasets_upload.html:95
+#: allthethings/page/templates/page/datasets_upload.html:68
 #, fuzzy
 msgid "page.datasets.upload.source.bpb9v_cadal"
 msgstr "No mūsu brīvprātīgā “bpb9v”. Lai iegūtu vairāk informācijas par <a %(a_href)s>CADAL</a>, skatiet piezīmes mūsu <a %(a_duxiu)s>DuXiu datu kopas lapā</a>."
 
-#: allthethings/page/templates/page/datasets_upload.html:102
+#: allthethings/page/templates/page/datasets_upload.html:69
 #, fuzzy
 msgid "page.datasets.upload.source.bpb9v_direct"
 msgstr "Vairāk no mūsu brīvprātīgā “bpb9v”, galvenokārt DuXiu faili, kā arī mapes “WenQu” un “SuperStar_Journals” (SuperStar ir uzņēmums, kas stāv aiz DuXiu)."
 
-#: allthethings/page/templates/page/datasets_upload.html:109
+#: allthethings/page/templates/page/datasets_upload.html:70
 #, fuzzy
 msgid "page.datasets.upload.source.cgiym_chinese"
 msgstr "No mūsu brīvprātīgā “cgiym”, ķīniešu teksti no dažādiem avotiem (pārstāvēti kā apakšdirektorijas), ieskaitot no <a %(a_href)s>China Machine Press</a> (liels ķīniešu izdevējs)."
 
-#: allthethings/page/templates/page/datasets_upload.html:116
+#: allthethings/page/templates/page/datasets_upload.html:71
 #, fuzzy
 msgid "page.datasets.upload.source.cgiym_more"
 msgstr "Neķīniešu kolekcijas (pārstāvētas kā apakšdirektorijas) no mūsu brīvprātīgā “cgiym”."
 
-#: allthethings/page/templates/page/datasets_upload.html:123
+#: allthethings/page/templates/page/datasets_upload.html:73
 #, fuzzy
 msgid "page.datasets.upload.source.degruyter"
 msgstr "Grāmatas no akadēmiskās izdevniecības <a %(a_href)s>De Gruyter</a>, savāktas no dažiem lieliem torrentiem."
 
-#: allthethings/page/templates/page/datasets_upload.html:130
+#: allthethings/page/templates/page/datasets_upload.html:74
 #, fuzzy
 msgid "page.datasets.upload.source.docer"
 msgstr "<a %(a_href)s>docer.pl</a> skrāpējums, poļu failu koplietošanas vietne, kas koncentrējas uz grāmatām un citiem rakstītiem darbiem. Skrāpēts 2023. gada beigās brīvprātīgā “p” veiktā. Mums nav labu metadatu no oriģinālās vietnes (pat ne failu paplašinājumi), bet mēs filtrējām grāmatu līdzīgus failus un bieži vien varējām izvilkt metadatus no pašiem failiem."
 
-#: allthethings/page/templates/page/datasets_upload.html:137
+#: allthethings/page/templates/page/datasets_upload.html:75
 #, fuzzy
 msgid "page.datasets.upload.source.duxiu_epub"
 msgstr "DuXiu epubi, tieši no DuXiu, savākti brīvprātīgā “w”. Tikai nesenās DuXiu grāmatas ir pieejamas tieši caur e-grāmatām, tāpēc lielākā daļa no tām ir nesenas."
 
-#: allthethings/page/templates/page/datasets_upload.html:144
+#: allthethings/page/templates/page/datasets_upload.html:76
 #, fuzzy
 msgid "page.datasets.upload.source.duxiu_main"
 msgstr "Atlikušie DuXiu faili no brīvprātīgā “m”, kas nebija DuXiu patentētajā PDG formātā (galvenā <a %(a_href)s>DuXiu datu kopa</a>). Savākti no daudziem oriģinālajiem avotiem, diemžēl nesaglabājot šos avotus faila ceļā."
 
-#: allthethings/page/templates/page/datasets_upload.html:151
+#: allthethings/page/templates/page/datasets_upload.html:83
 #, fuzzy
 msgid "page.datasets.upload.source.japanese_manga"
 msgstr "Kolekcija, kas skrāpēta no japāņu Manga izdevēja, veicis brīvprātīgais “t”."
 
-#: allthethings/page/templates/page/datasets_upload.html:158
+#: allthethings/page/templates/page/datasets_upload.html:84
 #, fuzzy
 msgid "page.datasets.upload.source.longquan_archives"
 msgstr "<a %(a_href)s>Izvēlētie Longquan tiesu arhīvi</a>, nodrošinājis brīvprātīgais “c”."
 
-#: allthethings/page/templates/page/datasets_upload.html:165
+#: allthethings/page/templates/page/datasets_upload.html:85
 #, fuzzy
 msgid "page.datasets.upload.source.magzdb"
 msgstr "<a %(a_href)s>magzdb.org</a> nokasīšana, Library Genesis sabiedrotais (tas ir saistīts ar libgen.rs sākumlapu), bet kurš nevēlējās tieši nodrošināt savus failus. Iegūts brīvprātīgā “p” 2023. gada beigās."
 
-#: allthethings/page/templates/page/datasets_upload.html:172
+#: allthethings/page/templates/page/datasets_upload.html:87
 #, fuzzy
 msgid "page.datasets.upload.source.misc"
 msgstr "Dažādas mazas augšupielādes, pārāk mazas, lai būtu sava apakškolekcija, bet attēlotas kā direktorijas."
 
-#: allthethings/page/templates/page/datasets_upload.html:179
+#: allthethings/page/templates/page/datasets_upload.html:91
 #, fuzzy
 msgid "page.datasets.upload.source.polish"
 msgstr "Brīvprātīgā “o” kolekcija, kurš savāca poļu grāmatas tieši no oriģinālajiem izlaiduma (“scene”) tīmekļa vietnēm."
 
-#: allthethings/page/templates/page/datasets_upload.html:186
+#: allthethings/page/templates/page/datasets_upload.html:92
 #, fuzzy
 msgid "page.datasets.upload.source.shuge"
 msgstr "Apvienotās <a %(a_href)s>shuge.org</a> kolekcijas, ko veidojuši brīvprātīgie “cgiym” un “woz9ts”."
 
-#: allthethings/page/templates/page/datasets_upload.html:193
+#: allthethings/page/templates/page/datasets_upload.html:94
 #, fuzzy
 msgid "page.datasets.upload.source.trantor"
 msgstr "<a %(a_href)s>“Trantoras Impērijas bibliotēka”</a> (nosaukta pēc izdomātas bibliotēkas), ko 2022. gadā savāca brīvprātīgais “t”."
 
-#: allthethings/page/templates/page/datasets_upload.html:200
+#: allthethings/page/templates/page/datasets_upload.html:98
 #, fuzzy
 msgid "page.datasets.upload.source.woz9ts_direct"
 msgstr "Apakšapakškolekcijas (pārstāvētas kā direktorijas) no brīvprātīgā “woz9ts”: <a %(a_program_think)s>program-think</a>, <a %(a_haodoo)s>haodoo</a>, <a %(a_skqs)s>skqs</a> (autors <a %(a_sikuquanshu)s>Dizhi(迪志)</a> Taivānā), mebook (mebook.cc, 我的小书屋, mana mazā grāmatu istaba — woz9ts: “Šī vietne galvenokārt koncentrējas uz augstas kvalitātes e-grāmatu failu koplietošanu, no kuriem dažus pats īpašnieks ir noformējis. Īpašnieks tika <a %(a_arrested)s>arestēts</a> 2019. gadā, un kāds izveidoja kolekciju ar viņa koplietotajiem failiem.”)."
 
-#: allthethings/page/templates/page/datasets_upload.html:214
+#: allthethings/page/templates/page/datasets_upload.html:99
 #, fuzzy
 msgid "page.datasets.upload.source.woz9ts_duxiu"
 msgstr "Atlikušie DuXiu faili no brīvprātīgā “woz9ts”, kas nebija DuXiu patentētajā PDG formātā (vēl jāpārvērš PDF formātā)."
 
-#: allthethings/page/templates/page/datasets_upload.html:226
+#: allthethings/page/templates/page/datasets_upload.html:109
 #, fuzzy
 msgid "page.datasets.upload.aa_torrents"
 msgstr "Torrenti no Annas Arhīva"
@@ -5321,122 +5367,122 @@ msgstr "1. Katrai kolekcijai vai izlaidumam ir savi metadati. Piemēram, <a %(a_
 msgid "page.faq.torrents.a6.li2"
 msgstr "2. Mēs iesakām <a %(a_generate)s>ģenerēt</a> vai <a %(a_download)s>lejupielādēt</a> mūsu ElasticSearch un MariaDB datubāzes. Šajās datubāzēs ir katra ieraksta kartējums Annas Arhīvā uz atbilstošajiem torrentu failiem (ja pieejami), zem “torrent_paths” ElasticSearch JSON."
 
-#: allthethings/page/templates/page/faq.html:273
+#: allthethings/page/templates/page/faq.html:280
 #, fuzzy
 msgid "page.faq.security.title"
 msgstr "Vai jums ir atbildīgas atklāšanas programma?"
 
-#: allthethings/page/templates/page/faq.html:276
+#: allthethings/page/templates/page/faq.html:283
 #, fuzzy
 msgid "page.faq.security.text1"
 msgstr "Mēs aicinām drošības pētniekus meklēt ievainojamības mūsu sistēmās. Mēs esam lieli atbildīgas atklāšanas atbalstītāji. Sazinieties ar mums <a %(a_contact)s>šeit</a>."
 
-#: allthethings/page/templates/page/faq.html:280
+#: allthethings/page/templates/page/faq.html:287
 #, fuzzy
 msgid "page.faq.security.text2"
 msgstr "Pašlaik mēs nevaram piešķirt atlīdzības par kļūdu atklāšanu, izņemot ievainojamības, kurām ir <a %(a_link)s>potenciāls apdraudēt mūsu anonimitāti</a>, par kurām mēs piedāvājam atlīdzības diapazonā no $10k-50k. Mēs vēlētos nākotnē piedāvāt plašāku atlīdzību klāstu! Lūdzu, ņemiet vērā, ka sociālās inženierijas uzbrukumi ir ārpus darbības jomas."
 
-#: allthethings/page/templates/page/faq.html:284
+#: allthethings/page/templates/page/faq.html:291
 #, fuzzy
 msgid "page.faq.security.text3"
 msgstr "Ja jūs interesē uzbrukuma drošība un vēlaties palīdzēt arhivēt pasaules zināšanas un kultūru, noteikti sazinieties ar mums. Ir daudz veidu, kā jūs varat palīdzēt."
 
-#: allthethings/page/templates/page/faq.html:287
+#: allthethings/page/templates/page/faq.html:294
 #, fuzzy
 msgid "page.faq.resources.title"
 msgstr "Vai ir vairāk resursu par Annas Arhīvu?"
 
-#: allthethings/page/templates/page/faq.html:290
+#: allthethings/page/templates/page/faq.html:297
 #, fuzzy
 msgid "page.faq.resources.annas_blog"
 msgstr "<a %(a_blog)s>Annas Blogs</a>, <a %(a_reddit_u)s>Reddit</a>, <a %(a_reddit_r)s>Subreddit</a> — regulāri atjauninājumi"
 
-#: allthethings/page/templates/page/faq.html:291
+#: allthethings/page/templates/page/faq.html:298
 #, fuzzy
 msgid "page.faq.resources.annas_software"
 msgstr "<a %(a_software)s>Annas Programmatūra</a> — mūsu atvērtā koda programmatūra"
 
-#: allthethings/page/templates/page/faq.html:292
+#: allthethings/page/templates/page/faq.html:299
 #, fuzzy
 msgid "page.faq.resources.translate"
 msgstr "<a %(a_translate)s>Tulkot Annas Programmatūru</a> — mūsu tulkošanas sistēma"
 
-#: allthethings/page/templates/page/faq.html:293
+#: allthethings/page/templates/page/faq.html:300
 #, fuzzy
 msgid "page.faq.resources.datasets"
 msgstr "<a %(a_datasets)s>Datu kopas</a> — par datiem"
 
-#: allthethings/page/templates/page/faq.html:294
+#: allthethings/page/templates/page/faq.html:301
 #, fuzzy
 msgid "page.faq.resources.domains"
 msgstr "<a %(a_li)s>.li</a>, <a %(a_se)s>.se</a>, <a %(a_org)s>.org</a> — alternatīvi domēni"
 
-#: allthethings/page/templates/page/faq.html:295
+#: allthethings/page/templates/page/faq.html:302
 #, fuzzy
 msgid "page.faq.resources.wikipedia"
 msgstr "<a %(a_wikipedia)s>Wikipedia</a> — vairāk par mums (lūdzu, palīdziet atjaunināt šo lapu vai izveidojiet to savā valodā!)"
 
-#: allthethings/page/templates/page/faq.html:298
+#: allthethings/page/templates/page/faq.html:305
 #, fuzzy
 msgid "page.faq.copyright.title"
 msgstr "Kā ziņot par autortiesību pārkāpumu?"
 
-#: allthethings/page/templates/page/faq.html:301
+#: allthethings/page/templates/page/faq.html:308
 #, fuzzy
 msgid "page.faq.copyright.text1"
 msgstr "Mēs šeit neuzglabājam nekādus ar autortiesībām aizsargātus materiālus. Mēs esam meklētājprogramma, un tādējādi indeksējam tikai metadatus, kas jau ir publiski pieejami. Lejupielādējot no šiem ārējiem avotiem, mēs iesakām pārbaudīt likumus jūsu jurisdikcijā attiecībā uz to, kas ir atļauts. Mēs neesam atbildīgi par citu personu mitināto saturu."
 
-#: allthethings/page/templates/page/faq.html:305
+#: allthethings/page/templates/page/faq.html:312
 #, fuzzy
 msgid "page.faq.copyright.text2"
 msgstr "Ja jums ir sūdzības par to, ko redzat šeit, vislabāk ir sazināties ar oriģinālo vietni. Mēs regulāri atjauninām viņu izmaiņas mūsu datubāzē. Ja jūs patiešām uzskatāt, ka jums ir derīga DMCA sūdzība, uz kuru mums būtu jāreaģē, lūdzu, aizpildiet <a %(a_copyright)s>DMCA / Autortiesību prasības veidlapu</a>. Mēs ņemam jūsu sūdzības nopietni un atbildēsim pēc iespējas ātrāk."
 
-#: allthethings/page/templates/page/faq.html:308
+#: allthethings/page/templates/page/faq.html:315
 #, fuzzy
 msgid "page.faq.hate.title"
 msgstr "Es ienīstu, kā jūs vadāt šo projektu!"
 
-#: allthethings/page/templates/page/faq.html:311
+#: allthethings/page/templates/page/faq.html:318
 #, fuzzy
 msgid "page.faq.hate.text1"
 msgstr "Mēs arī vēlamies atgādināt visiem, ka viss mūsu kods un dati ir pilnīgi atvērtā koda. Tas ir unikāls projektiem, piemēram, mūsu — mēs nezinām nevienu citu projektu ar līdzīgi masīvu katalogu, kas arī ir pilnīgi atvērtā koda. Mēs ļoti priecājamies par ikvienu, kurš domā, ka mēs slikti vadām savu projektu, lai paņemtu mūsu kodu un datus un izveidotu savu ēnu bibliotēku! Mēs to nesakām no ļaunprātības vai kaut kā tamlīdzīga — mēs patiesi domājam, ka tas būtu lieliski, jo tas paaugstinātu latiņu visiem un labāk saglabātu cilvēces mantojumu."
 
-#: allthethings/page/templates/page/faq.html:314
+#: allthethings/page/templates/page/faq.html:321
 #, fuzzy
 msgid "page.faq.uptime.title"
 msgstr "Vai jums ir pieejamības monitors?"
 
-#: allthethings/page/templates/page/faq.html:317
+#: allthethings/page/templates/page/faq.html:324
 #, fuzzy
 msgid "page.faq.uptime.text1"
 msgstr "Lūdzu, skatiet <a %(a_href)s>šo lielisko projektu</a>."
 
-#: allthethings/page/templates/page/faq.html:330
+#: allthethings/page/templates/page/faq.html:337
 #, fuzzy
 msgid "page.faq.physical.title"
 msgstr "Kā es varu ziedot grāmatas vai citus fiziskus materiālus?"
 
-#: allthethings/page/templates/page/faq.html:333
+#: allthethings/page/templates/page/faq.html:340
 #, fuzzy
 msgid "page.faq.physical.text1"
 msgstr "Lūdzu, sūtiet tos uz <a %(a_archive)s>Internet Archive</a>. Viņi tos pienācīgi saglabās."
 
-#: allthethings/page/templates/page/faq.html:336
+#: allthethings/page/templates/page/faq.html:343
 #, fuzzy
 msgid "page.faq.anna.title"
 msgstr "Kas ir Anna?"
 
-#: allthethings/page/templates/page/faq.html:340
+#: allthethings/page/templates/page/faq.html:347
 #, fuzzy
 msgid "page.faq.anna.text1"
 msgstr "Jūs esat Anna!"
 
-#: allthethings/page/templates/page/faq.html:344
+#: allthethings/page/templates/page/faq.html:351
 #, fuzzy
 msgid "page.faq.favorite.title"
 msgstr "Kādas ir jūsu mīļākās grāmatas?"
 
-#: allthethings/page/templates/page/faq.html:347
+#: allthethings/page/templates/page/faq.html:354
 #, fuzzy
 msgid "page.faq.favorite.text1"
 msgstr "Šeit ir dažas grāmatas, kurām ir īpaša nozīme ēnu bibliotēku un digitālās saglabāšanas pasaulē:"
@@ -5475,30 +5521,30 @@ msgstr "Meklēt"
 #: allthethings/page/templates/page/scidb_home.html:3
 #: allthethings/page/templates/page/scidb_home.html:6
 #: allthethings/templates/layouts/index.html:493
-#: allthethings/templates/layouts/index.html:506
-#: allthethings/templates/layouts/index.html:521
-#: allthethings/templates/layouts/index.html:588
+#: allthethings/templates/layouts/index.html:507
+#: allthethings/templates/layouts/index.html:523
+#: allthethings/templates/layouts/index.html:591
 #, fuzzy
 msgid "page.home.scidb.header"
 msgstr "SciDB"
 
 #: allthethings/page/templates/page/home.html:19
-#: allthethings/templates/layouts/index.html:541
+#: allthethings/templates/layouts/index.html:544
 #, fuzzy
 msgid "layout.index.header.nav.beta"
 msgstr "beta"
 
 #: allthethings/page/templates/page/home.html:22
 #: allthethings/page/templates/page/scidb_home.html:9
-#: allthethings/page/templates/page/search.html:355
-#: allthethings/page/templates/page/search.html:419
+#: allthethings/page/templates/page/search.html:359
+#: allthethings/page/templates/page/search.html:423
 #, fuzzy
 msgid "page.home.scidb.scihub_paused"
 msgstr "Sci-Hub ir <a %(a_paused)s>apturējis</a> jaunu rakstu augšupielādi."
 
 #: allthethings/page/templates/page/home.html:23
-#: allthethings/page/templates/page/search.html:356
-#: allthethings/page/templates/page/search.html:420
+#: allthethings/page/templates/page/search.html:360
+#: allthethings/page/templates/page/search.html:424
 #, fuzzy
 msgid "page.home.scidb.continuation"
 msgstr "🧬&nbsp;SciDB ir Sci-Hub turpinājums."
@@ -5541,19 +5587,19 @@ msgid "page.home.torrents.body"
 msgstr "Jūs varat ļoti palīdzēt, sējot torrentus. <a %(a_torrents)s>Uzziniet vairāk…</a>"
 
 #: allthethings/page/templates/page/home.html:47
-#: allthethings/page/templates/page/torrents.html:75
+#: allthethings/page/templates/page/torrents.html:79
 #, fuzzy
 msgid "page.home.torrents.legend_less"
 msgstr "<%(count)s sējēji"
 
 #: allthethings/page/templates/page/home.html:48
-#: allthethings/page/templates/page/torrents.html:76
+#: allthethings/page/templates/page/torrents.html:80
 #, fuzzy
 msgid "page.home.torrents.legend_range"
 msgstr "%(count_min)s–%(count_max)s sējēji"
 
 #: allthethings/page/templates/page/home.html:49
-#: allthethings/page/templates/page/torrents.html:77
+#: allthethings/page/templates/page/torrents.html:81
 #, fuzzy
 msgid "page.home.torrents.legend_greater"
 msgstr ">%(count)s sējēji"
@@ -5589,8 +5635,8 @@ msgid "page.home.payment_processor.body"
 msgstr "Ja jūs vadāt augsta riska anonīmo maksājumu apstrādātāju, lūdzu, sazinieties ar mums. Mēs arī meklējam cilvēkus, kas vēlas izvietot gaumīgas mazas reklāmas. Visi ienākumi tiek novirzīti mūsu saglabāšanas centieniem."
 
 #: allthethings/page/templates/page/home.html:98
-#: allthethings/templates/layouts/index.html:529
-#: allthethings/templates/layouts/index.html:608
+#: allthethings/templates/layouts/index.html:532
+#: allthethings/templates/layouts/index.html:611
 #, fuzzy
 msgid "layout.index.header.nav.annasblog"
 msgstr "Annas Blogs ↗"
@@ -6134,7 +6180,7 @@ msgid "page.search.tabs.metadata"
 msgstr "Metadati"
 
 #: allthethings/page/templates/page/search.html:107
-#: allthethings/templates/layouts/index.html:537
+#: allthethings/templates/layouts/index.html:540
 #, fuzzy
 msgid "common.search.placeholder"
 msgstr "Nosaukums, autors, DOI, ISBN, MD5, …"
@@ -6151,7 +6197,7 @@ msgid "page.search.search_settings"
 msgstr "Meklēšanas iestatījumi"
 
 #: allthethings/page/templates/page/search.html:136
-#: allthethings/page/templates/page/search.html:274
+#: allthethings/page/templates/page/search.html:278
 #, fuzzy
 msgid "page.search.submit"
 msgstr "Meklēt"
@@ -6162,8 +6208,8 @@ msgid "page.search.too_long_broad_query"
 msgstr "Meklēšana aizņēma pārāk ilgu laiku, kas ir raksturīgi plašiem vaicājumiem. Filtru skaits var nebūt precīzs."
 
 #: allthethings/page/templates/page/search.html:145
-#: allthethings/page/templates/page/search.html:448
-#: allthethings/page/templates/page/search.html:455
+#: allthethings/page/templates/page/search.html:452
+#: allthethings/page/templates/page/search.html:459
 #, fuzzy
 msgid "page.search.too_inaccurate"
 msgstr "Meklēšana aizņēma pārāk ilgu laiku, kas nozīmē, ka rezultāti var būt neprecīzi. Dažreiz <a %(a_reload)s>lapas pārlādēšana</a> palīdz."
@@ -6189,7 +6235,7 @@ msgid "page.search.advanced.header"
 msgstr "Paplašināts"
 
 #: allthethings/page/templates/page/search.html:159
-#: allthethings/page/templates/page/search.html:292
+#: allthethings/page/templates/page/search.html:296
 #, fuzzy
 msgid "page.search.advanced.description_comments"
 msgstr "Meklēšanas apraksti un metadatu komentāri"
@@ -6210,262 +6256,263 @@ msgid "page.search.advanced.field.year_published"
 msgstr "Publicēšanas gads"
 
 #: allthethings/page/templates/page/search.html:208
-#: allthethings/page/templates/page/search.html:300
-#: allthethings/page/templates/page/search.html:303
+#: allthethings/page/templates/page/search.html:304
+#: allthethings/page/templates/page/search.html:307
 #, fuzzy
 msgid "page.search.filters.content.header"
 msgstr "Saturs"
 
 #: allthethings/page/templates/page/search.html:218
-#: allthethings/page/templates/page/search.html:306
-#: allthethings/page/templates/page/search.html:309
+#: allthethings/page/templates/page/search.html:310
+#: allthethings/page/templates/page/search.html:313
 #, fuzzy
 msgid "page.search.filters.filetype.header"
 msgstr "Faila tips"
 
-#: allthethings/page/templates/page/search.html:228
-#: allthethings/page/templates/page/search.html:312
-#: allthethings/page/templates/page/search.html:315
-#, fuzzy
-msgid "page.search.filters.access.header"
-msgstr "Piekļuve"
-
-#: allthethings/page/templates/page/search.html:237
-#: allthethings/page/templates/page/search.html:318
-#: allthethings/page/templates/page/search.html:321
-#, fuzzy
-msgid "page.search.filters.source.header"
-msgstr "Avots"
-
-#: allthethings/page/templates/page/search.html:242
-#, fuzzy
-msgid "page.search.filters.source.scraped"
-msgstr "iegūts un atvērts avots no AA"
-
-#: allthethings/page/templates/page/search.html:247
-#: allthethings/page/templates/page/search.html:327
-#: allthethings/page/templates/page/search.html:330
-#, fuzzy
-msgid "page.search.filters.language.header"
-msgstr "Valoda"
-
-#: allthethings/page/templates/page/search.html:256
+#: allthethings/page/templates/page/search.html:227
+#: allthethings/page/templates/page/search.html:259
 #, fuzzy
 msgid "page.search.more"
 msgstr "vairāk…"
 
-#: allthethings/page/templates/page/search.html:261
-#: allthethings/page/templates/page/search.html:324
+#: allthethings/page/templates/page/search.html:231
+#: allthethings/page/templates/page/search.html:316
+#: allthethings/page/templates/page/search.html:319
+#, fuzzy
+msgid "page.search.filters.access.header"
+msgstr "Piekļuve"
+
+#: allthethings/page/templates/page/search.html:240
+#: allthethings/page/templates/page/search.html:322
+#: allthethings/page/templates/page/search.html:325
+#, fuzzy
+msgid "page.search.filters.source.header"
+msgstr "Avots"
+
+#: allthethings/page/templates/page/search.html:245
+#, fuzzy
+msgid "page.search.filters.source.scraped"
+msgstr "iegūts un atvērts avots no AA"
+
+#: allthethings/page/templates/page/search.html:250
+#: allthethings/page/templates/page/search.html:331
+#: allthethings/page/templates/page/search.html:334
+#, fuzzy
+msgid "page.search.filters.language.header"
+msgstr "Valoda"
+
+#: allthethings/page/templates/page/search.html:264
+#: allthethings/page/templates/page/search.html:328
 #, fuzzy
 msgid "page.search.filters.order_by.header"
 msgstr "Kārtot pēc"
 
-#: allthethings/page/templates/page/search.html:264
+#: allthethings/page/templates/page/search.html:267
 #, fuzzy
 msgid "page.search.filters.sorting.most_relevant"
 msgstr "Visatbilstošākais"
 
-#: allthethings/page/templates/page/search.html:265
-#: allthethings/page/templates/page/search.html:269
-#: allthethings/page/templates/page/search.html:324
+#: allthethings/page/templates/page/search.html:268
+#: allthethings/page/templates/page/search.html:272
+#: allthethings/page/templates/page/search.html:328
 #, fuzzy
 msgid "page.search.filters.sorting.newest"
 msgstr "Jaunākie"
 
-#: allthethings/page/templates/page/search.html:265
-#: allthethings/page/templates/page/search.html:266
-#: allthethings/page/templates/page/search.html:324
+#: allthethings/page/templates/page/search.html:268
+#: allthethings/page/templates/page/search.html:269
+#: allthethings/page/templates/page/search.html:328
 #, fuzzy
 msgid "page.search.filters.sorting.note_publication_year"
 msgstr "(publicēšanas gads)"
 
-#: allthethings/page/templates/page/search.html:266
-#: allthethings/page/templates/page/search.html:270
-#: allthethings/page/templates/page/search.html:324
+#: allthethings/page/templates/page/search.html:269
+#: allthethings/page/templates/page/search.html:273
+#: allthethings/page/templates/page/search.html:328
 #, fuzzy
 msgid "page.search.filters.sorting.oldest"
 msgstr "Vecākie"
 
-#: allthethings/page/templates/page/search.html:267
-#: allthethings/page/templates/page/search.html:324
+#: allthethings/page/templates/page/search.html:270
+#: allthethings/page/templates/page/search.html:328
 #, fuzzy
 msgid "page.search.filters.sorting.largest"
 msgstr "Lielākie"
 
-#: allthethings/page/templates/page/search.html:267
-#: allthethings/page/templates/page/search.html:268
-#: allthethings/page/templates/page/search.html:324
+#: allthethings/page/templates/page/search.html:270
+#: allthethings/page/templates/page/search.html:271
+#: allthethings/page/templates/page/search.html:328
 #, fuzzy
 msgid "page.search.filters.sorting.note_filesize"
 msgstr "(faila izmērs)"
 
-#: allthethings/page/templates/page/search.html:268
-#: allthethings/page/templates/page/search.html:324
+#: allthethings/page/templates/page/search.html:271
+#: allthethings/page/templates/page/search.html:328
 #, fuzzy
 msgid "page.search.filters.sorting.smallest"
 msgstr "Mazākie"
 
-#: allthethings/page/templates/page/search.html:269
-#: allthethings/page/templates/page/search.html:270
-#: allthethings/page/templates/page/search.html:324
+#: allthethings/page/templates/page/search.html:272
+#: allthethings/page/templates/page/search.html:273
+#: allthethings/page/templates/page/search.html:328
 #, fuzzy
 msgid "page.search.filters.sorting.note_open_sourced"
 msgstr "(atvērtais kods)"
 
-#: allthethings/page/templates/page/search.html:278
+#: allthethings/page/templates/page/search.html:282
 #, fuzzy
 msgid "page.search.header.update_info"
 msgstr "Meklēšanas indekss tiek atjaunināts katru mēnesi. Pašlaik tas ietver ierakstus līdz %(last_data_refresh_date)s. Lai iegūtu vairāk tehniskas informācijas, skatiet %(link_open_tag)sdatu kopu lapu</a>."
 
-#: allthethings/page/templates/page/search.html:280
+#: allthethings/page/templates/page/search.html:284
 #, fuzzy
 msgid "page.search.header.codes_explorer"
 msgstr "Lai izpētītu meklēšanas indeksu pēc kodiem, izmantojiet <a %(a_href)s>Kodu izpētītāju</a>."
 
-#: allthethings/page/templates/page/search.html:338
+#: allthethings/page/templates/page/search.html:342
 #, fuzzy
 msgid "page.search.results.search_downloads"
 msgstr "Ierakstiet lodziņā, lai meklētu mūsu katalogā %(count)s tieši lejupielādējamu failu, kurus mēs <a %(a_preserve)s>saglabājam uz visiem laikiem</a>."
 
-#: allthethings/page/templates/page/search.html:339
+#: allthethings/page/templates/page/search.html:343
 #, fuzzy
 msgid "page.search.results.help_preserve"
 msgstr "Patiesībā ikviens var palīdzēt saglabāt šos failus, sējot mūsu <a %(a_torrents)s>vienoto torrentu sarakstu</a>."
 
-#: allthethings/page/templates/page/search.html:342
+#: allthethings/page/templates/page/search.html:346
 #, fuzzy
 msgid "page.search.results.most_comprehensive"
 msgstr "Pašlaik mums ir pasaulē visaptverošākais atvērtais grāmatu, rakstu un citu rakstisku darbu katalogs. Mēs spoguļojam Sci-Hub, Library Genesis, Z-Library, <a %(a_datasets)s>un vairāk</a>."
 
-#: allthethings/page/templates/page/search.html:345
+#: allthethings/page/templates/page/search.html:349
 #, fuzzy
 msgid "page.search.results.other_shadow_libs"
 msgstr "Ja atrodat citas “ēnu bibliotēkas”, kuras mums vajadzētu spoguļot, vai ja jums ir kādi jautājumi, lūdzu, sazinieties ar mums pa %(email)s."
 
-#: allthethings/page/templates/page/search.html:346
+#: allthethings/page/templates/page/search.html:350
 #, fuzzy
 msgid "page.search.results.dmca"
 msgstr "Par DMCA / autortiesību prasībām <a %(a_copyright)s>noklikšķiniet šeit</a>."
 
-#: allthethings/page/templates/page/search.html:350
-#: allthethings/page/templates/page/search.html:365
-#: allthethings/page/templates/page/search.html:379
-#: allthethings/page/templates/page/search.html:403
-#: allthethings/page/templates/page/search.html:411
+#: allthethings/page/templates/page/search.html:354
+#: allthethings/page/templates/page/search.html:369
+#: allthethings/page/templates/page/search.html:383
+#: allthethings/page/templates/page/search.html:407
+#: allthethings/page/templates/page/search.html:415
 #, fuzzy
 msgid "page.search.results.shortcuts"
 msgstr "Padoms: izmantojiet tastatūras īsinājumtaustiņus “/” (meklēšanas fokuss), “enter” (meklēšana), “j” (uz augšu), “k” (uz leju), “<” (iepriekšējā lapa), “>” (nākamā lapa) ātrākai navigācijai."
 
-#: allthethings/page/templates/page/search.html:354
-#: allthethings/page/templates/page/search.html:418
+#: allthethings/page/templates/page/search.html:358
+#: allthethings/page/templates/page/search.html:422
 #, fuzzy
 msgid "page.search.results.looking_for_papers"
 msgstr "Meklējat rakstus?"
 
-#: allthethings/page/templates/page/search.html:361
+#: allthethings/page/templates/page/search.html:365
 #, fuzzy
 msgid "page.search.results.search_journals"
 msgstr "Ierakstiet lodziņā, lai meklētu mūsu katalogā %(count)s akadēmiskos rakstus un žurnālu rakstus, kurus mēs <a %(a_preserve)s>saglabājam uz visiem laikiem</a>."
 
-#: allthethings/page/templates/page/search.html:369
+#: allthethings/page/templates/page/search.html:373
 #, fuzzy
 msgid "page.search.results.search_digital_lending"
 msgstr "Ierakstiet lodziņā, lai meklētu failus digitālajās aizdevumu bibliotēkās."
 
-#: allthethings/page/templates/page/search.html:372
+#: allthethings/page/templates/page/search.html:376
 #, fuzzy
 msgid "page.search.results.digital_lending_info"
 msgstr "Šis meklēšanas indekss pašlaik ietver metadatus no Internet Archive kontrolētās digitālās aizdevumu bibliotēkas. <a %(a_datasets)s>Vairāk par mūsu datu kopām</a>."
 
-#: allthethings/page/templates/page/search.html:375
+#: allthethings/page/templates/page/search.html:379
 #, fuzzy
 msgid "page.search.results.digital_lending_info_more"
 msgstr "Lai iegūtu vairāk digitālo aizdevumu bibliotēku, skatiet <a %(a_wikipedia)s>Wikipedia</a> un <a %(a_mobileread)s>MobileRead Wiki</a>."
 
-#: allthethings/page/templates/page/search.html:383
-#: allthethings/page/templates/page/search.html:430
+#: allthethings/page/templates/page/search.html:387
+#: allthethings/page/templates/page/search.html:434
 #, fuzzy
 msgid "page.search.results.search_metadata"
 msgstr "Ierakstiet lodziņā, lai meklētu metadatus no bibliotēkām. Tas var būt noderīgi, kad <a %(a_request)s>pieprasāt failu</a>."
 
-#: allthethings/page/templates/page/search.html:387
-#: allthethings/page/templates/page/search.html:434
+#: allthethings/page/templates/page/search.html:391
+#: allthethings/page/templates/page/search.html:438
 #, fuzzy
 msgid "page.search.results.metadata_info"
 msgstr "Šis meklēšanas indekss pašlaik ietver metadatus no dažādiem metadatu avotiem. <a %(a_datasets)s>Vairāk par mūsu datu kopām</a>."
 
-#: allthethings/page/templates/page/search.html:388
-#: allthethings/page/templates/page/search.html:435
+#: allthethings/page/templates/page/search.html:392
+#: allthethings/page/templates/page/search.html:439
 #, fuzzy
 msgid "page.search.results.metadata_no_merging"
 msgstr "Metadatiem mēs parādām oriģinālos ierakstus. Mēs neveicam ierakstu apvienošanu."
 
-#: allthethings/page/templates/page/search.html:399
+#: allthethings/page/templates/page/search.html:403
 #, fuzzy
 msgid "page.search.results.metadata_info_more"
 msgstr "Ir daudz un dažādu metadatu avotu rakstītajiem darbiem visā pasaulē. <a %(a_wikipedia)s>Šī Wikipedia lapa</a> ir labs sākums, bet, ja zināt citus labus sarakstus, lūdzu, informējiet mūs."
 
-#: allthethings/page/templates/page/search.html:407
+#: allthethings/page/templates/page/search.html:411
 #, fuzzy
 msgid "page.search.results.search_generic"
 msgstr "Ierakstiet lodziņā, lai meklētu."
 
-#: allthethings/page/templates/page/search.html:426
+#: allthethings/page/templates/page/search.html:430
 #, fuzzy
 msgid "page.search.results.these_are_records"
 msgstr "Šie ir metadatu ieraksti, <span %(classname)s>nevis</span> lejupielādējami faili."
 
-#: allthethings/page/templates/page/search.html:442
+#: allthethings/page/templates/page/search.html:446
 #, fuzzy
 msgid "page.search.results.error.header"
 msgstr "Kļūda meklēšanas laikā."
 
-#: allthethings/page/templates/page/search.html:444
+#: allthethings/page/templates/page/search.html:448
 #, fuzzy
 msgid "page.search.results.error.unknown"
 msgstr "Mēģiniet <a %(a_reload)s>pārlādēt lapu</a>. Ja problēma saglabājas, lūdzu, rakstiet mums uz %(email)s."
 
-#: allthethings/page/templates/page/search.html:457
+#: allthethings/page/templates/page/search.html:461
 #, fuzzy
 msgid "page.search.results.none"
 msgstr "<span class=\"font-bold\">Faili netika atrasti.</span> Mēģiniet mazāk vai citus meklēšanas terminus un filtrus."
 
-#: allthethings/page/templates/page/search.html:460
+#: allthethings/page/templates/page/search.html:464
 #, fuzzy
 msgid "page.search.results.incorrectly_slow"
 msgstr "➡️ Dažreiz tas notiek nepareizi, kad meklēšanas serveris ir lēns. Šādos gadījumos var palīdzēt <a %(a_attrs)s>pārlādēšana</a>."
 
-#: allthethings/page/templates/page/search.html:467
+#: allthethings/page/templates/page/search.html:471
 #, fuzzy
 msgid "page.search.found_matches.main"
 msgstr "Mēs esam atraduši atbilstības: %(in)s. Jūs varat atsaukties uz tur atrasto URL, kad <a %(a_request)s>pieprasāt failu</a>."
 
-#: allthethings/page/templates/page/search.html:467
+#: allthethings/page/templates/page/search.html:471
 #, fuzzy
 msgid "page.search.found_matches.journals"
 msgstr "Žurnālu raksti (%(count)s)"
 
-#: allthethings/page/templates/page/search.html:467
+#: allthethings/page/templates/page/search.html:471
 #, fuzzy
 msgid "page.search.found_matches.digital_lending"
 msgstr "Digitālā aizņemšanās (%(count)s)"
 
-#: allthethings/page/templates/page/search.html:467
+#: allthethings/page/templates/page/search.html:471
 #, fuzzy
 msgid "page.search.found_matches.metadata"
 msgstr "Metadati (%(count)s)"
 
-#: allthethings/page/templates/page/search.html:474
+#: allthethings/page/templates/page/search.html:478
 #, fuzzy
 msgid "page.search.results.numbers_pages"
 msgstr "Rezultāti %(from)s-%(to)s (%(total)s kopā)"
 
-#: allthethings/page/templates/page/search.html:485
+#: allthethings/page/templates/page/search.html:490
 #, fuzzy
 msgid "page.search.results.partial_more"
 msgstr "%(num)d+ daļējas atbilstības"
 
-#: allthethings/page/templates/page/search.html:485
+#: allthethings/page/templates/page/search.html:490
 #, fuzzy
 msgid "page.search.results.partial"
 msgstr "%(num)d daļējas atbilstības"
@@ -6591,47 +6638,47 @@ msgstr "%(links)s saites vai ekrānuzņēmumi ar pieprasījumiem, kurus izpildī
 msgid "page.volunteering.table.misc.task"
 msgstr "Nelieli uzdevumi, kas publicēti mūsu <a %(a_telegram)s>brīvprātīgo čatā Telegram</a>. Parasti par dalību, dažreiz par nelielām atlīdzībām."
 
-#: allthethings/page/templates/page/volunteering.html:66
+#: allthethings/page/templates/page/volunteering.html:67
 #, fuzzy
 msgid "page.volunteering.table.misc.milestone"
 msgstr "Atkarīgs no uzdevuma."
 
-#: allthethings/page/templates/page/volunteering.html:70
+#: allthethings/page/templates/page/volunteering.html:71
 #, fuzzy
 msgid "page.volunteering.section.bounties.heading"
 msgstr "Atlīdzības"
 
-#: allthethings/page/templates/page/volunteering.html:73
+#: allthethings/page/templates/page/volunteering.html:74
 #, fuzzy
 msgid "page.volunteering.section.bounties.text1"
 msgstr "Mēs vienmēr meklējam cilvēkus ar stabilām programmēšanas vai uzbrukuma drošības prasmēm, lai iesaistītos. Jūs varat būtiski ietekmēt cilvēces mantojuma saglabāšanu."
 
-#: allthethings/page/templates/page/volunteering.html:77
+#: allthethings/page/templates/page/volunteering.html:78
 #, fuzzy
 msgid "page.volunteering.section.bounties.text2"
 msgstr "Kā pateicību mēs piešķiram dalību par stabilu ieguldījumu. Kā lielu pateicību mēs piešķiram naudas atlīdzības par īpaši svarīgiem un sarežģītiem uzdevumiem. Tas nevajadzētu uzskatīt par darba aizvietotāju, bet tas ir papildu stimuls un var palīdzēt segt radušās izmaksas."
 
-#: allthethings/page/templates/page/volunteering.html:81
+#: allthethings/page/templates/page/volunteering.html:82
 #, fuzzy
 msgid "page.volunteering.section.bounties.text3"
 msgstr "Lielākā daļa mūsu koda ir atvērtā pirmkoda, un mēs lūgsim arī jūsu kodu padarīt atvērtu, piešķirot atlīdzību. Ir dažas izņēmumi, kurus varam apspriest individuāli."
 
-#: allthethings/page/templates/page/volunteering.html:85
+#: allthethings/page/templates/page/volunteering.html:86
 #, fuzzy
 msgid "page.volunteering.section.bounties.text4"
 msgstr "Atlīdzības tiek piešķirtas pirmajam, kurš pabeidz uzdevumu. Jūtieties brīvi komentēt atlīdzības biļeti, lai informētu citus, ka strādājat pie kaut kā, lai citi varētu atturēties vai sazināties ar jums, lai apvienotos. Bet esiet informēti, ka citi joprojām var strādāt pie tā un mēģināt jūs apsteigt. Tomēr mēs nepiešķiram atlīdzības par paviršu darbu. Ja divi augstas kvalitātes iesniegumi tiek veikti tuvu viens otram (vienas vai divu dienu laikā), mēs varam izvēlēties piešķirt atlīdzības abiem, pēc mūsu ieskatiem, piemēram, 100%% par pirmo iesniegumu un 50%% par otro iesniegumu (tātad kopā 150%%)."
 
-#: allthethings/page/templates/page/volunteering.html:89
+#: allthethings/page/templates/page/volunteering.html:90
 #, fuzzy
 msgid "page.volunteering.section.bounties.text5"
 msgstr "Lielākām atlīdzībām (īpaši datu iegūšanas atlīdzībām) lūdzu sazinieties ar mums, kad esat pabeidzis ~5%% no tā, un esat pārliecināts, ka jūsu metode būs piemērota pilnam mērķim. Jums būs jādalās ar savu metodi, lai mēs varētu sniegt atsauksmes. Arī šādā veidā mēs varam izlemt, ko darīt, ja vairāki cilvēki tuvojas atlīdzībai, piemēram, potenciāli piešķirt to vairākiem cilvēkiem, mudināt cilvēkus apvienoties utt."
 
-#: allthethings/page/templates/page/volunteering.html:93
+#: allthethings/page/templates/page/volunteering.html:94
 #, fuzzy
 msgid "page.volunteering.section.bounties.text6"
 msgstr "BRĪDINĀJUMS: augstas atlīdzības uzdevumi ir <span %(bold)s>grūti</span> — varētu būt prātīgi sākt ar vieglākiem."
 
-#: allthethings/page/templates/page/volunteering.html:97
+#: allthethings/page/templates/page/volunteering.html:98
 #, fuzzy
 msgid "page.volunteering.section.bounties.text7"
 msgstr "Dodieties uz mūsu <a %(a_gitlab)s>Gitlab problēmu sarakstu</a> un kārtojiet pēc “Etiķetes prioritātes”. Tas aptuveni parāda uzdevumu secību, kas mums rūp. Uzdevumi bez skaidrām atlīdzībām joprojām ir piemēroti dalībai, īpaši tie, kas atzīmēti kā “Accepted” un “Annai mīļākie”. Jūs varētu vēlēties sākt ar “Sākuma projektu”."
@@ -6674,8 +6721,8 @@ msgstr "Derīgs līdz šī mēneša beigām."
 #: allthethings/templates/layouts/index.html:227
 #: allthethings/templates/layouts/index.html:233
 #: allthethings/templates/layouts/index.html:267
-#: allthethings/templates/layouts/index.html:533
-#: allthethings/templates/layouts/index.html:590
+#: allthethings/templates/layouts/index.html:536
+#: allthethings/templates/layouts/index.html:593
 #, fuzzy
 msgid "layout.index.header.nav.donate"
 msgstr "Ziedot"
@@ -6716,166 +6763,161 @@ msgid "layout.index.header.recent_downloads"
 msgstr "Nesenās lejupielādes:"
 
 #: allthethings/templates/layouts/index.html:492
-#: allthethings/templates/layouts/index.html:505
-#: allthethings/templates/layouts/index.html:520
-#: allthethings/templates/layouts/index.html:587
+#: allthethings/templates/layouts/index.html:506
+#: allthethings/templates/layouts/index.html:522
+#: allthethings/templates/layouts/index.html:590
 #, fuzzy
 msgid "layout.index.header.nav.search"
 msgstr "Meklēt"
 
 #: allthethings/templates/layouts/index.html:494
-#: allthethings/templates/layouts/index.html:507
-#: allthethings/templates/layouts/index.html:522
-#: allthethings/templates/layouts/index.html:589
-#: allthethings/templates/layouts/index.html:615
+#: allthethings/templates/layouts/index.html:508
+#: allthethings/templates/layouts/index.html:524
+#: allthethings/templates/layouts/index.html:592
+#: allthethings/templates/layouts/index.html:618
 #, fuzzy
 msgid "layout.index.header.nav.faq"
 msgstr "BUJ"
 
 #: allthethings/templates/layouts/index.html:495
-#: allthethings/templates/layouts/index.html:508
-#: allthethings/templates/layouts/index.html:523
-#: allthethings/templates/layouts/index.html:616
+#: allthethings/templates/layouts/index.html:509
+#: allthethings/templates/layouts/index.html:525
+#: allthethings/templates/layouts/index.html:619
 #, fuzzy
 msgid "layout.index.header.nav.improve_metadata"
 msgstr "Uzlabot metadatus"
 
 #: allthethings/templates/layouts/index.html:496
-#: allthethings/templates/layouts/index.html:509
-#: allthethings/templates/layouts/index.html:524
-#: allthethings/templates/layouts/index.html:617
+#: allthethings/templates/layouts/index.html:510
+#: allthethings/templates/layouts/index.html:526
+#: allthethings/templates/layouts/index.html:620
 #, fuzzy
 msgid "layout.index.header.nav.volunteering"
 msgstr "Brīvprātīgie un atlīdzības"
 
 #: allthethings/templates/layouts/index.html:497
-#: allthethings/templates/layouts/index.html:510
-#: allthethings/templates/layouts/index.html:525
-#: allthethings/templates/layouts/index.html:618
+#: allthethings/templates/layouts/index.html:511
+#: allthethings/templates/layouts/index.html:527
+#: allthethings/templates/layouts/index.html:621
 #, fuzzy
 msgid "layout.index.header.nav.datasets"
 msgstr "Datu kopas"
 
 #: allthethings/templates/layouts/index.html:498
-#: allthethings/templates/layouts/index.html:511
-#: allthethings/templates/layouts/index.html:526
-#: allthethings/templates/layouts/index.html:619
+#: allthethings/templates/layouts/index.html:512
+#: allthethings/templates/layouts/index.html:528
+#: allthethings/templates/layouts/index.html:622
 #, fuzzy
 msgid "layout.index.header.nav.torrents"
 msgstr "Torrenti"
 
-#: allthethings/templates/layouts/index.html:499
-#: allthethings/templates/layouts/index.html:512
-#: allthethings/templates/layouts/index.html:527
-#: allthethings/templates/layouts/index.html:620
+#: allthethings/templates/layouts/index.html:500
+#: allthethings/templates/layouts/index.html:514
+#: allthethings/templates/layouts/index.html:530
+#: allthethings/templates/layouts/index.html:624
 #, fuzzy
 msgid "layout.index.header.nav.codes"
 msgstr "Kodu izpēte"
 
-#: allthethings/templates/layouts/index.html:500
-#: allthethings/templates/layouts/index.html:513
-#: allthethings/templates/layouts/index.html:528
-#: allthethings/templates/layouts/index.html:621
+#: allthethings/templates/layouts/index.html:501
+#: allthethings/templates/layouts/index.html:515
+#: allthethings/templates/layouts/index.html:531
+#: allthethings/templates/layouts/index.html:625
 #, fuzzy
 msgid "layout.index.header.nav.llm_data"
 msgstr "LLM dati"
 
-#: allthethings/templates/layouts/index.html:501
-#: allthethings/templates/layouts/index.html:514
-#: allthethings/templates/layouts/index.html:519
-#: allthethings/templates/layouts/index.html:586
+#: allthethings/templates/layouts/index.html:502
+#: allthethings/templates/layouts/index.html:516
+#: allthethings/templates/layouts/index.html:521
+#: allthethings/templates/layouts/index.html:589
 #, fuzzy
 msgid "layout.index.header.nav.home"
 msgstr "Sākums"
 
-#: allthethings/templates/layouts/index.html:530
-#: allthethings/templates/layouts/index.html:609
+#: allthethings/templates/layouts/index.html:533
+#: allthethings/templates/layouts/index.html:612
 #, fuzzy
 msgid "layout.index.header.nav.annassoftware"
 msgstr "Annas Programmatūra ↗"
 
-#: allthethings/templates/layouts/index.html:531
-#: allthethings/templates/layouts/index.html:610
+#: allthethings/templates/layouts/index.html:534
+#: allthethings/templates/layouts/index.html:613
 #, fuzzy
 msgid "layout.index.header.nav.translate"
 msgstr "Tulkot ↗"
 
-#: allthethings/templates/layouts/index.html:544
-#: allthethings/templates/layouts/index.html:548
-#: allthethings/templates/layouts/index.html:553
+#: allthethings/templates/layouts/index.html:547
+#: allthethings/templates/layouts/index.html:551
+#: allthethings/templates/layouts/index.html:556
 #, fuzzy
 msgid "layout.index.header.nav.login_register"
 msgstr "Pieteikties / Reģistrēties"
 
-#: allthethings/templates/layouts/index.html:560
-#: allthethings/templates/layouts/index.html:567
-#: allthethings/templates/layouts/index.html:572
+#: allthethings/templates/layouts/index.html:563
+#: allthethings/templates/layouts/index.html:570
+#: allthethings/templates/layouts/index.html:575
 #, fuzzy
 msgid "layout.index.header.nav.account"
 msgstr "Konts"
 
-#: allthethings/templates/layouts/index.html:585
+#: allthethings/templates/layouts/index.html:588
 #, fuzzy
 msgid "layout.index.footer.list1.header"
 msgstr "Annas Arhīvs"
 
-#: allthethings/templates/layouts/index.html:604
+#: allthethings/templates/layouts/index.html:607
 #, fuzzy
 msgid "layout.index.footer.list2.header"
 msgstr "Sazinieties ar mums"
 
-#: allthethings/templates/layouts/index.html:606
+#: allthethings/templates/layouts/index.html:609
 #, fuzzy
 msgid "layout.index.footer.list2.dmca_copyright"
 msgstr "DMCA / autortiesību prasības"
 
-#: allthethings/templates/layouts/index.html:607
+#: allthethings/templates/layouts/index.html:610
 #, fuzzy
 msgid "layout.index.footer.list2.reddit"
 msgstr "Reddit"
 
-#: allthethings/templates/layouts/index.html:607
+#: allthethings/templates/layouts/index.html:610
 #, fuzzy
 msgid "layout.index.footer.list2.telegram"
 msgstr "Telegram"
 
-#: allthethings/templates/layouts/index.html:614
+#: allthethings/templates/layouts/index.html:617
 #, fuzzy
 msgid "layout.index.header.nav.advanced"
 msgstr "Paplašināts"
 
-#: allthethings/templates/layouts/index.html:622
+#: allthethings/templates/layouts/index.html:626
 #, fuzzy
 msgid "layout.index.header.nav.security"
 msgstr "Drošība"
 
-#: allthethings/templates/layouts/index.html:626
+#: allthethings/templates/layouts/index.html:630
 #, fuzzy
 msgid "layout.index.footer.list3.header"
 msgstr "Alternatīvas"
 
-#: allthethings/templates/layouts/index.html:630
+#: allthethings/templates/layouts/index.html:634
 #, fuzzy
 msgid "layout.index.footer.list3.link.slum"
 msgstr "SLUM (%(unaffiliated)s)"
 
-#: allthethings/templates/layouts/index.html:630
+#: allthethings/templates/layouts/index.html:634
 #, fuzzy
 msgid "layout.index.footer.list3.link.unaffiliated"
 msgstr "nepiesaistīts"
 
-#: allthethings/templates/macros/aarecord_list.html:90
-#: allthethings/templates/macros/aarecord_list.html:125
+#: allthethings/templates/macros/aarecord_list.html:92
+#: allthethings/templates/macros/aarecord_list.html:127
 #, fuzzy
 msgid "page.search.results.issues"
 msgstr "❌ Šim failam var būt problēmas."
 
-#: allthethings/templates/macros/aarecord_list.html:116
-#, fuzzy
-msgid "page.search.results.download_time"
-msgstr "Lejupielādes laiks"
-
-#: allthethings/templates/macros/aarecord_list.html:116
+#: allthethings/templates/macros/aarecord_list.html:118
 #, fuzzy
 msgid "page.search.results.fast_download"
 msgstr "Ātra lejupielāde"
@@ -7059,4 +7101,7 @@ msgstr "Nākamais"
 
 #~ msgid "common.md5.servers.fast_partner.recommended"
 #~ msgstr "(%(recommended)s)"
+
+#~ msgid "page.datasets.upload.source.alexandrina"
+#~ msgstr "No kolekcijas <a %(a_href)s><q>Bibliotheca Alexandrina,</q></a> precīza izcelsme nav skaidra. Daļēji no the-eye.eu, daļēji no citiem avotiem."
 

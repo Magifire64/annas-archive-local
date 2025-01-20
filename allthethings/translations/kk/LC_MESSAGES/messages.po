@@ -144,17 +144,17 @@ msgstr "Тамаша Дерекқоршы"
 msgid "common.membership.tier_name.5"
 msgstr "Ғажайып Мұрағатшы"
 
-#: allthethings/utils.py:641
+#: allthethings/utils.py:656
 #, fuzzy
 msgid "common.membership.format_currency.total"
 msgstr "%(amount)s барлығы"
 
-#: allthethings/utils.py:648
+#: allthethings/utils.py:663
 #, fuzzy
 msgid "common.membership.format_currency.total_with_usd"
 msgstr "%(amount)s (%(amount_usd)s) барлығы"
 
-#: allthethings/utils.py:650 allthethings/utils.py:651
+#: allthethings/utils.py:665 allthethings/utils.py:666
 #, fuzzy
 msgid "common.membership.format_currency.amount_with_usd"
 msgstr "%(amount)s (%(amount_usd)s)"
@@ -325,7 +325,7 @@ msgid "page.donate.expert.contact_us"
 msgstr "бізбен байланысыңыз"
 
 #: allthethings/account/templates/account/donate.html:101
-#: allthethings/account/templates/account/donation.html:716
+#: allthethings/account/templates/account/donation.html:766
 #: allthethings/page/templates/page/contact.html:22
 #, fuzzy
 msgid "page.donate.small_team"
@@ -372,7 +372,7 @@ msgid "page.donate.payment.select_method"
 msgstr "Төлем әдісін таңдаңыз."
 
 #: allthethings/account/templates/account/donate.html:132
-#: allthethings/account/templates/account/donate.html:503
+#: allthethings/account/templates/account/donate.html:507
 #, fuzzy
 msgid "page.donate.discount"
 msgstr "-%(percentage)s%%"
@@ -391,238 +391,229 @@ msgid "page.donate.payment.buttons.amazon_cc"
 msgstr "%(amazon)s сыйлық картасы"
 
 #: allthethings/account/templates/account/donate.html:152
+#: allthethings/account/templates/account/donate.html:153
+#: allthethings/account/templates/account/donate.html:154
 #, fuzzy
 msgid "page.donate.payment.buttons.bank_card_app"
 msgstr "Банк картасы (қосымша арқылы)"
 
-#: allthethings/account/templates/account/donate.html:153
-#: allthethings/account/templates/account/donate.html:163
-#: allthethings/account/templates/account/donate.html:164
-#: allthethings/account/templates/account/donate.html:450
+#: allthethings/account/templates/account/donate.html:155
+#: allthethings/account/templates/account/donate.html:165
+#: allthethings/account/templates/account/donate.html:166
+#: allthethings/account/templates/account/donate.html:454
 #, fuzzy
 msgid "page.donate.payment.buttons.crypto"
 msgstr "Криптовалюта %(bitcoin_icon)s"
 
-#: allthethings/account/templates/account/donate.html:155
+#: allthethings/account/templates/account/donate.html:157
 #, fuzzy
 msgid "page.donate.payment.buttons.credit_debit"
 msgstr "Кредит/дебет картасы"
 
-#: allthethings/account/templates/account/donate.html:156
+#: allthethings/account/templates/account/donate.html:158
 #, fuzzy
 msgid "page.donate.payment.buttons.paypal"
 msgstr "PayPal (АҚШ) %(bitcoin_icon)s"
 
-#: allthethings/account/templates/account/donate.html:157
+#: allthethings/account/templates/account/donate.html:159
 #, fuzzy
 msgid "page.donate.payment.buttons.paypalreg"
 msgstr "PayPal (тұрақты)"
 
-#: allthethings/account/templates/account/donate.html:158
+#: allthethings/account/templates/account/donate.html:160
 #, fuzzy
 msgid "page.donate.payment.buttons.givebutter"
 msgstr "Карта / PayPal / Venmo"
 
-#: allthethings/account/templates/account/donate.html:160
+#: allthethings/account/templates/account/donate.html:162
 #, fuzzy
 msgid "page.donate.payment.buttons.bmc"
 msgstr "Кредиттік/дебеттік/Apple/Google (BMC)"
 
-#: allthethings/account/templates/account/donate.html:161
-#: allthethings/account/templates/account/donate.html:201
-#: allthethings/account/templates/account/donate.html:210
-#: allthethings/account/templates/account/donate.html:211
-#: allthethings/account/templates/account/donate.html:444
+#: allthethings/account/templates/account/donate.html:163
+#: allthethings/account/templates/account/donate.html:203
+#: allthethings/account/templates/account/donate.html:213
+#: allthethings/account/templates/account/donate.html:214
+#: allthethings/account/templates/account/donate.html:448
 #, fuzzy
 msgid "page.donate.payment.buttons.alipay"
 msgstr "Alipay"
 
-#: allthethings/account/templates/account/donate.html:162
+#: allthethings/account/templates/account/donate.html:164
 #, fuzzy
 msgid "page.donate.payment.buttons.pix"
 msgstr "Pix (Бразилия)"
 
-#: allthethings/account/templates/account/donate.html:166
+#: allthethings/account/templates/account/donate.html:168
 #, fuzzy
 msgid "page.donate.payment.buttons.cashapp"
 msgstr "Cash App"
 
-#: allthethings/account/templates/account/donate.html:167
+#: allthethings/account/templates/account/donate.html:169
 #, fuzzy
 msgid "page.donate.payment.buttons.revolut"
 msgstr "Revolut"
 
-#: allthethings/account/templates/account/donate.html:168
+#: allthethings/account/templates/account/donate.html:170
 #, fuzzy
 msgid "page.donate.payment.buttons.paypal_plain"
 msgstr "PayPal"
 
-#: allthethings/account/templates/account/donate.html:169
+#: allthethings/account/templates/account/donate.html:171
 #, fuzzy
 msgid "page.donate.payment.buttons.bank_card"
 msgstr "Банк картасы"
 
-#: allthethings/account/templates/account/donate.html:170
+#: allthethings/account/templates/account/donate.html:172
 #, fuzzy
 msgid "page.donate.payment.buttons.credit_debit_backup"
 msgstr "Кредит/дебет картасы (қосымша)"
 
-#: allthethings/account/templates/account/donate.html:171
+#: allthethings/account/templates/account/donate.html:173
 #, fuzzy
 msgid "page.donate.payment.buttons.credit_debit2"
 msgstr "Кредит/дебет картасы 2"
 
-#: allthethings/account/templates/account/donate.html:173
+#: allthethings/account/templates/account/donate.html:175
 #, fuzzy
 msgid "page.donate.payment.buttons.binance"
 msgstr "Бинанс"
 
-#: allthethings/account/templates/account/donate.html:200
-#: allthethings/account/templates/account/donate.html:204
-#: allthethings/account/templates/account/donate.html:205
-#: allthethings/account/templates/account/donate.html:447
+#: allthethings/account/templates/account/donate.html:202
+#: allthethings/account/templates/account/donate.html:206
+#: allthethings/account/templates/account/donate.html:207
+#: allthethings/account/templates/account/donate.html:451
 #, fuzzy
 msgid "page.donate.payment.buttons.wechat"
 msgstr "WeChat"
 
-#: allthethings/account/templates/account/donate.html:215
-#: allthethings/account/templates/account/donate.html:216
+#: allthethings/account/templates/account/donate.html:219
+#: allthethings/account/templates/account/donate.html:220
 #, fuzzy
 msgid "page.donate.payment.buttons.alipay_wechat"
 msgstr "Alipay 支付宝 / WeChat 微信"
 
-#: allthethings/account/templates/account/donate.html:235
+#: allthethings/account/templates/account/donate.html:239
 #, fuzzy
 msgid "page.donate.payment.desc.crypto"
 msgstr "Криптовалюта арқылы сіз BTC, ETH, XMR және SOL пайдаланып қайырымдылық жасай аласыз. Егер сіз криптовалютаға таныс болсаңыз, осы опцияны пайдаланыңыз."
 
-#: allthethings/account/templates/account/donate.html:239
+#: allthethings/account/templates/account/donate.html:243
 #, fuzzy
 msgid "page.donate.payment.desc.crypto2"
 msgstr "Криптовалюта арқылы сіз BTC, ETH, XMR және тағы басқаларын пайдаланып қайырымдылық жасай аласыз."
 
-#: allthethings/account/templates/account/donate.html:242
-#: allthethings/account/templates/account/donate.html:452
+#: allthethings/account/templates/account/donate.html:246
+#: allthethings/account/templates/account/donate.html:456
 #, fuzzy
 msgid "page.donate.payment.desc.crypto_suggestion_dynamic"
 msgstr "Егер сіз криптовалютаны алғаш рет қолданып жатсаңыз, Bitcoin (ең алғашқы және ең көп қолданылатын криптовалюта) сатып алу және қайырымдылық жасау үшін %(options)s пайдалануды ұсынамыз."
 
-#: allthethings/account/templates/account/donate.html:245
-#: allthethings/account/templates/account/donate.html:455
+#: allthethings/account/templates/account/donate.html:249
+#: allthethings/account/templates/account/donate.html:459
 #, fuzzy
 msgid "page.donate.payment.processor.binance"
 msgstr "Бинанс"
 
-#: allthethings/account/templates/account/donate.html:246
-#: allthethings/account/templates/account/donate.html:456
+#: allthethings/account/templates/account/donate.html:250
+#: allthethings/account/templates/account/donate.html:460
 #, fuzzy
 msgid "page.donate.payment.processor.coinbase"
 msgstr "Coinbase"
 
-#: allthethings/account/templates/account/donate.html:247
-#: allthethings/account/templates/account/donate.html:457
+#: allthethings/account/templates/account/donate.html:251
+#: allthethings/account/templates/account/donate.html:461
 #, fuzzy
 msgid "page.donate.payment.processor.kraken"
 msgstr "Kraken"
 
-#: allthethings/account/templates/account/donate.html:255
+#: allthethings/account/templates/account/donate.html:259
 #, fuzzy
 msgid "page.donate.payment.desc.paypal"
 msgstr "PayPal АҚШ арқылы қайырымдылық жасау үшін біз PayPal Crypto қолданамыз, бұл бізге анонимді болуға мүмкіндік береді. Осы әдісті қолдануды үйренуге уақыт бөлгеніңіз үшін алғыс айтамыз, себебі бұл бізге көп көмектеседі."
 
-#: allthethings/account/templates/account/donate.html:256
+#: allthethings/account/templates/account/donate.html:260
 #, fuzzy
 msgid "page.donate.payment.desc.paypal_short"
 msgstr "PayPal арқылы қайырымдылық жасаңыз."
 
-#: allthethings/account/templates/account/donate.html:262
+#: allthethings/account/templates/account/donate.html:266
 #, fuzzy
 msgid "page.donate.payment.desc.cashapp"
 msgstr "Cash App арқылы қайырымдылық жасаңыз."
 
-#: allthethings/account/templates/account/donate.html:263
+#: allthethings/account/templates/account/donate.html:267
 #, fuzzy
 msgid "page.donate.payment.desc.cashapp_easy"
 msgstr "Егер сізде Cash App болса, бұл қайырымдылық жасаудың ең оңай жолы!"
 
-#: allthethings/account/templates/account/donate.html:266
-#: allthethings/account/templates/account/donate.html:276
+#: allthethings/account/templates/account/donate.html:270
+#: allthethings/account/templates/account/donate.html:280
 #, fuzzy
 msgid "page.donate.payment.desc.cashapp_fee"
 msgstr "%(amount)s астындағы транзакциялар үшін Cash App %(fee)s комиссиясын алуы мүмкін екенін ескеріңіз. %(amount)s немесе одан жоғары болса, тегін!"
 
-#: allthethings/account/templates/account/donate.html:272
+#: allthethings/account/templates/account/donate.html:276
 #, fuzzy
 msgid "page.donate.payment.desc.revolut"
 msgstr "Revolut арқылы қайырымдылық жасаңыз."
 
-#: allthethings/account/templates/account/donate.html:273
+#: allthethings/account/templates/account/donate.html:277
 #, fuzzy
 msgid "page.donate.payment.desc.revolut_easy"
 msgstr "Егер сізде Revolut бар болса, бұл қайырымдылық жасаудың ең оңай жолы!"
 
-#: allthethings/account/templates/account/donate.html:282
-#: allthethings/account/templates/account/donate.html:398
+#: allthethings/account/templates/account/donate.html:286
+#: allthethings/account/templates/account/donate.html:402
 #, fuzzy
 msgid "page.donate.payment.desc.credit_debit"
 msgstr "Кредиттік немесе дебеттік карта арқылы қайырымдылық жасаңыз."
 
-#: allthethings/account/templates/account/donate.html:283
+#: allthethings/account/templates/account/donate.html:287
 #, fuzzy
 msgid "page.donate.payment.desc.google_apple"
 msgstr "Google Pay және Apple Pay де жұмыс істеуі мүмкін."
 
-#: allthethings/account/templates/account/donate.html:284
+#: allthethings/account/templates/account/donate.html:288
 #, fuzzy
 msgid "page.donate.payment.desc.elimate_discount"
 msgstr "Кішігірім қайырымдылықтар үшін кредиттік карта комиссиялары біздің %(discount)s%% жеңілдігімізді жоя алатынын ескеріңіз, сондықтан ұзақ мерзімді жазылымдарды ұсынамыз."
 
-#: allthethings/account/templates/account/donate.html:285
+#: allthethings/account/templates/account/donate.html:289
 #, fuzzy
 msgid "page.donate.payment.desc.longer_subs"
 msgstr "Кішігірім қайырымдылықтар үшін комиссиялар жоғары екенін ескеріңіз, сондықтан ұзақ мерзімді жазылымдарды ұсынамыз."
 
-#: allthethings/account/templates/account/donate.html:291
+#: allthethings/account/templates/account/donate.html:295
 #, fuzzy
 msgid "page.donate.payment.desc.binance_p1"
 msgstr "Binance арқылы сіз кредиттік/дебеттік карта немесе банк шоты арқылы Bitcoin сатып алып, содан кейін сол Bitcoin-ды бізге қайырымдылық ретінде жібере аласыз. Осылайша біз сіздің қайырымдылығыңызды қабылдағанда қауіпсіз және анонимді бола аламыз."
 
-#: allthethings/account/templates/account/donate.html:295
+#: allthethings/account/templates/account/donate.html:299
 #, fuzzy
 msgid "page.donate.payment.desc.binance_p2"
 msgstr "Binance дерлік барлық елдерде қолжетімді және көптеген банктер мен кредиттік/дебеттік карталарды қолдайды. Қазіргі уақытта бұл біздің негізгі ұсынысымыз. Осы әдісті қолдануды үйренуге уақыт бөлгеніңіз үшін ризамыз, себебі бұл бізге көп көмектеседі."
 
-#: allthethings/account/templates/account/donate.html:301
+#: allthethings/account/templates/account/donate.html:305
 #, fuzzy
 msgid "page.donate.payment.desc.paypalreg"
 msgstr "Тұрақты PayPal аккаунтыңызды пайдаланып қайырымдылық жасаңыз."
 
-#: allthethings/account/templates/account/donate.html:307
+#: allthethings/account/templates/account/donate.html:311
 #, fuzzy
 msgid "page.donate.payment.desc.givebutter"
 msgstr "Кредиттік/дебеттік карта, PayPal немесе Venmo арқылы қайырымдылық жасаңыз. Келесі бетте осының бірін таңдай аласыз."
 
-#: allthethings/account/templates/account/donate.html:313
-#: allthethings/account/templates/account/donate.html:325
-#: allthethings/account/templates/account/donate.html:337
-#: allthethings/account/templates/account/donate.html:349
-#: allthethings/account/templates/account/donate.html:361
-#: allthethings/account/templates/account/donate.html:373
-#: allthethings/account/templates/account/donate.html:385
+#: allthethings/account/templates/account/donate.html:317
+#: allthethings/account/templates/account/donate.html:329
+#: allthethings/account/templates/account/donate.html:341
+#: allthethings/account/templates/account/donate.html:353
+#: allthethings/account/templates/account/donate.html:365
+#: allthethings/account/templates/account/donate.html:377
+#: allthethings/account/templates/account/donate.html:389
 #, fuzzy
 msgid "page.donate.payment.desc.amazon"
 msgstr "Amazon сыйлық картасы арқылы қайырымдылық жасаңыз."
-
-#: allthethings/account/templates/account/donate.html:314
-#: allthethings/account/templates/account/donate.html:326
-#: allthethings/account/templates/account/donate.html:338
-#: allthethings/account/templates/account/donate.html:350
-#: allthethings/account/templates/account/donate.html:362
-#: allthethings/account/templates/account/donate.html:374
-#: allthethings/account/templates/account/donate.html:386
-#, fuzzy
-msgid "page.donate.payment.desc.amazon_round"
-msgstr "Біздің сатушылар қабылдайтын сомаларға (ең аз %(minimum)s) дөңгелектеу қажет екенін ескеріңіз."
 
 #: allthethings/account/templates/account/donate.html:318
 #: allthethings/account/templates/account/donate.html:330
@@ -631,366 +622,377 @@ msgstr "Біздің сатушылар қабылдайтын сомаларғ�
 #: allthethings/account/templates/account/donate.html:366
 #: allthethings/account/templates/account/donate.html:378
 #: allthethings/account/templates/account/donate.html:390
-#: allthethings/account/templates/account/donation.html:373
+#, fuzzy
+msgid "page.donate.payment.desc.amazon_round"
+msgstr "Біздің сатушылар қабылдайтын сомаларға (ең аз %(minimum)s) дөңгелектеу қажет екенін ескеріңіз."
+
+#: allthethings/account/templates/account/donate.html:322
+#: allthethings/account/templates/account/donate.html:334
+#: allthethings/account/templates/account/donate.html:346
+#: allthethings/account/templates/account/donate.html:358
+#: allthethings/account/templates/account/donate.html:370
+#: allthethings/account/templates/account/donate.html:382
+#: allthethings/account/templates/account/donate.html:394
+#: allthethings/account/templates/account/donation.html:405
 #, fuzzy
 msgid "page.donate.payment.desc.amazon_com"
 msgstr "<strong>МАҢЫЗДЫ:</strong> Біз тек Amazon.com-ды қолдаймыз, басқа Amazon веб-сайттарын қолдамаймыз. Мысалы, .de, .co.uk, .ca ҚОЛДАНЫЛМАЙДЫ."
 
-#: allthethings/account/templates/account/donate.html:319
-#: allthethings/account/templates/account/donate.html:331
-#: allthethings/account/templates/account/donate.html:343
-#: allthethings/account/templates/account/donate.html:355
-#: allthethings/account/templates/account/donate.html:367
-#: allthethings/account/templates/account/donate.html:379
-#: allthethings/account/templates/account/donate.html:391
+#: allthethings/account/templates/account/donate.html:323
+#: allthethings/account/templates/account/donate.html:335
+#: allthethings/account/templates/account/donate.html:347
+#: allthethings/account/templates/account/donate.html:359
+#: allthethings/account/templates/account/donate.html:371
+#: allthethings/account/templates/account/donate.html:383
+#: allthethings/account/templates/account/donate.html:395
 #, fuzzy
 msgid "page.donate.payment.desc.amazon_cc"
 msgstr "<strong>МАҢЫЗДЫ:</strong> Бұл опция %(amazon)s үшін. Егер басқа Amazon веб-сайтын пайдаланғыңыз келсе, оны жоғарыдан таңдаңыз."
 
-#: allthethings/account/templates/account/donate.html:399
+#: allthethings/account/templates/account/donate.html:403
 #, fuzzy
 msgid "page.donate.payment.desc.credit_debit_backup"
 msgstr "Бұл әдіс аралық конверсия ретінде криптовалюта провайдерін пайдаланады. Бұл біраз шатастыруы мүмкін, сондықтан басқа төлем әдістері жұмыс істемесе ғана осы әдісті қолданыңыз. Бұл барлық елдерде де жұмыс істемейді."
 
-#: allthethings/account/templates/account/donate.html:405
+#: allthethings/account/templates/account/donate.html:409
 #, fuzzy
 msgid "page.donate.payment.desc.bank_card_app"
 msgstr "Alipay қосымшасы арқылы несие/дебеттік картаны пайдаланып қайырымдылық жасаңыз (орнату өте оңай)."
 
-#: allthethings/account/templates/account/donate.html:409
-#: allthethings/account/templates/account/donation.html:519
+#: allthethings/account/templates/account/donate.html:413
+#: allthethings/account/templates/account/donation.html:563
 #, fuzzy
 msgid "page.donate.payment.desc.bank_card_app.step1.header"
 msgstr "<span %(style)s>1</span>Alipay қосымшасын орнатыңыз"
 
-#: allthethings/account/templates/account/donate.html:413
-#: allthethings/account/templates/account/donation.html:523
+#: allthethings/account/templates/account/donate.html:417
+#: allthethings/account/templates/account/donation.html:567
 #, fuzzy
 msgid "page.donate.payment.desc.bank_card_app.step1.desc1"
 msgstr "Alipay қосымшасын <a %(a_app_store)s>Apple App Store</a> немесе <a %(a_play_store)s>Google Play Store</a> арқылы орнатыңыз."
 
-#: allthethings/account/templates/account/donate.html:417
-#: allthethings/account/templates/account/donation.html:527
+#: allthethings/account/templates/account/donate.html:421
+#: allthethings/account/templates/account/donation.html:571
 #, fuzzy
 msgid "page.donate.payment.desc.bank_card_app.step1.desc2"
 msgstr "Телефон нөміріңізді пайдаланып тіркеліңіз."
 
-#: allthethings/account/templates/account/donate.html:418
-#: allthethings/account/templates/account/donation.html:528
+#: allthethings/account/templates/account/donate.html:422
+#: allthethings/account/templates/account/donation.html:572
 #, fuzzy
 msgid "page.donate.payment.desc.bank_card_app.step1.desc3"
 msgstr "Қосымша жеке мәліметтер қажет емес."
 
-#: allthethings/account/templates/account/donate.html:422
-#: allthethings/account/templates/account/donation.html:532
+#: allthethings/account/templates/account/donate.html:426
+#: allthethings/account/templates/account/donation.html:576
 #, fuzzy
 msgid "page.donate.payment.desc.bank_card_app.step2.header"
 msgstr "<span %(style)s>2</span>Банк картасын қосыңыз"
 
-#: allthethings/account/templates/account/donate.html:430
-#: allthethings/account/templates/account/donation.html:540
+#: allthethings/account/templates/account/donate.html:434
+#: allthethings/account/templates/account/donation.html:584
 #, fuzzy
 msgid "page.donate.payment.desc.bank_card_app.step2.desc1"
 msgstr "Қолдау көрсетіледі: Visa, MasterCard, JCB, Diners Club және Discover."
 
-#: allthethings/account/templates/account/donate.html:431
-#: allthethings/account/templates/account/donation.html:541
+#: allthethings/account/templates/account/donate.html:435
+#: allthethings/account/templates/account/donation.html:585
 #, fuzzy
 msgid "page.donate.payment.desc.bank_card_app.step2.desc2"
 msgstr "Қосымша ақпарат алу үшін <a %(a_alipay)s>осы нұсқаулықты</a> қараңыз."
 
-#: allthethings/account/templates/account/donate.html:437
+#: allthethings/account/templates/account/donate.html:441
 #, fuzzy
 msgid "page.donate.payment.desc.credit_debit_explained"
 msgstr "Біз кредиттік/дебеттік карталарды тікелей қолдай алмаймыз, себебі банктер бізбен жұмыс істегісі келмейді. ☹ Дегенмен, басқа төлем әдістерін пайдаланып, кредиттік/дебеттік карталарды қолданудың бірнеше жолы бар:"
 
-#: allthethings/account/templates/account/donate.html:441
+#: allthethings/account/templates/account/donate.html:445
 #, fuzzy
 msgid "page.donate.payment.buttons.amazon"
 msgstr "Amazon сыйлық картасы"
 
-#: allthethings/account/templates/account/donate.html:442
+#: allthethings/account/templates/account/donate.html:446
 #, fuzzy
 msgid "page.donate.ccexp.amazon_com"
 msgstr "Кредиттік/дебеттік картаңызды пайдаланып, бізге Amazon.com сыйлық карталарын жіберіңіз."
 
-#: allthethings/account/templates/account/donate.html:445
+#: allthethings/account/templates/account/donate.html:449
 #, fuzzy
 msgid "page.donate.ccexp.alipay"
 msgstr "Alipay халықаралық кредиттік/дебеттік карталарды қолдайды. Толығырақ ақпарат алу үшін <a %(a_alipay)s>осы нұсқаулықты</a> қараңыз."
 
-#: allthethings/account/templates/account/donate.html:448
+#: allthethings/account/templates/account/donate.html:452
 #, fuzzy
 msgid "page.donate.ccexp.wechat"
 msgstr "WeChat (Weixin Pay) халықаралық кредиттік/дебеттік карталарды қолдайды. WeChat қолданбасында «Мен => Қызметтер => Әмиян => Картаны қосу» бөліміне өтіңіз. Егер оны көрмесеңіз, «Мен => Параметрлер => Жалпы => Құралдар => Weixin Pay => Қосу» арқылы қосыңыз."
 
-#: allthethings/account/templates/account/donate.html:451
+#: allthethings/account/templates/account/donate.html:455
 #, fuzzy
 msgid "page.donate.ccexp.crypto"
 msgstr "Сіз криптовалютаны несие/дебеттік карталар арқылы сатып ала аласыз."
 
-#: allthethings/account/templates/account/donate.html:461
+#: allthethings/account/templates/account/donate.html:465
 #, fuzzy
 msgid "page.donate.payment.desc.crypto_express_services"
 msgstr "Крипто экспресс қызметтері"
 
-#: allthethings/account/templates/account/donate.html:463
+#: allthethings/account/templates/account/donate.html:467
 #, fuzzy
 msgid "page.donation.ccexp.crypto_express_services.1"
 msgstr "Экспресс қызметтер ыңғайлы, бірақ жоғары төлемдер алады."
 
-#: allthethings/account/templates/account/donate.html:464
+#: allthethings/account/templates/account/donate.html:468
 #, fuzzy
 msgid "page.donation.ccexp.crypto_express_services.2"
 msgstr "Егер сіз үлкен қайырымдылық жасағыңыз келсе және $5-10 төлеміне қарсы болмасаңыз, крипто биржасының орнына мұны пайдалана аласыз."
 
-#: allthethings/account/templates/account/donate.html:467
+#: allthethings/account/templates/account/donate.html:471
 #, fuzzy
 msgid "page.donation.ccexp.crypto_express_services.3"
 msgstr "Қайырымдылық бетінде көрсетілген нақты крипто сомасын жіберіңіз, $USD сомасын емес."
 
-#: allthethings/account/templates/account/donate.html:468
+#: allthethings/account/templates/account/donate.html:472
 #, fuzzy
 msgid "page.donation.ccexp.crypto_express_services.4"
 msgstr "Әйтпесе, төлем алынып тасталады және біз сіздің мүшелігіңізді автоматты түрде өңдей алмаймыз."
 
-#: allthethings/account/templates/account/donate.html:471
-#: allthethings/account/templates/account/donation.html:304
+#: allthethings/account/templates/account/donate.html:475
+#: allthethings/account/templates/account/donation.html:328
 #, fuzzy
 msgid "page.donation.payment2cc.method.paybis"
 msgstr "(минимум: %(minimum)s)"
 
-#: allthethings/account/templates/account/donate.html:472
-#: allthethings/account/templates/account/donation.html:305
+#: allthethings/account/templates/account/donate.html:476
+#: allthethings/account/templates/account/donation.html:329
 #, fuzzy
 msgid "page.donation.payment2cc.method.switchere"
 msgstr "(минимум: %(minimum)s елге байланысты, бірінші транзакция үшін тексеру қажет емес)"
 
-#: allthethings/account/templates/account/donate.html:473
-#: allthethings/account/templates/account/donation.html:306
+#: allthethings/account/templates/account/donate.html:477
+#: allthethings/account/templates/account/donation.html:330
 #, fuzzy
 msgid "page.donation.payment2cc.method.munzen"
 msgstr "(минимум: %(minimum)s, бірінші транзакция үшін тексеру қажет емес)"
 
-#: allthethings/account/templates/account/donate.html:474
-#: allthethings/account/templates/account/donation.html:307
+#: allthethings/account/templates/account/donate.html:478
+#: allthethings/account/templates/account/donation.html:331
 #, fuzzy
 msgid "page.donation.payment2cc.method.mercuryo"
 msgstr "(минимум: %(minimum)s)"
 
-#: allthethings/account/templates/account/donate.html:475
-#: allthethings/account/templates/account/donation.html:308
+#: allthethings/account/templates/account/donate.html:479
+#: allthethings/account/templates/account/donation.html:332
 #, fuzzy
 msgid "page.donation.payment2cc.method.moonpay"
 msgstr "(минимум: %(minimum)s)"
 
-#: allthethings/account/templates/account/donate.html:476
-#: allthethings/account/templates/account/donation.html:309
+#: allthethings/account/templates/account/donate.html:480
+#: allthethings/account/templates/account/donation.html:333
 #, fuzzy
 msgid "page.donation.payment2cc.method.coingate"
 msgstr "(минимум: %(minimum)s, бірінші транзакция үшін тексеру қажет емес)"
 
-#: allthethings/account/templates/account/donate.html:478
-#: allthethings/account/templates/account/donation.html:311
+#: allthethings/account/templates/account/donate.html:482
+#: allthethings/account/templates/account/donation.html:335
 #, fuzzy
 msgid "page.donation.payment2cc.cc2btc.outdated"
 msgstr "Егер бұл ақпарат ескірген болса, бізге электрондық пошта арқылы хабарлаңыз."
 
-#: allthethings/account/templates/account/donate.html:485
+#: allthethings/account/templates/account/donate.html:489
 #, fuzzy
 msgid "page.donate.payment.desc.bmc"
 msgstr "Несие карталары, дебеттік карталар, Apple Pay және Google Pay үшін біз “Buy Me a Coffee” (BMC <span class=\"icon-[ph--coffee-fill] text-lg align-text-bottom\"></span>) қолданамыз. Олардың жүйесінде бір “кофе” $5-ке тең, сондықтан сіздің қайырымдылығыңыз 5-тің ең жақын еселігіне дейін дөңгелектенеді."
 
-#: allthethings/account/templates/account/donate.html:492
+#: allthethings/account/templates/account/donate.html:496
 #, fuzzy
 msgid "page.donate.duration.intro"
 msgstr "Жазылу мерзімін таңдаңыз."
 
-#: allthethings/account/templates/account/donate.html:509
+#: allthethings/account/templates/account/donate.html:513
 #, fuzzy
 msgid "page.donate.duration.1_mo"
 msgstr "1 ай"
 
-#: allthethings/account/templates/account/donate.html:510
+#: allthethings/account/templates/account/donate.html:514
 #, fuzzy
 msgid "page.donate.duration.3_mo"
 msgstr "3 ай"
 
-#: allthethings/account/templates/account/donate.html:511
+#: allthethings/account/templates/account/donate.html:515
 #, fuzzy
 msgid "page.donate.duration.6_mo"
 msgstr "6 ай"
 
-#: allthethings/account/templates/account/donate.html:512
+#: allthethings/account/templates/account/donate.html:516
 #, fuzzy
 msgid "page.donate.duration.12_mo"
 msgstr "12 ай"
 
-#: allthethings/account/templates/account/donate.html:513
+#: allthethings/account/templates/account/donate.html:517
 #, fuzzy
 msgid "page.donate.duration.24_mo"
 msgstr "24 ай"
 
-#: allthethings/account/templates/account/donate.html:514
+#: allthethings/account/templates/account/donate.html:518
 #, fuzzy
 msgid "page.donate.duration.48_mo"
 msgstr "48 ай"
 
-#: allthethings/account/templates/account/donate.html:515
+#: allthethings/account/templates/account/donate.html:519
 #, fuzzy
 msgid "page.donate.duration.96_mo"
 msgstr "96 ай"
 
-#: allthethings/account/templates/account/donate.html:518
+#: allthethings/account/templates/account/donate.html:522
 #, fuzzy
 msgid "page.donate.duration.summary"
 msgstr "<div %(div_monthly_cost)s></div><div %(div_after)s>жеңілдіктерден кейін <span %(span_discount)s></span></div><div %(div_total)s></div><div %(div_duration)s></div>"
 
-#: allthethings/account/templates/account/donate.html:525
+#: allthethings/account/templates/account/donate.html:529
 #, fuzzy
 msgid "page.donate.payment.minimum_method"
 msgstr "Бұл төлем әдісі ең аз дегенде %(amount)s талап етеді. Басқа мерзімді немесе төлем әдісін таңдаңыз."
 
-#: allthethings/account/templates/account/donate.html:526
 #: allthethings/account/templates/account/donate.html:530
+#: allthethings/account/templates/account/donate.html:534
 #, fuzzy
 msgid "page.donate.buttons.donate"
 msgstr "Қайырымдылық жасау"
 
-#: allthethings/account/templates/account/donate.html:529
+#: allthethings/account/templates/account/donate.html:533
 #, fuzzy
 msgid "page.donate.payment.maximum_method"
 msgstr "Бұл төлем әдісі ең көп дегенде %(amount)s рұқсат етеді. Басқа мерзімді немесе төлем әдісін таңдаңыз."
 
-#: allthethings/account/templates/account/donate.html:536
+#: allthethings/account/templates/account/donate.html:540
 #, fuzzy
 msgid "page.donate.login2"
 msgstr "Мүше болу үшін, өтінеміз <a %(a_login)s>Кіру немесе Тіркелу</a>. Қолдауыңызға рахмет!"
 
-#: allthethings/account/templates/account/donate.html:543
+#: allthethings/account/templates/account/donate.html:547
 #, fuzzy
 msgid "page.donate.payment.crypto_select"
 msgstr "Таңдаулы криптовалютаны таңдаңыз:"
 
-#: allthethings/account/templates/account/donate.html:548
+#: allthethings/account/templates/account/donate.html:552
 #, fuzzy
 msgid "page.donate.currency_lowest_minimum"
 msgstr "(ең төменгі сома)"
 
-#: allthethings/account/templates/account/donate.html:551
+#: allthethings/account/templates/account/donate.html:555
 #, fuzzy
 msgid "page.donate.coinbase_eth"
 msgstr "(Coinbase-тен Ethereum жібергенде қолданыңыз)"
 
-#: allthethings/account/templates/account/donate.html:563
-#: allthethings/account/templates/account/donate.html:564
+#: allthethings/account/templates/account/donate.html:567
 #: allthethings/account/templates/account/donate.html:568
-#: allthethings/account/templates/account/donate.html:570
+#: allthethings/account/templates/account/donate.html:572
+#: allthethings/account/templates/account/donate.html:574
 #, fuzzy
 msgid "page.donate.currency_warning_high_minimum"
 msgstr "(ескерту: жоғары ең төменгі сома)"
 
-#: allthethings/account/templates/account/donate.html:579
+#: allthethings/account/templates/account/donate.html:583
 #, fuzzy
 msgid "page.donate.submit.confirm"
 msgstr "Бұл қайырымдылықты растау үшін қайырымдылық жасау түймесін басыңыз."
 
-#: allthethings/account/templates/account/donate.html:587
+#: allthethings/account/templates/account/donate.html:591
 #, fuzzy
 msgid "page.donate.submit.button"
 msgstr "Қайырымдылық жасау <span %(span_cost)s></span> <span %(span_label)s></span>"
 
-#: allthethings/account/templates/account/donate.html:592
+#: allthethings/account/templates/account/donate.html:596
 #, fuzzy
 msgid "page.donate.submit.cancel_note"
 msgstr "Сіз төлем жасау кезінде қайырымдылықты әлі де болдырмауыңызға болады."
 
-#: allthethings/account/templates/account/donate.html:596
+#: allthethings/account/templates/account/donate.html:600
 #, fuzzy
 msgid "page.donate.submit.success"
 msgstr "✅ Қайырымдылық бетіне қайта бағытталуда…"
 
-#: allthethings/account/templates/account/donate.html:597
+#: allthethings/account/templates/account/donate.html:601
 #, fuzzy
 msgid "page.donate.submit.failure"
 msgstr "❌ Бірдеңе дұрыс болмады. Бетті қайта жүктеп, тағы да көріңіз."
 
-#: allthethings/account/templates/account/donate.html:651
+#: allthethings/account/templates/account/donate.html:655
 #, fuzzy
 msgid "page.donate.duration.summary.discount"
 msgstr "%(percentage)s%%"
 
-#: allthethings/account/templates/account/donate.html:652
+#: allthethings/account/templates/account/donate.html:656
 #, fuzzy
 msgid "page.donate.duration.summary.monthly_cost"
 msgstr "%(monthly_cost)s / айына"
 
-#: allthethings/account/templates/account/donate.html:655
+#: allthethings/account/templates/account/donate.html:659
 #, fuzzy
 msgid "page.donate.duration.summary.duration.1_mo"
 msgstr "1 айға"
 
-#: allthethings/account/templates/account/donate.html:656
+#: allthethings/account/templates/account/donate.html:660
 #, fuzzy
 msgid "page.donate.duration.summary.duration.3_mo"
 msgstr "3 айға"
 
-#: allthethings/account/templates/account/donate.html:657
+#: allthethings/account/templates/account/donate.html:661
 #, fuzzy
 msgid "page.donate.duration.summary.duration.6_mo"
 msgstr "6 айға"
 
-#: allthethings/account/templates/account/donate.html:658
+#: allthethings/account/templates/account/donate.html:662
 #, fuzzy
 msgid "page.donate.duration.summary.duration.12_mo"
 msgstr "12 айға"
 
-#: allthethings/account/templates/account/donate.html:659
+#: allthethings/account/templates/account/donate.html:663
 #, fuzzy
 msgid "page.donate.duration.summary.duration.24_mo"
 msgstr "24 айға"
 
-#: allthethings/account/templates/account/donate.html:660
+#: allthethings/account/templates/account/donate.html:664
 #, fuzzy
 msgid "page.donate.duration.summary.duration.48_mo"
 msgstr "48 айға"
 
-#: allthethings/account/templates/account/donate.html:661
+#: allthethings/account/templates/account/donate.html:665
 #, fuzzy
 msgid "page.donate.duration.summary.duration.96_mo"
 msgstr "96 айға"
 
-#: allthethings/account/templates/account/donate.html:665
+#: allthethings/account/templates/account/donate.html:669
 #, fuzzy
 msgid "page.donate.submit.button.label.1_mo"
 msgstr "1 айға “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:666
+#: allthethings/account/templates/account/donate.html:670
 #, fuzzy
 msgid "page.donate.submit.button.label.3_mo"
 msgstr "3 айға “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:667
+#: allthethings/account/templates/account/donate.html:671
 #, fuzzy
 msgid "page.donate.submit.button.label.6_mo"
 msgstr "6 айға “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:668
+#: allthethings/account/templates/account/donate.html:672
 #, fuzzy
 msgid "page.donate.submit.button.label.12_mo"
 msgstr "12 айға “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:669
+#: allthethings/account/templates/account/donate.html:673
 #, fuzzy
 msgid "page.donate.submit.button.label.24_mo"
 msgstr "24 айға “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:670
+#: allthethings/account/templates/account/donate.html:674
 #, fuzzy
 msgid "page.donate.submit.button.label.48_mo"
 msgstr "48 айға “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:671
+#: allthethings/account/templates/account/donate.html:675
 #, fuzzy
 msgid "page.donate.submit.button.label.96_mo"
 msgstr "96 айға “%(tier_name)s”"
@@ -1068,6 +1070,14 @@ msgstr "Сіз төлем жасадыңыз. Егер төлем нұсқаул
 
 #: allthethings/account/templates/account/donation.html:52
 #: allthethings/account/templates/account/donation.html:68
+#: allthethings/account/templates/account/donation.html:170
+#: allthethings/account/templates/account/donation.html:216
+#: allthethings/account/templates/account/donation.html:265
+#: allthethings/account/templates/account/donation.html:318
+#: allthethings/account/templates/account/donation.html:367
+#: allthethings/account/templates/account/donation.html:509
+#: allthethings/account/templates/account/donation.html:554
+#: allthethings/account/templates/account/donation.html:636
 #, fuzzy
 msgid "page.donation.old_instructions.show_button"
 msgstr "Ескі төлем нұсқауларын көрсету"
@@ -1101,18 +1111,18 @@ msgstr "<strong>Маңызды ескерту:</strong> Криптовалюта
 #: allthethings/account/templates/account/donation.html:95
 #: allthethings/account/templates/account/donation.html:116
 #: allthethings/account/templates/account/donation.html:167
-#: allthethings/account/templates/account/donation.html:207
-#: allthethings/account/templates/account/donation.html:250
-#: allthethings/account/templates/account/donation.html:297
-#: allthethings/account/templates/account/donation.html:340
-#: allthethings/account/templates/account/donation.html:407
-#: allthethings/account/templates/account/donation.html:423
-#: allthethings/account/templates/account/donation.html:441
-#: allthethings/account/templates/account/donation.html:457
-#: allthethings/account/templates/account/donation.html:474
-#: allthethings/account/templates/account/donation.html:513
-#: allthethings/account/templates/account/donation.html:589
-#: allthethings/account/templates/account/donation.html:619
+#: allthethings/account/templates/account/donation.html:213
+#: allthethings/account/templates/account/donation.html:262
+#: allthethings/account/templates/account/donation.html:315
+#: allthethings/account/templates/account/donation.html:364
+#: allthethings/account/templates/account/donation.html:439
+#: allthethings/account/templates/account/donation.html:455
+#: allthethings/account/templates/account/donation.html:473
+#: allthethings/account/templates/account/donation.html:489
+#: allthethings/account/templates/account/donation.html:506
+#: allthethings/account/templates/account/donation.html:551
+#: allthethings/account/templates/account/donation.html:633
+#: allthethings/account/templates/account/donation.html:669
 #, fuzzy
 msgid "page.donation.expired"
 msgstr "Бұл қайырымдылық мерзімі аяқталды. Бас тартып, жаңасын жасаңыз."
@@ -1138,7 +1148,7 @@ msgid "page.donate.submit.header1"
 msgstr "<span %(span_circle)s>1</span>PayPal арқылы Bitcoin сатып алыңыз"
 
 #: allthethings/account/templates/account/donation.html:122
-#: allthethings/account/templates/account/donation.html:173
+#: allthethings/account/templates/account/donation.html:179
 #, fuzzy
 msgid "page.donate.one_time_payment.paypal.text2"
 msgstr "PayPal қосымшаңызда немесе веб-сайтыңызда «Крипто» бетін табыңыз. Бұл әдетте «Қаржы» бөлімінде орналасқан."
@@ -1164,7 +1174,7 @@ msgid "page.donation.payment.paypal.text5"
 msgstr "Біздің Bitcoin (BTC) мекенжайымызды алушы ретінде енгізіңіз және %(total)s қайырымдылықты жіберу нұсқауларын орындаңыз:"
 
 #: allthethings/account/templates/account/donation.html:140
-#: allthethings/account/templates/account/donation.html:293
+#: allthethings/account/templates/account/donation.html:311
 #, fuzzy
 msgid "page.donation.credit_debit_card_instructions"
 msgstr "Кредиттік / дебеттік карта нұсқаулары"
@@ -1185,484 +1195,484 @@ msgid "page.donation.stepbystep_below"
 msgstr "Төмендегі қадамдық нұсқаулықты қараңыз."
 
 #: allthethings/account/templates/account/donation.html:149
-#: allthethings/account/templates/account/donation.html:192
-#: allthethings/account/templates/account/donation.html:235
-#: allthethings/account/templates/account/donation.html:280
-#: allthethings/account/templates/account/donation.html:323
-#: allthethings/account/templates/account/donation.html:352
-#: allthethings/account/templates/account/donation.html:388
-#: allthethings/account/templates/account/donation.html:498
-#: allthethings/account/templates/account/donation.html:574
-#: allthethings/account/templates/account/donation.html:605
+#: allthethings/account/templates/account/donation.html:198
+#: allthethings/account/templates/account/donation.html:247
+#: allthethings/account/templates/account/donation.html:298
+#: allthethings/account/templates/account/donation.html:347
+#: allthethings/account/templates/account/donation.html:384
+#: allthethings/account/templates/account/donation.html:420
+#: allthethings/account/templates/account/donation.html:536
+#: allthethings/account/templates/account/donation.html:618
+#: allthethings/account/templates/account/donation.html:655
 #, fuzzy
 msgid "page.donation.status_header"
 msgstr "Мәртебе:"
 
 #: allthethings/account/templates/account/donation.html:149
-#: allthethings/account/templates/account/donation.html:192
-#: allthethings/account/templates/account/donation.html:235
-#: allthethings/account/templates/account/donation.html:280
-#: allthethings/account/templates/account/donation.html:323
-#: allthethings/account/templates/account/donation.html:352
-#: allthethings/account/templates/account/donation.html:498
-#: allthethings/account/templates/account/donation.html:574
-#: allthethings/account/templates/account/donation.html:605
+#: allthethings/account/templates/account/donation.html:198
+#: allthethings/account/templates/account/donation.html:247
+#: allthethings/account/templates/account/donation.html:298
+#: allthethings/account/templates/account/donation.html:347
+#: allthethings/account/templates/account/donation.html:384
+#: allthethings/account/templates/account/donation.html:536
+#: allthethings/account/templates/account/donation.html:618
+#: allthethings/account/templates/account/donation.html:655
 #, fuzzy
 msgid "page.donation.waiting_for_confirmation_refresh"
 msgstr "Растау күтілуде (жаңарту үшін бетті жаңартыңыз)…"
 
 #: allthethings/account/templates/account/donation.html:149
-#: allthethings/account/templates/account/donation.html:192
-#: allthethings/account/templates/account/donation.html:235
-#: allthethings/account/templates/account/donation.html:280
-#: allthethings/account/templates/account/donation.html:323
-#: allthethings/account/templates/account/donation.html:352
-#: allthethings/account/templates/account/donation.html:498
-#: allthethings/account/templates/account/donation.html:574
-#: allthethings/account/templates/account/donation.html:605
+#: allthethings/account/templates/account/donation.html:198
+#: allthethings/account/templates/account/donation.html:247
+#: allthethings/account/templates/account/donation.html:298
+#: allthethings/account/templates/account/donation.html:347
+#: allthethings/account/templates/account/donation.html:384
+#: allthethings/account/templates/account/donation.html:536
+#: allthethings/account/templates/account/donation.html:618
+#: allthethings/account/templates/account/donation.html:655
 #, fuzzy
 msgid "page.donation.waiting_for_transfer_refresh"
 msgstr "Аударым күтілуде (жаңарту үшін бетті жаңартыңыз)…"
 
 #: allthethings/account/templates/account/donation.html:150
-#: allthethings/account/templates/account/donation.html:193
-#: allthethings/account/templates/account/donation.html:236
-#: allthethings/account/templates/account/donation.html:281
-#: allthethings/account/templates/account/donation.html:324
-#: allthethings/account/templates/account/donation.html:353
-#: allthethings/account/templates/account/donation.html:499
-#: allthethings/account/templates/account/donation.html:575
-#: allthethings/account/templates/account/donation.html:606
+#: allthethings/account/templates/account/donation.html:199
+#: allthethings/account/templates/account/donation.html:248
+#: allthethings/account/templates/account/donation.html:299
+#: allthethings/account/templates/account/donation.html:348
+#: allthethings/account/templates/account/donation.html:385
+#: allthethings/account/templates/account/donation.html:537
+#: allthethings/account/templates/account/donation.html:619
+#: allthethings/account/templates/account/donation.html:656
 #, fuzzy
 msgid "page.donation.time_left_header"
 msgstr "Қалған уақыт:"
 
 #: allthethings/account/templates/account/donation.html:150
-#: allthethings/account/templates/account/donation.html:193
-#: allthethings/account/templates/account/donation.html:236
-#: allthethings/account/templates/account/donation.html:281
-#: allthethings/account/templates/account/donation.html:324
-#: allthethings/account/templates/account/donation.html:353
-#: allthethings/account/templates/account/donation.html:499
-#: allthethings/account/templates/account/donation.html:575
-#: allthethings/account/templates/account/donation.html:606
+#: allthethings/account/templates/account/donation.html:199
+#: allthethings/account/templates/account/donation.html:248
+#: allthethings/account/templates/account/donation.html:299
+#: allthethings/account/templates/account/donation.html:348
+#: allthethings/account/templates/account/donation.html:385
+#: allthethings/account/templates/account/donation.html:537
+#: allthethings/account/templates/account/donation.html:619
+#: allthethings/account/templates/account/donation.html:656
 #, fuzzy
 msgid "page.donation.might_want_to_cancel"
 msgstr "(сіз бас тартып, жаңа қайырымдылық жасағыңыз келуі мүмкін)"
 
 #: allthethings/account/templates/account/donation.html:154
-#: allthethings/account/templates/account/donation.html:197
-#: allthethings/account/templates/account/donation.html:240
-#: allthethings/account/templates/account/donation.html:285
-#: allthethings/account/templates/account/donation.html:328
-#: allthethings/account/templates/account/donation.html:357
-#: allthethings/account/templates/account/donation.html:503
-#: allthethings/account/templates/account/donation.html:579
-#: allthethings/account/templates/account/donation.html:610
+#: allthethings/account/templates/account/donation.html:203
+#: allthethings/account/templates/account/donation.html:252
+#: allthethings/account/templates/account/donation.html:303
+#: allthethings/account/templates/account/donation.html:352
+#: allthethings/account/templates/account/donation.html:389
+#: allthethings/account/templates/account/donation.html:541
+#: allthethings/account/templates/account/donation.html:623
+#: allthethings/account/templates/account/donation.html:660
 #, fuzzy
 msgid "page.donation.reset_timer"
 msgstr "Таймерді қалпына келтіру үшін жай ғана жаңа қайырымдылық жасаңыз."
 
 #: allthethings/account/templates/account/donation.html:158
-#: allthethings/account/templates/account/donation.html:201
-#: allthethings/account/templates/account/donation.html:244
-#: allthethings/account/templates/account/donation.html:289
-#: allthethings/account/templates/account/donation.html:332
-#: allthethings/account/templates/account/donation.html:361
-#: allthethings/account/templates/account/donation.html:392
-#: allthethings/account/templates/account/donation.html:507
-#: allthethings/account/templates/account/donation.html:583
-#: allthethings/account/templates/account/donation.html:614
+#: allthethings/account/templates/account/donation.html:207
+#: allthethings/account/templates/account/donation.html:256
+#: allthethings/account/templates/account/donation.html:307
+#: allthethings/account/templates/account/donation.html:356
+#: allthethings/account/templates/account/donation.html:393
+#: allthethings/account/templates/account/donation.html:424
+#: allthethings/account/templates/account/donation.html:545
+#: allthethings/account/templates/account/donation.html:627
+#: allthethings/account/templates/account/donation.html:664
 #, fuzzy
 msgid "page.donation.refresh_status"
 msgstr "Мәртебені жаңарту"
 
 #: allthethings/account/templates/account/donation.html:162
-#: allthethings/account/templates/account/donation.html:714
+#: allthethings/account/templates/account/donation.html:764
 #, fuzzy
 msgid "page.donation.footer.issues_contact"
 msgstr "Егер қандай да бір мәселелерге тап болсаңыз, %(email)s мекенжайына хабарласыңыз және мүмкіндігінше көп ақпаратты (мысалы, скриншоттарды) қосыңыз."
 
-#: allthethings/account/templates/account/donation.html:170
-#: allthethings/account/templates/account/donation.html:210
-#: allthethings/account/templates/account/donation.html:253
+#: allthethings/account/templates/account/donation.html:176
+#: allthethings/account/templates/account/donation.html:222
+#: allthethings/account/templates/account/donation.html:271
 #, fuzzy
 msgid "page.donation.step1"
 msgstr "1"
 
-#: allthethings/account/templates/account/donation.html:170
+#: allthethings/account/templates/account/donation.html:176
 #, fuzzy
 msgid "page.donation.buy_pyusd"
 msgstr "PYUSD монетасын PayPal арқылы сатып алыңыз"
 
-#: allthethings/account/templates/account/donation.html:177
+#: allthethings/account/templates/account/donation.html:183
 #, fuzzy
 msgid "page.donation.pyusd.instructions"
 msgstr "PYUSD монетасын (PayPal USD) сатып алу нұсқауларын орындаңыз."
 
-#: allthethings/account/templates/account/donation.html:178
+#: allthethings/account/templates/account/donation.html:184
 #, fuzzy
 msgid "page.donation.pyusd.more"
 msgstr "Транзакция төлемдерін жабу үшін, сіздің қайырымдылық сомасынан (%(amount)s) %(more)s артық сатып алуды ұсынамыз. Қалғанын өзіңізде сақтайсыз."
 
-#: allthethings/account/templates/account/donation.html:181
-#: allthethings/account/templates/account/donation.html:220
-#: allthethings/account/templates/account/donation.html:263
+#: allthethings/account/templates/account/donation.html:187
+#: allthethings/account/templates/account/donation.html:232
+#: allthethings/account/templates/account/donation.html:281
 #, fuzzy
 msgid "page.donation.step2"
 msgstr "2"
 
-#: allthethings/account/templates/account/donation.html:184
+#: allthethings/account/templates/account/donation.html:190
 #, fuzzy
 msgid "page.donation.pyusd.transfer"
 msgstr "PayPal қосымшасы немесе веб-сайтындағы “PYUSD” бетіне өтіңіз. “Аудару” түймесін %(icon)s басыңыз, содан кейін “Жіберу” түймесін басыңыз."
 
-#: allthethings/account/templates/account/donation.html:188
-#: allthethings/account/templates/account/donation.html:227
-#: allthethings/account/templates/account/donation.html:272
-#: allthethings/account/templates/account/donation.html:344
+#: allthethings/account/templates/account/donation.html:194
+#: allthethings/account/templates/account/donation.html:239
+#: allthethings/account/templates/account/donation.html:290
+#: allthethings/account/templates/account/donation.html:374
 #, fuzzy
 msgid "page.donation.transfer_amount_to"
 msgstr "%(amount)s %(account)s мекенжайына аударыңыз"
 
-#: allthethings/account/templates/account/donation.html:210
+#: allthethings/account/templates/account/donation.html:222
 #, fuzzy
 msgid "page.donation.cash_app_btc.step1"
 msgstr "Cash App арқылы Bitcoin (BTC) сатып алу"
 
-#: allthethings/account/templates/account/donation.html:213
+#: allthethings/account/templates/account/donation.html:225
 #, fuzzy
 msgid "page.donation.cash_app_btc.step1.text1"
 msgstr "Cash App ішіндегі “Bitcoin” (BTC) бетіне өтіңіз."
 
-#: allthethings/account/templates/account/donation.html:217
+#: allthethings/account/templates/account/donation.html:229
 #, fuzzy
 msgid "page.donation.cash_app_btc.step1.more"
 msgstr "Транзакция төлемдерін жабу үшін қайырымдылыққа беретін сомадан (%(amount)s) %(more)s артық сатып алуды ұсынамыз. Қалғанын өзіңізде қалдырасыз."
 
-#: allthethings/account/templates/account/donation.html:220
+#: allthethings/account/templates/account/donation.html:232
 #, fuzzy
 msgid "page.donation.cash_app_btc.step2"
 msgstr "Bitcoin-ді біздің мекенжайға жіберіңіз"
 
-#: allthethings/account/templates/account/donation.html:223
+#: allthethings/account/templates/account/donation.html:235
 #, fuzzy
 msgid "page.donation.cash_app_btc.step2.transfer"
 msgstr "“Send bitcoin” батырмасын басып, “withdrawal” жасаңыз. %(icon)s белгішесін басып, доллардан BTC-ге ауысыңыз. Төмендегі BTC сомасын енгізіп, “Send” батырмасын басыңыз. Егер қиындыққа тап болсаңыз, <a %(help_video)s>осы бейнені</a> қараңыз."
 
-#: allthethings/account/templates/account/donation.html:231
+#: allthethings/account/templates/account/donation.html:243
 #, fuzzy
 msgid "page.donation.cash_app_btc.step2.rush_priority"
 msgstr "Кішігірім қайырымдылықтар үшін ($25-тан төмен) Rush немесе Priority қолдану қажет болуы мүмкін."
 
-#: allthethings/account/templates/account/donation.html:253
+#: allthethings/account/templates/account/donation.html:271
 #, fuzzy
 msgid "page.donation.revolut.step1"
 msgstr "Revolut арқылы Bitcoin (BTC) сатып алу"
 
-#: allthethings/account/templates/account/donation.html:256
+#: allthethings/account/templates/account/donation.html:274
 #, fuzzy
 msgid "page.donation.revolut.step1.text1"
 msgstr "Bitcoin (BTC) сатып алу үшін Revolut ішіндегі “Crypto” бетіне өтіңіз."
 
-#: allthethings/account/templates/account/donation.html:260
+#: allthethings/account/templates/account/donation.html:278
 #, fuzzy
 msgid "page.donation.revolut.step1.more"
 msgstr "Транзакция төлемдерін жабу үшін қайырымдылыққа беретін сомадан (%(amount)s) %(more)s артық сатып алуды ұсынамыз. Қалғанын өзіңізде қалдырасыз."
 
-#: allthethings/account/templates/account/donation.html:263
+#: allthethings/account/templates/account/donation.html:281
 #, fuzzy
 msgid "page.donation.revolut.step2"
 msgstr "Bitcoin-ді біздің мекенжайға жіберіңіз"
 
-#: allthethings/account/templates/account/donation.html:266
+#: allthethings/account/templates/account/donation.html:284
 #, fuzzy
 msgid "page.donation.revolut.step2.transfer"
 msgstr "“Send bitcoin” батырмасын басып, “withdrawal” жасаңыз. %(icon)s белгішесін басып, еуродан BTC-ге ауысыңыз. Төмендегі BTC сомасын енгізіп, “Send” батырмасын басыңыз. Егер қиындыққа тап болсаңыз, <a %(help_video)s>осы бейнені</a> қараңыз."
 
-#: allthethings/account/templates/account/donation.html:269
+#: allthethings/account/templates/account/donation.html:287
 #, fuzzy
 msgid "page.donation.revolut.btc_amount_below"
 msgstr "Төмендегі BTC сомасын қолданыңыз, <em>евро немесе доллар</em> емес, әйтпесе біз дұрыс соманы ала алмаймыз және мүшелігіңізді автоматты түрде растай алмаймыз."
 
-#: allthethings/account/templates/account/donation.html:276
+#: allthethings/account/templates/account/donation.html:294
 #, fuzzy
 msgid "page.donation.revolut.step2.rush_priority"
 msgstr "Кішігірім қайырымдылықтар үшін ($25-тан төмен) Rush немесе Priority қолдану қажет болуы мүмкін."
 
-#: allthethings/account/templates/account/donation.html:301
+#: allthethings/account/templates/account/donation.html:325
 #, fuzzy
 msgid "page.donation.payment2cc.cc2btc"
 msgstr "Төмендегі “несие картасынан Bitcoin-ге” экспресс қызметтерін пайдаланыңыз, олар бірнеше минутты ғана алады:"
 
-#: allthethings/account/templates/account/donation.html:314
+#: allthethings/account/templates/account/donation.html:338
 #, fuzzy
 msgid "page.donation.payment2cc.cc2btc.form"
 msgstr "Төмендегі мәліметтерді формаға толтырыңыз:"
 
-#: allthethings/account/templates/account/donation.html:318
+#: allthethings/account/templates/account/donation.html:342
 #, fuzzy
 msgid "page.donation.payment2cc.cc2btc.btc_amount"
 msgstr "BTC / Bitcoin сомасы:"
 
-#: allthethings/account/templates/account/donation.html:318
+#: allthethings/account/templates/account/donation.html:342
 #, fuzzy
 msgid "page.donation.payment2cc.exact_amount"
 msgstr "Осы <span %(underline)s>нақты соманы</span> пайдаланыңыз. Сіздің жалпы шығыныңыз несие картасы төлемдеріне байланысты жоғары болуы мүмкін. Өкінішке орай, кішігірім сомалар үшін бұл біздің жеңілдігімізден артық болуы мүмкін."
 
-#: allthethings/account/templates/account/donation.html:319
+#: allthethings/account/templates/account/donation.html:343
 #, fuzzy
 msgid "page.donation.payment2cc.cc2btc.btc_address"
 msgstr "BTC / Bitcoin мекенжайы (сыртқы әмиян):"
 
-#: allthethings/account/templates/account/donation.html:336
+#: allthethings/account/templates/account/donation.html:360
 #, fuzzy
 msgid "page.donation.crypto_instructions"
 msgstr "%(coin_name)s нұсқаулар"
 
-#: allthethings/account/templates/account/donation.html:348
+#: allthethings/account/templates/account/donation.html:378
 #, fuzzy
 msgid "page.donation.crypto_standard"
 msgstr "Біз тек стандартты криптовалюта нұсқаларын қолдаймыз, экзотикалық желілер немесе монеталардың нұсқалары қолдау таппайды. Транзакцияны растау монетаға байланысты бір сағатқа дейін созылуы мүмкін."
 
-#: allthethings/account/templates/account/donation.html:365
+#: allthethings/account/templates/account/donation.html:397
 #, fuzzy
 msgid "page.donation.amazon.header"
 msgstr "Amazon сыйлық картасы"
 
-#: allthethings/account/templates/account/donation.html:368
+#: allthethings/account/templates/account/donation.html:400
 #, fuzzy
 msgid "page.donation.amazon.form_instructions"
 msgstr "%(amount)s сыйлық картасын төмендегі электрондық пошта мекенжайына жіберу үшін <a %(a_form)s>ресми Amazon.com формасын</a> пайдаланыңыз."
 
-#: allthethings/account/templates/account/donation.html:369
+#: allthethings/account/templates/account/donation.html:401
 #, fuzzy
 msgid "page.donation.amazon.only_official"
 msgstr "Біз басқа әдістермен жіберілген сыйлық карталарын қабылдай алмаймыз, <strong>тек Amazon.com ресми формасынан тікелей жіберілген</strong>. Егер сіз бұл форманы пайдаланбасаңыз, сыйлық картаңызды қайтара алмаймыз."
 
-#: allthethings/account/templates/account/donation.html:374
+#: allthethings/account/templates/account/donation.html:406
 #, fuzzy
 msgid "page.donate.payment.desc.amazon_message_1"
 msgstr "Дәл соманы енгізіңіз: %(amount)s"
 
-#: allthethings/account/templates/account/donation.html:375
+#: allthethings/account/templates/account/donation.html:407
 #, fuzzy
 msgid "page.donate.payment.desc.amazon_message"
 msgstr "Өз хабарламаңызды жазбаңыз."
 
-#: allthethings/account/templates/account/donation.html:379
+#: allthethings/account/templates/account/donation.html:411
 #, fuzzy
 msgid "page.donation.amazon.form_to"
 msgstr "Формадағы “Кімге” алушының электрондық поштасы:"
 
-#: allthethings/account/templates/account/donation.html:382
+#: allthethings/account/templates/account/donation.html:414
 #, fuzzy
 msgid "page.donation.amazon.unique"
 msgstr "Сіздің есептік жазбаңызға бірегей, бөліспеңіз."
 
-#: allthethings/account/templates/account/donation.html:383
+#: allthethings/account/templates/account/donation.html:415
 #, fuzzy
 msgid "page.donation.amazon.only_use_once"
 msgstr "Тек бір рет қолданыңыз."
 
-#: allthethings/account/templates/account/donation.html:388
+#: allthethings/account/templates/account/donation.html:420
 #, fuzzy
 msgid "page.donation.amazon.waiting_gift_card"
 msgstr "Сыйлық картасын күту… (тексеру үшін бетті жаңартыңыз)"
 
-#: allthethings/account/templates/account/donation.html:396
+#: allthethings/account/templates/account/donation.html:428
 #, fuzzy
 msgid "page.donation.amazon.confirm_automated"
 msgstr "Сыйлық картаңызды жібергеннен кейін, біздің автоматтандырылған жүйе оны бірнеше минут ішінде растайды. Егер бұл жұмыс істемесе, сыйлық картаңызды қайта жіберіп көріңіз (<a %(a_instr)s>нұсқаулар</a>)."
 
-#: allthethings/account/templates/account/donation.html:397
+#: allthethings/account/templates/account/donation.html:429
 #, fuzzy
 msgid "page.donation.amazon.doesnt_work"
 msgstr "Егер бұл әлі де жұмыс істемесе, бізге электрондық пошта арқылы хабарласыңыз, Анна оны қолмен тексереді (бұл бірнеше күн алуы мүмкін), және сіз қайта жіберуге тырысқаныңызды міндетті түрде айтыңыз."
 
-#: allthethings/account/templates/account/donation.html:400
+#: allthethings/account/templates/account/donation.html:432
 #, fuzzy
 msgid "page.donation.amazon.example"
 msgstr "Мысал:"
 
-#: allthethings/account/templates/account/donation.html:436
-#: allthethings/account/templates/account/donation.html:453
-#: allthethings/account/templates/account/donation.html:469
-#: allthethings/account/templates/account/donation.html:494
-#: allthethings/account/templates/account/donation.html:570
-#: allthethings/account/templates/account/donation.html:631
+#: allthethings/account/templates/account/donation.html:468
+#: allthethings/account/templates/account/donation.html:485
+#: allthethings/account/templates/account/donation.html:501
+#: allthethings/account/templates/account/donation.html:532
+#: allthethings/account/templates/account/donation.html:614
+#: allthethings/account/templates/account/donation.html:681
 #, fuzzy
 msgid "page.donate.strange_account"
 msgstr "Есептік жазба атауы немесе суреті оғаш көрінуі мүмкін екенін ескеріңіз. Уайымдамаңыз! Бұл есептік жазбаларды біздің қайырымдылық серіктестеріміз басқарады. Біздің есептік жазбаларымыз бұзылған жоқ."
 
-#: allthethings/account/templates/account/donation.html:460
-#: allthethings/account/templates/account/donation.html:477
-#: allthethings/account/templates/account/donation.html:516
+#: allthethings/account/templates/account/donation.html:492
+#: allthethings/account/templates/account/donation.html:515
+#: allthethings/account/templates/account/donation.html:560
 #, fuzzy
 msgid "page.donation.payment.alipay.top_header"
 msgstr "Alipay нұсқаулары"
 
-#: allthethings/account/templates/account/donation.html:462
-#: allthethings/account/templates/account/donation.html:479
+#: allthethings/account/templates/account/donation.html:494
+#: allthethings/account/templates/account/donation.html:517
 #, fuzzy
 msgid "page.donation.payment.alipay.header1"
 msgstr "<span %(span_circle)s>1</span>Alipay арқылы қайырымдылық жасау"
 
-#: allthethings/account/templates/account/donation.html:465
-#: allthethings/account/templates/account/donation.html:482
+#: allthethings/account/templates/account/donation.html:497
+#: allthethings/account/templates/account/donation.html:520
 #, fuzzy
 msgid "page.donation.payment.alipay.text1_new"
 msgstr "Барлық соманы <a %(a_account)s>осы Alipay аккаунты</a> арқылы аударыңыз"
 
-#: allthethings/account/templates/account/donation.html:486
-#: allthethings/account/templates/account/donation.html:562
-#: allthethings/account/templates/account/donation.html:601
+#: allthethings/account/templates/account/donation.html:524
+#: allthethings/account/templates/account/donation.html:606
+#: allthethings/account/templates/account/donation.html:651
 #, fuzzy
 msgid "page.donation.page_blocked"
 msgstr "Егер қайырымдылық беті бұғатталса, басқа интернет байланысын (мысалы, VPN немесе телефон интернеті) қолданып көріңіз."
 
-#: allthethings/account/templates/account/donation.html:490
-#: allthethings/account/templates/account/donation.html:566
+#: allthethings/account/templates/account/donation.html:528
+#: allthethings/account/templates/account/donation.html:610
 #, fuzzy
 msgid "page.donation.payment.alipay.error"
 msgstr "Өкінішке орай, Alipay беті көбінесе тек <strong>Қытайдың материктік бөлігінен</strong> қолжетімді. VPN-ді уақытша өшіруіңіз немесе Қытайдың материктік бөлігіне (кейде Гонконг та жұмыс істейді) VPN қолдануыңыз қажет болуы мүмкін."
 
-#: allthethings/account/templates/account/donation.html:545
+#: allthethings/account/templates/account/donation.html:589
 #, fuzzy
 msgid "page.donation.bank_card_app.step3.header"
 msgstr "<span %(style)s>3</span>Қайырымдылық жасаңыз (QR кодын сканерлеңіз немесе батырманы басыңыз)"
 
-#: allthethings/account/templates/account/donation.html:549
+#: allthethings/account/templates/account/donation.html:593
 #, fuzzy
 msgid "page.donation.bank_card_app.step3.desc.1"
 msgstr "<a %(a_href)s>QR-код қайырымдылық бетіне</a> өтіңіз."
 
-#: allthethings/account/templates/account/donation.html:553
+#: allthethings/account/templates/account/donation.html:597
 #, fuzzy
 msgid "page.donation.bank_card_app.step3.desc.2"
 msgstr "QR кодын Alipay қосымшасымен сканерлеңіз немесе Alipay қосымшасын ашу үшін батырманы басыңыз."
 
-#: allthethings/account/templates/account/donation.html:554
+#: allthethings/account/templates/account/donation.html:598
 #, fuzzy
 msgid "page.donation.bank_card_app.step3.desc.3"
 msgstr "Сабыр етіңіздер; бет Қытайда болғандықтан жүктелуі біраз уақыт алуы мүмкін."
 
-#: allthethings/account/templates/account/donation.html:592
+#: allthethings/account/templates/account/donation.html:642
 #, fuzzy
 msgid "page.donation.payment.wechat.top_header"
 msgstr "WeChat нұсқаулары"
 
-#: allthethings/account/templates/account/donation.html:594
+#: allthethings/account/templates/account/donation.html:644
 #, fuzzy
 msgid "page.donation.payment.wechat.header1"
 msgstr "<span %(span_circle)s>1</span>WeChat арқылы қайырымдылық жасау"
 
-#: allthethings/account/templates/account/donation.html:597
+#: allthethings/account/templates/account/donation.html:647
 #, fuzzy
 msgid "page.donation.payment.wechat.text1"
 msgstr "Барлық соманы <a %(a_account)s>осы WeChat аккаунты</a> арқылы аударыңыз"
 
-#: allthethings/account/templates/account/donation.html:622
+#: allthethings/account/templates/account/donation.html:672
 #, fuzzy
 msgid "page.donation.payment.pix.top_header"
 msgstr "Pix нұсқаулары"
 
-#: allthethings/account/templates/account/donation.html:624
+#: allthethings/account/templates/account/donation.html:674
 #, fuzzy
 msgid "page.donation.payment.pix.header1"
 msgstr "<span %(span_circle)s>1</span>Pix арқылы қайырымдылық жасау"
 
-#: allthethings/account/templates/account/donation.html:627
+#: allthethings/account/templates/account/donation.html:677
 #, fuzzy
 msgid "page.donation.payment.pix.text1"
 msgstr "Барлық соманы <a %(a_account)s>осы Pix аккаунты</a> арқылы аударыңыз"
 
-#: allthethings/account/templates/account/donation.html:636
+#: allthethings/account/templates/account/donation.html:686
 #, fuzzy
 msgid "page.donation.footer.header"
 msgstr "<span %(span_circle)s>%(circle_number)s</span>Түбіртекті бізге электрондық пошта арқылы жіберіңіз"
 
-#: allthethings/account/templates/account/donation.html:640
+#: allthethings/account/templates/account/donation.html:690
 #, fuzzy
 msgid "page.donation.footer.verification"
 msgstr "Түбіртекті немесе скриншотты жеке тексеру мекенжайыңызға жіберіңіз. Бұл электрондық пошта мекенжайын PayPal қайырымдылығыңыз үшін пайдаланбаңыз."
 
-#: allthethings/account/templates/account/donation.html:642
+#: allthethings/account/templates/account/donation.html:692
 #, fuzzy
 msgid "page.donation.footer.text1"
 msgstr "Түбіртекті немесе скриншотты жеке тексеру мекенжайына жіберіңіз:"
 
-#: allthethings/account/templates/account/donation.html:652
+#: allthethings/account/templates/account/donation.html:702
 #, fuzzy
 msgid "page.donation.footer.crypto_note"
 msgstr "Егер криптовалюта айырбас бағамы транзакция кезінде өзгерсе, бастапқы айырбас бағамын көрсететін түбіртекті қоса беріңіз. Криптовалютаны қолданғаныңыз үшін үлкен алғысымызды білдіреміз, бұл бізге көп көмектеседі!"
 
-#: allthethings/account/templates/account/donation.html:657
+#: allthethings/account/templates/account/donation.html:707
 #, fuzzy
 msgid "page.donation.footer.text2"
 msgstr "Түбіртекті электрондық пошта арқылы жібергеннен кейін, Анна оны қолмен тексеруі үшін осы батырманы басыңыз (бұл бірнеше күн алуы мүмкін):"
 
-#: allthethings/account/templates/account/donation.html:667
+#: allthethings/account/templates/account/donation.html:717
 #, fuzzy
 msgid "page.donation.footer.button"
 msgstr "Иә, мен түбіртекті жібердім"
 
-#: allthethings/account/templates/account/donation.html:670
+#: allthethings/account/templates/account/donation.html:720
 #, fuzzy
 msgid "page.donation.footer.success"
 msgstr "✅ Қайырымдылық жасағаныңыз үшін рахмет! Анна бірнеше күн ішінде мүшелігіңізді қолмен белсендіреді."
 
-#: allthethings/account/templates/account/donation.html:671
+#: allthethings/account/templates/account/donation.html:721
 #, fuzzy
 msgid "page.donation.footer.failure"
 msgstr "❌ Қате орын алды. Бетті қайта жүктеп, қайтадан көріңіз."
 
-#: allthethings/account/templates/account/donation.html:676
+#: allthethings/account/templates/account/donation.html:726
 #, fuzzy
 msgid "page.donation.stepbystep"
 msgstr "Қадамдық нұсқаулық"
 
-#: allthethings/account/templates/account/donation.html:678
+#: allthethings/account/templates/account/donation.html:728
 #, fuzzy
 msgid "page.donation.crypto_dont_worry"
 msgstr "Кейбір қадамдарда крипто әмияндар туралы айтылған, бірақ алаңдамаңыз, крипто туралы ештеңе үйренудің қажеті жоқ."
 
-#: allthethings/account/templates/account/donation.html:680
+#: allthethings/account/templates/account/donation.html:730
 #, fuzzy
 msgid "page.donation.hoodpay.step1"
 msgstr "1. Электрондық поштаңызды енгізіңіз."
 
-#: allthethings/account/templates/account/donation.html:686
+#: allthethings/account/templates/account/donation.html:736
 #, fuzzy
 msgid "page.donation.hoodpay.step2"
 msgstr "2. Төлем әдісін таңдаңыз."
 
-#: allthethings/account/templates/account/donation.html:692
+#: allthethings/account/templates/account/donation.html:742
 #, fuzzy
 msgid "page.donation.hoodpay.step3"
 msgstr "3. Төлем әдісін қайта таңдаңыз."
 
-#: allthethings/account/templates/account/donation.html:698
+#: allthethings/account/templates/account/donation.html:748
 #, fuzzy
 msgid "page.donation.hoodpay.step4"
 msgstr "4. «Өздігінен орналастырылған» әмиянды таңдаңыз."
 
-#: allthethings/account/templates/account/donation.html:704
+#: allthethings/account/templates/account/donation.html:754
 #, fuzzy
 msgid "page.donation.hoodpay.step5"
 msgstr "5. «Мен иелікті растаймын» түймесін басыңыз."
 
-#: allthethings/account/templates/account/donation.html:710
+#: allthethings/account/templates/account/donation.html:760
 #, fuzzy
 msgid "page.donation.hoodpay.step6"
 msgstr "6. Сізге электрондық пошта арқылы түбіртек келуі керек. Оны бізге жіберіңіз, біз сіздің қайырымдылықты мүмкіндігінше тезірек растаймыз."
 
-#: allthethings/account/templates/account/donation.html:715
+#: allthethings/account/templates/account/donation.html:765
 #, fuzzy
 msgid "page.donate.wait_new"
 msgstr "Бізбен байланыспас бұрын кем дегенде <span %(span_hours)s>24 сағат</span> күтіңіз (және осы бетті жаңартыңыз)."
 
-#: allthethings/account/templates/account/donation.html:716
+#: allthethings/account/templates/account/donation.html:766
 #, fuzzy
 msgid "page.donate.mistake"
 msgstr "Егер төлем кезінде қате жіберсеңіз, біз қайтарым жасай алмаймыз, бірақ оны түзетуге тырысамыз."
@@ -1814,11 +1824,11 @@ msgstr "Егер мүшелігіңізді жоғары деңгейге жаң
 #: allthethings/page/templates/page/home.html:77
 #: allthethings/page/templates/page/home.html:82
 #: allthethings/page/templates/page/home.html:90
-#: allthethings/page/templates/page/search.html:345
-#: allthethings/page/templates/page/search.html:444
+#: allthethings/page/templates/page/search.html:349
+#: allthethings/page/templates/page/search.html:448
 #: allthethings/templates/layouts/index.html:248
 #: allthethings/templates/layouts/index.html:252
-#: allthethings/templates/layouts/index.html:605
+#: allthethings/templates/layouts/index.html:608
 #, fuzzy
 msgid "page.contact.title"
 msgstr "Байланыс электрондық поштасы"
@@ -1830,25 +1840,25 @@ msgid "page.account.logged_in.membership_multiple"
 msgstr "Бірнеше мүшелікті біріктіруге болады (жылдам жүктеулер тәулігіне қосылады)."
 
 #: allthethings/account/templates/account/index.html:41
-#: allthethings/templates/layouts/index.html:557
-#: allthethings/templates/layouts/index.html:564
-#: allthethings/templates/layouts/index.html:573
+#: allthethings/templates/layouts/index.html:560
+#: allthethings/templates/layouts/index.html:567
+#: allthethings/templates/layouts/index.html:576
 #, fuzzy
 msgid "layout.index.header.nav.public_profile"
 msgstr "Қоғамдық профиль"
 
 #: allthethings/account/templates/account/index.html:42
-#: allthethings/templates/layouts/index.html:558
-#: allthethings/templates/layouts/index.html:565
-#: allthethings/templates/layouts/index.html:574
+#: allthethings/templates/layouts/index.html:561
+#: allthethings/templates/layouts/index.html:568
+#: allthethings/templates/layouts/index.html:577
 #, fuzzy
 msgid "layout.index.header.nav.downloaded_files"
 msgstr "Жүктелген файлдар"
 
 #: allthethings/account/templates/account/index.html:43
-#: allthethings/templates/layouts/index.html:559
-#: allthethings/templates/layouts/index.html:566
-#: allthethings/templates/layouts/index.html:575
+#: allthethings/templates/layouts/index.html:562
+#: allthethings/templates/layouts/index.html:569
+#: allthethings/templates/layouts/index.html:578
 #, fuzzy
 msgid "layout.index.header.nav.my_donations"
 msgstr "Менің қайырымдылықтарым"
@@ -2028,158 +2038,158 @@ msgstr "Әлі тізімдер жоқ"
 msgid "page.profile.lists.new_list"
 msgstr "Файл табу арқылы жаңа тізім жасаңыз және «Тізімдер» қойындысын ашыңыз."
 
-#: allthethings/dyn/views.py:906 allthethings/dyn/views.py:970
-#: allthethings/dyn/views.py:981
+#: allthethings/dyn/views.py:1100 allthethings/dyn/views.py:1172
+#: allthethings/dyn/views.py:1183
 #, fuzzy
 msgid "dyn.buy_membership.error.unknown"
 msgstr "Белгісіз қате пайда болды. Бізбен %(email)s хабарласыңыз және скриншот жіберіңіз."
 
-#: allthethings/dyn/views.py:955 allthethings/dyn/views.py:975
+#: allthethings/dyn/views.py:1157 allthethings/dyn/views.py:1177
 #, fuzzy
 msgid "dyn.buy_membership.error.minimum"
 msgstr "Бұл тиынның қалыптыдан жоғары ең төменгі мөлшері бар. Өзге мерзімді немесе өзге тиынды таңдаңыз."
 
-#: allthethings/dyn/views.py:967
+#: allthethings/dyn/views.py:1169
 #, fuzzy
 msgid "dyn.buy_membership.error.try_again"
 msgstr "Сұраныс орындалмады. Бірнеше минуттан кейін қайталап көріңіз, егер мәселе қайталанса, бізбен %(email)s хабарласыңыз және скриншот жіберіңіз."
 
-#: allthethings/dyn/views.py:978
+#: allthethings/dyn/views.py:1180
 #, fuzzy
 msgid "dyn.buy_membership.error.wait"
 msgstr "Төлем өңдеу кезінде қате пайда болды. Бір сәт күтіп, қайталап көріңіз. Егер мәселе 24 сағаттан артық уақыт бойы жалғасса, бізбен %(email)s хабарласыңыз және скриншот жіберіңіз."
 
-#: allthethings/page/views.py:5536
+#: allthethings/page/views.py:5575
 #, fuzzy
 msgid "page.md5.box.download.affected_files"
 msgstr "%(count)s әсер еткен беттер"
 
-#: allthethings/page/views.py:6533
+#: allthethings/page/views.py:6563
 #, fuzzy
 msgid "common.md5_problem_type_mapping.lgrsnf_visible"
 msgstr "Libgen.rs Non-Fiction бөлімінде көрінбейді"
 
-#: allthethings/page/views.py:6534
+#: allthethings/page/views.py:6564
 #, fuzzy
 msgid "common.md5_problem_type_mapping.lgrsfic_visible"
 msgstr "Libgen.rs Fiction бөлімінде көрінбейді"
 
-#: allthethings/page/views.py:6535
+#: allthethings/page/views.py:6565
 #, fuzzy
 msgid "common.md5_problem_type_mapping.lgli_visible"
 msgstr "Libgen.li сайтында көрінбейді"
 
-#: allthethings/page/views.py:6536
+#: allthethings/page/views.py:6566
 #, fuzzy
 msgid "common.md5_problem_type_mapping.lgli_broken"
 msgstr "Libgen.li сайтында бұзылған деп белгіленген"
 
-#: allthethings/page/views.py:6537
+#: allthethings/page/views.py:6567
 #, fuzzy
 msgid "common.md5_problem_type_mapping.zlib_missing"
 msgstr "Z-Library-ден табылмады"
 
-#: allthethings/page/views.py:6538
+#: allthethings/page/views.py:6568
 #, fuzzy
 msgid "common.md5_problem_type_mapping.zlib_spam"
 msgstr "Z-Library-де «спам» деп белгіленген"
 
-#: allthethings/page/views.py:6539
+#: allthethings/page/views.py:6569
 #, fuzzy
 msgid "common.md5_problem_type_mapping.zlib_bad_file"
 msgstr "Z-Library-де «жаман файл» деп белгіленген"
 
-#: allthethings/page/views.py:6540
+#: allthethings/page/views.py:6570
 #, fuzzy
 msgid "common.md5_problem_type_mapping.duxiu_pdg_broken_files"
 msgstr "Барлық беттерді PDF форматына ауыстыру мүмкін болмады"
 
-#: allthethings/page/views.py:6541
+#: allthethings/page/views.py:6571
 #, fuzzy
 msgid "common.md5_problem_type_mapping.upload_exiftool_failed"
 msgstr "Бұл файлда exiftool іске қосу сәтсіз аяқталды"
 
-#: allthethings/page/views.py:6547
+#: allthethings/page/views.py:6577
 #, fuzzy
 msgid "common.md5_content_type_mapping.book_unknown"
 msgstr "Кітап (белгісіз)"
 
-#: allthethings/page/views.py:6548
+#: allthethings/page/views.py:6578
 #, fuzzy
 msgid "common.md5_content_type_mapping.book_nonfiction"
 msgstr "Кітап (ғылыми емес)"
 
-#: allthethings/page/views.py:6549
+#: allthethings/page/views.py:6579
 #, fuzzy
 msgid "common.md5_content_type_mapping.book_fiction"
 msgstr "Кітап (көркем әдебиет)"
 
-#: allthethings/page/views.py:6550
+#: allthethings/page/views.py:6580
 #, fuzzy
 msgid "common.md5_content_type_mapping.journal_article"
 msgstr "Ғылыми мақала"
 
-#: allthethings/page/views.py:6551
+#: allthethings/page/views.py:6581
 #, fuzzy
 msgid "common.md5_content_type_mapping.standards_document"
 msgstr "Стандарттар құжаты"
 
-#: allthethings/page/views.py:6552
+#: allthethings/page/views.py:6582
 #, fuzzy
 msgid "common.md5_content_type_mapping.magazine"
 msgstr "Журнал"
 
-#: allthethings/page/views.py:6553
+#: allthethings/page/views.py:6583
 #, fuzzy
 msgid "common.md5_content_type_mapping.book_comic"
 msgstr "Комикс кітабы"
 
-#: allthethings/page/views.py:6554
+#: allthethings/page/views.py:6584
 #, fuzzy
 msgid "common.md5_content_type_mapping.musical_score"
 msgstr "Музыкалық партитура"
 
-#: allthethings/page/views.py:6555
+#: allthethings/page/views.py:6585
 #, fuzzy
 msgid "common.md5_content_type_mapping.audiobook"
 msgstr "Аудиокітап"
 
-#: allthethings/page/views.py:6556
+#: allthethings/page/views.py:6586
 #, fuzzy
 msgid "common.md5_content_type_mapping.other"
 msgstr "Басқа"
 
-#: allthethings/page/views.py:6562
+#: allthethings/page/views.py:6592
 #, fuzzy
 msgid "common.access_types_mapping.aa_download"
 msgstr "Серіктес серверден жүктеу"
 
-#: allthethings/page/views.py:6563
+#: allthethings/page/views.py:6593
 #, fuzzy
 msgid "common.access_types_mapping.aa_scidb"
 msgstr "SciDB"
 
-#: allthethings/page/views.py:6564
+#: allthethings/page/views.py:6594
 #, fuzzy
 msgid "common.access_types_mapping.external_download"
 msgstr "Сыртқы жүктеу"
 
-#: allthethings/page/views.py:6565
+#: allthethings/page/views.py:6595
 #, fuzzy
 msgid "common.access_types_mapping.external_borrow"
 msgstr "Сыртқы қарыз алу"
 
-#: allthethings/page/views.py:6566
+#: allthethings/page/views.py:6596
 #, fuzzy
 msgid "common.access_types_mapping.external_borrow_printdisabled"
 msgstr "Сыртқы қарыз алу (басып шығару мүмкіндігі жоқ)"
 
-#: allthethings/page/views.py:6567
+#: allthethings/page/views.py:6597
 #, fuzzy
 msgid "common.access_types_mapping.meta_explore"
 msgstr "Метадеректерді зерттеу"
 
-#: allthethings/page/views.py:6568
+#: allthethings/page/views.py:6598
 #, fuzzy
 msgid "common.access_types_mapping.torrents_available"
 msgstr "Торренттерде қамтылған"
@@ -2187,7 +2197,7 @@ msgstr "Торренттерде қамтылған"
 #: allthethings/page/templates/page/datasets.html:43
 #: allthethings/page/templates/page/datasets.html:254
 #: allthethings/page/templates/page/datasets_lgrs.html:25
-#: allthethings/page/views.py:6574
+#: allthethings/page/views.py:6604
 #, fuzzy
 msgid "common.record_sources_mapping.lgrs"
 msgstr "Libgen.rs"
@@ -2195,7 +2205,7 @@ msgstr "Libgen.rs"
 #: allthethings/page/templates/page/datasets.html:80
 #: allthethings/page/templates/page/datasets.html:317
 #: allthethings/page/templates/page/datasets_lgli.html:29
-#: allthethings/page/views.py:6575
+#: allthethings/page/views.py:6605
 #, fuzzy
 msgid "common.record_sources_mapping.lgli"
 msgstr "Libgen.li"
@@ -2203,43 +2213,43 @@ msgstr "Libgen.li"
 #: allthethings/page/templates/page/datasets.html:98
 #: allthethings/page/templates/page/datasets.html:352
 #: allthethings/page/templates/page/datasets_zlib.html:25
-#: allthethings/page/views.py:6576
+#: allthethings/page/views.py:6606
 #, fuzzy
 msgid "common.record_sources_mapping.zlib"
 msgstr "Z-Library"
 
 #: allthethings/page/templates/page/datasets.html:114
-#: allthethings/page/views.py:6577
+#: allthethings/page/views.py:6607
 #, fuzzy
 msgid "common.record_sources_mapping.zlibzh"
 msgstr "Z-Library қытайша"
 
-#: allthethings/page/views.py:6578
+#: allthethings/page/views.py:6608
 #, fuzzy
 msgid "common.record_sources_mapping.ia"
 msgstr "IA"
 
-#: allthethings/page/views.py:6579
+#: allthethings/page/views.py:6609
 #, fuzzy
 msgid "common.record_sources_mapping.isbndb"
 msgstr "ISBNdb"
 
 #: allthethings/page/templates/page/datasets.html:525
 #: allthethings/page/templates/page/datasets_ol.html:25
-#: allthethings/page/views.py:6580
+#: allthethings/page/views.py:6610
 #, fuzzy
 msgid "common.record_sources_mapping.ol"
 msgstr "OpenLibrary"
 
 #: allthethings/page/templates/page/datasets.html:60
-#: allthethings/page/views.py:6581
+#: allthethings/page/views.py:6611
 #, fuzzy
 msgid "common.record_sources_mapping.scihub"
 msgstr "Sci-Hub"
 
 #: allthethings/page/templates/page/datasets.html:541
 #: allthethings/page/templates/page/datasets_oclc.html:25
-#: allthethings/page/views.py:6582
+#: allthethings/page/views.py:6612
 #, fuzzy
 msgid "common.record_sources_mapping.oclc"
 msgstr "OCLC (WorldCat)"
@@ -2247,7 +2257,7 @@ msgstr "OCLC (WorldCat)"
 #: allthethings/page/templates/page/datasets.html:148
 #: allthethings/page/templates/page/datasets.html:399
 #: allthethings/page/templates/page/datasets_duxiu.html:25
-#: allthethings/page/views.py:6583
+#: allthethings/page/views.py:6613
 #, fuzzy
 msgid "common.record_sources_mapping.duxiu"
 msgstr "DuXiu 读秀"
@@ -2255,397 +2265,395 @@ msgstr "DuXiu 读秀"
 #: allthethings/page/templates/page/datasets.html:164
 #: allthethings/page/templates/page/datasets.html:433
 #: allthethings/page/templates/page/datasets_upload.html:25
-#: allthethings/page/views.py:6584
+#: allthethings/page/views.py:6614
 #, fuzzy
 msgid "common.record_sources_mapping.uploads"
 msgstr "AA-ға жүктеулер"
 
 #: allthethings/page/templates/page/datasets.html:180
-#: allthethings/page/views.py:6585
+#: allthethings/page/views.py:6615
 #, fuzzy
 msgid "common.record_sources_mapping.magzdb"
 msgstr "MagzDB"
 
 #: allthethings/page/templates/page/datasets.html:196
-#: allthethings/page/views.py:6586
+#: allthethings/page/views.py:6616
 #, fuzzy
 msgid "common.record_sources_mapping.nexusstc"
 msgstr "Nexus/STC"
 
-#: allthethings/page/views.py:6587
+#: allthethings/page/views.py:6617
 #, fuzzy
 msgid "common.record_sources_mapping.edsebk"
 msgstr "EBSCOhost eBook Index"
 
-#: allthethings/page/views.py:6588
+#: allthethings/page/views.py:6618
 #, fuzzy
 msgid "common.record_sources_mapping.cerlalc"
 msgstr "Cerlalc"
 
-#: allthethings/page/views.py:6589
+#: allthethings/page/views.py:6619
 #, fuzzy
 msgid "common.record_sources_mapping.czech_oo42hcks"
 msgstr "Чех метадеректері"
 
-#: allthethings/page/views.py:6590
+#: allthethings/page/views.py:6620
 #, fuzzy
 msgid "common.record_sources_mapping.gbooks"
 msgstr "Google Кітаптар"
 
-#: allthethings/page/views.py:6591
+#: allthethings/page/views.py:6621
 #, fuzzy
 msgid "common.record_sources_mapping.goodreads"
 msgstr "Goodreads"
 
-#: allthethings/page/views.py:6592
+#: allthethings/page/views.py:6622
 #, fuzzy
 msgid "common.record_sources_mapping.isbngrp"
 msgstr "ISBN GRP"
 
-#: allthethings/page/views.py:6593
+#: allthethings/page/views.py:6623
 #, fuzzy
 msgid "common.record_sources_mapping.libby"
 msgstr "Libby"
 
-#: allthethings/page/views.py:6594
+#: allthethings/page/views.py:6624
 #, fuzzy
 msgid "common.record_sources_mapping.rgb"
 msgstr "Ресей Мемлекеттік Кітапханасы"
 
-#: allthethings/page/views.py:6595
+#: allthethings/page/views.py:6625
 #, fuzzy
 msgid "common.record_sources_mapping.trantor"
 msgstr "Trantor"
 
-#: allthethings/page/views.py:6601
+#: allthethings/page/views.py:6631
 #, fuzzy
 msgid "common.specific_search_fields.title"
 msgstr "Атауы"
 
-#: allthethings/page/views.py:6602
+#: allthethings/page/views.py:6632
 #, fuzzy
 msgid "common.specific_search_fields.author"
 msgstr "Автор"
 
-#: allthethings/page/views.py:6603
+#: allthethings/page/views.py:6633
 #, fuzzy
 msgid "common.specific_search_fields.publisher"
 msgstr "Баспагер"
 
-#: allthethings/page/views.py:6604
+#: allthethings/page/views.py:6634
 #, fuzzy
 msgid "common.specific_search_fields.edition_varia"
 msgstr "Басылым"
 
-#: allthethings/page/views.py:6605
+#: allthethings/page/views.py:6635
 #, fuzzy
 msgid "common.specific_search_fields.year"
 msgstr "Жарияланған жылы"
 
-#: allthethings/page/views.py:6606
+#: allthethings/page/views.py:6636
 #, fuzzy
 msgid "common.specific_search_fields.original_filename"
 msgstr "Түпнұсқа файл атауы"
 
-#: allthethings/page/views.py:6607
+#: allthethings/page/views.py:6637
 #, fuzzy
 msgid "common.specific_search_fields.description_comments"
 msgstr "Сипаттама және метадеректерге түсініктемелер"
 
-#: allthethings/page/views.py:6631 allthethings/page/views.py:6632
+#: allthethings/page/views.py:6661 allthethings/page/views.py:6662
 #, fuzzy
 msgid "page.md5.box.download.temporarily_unavailable"
 msgstr "Серіктес сервер жүктеулері бұл файл үшін уақытша қолжетімсіз."
 
-#: allthethings/page/views.py:6636
+#: allthethings/page/views.py:6666
 #, fuzzy
 msgid "common.md5.servers.fast_partner"
 msgstr "Жылдам серіктес сервері #%(number)s"
 
-#: allthethings/page/views.py:6636
+#: allthethings/page/views.py:6666
 #, fuzzy
 msgid "common.md5.servers.fast_partner.recommended2"
 msgstr "(ұсынылған)"
 
-#: allthethings/page/views.py:6636
+#: allthethings/page/views.py:6666
 #, fuzzy
 msgid "common.md5.servers.no_browser_verification_or_waitlists"
 msgstr "(браузерді тексеру немесе күту тізімдері жоқ)"
 
 #: allthethings/page/templates/page/partner_download.html:37
-#: allthethings/page/views.py:6639 allthethings/page/views.py:6641
+#: allthethings/page/views.py:6669 allthethings/page/views.py:6671
 #, fuzzy
 msgid "common.md5.servers.slow_partner"
 msgstr "Баяу серіктес сервері #%(number)s"
 
-#: allthethings/page/views.py:6639
+#: allthethings/page/views.py:6669
 #, fuzzy
 msgid "common.md5.servers.faster_with_waitlist"
 msgstr "(сәл жылдамырақ, бірақ күту тізімі бар)"
 
-#: allthethings/page/views.py:6641
+#: allthethings/page/views.py:6671
 #, fuzzy
 msgid "common.md5.servers.slow_no_waitlist"
 msgstr "(күту тізімі жоқ, бірақ өте баяу болуы мүмкін)"
 
-#: allthethings/page/views.py:6728 allthethings/page/views.py:6950
+#: allthethings/page/views.py:6758 allthethings/page/views.py:6983
 #, fuzzy
 msgid "page.md5.box.download.scihub"
 msgstr "Sci-Hub: %(doi)s"
 
-#: allthethings/page/views.py:6805
+#: allthethings/page/views.py:6838
 #, fuzzy
 msgid "page.md5.box.download.lgrsnf"
 msgstr "Libgen.rs Көркем емес әдебиет"
 
-#: allthethings/page/views.py:6805 allthethings/page/views.py:6821
-#: allthethings/page/views.py:6882
-#, fuzzy
-msgid "page.md5.box.download.extra_also_click_get"
-msgstr "(сонымен қатар жоғарыдағы “АЛУ” түймесін басыңыз)"
-
-#: allthethings/page/views.py:6805 allthethings/page/views.py:6821
-#: allthethings/page/views.py:6882
-#, fuzzy
-msgid "page.md5.box.download.extra_click_get"
-msgstr "(жоғарыдағы “АЛУ” түймесін басыңыз)"
-
-#: allthethings/page/views.py:6821
+#: allthethings/page/views.py:6854
 #, fuzzy
 msgid "page.md5.box.download.lgrsfic"
 msgstr "Libgen.rs Көркем әдебиет"
 
-#: allthethings/page/views.py:6882
+#: allthethings/page/views.py:6915
 #, fuzzy
 msgid "page.md5.box.download.lgli"
 msgstr "Libgen.li"
 
-#: allthethings/page/views.py:6882
+#: allthethings/page/views.py:6915
+#, fuzzy
+msgid "page.md5.box.download.extra_also_click_get"
+msgstr "(сонымен қатар жоғарыдағы “АЛУ” түймесін басыңыз)"
+
+#: allthethings/page/views.py:6915
+#, fuzzy
+msgid "page.md5.box.download.extra_click_get"
+msgstr "(жоғарыдағы “АЛУ” түймесін басыңыз)"
+
+#: allthethings/page/views.py:6915
 #, fuzzy
 msgid "page.md5.box.download.libgen_ads"
 msgstr "олардың жарнамаларында зиянды бағдарламалар болуы мүмкін, сондықтан жарнама блоктаушысын қолданыңыз немесе жарнамаларды баспаңыз"
 
-#: allthethings/page/views.py:6886
+#: allthethings/page/views.py:6919
 #, fuzzy
 msgid "page.md5.box.download.nexusstc"
 msgstr "Nexus/STC"
 
-#: allthethings/page/views.py:6886
+#: allthethings/page/views.py:6919
 #, fuzzy
 msgid "page.md5.box.download.nexusstc_unreliable"
 msgstr "(Nexus/STC файлдарын жүктеу сенімсіз болуы мүмкін)"
 
-#: allthethings/page/views.py:6933 allthethings/page/views.py:6937
+#: allthethings/page/views.py:6966 allthethings/page/views.py:6970
 #, fuzzy
 msgid "page.md5.box.download.zlib"
 msgstr "Z-Library"
 
-#: allthethings/page/views.py:6934 allthethings/page/views.py:6938
+#: allthethings/page/views.py:6967 allthethings/page/views.py:6971
 #, fuzzy
 msgid "page.md5.box.download.zlib_tor"
 msgstr "Z-Library Tor желісінде"
 
-#: allthethings/page/views.py:6934 allthethings/page/views.py:6938
+#: allthethings/page/views.py:6967 allthethings/page/views.py:6971
 #, fuzzy
 msgid "page.md5.box.download.zlib_tor_extra"
 msgstr "(Tor браузерін қажет етеді)"
 
-#: allthethings/page/views.py:6941
+#: allthethings/page/views.py:6974
 #, fuzzy
 msgid "page.md5.box.download.magzdb"
 msgstr "MagzDB"
 
-#: allthethings/page/views.py:6946
+#: allthethings/page/views.py:6979
 #, fuzzy
 msgid "page.md5.box.download.ia_borrow"
 msgstr "Интернет Архивінен қарыз алу"
 
-#: allthethings/page/views.py:6946
+#: allthethings/page/views.py:6979
 #, fuzzy
 msgid "page.md5.box.download.print_disabled_only"
 msgstr "(тек басып шығару мүмкіндігі шектеулі пайдаланушылар үшін)"
 
-#: allthethings/page/views.py:6950
+#: allthethings/page/views.py:6983
 #, fuzzy
 msgid "page.md5.box.download.scihub_maybe"
 msgstr "(байланысты DOI Sci-Hub-та қолжетімсіз болуы мүмкін)"
 
-#: allthethings/page/views.py:6953
+#: allthethings/page/views.py:6986
 #, fuzzy
 msgid "page.md5.box.download.manualslib"
 msgstr "ManualsLib"
 
-#: allthethings/page/views.py:6956
+#: allthethings/page/views.py:6989
 #, fuzzy
 msgid "page.md5.box.download.pubmed"
 msgstr "PubMed"
 
-#: allthethings/page/views.py:6963
+#: allthethings/page/views.py:6996
 #, fuzzy
 msgid "page.md5.box.download.collection"
 msgstr "жинақ"
 
-#: allthethings/page/views.py:6964
+#: allthethings/page/views.py:6997
 #, fuzzy
 msgid "page.md5.box.download.torrent"
 msgstr "торрент"
 
-#: allthethings/page/views.py:6970
+#: allthethings/page/views.py:7003
 #, fuzzy
 msgid "page.md5.box.download.bulk_torrents"
 msgstr "Торренттерді жаппай жүктеу"
 
-#: allthethings/page/views.py:6970
+#: allthethings/page/views.py:7003
 #, fuzzy
 msgid "page.md5.box.download.experts_only"
 msgstr "(тек мамандар үшін)"
 
-#: allthethings/page/views.py:6977
+#: allthethings/page/views.py:7010
 #, fuzzy
 msgid "page.md5.box.download.aa_isbn"
 msgstr "ISBN бойынша Anna’s Archive іздеу"
 
-#: allthethings/page/views.py:6978
+#: allthethings/page/views.py:7011
 #, fuzzy
 msgid "page.md5.box.download.other_isbn"
 msgstr "ISBN бойынша әртүрлі басқа дерекқорларды іздеу"
 
-#: allthethings/page/views.py:6979
+#: allthethings/page/views.py:7012
 #, fuzzy
 msgid "page.md5.box.download.original_isbndb"
 msgstr "ISBNdb-де түпнұсқа жазбаны табу"
 
-#: allthethings/page/views.py:6981
+#: allthethings/page/views.py:7014
 #, fuzzy
 msgid "page.md5.box.download.aa_openlib"
 msgstr "Open Library ID бойынша Anna’s Archive іздеу"
 
-#: allthethings/page/views.py:6982
+#: allthethings/page/views.py:7015
 #, fuzzy
 msgid "page.md5.box.download.original_openlib"
 msgstr "Open Library-де түпнұсқа жазбаны табу"
 
-#: allthethings/page/views.py:6984
+#: allthethings/page/views.py:7017
 #, fuzzy
 msgid "page.md5.box.download.aa_oclc"
 msgstr "OCLC (WorldCat) нөмірі бойынша Anna’s Archive іздеу"
 
-#: allthethings/page/views.py:6985
+#: allthethings/page/views.py:7018
 #, fuzzy
 msgid "page.md5.box.download.original_oclc"
 msgstr "WorldCat-та түпнұсқа жазбаны табу"
 
-#: allthethings/page/views.py:6987
+#: allthethings/page/views.py:7020
 #, fuzzy
 msgid "page.md5.box.download.aa_duxiu"
 msgstr "DuXiu SSID нөмірі бойынша Anna’s Archive іздеу"
 
-#: allthethings/page/views.py:6988
+#: allthethings/page/views.py:7021
 #, fuzzy
 msgid "page.md5.box.download.original_duxiu"
 msgstr "DuXiu-да қолмен іздеу"
 
-#: allthethings/page/views.py:6990
+#: allthethings/page/views.py:7023
 #, fuzzy
 msgid "page.md5.box.download.aa_cadal"
 msgstr "CADAL SSNO нөмірі бойынша Anna’s Archive іздеу"
 
-#: allthethings/page/views.py:6991
+#: allthethings/page/views.py:7024
 #, fuzzy
 msgid "page.md5.box.download.original_cadal"
 msgstr "CADAL-да түпнұсқа жазбаны табу"
 
-#: allthethings/page/views.py:6995
+#: allthethings/page/views.py:7028
 #, fuzzy
 msgid "page.md5.box.download.aa_dxid"
 msgstr "DuXiu DXID нөмірі бойынша Anna’s Archive іздеу"
 
-#: allthethings/page/views.py:6998
+#: allthethings/page/views.py:7031
 #, fuzzy
 msgid "page.md5.box.download.edsebk"
 msgstr "EBSCOhost eBook Index"
 
-#: allthethings/page/views.py:7003 allthethings/page/views.py:7004
+#: allthethings/page/views.py:7036 allthethings/page/views.py:7037
 #, fuzzy
 msgid "page.md5.box.download.scidb"
 msgstr "Anna’s Archive 🧬 SciDB"
 
-#: allthethings/page/views.py:7003 allthethings/page/views.py:7004
+#: allthethings/page/views.py:7036 allthethings/page/views.py:7037
 #, fuzzy
 msgid "common.md5.servers.no_browser_verification"
 msgstr "(браузерді тексеру талап етілмейді)"
 
-#: allthethings/page/views.py:7029
+#: allthethings/page/views.py:7062
 #, fuzzy
 msgid "page.md5.top_row.isbndb"
 msgstr "ISBNdb %(id)s}"
 
-#: allthethings/page/views.py:7030
+#: allthethings/page/views.py:7063
 #, fuzzy
 msgid "page.md5.top_row.oclc"
 msgstr "OCLC %(id)s}"
 
-#: allthethings/page/views.py:7031
+#: allthethings/page/views.py:7064
 #, fuzzy
 msgid "page.md5.top_row.duxiu_ssid"
 msgstr "DuXiu SSID %(id)s}"
 
-#: allthethings/page/views.py:7032
+#: allthethings/page/views.py:7065
 #, fuzzy
 msgid "page.md5.top_row.cadal_ssno"
 msgstr "CADAL SSNO %(id)s}"
 
-#: allthethings/page/views.py:7033
+#: allthethings/page/views.py:7066
 #, fuzzy
 msgid "page.md5.top_row.magzdb"
 msgstr "MagzDB %(id)s}"
 
-#: allthethings/page/views.py:7034
+#: allthethings/page/views.py:7067
 #, fuzzy
 msgid "page.md5.top_row.nexusstc"
 msgstr "Nexus/STC %(id)s}"
 
-#: allthethings/page/views.py:7035
+#: allthethings/page/views.py:7068
 #, fuzzy
 msgid "page.md5.top_row.edsebk"
 msgstr "EBSCOhost edsebk %(id)s}"
 
-#: allthethings/page/views.py:7036
+#: allthethings/page/views.py:7069
 #, fuzzy
 msgid "page.md5.top_row.cerlalc"
 msgstr "Cerlalc %(id)s}"
 
-#: allthethings/page/views.py:7037
+#: allthethings/page/views.py:7070
 #, fuzzy
 msgid "page.md5.top_row.czech_oo42hcks"
 msgstr "Чех метадеректері %(id)s}"
 
-#: allthethings/page/views.py:7038
+#: allthethings/page/views.py:7071
 #, fuzzy
 msgid "page.md5.top_row.gbooks"
 msgstr "Google Books %(id)s}"
 
-#: allthethings/page/views.py:7039
+#: allthethings/page/views.py:7072
 #, fuzzy
 msgid "page.md5.top_row.goodreads"
 msgstr "Goodreads %(id)s}"
 
-#: allthethings/page/views.py:7040
+#: allthethings/page/views.py:7073
 #, fuzzy
 msgid "page.md5.top_row.isbngrp"
 msgstr "ISBN GRP %(id)s}"
 
-#: allthethings/page/views.py:7041
+#: allthethings/page/views.py:7074
 #, fuzzy
 msgid "page.md5.top_row.libby"
 msgstr "Libby %(id)s}"
 
-#: allthethings/page/views.py:7042
+#: allthethings/page/views.py:7075
 #, fuzzy
 msgid "page.md5.top_row.rgb"
 msgstr "RSL %(id)s}"
 
-#: allthethings/page/views.py:7043
+#: allthethings/page/views.py:7076
 #, fuzzy
 msgid "page.md5.top_row.trantor"
 msgstr "Trantor %(id)s}"
@@ -2665,57 +2673,57 @@ msgstr "Trantor %(id)s}"
 #: allthethings/page/templates/page/datasets_scihub.html:18
 #: allthethings/page/templates/page/datasets_upload.html:18
 #: allthethings/page/templates/page/datasets_zlib.html:18
-#: allthethings/page/views.py:7067
+#: allthethings/page/views.py:7100
 #, fuzzy
 msgid "page.datasets.sources.metadata.header"
 msgstr "Метадеректер"
 
-#: allthethings/page/views.py:7080
+#: allthethings/page/views.py:7113
 #, fuzzy
 msgid "page.md5.box.descr_title"
 msgstr "сипаттама"
 
-#: allthethings/page/views.py:7081
+#: allthethings/page/views.py:7114
 #, fuzzy
 msgid "page.md5.box.alternative_filename"
 msgstr "Балама файл атауы"
 
-#: allthethings/page/views.py:7082
+#: allthethings/page/views.py:7115
 #, fuzzy
 msgid "page.md5.box.alternative_title"
 msgstr "Балама атауы"
 
-#: allthethings/page/views.py:7083
+#: allthethings/page/views.py:7116
 #, fuzzy
 msgid "page.md5.box.alternative_author"
 msgstr "Балама автор"
 
-#: allthethings/page/views.py:7084
+#: allthethings/page/views.py:7117
 #, fuzzy
 msgid "page.md5.box.alternative_publisher"
 msgstr "Балама баспагер"
 
-#: allthethings/page/views.py:7085
+#: allthethings/page/views.py:7118
 #, fuzzy
 msgid "page.md5.box.alternative_edition"
 msgstr "Балама басылым"
 
-#: allthethings/page/views.py:7086
+#: allthethings/page/views.py:7119
 #, fuzzy
 msgid "page.md5.box.alternative_extension"
 msgstr "Балама кеңейту"
 
-#: allthethings/page/views.py:7087
+#: allthethings/page/views.py:7120
 #, fuzzy
 msgid "page.md5.box.metadata_comments_title"
 msgstr "метадеректер түсініктемелері"
 
-#: allthethings/page/views.py:7088
+#: allthethings/page/views.py:7121
 #, fuzzy
 msgid "page.md5.box.alternative_description"
 msgstr "Балама сипаттама"
 
-#: allthethings/page/views.py:7089
+#: allthethings/page/views.py:7122
 #, fuzzy
 msgid "page.md5.box.date_open_sourced_title"
 msgstr "ашық дереккөзге шыққан күні"
@@ -2781,167 +2789,178 @@ msgstr "Nexus/STC ID %(id)s метадерек жазбасы"
 msgid "page.md5.header.meta_desc"
 msgstr "Бұл метадерек жазбасы, жүктелетін файл емес. Файлды <a %(a_request)s>сұрау</a> кезінде осы URL мекенжайын пайдалана аласыз."
 
-#: allthethings/page/templates/page/aarecord.html:57
+#: allthethings/page/templates/page/aarecord.html:59
 #, fuzzy
 msgid "page.md5.text.linked_metadata"
 msgstr "Байланыстырылған жазбадан метадеректер"
 
-#: allthethings/page/templates/page/aarecord.html:58
+#: allthethings/page/templates/page/aarecord.html:60
 #, fuzzy
 msgid "page.md5.text.linked_metadata_openlib"
 msgstr "Open Library-де метадеректерді жақсарту"
 
-#: allthethings/page/templates/page/aarecord.html:61
+#: allthethings/page/templates/page/aarecord.html:63
 #, fuzzy
 msgid "page.md5.warning.multiple_links"
 msgstr "Ескерту: бірнеше байланыстырылған жазбалар:"
 
-#: allthethings/page/templates/page/aarecord.html:69
+#: allthethings/page/templates/page/aarecord.html:71
 #, fuzzy
 msgid "page.md5.header.improve_metadata"
 msgstr "Метадеректерді жақсарту"
 
-#: allthethings/page/templates/page/aarecord.html:71
+#: allthethings/page/templates/page/aarecord.html:73
 #, fuzzy
 msgid "page.md5.text.report_quality"
 msgstr "Файл сапасын хабарлау"
 
-#: allthethings/page/templates/page/aarecord.html:95
+#: allthethings/page/templates/page/aarecord.html:87
+#: allthethings/page/templates/page/search.html:510
+#: allthethings/page/templates/page/search.html:520
+#: allthethings/page/templates/page/search.html:550
+#: allthethings/templates/macros/aarecord_list.html:118
+#, fuzzy
+msgid "page.search.results.download_time"
+msgstr "Жүктеу уақыты"
+
+#: allthethings/page/templates/page/aarecord.html:142
 #, fuzzy
 msgid "page.md5.codes.url"
 msgstr "URL:"
 
-#: allthethings/page/templates/page/aarecord.html:96
+#: allthethings/page/templates/page/aarecord.html:143
 #, fuzzy
 msgid "page.md5.codes.website"
 msgstr "Веб-сайт:"
 
-#: allthethings/page/templates/page/aarecord.html:97
+#: allthethings/page/templates/page/aarecord.html:144
 #, fuzzy
 msgid "page.md5.codes.aa_abbr"
 msgstr "AA:"
 
-#: allthethings/page/templates/page/aarecord.html:97
+#: allthethings/page/templates/page/aarecord.html:144
 #, fuzzy
 msgid "page.md5.codes.aa_search"
 msgstr "“Аннаның мұрағаты” бойынша “%(name)s” іздеу"
 
-#: allthethings/page/templates/page/aarecord.html:98
+#: allthethings/page/templates/page/aarecord.html:145
 #, fuzzy
 msgid "page.md5.codes.code_explorer"
 msgstr "Кодтар зерттеушісі:"
 
-#: allthethings/page/templates/page/aarecord.html:98
+#: allthethings/page/templates/page/aarecord.html:145
 #, fuzzy
 msgid "page.md5.codes.code_search"
 msgstr "Кодтар зерттеушісінде “%(name)s” қарау"
 
-#: allthethings/page/templates/page/aarecord.html:117
+#: allthethings/page/templates/page/aarecord.html:164
 #, fuzzy
 msgid "page.md5.box.descr_read_more"
 msgstr "Толығырақ оқу…"
 
-#: allthethings/page/templates/page/aarecord.html:133
+#: allthethings/page/templates/page/aarecord.html:180
 #, fuzzy
 msgid "page.md5.tabs.downloads"
 msgstr "Жүктеулер (%(count)s)"
 
-#: allthethings/page/templates/page/aarecord.html:133
+#: allthethings/page/templates/page/aarecord.html:180
 #, fuzzy
 msgid "page.md5.tabs.borrow"
 msgstr "Қарызға алу (%(count)s)"
 
-#: allthethings/page/templates/page/aarecord.html:133
+#: allthethings/page/templates/page/aarecord.html:180
 #, fuzzy
 msgid "page.md5.tabs.explore_metadata"
 msgstr "Метадеректерді зерттеу (%(count)s)"
 
-#: allthethings/page/templates/page/aarecord.html:135
+#: allthethings/page/templates/page/aarecord.html:183
 #, fuzzy
 msgid "page.md5.tabs.lists"
 msgstr "Тізімдер (%(count)s)"
 
-#: allthethings/page/templates/page/aarecord.html:136
+#: allthethings/page/templates/page/aarecord.html:184
 #, fuzzy
 msgid "page.md5.tabs.stats"
 msgstr "Статистика (%(count)s)"
 
-#: allthethings/page/templates/page/aarecord.html:138
+#: allthethings/page/templates/page/aarecord.html:186
 #, fuzzy
 msgid "common.tech_details"
 msgstr "Техникалық мәліметтер"
 
-#: allthethings/page/templates/page/aarecord.html:207
+#: allthethings/page/templates/page/aarecord.html:265
 #, fuzzy
 msgid "page.md5.box.issues.text1"
 msgstr "<span class=\"font-bold\">❌ Бұл файлда мәселелер болуы мүмкін және бастапқы кітапханадан жасырылған.</span> Кейде бұл авторлық құқық иесінің сұрауы бойынша, кейде жақсы балама бар болғандықтан, бірақ кейде файлдың өзінде мәселе болғандықтан. Жүктеп алу әлі де мүмкін, бірақ алдымен балама файлды іздеуді ұсынамыз. Толығырақ мәліметтер:"
 
-#: allthethings/page/templates/page/aarecord.html:212
+#: allthethings/page/templates/page/aarecord.html:270
 #, fuzzy
 msgid "page.md5.box.download.better_file"
 msgstr "Бұл файлдың жақсы нұсқасы %(link)s қолжетімді болуы мүмкін"
 
-#: allthethings/page/templates/page/aarecord.html:217
+#: allthethings/page/templates/page/aarecord.html:275
 #, fuzzy
 msgid "page.md5.box.issues.text2"
 msgstr "Егер сіз әлі де осы файлды жүктеп алғыңыз келсе, оны ашу үшін тек сенімді, жаңартылған бағдарламалық жасақтаманы пайдалануды ұмытпаңыз."
 
-#: allthethings/page/templates/page/aarecord.html:222
+#: allthethings/page/templates/page/aarecord.html:280
 #, fuzzy
 msgid "page.md5.box.download.header_fast_only"
 msgstr "🚀 Жылдам жүктеулер"
 
-#: allthethings/page/templates/page/aarecord.html:224
+#: allthethings/page/templates/page/aarecord.html:282
 #, fuzzy
 msgid "page.md5.box.download.header_fast_no_member"
 msgstr "<strong>🚀 Жылдам жүктеулер</strong> Кітаптардың, мақалалардың және басқалардың ұзақ мерзімді сақталуын қолдау үшін <a %(a_membership)s>мүше</a> болыңыз. Сіздің қолдауыңыз үшін алғысымызды білдіру үшін сізге жылдам жүктеулер беріледі. ❤️"
 
-#: allthethings/page/templates/page/aarecord.html:225
+#: allthethings/page/templates/page/aarecord.html:283
 #: allthethings/templates/layouts/index.html:233
 #, fuzzy
 msgid "layout.index.header.banner.fundraiser.this_month"
 msgstr "Егер сіз осы айда қайырымдылық жасасаңыз, <strong>екі есе</strong> жылдам жүктеулер санына ие боласыз."
 
-#: allthethings/page/templates/page/aarecord.html:227
+#: allthethings/page/templates/page/aarecord.html:285
 #, fuzzy
 msgid "page.md5.box.download.header_fast_member"
 msgstr "<strong>🚀 Жылдам жүктеулер</strong> Бүгін сізде %(remaining)s қалды. Мүше болғаныңыз үшін рахмет! ❤️"
 
-#: allthethings/page/templates/page/aarecord.html:228
+#: allthethings/page/templates/page/aarecord.html:286
 #, fuzzy
 msgid "page.md5.box.download.header_fast_member_no_remaining_new"
 msgstr "<strong>🚀 Жылдам жүктеулер</strong> Бүгінгі жылдам жүктеулеріңіз таусылды."
 
-#: allthethings/page/templates/page/aarecord.html:229
+#: allthethings/page/templates/page/aarecord.html:287
 #, fuzzy
 msgid "page.md5.box.download.header_fast_member_valid_for"
 msgstr "<strong>🚀 Жылдам жүктеулер</strong> Сіз бұл файлды жақында жүктеп алдыңыз. Сілтемелер біраз уақытқа дейін жарамды."
 
-#: allthethings/page/templates/page/aarecord.html:234
-#: allthethings/page/templates/page/aarecord.html:251
-#: allthethings/page/templates/page/aarecord.html:283
+#: allthethings/page/templates/page/aarecord.html:292
+#: allthethings/page/templates/page/aarecord.html:293
+#: allthethings/page/templates/page/aarecord.html:311
+#: allthethings/page/templates/page/aarecord.html:347
 #, fuzzy
 msgid "page.md5.box.download.option"
 msgstr "Опция #%(num)d: %(link)s %(extra)s"
 
-#: allthethings/page/templates/page/aarecord.html:234
+#: allthethings/page/templates/page/aarecord.html:292
+#: allthethings/page/templates/page/aarecord.html:294
 #, fuzzy
 msgid "page.md5.box.download.no_redirect"
 msgstr "(қайталау жоқ)"
 
-#: allthethings/page/templates/page/aarecord.html:239
+#: allthethings/page/templates/page/aarecord.html:299
 #: allthethings/templates/layouts/index.html:276
 #, fuzzy
 msgid "layout.index.header.banner.refer"
 msgstr "Досыңызды шақырыңыз, сонда сіз де, досыңыз да %(percentage)s%% бонус жылдам жүктеулер аласыз!"
 
-#: allthethings/page/templates/page/aarecord.html:239
+#: allthethings/page/templates/page/aarecord.html:299
 #: allthethings/page/templates/page/home.html:25
 #: allthethings/page/templates/page/home.html:34
 #: allthethings/page/templates/page/home.html:71
 #: allthethings/page/templates/page/home.html:124
-#: allthethings/page/templates/page/search.html:357
-#: allthethings/page/templates/page/search.html:421
+#: allthethings/page/templates/page/search.html:361
+#: allthethings/page/templates/page/search.html:425
 #: allthethings/templates/layouts/index.html:270
 #: allthethings/templates/layouts/index.html:276
 #: allthethings/templates/layouts/index.html:403
@@ -2951,252 +2970,252 @@ msgstr "Досыңызды шақырыңыз, сонда сіз де, досы�
 msgid "layout.index.header.learn_more"
 msgstr "Көбірек білу…"
 
-#: allthethings/page/templates/page/aarecord.html:246
+#: allthethings/page/templates/page/aarecord.html:306
 #, fuzzy
 msgid "page.md5.box.download.header_slow_only"
 msgstr "🐢 Баяу жүктеулер"
 
-#: allthethings/page/templates/page/aarecord.html:247
+#: allthethings/page/templates/page/aarecord.html:307
 #, fuzzy
 msgid "page.md5.box.download.trusted_partners"
 msgstr "Сенімді серіктестерден."
 
-#: allthethings/page/templates/page/aarecord.html:247
+#: allthethings/page/templates/page/aarecord.html:307
 #, fuzzy
 msgid "page.md5.box.download.slow_faq"
 msgstr "Қосымша ақпарат <a %(a_slow)s>Жиі қойылатын сұрақтар</a> бөлімінде."
 
-#: allthethings/page/templates/page/aarecord.html:247
+#: allthethings/page/templates/page/aarecord.html:307
 #, fuzzy
 msgid "common.md5.servers.browser_verification_unlimited"
 msgstr "(мүмкін <a %(a_browser)s>браузерді тексеруді</a> талап етеді — шексіз жүктеулер!)"
 
-#: allthethings/page/templates/page/aarecord.html:262
+#: allthethings/page/templates/page/aarecord.html:326
 #, fuzzy
 msgid "page.md5.box.external_downloads"
 msgstr "сыртқы жүктеулерді көрсету"
 
-#: allthethings/page/templates/page/aarecord.html:263
+#: allthethings/page/templates/page/aarecord.html:327
 #, fuzzy
 msgid "page.md5.box.download.header_external"
 msgstr "Сыртқы жүктеулер"
 
-#: allthethings/page/templates/page/aarecord.html:288
+#: allthethings/page/templates/page/aarecord.html:352
 #, fuzzy
 msgid "page.md5.box.download.no_found"
 msgstr "Жүктеулер табылмады."
 
-#: allthethings/page/templates/page/aarecord.html:294
+#: allthethings/page/templates/page/aarecord.html:358
 #, fuzzy
 msgid "page.md5.box.download.no_issues_notice"
 msgstr "Барлық жүктеу опциялары бірдей файлды қамтиды және оларды пайдалану қауіпсіз болуы керек. Дегенмен, интернеттен файлдарды жүктегенде, әсіресе Anna’s Archive сайтынан тыс жерлерден, әрқашан сақ болыңыз. Мысалы, құрылғыларыңызды жаңартып отыруды ұмытпаңыз."
 
-#: allthethings/page/templates/page/aarecord.html:300
+#: allthethings/page/templates/page/aarecord.html:364
 #: allthethings/page/templates/page/partner_download.html:83
 #, fuzzy
 msgid "page.md5.box.download.dl_managers"
 msgstr "Үлкен файлдар үшін үзілістерді болдырмау үшін жүктеу менеджерін пайдалануды ұсынамыз."
 
-#: allthethings/page/templates/page/aarecord.html:301
+#: allthethings/page/templates/page/aarecord.html:365
 #: allthethings/page/templates/page/partner_download.html:84
 #, fuzzy
 msgid "page.md5.box.download.dl_managers.links"
 msgstr "Ұсынылатын жүктеу менеджерлері: %(links)s"
 
-#: allthethings/page/templates/page/aarecord.html:309
+#: allthethings/page/templates/page/aarecord.html:373
 #, fuzzy
 msgid "page.md5.box.download.readers"
 msgstr "Файлды ашу үшін файл форматына байланысты электронды кітап немесе PDF оқырманы қажет болады."
 
-#: allthethings/page/templates/page/aarecord.html:310
+#: allthethings/page/templates/page/aarecord.html:374
 #, fuzzy
 msgid "page.md5.box.download.readers.links"
 msgstr "Ұсынылатын электронды кітап оқырмандары: %(links)s"
 
-#: allthethings/page/templates/page/aarecord.html:319
+#: allthethings/page/templates/page/aarecord.html:383
 #, fuzzy
 msgid "page.md5.box.download.conversion"
 msgstr "Форматтар арасында түрлендіру үшін онлайн құралдарды пайдаланыңыз."
 
-#: allthethings/page/templates/page/aarecord.html:320
+#: allthethings/page/templates/page/aarecord.html:384
 #, fuzzy
 msgid "page.md5.box.download.conversion.links"
 msgstr "Ұсынылатын түрлендіру құралдары: %(links)s"
 
-#: allthethings/page/templates/page/aarecord.html:328
+#: allthethings/page/templates/page/aarecord.html:392
 #, fuzzy
 msgid "page.md5.box.download.sendtokindle"
 msgstr "Сіз PDF және EPUB файлдарын Kindle немесе Kobo eReader-ге жібере аласыз."
 
-#: allthethings/page/templates/page/aarecord.html:329
+#: allthethings/page/templates/page/aarecord.html:393
 #, fuzzy
 msgid "page.md5.box.download.sendtokindle.links"
 msgstr "Ұсынылатын құралдар: %(links)s"
 
-#: allthethings/page/templates/page/aarecord.html:332
+#: allthethings/page/templates/page/aarecord.html:396
 #, fuzzy
 msgid "page.md5.box.download.link.send_to_kindle"
 msgstr "Amazon-ның “Send to Kindle”"
 
-#: allthethings/page/templates/page/aarecord.html:333
+#: allthethings/page/templates/page/aarecord.html:397
 #, fuzzy
 msgid "page.md5.box.download.link.send_to_kobokindle"
 msgstr "djazz-тың “Send to Kobo/Kindle”"
 
-#: allthethings/page/templates/page/aarecord.html:338
+#: allthethings/page/templates/page/aarecord.html:402
 #, fuzzy
 msgid "page.md5.box.download.support"
 msgstr "Авторлар мен кітапханаларды қолдаңыз"
 
-#: allthethings/page/templates/page/aarecord.html:339
+#: allthethings/page/templates/page/aarecord.html:403
 #, fuzzy
 msgid "page.md5.box.download.support.authors"
 msgstr "Егер сізге бұл ұнаса және мүмкіндігіңіз болса, түпнұсқаны сатып алуды немесе авторларды тікелей қолдауды қарастырыңыз."
 
-#: allthethings/page/templates/page/aarecord.html:340
+#: allthethings/page/templates/page/aarecord.html:404
 #, fuzzy
 msgid "page.md5.box.download.support.libraries"
 msgstr "Егер бұл сіздің жергілікті кітапханаңызда қолжетімді болса, оны сол жерден тегін алуды қарастырыңыз."
 
-#: allthethings/page/templates/page/aarecord.html:371
+#: allthethings/page/templates/page/aarecord.html:442
 #, fuzzy
 msgid "page.md5.quality.header"
 msgstr "Файл сапасы"
 
-#: allthethings/page/templates/page/aarecord.html:374
+#: allthethings/page/templates/page/aarecord.html:445
 #, fuzzy
 msgid "page.md5.quality.report"
 msgstr "Бұл файлдың сапасын хабарлап, қауымдастыққа көмектесіңіз! 🙌"
 
-#: allthethings/page/templates/page/aarecord.html:378
+#: allthethings/page/templates/page/aarecord.html:449
 #, fuzzy
 msgid "page.md5.quality.report_issue"
 msgstr "Файл мәселесін хабарлау (%(count)s)"
 
-#: allthethings/page/templates/page/aarecord.html:380
+#: allthethings/page/templates/page/aarecord.html:451
 #, fuzzy
 msgid "page.md5.quality.great_quality"
 msgstr "Тамаша файл сапасы (%(count)s)"
 
-#: allthethings/page/templates/page/aarecord.html:380
+#: allthethings/page/templates/page/aarecord.html:451
 #, fuzzy
 msgid "page.md5.quality.add_comment"
 msgstr "Пікір қосу (%(count)s)"
 
-#: allthethings/page/templates/page/aarecord.html:383
+#: allthethings/page/templates/page/aarecord.html:454
 #, fuzzy
 msgid "page.md5.quality.logged_out_login"
 msgstr "Өтінеміз, <a %(a_login)s>жүйеге кіріңіз</a>."
 
-#: allthethings/page/templates/page/aarecord.html:387
+#: allthethings/page/templates/page/aarecord.html:458
 #, fuzzy
 msgid "page.md5.quality.what_is_wrong"
 msgstr "Бұл файлда не дұрыс емес?"
 
-#: allthethings/page/templates/page/aarecord.html:397
+#: allthethings/page/templates/page/aarecord.html:468
 #, fuzzy
 msgid "page.md5.quality.copyright"
 msgstr "Өтінеміз, <a %(a_copyright)s>DMCA / Авторлық құқық талап ету формасын</a> қолданыңыз."
 
-#: allthethings/page/templates/page/aarecord.html:402
+#: allthethings/page/templates/page/aarecord.html:473
 #, fuzzy
 msgid "page.md5.quality.describe_the_issue"
 msgstr "Мәселені сипаттаңыз (міндетті)"
 
-#: allthethings/page/templates/page/aarecord.html:403
+#: allthethings/page/templates/page/aarecord.html:474
 #, fuzzy
 msgid "page.md5.quality.issue_description"
 msgstr "Мәселе сипаттамасы"
 
-#: allthethings/page/templates/page/aarecord.html:407
+#: allthethings/page/templates/page/aarecord.html:478
 #, fuzzy
 msgid "page.md5.quality.better_md5.text1"
 msgstr "Бұл файлдың жақсы нұсқасының MD5 (егер бар болса)."
 
-#: allthethings/page/templates/page/aarecord.html:407
+#: allthethings/page/templates/page/aarecord.html:478
 #, fuzzy
 msgid "page.md5.quality.better_md5.text2"
 msgstr "Егер осы файлға ұқсас басқа файл (сол басылым, сол файл кеңейтімі болса) бар болса, оны толтырыңыз. Егер Anna’s Archive сайтынан тыс осы файлдың жақсы нұсқасын білсеңіз, онда оны <a %(a_upload)s>жүктеңіз</a>."
 
-#: allthethings/page/templates/page/aarecord.html:410
+#: allthethings/page/templates/page/aarecord.html:481
 #, fuzzy
 msgid "page.md5.quality.better_md5.line1"
 msgstr "Сіз md5-ті URL мекенжайынан ала аласыз, мысалы"
 
-#: allthethings/page/templates/page/aarecord.html:417
+#: allthethings/page/templates/page/aarecord.html:488
 #, fuzzy
 msgid "page.md5.quality.submit_report"
 msgstr "Есепті жіберу"
 
-#: allthethings/page/templates/page/aarecord.html:422
+#: allthethings/page/templates/page/aarecord.html:493
 #, fuzzy
 msgid "page.md5.quality.improve_the_metadata"
 msgstr "Бұл файлдың метадеректерін өзіңіз қалай жақсартуға болатынын <a %(a_metadata)s>біліңіз</a>."
 
-#: allthethings/page/templates/page/aarecord.html:426
+#: allthethings/page/templates/page/aarecord.html:497
 #, fuzzy
 msgid "page.md5.quality.report_thanks"
 msgstr "Есепті жібергеніңіз үшін рахмет. Ол осы бетте көрсетіледі және Анна (дұрыс модерация жүйесі болғанша) қолмен тексереді."
 
-#: allthethings/page/templates/page/aarecord.html:427
+#: allthethings/page/templates/page/aarecord.html:498
 #, fuzzy
 msgid "page.md5.quality.report_error"
 msgstr "Бірдеңе дұрыс болмады. Бетті қайта жүктеп, қайта көріңіз."
 
-#: allthethings/page/templates/page/aarecord.html:433
+#: allthethings/page/templates/page/aarecord.html:504
 #, fuzzy
 msgid "page.md5.quality.great.summary"
 msgstr "Егер бұл файлдың сапасы жоғары болса, мұнда ол туралы кез келген нәрсені талқылай аласыз! Егер олай болмаса, «Файл мәселесін хабарлау» түймесін пайдаланыңыз."
 
-#: allthethings/page/templates/page/aarecord.html:435
+#: allthethings/page/templates/page/aarecord.html:506
 #, fuzzy
 msgid "page.md5.quality.loved_the_book"
 msgstr "Маған бұл кітап ұнады!"
 
-#: allthethings/page/templates/page/aarecord.html:437
+#: allthethings/page/templates/page/aarecord.html:508
 #, fuzzy
 msgid "page.md5.quality.submit_comment"
 msgstr "Пікір қалдыру"
 
-#: allthethings/page/templates/page/aarecord.html:441
+#: allthethings/page/templates/page/aarecord.html:512
 #, fuzzy
 msgid "page.md5.quality.comment_thanks"
 msgstr "Сіз пікір қалдырдыңыз. Оның көрсетілуі бір минутқа созылуы мүмкін."
 
-#: allthethings/page/templates/page/aarecord.html:442
+#: allthethings/page/templates/page/aarecord.html:513
 #, fuzzy
 msgid "page.md5.quality.comment_error"
 msgstr "Бірдеңе дұрыс болмады. Бетті қайта жүктеп, қайта көріңіз."
 
-#: allthethings/page/templates/page/aarecord.html:452
-#: allthethings/page/templates/page/aarecord.html:453
-#: allthethings/page/templates/page/torrents.html:36
-#: allthethings/page/templates/page/torrents.html:37
+#: allthethings/page/templates/page/aarecord.html:522
+#: allthethings/page/templates/page/aarecord.html:523
+#: allthethings/page/templates/page/torrents.html:40
+#: allthethings/page/templates/page/torrents.html:41
 #, fuzzy
 msgid "common.english_only"
 msgstr "Мәтін төменде ағылшын тілінде жалғасады."
 
-#: allthethings/page/templates/page/aarecord.html:474
+#: allthethings/page/templates/page/aarecord.html:544
 #, fuzzy
 msgid "page.md5.text.stats.total_downloads"
 msgstr "Жалпы жүктеулер саны: %(total)s"
 
-#: allthethings/page/templates/page/aarecord.html:506
+#: allthethings/page/templates/page/aarecord.html:576
 #, fuzzy
 msgid "page.md5.text.md5_info.text1"
 msgstr "«Файл MD5» - бұл файл мазмұнынан есептелетін хэш және сол мазмұнға негізделген бірегей болып табылады. Біз мұнда индекстеген барлық көлеңкелі кітапханалар негізінен файлдарды анықтау үшін MD5-терді пайдаланады."
 
-#: allthethings/page/templates/page/aarecord.html:510
+#: allthethings/page/templates/page/aarecord.html:580
 #, fuzzy
 msgid "page.md5.text.md5_info.text2"
 msgstr "Файл бірнеше көлеңкелі кітапханаларда пайда болуы мүмкін. Біз жинаған әртүрлі деректер жиынтығы туралы ақпарат алу үшін <a %(a_datasets)s>Деректер жиынтығы бетіне</a> қараңыз."
 
-#: allthethings/page/templates/page/aarecord.html:514
+#: allthethings/page/templates/page/aarecord.html:584
 #, fuzzy
 msgid "page.md5.text.ia_info.text1"
 msgstr "Бұл файл <a %(a_ia)s>IA-ның Бақыланатын Сандық Қарыз беру</a> кітапханасы арқылы басқарылып, Аннаның Архиві арқылы іздеуге индекстелген. Біз жинаған әртүрлі деректер жиынтығы туралы ақпарат алу үшін <a %(a_datasets)s>Деректер жиынтығы бетіне</a> қараңыз."
 
-#: allthethings/page/templates/page/aarecord.html:519
+#: allthethings/page/templates/page/aarecord.html:589
 #, fuzzy
 msgid "page.md5.text.file_info.text1"
 msgstr "Бұл файл туралы ақпарат алу үшін оның <a %(a_href)s>JSON файлын</a> қараңыз."
@@ -3899,7 +3918,7 @@ msgstr "Біз сондай-ақ тек метадеректер көздері�
 
 #: allthethings/page/templates/page/datasets.html:505
 #: allthethings/page/templates/page/faq.html:191
-#: allthethings/page/templates/page/search.html:392
+#: allthethings/page/templates/page/search.html:396
 #, fuzzy
 msgid "page.faq.metadata.inspiration"
 msgstr "Метадеректерді жинауға шабыттандырған нәрсе - Аарон Шварцтың «жарияланған әрбір кітап үшін бір веб-бет» мақсаты, ол үшін ол <a %(a_openlib)s>Open Library</a> құрды. Бұл жоба жақсы нәтиже көрсетті, бірақ біздің ерекше жағдайымыз бізге олардың ала алмайтын метадеректерін алуға мүмкіндік береді. Тағы бір шабыт - әлемде қанша кітап бар екенін білуге деген ұмтылысымыз, сондықтан біз әлі де сақтап қалуымыз керек кітаптардың санын есептей аламыз."
@@ -3982,11 +4001,11 @@ msgstr "Кітаптар жартылай ашық түрде таратылға
 #: allthethings/page/templates/page/datasets_lgrs.html:81
 #: allthethings/page/templates/page/datasets_magzdb.html:66
 #: allthethings/page/templates/page/datasets_nexusstc.html:72
-#: allthethings/page/templates/page/datasets_oclc.html:63
+#: allthethings/page/templates/page/datasets_oclc.html:120
 #: allthethings/page/templates/page/datasets_ol.html:44
-#: allthethings/page/templates/page/datasets_other_metadata.html:150
+#: allthethings/page/templates/page/datasets_other_metadata.html:72
 #: allthethings/page/templates/page/datasets_scihub.html:90
-#: allthethings/page/templates/page/datasets_upload.html:221
+#: allthethings/page/templates/page/datasets_upload.html:104
 #: allthethings/page/templates/page/datasets_zlib.html:63
 #, fuzzy
 msgid "page.datasets.common.resources"
@@ -3999,7 +4018,7 @@ msgstr "Ресурстар"
 #: allthethings/page/templates/page/datasets_magzdb.html:68
 #: allthethings/page/templates/page/datasets_nexusstc.html:74
 #: allthethings/page/templates/page/datasets_scihub.html:92
-#: allthethings/page/templates/page/datasets_upload.html:223
+#: allthethings/page/templates/page/datasets_upload.html:106
 #: allthethings/page/templates/page/datasets_zlib.html:67
 #: allthethings/page/templates/page/datasets_zlib.html:74
 #, fuzzy
@@ -4013,7 +4032,7 @@ msgstr "Барлық файлдар саны: %(count)s"
 #: allthethings/page/templates/page/datasets_magzdb.html:69
 #: allthethings/page/templates/page/datasets_nexusstc.html:75
 #: allthethings/page/templates/page/datasets_scihub.html:93
-#: allthethings/page/templates/page/datasets_upload.html:224
+#: allthethings/page/templates/page/datasets_upload.html:107
 #: allthethings/page/templates/page/datasets_zlib.html:68
 #: allthethings/page/templates/page/datasets_zlib.html:75
 #, fuzzy
@@ -4027,7 +4046,7 @@ msgstr "Барлық файлдардың өлшемі: %(size)s"
 #: allthethings/page/templates/page/datasets_magzdb.html:70
 #: allthethings/page/templates/page/datasets_nexusstc.html:76
 #: allthethings/page/templates/page/datasets_scihub.html:94
-#: allthethings/page/templates/page/datasets_upload.html:225
+#: allthethings/page/templates/page/datasets_upload.html:108
 #: allthethings/page/templates/page/datasets_zlib.html:69
 #: allthethings/page/templates/page/datasets_zlib.html:76
 #, fuzzy
@@ -4040,7 +4059,7 @@ msgstr "Аннаның Мұрағаты арқылы айнаға түсіріл
 #: allthethings/page/templates/page/datasets_lgrs.html:86
 #: allthethings/page/templates/page/datasets_magzdb.html:71
 #: allthethings/page/templates/page/datasets_nexusstc.html:77
-#: allthethings/page/templates/page/datasets_oclc.html:65
+#: allthethings/page/templates/page/datasets_oclc.html:122
 #: allthethings/page/templates/page/datasets_ol.html:46
 #: allthethings/page/templates/page/datasets_zlib.html:79
 #, fuzzy
@@ -4057,10 +4076,10 @@ msgstr "Аннаның Мұрағаты арқылы торренттер"
 #: allthethings/page/templates/page/datasets_ia.html:79
 #: allthethings/page/templates/page/datasets_lgli.html:113
 #: allthethings/page/templates/page/datasets_lgrs.html:90
-#: allthethings/page/templates/page/datasets_oclc.html:67
+#: allthethings/page/templates/page/datasets_oclc.html:124
 #: allthethings/page/templates/page/datasets_ol.html:47
 #: allthethings/page/templates/page/datasets_scihub.html:96
-#: allthethings/page/templates/page/datasets_upload.html:227
+#: allthethings/page/templates/page/datasets_upload.html:110
 #, fuzzy
 msgid "page.datasets.common.aa_example_record"
 msgstr "Аннаның Мұрағатындағы мысал жазба"
@@ -4076,11 +4095,11 @@ msgstr "Осы деректер туралы біздің блог жазбам�
 #: allthethings/page/templates/page/datasets_lgrs.html:101
 #: allthethings/page/templates/page/datasets_magzdb.html:78
 #: allthethings/page/templates/page/datasets_nexusstc.html:92
-#: allthethings/page/templates/page/datasets_oclc.html:70
+#: allthethings/page/templates/page/datasets_oclc.html:127
 #: allthethings/page/templates/page/datasets_ol.html:50
-#: allthethings/page/templates/page/datasets_other_metadata.html:153
+#: allthethings/page/templates/page/datasets_other_metadata.html:75
 #: allthethings/page/templates/page/datasets_scihub.html:104
-#: allthethings/page/templates/page/datasets_upload.html:228
+#: allthethings/page/templates/page/datasets_upload.html:111
 #: allthethings/page/templates/page/datasets_zlib.html:87
 #, fuzzy
 msgid "page.datasets.common.import_scripts"
@@ -4092,11 +4111,11 @@ msgstr "Метадеректерді импорттау скрипттері"
 #: allthethings/page/templates/page/datasets_lgrs.html:102
 #: allthethings/page/templates/page/datasets_magzdb.html:79
 #: allthethings/page/templates/page/datasets_nexusstc.html:93
-#: allthethings/page/templates/page/datasets_oclc.html:71
+#: allthethings/page/templates/page/datasets_oclc.html:128
 #: allthethings/page/templates/page/datasets_ol.html:51
-#: allthethings/page/templates/page/datasets_other_metadata.html:154
+#: allthethings/page/templates/page/datasets_other_metadata.html:76
 #: allthethings/page/templates/page/datasets_scihub.html:105
-#: allthethings/page/templates/page/datasets_upload.html:229
+#: allthethings/page/templates/page/datasets_upload.html:112
 #: allthethings/page/templates/page/datasets_zlib.html:88
 #, fuzzy
 msgid "page.datasets.common.aac"
@@ -4142,7 +4161,7 @@ msgstr "AAC пайдаланып, жаңа шығарылымдар. Тек 2023
 #: allthethings/page/templates/page/datasets_ia.html:80
 #: allthethings/page/templates/page/datasets_lgli.html:114
 #: allthethings/page/templates/page/datasets_lgrs.html:91
-#: allthethings/page/templates/page/datasets_oclc.html:68
+#: allthethings/page/templates/page/datasets_oclc.html:125
 #: allthethings/page/templates/page/datasets_ol.html:48
 #: allthethings/page/templates/page/datasets_scihub.html:97
 #, fuzzy
@@ -4437,7 +4456,7 @@ msgstr "Z-Library жинағындағыдай, біз оларды үлкен .
 
 #: allthethings/page/templates/page/datasets_oclc.html:4
 #: allthethings/page/templates/page/datasets_oclc.html:7
-#: allthethings/page/templates/page/datasets_oclc.html:68
+#: allthethings/page/templates/page/datasets_oclc.html:125
 #, fuzzy
 msgid "page.datasets.worldcat.title"
 msgstr "OCLC (WorldCat)"
@@ -4447,17 +4466,17 @@ msgstr "OCLC (WorldCat)"
 msgid "page.datasets.worldcat.description"
 msgstr "<a %(a_worldcat)s>WorldCat</a> - бұл коммерциялық емес <a %(a_oclc)s>OCLC</a> ұйымының меншікті дерекқоры, ол бүкіл әлемдегі кітапханалардан метадеректер жазбаларын жинақтайды. Бұл әлемдегі ең үлкен кітапхана метадеректер жинағы болуы мүмкін."
 
-#: allthethings/page/templates/page/datasets_oclc.html:52
+#: allthethings/page/templates/page/datasets_oclc.html:54
 #, fuzzy
 msgid "page.datasets.worldcat.description2"
 msgstr "2023 жылдың қазан айында біз OCLC (WorldCat) дерекқорының толық скрапын <a %(a_scrape)s>шығардық</a>, <a %(a_aac)s>Аннаның мұрағат контейнерлері форматында</a>."
 
-#: allthethings/page/templates/page/datasets_oclc.html:66
+#: allthethings/page/templates/page/datasets_oclc.html:123
 #, fuzzy
 msgid "page.datasets.worldcat.torrents"
 msgstr "Аннаның мұрағатындағы торренттер"
 
-#: allthethings/page/templates/page/datasets_oclc.html:69
+#: allthethings/page/templates/page/datasets_oclc.html:126
 #, fuzzy
 msgid "page.datasets.worldcat.blog_announcement"
 msgstr "Бұл деректер туралы біздің блог жазбамыз"
@@ -4479,22 +4498,22 @@ msgstr "Open Library - бұл әлемдегі барлық кітаптарды
 msgid "page.datesets.openlib.link_metadata"
 msgstr "Метадеректер"
 
-#: allthethings/page/templates/page/datasets_other_metadata.html:92
+#: allthethings/page/templates/page/datasets_other_metadata.html:61
 #, fuzzy
 msgid "page.datasets.isbndb.release1.title"
 msgstr "1-шығарылым (2022-10-31)"
 
-#: allthethings/page/templates/page/datasets_other_metadata.html:93
+#: allthethings/page/templates/page/datasets_other_metadata.html:61
 #, fuzzy
 msgid "page.datasets.isbndb.release1.text1"
 msgstr "Бұл 2022 жылдың қыркүйек айында isbndb.com сайтына көптеген қоңыраулардың жинағы. Біз барлық ISBN диапазондарын қамтуға тырыстық. Бұл шамамен 30,9 миллион жазба. Олардың веб-сайтында оларда шын мәнінде 32,6 миллион жазба бар деп мәлімдейді, сондықтан біз бірдеңені жіберіп алған шығармыз немесе <em>олар</em> бірдеңені дұрыс істемей жатқан шығар."
 
-#: allthethings/page/templates/page/datasets_other_metadata.html:94
+#: allthethings/page/templates/page/datasets_other_metadata.html:61
 #, fuzzy
 msgid "page.datasets.isbndb.release1.text2"
 msgstr "JSON жауаптары олардың серверінен алынған деректерге жақын. Біз байқаған деректер сапасының бір мәселесі, егер ISBN-13 нөмірлері «978-» префиксінен басталмаса, олар әлі де «isbn» өрісін қамтиды, ол жай ғана алғашқы 3 санды кесіп тастаған (және тексеру цифры қайта есептелген) ISBN-13 нөмірі болып табылады. Бұл анық қате, бірақ олар осылай істейтін сияқты, сондықтан біз оны өзгертпедік."
 
-#: allthethings/page/templates/page/datasets_other_metadata.html:95
+#: allthethings/page/templates/page/datasets_other_metadata.html:61
 #, fuzzy
 msgid "page.datasets.isbndb.release1.text3"
 msgstr "Сіз кездесетін тағы бір ықтимал мәселе, «isbn13» өрісінің қайталануы, сондықтан оны дерекқорда негізгі кілт ретінде пайдалана алмайсыз. «isbn13»+«isbn» өрістері біріктірілгенде бірегей болып көрінеді."
@@ -4587,162 +4606,189 @@ msgstr "Көптеген ішкі жинақтардың өздері ішкі-�
 msgid "page.datasets.upload.subs.heading"
 msgstr "Ішкі жинақтар:"
 
+#: allthethings/page/templates/page/datasets_upload.html:63
+#: allthethings/page/templates/page/datasets_upload.html:64
 #: allthethings/page/templates/page/datasets_upload.html:65
+#: allthethings/page/templates/page/datasets_upload.html:66
+#: allthethings/page/templates/page/datasets_upload.html:67
+#: allthethings/page/templates/page/datasets_upload.html:68
+#: allthethings/page/templates/page/datasets_upload.html:69
+#: allthethings/page/templates/page/datasets_upload.html:70
+#: allthethings/page/templates/page/datasets_upload.html:71
 #: allthethings/page/templates/page/datasets_upload.html:72
+#: allthethings/page/templates/page/datasets_upload.html:73
+#: allthethings/page/templates/page/datasets_upload.html:74
+#: allthethings/page/templates/page/datasets_upload.html:75
+#: allthethings/page/templates/page/datasets_upload.html:76
+#: allthethings/page/templates/page/datasets_upload.html:77
+#: allthethings/page/templates/page/datasets_upload.html:78
 #: allthethings/page/templates/page/datasets_upload.html:79
+#: allthethings/page/templates/page/datasets_upload.html:80
+#: allthethings/page/templates/page/datasets_upload.html:81
+#: allthethings/page/templates/page/datasets_upload.html:82
+#: allthethings/page/templates/page/datasets_upload.html:83
+#: allthethings/page/templates/page/datasets_upload.html:84
+#: allthethings/page/templates/page/datasets_upload.html:85
 #: allthethings/page/templates/page/datasets_upload.html:86
+#: allthethings/page/templates/page/datasets_upload.html:87
+#: allthethings/page/templates/page/datasets_upload.html:88
+#: allthethings/page/templates/page/datasets_upload.html:89
+#: allthethings/page/templates/page/datasets_upload.html:90
+#: allthethings/page/templates/page/datasets_upload.html:91
+#: allthethings/page/templates/page/datasets_upload.html:92
 #: allthethings/page/templates/page/datasets_upload.html:93
-#: allthethings/page/templates/page/datasets_upload.html:100
-#: allthethings/page/templates/page/datasets_upload.html:107
-#: allthethings/page/templates/page/datasets_upload.html:114
-#: allthethings/page/templates/page/datasets_upload.html:121
-#: allthethings/page/templates/page/datasets_upload.html:128
-#: allthethings/page/templates/page/datasets_upload.html:135
-#: allthethings/page/templates/page/datasets_upload.html:142
-#: allthethings/page/templates/page/datasets_upload.html:149
-#: allthethings/page/templates/page/datasets_upload.html:156
-#: allthethings/page/templates/page/datasets_upload.html:163
-#: allthethings/page/templates/page/datasets_upload.html:170
-#: allthethings/page/templates/page/datasets_upload.html:177
-#: allthethings/page/templates/page/datasets_upload.html:184
-#: allthethings/page/templates/page/datasets_upload.html:191
-#: allthethings/page/templates/page/datasets_upload.html:198
-#: allthethings/page/templates/page/datasets_upload.html:212
+#: allthethings/page/templates/page/datasets_upload.html:94
+#: allthethings/page/templates/page/datasets_upload.html:95
+#: allthethings/page/templates/page/datasets_upload.html:96
+#: allthethings/page/templates/page/datasets_upload.html:97
+#: allthethings/page/templates/page/datasets_upload.html:98
+#: allthethings/page/templates/page/datasets_upload.html:99
 #, fuzzy
 msgid "page.datasets.upload.action.browse"
 msgstr "шолу"
 
+#: allthethings/page/templates/page/datasets_upload.html:63
+#: allthethings/page/templates/page/datasets_upload.html:64
+#: allthethings/page/templates/page/datasets_upload.html:65
 #: allthethings/page/templates/page/datasets_upload.html:66
+#: allthethings/page/templates/page/datasets_upload.html:67
+#: allthethings/page/templates/page/datasets_upload.html:68
+#: allthethings/page/templates/page/datasets_upload.html:69
+#: allthethings/page/templates/page/datasets_upload.html:70
+#: allthethings/page/templates/page/datasets_upload.html:71
+#: allthethings/page/templates/page/datasets_upload.html:72
 #: allthethings/page/templates/page/datasets_upload.html:73
+#: allthethings/page/templates/page/datasets_upload.html:74
+#: allthethings/page/templates/page/datasets_upload.html:75
+#: allthethings/page/templates/page/datasets_upload.html:76
+#: allthethings/page/templates/page/datasets_upload.html:77
+#: allthethings/page/templates/page/datasets_upload.html:78
+#: allthethings/page/templates/page/datasets_upload.html:79
 #: allthethings/page/templates/page/datasets_upload.html:80
+#: allthethings/page/templates/page/datasets_upload.html:81
+#: allthethings/page/templates/page/datasets_upload.html:82
+#: allthethings/page/templates/page/datasets_upload.html:83
+#: allthethings/page/templates/page/datasets_upload.html:84
+#: allthethings/page/templates/page/datasets_upload.html:85
+#: allthethings/page/templates/page/datasets_upload.html:86
 #: allthethings/page/templates/page/datasets_upload.html:87
+#: allthethings/page/templates/page/datasets_upload.html:88
+#: allthethings/page/templates/page/datasets_upload.html:89
+#: allthethings/page/templates/page/datasets_upload.html:90
+#: allthethings/page/templates/page/datasets_upload.html:91
+#: allthethings/page/templates/page/datasets_upload.html:92
+#: allthethings/page/templates/page/datasets_upload.html:93
 #: allthethings/page/templates/page/datasets_upload.html:94
-#: allthethings/page/templates/page/datasets_upload.html:101
-#: allthethings/page/templates/page/datasets_upload.html:108
-#: allthethings/page/templates/page/datasets_upload.html:115
-#: allthethings/page/templates/page/datasets_upload.html:122
-#: allthethings/page/templates/page/datasets_upload.html:129
-#: allthethings/page/templates/page/datasets_upload.html:136
-#: allthethings/page/templates/page/datasets_upload.html:143
-#: allthethings/page/templates/page/datasets_upload.html:150
-#: allthethings/page/templates/page/datasets_upload.html:157
-#: allthethings/page/templates/page/datasets_upload.html:164
-#: allthethings/page/templates/page/datasets_upload.html:171
-#: allthethings/page/templates/page/datasets_upload.html:178
-#: allthethings/page/templates/page/datasets_upload.html:185
-#: allthethings/page/templates/page/datasets_upload.html:192
-#: allthethings/page/templates/page/datasets_upload.html:199
-#: allthethings/page/templates/page/datasets_upload.html:213
+#: allthethings/page/templates/page/datasets_upload.html:95
+#: allthethings/page/templates/page/datasets_upload.html:96
+#: allthethings/page/templates/page/datasets_upload.html:97
+#: allthethings/page/templates/page/datasets_upload.html:98
+#: allthethings/page/templates/page/datasets_upload.html:99
 #, fuzzy
 msgid "page.datasets.upload.action.search"
 msgstr "іздеу"
 
-#: allthethings/page/templates/page/datasets_upload.html:67
+#: allthethings/page/templates/page/datasets_upload.html:63
 #, fuzzy
 msgid "page.datasets.upload.source.aaaaarg"
 msgstr "<a %(a_href)s>aaaaarg.fail</a> сайтынан. Толық сияқты көрінеді. Біздің ерікті “cgiym” ұсынған."
 
-#: allthethings/page/templates/page/datasets_upload.html:74
+#: allthethings/page/templates/page/datasets_upload.html:64
 #, fuzzy
 msgid "page.datasets.upload.source.acm"
 msgstr "<a %(a_href)s><q>ACM Digital Library 2020</q></a> торрентынан. Қолданыстағы мақалалар жинақтарымен жоғары деңгейде сәйкес келеді, бірақ MD5 сәйкестіктері өте аз, сондықтан біз оны толық сақтауды шештік."
 
-#: allthethings/page/templates/page/datasets_upload.html:81
-#, fuzzy
-msgid "page.datasets.upload.source.alexandrina"
-msgstr "<a %(a_href)s><q>Bibliotheca Alexandrina</q></a> жинағынан, нақты шығу тегі белгісіз. Бір бөлігі the-eye.eu сайтынан, бір бөлігі басқа көздерден алынған."
-
-#: allthethings/page/templates/page/datasets_upload.html:88
+#: allthethings/page/templates/page/datasets_upload.html:67
 #, fuzzy
 msgid "page.datasets.upload.source.bibliotik"
 msgstr "Жеке кітаптар торренты сайтынан, <a %(a_href)s>Bibliotik</a> (жиі “Bib” деп аталады), кітаптар атауы бойынша торренттерге топтастырылып, the-eye.eu арқылы таратылған."
 
-#: allthethings/page/templates/page/datasets_upload.html:95
+#: allthethings/page/templates/page/datasets_upload.html:68
 #, fuzzy
 msgid "page.datasets.upload.source.bpb9v_cadal"
 msgstr "Біздің ерікті “bpb9v” ұсынған. <a %(a_href)s>CADAL</a> туралы қосымша ақпарат алу үшін біздің <a %(a_duxiu)s>DuXiu деректер жинағы бетіне</a> қараңыз."
 
-#: allthethings/page/templates/page/datasets_upload.html:102
+#: allthethings/page/templates/page/datasets_upload.html:69
 #, fuzzy
 msgid "page.datasets.upload.source.bpb9v_direct"
 msgstr "Біздің ерікті “bpb9v” ұсынған тағы да материалдар, негізінен DuXiu файлдары, сондай-ақ “WenQu” және “SuperStar_Journals” қалталары (SuperStar — DuXiu компаниясы)."
 
-#: allthethings/page/templates/page/datasets_upload.html:109
+#: allthethings/page/templates/page/datasets_upload.html:70
 #, fuzzy
 msgid "page.datasets.upload.source.cgiym_chinese"
 msgstr "Біздің ерікті “cgiym” ұсынған, әртүрлі көздерден алынған қытай мәтіндері (қалталар ретінде көрсетілген), соның ішінде <a %(a_href)s>China Machine Press</a> (Қытайдың ірі баспасы) материалдары."
 
-#: allthethings/page/templates/page/datasets_upload.html:116
+#: allthethings/page/templates/page/datasets_upload.html:71
 #, fuzzy
 msgid "page.datasets.upload.source.cgiym_more"
 msgstr "Біздің ерікті “cgiym” ұсынған қытайлық емес жинақтар (қалталар ретінде көрсетілген)."
 
-#: allthethings/page/templates/page/datasets_upload.html:123
+#: allthethings/page/templates/page/datasets_upload.html:73
 #, fuzzy
 msgid "page.datasets.upload.source.degruyter"
 msgstr "<a %(a_href)s>De Gruyter</a> академиялық баспасынан алынған кітаптар, бірнеше үлкен торренттерден жиналған."
 
-#: allthethings/page/templates/page/datasets_upload.html:130
+#: allthethings/page/templates/page/datasets_upload.html:74
 #, fuzzy
 msgid "page.datasets.upload.source.docer"
 msgstr "<a %(a_href)s>docer.pl</a> сайтынан алынған материалдар, кітаптар мен басқа жазбаша жұмыстарға бағытталған поляк файл алмасу сайты. 2023 жылдың соңында ерікті “p” жинаған. Бастапқы сайттан жақсы метадеректер жоқ (тіпті файл кеңейтімдері де жоқ), бірақ біз кітапқа ұқсас файлдарды сүзгіден өткізіп, файлдардың өзінен метадеректерді жиі ала алдық."
 
-#: allthethings/page/templates/page/datasets_upload.html:137
+#: allthethings/page/templates/page/datasets_upload.html:75
 #, fuzzy
 msgid "page.datasets.upload.source.duxiu_epub"
 msgstr "DuXiu epub файлдары, тікелей DuXiu сайтынан, ерікті “w” жинаған. Тек соңғы DuXiu кітаптары тікелей электронды кітаптар арқылы қолжетімді, сондықтан олардың көпшілігі соңғы болуы керек."
 
-#: allthethings/page/templates/page/datasets_upload.html:144
+#: allthethings/page/templates/page/datasets_upload.html:76
 #, fuzzy
 msgid "page.datasets.upload.source.duxiu_main"
 msgstr "Ерікті “m” ұсынған қалған DuXiu файлдары, DuXiu-дің меншікті PDG форматында емес (негізгі <a %(a_href)s>DuXiu деректер жинағы</a>). Көптеген бастапқы көздерден жиналған, өкінішке орай, сол көздерді файл жолында сақтамай."
 
-#: allthethings/page/templates/page/datasets_upload.html:151
+#: allthethings/page/templates/page/datasets_upload.html:83
 #, fuzzy
 msgid "page.datasets.upload.source.japanese_manga"
 msgstr "Жапондық манга баспасынан ерікті “t” жинаған жинақ."
 
-#: allthethings/page/templates/page/datasets_upload.html:158
+#: allthethings/page/templates/page/datasets_upload.html:84
 #, fuzzy
 msgid "page.datasets.upload.source.longquan_archives"
 msgstr "<a %(a_href)s>Longquan сот мұрағаттарының таңдалған материалдары</a>, ерікті “c” ұсынған."
 
-#: allthethings/page/templates/page/datasets_upload.html:165
+#: allthethings/page/templates/page/datasets_upload.html:85
 #, fuzzy
 msgid "page.datasets.upload.source.magzdb"
 msgstr "<a %(a_href)s>magzdb.org</a> сайтынан алынған материалдар, Library Genesis-тің одақтасы (ол libgen.rs басты бетінде байланыстырылған), бірақ олар файлдарын тікелей бергісі келмеді. 2023 жылдың соңында ерікті “p” алған."
 
-#: allthethings/page/templates/page/datasets_upload.html:172
+#: allthethings/page/templates/page/datasets_upload.html:87
 #, fuzzy
 msgid "page.datasets.upload.source.misc"
 msgstr "Әртүрлі шағын жүктеулер, өздерінің кіші жинақтары ретінде тым кішкентай, бірақ қалталар ретінде көрсетілген."
 
-#: allthethings/page/templates/page/datasets_upload.html:179
+#: allthethings/page/templates/page/datasets_upload.html:91
 #, fuzzy
 msgid "page.datasets.upload.source.polish"
 msgstr "Ерікті “o” жинаған жинақ, поляк кітаптарын бастапқы шығарылым (“сцена”) сайттарынан тікелей жинаған."
 
-#: allthethings/page/templates/page/datasets_upload.html:186
+#: allthethings/page/templates/page/datasets_upload.html:92
 #, fuzzy
 msgid "page.datasets.upload.source.shuge"
 msgstr "Еріктілер “cgiym” және “woz9ts” жинаған <a %(a_href)s>shuge.org</a> сайтынан алынған біріктірілген жинақтар."
 
-#: allthethings/page/templates/page/datasets_upload.html:193
+#: allthethings/page/templates/page/datasets_upload.html:94
 #, fuzzy
 msgid "page.datasets.upload.source.trantor"
 msgstr "<a %(a_href)s>“Trantor Империялық Кітапханасы”</a> (ойдан шығарылған кітапхана атымен аталған), 2022 жылы ерікті “t” жинаған."
 
-#: allthethings/page/templates/page/datasets_upload.html:200
+#: allthethings/page/templates/page/datasets_upload.html:98
 #, fuzzy
 msgid "page.datasets.upload.source.woz9ts_direct"
 msgstr "Ерікті “woz9ts” ұсынған кіші жинақтар (қалталар ретінде көрсетілген): <a %(a_program_think)s>program-think</a>, <a %(a_haodoo)s>haodoo</a>, <a %(a_skqs)s>skqs</a> (Тайваньдағы <a %(a_sikuquanshu)s>Dizhi(迪志)</a> ұсынған), mebook (mebook.cc, 我的小书屋, менің кішкентай кітап бөлмем — woz9ts: “Бұл сайт негізінен жоғары сапалы электронды кітап файлдарын бөлісуге бағытталған, олардың кейбіреулері иесі өзі терген. Иесі 2019 жылы <a %(a_arrested)s>қамауға алынды</a> және біреу оның бөліскен файлдарының жинағын жасады.”)."
 
-#: allthethings/page/templates/page/datasets_upload.html:214
+#: allthethings/page/templates/page/datasets_upload.html:99
 #, fuzzy
 msgid "page.datasets.upload.source.woz9ts_duxiu"
 msgstr "Ерікті “woz9ts” жіберген қалған DuXiu файлдары, олар DuXiu-дің меншікті PDG форматында болмаған (PDF-ке түрлендіру қажет)."
 
-#: allthethings/page/templates/page/datasets_upload.html:226
+#: allthethings/page/templates/page/datasets_upload.html:109
 #, fuzzy
 msgid "page.datasets.upload.aa_torrents"
 msgstr "Anna’s Archive торренттері"
@@ -5319,122 +5365,122 @@ msgstr "1. Әрбір жинақ немесе шығарылымның өз ме
 msgid "page.faq.torrents.a6.li2"
 msgstr "2. Біздің ElasticSearch және MariaDB дерекқорларын <a %(a_generate)s>генерациялауды</a> немесе <a %(a_download)s>жүктеуді</a> ұсынамыз. Бұл дерекқорлар Anna’s Archive ішіндегі әрбір жазбаны сәйкес торрент файлдарымен (егер бар болса) байланыстыратын картаны қамтиды, ElasticSearch JSON ішіндегі “torrent_paths” бөлімінде."
 
-#: allthethings/page/templates/page/faq.html:273
+#: allthethings/page/templates/page/faq.html:280
 #, fuzzy
 msgid "page.faq.security.title"
 msgstr "Сізде жауапты ашу бағдарламасы бар ма?"
 
-#: allthethings/page/templates/page/faq.html:276
+#: allthethings/page/templates/page/faq.html:283
 #, fuzzy
 msgid "page.faq.security.text1"
 msgstr "Біз жүйелеріміздегі осалдықтарды іздейтін қауіпсіздік зерттеушілерін құптаймыз. Біз жауапты ашудың үлкен жақтаушысымыз. Бізбен <a %(a_contact)s>осында</a> хабарласыңыз."
 
-#: allthethings/page/templates/page/faq.html:280
+#: allthethings/page/templates/page/faq.html:287
 #, fuzzy
 msgid "page.faq.security.text2"
 msgstr "Біз қазіргі уақытта анонимділігімізді <a %(a_link)s>бұзуға әлеуеті бар</a> осалдықтар үшін $10k-50k аралығында сыйақы ұсынудан басқа, қателерге сыйақы бере алмаймыз. Болашақта қателерге сыйақы берудің кең ауқымын ұсынғымыз келеді! Әлеуметтік инженерия шабуылдары ауқымнан тыс екенін ескеріңіз."
 
-#: allthethings/page/templates/page/faq.html:284
+#: allthethings/page/templates/page/faq.html:291
 #, fuzzy
 msgid "page.faq.security.text3"
 msgstr "Егер сіз шабуылдаушы қауіпсіздікке қызығушылық танытсаңыз және әлемнің білімін және мәдениетін мұрағаттауға көмектескіңіз келсе, бізбен хабарласыңыз. Көмектесудің көптеген жолдары бар."
 
-#: allthethings/page/templates/page/faq.html:287
+#: allthethings/page/templates/page/faq.html:294
 #, fuzzy
 msgid "page.faq.resources.title"
 msgstr "Anna’s Archive туралы қосымша ресурстар бар ма?"
 
-#: allthethings/page/templates/page/faq.html:290
+#: allthethings/page/templates/page/faq.html:297
 #, fuzzy
 msgid "page.faq.resources.annas_blog"
 msgstr "<a %(a_blog)s>Anna’s Blog</a>, <a %(a_reddit_u)s>Reddit</a>, <a %(a_reddit_r)s>Subreddit</a> — тұрақты жаңартулар"
 
-#: allthethings/page/templates/page/faq.html:291
+#: allthethings/page/templates/page/faq.html:298
 #, fuzzy
 msgid "page.faq.resources.annas_software"
 msgstr "<a %(a_software)s>Anna’s Software</a> — біздің ашық бастапқы кодымыз"
 
-#: allthethings/page/templates/page/faq.html:292
+#: allthethings/page/templates/page/faq.html:299
 #, fuzzy
 msgid "page.faq.resources.translate"
 msgstr "<a %(a_translate)s>Anna’s Software-да аудару</a> — біздің аударма жүйеміз"
 
-#: allthethings/page/templates/page/faq.html:293
+#: allthethings/page/templates/page/faq.html:300
 #, fuzzy
 msgid "page.faq.resources.datasets"
 msgstr "<a %(a_datasets)s>Datasets</a> — деректер туралы"
 
-#: allthethings/page/templates/page/faq.html:294
+#: allthethings/page/templates/page/faq.html:301
 #, fuzzy
 msgid "page.faq.resources.domains"
 msgstr "<a %(a_li)s>.li</a>, <a %(a_se)s>.se</a>, <a %(a_org)s>.org</a> — балама домендер"
 
-#: allthethings/page/templates/page/faq.html:295
+#: allthethings/page/templates/page/faq.html:302
 #, fuzzy
 msgid "page.faq.resources.wikipedia"
 msgstr "<a %(a_wikipedia)s>Wikipedia</a> — біз туралы көбірек (осы бетті жаңартып тұруға көмектесіңіз немесе өз тіліңізде біреуін жасаңыз!)"
 
-#: allthethings/page/templates/page/faq.html:298
+#: allthethings/page/templates/page/faq.html:305
 #, fuzzy
 msgid "page.faq.copyright.title"
 msgstr "Авторлық құқықты бұзу туралы қалай хабарлауға болады?"
 
-#: allthethings/page/templates/page/faq.html:301
+#: allthethings/page/templates/page/faq.html:308
 #, fuzzy
 msgid "page.faq.copyright.text1"
 msgstr "Біз мұнда ешқандай авторлық құқықпен қорғалған материалдарды орналастырмаймыз. Біз іздеу жүйесіміз және тек жалпыға қолжетімді метадеректерді индекстейміз. Осы сыртқы көздерден жүктеген кезде, сіздің юрисдикцияңыздағы заңдарды тексеруді ұсынамыз. Басқалар орналастырған мазмұнға біз жауапты емеспіз."
 
-#: allthethings/page/templates/page/faq.html:305
+#: allthethings/page/templates/page/faq.html:312
 #, fuzzy
 msgid "page.faq.copyright.text2"
 msgstr "Егер мұнда көргендеріңізге шағымдарыңыз болса, ең жақсысы түпнұсқа веб-сайтпен байланысу. Біз олардың өзгерістерін үнемі дерекқорымызға енгізіп отырамыз. Егер сізде шынымен де біз жауап беруіміз керек деп ойлайтын заңды DMCA шағымы болса, <a %(a_copyright)s>DMCA / Авторлық құқық туралы шағым формасын</a> толтырыңыз. Біз сіздің шағымдарыңызды байыппен қабылдаймыз және мүмкіндігінше тезірек жауап береміз."
 
-#: allthethings/page/templates/page/faq.html:308
+#: allthethings/page/templates/page/faq.html:315
 #, fuzzy
 msgid "page.faq.hate.title"
 msgstr "Мен сіздің бұл жобаны қалай жүргізіп жатқаныңызды жек көремін!"
 
-#: allthethings/page/templates/page/faq.html:311
+#: allthethings/page/templates/page/faq.html:318
 #, fuzzy
 msgid "page.faq.hate.text1"
 msgstr "Сондай-ақ, барлық кодтарымыз бен деректеріміздің толық ашық көзі екенін еске салғымыз келеді. Біздің жобалар сияқты жобалар үшін бұл бірегей — бізде осындай үлкен каталогы бар басқа жоба туралы білмейміз, ол да толық ашық көзі болып табылады. Егер біреу біздің жобамызды нашар жүргізіп жатыр деп ойласа, біздің кодымыз бен деректерімізді алып, өз көлеңкелі кітапханасын орнатуға шақырамыз! Біз мұны реніштен емес, шын жүректен айтып отырмыз — бұл барлығына жоғары стандарт орнатып, адамзат мұрасын жақсырақ сақтауға көмектеседі деп ойлаймыз."
 
-#: allthethings/page/templates/page/faq.html:314
+#: allthethings/page/templates/page/faq.html:321
 #, fuzzy
 msgid "page.faq.uptime.title"
 msgstr "Сізде жұмыс уақытын бақылау құралы бар ма?"
 
-#: allthethings/page/templates/page/faq.html:317
+#: allthethings/page/templates/page/faq.html:324
 #, fuzzy
 msgid "page.faq.uptime.text1"
 msgstr "<a %(a_href)s>Бұл тамаша жобаны</a> қараңыз."
 
-#: allthethings/page/templates/page/faq.html:330
+#: allthethings/page/templates/page/faq.html:337
 #, fuzzy
 msgid "page.faq.physical.title"
 msgstr "Кітаптар немесе басқа физикалық материалдарды қалай сыйға тартуға болады?"
 
-#: allthethings/page/templates/page/faq.html:333
+#: allthethings/page/templates/page/faq.html:340
 #, fuzzy
 msgid "page.faq.physical.text1"
 msgstr "Оларды <a %(a_archive)s>Internet Archive</a> жіберіңіз. Олар оларды дұрыс сақтайды."
 
-#: allthethings/page/templates/page/faq.html:336
+#: allthethings/page/templates/page/faq.html:343
 #, fuzzy
 msgid "page.faq.anna.title"
 msgstr "Анна кім?"
 
-#: allthethings/page/templates/page/faq.html:340
+#: allthethings/page/templates/page/faq.html:347
 #, fuzzy
 msgid "page.faq.anna.text1"
 msgstr "Сіз Аннасыз!"
 
-#: allthethings/page/templates/page/faq.html:344
+#: allthethings/page/templates/page/faq.html:351
 #, fuzzy
 msgid "page.faq.favorite.title"
 msgstr "Сіздің сүйікті кітаптарыңыз қандай?"
 
-#: allthethings/page/templates/page/faq.html:347
+#: allthethings/page/templates/page/faq.html:354
 #, fuzzy
 msgid "page.faq.favorite.text1"
 msgstr "Міне, көлеңкелі кітапханалар мен сандық сақтауға ерекше маңызға ие кейбір кітаптар:"
@@ -5473,30 +5519,30 @@ msgstr "Іздеу"
 #: allthethings/page/templates/page/scidb_home.html:3
 #: allthethings/page/templates/page/scidb_home.html:6
 #: allthethings/templates/layouts/index.html:493
-#: allthethings/templates/layouts/index.html:506
-#: allthethings/templates/layouts/index.html:521
-#: allthethings/templates/layouts/index.html:588
+#: allthethings/templates/layouts/index.html:507
+#: allthethings/templates/layouts/index.html:523
+#: allthethings/templates/layouts/index.html:591
 #, fuzzy
 msgid "page.home.scidb.header"
 msgstr "SciDB"
 
 #: allthethings/page/templates/page/home.html:19
-#: allthethings/templates/layouts/index.html:541
+#: allthethings/templates/layouts/index.html:544
 #, fuzzy
 msgid "layout.index.header.nav.beta"
 msgstr "бета"
 
 #: allthethings/page/templates/page/home.html:22
 #: allthethings/page/templates/page/scidb_home.html:9
-#: allthethings/page/templates/page/search.html:355
-#: allthethings/page/templates/page/search.html:419
+#: allthethings/page/templates/page/search.html:359
+#: allthethings/page/templates/page/search.html:423
 #, fuzzy
 msgid "page.home.scidb.scihub_paused"
 msgstr "Sci-Hub жаңа мақалаларды жүктеуді <a %(a_paused)s>тоқтатты</a>."
 
 #: allthethings/page/templates/page/home.html:23
-#: allthethings/page/templates/page/search.html:356
-#: allthethings/page/templates/page/search.html:420
+#: allthethings/page/templates/page/search.html:360
+#: allthethings/page/templates/page/search.html:424
 #, fuzzy
 msgid "page.home.scidb.continuation"
 msgstr "🧬&nbsp;SciDB - Sci-Hub жалғасы."
@@ -5539,19 +5585,19 @@ msgid "page.home.torrents.body"
 msgstr "Торренттерді тарату арқылы үлкен көмек көрсете аласыз. <a %(a_torrents)s>Толығырақ білу…</a>"
 
 #: allthethings/page/templates/page/home.html:47
-#: allthethings/page/templates/page/torrents.html:75
+#: allthethings/page/templates/page/torrents.html:79
 #, fuzzy
 msgid "page.home.torrents.legend_less"
 msgstr "<%(count)s таратушылар"
 
 #: allthethings/page/templates/page/home.html:48
-#: allthethings/page/templates/page/torrents.html:76
+#: allthethings/page/templates/page/torrents.html:80
 #, fuzzy
 msgid "page.home.torrents.legend_range"
 msgstr "%(count_min)s–%(count_max)s таратушылар"
 
 #: allthethings/page/templates/page/home.html:49
-#: allthethings/page/templates/page/torrents.html:77
+#: allthethings/page/templates/page/torrents.html:81
 #, fuzzy
 msgid "page.home.torrents.legend_greater"
 msgstr ">%(count)s таратушылар"
@@ -5587,8 +5633,8 @@ msgid "page.home.payment_processor.body"
 msgstr "Егер сіз жоғары тәуекелді анонимді төлем процессорын басқаратын болсаңыз, бізбен хабарласыңыз. Біз сондай-ақ талғампаз шағын жарнамаларды орналастыруды қалайтын адамдарды іздейміз. Барлық түсімдер біздің сақтау күш-жігерімізге жұмсалады."
 
 #: allthethings/page/templates/page/home.html:98
-#: allthethings/templates/layouts/index.html:529
-#: allthethings/templates/layouts/index.html:608
+#: allthethings/templates/layouts/index.html:532
+#: allthethings/templates/layouts/index.html:611
 #, fuzzy
 msgid "layout.index.header.nav.annasblog"
 msgstr "Anna’s Blog ↗"
@@ -6132,7 +6178,7 @@ msgid "page.search.tabs.metadata"
 msgstr "Метадеректер"
 
 #: allthethings/page/templates/page/search.html:107
-#: allthethings/templates/layouts/index.html:537
+#: allthethings/templates/layouts/index.html:540
 #, fuzzy
 msgid "common.search.placeholder"
 msgstr "Атауы, авторы, DOI, ISBN, MD5, …"
@@ -6149,7 +6195,7 @@ msgid "page.search.search_settings"
 msgstr "Іздеу параметрлері"
 
 #: allthethings/page/templates/page/search.html:136
-#: allthethings/page/templates/page/search.html:274
+#: allthethings/page/templates/page/search.html:278
 #, fuzzy
 msgid "page.search.submit"
 msgstr "Іздеу"
@@ -6160,8 +6206,8 @@ msgid "page.search.too_long_broad_query"
 msgstr "Іздеу тым ұзаққа созылды, бұл кең сұраулар үшін жиі кездеседі. Фильтрлердің саны дәл болмауы мүмкін."
 
 #: allthethings/page/templates/page/search.html:145
-#: allthethings/page/templates/page/search.html:448
-#: allthethings/page/templates/page/search.html:455
+#: allthethings/page/templates/page/search.html:452
+#: allthethings/page/templates/page/search.html:459
 #, fuzzy
 msgid "page.search.too_inaccurate"
 msgstr "Іздеу тым ұзаққа созылды, бұл нәтижелердің дәл болмауын білдіреді. Кейде <a %(a_reload)s>бетті қайта жүктеу</a> көмектеседі."
@@ -6187,7 +6233,7 @@ msgid "page.search.advanced.header"
 msgstr "Кеңейтілген"
 
 #: allthethings/page/templates/page/search.html:159
-#: allthethings/page/templates/page/search.html:292
+#: allthethings/page/templates/page/search.html:296
 #, fuzzy
 msgid "page.search.advanced.description_comments"
 msgstr "Сипаттамалар мен метадеректерге түсініктемелерді іздеу"
@@ -6208,262 +6254,263 @@ msgid "page.search.advanced.field.year_published"
 msgstr "Жарияланған жылы"
 
 #: allthethings/page/templates/page/search.html:208
-#: allthethings/page/templates/page/search.html:300
-#: allthethings/page/templates/page/search.html:303
+#: allthethings/page/templates/page/search.html:304
+#: allthethings/page/templates/page/search.html:307
 #, fuzzy
 msgid "page.search.filters.content.header"
 msgstr "Мазмұн"
 
 #: allthethings/page/templates/page/search.html:218
-#: allthethings/page/templates/page/search.html:306
-#: allthethings/page/templates/page/search.html:309
+#: allthethings/page/templates/page/search.html:310
+#: allthethings/page/templates/page/search.html:313
 #, fuzzy
 msgid "page.search.filters.filetype.header"
 msgstr "Файл түрі"
 
-#: allthethings/page/templates/page/search.html:228
-#: allthethings/page/templates/page/search.html:312
-#: allthethings/page/templates/page/search.html:315
-#, fuzzy
-msgid "page.search.filters.access.header"
-msgstr "Қол жеткізу"
-
-#: allthethings/page/templates/page/search.html:237
-#: allthethings/page/templates/page/search.html:318
-#: allthethings/page/templates/page/search.html:321
-#, fuzzy
-msgid "page.search.filters.source.header"
-msgstr "Дереккөз"
-
-#: allthethings/page/templates/page/search.html:242
-#, fuzzy
-msgid "page.search.filters.source.scraped"
-msgstr "AA арқылы жиналған және ашық дереккөзге шығарылған"
-
-#: allthethings/page/templates/page/search.html:247
-#: allthethings/page/templates/page/search.html:327
-#: allthethings/page/templates/page/search.html:330
-#, fuzzy
-msgid "page.search.filters.language.header"
-msgstr "Тіл"
-
-#: allthethings/page/templates/page/search.html:256
+#: allthethings/page/templates/page/search.html:227
+#: allthethings/page/templates/page/search.html:259
 #, fuzzy
 msgid "page.search.more"
 msgstr "тағы…"
 
-#: allthethings/page/templates/page/search.html:261
-#: allthethings/page/templates/page/search.html:324
+#: allthethings/page/templates/page/search.html:231
+#: allthethings/page/templates/page/search.html:316
+#: allthethings/page/templates/page/search.html:319
+#, fuzzy
+msgid "page.search.filters.access.header"
+msgstr "Қол жеткізу"
+
+#: allthethings/page/templates/page/search.html:240
+#: allthethings/page/templates/page/search.html:322
+#: allthethings/page/templates/page/search.html:325
+#, fuzzy
+msgid "page.search.filters.source.header"
+msgstr "Дереккөз"
+
+#: allthethings/page/templates/page/search.html:245
+#, fuzzy
+msgid "page.search.filters.source.scraped"
+msgstr "AA арқылы жиналған және ашық дереккөзге шығарылған"
+
+#: allthethings/page/templates/page/search.html:250
+#: allthethings/page/templates/page/search.html:331
+#: allthethings/page/templates/page/search.html:334
+#, fuzzy
+msgid "page.search.filters.language.header"
+msgstr "Тіл"
+
+#: allthethings/page/templates/page/search.html:264
+#: allthethings/page/templates/page/search.html:328
 #, fuzzy
 msgid "page.search.filters.order_by.header"
 msgstr "Реттеу"
 
-#: allthethings/page/templates/page/search.html:264
+#: allthethings/page/templates/page/search.html:267
 #, fuzzy
 msgid "page.search.filters.sorting.most_relevant"
 msgstr "Ең маңыздысы"
 
-#: allthethings/page/templates/page/search.html:265
-#: allthethings/page/templates/page/search.html:269
-#: allthethings/page/templates/page/search.html:324
+#: allthethings/page/templates/page/search.html:268
+#: allthethings/page/templates/page/search.html:272
+#: allthethings/page/templates/page/search.html:328
 #, fuzzy
 msgid "page.search.filters.sorting.newest"
 msgstr "Ең жаңа"
 
-#: allthethings/page/templates/page/search.html:265
-#: allthethings/page/templates/page/search.html:266
-#: allthethings/page/templates/page/search.html:324
+#: allthethings/page/templates/page/search.html:268
+#: allthethings/page/templates/page/search.html:269
+#: allthethings/page/templates/page/search.html:328
 #, fuzzy
 msgid "page.search.filters.sorting.note_publication_year"
 msgstr "(жарияланған жыл)"
 
-#: allthethings/page/templates/page/search.html:266
-#: allthethings/page/templates/page/search.html:270
-#: allthethings/page/templates/page/search.html:324
+#: allthethings/page/templates/page/search.html:269
+#: allthethings/page/templates/page/search.html:273
+#: allthethings/page/templates/page/search.html:328
 #, fuzzy
 msgid "page.search.filters.sorting.oldest"
 msgstr "Ең ескі"
 
-#: allthethings/page/templates/page/search.html:267
-#: allthethings/page/templates/page/search.html:324
+#: allthethings/page/templates/page/search.html:270
+#: allthethings/page/templates/page/search.html:328
 #, fuzzy
 msgid "page.search.filters.sorting.largest"
 msgstr "Ең үлкен"
 
-#: allthethings/page/templates/page/search.html:267
-#: allthethings/page/templates/page/search.html:268
-#: allthethings/page/templates/page/search.html:324
+#: allthethings/page/templates/page/search.html:270
+#: allthethings/page/templates/page/search.html:271
+#: allthethings/page/templates/page/search.html:328
 #, fuzzy
 msgid "page.search.filters.sorting.note_filesize"
 msgstr "(файл өлшемі)"
 
-#: allthethings/page/templates/page/search.html:268
-#: allthethings/page/templates/page/search.html:324
+#: allthethings/page/templates/page/search.html:271
+#: allthethings/page/templates/page/search.html:328
 #, fuzzy
 msgid "page.search.filters.sorting.smallest"
 msgstr "Ең кіші"
 
-#: allthethings/page/templates/page/search.html:269
-#: allthethings/page/templates/page/search.html:270
-#: allthethings/page/templates/page/search.html:324
+#: allthethings/page/templates/page/search.html:272
+#: allthethings/page/templates/page/search.html:273
+#: allthethings/page/templates/page/search.html:328
 #, fuzzy
 msgid "page.search.filters.sorting.note_open_sourced"
 msgstr "(ашық дереккөз)"
 
-#: allthethings/page/templates/page/search.html:278
+#: allthethings/page/templates/page/search.html:282
 #, fuzzy
 msgid "page.search.header.update_info"
 msgstr "Іздеу индексі ай сайын жаңартылады. Қазіргі уақытта %(last_data_refresh_date)s дейінгі жазбаларды қамтиды. Толығырақ техникалық ақпарат үшін %(link_open_tag)sдеректер жиынтығы бетіне</a> қараңыз."
 
-#: allthethings/page/templates/page/search.html:280
+#: allthethings/page/templates/page/search.html:284
 #, fuzzy
 msgid "page.search.header.codes_explorer"
 msgstr "Кодтар бойынша іздеу индексін зерттеу үшін <a %(a_href)s>Кодтар зерттеушісін</a> пайдаланыңыз."
 
-#: allthethings/page/templates/page/search.html:338
+#: allthethings/page/templates/page/search.html:342
 #, fuzzy
 msgid "page.search.results.search_downloads"
 msgstr "Біздің каталогымыздан %(count)s тікелей жүктелетін файлдарды іздеу үшін жәшікке жазыңыз, біз оларды <a %(a_preserve)s>мәңгі сақтаймыз</a>."
 
-#: allthethings/page/templates/page/search.html:339
+#: allthethings/page/templates/page/search.html:343
 #, fuzzy
 msgid "page.search.results.help_preserve"
 msgstr "Шын мәнінде, кез келген адам біздің <a %(a_torrents)s>біріккен торренттер тізімін</a> тарату арқылы осы файлдарды сақтауға көмектесе алады."
 
-#: allthethings/page/templates/page/search.html:342
+#: allthethings/page/templates/page/search.html:346
 #, fuzzy
 msgid "page.search.results.most_comprehensive"
 msgstr "Қазіргі уақытта бізде әлемдегі ең кең ашық кітаптар, мақалалар және басқа жазбаша жұмыстар каталогы бар. Біз Sci-Hub, Library Genesis, Z-Library, <a %(a_datasets)s>және басқаларын</a> айнадай көшіреміз."
 
-#: allthethings/page/templates/page/search.html:345
+#: allthethings/page/templates/page/search.html:349
 #, fuzzy
 msgid "page.search.results.other_shadow_libs"
 msgstr "Егер біз айнадай көшіруіміз керек басқа “көлеңкелі кітапханаларды” тапсаңыз немесе сұрақтарыңыз болса, бізге %(email)s мекенжайына хабарласыңыз."
 
-#: allthethings/page/templates/page/search.html:346
+#: allthethings/page/templates/page/search.html:350
 #, fuzzy
 msgid "page.search.results.dmca"
 msgstr "DMCA / авторлық құқық талаптары үшін <a %(a_copyright)s>мұнда басыңыз</a>."
 
-#: allthethings/page/templates/page/search.html:350
-#: allthethings/page/templates/page/search.html:365
-#: allthethings/page/templates/page/search.html:379
-#: allthethings/page/templates/page/search.html:403
-#: allthethings/page/templates/page/search.html:411
+#: allthethings/page/templates/page/search.html:354
+#: allthethings/page/templates/page/search.html:369
+#: allthethings/page/templates/page/search.html:383
+#: allthethings/page/templates/page/search.html:407
+#: allthethings/page/templates/page/search.html:415
 #, fuzzy
 msgid "page.search.results.shortcuts"
 msgstr "Кеңес: жылдам навигация үшін пернетақтадағы “/” (іздеу фокусы), “enter” (іздеу), “j” (жоғары), “k” (төмен), “<” (алдыңғы бет), “>” (келесі бет) пернелерін қолданыңыз."
 
-#: allthethings/page/templates/page/search.html:354
-#: allthethings/page/templates/page/search.html:418
+#: allthethings/page/templates/page/search.html:358
+#: allthethings/page/templates/page/search.html:422
 #, fuzzy
 msgid "page.search.results.looking_for_papers"
 msgstr "Мақалалар іздеп жүрсіз бе?"
 
-#: allthethings/page/templates/page/search.html:361
+#: allthethings/page/templates/page/search.html:365
 #, fuzzy
 msgid "page.search.results.search_journals"
 msgstr "Біздің каталогымыздан %(count)s академиялық мақалалар мен журнал мақалаларын іздеу үшін жәшікке жазыңыз, біз оларды <a %(a_preserve)s>мәңгі сақтаймыз</a>."
 
-#: allthethings/page/templates/page/search.html:369
+#: allthethings/page/templates/page/search.html:373
 #, fuzzy
 msgid "page.search.results.search_digital_lending"
 msgstr "Цифрлық қарыз беру кітапханаларындағы файлдарды іздеу үшін жәшікке жазыңыз."
 
-#: allthethings/page/templates/page/search.html:372
+#: allthethings/page/templates/page/search.html:376
 #, fuzzy
 msgid "page.search.results.digital_lending_info"
 msgstr "Бұл іздеу индексі қазіргі уақытта Internet Archive-тың Бақыланатын Цифрлық Қарыз беру кітапханасының метадеректерін қамтиды. <a %(a_datasets)s>Біздің деректер жиынтықтары туралы толығырақ</a>."
 
-#: allthethings/page/templates/page/search.html:375
+#: allthethings/page/templates/page/search.html:379
 #, fuzzy
 msgid "page.search.results.digital_lending_info_more"
 msgstr "Қосымша цифрлық қарыз беру кітапханалары үшін <a %(a_wikipedia)s>Уикипедия</a> және <a %(a_mobileread)s>MobileRead Wiki</a> қараңыз."
 
-#: allthethings/page/templates/page/search.html:383
-#: allthethings/page/templates/page/search.html:430
+#: allthethings/page/templates/page/search.html:387
+#: allthethings/page/templates/page/search.html:434
 #, fuzzy
 msgid "page.search.results.search_metadata"
 msgstr "Кітапханалардан метадеректерді іздеу үшін жәшікке жазыңыз. Бұл <a %(a_request)s>файл сұрау</a> кезінде пайдалы болуы мүмкін."
 
-#: allthethings/page/templates/page/search.html:387
-#: allthethings/page/templates/page/search.html:434
+#: allthethings/page/templates/page/search.html:391
+#: allthethings/page/templates/page/search.html:438
 #, fuzzy
 msgid "page.search.results.metadata_info"
 msgstr "Бұл іздеу индексі қазіргі уақытта әртүрлі метадеректер көздерінен алынған метадеректерді қамтиды. <a %(a_datasets)s>Біздің деректер жиынтықтары туралы толығырақ</a>."
 
-#: allthethings/page/templates/page/search.html:388
-#: allthethings/page/templates/page/search.html:435
+#: allthethings/page/templates/page/search.html:392
+#: allthethings/page/templates/page/search.html:439
 #, fuzzy
 msgid "page.search.results.metadata_no_merging"
 msgstr "Метадеректер үшін біз түпнұсқа жазбаларды көрсетеміз. Біз жазбаларды біріктірмейміз."
 
-#: allthethings/page/templates/page/search.html:399
+#: allthethings/page/templates/page/search.html:403
 #, fuzzy
 msgid "page.search.results.metadata_info_more"
 msgstr "Әлемдегі жазбаша жұмыстарға арналған метадеректердің көптеген, көптеген көздері бар. <a %(a_wikipedia)s>Бұл Уикипедия беті</a> жақсы бастама, бірақ егер сіз басқа жақсы тізімдерді білсеңіз, бізге хабарлаңыз."
 
-#: allthethings/page/templates/page/search.html:407
+#: allthethings/page/templates/page/search.html:411
 #, fuzzy
 msgid "page.search.results.search_generic"
 msgstr "Іздеу үшін жәшікке теріңіз."
 
-#: allthethings/page/templates/page/search.html:426
+#: allthethings/page/templates/page/search.html:430
 #, fuzzy
 msgid "page.search.results.these_are_records"
 msgstr "Бұл метадеректер жазбалары, <span %(classname)s>жүктелетін файлдар емес</span>."
 
-#: allthethings/page/templates/page/search.html:442
+#: allthethings/page/templates/page/search.html:446
 #, fuzzy
 msgid "page.search.results.error.header"
 msgstr "Іздеу кезінде қате пайда болды."
 
-#: allthethings/page/templates/page/search.html:444
+#: allthethings/page/templates/page/search.html:448
 #, fuzzy
 msgid "page.search.results.error.unknown"
 msgstr "<a %(a_reload)s>Бетті қайта жүктеп көріңіз</a>. Егер мәселе шешілмесе, бізге %(email)s электрондық поштасына хат жіберіңіз."
 
-#: allthethings/page/templates/page/search.html:457
+#: allthethings/page/templates/page/search.html:461
 #, fuzzy
 msgid "page.search.results.none"
 msgstr "<span class=\"font-bold\">Файлдар табылмады.</span> Аз немесе басқа іздеу терминдері мен сүзгілерін қолданып көріңіз."
 
-#: allthethings/page/templates/page/search.html:460
+#: allthethings/page/templates/page/search.html:464
 #, fuzzy
 msgid "page.search.results.incorrectly_slow"
 msgstr "➡️ Кейде бұл іздеу сервері баяу болған кезде дұрыс жұмыс істемейді. Мұндай жағдайларда <a %(a_attrs)s>қайта жүктеу</a> көмектесуі мүмкін."
 
-#: allthethings/page/templates/page/search.html:467
+#: allthethings/page/templates/page/search.html:471
 #, fuzzy
 msgid "page.search.found_matches.main"
 msgstr "Біз %(in)s сәйкес келетіндерді таптық. <a %(a_request)s>Файл сұрау</a> кезінде сол жерден табылған URL мекенжайына сілтеме жасай аласыз."
 
-#: allthethings/page/templates/page/search.html:467
+#: allthethings/page/templates/page/search.html:471
 #, fuzzy
 msgid "page.search.found_matches.journals"
 msgstr "Журнал мақалалары (%(count)s)"
 
-#: allthethings/page/templates/page/search.html:467
+#: allthethings/page/templates/page/search.html:471
 #, fuzzy
 msgid "page.search.found_matches.digital_lending"
 msgstr "Сандық қарыз беру (%(count)s)"
 
-#: allthethings/page/templates/page/search.html:467
+#: allthethings/page/templates/page/search.html:471
 #, fuzzy
 msgid "page.search.found_matches.metadata"
 msgstr "Метадеректер (%(count)s)"
 
-#: allthethings/page/templates/page/search.html:474
+#: allthethings/page/templates/page/search.html:478
 #, fuzzy
 msgid "page.search.results.numbers_pages"
 msgstr "Нәтижелер %(from)s-%(to)s (%(total)s барлығы)"
 
-#: allthethings/page/templates/page/search.html:485
+#: allthethings/page/templates/page/search.html:490
 #, fuzzy
 msgid "page.search.results.partial_more"
 msgstr "%(num)d+ ішінара сәйкестіктер"
 
-#: allthethings/page/templates/page/search.html:485
+#: allthethings/page/templates/page/search.html:490
 #, fuzzy
 msgid "page.search.results.partial"
 msgstr "%(num)d ішінара сәйкестіктер"
@@ -6589,47 +6636,47 @@ msgstr "%(links)s орындаған сұраулардың сілтемелер
 msgid "page.volunteering.table.misc.task"
 msgstr "<a %(a_telegram)s>Telegram-дағы еріктілер чатында</a> жарияланған шағын тапсырмалар. Әдетте мүшелік үшін, кейде шағын сыйақылар үшін."
 
-#: allthethings/page/templates/page/volunteering.html:66
+#: allthethings/page/templates/page/volunteering.html:67
 #, fuzzy
 msgid "page.volunteering.table.misc.milestone"
 msgstr "Тапсырмаға байланысты."
 
-#: allthethings/page/templates/page/volunteering.html:70
+#: allthethings/page/templates/page/volunteering.html:71
 #, fuzzy
 msgid "page.volunteering.section.bounties.heading"
 msgstr "Сыйақылар"
 
-#: allthethings/page/templates/page/volunteering.html:73
+#: allthethings/page/templates/page/volunteering.html:74
 #, fuzzy
 msgid "page.volunteering.section.bounties.text1"
 msgstr "Біз әрқашан мықты бағдарламалау немесе шабуылдау қауіпсіздігі дағдылары бар адамдарды іздейміз. Сіз адамзат мұрасын сақтауда маңызды рөл атқара аласыз."
 
-#: allthethings/page/templates/page/volunteering.html:77
+#: allthethings/page/templates/page/volunteering.html:78
 #, fuzzy
 msgid "page.volunteering.section.bounties.text2"
 msgstr "Рахмет ретінде, біз маңызды үлес қосқандарға мүшелік береміз. Үлкен рахмет ретінде, біз ерекше маңызды және қиын тапсырмалар үшін ақшалай сыйақылар береміз. Бұл жұмыстың орнын басатын нәрсе ретінде қарастырылмауы керек, бірақ бұл қосымша ынталандыру және шығындарды өтеуге көмектесуі мүмкін."
 
-#: allthethings/page/templates/page/volunteering.html:81
+#: allthethings/page/templates/page/volunteering.html:82
 #, fuzzy
 msgid "page.volunteering.section.bounties.text3"
 msgstr "Біздің кодымыздың көпшілігі ашық бастапқы кодты, және біз сыйақы берген кезде сіздің кодыңыздың да ашық болуын сұраймыз. Кейбір ерекшеліктер бар, оларды жеке талқылай аламыз."
 
-#: allthethings/page/templates/page/volunteering.html:85
+#: allthethings/page/templates/page/volunteering.html:86
 #, fuzzy
 msgid "page.volunteering.section.bounties.text4"
 msgstr "Сыйақылар тапсырманы бірінші болып аяқтаған адамға беріледі. Басқаларға сіздің бір нәрсемен айналысып жатқаныңызды білу үшін сыйақы билетіндегі пікірлерді еркін қалдырыңыз, сонда басқалар күте алады немесе сізбен бірігу үшін байланыса алады. Бірақ басқалардың да бұл тапсырманы орындауға және сізден озып кетуге еркін екенін ескеріңіз. Дегенмен, біз шала жұмыс үшін сыйақы бермейміз. Егер екі жоғары сапалы ұсыныс бір-біріне жақын уақытта (бір-екі күн ішінде) жасалса, біз өз қалауымыз бойынша екеуіне де сыйақы беруіміз мүмкін, мысалы, бірінші ұсыныс үшін 100%% және екінші ұсыныс үшін 50%% (яғни жалпы 150%%)."
 
-#: allthethings/page/templates/page/volunteering.html:89
+#: allthethings/page/templates/page/volunteering.html:90
 #, fuzzy
 msgid "page.volunteering.section.bounties.text5"
 msgstr "Үлкен сыйақылар үшін (әсіресе деректерді жинау сыйақылары), оны ~5%% аяқтаған кезде бізбен хабарласыңыз және әдісіңіздің толық межеге жететініне сенімді болыңыз. Сіз өз әдісіңізді бізбен бөлісуіңіз керек, сонда біз кері байланыс бере аламыз. Сондай-ақ, осылайша біз бірнеше адам сыйақыға жақындап қалса не істеу керектігін шеше аламыз, мысалы, оны бірнеше адамға беру, адамдарды бірігуге ынталандыру және т.б."
 
-#: allthethings/page/templates/page/volunteering.html:93
+#: allthethings/page/templates/page/volunteering.html:94
 #, fuzzy
 msgid "page.volunteering.section.bounties.text6"
 msgstr "ЕСКЕРТУ: жоғары сыйақы тапсырмалары <span %(bold)s>қиын</span> — оңайларынан бастаған жөн болар."
 
-#: allthethings/page/templates/page/volunteering.html:97
+#: allthethings/page/templates/page/volunteering.html:98
 #, fuzzy
 msgid "page.volunteering.section.bounties.text7"
 msgstr "Біздің <a %(a_gitlab)s>Gitlab мәселелер тізіміне</a> өтіп, “Label priority” бойынша сұрыптаңыз. Бұл бізге маңызды тапсырмалардың шамамен ретін көрсетеді. Нақты сыйақысы жоқ тапсырмалар да мүшелікке жарамды, әсіресе “Accepted” және “Anna’s favorite” белгіленгендер. Сіз “Starter project” жобасынан бастағыңыз келуі мүмкін."
@@ -6672,8 +6719,8 @@ msgstr "Осы айдың соңына дейін жарамды."
 #: allthethings/templates/layouts/index.html:227
 #: allthethings/templates/layouts/index.html:233
 #: allthethings/templates/layouts/index.html:267
-#: allthethings/templates/layouts/index.html:533
-#: allthethings/templates/layouts/index.html:590
+#: allthethings/templates/layouts/index.html:536
+#: allthethings/templates/layouts/index.html:593
 #, fuzzy
 msgid "layout.index.header.nav.donate"
 msgstr "Қайырымдылық жасау"
@@ -6714,166 +6761,161 @@ msgid "layout.index.header.recent_downloads"
 msgstr "Соңғы жүктеулер:"
 
 #: allthethings/templates/layouts/index.html:492
-#: allthethings/templates/layouts/index.html:505
-#: allthethings/templates/layouts/index.html:520
-#: allthethings/templates/layouts/index.html:587
+#: allthethings/templates/layouts/index.html:506
+#: allthethings/templates/layouts/index.html:522
+#: allthethings/templates/layouts/index.html:590
 #, fuzzy
 msgid "layout.index.header.nav.search"
 msgstr "Іздеу"
 
 #: allthethings/templates/layouts/index.html:494
-#: allthethings/templates/layouts/index.html:507
-#: allthethings/templates/layouts/index.html:522
-#: allthethings/templates/layouts/index.html:589
-#: allthethings/templates/layouts/index.html:615
+#: allthethings/templates/layouts/index.html:508
+#: allthethings/templates/layouts/index.html:524
+#: allthethings/templates/layouts/index.html:592
+#: allthethings/templates/layouts/index.html:618
 #, fuzzy
 msgid "layout.index.header.nav.faq"
 msgstr "Жиі қойылатын сұрақтар"
 
 #: allthethings/templates/layouts/index.html:495
-#: allthethings/templates/layouts/index.html:508
-#: allthethings/templates/layouts/index.html:523
-#: allthethings/templates/layouts/index.html:616
+#: allthethings/templates/layouts/index.html:509
+#: allthethings/templates/layouts/index.html:525
+#: allthethings/templates/layouts/index.html:619
 #, fuzzy
 msgid "layout.index.header.nav.improve_metadata"
 msgstr "Метадеректерді жақсарту"
 
 #: allthethings/templates/layouts/index.html:496
-#: allthethings/templates/layouts/index.html:509
-#: allthethings/templates/layouts/index.html:524
-#: allthethings/templates/layouts/index.html:617
+#: allthethings/templates/layouts/index.html:510
+#: allthethings/templates/layouts/index.html:526
+#: allthethings/templates/layouts/index.html:620
 #, fuzzy
 msgid "layout.index.header.nav.volunteering"
 msgstr "Еріктілік және сыйақылар"
 
 #: allthethings/templates/layouts/index.html:497
-#: allthethings/templates/layouts/index.html:510
-#: allthethings/templates/layouts/index.html:525
-#: allthethings/templates/layouts/index.html:618
+#: allthethings/templates/layouts/index.html:511
+#: allthethings/templates/layouts/index.html:527
+#: allthethings/templates/layouts/index.html:621
 #, fuzzy
 msgid "layout.index.header.nav.datasets"
 msgstr "Деректер жиынтықтары"
 
 #: allthethings/templates/layouts/index.html:498
-#: allthethings/templates/layouts/index.html:511
-#: allthethings/templates/layouts/index.html:526
-#: allthethings/templates/layouts/index.html:619
+#: allthethings/templates/layouts/index.html:512
+#: allthethings/templates/layouts/index.html:528
+#: allthethings/templates/layouts/index.html:622
 #, fuzzy
 msgid "layout.index.header.nav.torrents"
 msgstr "Торренттер"
 
-#: allthethings/templates/layouts/index.html:499
-#: allthethings/templates/layouts/index.html:512
-#: allthethings/templates/layouts/index.html:527
-#: allthethings/templates/layouts/index.html:620
+#: allthethings/templates/layouts/index.html:500
+#: allthethings/templates/layouts/index.html:514
+#: allthethings/templates/layouts/index.html:530
+#: allthethings/templates/layouts/index.html:624
 #, fuzzy
 msgid "layout.index.header.nav.codes"
 msgstr "Кодтар зерттеушісі"
 
-#: allthethings/templates/layouts/index.html:500
-#: allthethings/templates/layouts/index.html:513
-#: allthethings/templates/layouts/index.html:528
-#: allthethings/templates/layouts/index.html:621
+#: allthethings/templates/layouts/index.html:501
+#: allthethings/templates/layouts/index.html:515
+#: allthethings/templates/layouts/index.html:531
+#: allthethings/templates/layouts/index.html:625
 #, fuzzy
 msgid "layout.index.header.nav.llm_data"
 msgstr "LLM деректері"
 
-#: allthethings/templates/layouts/index.html:501
-#: allthethings/templates/layouts/index.html:514
-#: allthethings/templates/layouts/index.html:519
-#: allthethings/templates/layouts/index.html:586
+#: allthethings/templates/layouts/index.html:502
+#: allthethings/templates/layouts/index.html:516
+#: allthethings/templates/layouts/index.html:521
+#: allthethings/templates/layouts/index.html:589
 #, fuzzy
 msgid "layout.index.header.nav.home"
 msgstr "Басты бет"
 
-#: allthethings/templates/layouts/index.html:530
-#: allthethings/templates/layouts/index.html:609
+#: allthethings/templates/layouts/index.html:533
+#: allthethings/templates/layouts/index.html:612
 #, fuzzy
 msgid "layout.index.header.nav.annassoftware"
 msgstr "Аннаның бағдарламасы ↗"
 
-#: allthethings/templates/layouts/index.html:531
-#: allthethings/templates/layouts/index.html:610
+#: allthethings/templates/layouts/index.html:534
+#: allthethings/templates/layouts/index.html:613
 #, fuzzy
 msgid "layout.index.header.nav.translate"
 msgstr "Аудару ↗"
 
-#: allthethings/templates/layouts/index.html:544
-#: allthethings/templates/layouts/index.html:548
-#: allthethings/templates/layouts/index.html:553
+#: allthethings/templates/layouts/index.html:547
+#: allthethings/templates/layouts/index.html:551
+#: allthethings/templates/layouts/index.html:556
 #, fuzzy
 msgid "layout.index.header.nav.login_register"
 msgstr "Кіру / Тіркелу"
 
-#: allthethings/templates/layouts/index.html:560
-#: allthethings/templates/layouts/index.html:567
-#: allthethings/templates/layouts/index.html:572
+#: allthethings/templates/layouts/index.html:563
+#: allthethings/templates/layouts/index.html:570
+#: allthethings/templates/layouts/index.html:575
 #, fuzzy
 msgid "layout.index.header.nav.account"
 msgstr "Есептік жазба"
 
-#: allthethings/templates/layouts/index.html:585
+#: allthethings/templates/layouts/index.html:588
 #, fuzzy
 msgid "layout.index.footer.list1.header"
 msgstr "Аннаның мұрағаты"
 
-#: allthethings/templates/layouts/index.html:604
+#: allthethings/templates/layouts/index.html:607
 #, fuzzy
 msgid "layout.index.footer.list2.header"
 msgstr "Байланыста болыңыз"
 
-#: allthethings/templates/layouts/index.html:606
+#: allthethings/templates/layouts/index.html:609
 #, fuzzy
 msgid "layout.index.footer.list2.dmca_copyright"
 msgstr "DMCA / авторлық құқық талаптары"
 
-#: allthethings/templates/layouts/index.html:607
+#: allthethings/templates/layouts/index.html:610
 #, fuzzy
 msgid "layout.index.footer.list2.reddit"
 msgstr "Reddit"
 
-#: allthethings/templates/layouts/index.html:607
+#: allthethings/templates/layouts/index.html:610
 #, fuzzy
 msgid "layout.index.footer.list2.telegram"
 msgstr "Telegram"
 
-#: allthethings/templates/layouts/index.html:614
+#: allthethings/templates/layouts/index.html:617
 #, fuzzy
 msgid "layout.index.header.nav.advanced"
 msgstr "Кеңейтілген"
 
-#: allthethings/templates/layouts/index.html:622
+#: allthethings/templates/layouts/index.html:626
 #, fuzzy
 msgid "layout.index.header.nav.security"
 msgstr "Қауіпсіздік"
 
-#: allthethings/templates/layouts/index.html:626
+#: allthethings/templates/layouts/index.html:630
 #, fuzzy
 msgid "layout.index.footer.list3.header"
 msgstr "Балама нұсқалар"
 
-#: allthethings/templates/layouts/index.html:630
+#: allthethings/templates/layouts/index.html:634
 #, fuzzy
 msgid "layout.index.footer.list3.link.slum"
 msgstr "SLUM (%(unaffiliated)s)"
 
-#: allthethings/templates/layouts/index.html:630
+#: allthethings/templates/layouts/index.html:634
 #, fuzzy
 msgid "layout.index.footer.list3.link.unaffiliated"
 msgstr "байланыссыз"
 
-#: allthethings/templates/macros/aarecord_list.html:90
-#: allthethings/templates/macros/aarecord_list.html:125
+#: allthethings/templates/macros/aarecord_list.html:92
+#: allthethings/templates/macros/aarecord_list.html:127
 #, fuzzy
 msgid "page.search.results.issues"
 msgstr "❌ Бұл файлда мәселелер болуы мүмкін."
 
-#: allthethings/templates/macros/aarecord_list.html:116
-#, fuzzy
-msgid "page.search.results.download_time"
-msgstr "Жүктеу уақыты"
-
-#: allthethings/templates/macros/aarecord_list.html:116
+#: allthethings/templates/macros/aarecord_list.html:118
 #, fuzzy
 msgid "page.search.results.fast_download"
 msgstr "Жылдам жүктеу"
@@ -7057,4 +7099,7 @@ msgstr "Келесі"
 
 #~ msgid "common.md5.servers.fast_partner.recommended"
 #~ msgstr "(%(recommended)s)"
+
+#~ msgid "page.datasets.upload.source.alexandrina"
+#~ msgstr "<a %(a_href)s><q>Bibliotheca Alexandrina</q></a> жинағынан, нақты шығу тегі белгісіз. Бір бөлігі the-eye.eu сайтынан, бір бөлігі басқа көздерден алынған."
 

@@ -144,17 +144,17 @@ msgstr "ນັກສະສົມຂໍ້ມູນສຸດສະຫຼັງ"
 msgid "common.membership.tier_name.5"
 msgstr "ນັກຈັດເກັບທີ່ສຸດຍອດ"
 
-#: allthethings/utils.py:641
+#: allthethings/utils.py:656
 #, fuzzy
 msgid "common.membership.format_currency.total"
 msgstr "%(amount)s ທັງໝົດ"
 
-#: allthethings/utils.py:648
+#: allthethings/utils.py:663
 #, fuzzy
 msgid "common.membership.format_currency.total_with_usd"
 msgstr "%(amount)s (%(amount_usd)s) ທັງໝົດ"
 
-#: allthethings/utils.py:650 allthethings/utils.py:651
+#: allthethings/utils.py:665 allthethings/utils.py:666
 #, fuzzy
 msgid "common.membership.format_currency.amount_with_usd"
 msgstr "%(amount)s (%(amount_usd)s)"
@@ -325,7 +325,7 @@ msgid "page.donate.expert.contact_us"
 msgstr "ຕິດຕໍ່ພວກເຮົາ"
 
 #: allthethings/account/templates/account/donate.html:101
-#: allthethings/account/templates/account/donation.html:716
+#: allthethings/account/templates/account/donation.html:766
 #: allthethings/page/templates/page/contact.html:22
 #, fuzzy
 msgid "page.donate.small_team"
@@ -372,7 +372,7 @@ msgid "page.donate.payment.select_method"
 msgstr "ກະລຸນາເລືອກວິທີການຈ່າຍເງິນ."
 
 #: allthethings/account/templates/account/donate.html:132
-#: allthethings/account/templates/account/donate.html:503
+#: allthethings/account/templates/account/donate.html:507
 #, fuzzy
 msgid "page.donate.discount"
 msgstr "-%(percentage)s%%"
@@ -391,238 +391,229 @@ msgid "page.donate.payment.buttons.amazon_cc"
 msgstr "%(amazon)s ບັດຂອງຂວັນ"
 
 #: allthethings/account/templates/account/donate.html:152
+#: allthethings/account/templates/account/donate.html:153
+#: allthethings/account/templates/account/donate.html:154
 #, fuzzy
 msgid "page.donate.payment.buttons.bank_card_app"
 msgstr "ບັດທະນາຄານ (ໃຊ້ແອັບ)"
 
-#: allthethings/account/templates/account/donate.html:153
-#: allthethings/account/templates/account/donate.html:163
-#: allthethings/account/templates/account/donate.html:164
-#: allthethings/account/templates/account/donate.html:450
+#: allthethings/account/templates/account/donate.html:155
+#: allthethings/account/templates/account/donate.html:165
+#: allthethings/account/templates/account/donate.html:166
+#: allthethings/account/templates/account/donate.html:454
 #, fuzzy
 msgid "page.donate.payment.buttons.crypto"
 msgstr "ຄຣິບໂຕ %(bitcoin_icon)s"
 
-#: allthethings/account/templates/account/donate.html:155
+#: allthethings/account/templates/account/donate.html:157
 #, fuzzy
 msgid "page.donate.payment.buttons.credit_debit"
 msgstr "ບັດເຄຣດິດ/ບັດເດບິດ"
 
-#: allthethings/account/templates/account/donate.html:156
+#: allthethings/account/templates/account/donate.html:158
 #, fuzzy
 msgid "page.donate.payment.buttons.paypal"
 msgstr "PayPal (US) %(bitcoin_icon)s"
 
-#: allthethings/account/templates/account/donate.html:157
+#: allthethings/account/templates/account/donate.html:159
 #, fuzzy
 msgid "page.donate.payment.buttons.paypalreg"
 msgstr "PayPal (ປົກກະຕິ)"
 
-#: allthethings/account/templates/account/donate.html:158
+#: allthethings/account/templates/account/donate.html:160
 #, fuzzy
 msgid "page.donate.payment.buttons.givebutter"
 msgstr "ບັດ / PayPal / Venmo"
 
-#: allthethings/account/templates/account/donate.html:160
+#: allthethings/account/templates/account/donate.html:162
 #, fuzzy
 msgid "page.donate.payment.buttons.bmc"
 msgstr "ບັດເຄຣດິດ/ດີເບດ/Apple/Google (BMC)"
 
-#: allthethings/account/templates/account/donate.html:161
-#: allthethings/account/templates/account/donate.html:201
-#: allthethings/account/templates/account/donate.html:210
-#: allthethings/account/templates/account/donate.html:211
-#: allthethings/account/templates/account/donate.html:444
+#: allthethings/account/templates/account/donate.html:163
+#: allthethings/account/templates/account/donate.html:203
+#: allthethings/account/templates/account/donate.html:213
+#: allthethings/account/templates/account/donate.html:214
+#: allthethings/account/templates/account/donate.html:448
 #, fuzzy
 msgid "page.donate.payment.buttons.alipay"
 msgstr "Alipay"
 
-#: allthethings/account/templates/account/donate.html:162
+#: allthethings/account/templates/account/donate.html:164
 #, fuzzy
 msgid "page.donate.payment.buttons.pix"
 msgstr "Pix (Brazil)"
 
-#: allthethings/account/templates/account/donate.html:166
+#: allthethings/account/templates/account/donate.html:168
 #, fuzzy
 msgid "page.donate.payment.buttons.cashapp"
 msgstr "Cash App"
 
-#: allthethings/account/templates/account/donate.html:167
+#: allthethings/account/templates/account/donate.html:169
 #, fuzzy
 msgid "page.donate.payment.buttons.revolut"
 msgstr "Revolut"
 
-#: allthethings/account/templates/account/donate.html:168
+#: allthethings/account/templates/account/donate.html:170
 #, fuzzy
 msgid "page.donate.payment.buttons.paypal_plain"
 msgstr "PayPal"
 
-#: allthethings/account/templates/account/donate.html:169
+#: allthethings/account/templates/account/donate.html:171
 #, fuzzy
 msgid "page.donate.payment.buttons.bank_card"
 msgstr "ບັດທະນາຄານ"
 
-#: allthethings/account/templates/account/donate.html:170
+#: allthethings/account/templates/account/donate.html:172
 #, fuzzy
 msgid "page.donate.payment.buttons.credit_debit_backup"
 msgstr "ບັດເຄຣດິດ/ບັດເດບິດ (ສຳຮອງ)"
 
-#: allthethings/account/templates/account/donate.html:171
+#: allthethings/account/templates/account/donate.html:173
 #, fuzzy
 msgid "page.donate.payment.buttons.credit_debit2"
 msgstr "ບັດເຄຣດິດ/ບັດເດບິດ 2"
 
-#: allthethings/account/templates/account/donate.html:173
+#: allthethings/account/templates/account/donate.html:175
 #, fuzzy
 msgid "page.donate.payment.buttons.binance"
 msgstr "ບິນານซ์"
 
-#: allthethings/account/templates/account/donate.html:200
-#: allthethings/account/templates/account/donate.html:204
-#: allthethings/account/templates/account/donate.html:205
-#: allthethings/account/templates/account/donate.html:447
+#: allthethings/account/templates/account/donate.html:202
+#: allthethings/account/templates/account/donate.html:206
+#: allthethings/account/templates/account/donate.html:207
+#: allthethings/account/templates/account/donate.html:451
 #, fuzzy
 msgid "page.donate.payment.buttons.wechat"
 msgstr "WeChat"
 
-#: allthethings/account/templates/account/donate.html:215
-#: allthethings/account/templates/account/donate.html:216
+#: allthethings/account/templates/account/donate.html:219
+#: allthethings/account/templates/account/donate.html:220
 #, fuzzy
 msgid "page.donate.payment.buttons.alipay_wechat"
 msgstr "Alipay 支付宝 / WeChat 微信"
 
-#: allthethings/account/templates/account/donate.html:235
+#: allthethings/account/templates/account/donate.html:239
 #, fuzzy
 msgid "page.donate.payment.desc.crypto"
 msgstr "ດ້ວຍຄຣິບໂຕ ທ່ານສາມາດບໍລິຈາກໄດ້ໂດຍໃຊ້ BTC, ETH, XMR, ແລະ SOL. ໃຊ້ຕົວເລືອກນີ້ຖ້າທ່ານຄຸ້ນເຄີຍກັບຄຣິບໂຕແລ້ວ."
 
-#: allthethings/account/templates/account/donate.html:239
+#: allthethings/account/templates/account/donate.html:243
 #, fuzzy
 msgid "page.donate.payment.desc.crypto2"
 msgstr "ດ້ວຍຄຣິບໂຕ ທ່ານສາມາດບໍລິຈາກໄດ້ໂດຍໃຊ້ BTC, ETH, XMR, ແລະອື່ນໆ."
 
-#: allthethings/account/templates/account/donate.html:242
-#: allthethings/account/templates/account/donate.html:452
+#: allthethings/account/templates/account/donate.html:246
+#: allthethings/account/templates/account/donate.html:456
 #, fuzzy
 msgid "page.donate.payment.desc.crypto_suggestion_dynamic"
 msgstr "ຖ້າທ່ານໃຊ້ຄຣິບໂຕເປັນຄັ້ງທຳອິດ, ພວກເຮົາແນະນຳໃຫ້ໃຊ້ %(options)s ເພື່ອຊື້ແລະບໍລິຈາກ Bitcoin (ຄຣິບໂຕເຄີນທີ່ເກົ່າແລະໃຊ້ງານຫຼາຍທີ່ສຸດ)."
 
-#: allthethings/account/templates/account/donate.html:245
-#: allthethings/account/templates/account/donate.html:455
+#: allthethings/account/templates/account/donate.html:249
+#: allthethings/account/templates/account/donate.html:459
 #, fuzzy
 msgid "page.donate.payment.processor.binance"
 msgstr "ບິນານซ์"
 
-#: allthethings/account/templates/account/donate.html:246
-#: allthethings/account/templates/account/donate.html:456
+#: allthethings/account/templates/account/donate.html:250
+#: allthethings/account/templates/account/donate.html:460
 #, fuzzy
 msgid "page.donate.payment.processor.coinbase"
 msgstr "Coinbase"
 
-#: allthethings/account/templates/account/donate.html:247
-#: allthethings/account/templates/account/donate.html:457
+#: allthethings/account/templates/account/donate.html:251
+#: allthethings/account/templates/account/donate.html:461
 #, fuzzy
 msgid "page.donate.payment.processor.kraken"
 msgstr "Kraken"
 
-#: allthethings/account/templates/account/donate.html:255
+#: allthethings/account/templates/account/donate.html:259
 #, fuzzy
 msgid "page.donate.payment.desc.paypal"
 msgstr "ເພື່ອບໍລິຈາກໂດຍໃຊ້ PayPal US, ພວກເຮົາຈະໃຊ້ PayPal Crypto, ທີ່ອະນຸຍາດໃຫ້ພວກເຮົາຢູ່ໃນສະພາບບໍ່ປະຈຳຕົວ. ພວກເຮົາຊື່ນຊົມທີ່ທ່ານໃຊ້ເວລາຮຽນຮູ້ວິທີການບໍລິຈາກໂດຍໃຊ້ວິທີນີ້, ເພາະມັນຊ່ວຍເຮົາໄດ້ຫຼາຍ."
 
-#: allthethings/account/templates/account/donate.html:256
+#: allthethings/account/templates/account/donate.html:260
 #, fuzzy
 msgid "page.donate.payment.desc.paypal_short"
 msgstr "ບໍລິຈາກໂດຍໃຊ້ PayPal."
 
-#: allthethings/account/templates/account/donate.html:262
+#: allthethings/account/templates/account/donate.html:266
 #, fuzzy
 msgid "page.donate.payment.desc.cashapp"
 msgstr "ບໍລິຈາກໂດຍໃຊ້ Cash App."
 
-#: allthethings/account/templates/account/donate.html:263
+#: allthethings/account/templates/account/donate.html:267
 #, fuzzy
 msgid "page.donate.payment.desc.cashapp_easy"
 msgstr "ຖ້າທ່ານມີ Cash App, ນີ້ແມ່ນວິທີທີ່ງ່າຍທີ່ສຸດໃນການບໍລິຈາກ!"
 
-#: allthethings/account/templates/account/donate.html:266
-#: allthethings/account/templates/account/donate.html:276
+#: allthethings/account/templates/account/donate.html:270
+#: allthethings/account/templates/account/donate.html:280
 #, fuzzy
 msgid "page.donate.payment.desc.cashapp_fee"
 msgstr "ຫມາຍເຫດວ່າສຳລັບການເຮັດທຸລະກຳທີ່ຕ່ຳກວ່າ %(amount)s, Cash App ອາດຈະຄິດຄ່າທຳນຽມ %(fee)s. ສຳລັບ %(amount)s ຫລືຫຼາຍກວ່ານັ້ນ, ມັນຟຣີ!"
 
-#: allthethings/account/templates/account/donate.html:272
+#: allthethings/account/templates/account/donate.html:276
 #, fuzzy
 msgid "page.donate.payment.desc.revolut"
 msgstr "ບໍລິຈາກໂດຍໃຊ້ Revolut."
 
-#: allthethings/account/templates/account/donate.html:273
+#: allthethings/account/templates/account/donate.html:277
 #, fuzzy
 msgid "page.donate.payment.desc.revolut_easy"
 msgstr "ຖ້າທ່ານມີ Revolut, ນີ້ແມ່ນວິທີທີ່ງ່າຍທີ່ສຸດໃນການບໍລິຈາກ!"
 
-#: allthethings/account/templates/account/donate.html:282
-#: allthethings/account/templates/account/donate.html:398
+#: allthethings/account/templates/account/donate.html:286
+#: allthethings/account/templates/account/donate.html:402
 #, fuzzy
 msgid "page.donate.payment.desc.credit_debit"
 msgstr "ບໍລິຈາກດ້ວຍບັດເຄຣດິດ ຫລື ບັດເດບິດ."
 
-#: allthethings/account/templates/account/donate.html:283
+#: allthethings/account/templates/account/donate.html:287
 #, fuzzy
 msgid "page.donate.payment.desc.google_apple"
 msgstr "Google Pay ແລະ Apple Pay ອາດຈະໃຊ້ໄດ້ເຊັ່ນກັນ."
 
-#: allthethings/account/templates/account/donate.html:284
+#: allthethings/account/templates/account/donate.html:288
 #, fuzzy
 msgid "page.donate.payment.desc.elimate_discount"
 msgstr "ຫມາຍເຫດວ່າສຳລັບການບໍລິຈາກຂະໜາດນ້ອຍຄ່າທຳນຽມຂອງບັດເຄຣດິດອາດຈະລົບລ້າງສ່ວນຫຼຸດ %(discount)s%% ຂອງເຮົາ, ດັ່ງນັ້ນເຮົາແນະນຳໃຫ້ສະໝັກສະມາຊິກທີ່ຍາວກວ່າ."
 
-#: allthethings/account/templates/account/donate.html:285
+#: allthethings/account/templates/account/donate.html:289
 #, fuzzy
 msgid "page.donate.payment.desc.longer_subs"
 msgstr "ຫມາຍເຫດວ່າສຳລັບການບໍລິຈາກຂະໜາດນ້ອຍຄ່າທຳນຽມສູງ, ດັ່ງນັ້ນເຮົາແນະນຳໃຫ້ສະໝັກສະມາຊິກທີ່ຍາວກວ່າ."
 
-#: allthethings/account/templates/account/donate.html:291
+#: allthethings/account/templates/account/donate.html:295
 #, fuzzy
 msgid "page.donate.payment.desc.binance_p1"
 msgstr "ດ້ວຍ Binance, ທ່ານສາມາດຊື້ Bitcoin ດ້ວຍບັດເຄຣດິດ/ເດບິດ ຫລື ບັນຊີທະນາຄານ, ແລະຫລັງຈາກນັ້ນບໍລິຈາກ Bitcoin ໃຫ້ເຮົາ. ແນວນີ້ເຮົາສາມາດຢູ່ໃນຄວາມປອດໄພແລະບໍ່ມີການເຜີຍແພ່ເມື່ອຮັບການບໍລິຈາກຂອງທ່ານ."
 
-#: allthethings/account/templates/account/donate.html:295
+#: allthethings/account/templates/account/donate.html:299
 #, fuzzy
 msgid "page.donate.payment.desc.binance_p2"
 msgstr "Binance ໃຊ້ໄດ້ເກືອບທຸກປະເທດ, ແລະສະໜັບສະໜູນທະນາຄານ ແລະ ບັດເຄຣດິດ/ເດບິດສ່ວນໃຫຍ່. ນີ້ເປັນຄຳແນະນຳຫລັກຂອງເຮົາໃນປັດຈຸບັນ. ເຮົາຂອບໃຈທີ່ທ່ານໃຊ້ເວລາຮຽນຮູ້ວິທີການບໍລິຈາກໂດຍໃຊ້ວິທີນີ້, ເພາະມັນຊ່ວຍເຮົາໄດ້ຫຼາຍ."
 
-#: allthethings/account/templates/account/donate.html:301
+#: allthethings/account/templates/account/donate.html:305
 #, fuzzy
 msgid "page.donate.payment.desc.paypalreg"
 msgstr "ບໍລິຈາກໂດຍໃຊ້ບັນຊີ PayPal ປົກກະຕິຂອງທ່ານ."
 
-#: allthethings/account/templates/account/donate.html:307
+#: allthethings/account/templates/account/donate.html:311
 #, fuzzy
 msgid "page.donate.payment.desc.givebutter"
 msgstr "ບໍລິຈາກໂດຍໃຊ້ບັດເຄຣດິດ/ເດບິດ, PayPal, ຫລື Venmo. ທ່ານສາມາດເລືອກລະຫວ່າງສາມອັນນີ້ໃນໜ້າຕໍ່ໄປ."
 
-#: allthethings/account/templates/account/donate.html:313
-#: allthethings/account/templates/account/donate.html:325
-#: allthethings/account/templates/account/donate.html:337
-#: allthethings/account/templates/account/donate.html:349
-#: allthethings/account/templates/account/donate.html:361
-#: allthethings/account/templates/account/donate.html:373
-#: allthethings/account/templates/account/donate.html:385
+#: allthethings/account/templates/account/donate.html:317
+#: allthethings/account/templates/account/donate.html:329
+#: allthethings/account/templates/account/donate.html:341
+#: allthethings/account/templates/account/donate.html:353
+#: allthethings/account/templates/account/donate.html:365
+#: allthethings/account/templates/account/donate.html:377
+#: allthethings/account/templates/account/donate.html:389
 #, fuzzy
 msgid "page.donate.payment.desc.amazon"
 msgstr "ບໍລິຈາກໂດຍໃຊ້ບັດຂອງຂວັນ Amazon."
-
-#: allthethings/account/templates/account/donate.html:314
-#: allthethings/account/templates/account/donate.html:326
-#: allthethings/account/templates/account/donate.html:338
-#: allthethings/account/templates/account/donate.html:350
-#: allthethings/account/templates/account/donate.html:362
-#: allthethings/account/templates/account/donate.html:374
-#: allthethings/account/templates/account/donate.html:386
-#, fuzzy
-msgid "page.donate.payment.desc.amazon_round"
-msgstr "ຫມາຍເຫດວ່າເຮົາຈຳເປັນຕ້ອງປັບຈຳນວນໃຫ້ເປັນຈຳນວນທີ່ຜູ້ຂາຍຂອງເຮົາຮັບ (ຂັ້ນຕ່ຳ %(minimum)s)."
 
 #: allthethings/account/templates/account/donate.html:318
 #: allthethings/account/templates/account/donate.html:330
@@ -631,366 +622,377 @@ msgstr "ຫມາຍເຫດວ່າເຮົາຈຳເປັນຕ້ອງ
 #: allthethings/account/templates/account/donate.html:366
 #: allthethings/account/templates/account/donate.html:378
 #: allthethings/account/templates/account/donate.html:390
-#: allthethings/account/templates/account/donation.html:373
+#, fuzzy
+msgid "page.donate.payment.desc.amazon_round"
+msgstr "ຫມາຍເຫດວ່າເຮົາຈຳເປັນຕ້ອງປັບຈຳນວນໃຫ້ເປັນຈຳນວນທີ່ຜູ້ຂາຍຂອງເຮົາຮັບ (ຂັ້ນຕ່ຳ %(minimum)s)."
+
+#: allthethings/account/templates/account/donate.html:322
+#: allthethings/account/templates/account/donate.html:334
+#: allthethings/account/templates/account/donate.html:346
+#: allthethings/account/templates/account/donate.html:358
+#: allthethings/account/templates/account/donate.html:370
+#: allthethings/account/templates/account/donate.html:382
+#: allthethings/account/templates/account/donate.html:394
+#: allthethings/account/templates/account/donation.html:405
 #, fuzzy
 msgid "page.donate.payment.desc.amazon_com"
 msgstr "<strong>ສຳຄັນ:</strong> ເຮົາສະໜັບສະໜູນ Amazon.com ເທົ່ານັ້ນ, ບໍ່ໃຊ່ເວັບໄຊອື່ນຂອງ Amazon. ຕົວຢ່າງ, .de, .co.uk, .ca, ບໍ່ໄດ້ຮັບການສະໜັບສະໜູນ."
 
-#: allthethings/account/templates/account/donate.html:319
-#: allthethings/account/templates/account/donate.html:331
-#: allthethings/account/templates/account/donate.html:343
-#: allthethings/account/templates/account/donate.html:355
-#: allthethings/account/templates/account/donate.html:367
-#: allthethings/account/templates/account/donate.html:379
-#: allthethings/account/templates/account/donate.html:391
+#: allthethings/account/templates/account/donate.html:323
+#: allthethings/account/templates/account/donate.html:335
+#: allthethings/account/templates/account/donate.html:347
+#: allthethings/account/templates/account/donate.html:359
+#: allthethings/account/templates/account/donate.html:371
+#: allthethings/account/templates/account/donate.html:383
+#: allthethings/account/templates/account/donate.html:395
 #, fuzzy
 msgid "page.donate.payment.desc.amazon_cc"
 msgstr "<strong>ສຳຄັນ:</strong> ຕົວເລືອກນີ້ເປັນສຳລັບ %(amazon)s. ຖ້າທ່ານຕ້ອງການໃຊ້ເວັບໄຊອື່ນຂອງ Amazon, ກະລຸນາເລືອກມັນຂ້າງເທິງ."
 
-#: allthethings/account/templates/account/donate.html:399
+#: allthethings/account/templates/account/donate.html:403
 #, fuzzy
 msgid "page.donate.payment.desc.credit_debit_backup"
 msgstr "ວິທີນີ້ໃຊ້ຜູ້ໃຫ້ບໍລິການສະກຸນເງິນດິຈິຕອນເປັນການແປງກາງ. ນີ້ອາດຈະສັບສົນໄດ້, ດັ່ງນັ້ນກະລຸນາໃຊ້ວິທີນີ້ເມື່ອວິທີການຈ່າຍເງິນອື່ນບໍ່ໄດ້ຜົນ. ມັນກໍບໍ່ໄດ້ໃຊ້ໄດ້ໃນທຸກປະເທດ."
 
-#: allthethings/account/templates/account/donate.html:405
+#: allthethings/account/templates/account/donate.html:409
 #, fuzzy
 msgid "page.donate.payment.desc.bank_card_app"
 msgstr "ບໍລິຈາກໂດຍໃຊ້ບັດເຄຣດິດ/ດີເບດ, ຜ່ານແອັບ Alipay (ຕິດຕັ້ງງ່າຍຫຼາຍ)."
 
-#: allthethings/account/templates/account/donate.html:409
-#: allthethings/account/templates/account/donation.html:519
+#: allthethings/account/templates/account/donate.html:413
+#: allthethings/account/templates/account/donation.html:563
 #, fuzzy
 msgid "page.donate.payment.desc.bank_card_app.step1.header"
 msgstr "<span %(style)s>1</span>ຕິດຕັ້ງແອັບ Alipay"
 
-#: allthethings/account/templates/account/donate.html:413
-#: allthethings/account/templates/account/donation.html:523
+#: allthethings/account/templates/account/donate.html:417
+#: allthethings/account/templates/account/donation.html:567
 #, fuzzy
 msgid "page.donate.payment.desc.bank_card_app.step1.desc1"
 msgstr "ຕິດຕັ້ງແອັບ Alipay ຈາກ <a %(a_app_store)s>Apple App Store</a> ຫຼື <a %(a_play_store)s>Google Play Store</a>."
 
-#: allthethings/account/templates/account/donate.html:417
-#: allthethings/account/templates/account/donation.html:527
+#: allthethings/account/templates/account/donate.html:421
+#: allthethings/account/templates/account/donation.html:571
 #, fuzzy
 msgid "page.donate.payment.desc.bank_card_app.step1.desc2"
 msgstr "ລົງທະບຽນໂດຍໃຊ້ເບີໂທລະສັບຂອງທ່ານ."
 
-#: allthethings/account/templates/account/donate.html:418
-#: allthethings/account/templates/account/donation.html:528
+#: allthethings/account/templates/account/donate.html:422
+#: allthethings/account/templates/account/donation.html:572
 #, fuzzy
 msgid "page.donate.payment.desc.bank_card_app.step1.desc3"
 msgstr "ບໍ່ຈຳເປັນຕ້ອງໃຫ້ລາຍລະອຽດສ່ວນຕົວອື່ນໆ."
 
-#: allthethings/account/templates/account/donate.html:422
-#: allthethings/account/templates/account/donation.html:532
+#: allthethings/account/templates/account/donate.html:426
+#: allthethings/account/templates/account/donation.html:576
 #, fuzzy
 msgid "page.donate.payment.desc.bank_card_app.step2.header"
 msgstr "<span %(style)s>2</span>ເພີ່ມບັດທະນາຄານ"
 
-#: allthethings/account/templates/account/donate.html:430
-#: allthethings/account/templates/account/donation.html:540
+#: allthethings/account/templates/account/donate.html:434
+#: allthethings/account/templates/account/donation.html:584
 #, fuzzy
 msgid "page.donate.payment.desc.bank_card_app.step2.desc1"
 msgstr "ສະຫນັບສະຫນູນ: Visa, MasterCard, JCB, Diners Club ແລະ Discover."
 
-#: allthethings/account/templates/account/donate.html:431
-#: allthethings/account/templates/account/donation.html:541
+#: allthethings/account/templates/account/donate.html:435
+#: allthethings/account/templates/account/donation.html:585
 #, fuzzy
 msgid "page.donate.payment.desc.bank_card_app.step2.desc2"
 msgstr "ຊົມ <a %(a_alipay)s>ຄູ່ມືນີ້</a> ສຳລັບຂໍ້ມູນເພີ່ມເຕີມ."
 
-#: allthethings/account/templates/account/donate.html:437
+#: allthethings/account/templates/account/donate.html:441
 #, fuzzy
 msgid "page.donate.payment.desc.credit_debit_explained"
 msgstr "ພວກເຮົາບໍ່ສາມາດສະໜັບສະໜູນບັດເຄຣດິດ/ບັດເດບິດໂດຍກົງໄດ້, ເນື່ອງຈາກທະນາຄານບໍ່ຕ້ອງການເຮັດວຽກກັບພວກເຮົາ. ☹ ແຕ່ມີວິທີການຫຼາຍຢ່າງໃນການໃຊ້ບັດເຄຣດິດ/ບັດເດບິດໂດຍໃຊ້ວິທີການຈ່າຍເງິນອື່ນໆ:"
 
-#: allthethings/account/templates/account/donate.html:441
+#: allthethings/account/templates/account/donate.html:445
 #, fuzzy
 msgid "page.donate.payment.buttons.amazon"
 msgstr "ບັດຂອງຂວັນ Amazon"
 
-#: allthethings/account/templates/account/donate.html:442
+#: allthethings/account/templates/account/donate.html:446
 #, fuzzy
 msgid "page.donate.ccexp.amazon_com"
 msgstr "ສົ່ງບັດຂອງຂວັນ Amazon.com ໃຫ້ເຮົາໂດຍໃຊ້ບັດເຄຣດິດ/ເດບິດຂອງທ່ານ."
 
-#: allthethings/account/templates/account/donate.html:445
+#: allthethings/account/templates/account/donate.html:449
 #, fuzzy
 msgid "page.donate.ccexp.alipay"
 msgstr "Alipay ສະໜັບສະໜູນບັດເຄຣດິດ/ບັດເດບິດສາກົນ. ເບິ່ງ <a %(a_alipay)s>ຄູ່ມືນີ້</a> ເພື່ອຂໍ້ມູນເພີ່ມເຕີມ."
 
-#: allthethings/account/templates/account/donate.html:448
+#: allthethings/account/templates/account/donate.html:452
 #, fuzzy
 msgid "page.donate.ccexp.wechat"
 msgstr "WeChat (Weixin Pay) ສະໜັບສະໜູນບັດເຄຣດິດ/ເດບິດສາກົນ. ໃນແອັບ WeChat, ໄປທີ່ “Me => Services => Wallet => Add a Card”. ຖ້າທ່ານບໍ່ເຫັນມັນ, ເປີດໃຊ້ມັນໂດຍໃຊ້ “Me => Settings => General => Tools => Weixin Pay => Enable”."
 
-#: allthethings/account/templates/account/donate.html:451
+#: allthethings/account/templates/account/donate.html:455
 #, fuzzy
 msgid "page.donate.ccexp.crypto"
 msgstr "ທ່ານສາມາດຊື້ສະກຸນເງິນດິຈິຕອນໂດຍໃຊ້ບັດເຄຣດິດ/ເດບິດ."
 
-#: allthethings/account/templates/account/donate.html:461
+#: allthethings/account/templates/account/donate.html:465
 #, fuzzy
 msgid "page.donate.payment.desc.crypto_express_services"
 msgstr "ບໍລິການດ່ວນຂອງຄຣິບໂຕ"
 
-#: allthethings/account/templates/account/donate.html:463
+#: allthethings/account/templates/account/donate.html:467
 #, fuzzy
 msgid "page.donation.ccexp.crypto_express_services.1"
 msgstr "ບໍລິການດ່ວນແມ່ນສະດວກ, ແຕ່ມີຄ່າທຳນຽມສູງກວ່າ."
 
-#: allthethings/account/templates/account/donate.html:464
+#: allthethings/account/templates/account/donate.html:468
 #, fuzzy
 msgid "page.donation.ccexp.crypto_express_services.2"
 msgstr "ທ່ານສາມາດໃຊ້ອັນນີ້ແທນການແລກປ່ຽນຄຣິບໂຕຖ້າທ່ານຕ້ອງການບໍລິຈາກຈຳນວນຫຼາຍໃນເວລາທີ່ຮວດໄວ ແລະບໍ່ຄິດຄ່າທຳນຽມ $5-10."
 
-#: allthethings/account/templates/account/donate.html:467
+#: allthethings/account/templates/account/donate.html:471
 #, fuzzy
 msgid "page.donation.ccexp.crypto_express_services.3"
 msgstr "ຂໍໃຫ້ສົ່ງຈຳນວນຄຣິບໂຕທີ່ລະບຸໃນໜ້າບໍລິຈາກ, ບໍ່ໃຊ່ຈຳນວນໃນ $USD."
 
-#: allthethings/account/templates/account/donate.html:468
+#: allthethings/account/templates/account/donate.html:472
 #, fuzzy
 msgid "page.donation.ccexp.crypto_express_services.4"
 msgstr "ມິດຊະນັ້ນຄ່າທຳນຽມຈະຖືກຫັກ ແລະພວກເຮົາບໍ່ສາມາດດຳເນີນການສະມາຊິກຂອງທ່ານໂດຍອັດຕະໂນມັດໄດ້."
 
-#: allthethings/account/templates/account/donate.html:471
-#: allthethings/account/templates/account/donation.html:304
+#: allthethings/account/templates/account/donate.html:475
+#: allthethings/account/templates/account/donation.html:328
 #, fuzzy
 msgid "page.donation.payment2cc.method.paybis"
 msgstr "(ຂັ້ນຕ່ຳ: %(minimum)s)"
 
-#: allthethings/account/templates/account/donate.html:472
-#: allthethings/account/templates/account/donation.html:305
+#: allthethings/account/templates/account/donate.html:476
+#: allthethings/account/templates/account/donation.html:329
 #, fuzzy
 msgid "page.donation.payment2cc.method.switchere"
 msgstr "(ຂັ້ນຕ່ຳ: %(minimum)s ຂຶ້ນກັບປະເທດ, ບໍ່ຕ້ອງຢືນຢັນສຳລັບທຸລະກຳຄັ້ງທຳອິດ)"
 
-#: allthethings/account/templates/account/donate.html:473
-#: allthethings/account/templates/account/donation.html:306
+#: allthethings/account/templates/account/donate.html:477
+#: allthethings/account/templates/account/donation.html:330
 #, fuzzy
 msgid "page.donation.payment2cc.method.munzen"
 msgstr "(ຂັ້ນຕ່ຳ: %(minimum)s, ບໍ່ຕ້ອງຢືນຢັນສຳລັບທຸລະກຳຄັ້ງທຳອິດ)"
 
-#: allthethings/account/templates/account/donate.html:474
-#: allthethings/account/templates/account/donation.html:307
+#: allthethings/account/templates/account/donate.html:478
+#: allthethings/account/templates/account/donation.html:331
 #, fuzzy
 msgid "page.donation.payment2cc.method.mercuryo"
 msgstr "(ຂັ້ນຕ່ຳ: %(minimum)s)"
 
-#: allthethings/account/templates/account/donate.html:475
-#: allthethings/account/templates/account/donation.html:308
+#: allthethings/account/templates/account/donate.html:479
+#: allthethings/account/templates/account/donation.html:332
 #, fuzzy
 msgid "page.donation.payment2cc.method.moonpay"
 msgstr "(ຂັ້ນຕ່ຳ: %(minimum)s)"
 
-#: allthethings/account/templates/account/donate.html:476
-#: allthethings/account/templates/account/donation.html:309
+#: allthethings/account/templates/account/donate.html:480
+#: allthethings/account/templates/account/donation.html:333
 #, fuzzy
 msgid "page.donation.payment2cc.method.coingate"
 msgstr "(ຂັ້ນຕ່ຳ: %(minimum)s)"
 
-#: allthethings/account/templates/account/donate.html:478
-#: allthethings/account/templates/account/donation.html:311
+#: allthethings/account/templates/account/donate.html:482
+#: allthethings/account/templates/account/donation.html:335
 #, fuzzy
 msgid "page.donation.payment2cc.cc2btc.outdated"
 msgstr "ຖ້າຂໍ້ມູນໃດໆນີ້ບໍ່ທັນສະໄໝ, ກະລຸນາສົ່ງອີເມວຫາພວກເຮົາເພື່ອແຈ້ງໃຫ້ຮູ້."
 
-#: allthethings/account/templates/account/donate.html:485
+#: allthethings/account/templates/account/donate.html:489
 #, fuzzy
 msgid "page.donate.payment.desc.bmc"
 msgstr "ສຳລັບບັດເຄຣດິດ, ບັດເດບິດ, Apple Pay, ແລະ Google Pay, ເຮົາໃຊ້ “Buy Me a Coffee” (BMC <span class=\"icon-[ph--coffee-fill] text-lg align-text-bottom\"></span>). ໃນລະບົບຂອງພວກເຂົາ, ເຄື່ອງດື່ມ “coffee” ໜຶ່ງຄືກັບ $5, ດັ່ງນັ້ນການບໍລິຈາກຂອງທ່ານຈະຖືກປັບໃຫ້ເປັນຈຳນວນທີ່ໃກ້ຄຽງກັບຫຼາຍຂອງ 5."
 
-#: allthethings/account/templates/account/donate.html:492
+#: allthethings/account/templates/account/donate.html:496
 #, fuzzy
 msgid "page.donate.duration.intro"
 msgstr "ເລືອກວ່າທ່ານຕ້ອງການສະໝັກສະມາຊິກດົນເທົ່າໃດ."
 
-#: allthethings/account/templates/account/donate.html:509
+#: allthethings/account/templates/account/donate.html:513
 #, fuzzy
 msgid "page.donate.duration.1_mo"
 msgstr "1 ເດືອນ"
 
-#: allthethings/account/templates/account/donate.html:510
+#: allthethings/account/templates/account/donate.html:514
 #, fuzzy
 msgid "page.donate.duration.3_mo"
 msgstr "3 ເດືອນ"
 
-#: allthethings/account/templates/account/donate.html:511
+#: allthethings/account/templates/account/donate.html:515
 #, fuzzy
 msgid "page.donate.duration.6_mo"
 msgstr "6 ເດືອນ"
 
-#: allthethings/account/templates/account/donate.html:512
+#: allthethings/account/templates/account/donate.html:516
 #, fuzzy
 msgid "page.donate.duration.12_mo"
 msgstr "12 ເດືອນ"
 
-#: allthethings/account/templates/account/donate.html:513
+#: allthethings/account/templates/account/donate.html:517
 #, fuzzy
 msgid "page.donate.duration.24_mo"
 msgstr "24 ເດືອນ"
 
-#: allthethings/account/templates/account/donate.html:514
+#: allthethings/account/templates/account/donate.html:518
 #, fuzzy
 msgid "page.donate.duration.48_mo"
 msgstr "48 ເດືອນ"
 
-#: allthethings/account/templates/account/donate.html:515
+#: allthethings/account/templates/account/donate.html:519
 #, fuzzy
 msgid "page.donate.duration.96_mo"
 msgstr "96 ເດືອນ"
 
-#: allthethings/account/templates/account/donate.html:518
+#: allthethings/account/templates/account/donate.html:522
 #, fuzzy
 msgid "page.donate.duration.summary"
 msgstr "<div %(div_monthly_cost)s></div><div %(div_after)s>ຫຼັງຈາກ <span %(span_discount)s></span> ສ່ວນຫຼຸດ</div><div %(div_total)s></div><div %(div_duration)s></div>"
 
-#: allthethings/account/templates/account/donate.html:525
+#: allthethings/account/templates/account/donate.html:529
 #, fuzzy
 msgid "page.donate.payment.minimum_method"
 msgstr "ວິທີການຈ່າຍເງິນນີ້ຕ້ອງການຂັ້ນຕ່ຳຂອງ %(amount)s. ກະລຸນາເລືອກໄລຍະເວລາຫຼືວິທີການຈ່າຍເງິນທີ່ແຕກຕ່າງ."
 
-#: allthethings/account/templates/account/donate.html:526
 #: allthethings/account/templates/account/donate.html:530
+#: allthethings/account/templates/account/donate.html:534
 #, fuzzy
 msgid "page.donate.buttons.donate"
 msgstr "ບໍລິຈາກ"
 
-#: allthethings/account/templates/account/donate.html:529
+#: allthethings/account/templates/account/donate.html:533
 #, fuzzy
 msgid "page.donate.payment.maximum_method"
 msgstr "ວິທີການຈ່າຍເງິນນີ້ອະນຸຍາດເພີ່ມສູງສຸດຂອງ %(amount)s. ກະລຸນາເລືອກໄລຍະເວລາຫຼືວິທີການຈ່າຍເງິນທີ່ແຕກຕ່າງ."
 
-#: allthethings/account/templates/account/donate.html:536
+#: allthethings/account/templates/account/donate.html:540
 #, fuzzy
 msgid "page.donate.login2"
 msgstr "ເພື່ອກາຍເປັນສະມາຊິກ, ກະລຸນາ <a %(a_login)s>ເຂົ້າລະບົບຫຼືລົງທະບຽນ</a>. ຂອບໃຈສຳລັບການສະໜັບສະໜູນ!"
 
-#: allthethings/account/templates/account/donate.html:543
+#: allthethings/account/templates/account/donate.html:547
 #, fuzzy
 msgid "page.donate.payment.crypto_select"
 msgstr "ເລືອກເຫຼີຍທີ່ທ່ານຕ້ອງການ:"
 
-#: allthethings/account/templates/account/donate.html:548
+#: allthethings/account/templates/account/donate.html:552
 #, fuzzy
 msgid "page.donate.currency_lowest_minimum"
 msgstr "(ຈຳນວນຂັ້ນຕ່ຳຕ່ຳທີ່ສຸດ)"
 
-#: allthethings/account/templates/account/donate.html:551
+#: allthethings/account/templates/account/donate.html:555
 #, fuzzy
 msgid "page.donate.coinbase_eth"
 msgstr "(ໃຊ້ເມື່ອສົ່ງ Ethereum ຈາກ Coinbase)"
 
-#: allthethings/account/templates/account/donate.html:563
-#: allthethings/account/templates/account/donate.html:564
+#: allthethings/account/templates/account/donate.html:567
 #: allthethings/account/templates/account/donate.html:568
-#: allthethings/account/templates/account/donate.html:570
+#: allthethings/account/templates/account/donate.html:572
+#: allthethings/account/templates/account/donate.html:574
 #, fuzzy
 msgid "page.donate.currency_warning_high_minimum"
 msgstr "(ເຕືອນ: ຈຳນວນຂັ້ນຕ່ຳສູງ)"
 
-#: allthethings/account/templates/account/donate.html:579
+#: allthethings/account/templates/account/donate.html:583
 #, fuzzy
 msgid "page.donate.submit.confirm"
 msgstr "ຄລິກປຸ່ມບໍລິຈາກເພື່ອຢືນຢັນການບໍລິຈາກນີ້."
 
-#: allthethings/account/templates/account/donate.html:587
+#: allthethings/account/templates/account/donate.html:591
 #, fuzzy
 msgid "page.donate.submit.button"
 msgstr "ບໍລິຈາກ <span %(span_cost)s></span> <span %(span_label)s></span>"
 
-#: allthethings/account/templates/account/donate.html:592
+#: allthethings/account/templates/account/donate.html:596
 #, fuzzy
 msgid "page.donate.submit.cancel_note"
 msgstr "ທ່ານຍັງສາມາດຍົກເລີກການບໍລິຈາກໄດ້ໃນລະຫວ່າງການຊຳລະເງິນ."
 
-#: allthethings/account/templates/account/donate.html:596
+#: allthethings/account/templates/account/donate.html:600
 #, fuzzy
 msgid "page.donate.submit.success"
 msgstr "✅ ກຳລັງປ່ຽນເສັ້ນທາງໄປຫາໜ້າບໍລິຈາກ…"
 
-#: allthethings/account/templates/account/donate.html:597
+#: allthethings/account/templates/account/donate.html:601
 #, fuzzy
 msgid "page.donate.submit.failure"
 msgstr "❌ ມີບາງຢ່າງຜິດພາດ. ກະລຸນາໂຫຼດໜ້ານີ້ໃໝ່ແລະລອງອີກຄັ້ງ."
 
-#: allthethings/account/templates/account/donate.html:651
+#: allthethings/account/templates/account/donate.html:655
 #, fuzzy
 msgid "page.donate.duration.summary.discount"
 msgstr "%(percentage)s%%"
 
-#: allthethings/account/templates/account/donate.html:652
+#: allthethings/account/templates/account/donate.html:656
 #, fuzzy
 msgid "page.donate.duration.summary.monthly_cost"
 msgstr "%(monthly_cost)s / ເດືອນ"
 
-#: allthethings/account/templates/account/donate.html:655
+#: allthethings/account/templates/account/donate.html:659
 #, fuzzy
 msgid "page.donate.duration.summary.duration.1_mo"
 msgstr "ສຳລັບ 1 ເດືອນ"
 
-#: allthethings/account/templates/account/donate.html:656
+#: allthethings/account/templates/account/donate.html:660
 #, fuzzy
 msgid "page.donate.duration.summary.duration.3_mo"
 msgstr "ສຳລັບ 3 ເດືອນ"
 
-#: allthethings/account/templates/account/donate.html:657
+#: allthethings/account/templates/account/donate.html:661
 #, fuzzy
 msgid "page.donate.duration.summary.duration.6_mo"
 msgstr "ສຳລັບ 6 ເດືອນ"
 
-#: allthethings/account/templates/account/donate.html:658
+#: allthethings/account/templates/account/donate.html:662
 #, fuzzy
 msgid "page.donate.duration.summary.duration.12_mo"
 msgstr "ສຳລັບ 12 ເດືອນ"
 
-#: allthethings/account/templates/account/donate.html:659
+#: allthethings/account/templates/account/donate.html:663
 #, fuzzy
 msgid "page.donate.duration.summary.duration.24_mo"
 msgstr "ສຳລັບ 24 ເດືອນ"
 
-#: allthethings/account/templates/account/donate.html:660
+#: allthethings/account/templates/account/donate.html:664
 #, fuzzy
 msgid "page.donate.duration.summary.duration.48_mo"
 msgstr "ສຳລັບ 48 ເດືອນ"
 
-#: allthethings/account/templates/account/donate.html:661
+#: allthethings/account/templates/account/donate.html:665
 #, fuzzy
 msgid "page.donate.duration.summary.duration.96_mo"
 msgstr "ສຳລັບ 96 ເດືອນ"
 
-#: allthethings/account/templates/account/donate.html:665
+#: allthethings/account/templates/account/donate.html:669
 #, fuzzy
 msgid "page.donate.submit.button.label.1_mo"
 msgstr "ສຳລັບ 1 ເດືອນ “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:666
+#: allthethings/account/templates/account/donate.html:670
 #, fuzzy
 msgid "page.donate.submit.button.label.3_mo"
 msgstr "ສຳລັບ 3 ເດືອນ “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:667
+#: allthethings/account/templates/account/donate.html:671
 #, fuzzy
 msgid "page.donate.submit.button.label.6_mo"
 msgstr "ສຳລັບ 6 ເດືອນ “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:668
+#: allthethings/account/templates/account/donate.html:672
 #, fuzzy
 msgid "page.donate.submit.button.label.12_mo"
 msgstr "ສຳລັບ 12 ເດືອນ “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:669
+#: allthethings/account/templates/account/donate.html:673
 #, fuzzy
 msgid "page.donate.submit.button.label.24_mo"
 msgstr "ສຳລັບ 24 ເດືອນ “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:670
+#: allthethings/account/templates/account/donate.html:674
 #, fuzzy
 msgid "page.donate.submit.button.label.48_mo"
 msgstr "ສຳລັບ 48 ເດືອນ “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:671
+#: allthethings/account/templates/account/donate.html:675
 #, fuzzy
 msgid "page.donate.submit.button.label.96_mo"
 msgstr "ສຳລັບ 96 ເດືອນ “%(tier_name)s”"
@@ -1068,6 +1070,14 @@ msgstr "ທ່ານໄດ້ຈ່າຍແລ້ວ. ຖ້າທ່ານຕ�
 
 #: allthethings/account/templates/account/donation.html:52
 #: allthethings/account/templates/account/donation.html:68
+#: allthethings/account/templates/account/donation.html:170
+#: allthethings/account/templates/account/donation.html:216
+#: allthethings/account/templates/account/donation.html:265
+#: allthethings/account/templates/account/donation.html:318
+#: allthethings/account/templates/account/donation.html:367
+#: allthethings/account/templates/account/donation.html:509
+#: allthethings/account/templates/account/donation.html:554
+#: allthethings/account/templates/account/donation.html:636
 #, fuzzy
 msgid "page.donation.old_instructions.show_button"
 msgstr "ສະແດງຄຳແນະນຳການຈ່າຍເງິນເກົ່າ"
@@ -1101,18 +1111,18 @@ msgstr "<strong>ໝາຍເຫດສຳຄັນ:</strong> ລາຄາຄຣ�
 #: allthethings/account/templates/account/donation.html:95
 #: allthethings/account/templates/account/donation.html:116
 #: allthethings/account/templates/account/donation.html:167
-#: allthethings/account/templates/account/donation.html:207
-#: allthethings/account/templates/account/donation.html:250
-#: allthethings/account/templates/account/donation.html:297
-#: allthethings/account/templates/account/donation.html:340
-#: allthethings/account/templates/account/donation.html:407
-#: allthethings/account/templates/account/donation.html:423
-#: allthethings/account/templates/account/donation.html:441
-#: allthethings/account/templates/account/donation.html:457
-#: allthethings/account/templates/account/donation.html:474
-#: allthethings/account/templates/account/donation.html:513
-#: allthethings/account/templates/account/donation.html:589
-#: allthethings/account/templates/account/donation.html:619
+#: allthethings/account/templates/account/donation.html:213
+#: allthethings/account/templates/account/donation.html:262
+#: allthethings/account/templates/account/donation.html:315
+#: allthethings/account/templates/account/donation.html:364
+#: allthethings/account/templates/account/donation.html:439
+#: allthethings/account/templates/account/donation.html:455
+#: allthethings/account/templates/account/donation.html:473
+#: allthethings/account/templates/account/donation.html:489
+#: allthethings/account/templates/account/donation.html:506
+#: allthethings/account/templates/account/donation.html:551
+#: allthethings/account/templates/account/donation.html:633
+#: allthethings/account/templates/account/donation.html:669
 #, fuzzy
 msgid "page.donation.expired"
 msgstr "ການບໍລິຈາກນີ້ໄດ້ໝົດອາຍຸແລ້ວ. ກະລຸນາຍົກເລີກແລະສ້າງໃໝ່."
@@ -1138,7 +1148,7 @@ msgid "page.donate.submit.header1"
 msgstr "<span %(span_circle)s>1</span>ຊື້ Bitcoin ຜ່ານ Paypal"
 
 #: allthethings/account/templates/account/donation.html:122
-#: allthethings/account/templates/account/donation.html:173
+#: allthethings/account/templates/account/donation.html:179
 #, fuzzy
 msgid "page.donate.one_time_payment.paypal.text2"
 msgstr "ຊອກຫາໜ້າ “Crypto” ໃນແອັບ PayPal ຫຼືເວັບໄຊທ໌ຂອງທ່ານ. ປົກກະຕິຢູ່ໃຕ້ “Finances”."
@@ -1164,7 +1174,7 @@ msgid "page.donation.payment.paypal.text5"
 msgstr "ໃສ່ຢູ່ Bitcoin (BTC) ຂອງພວກເຮົາເປັນຜູ້ຮັບ, ແລະປະຕິບັດຕາມຄຳແນະນຳເພື່ອສົ່ງການບໍລິຈາກຂອງທ່ານ %(total)s:"
 
 #: allthethings/account/templates/account/donation.html:140
-#: allthethings/account/templates/account/donation.html:293
+#: allthethings/account/templates/account/donation.html:311
 #, fuzzy
 msgid "page.donation.credit_debit_card_instructions"
 msgstr "ຄຳແນະນຳບັດເຄຣດິດ / ດີເບດ"
@@ -1185,484 +1195,484 @@ msgid "page.donation.stepbystep_below"
 msgstr "ເບິ່ງຄູ່ມືຂັ້ນຕອນດ້ານລຸ່ມນີ້."
 
 #: allthethings/account/templates/account/donation.html:149
-#: allthethings/account/templates/account/donation.html:192
-#: allthethings/account/templates/account/donation.html:235
-#: allthethings/account/templates/account/donation.html:280
-#: allthethings/account/templates/account/donation.html:323
-#: allthethings/account/templates/account/donation.html:352
-#: allthethings/account/templates/account/donation.html:388
-#: allthethings/account/templates/account/donation.html:498
-#: allthethings/account/templates/account/donation.html:574
-#: allthethings/account/templates/account/donation.html:605
+#: allthethings/account/templates/account/donation.html:198
+#: allthethings/account/templates/account/donation.html:247
+#: allthethings/account/templates/account/donation.html:298
+#: allthethings/account/templates/account/donation.html:347
+#: allthethings/account/templates/account/donation.html:384
+#: allthethings/account/templates/account/donation.html:420
+#: allthethings/account/templates/account/donation.html:536
+#: allthethings/account/templates/account/donation.html:618
+#: allthethings/account/templates/account/donation.html:655
 #, fuzzy
 msgid "page.donation.status_header"
 msgstr "ສະຖານະ:"
 
 #: allthethings/account/templates/account/donation.html:149
-#: allthethings/account/templates/account/donation.html:192
-#: allthethings/account/templates/account/donation.html:235
-#: allthethings/account/templates/account/donation.html:280
-#: allthethings/account/templates/account/donation.html:323
-#: allthethings/account/templates/account/donation.html:352
-#: allthethings/account/templates/account/donation.html:498
-#: allthethings/account/templates/account/donation.html:574
-#: allthethings/account/templates/account/donation.html:605
+#: allthethings/account/templates/account/donation.html:198
+#: allthethings/account/templates/account/donation.html:247
+#: allthethings/account/templates/account/donation.html:298
+#: allthethings/account/templates/account/donation.html:347
+#: allthethings/account/templates/account/donation.html:384
+#: allthethings/account/templates/account/donation.html:536
+#: allthethings/account/templates/account/donation.html:618
+#: allthethings/account/templates/account/donation.html:655
 #, fuzzy
 msgid "page.donation.waiting_for_confirmation_refresh"
 msgstr "ລໍຖ້າການຢືນຢັນ (ຟື້ນຟູໜ້າເພື່ອກວດສອບ)…"
 
 #: allthethings/account/templates/account/donation.html:149
-#: allthethings/account/templates/account/donation.html:192
-#: allthethings/account/templates/account/donation.html:235
-#: allthethings/account/templates/account/donation.html:280
-#: allthethings/account/templates/account/donation.html:323
-#: allthethings/account/templates/account/donation.html:352
-#: allthethings/account/templates/account/donation.html:498
-#: allthethings/account/templates/account/donation.html:574
-#: allthethings/account/templates/account/donation.html:605
+#: allthethings/account/templates/account/donation.html:198
+#: allthethings/account/templates/account/donation.html:247
+#: allthethings/account/templates/account/donation.html:298
+#: allthethings/account/templates/account/donation.html:347
+#: allthethings/account/templates/account/donation.html:384
+#: allthethings/account/templates/account/donation.html:536
+#: allthethings/account/templates/account/donation.html:618
+#: allthethings/account/templates/account/donation.html:655
 #, fuzzy
 msgid "page.donation.waiting_for_transfer_refresh"
 msgstr "ລໍຖ້າການໂອນ (ຟື້ນຟູໜ້າເພື່ອກວດສອບ)…"
 
 #: allthethings/account/templates/account/donation.html:150
-#: allthethings/account/templates/account/donation.html:193
-#: allthethings/account/templates/account/donation.html:236
-#: allthethings/account/templates/account/donation.html:281
-#: allthethings/account/templates/account/donation.html:324
-#: allthethings/account/templates/account/donation.html:353
-#: allthethings/account/templates/account/donation.html:499
-#: allthethings/account/templates/account/donation.html:575
-#: allthethings/account/templates/account/donation.html:606
+#: allthethings/account/templates/account/donation.html:199
+#: allthethings/account/templates/account/donation.html:248
+#: allthethings/account/templates/account/donation.html:299
+#: allthethings/account/templates/account/donation.html:348
+#: allthethings/account/templates/account/donation.html:385
+#: allthethings/account/templates/account/donation.html:537
+#: allthethings/account/templates/account/donation.html:619
+#: allthethings/account/templates/account/donation.html:656
 #, fuzzy
 msgid "page.donation.time_left_header"
 msgstr "ເວລາທີ່ເຫຼືອ:"
 
 #: allthethings/account/templates/account/donation.html:150
-#: allthethings/account/templates/account/donation.html:193
-#: allthethings/account/templates/account/donation.html:236
-#: allthethings/account/templates/account/donation.html:281
-#: allthethings/account/templates/account/donation.html:324
-#: allthethings/account/templates/account/donation.html:353
-#: allthethings/account/templates/account/donation.html:499
-#: allthethings/account/templates/account/donation.html:575
-#: allthethings/account/templates/account/donation.html:606
+#: allthethings/account/templates/account/donation.html:199
+#: allthethings/account/templates/account/donation.html:248
+#: allthethings/account/templates/account/donation.html:299
+#: allthethings/account/templates/account/donation.html:348
+#: allthethings/account/templates/account/donation.html:385
+#: allthethings/account/templates/account/donation.html:537
+#: allthethings/account/templates/account/donation.html:619
+#: allthethings/account/templates/account/donation.html:656
 #, fuzzy
 msgid "page.donation.might_want_to_cancel"
 msgstr "(ທ່ານອາດຕ້ອງການຍົກເລີກແລະສ້າງການບໍລິຈາກໃໝ່)"
 
 #: allthethings/account/templates/account/donation.html:154
-#: allthethings/account/templates/account/donation.html:197
-#: allthethings/account/templates/account/donation.html:240
-#: allthethings/account/templates/account/donation.html:285
-#: allthethings/account/templates/account/donation.html:328
-#: allthethings/account/templates/account/donation.html:357
-#: allthethings/account/templates/account/donation.html:503
-#: allthethings/account/templates/account/donation.html:579
-#: allthethings/account/templates/account/donation.html:610
+#: allthethings/account/templates/account/donation.html:203
+#: allthethings/account/templates/account/donation.html:252
+#: allthethings/account/templates/account/donation.html:303
+#: allthethings/account/templates/account/donation.html:352
+#: allthethings/account/templates/account/donation.html:389
+#: allthethings/account/templates/account/donation.html:541
+#: allthethings/account/templates/account/donation.html:623
+#: allthethings/account/templates/account/donation.html:660
 #, fuzzy
 msgid "page.donation.reset_timer"
 msgstr "ເພື່ອຕັ້ງເວລາໃໝ່, ສ້າງການບໍລິຈາກໃໝ່ງ່າຍໆ."
 
 #: allthethings/account/templates/account/donation.html:158
-#: allthethings/account/templates/account/donation.html:201
-#: allthethings/account/templates/account/donation.html:244
-#: allthethings/account/templates/account/donation.html:289
-#: allthethings/account/templates/account/donation.html:332
-#: allthethings/account/templates/account/donation.html:361
-#: allthethings/account/templates/account/donation.html:392
-#: allthethings/account/templates/account/donation.html:507
-#: allthethings/account/templates/account/donation.html:583
-#: allthethings/account/templates/account/donation.html:614
+#: allthethings/account/templates/account/donation.html:207
+#: allthethings/account/templates/account/donation.html:256
+#: allthethings/account/templates/account/donation.html:307
+#: allthethings/account/templates/account/donation.html:356
+#: allthethings/account/templates/account/donation.html:393
+#: allthethings/account/templates/account/donation.html:424
+#: allthethings/account/templates/account/donation.html:545
+#: allthethings/account/templates/account/donation.html:627
+#: allthethings/account/templates/account/donation.html:664
 #, fuzzy
 msgid "page.donation.refresh_status"
 msgstr "ອັບເດດສະຖານະ"
 
 #: allthethings/account/templates/account/donation.html:162
-#: allthethings/account/templates/account/donation.html:714
+#: allthethings/account/templates/account/donation.html:764
 #, fuzzy
 msgid "page.donation.footer.issues_contact"
 msgstr "ຖ້າທ່ານພົບບັນຫາໃດໆ, ກະລຸນາຕິດຕໍ່ພວກເຮົາທີ່ %(email)s ແລະລວມຂໍ້ມູນໃຫ້ຫຼາຍທີ່ສຸດ (ເຊັ່ນຮູບພາບຫນ້າຈໍ)."
 
-#: allthethings/account/templates/account/donation.html:170
-#: allthethings/account/templates/account/donation.html:210
-#: allthethings/account/templates/account/donation.html:253
+#: allthethings/account/templates/account/donation.html:176
+#: allthethings/account/templates/account/donation.html:222
+#: allthethings/account/templates/account/donation.html:271
 #, fuzzy
 msgid "page.donation.step1"
 msgstr "1"
 
-#: allthethings/account/templates/account/donation.html:170
+#: allthethings/account/templates/account/donation.html:176
 #, fuzzy
 msgid "page.donation.buy_pyusd"
 msgstr "ຊື້ເຫຼີຍ PYUSD ຜ່ານ PayPal"
 
-#: allthethings/account/templates/account/donation.html:177
+#: allthethings/account/templates/account/donation.html:183
 #, fuzzy
 msgid "page.donation.pyusd.instructions"
 msgstr "ປະຕິບັດຕາມຄຳແນະນຳເພື່ອຊື້ເຫຼີຍ PYUSD (PayPal USD)."
 
-#: allthethings/account/templates/account/donation.html:178
+#: allthethings/account/templates/account/donation.html:184
 #, fuzzy
 msgid "page.donation.pyusd.more"
 msgstr "ຊື້ເພີ່ມອີກໜ້ອຍ (ພວກເຮົາແນະນຳ %(more)s ເພີ່ມເຕີມ) ຈາກຈຳນວນທີ່ທ່ານກຳລັງບໍລິຈາກ (%(amount)s) ເພື່ອຄຸ້ມຄອງຄ່າທຳນຽມການເຮັດທຸລະກຳ. ທ່ານຈະເກັບເງິນທີ່ເຫຼືອໄວ້ໃຊ້ເອງ."
 
-#: allthethings/account/templates/account/donation.html:181
-#: allthethings/account/templates/account/donation.html:220
-#: allthethings/account/templates/account/donation.html:263
+#: allthethings/account/templates/account/donation.html:187
+#: allthethings/account/templates/account/donation.html:232
+#: allthethings/account/templates/account/donation.html:281
 #, fuzzy
 msgid "page.donation.step2"
 msgstr "2"
 
-#: allthethings/account/templates/account/donation.html:184
+#: allthethings/account/templates/account/donation.html:190
 #, fuzzy
 msgid "page.donation.pyusd.transfer"
 msgstr "ໄປທີ່ໜ້າ “PYUSD” ໃນແອັບ PayPal ຫຼືເວັບໄຊທ໌. ກົດປຸ່ມ “Transfer” %(icon)s, ແລະຕໍ່ມາ “Send”."
 
-#: allthethings/account/templates/account/donation.html:188
-#: allthethings/account/templates/account/donation.html:227
-#: allthethings/account/templates/account/donation.html:272
-#: allthethings/account/templates/account/donation.html:344
+#: allthethings/account/templates/account/donation.html:194
+#: allthethings/account/templates/account/donation.html:239
+#: allthethings/account/templates/account/donation.html:290
+#: allthethings/account/templates/account/donation.html:374
 #, fuzzy
 msgid "page.donation.transfer_amount_to"
 msgstr "ໂອນ %(amount)s ໃຫ້ %(account)s"
 
-#: allthethings/account/templates/account/donation.html:210
+#: allthethings/account/templates/account/donation.html:222
 #, fuzzy
 msgid "page.donation.cash_app_btc.step1"
 msgstr "ຊື້ Bitcoin (BTC) ຜ່ານ Cash App"
 
-#: allthethings/account/templates/account/donation.html:213
+#: allthethings/account/templates/account/donation.html:225
 #, fuzzy
 msgid "page.donation.cash_app_btc.step1.text1"
 msgstr "ໄປທີ່ໜ້າ “Bitcoin” (BTC) ໃນ Cash App."
 
-#: allthethings/account/templates/account/donation.html:217
+#: allthethings/account/templates/account/donation.html:229
 #, fuzzy
 msgid "page.donation.cash_app_btc.step1.more"
 msgstr "ຊື້ເພີ່ມອີກໜ້ອຍ (ພວກເຮົາແນະນຳ %(more)s ເພີ່ມ) ກ່ຽວກັບຈຳນວນທີ່ທ່ານກຳລັງບໍລິຈາກ (%(amount)s), ເພື່ອຄຸ້ມຄອງຄ່າທຳນຽມການເຮັດທຸລະກຳ. ທ່ານຈະເກັບເງິນທີ່ເຫຼືອໄວ້ໄດ້."
 
-#: allthethings/account/templates/account/donation.html:220
+#: allthethings/account/templates/account/donation.html:232
 #, fuzzy
 msgid "page.donation.cash_app_btc.step2"
 msgstr "ໂອນ Bitcoin ໄປທີ່ທີ່ຢູ່ຂອງພວກເຮົາ"
 
-#: allthethings/account/templates/account/donation.html:223
+#: allthethings/account/templates/account/donation.html:235
 #, fuzzy
 msgid "page.donation.cash_app_btc.step2.transfer"
 msgstr "ຄລິກປຸ່ມ “Send bitcoin” ເພື່ອເຮັດການ “ຖອນ”. ປ່ຽນຈາກໂດລາເປັນ BTC ໂດຍການກົດໄອຄອນ %(icon)s. ປ້ອນຈຳນວນ BTC ດ້ານລຸ່ມແລະຄລິກ “Send”. ເບິ່ງ <a %(help_video)s>ວິດີໂອນີ້</a> ຖ້າທ່ານຕິດຂັດ."
 
-#: allthethings/account/templates/account/donation.html:231
+#: allthethings/account/templates/account/donation.html:243
 #, fuzzy
 msgid "page.donation.cash_app_btc.step2.rush_priority"
 msgstr "ສຳລັບການບໍລິຈາກນ້ອຍ (ຕ່ຳກວ່າ $25) ທ່ານອາດຈະຕ້ອງໃຊ້ Rush ຫຼື Priority."
 
-#: allthethings/account/templates/account/donation.html:253
+#: allthethings/account/templates/account/donation.html:271
 #, fuzzy
 msgid "page.donation.revolut.step1"
 msgstr "ຊື້ Bitcoin (BTC) ທີ່ Revolut"
 
-#: allthethings/account/templates/account/donation.html:256
+#: allthethings/account/templates/account/donation.html:274
 #, fuzzy
 msgid "page.donation.revolut.step1.text1"
 msgstr "ໄປທີ່ໜ້າ “Crypto” ໃນ Revolut ເພື່ອຊື້ Bitcoin (BTC)."
 
-#: allthethings/account/templates/account/donation.html:260
+#: allthethings/account/templates/account/donation.html:278
 #, fuzzy
 msgid "page.donation.revolut.step1.more"
 msgstr "ຊື້ເພີ່ມອີກໜ້ອຍ (ພວກເຮົາແນະນຳ %(more)s ເພີ່ມ) ກວ່າຈຳນວນທີ່ທ່ານກຳລັງບໍລິຈາກ (%(amount)s) ເພື່ອຄຸ້ມຄ່າຄ່າທຳນຽມການເຮັດທຸລະກຳ. ທ່ານຈະເກັບເງິນທີ່ເຫຼືອໄວ້ໄດ້."
 
-#: allthethings/account/templates/account/donation.html:263
+#: allthethings/account/templates/account/donation.html:281
 #, fuzzy
 msgid "page.donation.revolut.step2"
 msgstr "ໂອນ Bitcoin ໄປທີ່ທີ່ຢູ່ຂອງພວກເຮົາ"
 
-#: allthethings/account/templates/account/donation.html:266
+#: allthethings/account/templates/account/donation.html:284
 #, fuzzy
 msgid "page.donation.revolut.step2.transfer"
 msgstr "ຄລິກປຸ່ມ “Send bitcoin” ເພື່ອເຮັດ “withdrawal”. ປ່ຽນຈາກຢູໂຣເປັນ BTC ໂດຍການກົດທີ່ໄອຄອນ %(icon)s. ປ້ອນຈຳນວນ BTC ດ້ານລຸ່ມແລະຄລິກ “Send”. ເບິ່ງ <a %(help_video)s>ວິດີໂອນີ້</a> ຖ້າທ່ານຕິດຂັດ."
 
-#: allthethings/account/templates/account/donation.html:269
+#: allthethings/account/templates/account/donation.html:287
 #, fuzzy
 msgid "page.donation.revolut.btc_amount_below"
 msgstr "ຈົ່ງແນ່ໃຈໃຊ້ຈຳນວນ BTC ຂ້າງລຸ່ມ, <em>ບໍ່ໃຊ້</em> ເອີໂຣ ຫຼື ໂດລາ, ມິຊັ່ນນັ້ນພວກເຮົາຈະບໍ່ໄດ້ຮັບຈຳນວນທີ່ຖືກຕ້ອງ ແລະບໍ່ສາມາດຢືນຢັນການເປັນສະມາຊິກຂອງທ່ານໂດຍອັດຕະໂນມັດ."
 
-#: allthethings/account/templates/account/donation.html:276
+#: allthethings/account/templates/account/donation.html:294
 #, fuzzy
 msgid "page.donation.revolut.step2.rush_priority"
 msgstr "ສຳລັບການບໍລິຈາກນ້ອຍ (ຕ່ຳກວ່າ $25) ທ່ານອາດຈະຕ້ອງໃຊ້ Rush ຫຼື Priority."
 
-#: allthethings/account/templates/account/donation.html:301
+#: allthethings/account/templates/account/donation.html:325
 #, fuzzy
 msgid "page.donation.payment2cc.cc2btc"
 msgstr "ໃຊ້ບໍລິການ “ບັດເຄຣດິດເປັນ Bitcoin” ດ່ວນທີ່ລະບຸດ້ານລຸ່ມນີ້, ທີ່ໃຊ້ເວລາພຽງບໍ່ກີ່ນາທີ:"
 
-#: allthethings/account/templates/account/donation.html:314
+#: allthethings/account/templates/account/donation.html:338
 #, fuzzy
 msgid "page.donation.payment2cc.cc2btc.form"
 msgstr "ກອກລາຍລະອຽດຕໍ່ໄປນີ້ໃນແບບຟອມ:"
 
-#: allthethings/account/templates/account/donation.html:318
+#: allthethings/account/templates/account/donation.html:342
 #, fuzzy
 msgid "page.donation.payment2cc.cc2btc.btc_amount"
 msgstr "ຈຳນວນ BTC / Bitcoin:"
 
-#: allthethings/account/templates/account/donation.html:318
+#: allthethings/account/templates/account/donation.html:342
 #, fuzzy
 msgid "page.donation.payment2cc.exact_amount"
 msgstr "ກະລຸນາໃຊ້ <span %(underline)s>ຈຳນວນທີ່ແນ່ນອນນີ້</span>. ຄ່າໃຊ້ຈ່າຍທັງໝົດຂອງທ່ານອາດຈະສູງກວ່າເພາະຄ່າທຳນຽມບັດເຄຣດິດ. ສຳລັບຈຳນວນນ້ອຍນີ້ອາດຈະຫຼາຍກວ່າສ່ວນຫຼຸດຂອງພວກເຮົາ, ໂຊກບໍ່ດີ."
 
-#: allthethings/account/templates/account/donation.html:319
+#: allthethings/account/templates/account/donation.html:343
 #, fuzzy
 msgid "page.donation.payment2cc.cc2btc.btc_address"
 msgstr "ທີ່ຢູ່ BTC / Bitcoin (ກະເປົາພາຍນອກ):"
 
-#: allthethings/account/templates/account/donation.html:336
+#: allthethings/account/templates/account/donation.html:360
 #, fuzzy
 msgid "page.donation.crypto_instructions"
 msgstr "%(coin_name)s ຄຳແນະນຳ"
 
-#: allthethings/account/templates/account/donation.html:348
+#: allthethings/account/templates/account/donation.html:378
 #, fuzzy
 msgid "page.donation.crypto_standard"
 msgstr "ພວກເຮົາສະໜັບສະໜູນເພີງແຕ່ສະຕານດາດຂອງເຫຼັຽນຄຣິບໂຕເທົ່ານັ້ນ, ບໍ່ມີເຄືອຂ່າຍຫຼືເວີຊັນທີ່ແປກໃຫມ່. ອາດຈະໃຊ້ເວລາຫາກວ່າໜຶ່ງຊົ່ວໂມງເພື່ອຢືນຢັນການເຮັດທຸລະກຳ, ຂຶ້ນກັບເຫຼັຽນ."
 
-#: allthethings/account/templates/account/donation.html:365
+#: allthethings/account/templates/account/donation.html:397
 #, fuzzy
 msgid "page.donation.amazon.header"
 msgstr "ບັດຂອງຂວັນ Amazon"
 
-#: allthethings/account/templates/account/donation.html:368
+#: allthethings/account/templates/account/donation.html:400
 #, fuzzy
 msgid "page.donation.amazon.form_instructions"
 msgstr "ກະລຸນາໃຊ້ <a %(a_form)s>ແບບຟອມທາງການຂອງ Amazon.com</a> ເພື່ອສົ່ງບັດຂອງຂວັນຂອງ %(amount)s ໃຫ້ທີ່ຢູ່ອີເມວດ້ານລຸ່ມນີ້."
 
-#: allthethings/account/templates/account/donation.html:369
+#: allthethings/account/templates/account/donation.html:401
 #, fuzzy
 msgid "page.donation.amazon.only_official"
 msgstr "ພວກເຮົາບໍ່ສາມາດຮັບວິທີການອື່ນໆຂອງບັດຂອງຂວັນ, <strong>ສົ່ງໂດຍກົງຈາກແບບຟອມທາງການທີ່ Amazon.com</strong>. ພວກເຮົາບໍ່ສາມາດຄືນບັດຂອງຂວັນຂອງທ່ານໄດ້ຖ້າທ່ານບໍ່ໃຊ້ແບບຟອມນີ້."
 
-#: allthethings/account/templates/account/donation.html:374
+#: allthethings/account/templates/account/donation.html:406
 #, fuzzy
 msgid "page.donate.payment.desc.amazon_message_1"
 msgstr "ໃສ່ຈຳນວນທີ່ແມ່ນຈິງ: %(amount)s"
 
-#: allthethings/account/templates/account/donation.html:375
+#: allthethings/account/templates/account/donation.html:407
 #, fuzzy
 msgid "page.donate.payment.desc.amazon_message"
 msgstr "ກະລຸນາຢ່າຂຽນຂໍ້ຄວາມຂອງທ່ານເອງ."
 
-#: allthethings/account/templates/account/donation.html:379
+#: allthethings/account/templates/account/donation.html:411
 #, fuzzy
 msgid "page.donation.amazon.form_to"
 msgstr "ອີເມວຜູ້ຮັບ “To” ໃນແບບຟອມ:"
 
-#: allthethings/account/templates/account/donation.html:382
+#: allthethings/account/templates/account/donation.html:414
 #, fuzzy
 msgid "page.donation.amazon.unique"
 msgstr "ພິເສດສຳລັບບັນຊີຂອງທ່ານ, ຢ່າແບ່ງປັນ."
 
-#: allthethings/account/templates/account/donation.html:383
+#: allthethings/account/templates/account/donation.html:415
 #, fuzzy
 msgid "page.donation.amazon.only_use_once"
 msgstr "ໃຊ້ພຽງແຕ່ຄັ້ງດຽວ."
 
-#: allthethings/account/templates/account/donation.html:388
+#: allthethings/account/templates/account/donation.html:420
 #, fuzzy
 msgid "page.donation.amazon.waiting_gift_card"
 msgstr "ລໍຖ້າບັດຂອງຂວັນ... (ຟື້ນຟູໜ້າເວັບເພື່ອກວດສອບ)"
 
-#: allthethings/account/templates/account/donation.html:396
+#: allthethings/account/templates/account/donation.html:428
 #, fuzzy
 msgid "page.donation.amazon.confirm_automated"
 msgstr "ຫຼັງຈາກສົ່ງບັດຂອງຂວັນຂອງທ່ານ, ລະບົບອັດຕະໂນມັດຂອງພວກເຮົາຈະຢືນຢັນໃນຫຼາຍນາທີ. ຖ້າມັນບໍ່ໄດ້ຜົນ, ລອງສົ່ງບັດຂອງຂວັນອີກຄັ້ງ (<a %(a_instr)s>ຄຳແນະນຳ</a>)."
 
-#: allthethings/account/templates/account/donation.html:397
+#: allthethings/account/templates/account/donation.html:429
 #, fuzzy
 msgid "page.donation.amazon.doesnt_work"
 msgstr "ຖ້າມັນຍັງບໍ່ໄດ້ຜົນອີກ, ກະລຸນາສົ່ງອີເມວຫາພວກເຮົາແລະ Anna ຈະກວດສອບມັນເອງ (ອາດຈະໃຊ້ເວລາຫຼາຍວັນ), ແລະຢ່າລືມກ່າວຫາກທ່ານໄດ້ລອງສົ່ງອີກຄັ້ງແລ້ວ."
 
-#: allthethings/account/templates/account/donation.html:400
+#: allthethings/account/templates/account/donation.html:432
 #, fuzzy
 msgid "page.donation.amazon.example"
 msgstr "ຕົວຢ່າງ:"
 
-#: allthethings/account/templates/account/donation.html:436
-#: allthethings/account/templates/account/donation.html:453
-#: allthethings/account/templates/account/donation.html:469
-#: allthethings/account/templates/account/donation.html:494
-#: allthethings/account/templates/account/donation.html:570
-#: allthethings/account/templates/account/donation.html:631
+#: allthethings/account/templates/account/donation.html:468
+#: allthethings/account/templates/account/donation.html:485
+#: allthethings/account/templates/account/donation.html:501
+#: allthethings/account/templates/account/donation.html:532
+#: allthethings/account/templates/account/donation.html:614
+#: allthethings/account/templates/account/donation.html:681
 #, fuzzy
 msgid "page.donate.strange_account"
 msgstr "ຂໍເຫັນວ່າຊື່ບັນຊີຫຼືຮູບພາບອາດຈະເບິ່ງແປກໆ. ບໍ່ຕ້ອງກັງວົນ! ບັນຊີເຫຼົ່ານີ້ຖືກຄຸ້ມຄອງໂດຍຄູ່ຮ່ວມບໍລິຈາກຂອງພວກເຮົາ. ບັນຊີຂອງພວກເຮົາບໍ່ໄດ້ຖືກແຮກ."
 
-#: allthethings/account/templates/account/donation.html:460
-#: allthethings/account/templates/account/donation.html:477
-#: allthethings/account/templates/account/donation.html:516
+#: allthethings/account/templates/account/donation.html:492
+#: allthethings/account/templates/account/donation.html:515
+#: allthethings/account/templates/account/donation.html:560
 #, fuzzy
 msgid "page.donation.payment.alipay.top_header"
 msgstr "ຄຳແນະນຳ Alipay"
 
-#: allthethings/account/templates/account/donation.html:462
-#: allthethings/account/templates/account/donation.html:479
+#: allthethings/account/templates/account/donation.html:494
+#: allthethings/account/templates/account/donation.html:517
 #, fuzzy
 msgid "page.donation.payment.alipay.header1"
 msgstr "<span %(span_circle)s>1</span>ບໍລິຈາກຜ່ານ Alipay"
 
-#: allthethings/account/templates/account/donation.html:465
-#: allthethings/account/templates/account/donation.html:482
+#: allthethings/account/templates/account/donation.html:497
+#: allthethings/account/templates/account/donation.html:520
 #, fuzzy
 msgid "page.donation.payment.alipay.text1_new"
 msgstr "ບໍລິຈາກຈຳນວນທັງໝົດຂອງ %(total)s ໂດຍໃຊ້ <a %(a_account)s>ບັນຊີ Alipay ນີ້</a>"
 
-#: allthethings/account/templates/account/donation.html:486
-#: allthethings/account/templates/account/donation.html:562
-#: allthethings/account/templates/account/donation.html:601
+#: allthethings/account/templates/account/donation.html:524
+#: allthethings/account/templates/account/donation.html:606
+#: allthethings/account/templates/account/donation.html:651
 #, fuzzy
 msgid "page.donation.page_blocked"
 msgstr "ຖ້າໜ້າບໍລິຈາກຖືກປິດກັ້ນ, ລອງໃຊ້ການເຊື່ອມຕໍ່ອິນເຕີເນັດທີ່ແຕກຕ່າງ (ຕົວຢ່າງເຊັ່ນ VPN ຫຼື ອິນເຕີເນັດໂທລະສັບ)."
 
-#: allthethings/account/templates/account/donation.html:490
-#: allthethings/account/templates/account/donation.html:566
+#: allthethings/account/templates/account/donation.html:528
+#: allthethings/account/templates/account/donation.html:610
 #, fuzzy
 msgid "page.donation.payment.alipay.error"
 msgstr "ໂຊກບໍ່ດີ, ໜ້າ Alipay ມັກຈະເຂົ້າເຖິງໄດ້ເທົ່ານັ້ນຈາກ <strong>ຈີນແຜ່ນດິນໃຫຍ່</strong>. ທ່ານອາດຈະຕ້ອງປິດ VPN ຊົ່ວຄາວ, ຫຼືໃຊ້ VPN ໄປທີ່ຈີນແຜ່ນດິນໃຫຍ່ (ຫຼືຮ່ວມກັບຮົງກົງກໍເຮັດໄດ້ບາງຄັ້ງ)."
 
-#: allthethings/account/templates/account/donation.html:545
+#: allthethings/account/templates/account/donation.html:589
 #, fuzzy
 msgid "page.donation.bank_card_app.step3.header"
 msgstr "<span %(style)s>3</span>ບໍລິຈາກ (ສະແກນ QR code ຫຼືກົດປຸ່ມ)"
 
-#: allthethings/account/templates/account/donation.html:549
+#: allthethings/account/templates/account/donation.html:593
 #, fuzzy
 msgid "page.donation.bank_card_app.step3.desc.1"
 msgstr "ເປີດ <a %(a_href)s>ໜ້າບໍລິຈາກ QR-code</a>."
 
-#: allthethings/account/templates/account/donation.html:553
+#: allthethings/account/templates/account/donation.html:597
 #, fuzzy
 msgid "page.donation.bank_card_app.step3.desc.2"
 msgstr "ສະແກນ QR code ດ້ວຍແອັບ Alipay, ຫຼືກົດປຸ່ມເພື່ອເປີດແອັບ Alipay."
 
-#: allthethings/account/templates/account/donation.html:554
+#: allthethings/account/templates/account/donation.html:598
 #, fuzzy
 msgid "page.donation.bank_card_app.step3.desc.3"
 msgstr "ກະລຸນາອົດທົນ; ໜ້າອາດຈະໃຊ້ເວລາບາງຄັ້ງໃນການໂຫຼດເພາະຢູ່ປະເທດຈີນ."
 
-#: allthethings/account/templates/account/donation.html:592
+#: allthethings/account/templates/account/donation.html:642
 #, fuzzy
 msgid "page.donation.payment.wechat.top_header"
 msgstr "ຄຳແນະນຳ WeChat"
 
-#: allthethings/account/templates/account/donation.html:594
+#: allthethings/account/templates/account/donation.html:644
 #, fuzzy
 msgid "page.donation.payment.wechat.header1"
 msgstr "<span %(span_circle)s>1</span>ບໍລິຈາກຜ່ານ WeChat"
 
-#: allthethings/account/templates/account/donation.html:597
+#: allthethings/account/templates/account/donation.html:647
 #, fuzzy
 msgid "page.donation.payment.wechat.text1"
 msgstr "ບໍລິຈາກຈຳນວນທັງໝົດ %(total)s ໂດຍໃຊ້ <a %(a_account)s>ບັນຊີ WeChat ນີ້</a>"
 
-#: allthethings/account/templates/account/donation.html:622
+#: allthethings/account/templates/account/donation.html:672
 #, fuzzy
 msgid "page.donation.payment.pix.top_header"
 msgstr "ຄຳແນະນຳ Pix"
 
-#: allthethings/account/templates/account/donation.html:624
+#: allthethings/account/templates/account/donation.html:674
 #, fuzzy
 msgid "page.donation.payment.pix.header1"
 msgstr "<span %(span_circle)s>1</span>ບໍລິຈາກຜ່ານ Pix"
 
-#: allthethings/account/templates/account/donation.html:627
+#: allthethings/account/templates/account/donation.html:677
 #, fuzzy
 msgid "page.donation.payment.pix.text1"
 msgstr "ບໍລິຈາກຈຳນວນທັງໝົດ %(total)s ໂດຍໃຊ້ <a %(a_account)s>ບັນຊີ Pix ນີ້"
 
-#: allthethings/account/templates/account/donation.html:636
+#: allthethings/account/templates/account/donation.html:686
 #, fuzzy
 msgid "page.donation.footer.header"
 msgstr "<span %(span_circle)s>%(circle_number)s</span>ສົ່ງອີເມວໃຫ້ພວກເຮົາພ້ອມໃບຮັບເງິນ"
 
-#: allthethings/account/templates/account/donation.html:640
+#: allthethings/account/templates/account/donation.html:690
 #, fuzzy
 msgid "page.donation.footer.verification"
 msgstr "ສົ່ງໃບຮັບເງິນຫຼືຮູບພາບຫນ້າຈໍໄປທີ່ທີ່ຢູ່ການຢືນຢັນສ່ວນຕົວຂອງທ່ານ. ຢ່າໃຊ້ທີ່ຢູ່ອີເມວນີ້ສຳລັບການບໍລິຈາກຜ່ານ PayPal."
 
-#: allthethings/account/templates/account/donation.html:642
+#: allthethings/account/templates/account/donation.html:692
 #, fuzzy
 msgid "page.donation.footer.text1"
 msgstr "ສົ່ງໃບຮັບເງິນ ຫຼື ຮູບພາບຫນ້າຈໍໄປທີ່ທີ່ຢູ່ການຢືນຢັນສ່ວນຕົວຂອງທ່ານ:"
 
-#: allthethings/account/templates/account/donation.html:652
+#: allthethings/account/templates/account/donation.html:702
 #, fuzzy
 msgid "page.donation.footer.crypto_note"
 msgstr "ຖ້າອັດຕາແລກປ່ຽນຄຣິບໂຕເປຼີ່ມປ່ຽນແປງໃນລະຫວ່າງການທຳທຸລະກຳ, ກະລຸນາໃສ່ໃບຮັບເງິນທີ່ສະແດງອັດຕາແລກປ່ຽນເດີມ. ພວກເຮົາຂອບໃຈທີ່ທ່ານເອົາໃຈໃສ່ໃນການໃຊ້ຄຣິບໂຕ, ມັນຊ່ວຍເຮົາໄດ້ຫຼາຍ!"
 
-#: allthethings/account/templates/account/donation.html:657
+#: allthethings/account/templates/account/donation.html:707
 #, fuzzy
 msgid "page.donation.footer.text2"
 msgstr "ເມື່ອທ່ານໄດ້ສົ່ງອີເມວໃບຮັບເງິນແລ້ວ, ກົດປຸ່ມນີ້, ເພື່ອໃຫ້ Anna ກວດສອບມື້ນີ້ (ອາດຈະໃຊ້ເວລາຫຼາຍມື້):"
 
-#: allthethings/account/templates/account/donation.html:667
+#: allthethings/account/templates/account/donation.html:717
 #, fuzzy
 msgid "page.donation.footer.button"
 msgstr "ແມ່ນແລ້ວ, ຂ້ອຍໄດ້ສົ່ງອີເມວໃບຮັບເງິນແລ້ວ"
 
-#: allthethings/account/templates/account/donation.html:670
+#: allthethings/account/templates/account/donation.html:720
 #, fuzzy
 msgid "page.donation.footer.success"
 msgstr "✅ ຂອບໃຈສຳລັບການບໍລິຈາກຂອງທ່ານ! Anna ຈະເຮັດການເປີດສະມາຊິກຂອງທ່ານໃນຫຼາຍມື້."
 
-#: allthethings/account/templates/account/donation.html:671
+#: allthethings/account/templates/account/donation.html:721
 #, fuzzy
 msgid "page.donation.footer.failure"
 msgstr "❌ ມີບາງຢ່າງຜິດພາດ. ກະລຸນາໂຫຼດໜ້ານີ້ໃໝ່ແລະລອງອີກຄັ້ງ."
 
-#: allthethings/account/templates/account/donation.html:676
+#: allthethings/account/templates/account/donation.html:726
 #, fuzzy
 msgid "page.donation.stepbystep"
 msgstr "ຄູ່ມືຂັ້ນຕອນ"
 
-#: allthethings/account/templates/account/donation.html:678
+#: allthethings/account/templates/account/donation.html:728
 #, fuzzy
 msgid "page.donation.crypto_dont_worry"
 msgstr "ບາງຂັ້ນຕອນໄດ້ກ່າວເຖິງກະເປົາເງິນຄຣິບໂຕ, ແຕ່ບໍ່ຕ້ອງກັງວົນ, ທ່ານບໍ່ຈຳເປັນຕ້ອງຮຽນຮູ້ກ່ຽວກັບຄຣິບໂຕສຳລັບນີ້."
 
-#: allthethings/account/templates/account/donation.html:680
+#: allthethings/account/templates/account/donation.html:730
 #, fuzzy
 msgid "page.donation.hoodpay.step1"
 msgstr "1. ປ້ອນອີເມວຂອງທ່ານ."
 
-#: allthethings/account/templates/account/donation.html:686
+#: allthethings/account/templates/account/donation.html:736
 #, fuzzy
 msgid "page.donation.hoodpay.step2"
 msgstr "2. ເລືອກວິທີການຈ່າຍເງິນຂອງທ່ານ."
 
-#: allthethings/account/templates/account/donation.html:692
+#: allthethings/account/templates/account/donation.html:742
 #, fuzzy
 msgid "page.donation.hoodpay.step3"
 msgstr "3. ເລືອກວິທີການຈ່າຍເງິນອີກຄັ້ງ."
 
-#: allthethings/account/templates/account/donation.html:698
+#: allthethings/account/templates/account/donation.html:748
 #, fuzzy
 msgid "page.donation.hoodpay.step4"
 msgstr "4. ເລືອກ “ກະເປົາເງິນທີ່ເຮົາເປີດໃຊ້ເອງ”."
 
-#: allthethings/account/templates/account/donation.html:704
+#: allthethings/account/templates/account/donation.html:754
 #, fuzzy
 msgid "page.donation.hoodpay.step5"
 msgstr "5. ກົດ “ຂ້ອຍຢືນຢັນການເປັນເຈົ້າຂອງ”."
 
-#: allthethings/account/templates/account/donation.html:710
+#: allthethings/account/templates/account/donation.html:760
 #, fuzzy
 msgid "page.donation.hoodpay.step6"
 msgstr "ທ່ານຄວນໄດ້ຮັບໃບຮັບເງິນທາງອີເມວ. ກະລຸນາສົ່ງນັ້ນມາໃຫ້ພວກເຮົາ, ແລະພວກເຮົາຈະຢືນຢັນການບໍລິຈາກຂອງທ່ານໃຫ້ໄວທີ່ສຸດ."
 
-#: allthethings/account/templates/account/donation.html:715
+#: allthethings/account/templates/account/donation.html:765
 #, fuzzy
 msgid "page.donate.wait_new"
 msgstr "ກະລຸນາລໍຖ້າຢ່າງໜ້ອຍ <span %(span_hours)s>24 ຊົ່ວໂມງ</span> (ແລະຟື້ນຟູໜ້ານີ້) ກ່ອນຕິດຕໍ່ພວກເຮົາ."
 
-#: allthethings/account/templates/account/donation.html:716
+#: allthethings/account/templates/account/donation.html:766
 #, fuzzy
 msgid "page.donate.mistake"
 msgstr "ຖ້າທ່ານເຮັດຜິດພາດໃນລະຫວ່າງການຈ່າຍເງິນ, ພວກເຮົາບໍ່ສາມາດຄືນເງິນໄດ້, ແຕ່ພວກເຮົາຈະພະຍາຍາມເຮັດໃຫ້ຖືກຕ້ອງ."
@@ -1814,11 +1824,11 @@ msgstr "ຕິດຕໍ່ Anna ທີ່ %(email)s ຖ້າທ່ານສົ�
 #: allthethings/page/templates/page/home.html:77
 #: allthethings/page/templates/page/home.html:82
 #: allthethings/page/templates/page/home.html:90
-#: allthethings/page/templates/page/search.html:345
-#: allthethings/page/templates/page/search.html:444
+#: allthethings/page/templates/page/search.html:349
+#: allthethings/page/templates/page/search.html:448
 #: allthethings/templates/layouts/index.html:248
 #: allthethings/templates/layouts/index.html:252
-#: allthethings/templates/layouts/index.html:605
+#: allthethings/templates/layouts/index.html:608
 #, fuzzy
 msgid "page.contact.title"
 msgstr "ອີເມວຕິດຕໍ່"
@@ -1830,25 +1840,25 @@ msgid "page.account.logged_in.membership_multiple"
 msgstr "ທ່ານສາມາດລວມສະມາຊິກຫຼາຍອັນເຂົ້າດ້ວຍກັນ (ການດາວໂຫລດໄວຕໍ່ 24 ຊົ່ວໂມງຈະຖືກລວມເຂົ້າກັນ)."
 
 #: allthethings/account/templates/account/index.html:41
-#: allthethings/templates/layouts/index.html:557
-#: allthethings/templates/layouts/index.html:564
-#: allthethings/templates/layouts/index.html:573
+#: allthethings/templates/layouts/index.html:560
+#: allthethings/templates/layouts/index.html:567
+#: allthethings/templates/layouts/index.html:576
 #, fuzzy
 msgid "layout.index.header.nav.public_profile"
 msgstr "ໂປຣໄຟລສາທາລະນະ"
 
 #: allthethings/account/templates/account/index.html:42
-#: allthethings/templates/layouts/index.html:558
-#: allthethings/templates/layouts/index.html:565
-#: allthethings/templates/layouts/index.html:574
+#: allthethings/templates/layouts/index.html:561
+#: allthethings/templates/layouts/index.html:568
+#: allthethings/templates/layouts/index.html:577
 #, fuzzy
 msgid "layout.index.header.nav.downloaded_files"
 msgstr "ໄຟລ໌ທີ່ດາວໂຫລດແລ້ວ"
 
 #: allthethings/account/templates/account/index.html:43
-#: allthethings/templates/layouts/index.html:559
-#: allthethings/templates/layouts/index.html:566
-#: allthethings/templates/layouts/index.html:575
+#: allthethings/templates/layouts/index.html:562
+#: allthethings/templates/layouts/index.html:569
+#: allthethings/templates/layouts/index.html:578
 #, fuzzy
 msgid "layout.index.header.nav.my_donations"
 msgstr "ການບໍລິຈາກຂອງຂ້ອຍ"
@@ -2028,158 +2038,158 @@ msgstr "ຍັງບໍ່ມີລາຍການ"
 msgid "page.profile.lists.new_list"
 msgstr "ສ້າງລາຍການໃໝ່ໂດຍການຊອກຫາໄຟລ໌ແລະເປີດແຖບ “ລາຍການ”."
 
-#: allthethings/dyn/views.py:906 allthethings/dyn/views.py:970
-#: allthethings/dyn/views.py:981
+#: allthethings/dyn/views.py:1100 allthethings/dyn/views.py:1172
+#: allthethings/dyn/views.py:1183
 #, fuzzy
 msgid "dyn.buy_membership.error.unknown"
 msgstr "ມີຂໍ້ຜິດພາດທີ່ບໍ່ຮູ້ຈັກ. ກະລຸນາຕິດຕໍ່ພວກເຮົາທີ່ %(email)s ພ້ອມກັບຮູບພາບຫນ້າຈໍ."
 
-#: allthethings/dyn/views.py:955 allthethings/dyn/views.py:975
+#: allthethings/dyn/views.py:1157 allthethings/dyn/views.py:1177
 #, fuzzy
 msgid "dyn.buy_membership.error.minimum"
 msgstr "ເງິນສະກຸນນີ້ມີຂັ້ນຕ່ຳທີ່ສູງກວ່າປົກກະຕິ. ກະລຸນາເລືອກໄລຍະເວລາທີ່ແຕກຕ່າງຫຼືເງິນສະກຸນອື່ນ."
 
-#: allthethings/dyn/views.py:967
+#: allthethings/dyn/views.py:1169
 #, fuzzy
 msgid "dyn.buy_membership.error.try_again"
 msgstr "ບໍ່ສາມາດດຳເນີນການຄຳຮ້ອງໄດ້. ກະລຸນາລອງໃໝ່ໃນອີກບໍ່ກີ່ນາທີ, ແລະຖ້າຍັງຄົງເກີດຂຶ້ນອີກ ກະລຸນາຕິດຕໍ່ພວກເຮົາທີ່ %(email)s ພ້ອມກັບຮູບພາບຫນ້າຈໍ."
 
-#: allthethings/dyn/views.py:978
+#: allthethings/dyn/views.py:1180
 #, fuzzy
 msgid "dyn.buy_membership.error.wait"
 msgstr "ມີຂໍ້ຜິດພາດໃນການດຳເນີນການຊຳລະເງິນ. ກະລຸນາລໍຖ້າຊົ່ວຄາວແລະລອງໃໝ່. ຖ້າບັນຫາຍັງຄົງຢູ່ເກີນ 24 ຊົ່ວໂມງ, ກະລຸນາຕິດຕໍ່ພວກເຮົາທີ່ %(email)s ພ້ອມກັບຮູບພາບຫນ້າຈໍ."
 
-#: allthethings/page/views.py:5536
+#: allthethings/page/views.py:5575
 #, fuzzy
 msgid "page.md5.box.download.affected_files"
 msgstr "%(count)s ໜ້າທີ່ຖືກກະທົບ"
 
-#: allthethings/page/views.py:6533
+#: allthethings/page/views.py:6563
 #, fuzzy
 msgid "common.md5_problem_type_mapping.lgrsnf_visible"
 msgstr "ບໍ່ເຫັນໃນ Libgen.rs Non-Fiction"
 
-#: allthethings/page/views.py:6534
+#: allthethings/page/views.py:6564
 #, fuzzy
 msgid "common.md5_problem_type_mapping.lgrsfic_visible"
 msgstr "ບໍ່ເຫັນໃນ Libgen.rs Fiction"
 
-#: allthethings/page/views.py:6535
+#: allthethings/page/views.py:6565
 #, fuzzy
 msgid "common.md5_problem_type_mapping.lgli_visible"
 msgstr "ບໍ່ເຫັນໃນ Libgen.li"
 
-#: allthethings/page/views.py:6536
+#: allthethings/page/views.py:6566
 #, fuzzy
 msgid "common.md5_problem_type_mapping.lgli_broken"
 msgstr "ໝາຍເປັນບໍ່ດີໃນ Libgen.li"
 
-#: allthethings/page/views.py:6537
+#: allthethings/page/views.py:6567
 #, fuzzy
 msgid "common.md5_problem_type_mapping.zlib_missing"
 msgstr "ຂາດຫາຍຈາກ Z-Library"
 
-#: allthethings/page/views.py:6538
+#: allthethings/page/views.py:6568
 #, fuzzy
 msgid "common.md5_problem_type_mapping.zlib_spam"
 msgstr "ຖືກໝາຍເປັນ “ສະແປມ” ໃນ Z-Library"
 
-#: allthethings/page/views.py:6539
+#: allthethings/page/views.py:6569
 #, fuzzy
 msgid "common.md5_problem_type_mapping.zlib_bad_file"
 msgstr "ຖືກໝາຍເປັນ “ໄຟລ໌ບໍ່ດີ” ໃນ Z-Library"
 
-#: allthethings/page/views.py:6540
+#: allthethings/page/views.py:6570
 #, fuzzy
 msgid "common.md5_problem_type_mapping.duxiu_pdg_broken_files"
 msgstr "ບໍ່ສາມາດແປງໜ້າທັງໝົດເປັນ PDF ໄດ້"
 
-#: allthethings/page/views.py:6541
+#: allthethings/page/views.py:6571
 #, fuzzy
 msgid "common.md5_problem_type_mapping.upload_exiftool_failed"
 msgstr "ການເຮັດ exiftool ລົ້ມເຫລວໃນໄຟລ໌ນີ້"
 
-#: allthethings/page/views.py:6547
+#: allthethings/page/views.py:6577
 #, fuzzy
 msgid "common.md5_content_type_mapping.book_unknown"
 msgstr "ຫນັງສື (ບໍ່ຮູ້ຈັກ)"
 
-#: allthethings/page/views.py:6548
+#: allthethings/page/views.py:6578
 #, fuzzy
 msgid "common.md5_content_type_mapping.book_nonfiction"
 msgstr "ຫນັງສື (ບໍ່ແມ່ນນິຍາຍ)"
 
-#: allthethings/page/views.py:6549
+#: allthethings/page/views.py:6579
 #, fuzzy
 msgid "common.md5_content_type_mapping.book_fiction"
 msgstr "ຫນັງສື (ນິຍາຍ)"
 
-#: allthethings/page/views.py:6550
+#: allthethings/page/views.py:6580
 #, fuzzy
 msgid "common.md5_content_type_mapping.journal_article"
 msgstr "ບົດຄວາມນິຕິຍະສານ"
 
-#: allthethings/page/views.py:6551
+#: allthethings/page/views.py:6581
 #, fuzzy
 msgid "common.md5_content_type_mapping.standards_document"
 msgstr "ເອກະສານມາດຕະຖານ"
 
-#: allthethings/page/views.py:6552
+#: allthethings/page/views.py:6582
 #, fuzzy
 msgid "common.md5_content_type_mapping.magazine"
 msgstr "ນິຕະສານ"
 
-#: allthethings/page/views.py:6553
+#: allthethings/page/views.py:6583
 #, fuzzy
 msgid "common.md5_content_type_mapping.book_comic"
 msgstr "ປຶ້ມການຕູນ"
 
-#: allthethings/page/views.py:6554
+#: allthethings/page/views.py:6584
 #, fuzzy
 msgid "common.md5_content_type_mapping.musical_score"
 msgstr "ຄະແນນດົນຕີ"
 
-#: allthethings/page/views.py:6555
+#: allthethings/page/views.py:6585
 #, fuzzy
 msgid "common.md5_content_type_mapping.audiobook"
 msgstr "ປື້ມສຽງ"
 
-#: allthethings/page/views.py:6556
+#: allthethings/page/views.py:6586
 #, fuzzy
 msgid "common.md5_content_type_mapping.other"
 msgstr "ອື່ນໆ"
 
-#: allthethings/page/views.py:6562
+#: allthethings/page/views.py:6592
 #, fuzzy
 msgid "common.access_types_mapping.aa_download"
 msgstr "ດາວໂຫລດຈາກເຊີບເວີພັນທະມິດ"
 
-#: allthethings/page/views.py:6563
+#: allthethings/page/views.py:6593
 #, fuzzy
 msgid "common.access_types_mapping.aa_scidb"
 msgstr "SciDB"
 
-#: allthethings/page/views.py:6564
+#: allthethings/page/views.py:6594
 #, fuzzy
 msgid "common.access_types_mapping.external_download"
 msgstr "ດາວໂຫລດຈາກພາຍນອກ"
 
-#: allthethings/page/views.py:6565
+#: allthethings/page/views.py:6595
 #, fuzzy
 msgid "common.access_types_mapping.external_borrow"
 msgstr "ຢືມຈາກພາຍນອກ"
 
-#: allthethings/page/views.py:6566
+#: allthethings/page/views.py:6596
 #, fuzzy
 msgid "common.access_types_mapping.external_borrow_printdisabled"
 msgstr "ຢືມຈາກພາຍນອກ (ສຳລັບຜູ້ພິການການພິມ)"
 
-#: allthethings/page/views.py:6567
+#: allthethings/page/views.py:6597
 #, fuzzy
 msgid "common.access_types_mapping.meta_explore"
 msgstr "ສຳຫຼວດຂໍ້ມູນເມຕາ"
 
-#: allthethings/page/views.py:6568
+#: allthethings/page/views.py:6598
 #, fuzzy
 msgid "common.access_types_mapping.torrents_available"
 msgstr "ບັນຈຸໃນທໍເຣນ"
@@ -2187,7 +2197,7 @@ msgstr "ບັນຈຸໃນທໍເຣນ"
 #: allthethings/page/templates/page/datasets.html:43
 #: allthethings/page/templates/page/datasets.html:254
 #: allthethings/page/templates/page/datasets_lgrs.html:25
-#: allthethings/page/views.py:6574
+#: allthethings/page/views.py:6604
 #, fuzzy
 msgid "common.record_sources_mapping.lgrs"
 msgstr "Libgen.rs"
@@ -2195,7 +2205,7 @@ msgstr "Libgen.rs"
 #: allthethings/page/templates/page/datasets.html:80
 #: allthethings/page/templates/page/datasets.html:317
 #: allthethings/page/templates/page/datasets_lgli.html:29
-#: allthethings/page/views.py:6575
+#: allthethings/page/views.py:6605
 #, fuzzy
 msgid "common.record_sources_mapping.lgli"
 msgstr "Libgen.li"
@@ -2203,43 +2213,43 @@ msgstr "Libgen.li"
 #: allthethings/page/templates/page/datasets.html:98
 #: allthethings/page/templates/page/datasets.html:352
 #: allthethings/page/templates/page/datasets_zlib.html:25
-#: allthethings/page/views.py:6576
+#: allthethings/page/views.py:6606
 #, fuzzy
 msgid "common.record_sources_mapping.zlib"
 msgstr "Z-Library"
 
 #: allthethings/page/templates/page/datasets.html:114
-#: allthethings/page/views.py:6577
+#: allthethings/page/views.py:6607
 #, fuzzy
 msgid "common.record_sources_mapping.zlibzh"
 msgstr "Z-Library ຈີນ"
 
-#: allthethings/page/views.py:6578
+#: allthethings/page/views.py:6608
 #, fuzzy
 msgid "common.record_sources_mapping.ia"
 msgstr "IA"
 
-#: allthethings/page/views.py:6579
+#: allthethings/page/views.py:6609
 #, fuzzy
 msgid "common.record_sources_mapping.isbndb"
 msgstr "ISBNdb"
 
 #: allthethings/page/templates/page/datasets.html:525
 #: allthethings/page/templates/page/datasets_ol.html:25
-#: allthethings/page/views.py:6580
+#: allthethings/page/views.py:6610
 #, fuzzy
 msgid "common.record_sources_mapping.ol"
 msgstr "OpenLibrary"
 
 #: allthethings/page/templates/page/datasets.html:60
-#: allthethings/page/views.py:6581
+#: allthethings/page/views.py:6611
 #, fuzzy
 msgid "common.record_sources_mapping.scihub"
 msgstr "Sci-Hub"
 
 #: allthethings/page/templates/page/datasets.html:541
 #: allthethings/page/templates/page/datasets_oclc.html:25
-#: allthethings/page/views.py:6582
+#: allthethings/page/views.py:6612
 #, fuzzy
 msgid "common.record_sources_mapping.oclc"
 msgstr "OCLC (WorldCat)"
@@ -2247,7 +2257,7 @@ msgstr "OCLC (WorldCat)"
 #: allthethings/page/templates/page/datasets.html:148
 #: allthethings/page/templates/page/datasets.html:399
 #: allthethings/page/templates/page/datasets_duxiu.html:25
-#: allthethings/page/views.py:6583
+#: allthethings/page/views.py:6613
 #, fuzzy
 msgid "common.record_sources_mapping.duxiu"
 msgstr "DuXiu 读秀"
@@ -2255,397 +2265,395 @@ msgstr "DuXiu 读秀"
 #: allthethings/page/templates/page/datasets.html:164
 #: allthethings/page/templates/page/datasets.html:433
 #: allthethings/page/templates/page/datasets_upload.html:25
-#: allthethings/page/views.py:6584
+#: allthethings/page/views.py:6614
 #, fuzzy
 msgid "common.record_sources_mapping.uploads"
 msgstr "ອັບໂຫລດໄປຫາ AA"
 
 #: allthethings/page/templates/page/datasets.html:180
-#: allthethings/page/views.py:6585
+#: allthethings/page/views.py:6615
 #, fuzzy
 msgid "common.record_sources_mapping.magzdb"
 msgstr "MagzDB"
 
 #: allthethings/page/templates/page/datasets.html:196
-#: allthethings/page/views.py:6586
+#: allthethings/page/views.py:6616
 #, fuzzy
 msgid "common.record_sources_mapping.nexusstc"
 msgstr "Nexus/STC"
 
-#: allthethings/page/views.py:6587
+#: allthethings/page/views.py:6617
 #, fuzzy
 msgid "common.record_sources_mapping.edsebk"
 msgstr "ດັດສະນີປື້ມອີເລັກຂອງ EBSCOhost"
 
-#: allthethings/page/views.py:6588
+#: allthethings/page/views.py:6618
 #, fuzzy
 msgid "common.record_sources_mapping.cerlalc"
 msgstr "Cerlalc"
 
-#: allthethings/page/views.py:6589
+#: allthethings/page/views.py:6619
 #, fuzzy
 msgid "common.record_sources_mapping.czech_oo42hcks"
 msgstr "ຂໍ້ມູນເມຕາຂອງເຊັກ"
 
-#: allthethings/page/views.py:6590
+#: allthethings/page/views.py:6620
 #, fuzzy
 msgid "common.record_sources_mapping.gbooks"
 msgstr "Google Books"
 
-#: allthethings/page/views.py:6591
+#: allthethings/page/views.py:6621
 #, fuzzy
 msgid "common.record_sources_mapping.goodreads"
 msgstr "Goodreads"
 
-#: allthethings/page/views.py:6592
+#: allthethings/page/views.py:6622
 #, fuzzy
 msgid "common.record_sources_mapping.isbngrp"
 msgstr "ISBN GRP"
 
-#: allthethings/page/views.py:6593
+#: allthethings/page/views.py:6623
 #, fuzzy
 msgid "common.record_sources_mapping.libby"
 msgstr "Libby"
 
-#: allthethings/page/views.py:6594
+#: allthethings/page/views.py:6624
 #, fuzzy
 msgid "common.record_sources_mapping.rgb"
 msgstr "ຫໍສະໝຸດແຫ່ງຊາດລັດເຊຍ"
 
-#: allthethings/page/views.py:6595
+#: allthethings/page/views.py:6625
 #, fuzzy
 msgid "common.record_sources_mapping.trantor"
 msgstr "Trantor"
 
-#: allthethings/page/views.py:6601
+#: allthethings/page/views.py:6631
 #, fuzzy
 msgid "common.specific_search_fields.title"
 msgstr "ຊື່ເລື່ອງ"
 
-#: allthethings/page/views.py:6602
+#: allthethings/page/views.py:6632
 #, fuzzy
 msgid "common.specific_search_fields.author"
 msgstr "ນັກຂຽນ"
 
-#: allthethings/page/views.py:6603
+#: allthethings/page/views.py:6633
 #, fuzzy
 msgid "common.specific_search_fields.publisher"
 msgstr "ຜູ້ພິມ"
 
-#: allthethings/page/views.py:6604
+#: allthethings/page/views.py:6634
 #, fuzzy
 msgid "common.specific_search_fields.edition_varia"
 msgstr "ສະບັບ"
 
-#: allthethings/page/views.py:6605
+#: allthethings/page/views.py:6635
 #, fuzzy
 msgid "common.specific_search_fields.year"
 msgstr "ປີທີ່ຕີພິມ"
 
-#: allthethings/page/views.py:6606
+#: allthethings/page/views.py:6636
 #, fuzzy
 msgid "common.specific_search_fields.original_filename"
 msgstr "ຊື່ໄຟລ໌ຕົ້ນສະບັບ"
 
-#: allthethings/page/views.py:6607
+#: allthethings/page/views.py:6637
 #, fuzzy
 msgid "common.specific_search_fields.description_comments"
 msgstr "ຄຳອະທິບາຍແລະຄຳເຫັນເກື່ອງຂໍ້ມູນ"
 
-#: allthethings/page/views.py:6631 allthethings/page/views.py:6632
+#: allthethings/page/views.py:6661 allthethings/page/views.py:6662
 #, fuzzy
 msgid "page.md5.box.download.temporarily_unavailable"
 msgstr "ການດາວໂຫລດຈາກເຊີບເວີພາກສ່ວນຊົ່ວຄາວບໍ່ພ້ອມໃຊ້ງານສຳລັບໄຟລ໌ນີ້."
 
-#: allthethings/page/views.py:6636
+#: allthethings/page/views.py:6666
 #, fuzzy
 msgid "common.md5.servers.fast_partner"
 msgstr "ເຊີບເວີພັນທະມິດໄວ #%(number)s"
 
-#: allthethings/page/views.py:6636
+#: allthethings/page/views.py:6666
 #, fuzzy
 msgid "common.md5.servers.fast_partner.recommended2"
 msgstr "(ທີ່ແນະນຳ)"
 
-#: allthethings/page/views.py:6636
+#: allthethings/page/views.py:6666
 #, fuzzy
 msgid "common.md5.servers.no_browser_verification_or_waitlists"
 msgstr "(ບໍ່ມີການຢືນຢັນຜ່ານບຣາວເຊີ ຫຼື ລາຍຊື່ລໍຖ້າ)"
 
 #: allthethings/page/templates/page/partner_download.html:37
-#: allthethings/page/views.py:6639 allthethings/page/views.py:6641
+#: allthethings/page/views.py:6669 allthethings/page/views.py:6671
 #, fuzzy
 msgid "common.md5.servers.slow_partner"
 msgstr "ເຊີບເວີພັນທະມິດຊ້າ #%(number)s"
 
-#: allthethings/page/views.py:6639
+#: allthethings/page/views.py:6669
 #, fuzzy
 msgid "common.md5.servers.faster_with_waitlist"
 msgstr "(ໄວກວ່າແຕ່ມີລາຍຊື່ລໍຖ້າ)"
 
-#: allthethings/page/views.py:6641
+#: allthethings/page/views.py:6671
 #, fuzzy
 msgid "common.md5.servers.slow_no_waitlist"
 msgstr "(ບໍ່ມີລາຍຊື່ລໍຖ້າ ແຕ່ອາດຈະຊ້າຫຼາຍ)"
 
-#: allthethings/page/views.py:6728 allthethings/page/views.py:6950
+#: allthethings/page/views.py:6758 allthethings/page/views.py:6983
 #, fuzzy
 msgid "page.md5.box.download.scihub"
 msgstr "Sci-Hub: %(doi)s"
 
-#: allthethings/page/views.py:6805
+#: allthethings/page/views.py:6838
 #, fuzzy
 msgid "page.md5.box.download.lgrsnf"
 msgstr "Libgen.rs ບໍ່ແມ່ນນິຍາຍ"
 
-#: allthethings/page/views.py:6805 allthethings/page/views.py:6821
-#: allthethings/page/views.py:6882
-#, fuzzy
-msgid "page.md5.box.download.extra_also_click_get"
-msgstr "(ກະລຸນາຄລິກ “GET” ຢູ່ຂ້າງເທິງ)"
-
-#: allthethings/page/views.py:6805 allthethings/page/views.py:6821
-#: allthethings/page/views.py:6882
-#, fuzzy
-msgid "page.md5.box.download.extra_click_get"
-msgstr "(ຄລິກ “GET” ຢູ່ຂ້າງເທິງ)"
-
-#: allthethings/page/views.py:6821
+#: allthethings/page/views.py:6854
 #, fuzzy
 msgid "page.md5.box.download.lgrsfic"
 msgstr "Libgen.rs ນິຍາຍ"
 
-#: allthethings/page/views.py:6882
+#: allthethings/page/views.py:6915
 #, fuzzy
 msgid "page.md5.box.download.lgli"
 msgstr "Libgen.li"
 
-#: allthethings/page/views.py:6882
+#: allthethings/page/views.py:6915
+#, fuzzy
+msgid "page.md5.box.download.extra_also_click_get"
+msgstr "(ກະລຸນາຄລິກ “GET” ຢູ່ຂ້າງເທິງ)"
+
+#: allthethings/page/views.py:6915
+#, fuzzy
+msgid "page.md5.box.download.extra_click_get"
+msgstr "(ຄລິກ “GET” ຢູ່ຂ້າງເທິງ)"
+
+#: allthethings/page/views.py:6915
 #, fuzzy
 msgid "page.md5.box.download.libgen_ads"
 msgstr "ໂຄສະນາຂອງພວກເຂົາມີຊື່ສຽງວ່າມີໂປຣແກຣມທີ່ບໍ່ປອດໄພ, ດັ່ງນັ້ນກະລຸນາໃຊ້ຕົວບລັອກໂຄສະນາ ຫຼືບໍ່ຄລິກໂຄສະນາ"
 
-#: allthethings/page/views.py:6886
+#: allthethings/page/views.py:6919
 #, fuzzy
 msgid "page.md5.box.download.nexusstc"
 msgstr "Nexus/STC"
 
-#: allthethings/page/views.py:6886
+#: allthethings/page/views.py:6919
 #, fuzzy
 msgid "page.md5.box.download.nexusstc_unreliable"
 msgstr "(ໄຟລ໌ Nexus/STC ອາດຈະບໍ່ເຊື່ອຖືໃນການດາວໂຫຼດ)"
 
-#: allthethings/page/views.py:6933 allthethings/page/views.py:6937
+#: allthethings/page/views.py:6966 allthethings/page/views.py:6970
 #, fuzzy
 msgid "page.md5.box.download.zlib"
 msgstr "Z-Library"
 
-#: allthethings/page/views.py:6934 allthethings/page/views.py:6938
+#: allthethings/page/views.py:6967 allthethings/page/views.py:6971
 #, fuzzy
 msgid "page.md5.box.download.zlib_tor"
 msgstr "Z-Library ໃນ Tor"
 
-#: allthethings/page/views.py:6934 allthethings/page/views.py:6938
+#: allthethings/page/views.py:6967 allthethings/page/views.py:6971
 #, fuzzy
 msgid "page.md5.box.download.zlib_tor_extra"
 msgstr "(ຕ້ອງການ Tor Browser)"
 
-#: allthethings/page/views.py:6941
+#: allthethings/page/views.py:6974
 #, fuzzy
 msgid "page.md5.box.download.magzdb"
 msgstr "MagzDB"
 
-#: allthethings/page/views.py:6946
+#: allthethings/page/views.py:6979
 #, fuzzy
 msgid "page.md5.box.download.ia_borrow"
 msgstr "ຢືມຈາກ Internet Archive"
 
-#: allthethings/page/views.py:6946
+#: allthethings/page/views.py:6979
 #, fuzzy
 msgid "page.md5.box.download.print_disabled_only"
 msgstr "(ສຳລັບຜູ້ພິການທີ່ບໍ່ສາມາດພິມໄດ້ເທົ່ານັ້ນ)"
 
-#: allthethings/page/views.py:6950
+#: allthethings/page/views.py:6983
 #, fuzzy
 msgid "page.md5.box.download.scihub_maybe"
 msgstr "(ອາດຈະບໍ່ມີ DOI ທີ່ກ່ຽວຂ້ອງໃນ Sci-Hub)"
 
-#: allthethings/page/views.py:6953
+#: allthethings/page/views.py:6986
 #, fuzzy
 msgid "page.md5.box.download.manualslib"
 msgstr "ManualsLib"
 
-#: allthethings/page/views.py:6956
+#: allthethings/page/views.py:6989
 #, fuzzy
 msgid "page.md5.box.download.pubmed"
 msgstr "PubMed"
 
-#: allthethings/page/views.py:6963
+#: allthethings/page/views.py:6996
 #, fuzzy
 msgid "page.md5.box.download.collection"
 msgstr "ຄັງເກັບ"
 
-#: allthethings/page/views.py:6964
+#: allthethings/page/views.py:6997
 #, fuzzy
 msgid "page.md5.box.download.torrent"
 msgstr "ທໍເຣນ"
 
-#: allthethings/page/views.py:6970
+#: allthethings/page/views.py:7003
 #, fuzzy
 msgid "page.md5.box.download.bulk_torrents"
 msgstr "ດາວໂຫລດທໍເຣນຈຳນວນຫຼາຍ"
 
-#: allthethings/page/views.py:6970
+#: allthethings/page/views.py:7003
 #, fuzzy
 msgid "page.md5.box.download.experts_only"
 msgstr "(ສຳລັບຜູ້ຊຳນານເທົ່ານັ້ນ)"
 
-#: allthethings/page/views.py:6977
+#: allthethings/page/views.py:7010
 #, fuzzy
 msgid "page.md5.box.download.aa_isbn"
 msgstr "ຊອກຫາ Anna’s Archive ສຳລັບ ISBN"
 
-#: allthethings/page/views.py:6978
+#: allthethings/page/views.py:7011
 #, fuzzy
 msgid "page.md5.box.download.other_isbn"
 msgstr "ຊອກຫາຖານຂໍ້ມູນອື່ນໆ ສຳລັບ ISBN"
 
-#: allthethings/page/views.py:6979
+#: allthethings/page/views.py:7012
 #, fuzzy
 msgid "page.md5.box.download.original_isbndb"
 msgstr "ຊອກຫາບັນທຶກຕົ້ນສະບັບໃນ ISBNdb"
 
-#: allthethings/page/views.py:6981
+#: allthethings/page/views.py:7014
 #, fuzzy
 msgid "page.md5.box.download.aa_openlib"
 msgstr "ຊອກຫາບັນທຶກໃນ Anna’s Archive ສຳລັບ Open Library ID"
 
-#: allthethings/page/views.py:6982
+#: allthethings/page/views.py:7015
 #, fuzzy
 msgid "page.md5.box.download.original_openlib"
 msgstr "ຊອກຫາບັນທຶກຕົ້ນສະບັບໃນ Open Library"
 
-#: allthethings/page/views.py:6984
+#: allthethings/page/views.py:7017
 #, fuzzy
 msgid "page.md5.box.download.aa_oclc"
 msgstr "ຊອກຫາບັນທຶກໃນ Anna’s Archive ສຳລັບ OCLC (WorldCat) number"
 
-#: allthethings/page/views.py:6985
+#: allthethings/page/views.py:7018
 #, fuzzy
 msgid "page.md5.box.download.original_oclc"
 msgstr "ຊອກຫາບັນທຶກຕົ້ນສະບັບໃນ WorldCat"
 
-#: allthethings/page/views.py:6987
+#: allthethings/page/views.py:7020
 #, fuzzy
 msgid "page.md5.box.download.aa_duxiu"
 msgstr "ຊອກຫາບັນທຶກໃນ Anna’s Archive ສຳລັບ DuXiu SSID number"
 
-#: allthethings/page/views.py:6988
+#: allthethings/page/views.py:7021
 #, fuzzy
 msgid "page.md5.box.download.original_duxiu"
 msgstr "ຊອກຫາດ້ວຍຕົນເອງໃນ DuXiu"
 
-#: allthethings/page/views.py:6990
+#: allthethings/page/views.py:7023
 #, fuzzy
 msgid "page.md5.box.download.aa_cadal"
 msgstr "ຊອກຫາບັນທຶກໃນ Anna’s Archive ສຳລັບ CADAL SSNO number"
 
-#: allthethings/page/views.py:6991
+#: allthethings/page/views.py:7024
 #, fuzzy
 msgid "page.md5.box.download.original_cadal"
 msgstr "ຊອກຫາບັນທຶກຕົ້ນສະບັບໃນ CADAL"
 
-#: allthethings/page/views.py:6995
+#: allthethings/page/views.py:7028
 #, fuzzy
 msgid "page.md5.box.download.aa_dxid"
 msgstr "ຊອກຫາບັນທຶກໃນ Anna’s Archive ສຳລັບ DuXiu DXID number"
 
-#: allthethings/page/views.py:6998
+#: allthethings/page/views.py:7031
 #, fuzzy
 msgid "page.md5.box.download.edsebk"
 msgstr "ດັດສະນີປື້ມອີເລັກຂອງ EBSCOhost"
 
-#: allthethings/page/views.py:7003 allthethings/page/views.py:7004
+#: allthethings/page/views.py:7036 allthethings/page/views.py:7037
 #, fuzzy
 msgid "page.md5.box.download.scidb"
 msgstr "Anna’s Archive 🧬 SciDB"
 
-#: allthethings/page/views.py:7003 allthethings/page/views.py:7004
+#: allthethings/page/views.py:7036 allthethings/page/views.py:7037
 #, fuzzy
 msgid "common.md5.servers.no_browser_verification"
 msgstr "(ບໍ່ຕ້ອງກວດສອບຜ່ານບຣາວເຊີ)"
 
-#: allthethings/page/views.py:7029
+#: allthethings/page/views.py:7062
 #, fuzzy
 msgid "page.md5.top_row.isbndb"
 msgstr "ISBNdb %(id)s}"
 
-#: allthethings/page/views.py:7030
+#: allthethings/page/views.py:7063
 #, fuzzy
 msgid "page.md5.top_row.oclc"
 msgstr "OCLC %(id)s}"
 
-#: allthethings/page/views.py:7031
+#: allthethings/page/views.py:7064
 #, fuzzy
 msgid "page.md5.top_row.duxiu_ssid"
 msgstr "DuXiu SSID %(id)s}"
 
-#: allthethings/page/views.py:7032
+#: allthethings/page/views.py:7065
 #, fuzzy
 msgid "page.md5.top_row.cadal_ssno"
 msgstr "CADAL SSNO %(id)s}"
 
-#: allthethings/page/views.py:7033
+#: allthethings/page/views.py:7066
 #, fuzzy
 msgid "page.md5.top_row.magzdb"
 msgstr "MagzDB %(id)s}"
 
-#: allthethings/page/views.py:7034
+#: allthethings/page/views.py:7067
 #, fuzzy
 msgid "page.md5.top_row.nexusstc"
 msgstr "Nexus/STC %(id)s}"
 
-#: allthethings/page/views.py:7035
+#: allthethings/page/views.py:7068
 #, fuzzy
 msgid "page.md5.top_row.edsebk"
 msgstr "EBSCOhost edsebk %(id)s}"
 
-#: allthethings/page/views.py:7036
+#: allthethings/page/views.py:7069
 #, fuzzy
 msgid "page.md5.top_row.cerlalc"
 msgstr "ສູນກາງສຳລັບການສຶກສາຂອງລາຕິນອາເມລິກາ %(id)s}"
 
-#: allthethings/page/views.py:7037
+#: allthethings/page/views.py:7070
 #, fuzzy
 msgid "page.md5.top_row.czech_oo42hcks"
 msgstr "ຂໍ້ມູນເມຕາຂອງເຊກ %(id)s}"
 
-#: allthethings/page/views.py:7038
+#: allthethings/page/views.py:7071
 #, fuzzy
 msgid "page.md5.top_row.gbooks"
 msgstr "Google Books %(id)s}"
 
-#: allthethings/page/views.py:7039
+#: allthethings/page/views.py:7072
 #, fuzzy
 msgid "page.md5.top_row.goodreads"
 msgstr "Goodreads %(id)s}"
 
-#: allthethings/page/views.py:7040
+#: allthethings/page/views.py:7073
 #, fuzzy
 msgid "page.md5.top_row.isbngrp"
 msgstr "ISBN GRP %(id)s}"
 
-#: allthethings/page/views.py:7041
+#: allthethings/page/views.py:7074
 #, fuzzy
 msgid "page.md5.top_row.libby"
 msgstr "Libby %(id)s}"
 
-#: allthethings/page/views.py:7042
+#: allthethings/page/views.py:7075
 #, fuzzy
 msgid "page.md5.top_row.rgb"
 msgstr "RSL %(id)s}"
 
-#: allthethings/page/views.py:7043
+#: allthethings/page/views.py:7076
 #, fuzzy
 msgid "page.md5.top_row.trantor"
 msgstr "Trantor %(id)s}"
@@ -2665,57 +2673,57 @@ msgstr "Trantor %(id)s}"
 #: allthethings/page/templates/page/datasets_scihub.html:18
 #: allthethings/page/templates/page/datasets_upload.html:18
 #: allthethings/page/templates/page/datasets_zlib.html:18
-#: allthethings/page/views.py:7067
+#: allthethings/page/views.py:7100
 #, fuzzy
 msgid "page.datasets.sources.metadata.header"
 msgstr "ຂໍ້ມູນອ້າງອີງ"
 
-#: allthethings/page/views.py:7080
+#: allthethings/page/views.py:7113
 #, fuzzy
 msgid "page.md5.box.descr_title"
 msgstr "ຄຳອະທິບາຍ"
 
-#: allthethings/page/views.py:7081
+#: allthethings/page/views.py:7114
 #, fuzzy
 msgid "page.md5.box.alternative_filename"
 msgstr "ຊື່ໄຟລ໌ທາງເລືອກ"
 
-#: allthethings/page/views.py:7082
+#: allthethings/page/views.py:7115
 #, fuzzy
 msgid "page.md5.box.alternative_title"
 msgstr "ຊື່ເລື່ອງທາງເລືອກ"
 
-#: allthethings/page/views.py:7083
+#: allthethings/page/views.py:7116
 #, fuzzy
 msgid "page.md5.box.alternative_author"
 msgstr "ນັກຂຽນທາງເລືອກ"
 
-#: allthethings/page/views.py:7084
+#: allthethings/page/views.py:7117
 #, fuzzy
 msgid "page.md5.box.alternative_publisher"
 msgstr "ຜູ້ພິມທາງເລືອກ"
 
-#: allthethings/page/views.py:7085
+#: allthethings/page/views.py:7118
 #, fuzzy
 msgid "page.md5.box.alternative_edition"
 msgstr "ສະບັບທາງເລືອກ"
 
-#: allthethings/page/views.py:7086
+#: allthethings/page/views.py:7119
 #, fuzzy
 msgid "page.md5.box.alternative_extension"
 msgstr "ນາມສະກຸນທາງເລືອກ"
 
-#: allthethings/page/views.py:7087
+#: allthethings/page/views.py:7120
 #, fuzzy
 msgid "page.md5.box.metadata_comments_title"
 msgstr "ຄຳເຫັນເກື່ອງຂໍ້ມູນ"
 
-#: allthethings/page/views.py:7088
+#: allthethings/page/views.py:7121
 #, fuzzy
 msgid "page.md5.box.alternative_description"
 msgstr "ຄຳອະທິບາຍທາງເລືອກ"
 
-#: allthethings/page/views.py:7089
+#: allthethings/page/views.py:7122
 #, fuzzy
 msgid "page.md5.box.date_open_sourced_title"
 msgstr "ວັນທີເປີດໃຊ້ຊອບແວຟຣີ"
@@ -2781,167 +2789,178 @@ msgstr "ບັນທຶກຂໍ້ມູນ Nexus/STC ID %(id)s"
 msgid "page.md5.header.meta_desc"
 msgstr "ນີ້ແມ່ນບັນທຶກ metadata, ບໍ່ແມ່ນໄຟລ໌ທີ່ສາມາດດາວໂຫລດໄດ້. ທ່ານສາມາດໃຊ້ URL ນີ້ເມື່ອ <a %(a_request)s>ຮ້ອງຂໍໄຟລ໌</a>."
 
-#: allthethings/page/templates/page/aarecord.html:57
+#: allthethings/page/templates/page/aarecord.html:59
 #, fuzzy
 msgid "page.md5.text.linked_metadata"
 msgstr "ຂໍ້ມູນເມຕາຈາກບັນທຶກທີ່ເຊື່ອມໂຍງ"
 
-#: allthethings/page/templates/page/aarecord.html:58
+#: allthethings/page/templates/page/aarecord.html:60
 #, fuzzy
 msgid "page.md5.text.linked_metadata_openlib"
 msgstr "ປັບປຸງຂໍ້ມູນເມຕາທີ່ Open Library"
 
-#: allthethings/page/templates/page/aarecord.html:61
+#: allthethings/page/templates/page/aarecord.html:63
 #, fuzzy
 msgid "page.md5.warning.multiple_links"
 msgstr "ຄຳເຕືອນ: ບັນທຶກທີ່ເຊື່ອມໂຍງຫຼາຍອັນ:"
 
-#: allthethings/page/templates/page/aarecord.html:69
+#: allthethings/page/templates/page/aarecord.html:71
 #, fuzzy
 msgid "page.md5.header.improve_metadata"
 msgstr "ປັບປຸງ metadata"
 
-#: allthethings/page/templates/page/aarecord.html:71
+#: allthethings/page/templates/page/aarecord.html:73
 #, fuzzy
 msgid "page.md5.text.report_quality"
 msgstr "ລາຍງານຄຸນນະພາບໄຟລ໌"
 
-#: allthethings/page/templates/page/aarecord.html:95
+#: allthethings/page/templates/page/aarecord.html:87
+#: allthethings/page/templates/page/search.html:510
+#: allthethings/page/templates/page/search.html:520
+#: allthethings/page/templates/page/search.html:550
+#: allthethings/templates/macros/aarecord_list.html:118
+#, fuzzy
+msgid "page.search.results.download_time"
+msgstr "ເວລາດາວໂຫລດ"
+
+#: allthethings/page/templates/page/aarecord.html:142
 #, fuzzy
 msgid "page.md5.codes.url"
 msgstr "URL:"
 
-#: allthethings/page/templates/page/aarecord.html:96
+#: allthethings/page/templates/page/aarecord.html:143
 #, fuzzy
 msgid "page.md5.codes.website"
 msgstr "ເວັບໄຊທ໌:"
 
-#: allthethings/page/templates/page/aarecord.html:97
+#: allthethings/page/templates/page/aarecord.html:144
 #, fuzzy
 msgid "page.md5.codes.aa_abbr"
 msgstr "AA:"
 
-#: allthethings/page/templates/page/aarecord.html:97
+#: allthethings/page/templates/page/aarecord.html:144
 #, fuzzy
 msgid "page.md5.codes.aa_search"
 msgstr "ຄົ້ນຫາ Anna’s Archive ສຳລັບ “%(name)s”"
 
-#: allthethings/page/templates/page/aarecord.html:98
+#: allthethings/page/templates/page/aarecord.html:145
 #, fuzzy
 msgid "page.md5.codes.code_explorer"
 msgstr "ຄົ້ນຫາ Codes Explorer:"
 
-#: allthethings/page/templates/page/aarecord.html:98
+#: allthethings/page/templates/page/aarecord.html:145
 #, fuzzy
 msgid "page.md5.codes.code_search"
 msgstr "ເບິ່ງໃນ Codes Explorer “%(name)s”"
 
-#: allthethings/page/templates/page/aarecord.html:117
+#: allthethings/page/templates/page/aarecord.html:164
 #, fuzzy
 msgid "page.md5.box.descr_read_more"
 msgstr "ອ່ານເພີ່ມເຕີມ…"
 
-#: allthethings/page/templates/page/aarecord.html:133
+#: allthethings/page/templates/page/aarecord.html:180
 #, fuzzy
 msgid "page.md5.tabs.downloads"
 msgstr "ດາວໂຫລດ (%(count)s)"
 
-#: allthethings/page/templates/page/aarecord.html:133
+#: allthethings/page/templates/page/aarecord.html:180
 #, fuzzy
 msgid "page.md5.tabs.borrow"
 msgstr "ຢືມ (%(count)s)"
 
-#: allthethings/page/templates/page/aarecord.html:133
+#: allthethings/page/templates/page/aarecord.html:180
 #, fuzzy
 msgid "page.md5.tabs.explore_metadata"
 msgstr "ສຳຫຼວດ metadata (%(count)s)"
 
-#: allthethings/page/templates/page/aarecord.html:135
+#: allthethings/page/templates/page/aarecord.html:183
 #, fuzzy
 msgid "page.md5.tabs.lists"
 msgstr "ລາຍການ (%(count)s)"
 
-#: allthethings/page/templates/page/aarecord.html:136
+#: allthethings/page/templates/page/aarecord.html:184
 #, fuzzy
 msgid "page.md5.tabs.stats"
 msgstr "ສະຖິຕິ (%(count)s)"
 
-#: allthethings/page/templates/page/aarecord.html:138
+#: allthethings/page/templates/page/aarecord.html:186
 #, fuzzy
 msgid "common.tech_details"
 msgstr "ລາຍລະອຽດເທັກນິກ"
 
-#: allthethings/page/templates/page/aarecord.html:207
+#: allthethings/page/templates/page/aarecord.html:265
 #, fuzzy
 msgid "page.md5.box.issues.text1"
 msgstr "<span class=\"font-bold\">❌ ໄຟລ໌ນີ້ອາດມີບັນຫາ, ແລະໄດ້ຖືກເຊື່ອງຈາກຫ້ອງສະໝຸດແຫ່ງໜຶ່ງ.</span> ບາງຄັ້ງນີ້ເປັນຕາມຄຳຮ້ອງຂໍຂອງເຈົ້າຂອງລິຂະສິດ, ບາງຄັ້ງເປັນເພາະມີທາງເລືອກທີ່ດີກວ່າ, ແຕ່ບາງຄັ້ງເປັນເພາະມີບັນຫາກັບໄຟລ໌ເອງ. ມັນອາດຍັງຄົງດີທີ່ຈະດາວໂຫລດ, ແຕ່ພວກເຮົາແນະນຳໃຫ້ຄົ້ນຫາໄຟລ໌ທາງເລືອກກ່ອນ. ລາຍລະອຽດເພີ່ມເຕີມ:"
 
-#: allthethings/page/templates/page/aarecord.html:212
+#: allthethings/page/templates/page/aarecord.html:270
 #, fuzzy
 msgid "page.md5.box.download.better_file"
 msgstr "ອາດມີສະບັບທີ່ດີກວ່າຂອງໄຟລ໌ນີ້ຢູ່ທີ່ %(link)s"
 
-#: allthethings/page/templates/page/aarecord.html:217
+#: allthethings/page/templates/page/aarecord.html:275
 #, fuzzy
 msgid "page.md5.box.issues.text2"
 msgstr "ຖ້າທ່ານຍັງຕ້ອງການດາວໂຫລດໄຟລ໌ນີ້, ຈົ່ງແນ່ໃຈວ່າໃຊ້ຊອບແວທີ່ເຊື່ອຖືໄດ້ ແລະທີ່ມີການອັບເດດເພື່ອເປີດມັນ."
 
-#: allthethings/page/templates/page/aarecord.html:222
+#: allthethings/page/templates/page/aarecord.html:280
 #, fuzzy
 msgid "page.md5.box.download.header_fast_only"
 msgstr "🚀 ດາວໂຫລດໄວ"
 
-#: allthethings/page/templates/page/aarecord.html:224
+#: allthethings/page/templates/page/aarecord.html:282
 #, fuzzy
 msgid "page.md5.box.download.header_fast_no_member"
 msgstr "<strong>🚀 ດາວໂຫລດໄວ</strong> ກາຍເປັນ <a %(a_membership)s>ສະມາຊິກ</a> ເພື່ອສະໜັບສະໜູນການຮັກສາລະຍະຍາວຂອງປື້ມ, ເອກະສານ, ແລະອື່ນໆ. ເພື່ອສະແດງຄວາມຂອບຄຸນສຳລັບການສະໜັບສະໜູນຂອງທ່ານ, ທ່ານຈະໄດ້ຮັບການດາວໂຫລດໄວ. ❤️"
 
-#: allthethings/page/templates/page/aarecord.html:225
+#: allthethings/page/templates/page/aarecord.html:283
 #: allthethings/templates/layouts/index.html:233
 #, fuzzy
 msgid "layout.index.header.banner.fundraiser.this_month"
 msgstr "ຖ້າທ່ານບໍລິຈາກໃນເດືອນນີ້, ທ່ານຈະໄດ້ຮັບ <strong>ຈຳນວນການດາວໂຫຼດໄວຂຶ້ນສອງເທົ່າ</strong>."
 
-#: allthethings/page/templates/page/aarecord.html:227
+#: allthethings/page/templates/page/aarecord.html:285
 #, fuzzy
 msgid "page.md5.box.download.header_fast_member"
 msgstr "<strong>🚀 ດາວໂຫລດໄວ</strong> ທ່ານຍັງມີ %(remaining)s ຢູ່ມື້ນີ້. ຂອບໃຈທີ່ເປັນສະມາຊິກ! ❤️"
 
-#: allthethings/page/templates/page/aarecord.html:228
+#: allthethings/page/templates/page/aarecord.html:286
 #, fuzzy
 msgid "page.md5.box.download.header_fast_member_no_remaining_new"
 msgstr "<strong>🚀 ດາວໂຫລດໄວ</strong> ທ່ານໄດ້ໃຊ້ດາວໂຫລດໄວຫມົດແລ້ວສຳລັບມື້ນີ້."
 
-#: allthethings/page/templates/page/aarecord.html:229
+#: allthethings/page/templates/page/aarecord.html:287
 #, fuzzy
 msgid "page.md5.box.download.header_fast_member_valid_for"
 msgstr "<strong>🚀 ດາວໂຫລດໄວ</strong> ທ່ານໄດ້ດາວໂຫລດໄຟລ໌ນີ້ໄປແລ້ວໃນໄມ່ດົນນີ້. ລິ້ງຍັງຄົງໃຊ້ໄດ້ຢູ່ຫລາຍຊົ່ວໂມງ."
 
-#: allthethings/page/templates/page/aarecord.html:234
-#: allthethings/page/templates/page/aarecord.html:251
-#: allthethings/page/templates/page/aarecord.html:283
+#: allthethings/page/templates/page/aarecord.html:292
+#: allthethings/page/templates/page/aarecord.html:293
+#: allthethings/page/templates/page/aarecord.html:311
+#: allthethings/page/templates/page/aarecord.html:347
 #, fuzzy
 msgid "page.md5.box.download.option"
 msgstr "ຕົວເລືອກ #%(num)d: %(link)s %(extra)s"
 
-#: allthethings/page/templates/page/aarecord.html:234
+#: allthethings/page/templates/page/aarecord.html:292
+#: allthethings/page/templates/page/aarecord.html:294
 #, fuzzy
 msgid "page.md5.box.download.no_redirect"
 msgstr "(ບໍ່ມີການປ່ຽນທາງ)"
 
-#: allthethings/page/templates/page/aarecord.html:239
+#: allthethings/page/templates/page/aarecord.html:299
 #: allthethings/templates/layouts/index.html:276
 #, fuzzy
 msgid "layout.index.header.banner.refer"
 msgstr "ແນະນຳເພື່ອນ, ແລະທັງທ່ານແລະເພື່ອນຂອງທ່ານຈະໄດ້ຮັບ %(percentage)s%% ໂບນັດດາວໂຫລດໄວ!"
 
-#: allthethings/page/templates/page/aarecord.html:239
+#: allthethings/page/templates/page/aarecord.html:299
 #: allthethings/page/templates/page/home.html:25
 #: allthethings/page/templates/page/home.html:34
 #: allthethings/page/templates/page/home.html:71
 #: allthethings/page/templates/page/home.html:124
-#: allthethings/page/templates/page/search.html:357
-#: allthethings/page/templates/page/search.html:421
+#: allthethings/page/templates/page/search.html:361
+#: allthethings/page/templates/page/search.html:425
 #: allthethings/templates/layouts/index.html:270
 #: allthethings/templates/layouts/index.html:276
 #: allthethings/templates/layouts/index.html:403
@@ -2951,252 +2970,252 @@ msgstr "ແນະນຳເພື່ອນ, ແລະທັງທ່ານແລ�
 msgid "layout.index.header.learn_more"
 msgstr "ຮຽນຮູ້ເພີ່ມເຕີມ…"
 
-#: allthethings/page/templates/page/aarecord.html:246
+#: allthethings/page/templates/page/aarecord.html:306
 #, fuzzy
 msgid "page.md5.box.download.header_slow_only"
 msgstr "🐢 ດາວໂຫລດຊ້າ"
 
-#: allthethings/page/templates/page/aarecord.html:247
+#: allthethings/page/templates/page/aarecord.html:307
 #, fuzzy
 msgid "page.md5.box.download.trusted_partners"
 msgstr "ຈາກຄູ່ຄ້າທີ່ເຊື່ອໄດ້."
 
-#: allthethings/page/templates/page/aarecord.html:247
+#: allthethings/page/templates/page/aarecord.html:307
 #, fuzzy
 msgid "page.md5.box.download.slow_faq"
 msgstr "ຂໍ້ມູນເພີ່ມເຕີມຢູ່ <a %(a_slow)s>FAQ</a>."
 
-#: allthethings/page/templates/page/aarecord.html:247
+#: allthethings/page/templates/page/aarecord.html:307
 #, fuzzy
 msgid "common.md5.servers.browser_verification_unlimited"
 msgstr "(ອາດຈະຕ້ອງການ <a %(a_browser)s>ການຢືນຢັນບຣາວເຊີ</a> — ດາວໂຫລດໄດ້ບໍ່ຈຳກັດ!)"
 
-#: allthethings/page/templates/page/aarecord.html:262
+#: allthethings/page/templates/page/aarecord.html:326
 #, fuzzy
 msgid "page.md5.box.external_downloads"
 msgstr "ສະແດງການດາວໂຫລດພາຍນອກ"
 
-#: allthethings/page/templates/page/aarecord.html:263
+#: allthethings/page/templates/page/aarecord.html:327
 #, fuzzy
 msgid "page.md5.box.download.header_external"
 msgstr "ດາວໂຫລດຈາກພາຍນອກ"
 
-#: allthethings/page/templates/page/aarecord.html:288
+#: allthethings/page/templates/page/aarecord.html:352
 #, fuzzy
 msgid "page.md5.box.download.no_found"
 msgstr "ບໍ່ພົບການດາວໂຫລດ."
 
-#: allthethings/page/templates/page/aarecord.html:294
+#: allthethings/page/templates/page/aarecord.html:358
 #, fuzzy
 msgid "page.md5.box.download.no_issues_notice"
 msgstr "ທຸກຕົວເລືອກດາວໂຫລດມີໄຟລ໌ດຽວກັນ, ແລະຄວນຈະປອດໄພໃນການໃຊ້. ຢ່າງໃດກໍຕາມ, ຄວນລະມັດລະວັງເມື່ອດາວໂຫລດໄຟລ໌ຈາກອິນເຕີເນັດ, ພິເສດຢ່າງຍິ່ງຈາກເວັບໄຊທ໌ພາຍນອກຂອງ Anna’s Archive. ຕົວຢ່າງ, ຄວນຮັກສາອຸປະກອນຂອງທ່ານໃຫ້ອັບເດດຢູ່ເສມື່ອ."
 
-#: allthethings/page/templates/page/aarecord.html:300
+#: allthethings/page/templates/page/aarecord.html:364
 #: allthethings/page/templates/page/partner_download.html:83
 #, fuzzy
 msgid "page.md5.box.download.dl_managers"
 msgstr "ສຳລັບໄຟລ໌ຂະໜາດໃຫຍ່, ພວກເຮົາແນະນຳໃຫ້ໃຊ້ຜູ້ຈັດການດາວໂຫລດເພື່ອປ້ອງກັນການຂັດຂ້ອງ."
 
-#: allthethings/page/templates/page/aarecord.html:301
+#: allthethings/page/templates/page/aarecord.html:365
 #: allthethings/page/templates/page/partner_download.html:84
 #, fuzzy
 msgid "page.md5.box.download.dl_managers.links"
 msgstr "ຜູ້ຈັດການດາວໂຫລດທີ່ແນະນຳ: %(links)s"
 
-#: allthethings/page/templates/page/aarecord.html:309
+#: allthethings/page/templates/page/aarecord.html:373
 #, fuzzy
 msgid "page.md5.box.download.readers"
 msgstr "ທ່ານຈະຕ້ອງໃຊ້ຜູ້ອ່ານ ebook ຫຼື PDF ເພື່ອເປີດໄຟລ໌, ຂຶ້ນຢູ່ກັບຮູບແບບໄຟລ໌."
 
-#: allthethings/page/templates/page/aarecord.html:310
+#: allthethings/page/templates/page/aarecord.html:374
 #, fuzzy
 msgid "page.md5.box.download.readers.links"
 msgstr "ຜູ້ອ່ານ ebook ທີ່ແນະນຳ: %(links)s"
 
-#: allthethings/page/templates/page/aarecord.html:319
+#: allthethings/page/templates/page/aarecord.html:383
 #, fuzzy
 msgid "page.md5.box.download.conversion"
 msgstr "ໃຊ້ເຄື່ອງມືອອນໄລນ໌ເພື່ອປ່ຽນລະຫວ່າງຮູບແບບ."
 
-#: allthethings/page/templates/page/aarecord.html:320
+#: allthethings/page/templates/page/aarecord.html:384
 #, fuzzy
 msgid "page.md5.box.download.conversion.links"
 msgstr "ເຄື່ອງມືປ່ຽນຮູບແບບທີ່ແນະນຳ: %(links)s"
 
-#: allthethings/page/templates/page/aarecord.html:328
+#: allthethings/page/templates/page/aarecord.html:392
 #, fuzzy
 msgid "page.md5.box.download.sendtokindle"
 msgstr "ທ່ານສາມາດສົ່ງໄຟລ໌ PDF ແລະ EPUB ໄປທີ່ Kindle ຫຼື Kobo eReader ຂອງທ່ານ."
 
-#: allthethings/page/templates/page/aarecord.html:329
+#: allthethings/page/templates/page/aarecord.html:393
 #, fuzzy
 msgid "page.md5.box.download.sendtokindle.links"
 msgstr "ເຄື່ອງມືທີ່ແນະນຳ: %(links)s"
 
-#: allthethings/page/templates/page/aarecord.html:332
+#: allthethings/page/templates/page/aarecord.html:396
 #, fuzzy
 msgid "page.md5.box.download.link.send_to_kindle"
 msgstr "Amazon ຂອງ “Send to Kindle”"
 
-#: allthethings/page/templates/page/aarecord.html:333
+#: allthethings/page/templates/page/aarecord.html:397
 #, fuzzy
 msgid "page.md5.box.download.link.send_to_kobokindle"
 msgstr "djazz ຂອງ “Send to Kobo/Kindle”"
 
-#: allthethings/page/templates/page/aarecord.html:338
+#: allthethings/page/templates/page/aarecord.html:402
 #, fuzzy
 msgid "page.md5.box.download.support"
 msgstr "ສະໜັບສະໜູນນັກຂຽນແລະຫ້ອງສະໝຸດ"
 
-#: allthethings/page/templates/page/aarecord.html:339
+#: allthethings/page/templates/page/aarecord.html:403
 #, fuzzy
 msgid "page.md5.box.download.support.authors"
 msgstr "ຖ້າທ່ານມັກສິ່ງນີ້ແລະສາມາດຈ່າຍໄດ້, ພິຈາລະນາຊື້ຕົ້ນສະບັບດັ່ງເດີມ, ຫຼືສະໜັບສະໜູນນັກຂຽນໂດຍກົງ."
 
-#: allthethings/page/templates/page/aarecord.html:340
+#: allthethings/page/templates/page/aarecord.html:404
 #, fuzzy
 msgid "page.md5.box.download.support.libraries"
 msgstr "ຖ້າມີຢູ່ທີ່ຫ້ອງສະໝຸດທ້ອງຖິ່ນຂອງທ່ານ, ພິຈາລະນາຢືມມັນໄດ້ຟຣີທີ່ນັ້ນ."
 
-#: allthethings/page/templates/page/aarecord.html:371
+#: allthethings/page/templates/page/aarecord.html:442
 #, fuzzy
 msgid "page.md5.quality.header"
 msgstr "ຄຸນນະພາບໄຟລ໌"
 
-#: allthethings/page/templates/page/aarecord.html:374
+#: allthethings/page/templates/page/aarecord.html:445
 #, fuzzy
 msgid "page.md5.quality.report"
 msgstr "ຊ່ວຍຊຸມຊົນໂດຍລາຍງານຄຸນນະພາບຂອງໄຟລ໌ນີ້! 🙌"
 
-#: allthethings/page/templates/page/aarecord.html:378
+#: allthethings/page/templates/page/aarecord.html:449
 #, fuzzy
 msgid "page.md5.quality.report_issue"
 msgstr "ລາຍງານບັນຫາໄຟລ໌ (%(count)s)"
 
-#: allthethings/page/templates/page/aarecord.html:380
+#: allthethings/page/templates/page/aarecord.html:451
 #, fuzzy
 msgid "page.md5.quality.great_quality"
 msgstr "ຄຸນນະພາບໄຟລ໌ດີ (%(count)s)"
 
-#: allthethings/page/templates/page/aarecord.html:380
+#: allthethings/page/templates/page/aarecord.html:451
 #, fuzzy
 msgid "page.md5.quality.add_comment"
 msgstr "ເພີ່ມຄວາມຄິດເຫັນ (%(count)s)"
 
-#: allthethings/page/templates/page/aarecord.html:383
+#: allthethings/page/templates/page/aarecord.html:454
 #, fuzzy
 msgid "page.md5.quality.logged_out_login"
 msgstr "ກະລຸນາ <a %(a_login)s>ເຂົ້າລະບົບ</a>."
 
-#: allthethings/page/templates/page/aarecord.html:387
+#: allthethings/page/templates/page/aarecord.html:458
 #, fuzzy
 msgid "page.md5.quality.what_is_wrong"
 msgstr "ມີຫຍັງຜິດກັບໄຟລ໌ນີ້?"
 
-#: allthethings/page/templates/page/aarecord.html:397
+#: allthethings/page/templates/page/aarecord.html:468
 #, fuzzy
 msgid "page.md5.quality.copyright"
 msgstr "ກະລຸນາໃຊ້ <a %(a_copyright)s>ແບບຟອມຮ້ອງຮຽນ DMCA / ລິຂະສິດ</a>."
 
-#: allthethings/page/templates/page/aarecord.html:402
+#: allthethings/page/templates/page/aarecord.html:473
 #, fuzzy
 msgid "page.md5.quality.describe_the_issue"
 msgstr "ອະທິບາຍບັນຫາ (ຈຳເປັນ)"
 
-#: allthethings/page/templates/page/aarecord.html:403
+#: allthethings/page/templates/page/aarecord.html:474
 #, fuzzy
 msgid "page.md5.quality.issue_description"
 msgstr "ຄຳອະທິບາຍບັນຫາ"
 
-#: allthethings/page/templates/page/aarecord.html:407
+#: allthethings/page/templates/page/aarecord.html:478
 #, fuzzy
 msgid "page.md5.quality.better_md5.text1"
 msgstr "MD5 ຂອງເວີຊັນທີ່ດີກວ່າຂອງໄຟລ໌ນີ້ (ຖ້າມີ)."
 
-#: allthethings/page/templates/page/aarecord.html:407
+#: allthethings/page/templates/page/aarecord.html:478
 #, fuzzy
 msgid "page.md5.quality.better_md5.text2"
 msgstr "ກະລຸນາກອກຂໍ້ມູນນີ້ຖ້າມີໄຟລ໌ອື່ນທີ່ຄ້າຍຄືກັບໄຟລ໌ນີ້ (ສຳນັກພິມດຽວກັນ, ປະເພດໄຟລ໌ດຽວກັນຖ້າຫາໄດ້), ທີ່ຄວນໃຊ້ແທນໄຟລ໌ນີ້. ຖ້າທ່ານຮູ້ວ່າມີເວີຊັນທີ່ດີກວ່າຂອກໄຟລ໌ນີ້ພາຍນອກ Anna’s Archive, ກະລຸນາ <a %(a_upload)s>ອັບໂຫລດມັນ</a>."
 
-#: allthethings/page/templates/page/aarecord.html:410
+#: allthethings/page/templates/page/aarecord.html:481
 #, fuzzy
 msgid "page.md5.quality.better_md5.line1"
 msgstr "ທ່ານສາມາດຮັບ MD5 ຈາກ URL, ຕົວຢ່າງເຊັ່ນ"
 
-#: allthethings/page/templates/page/aarecord.html:417
+#: allthethings/page/templates/page/aarecord.html:488
 #, fuzzy
 msgid "page.md5.quality.submit_report"
 msgstr "ສົ່ງລາຍງານ"
 
-#: allthethings/page/templates/page/aarecord.html:422
+#: allthethings/page/templates/page/aarecord.html:493
 #, fuzzy
 msgid "page.md5.quality.improve_the_metadata"
 msgstr "ຮຽນຮູ້ວິທີ <a %(a_metadata)s>ປັບປຸງຂໍ້ມູນເພີ່ມເຕີມ</a> ສຳລັບໄຟລ໌ນີ້ເອງ."
 
-#: allthethings/page/templates/page/aarecord.html:426
+#: allthethings/page/templates/page/aarecord.html:497
 #, fuzzy
 msgid "page.md5.quality.report_thanks"
 msgstr "ຂອບໃຈທີ່ສົ່ງລາຍງານຂອງທ່ານ. ມັນຈະຖືກສະແດງໃນໜ້ານີ້, ແລະຈະຖືກກວດສອບໂດຍ Anna (ຈົນກວ່າພວກເຮົາຈະມີລະບົບກວດສອບທີ່ຖືກຕ້ອງ)."
 
-#: allthethings/page/templates/page/aarecord.html:427
+#: allthethings/page/templates/page/aarecord.html:498
 #, fuzzy
 msgid "page.md5.quality.report_error"
 msgstr "ມີບາງຢ່າງຜິດພາດ. ກະລຸນາໂຫຼດໜ້ານີ້ຄືນແລະລອງອີກຄັ້ງ."
 
-#: allthethings/page/templates/page/aarecord.html:433
+#: allthethings/page/templates/page/aarecord.html:504
 #, fuzzy
 msgid "page.md5.quality.great.summary"
 msgstr "ຖ້າໄຟລ໌ນີ້ມີຄຸນນະພາບດີ, ທ່ານສາມາດຖົມຖາມຫຍັງກ່ຽວກັບມັນໄດ້ທີ່ນີ້! ຖ້າບໍ່, ກະລຸນາໃຊ້ປຸ່ມ “ລາຍງານບັນຫາໄຟລ໌”."
 
-#: allthethings/page/templates/page/aarecord.html:435
+#: allthethings/page/templates/page/aarecord.html:506
 #, fuzzy
 msgid "page.md5.quality.loved_the_book"
 msgstr "ຂ້ອຍມັກປື້ມເລ່ມນີ້!"
 
-#: allthethings/page/templates/page/aarecord.html:437
+#: allthethings/page/templates/page/aarecord.html:508
 #, fuzzy
 msgid "page.md5.quality.submit_comment"
 msgstr "ປະເດັນຄວາມຄິດເຫັນ"
 
-#: allthethings/page/templates/page/aarecord.html:441
+#: allthethings/page/templates/page/aarecord.html:512
 #, fuzzy
 msgid "page.md5.quality.comment_thanks"
 msgstr "ທ່ານໄດ້ປະເດັນຄວາມຄິດເຫັນແລ້ວ. ອາດຈະໃຊ້ເວລາຫນຶ່ງນາທີໃຫ້ມັນປາກົດຂຶ້ນ."
 
-#: allthethings/page/templates/page/aarecord.html:442
+#: allthethings/page/templates/page/aarecord.html:513
 #, fuzzy
 msgid "page.md5.quality.comment_error"
 msgstr "ມີບາງຢ່າງຜິດພາດ. ກະລຸນາໂຫຼດໜ້ານີ້ຄືນແລະລອງໃໝ່."
 
-#: allthethings/page/templates/page/aarecord.html:452
-#: allthethings/page/templates/page/aarecord.html:453
-#: allthethings/page/templates/page/torrents.html:36
-#: allthethings/page/templates/page/torrents.html:37
+#: allthethings/page/templates/page/aarecord.html:522
+#: allthethings/page/templates/page/aarecord.html:523
+#: allthethings/page/templates/page/torrents.html:40
+#: allthethings/page/templates/page/torrents.html:41
 #, fuzzy
 msgid "common.english_only"
 msgstr "ຂໍ້ຄວາມຂ້າງລຸ່ມນີ້ດຳເນີນຕໍ່ໃນພາສາອັງກິດ."
 
-#: allthethings/page/templates/page/aarecord.html:474
+#: allthethings/page/templates/page/aarecord.html:544
 #, fuzzy
 msgid "page.md5.text.stats.total_downloads"
 msgstr "ຈຳນວນການດາວໂຫຼດທັງໝົດ: %(total)s"
 
-#: allthethings/page/templates/page/aarecord.html:506
+#: allthethings/page/templates/page/aarecord.html:576
 #, fuzzy
 msgid "page.md5.text.md5_info.text1"
 msgstr "“file MD5” ແມ່ນການຫາຄ່າ hash ທີ່ຖືກຄິດໄລ່ຈາກເນື້ອໃນຂອງໄຟລ໌, ແລະມັນມີຄວາມເປັນເອກະລັກທີ່ສົມເຫດສົມຜົນຕາມເນື້ອໃນນັ້ນ. ຫ້ອງສະໝຸດ shadow ທັງຫມົດທີ່ພວກເຮົາໄດ້ດັດສະນີຢູ່ນີ້ໃຊ້ MD5 ເປັນຫຼັກໃນການລະບຸໄຟລ໌."
 
-#: allthethings/page/templates/page/aarecord.html:510
+#: allthethings/page/templates/page/aarecord.html:580
 #, fuzzy
 msgid "page.md5.text.md5_info.text2"
 msgstr "ໄຟລ໌ອາດຈະປາກົດຢູ່ໃນຫ້ອງສະໝຸດ shadow ຫຼາຍແຫ່ງ. ສຳລັບຂໍ້ມູນເກື່ອງກຽວກັບ datasets ຕ່າງໆທີ່ພວກເຮົາໄດ້ຮວບຮວມ, ກະລຸນາເບິ່ງ <a %(a_datasets)s>ໜ້າ Datasets</a>."
 
-#: allthethings/page/templates/page/aarecord.html:514
+#: allthethings/page/templates/page/aarecord.html:584
 #, fuzzy
 msgid "page.md5.text.ia_info.text1"
 msgstr "ນີ້ແມ່ນໄຟລ໌ທີ່ຖືກຄວບຄຸມໂດຍ <a %(a_ia)s>ຫ້ອງສະໝຸດການຢືມຢືມດິຈິຕອນຂອງ IA</a>, ແລະຖືກດັດສະນີໂດຍ Anna’s Archive ເພື່ອການຄົ້ນຫາ. ສຳລັບຂໍ້ມູນເກື່ອງກຽວກັບ datasets ຕ່າງໆທີ່ພວກເຮົາໄດ້ຮວບຮວມ, ກະລຸນາເບິ່ງ <a %(a_datasets)s>ໜ້າ Datasets</a>."
 
-#: allthethings/page/templates/page/aarecord.html:519
+#: allthethings/page/templates/page/aarecord.html:589
 #, fuzzy
 msgid "page.md5.text.file_info.text1"
 msgstr "ສຳລັບຂໍ້ມູນເກື່ອງກຽວກັບໄຟລ໌ນີ້ໂດຍສະເພາະ, ກະລຸນາເບິ່ງ <a %(a_href)s>ໄຟລ໌ JSON ຂອງມັນ</a>."
@@ -3897,7 +3916,7 @@ msgstr "ພວກເຮົາຍັງເພີ່ມພູນການສະສ
 
 #: allthethings/page/templates/page/datasets.html:505
 #: allthethings/page/templates/page/faq.html:191
-#: allthethings/page/templates/page/search.html:392
+#: allthethings/page/templates/page/search.html:396
 #, fuzzy
 msgid "page.faq.metadata.inspiration"
 msgstr "ແຮງບັນດານໃຈຂອງພວກເຮົາໃນການສະສົມຂໍ້ມູນ metadata ແມ່ນຈາກຈຸດປະສົງຂອງ Aaron Swartz ທີ່ຕ້ອງການ \"ໜ້າເວັບທຸກໜ້າສຳລັບປື້ມທຸກເລື່ອງທີ່ເຄີຍຖືກພິມ\", ທີ່ລາວໄດ້ສ້າງ <a %(a_openlib)s>Open Library</a>. ໂຄງການນັ້ນໄດ້ປະສົບຄວາມສຳເລັດ, ແຕ່ຕຳແໜ່ງທີ່ເປັນເອກະລັກຂອງພວກເຮົາອະນຸຍາດໃຫ້ພວກເຮົາໄດ້ metadata ທີ່ພວກເຂົາບໍ່ສາມາດໄດ້. ອີກຫນຶ່ງແຮງບັນດານໃຈແມ່ນຄວາມຕ້ອງການຂອງພວກເຮົາທີ່ຈະຮູ້ <a %(a_blog)s>ວ່າມີປື້ມຈຳນວນເທົ່າໃດໃນໂລກ</a>, ເພື່ອທີ່ພວກເຮົາຈະຄິດໄດ້ວ່າຍັງມີປື້ມຈຳນວນເທົ່າໃດທີ່ພວກເຮົາຕ້ອງການບັນທຶກໄວ້."
@@ -3980,11 +3999,11 @@ msgstr "ແມ່ນວ່າປື້ມໄດ້ຖືກແຈກຈ່າຍ
 #: allthethings/page/templates/page/datasets_lgrs.html:81
 #: allthethings/page/templates/page/datasets_magzdb.html:66
 #: allthethings/page/templates/page/datasets_nexusstc.html:72
-#: allthethings/page/templates/page/datasets_oclc.html:63
+#: allthethings/page/templates/page/datasets_oclc.html:120
 #: allthethings/page/templates/page/datasets_ol.html:44
-#: allthethings/page/templates/page/datasets_other_metadata.html:150
+#: allthethings/page/templates/page/datasets_other_metadata.html:72
 #: allthethings/page/templates/page/datasets_scihub.html:90
-#: allthethings/page/templates/page/datasets_upload.html:221
+#: allthethings/page/templates/page/datasets_upload.html:104
 #: allthethings/page/templates/page/datasets_zlib.html:63
 #, fuzzy
 msgid "page.datasets.common.resources"
@@ -3997,7 +4016,7 @@ msgstr "ຊັບພະຍາກອນ"
 #: allthethings/page/templates/page/datasets_magzdb.html:68
 #: allthethings/page/templates/page/datasets_nexusstc.html:74
 #: allthethings/page/templates/page/datasets_scihub.html:92
-#: allthethings/page/templates/page/datasets_upload.html:223
+#: allthethings/page/templates/page/datasets_upload.html:106
 #: allthethings/page/templates/page/datasets_zlib.html:67
 #: allthethings/page/templates/page/datasets_zlib.html:74
 #, fuzzy
@@ -4011,7 +4030,7 @@ msgstr "ຈຳນວນໄຟລ໌ທັງໝົດ: %(count)s"
 #: allthethings/page/templates/page/datasets_magzdb.html:69
 #: allthethings/page/templates/page/datasets_nexusstc.html:75
 #: allthethings/page/templates/page/datasets_scihub.html:93
-#: allthethings/page/templates/page/datasets_upload.html:224
+#: allthethings/page/templates/page/datasets_upload.html:107
 #: allthethings/page/templates/page/datasets_zlib.html:68
 #: allthethings/page/templates/page/datasets_zlib.html:75
 #, fuzzy
@@ -4025,7 +4044,7 @@ msgstr "ຂະໜາດໄຟລ໌ທັງໝົດ: %(size)s"
 #: allthethings/page/templates/page/datasets_magzdb.html:70
 #: allthethings/page/templates/page/datasets_nexusstc.html:76
 #: allthethings/page/templates/page/datasets_scihub.html:94
-#: allthethings/page/templates/page/datasets_upload.html:225
+#: allthethings/page/templates/page/datasets_upload.html:108
 #: allthethings/page/templates/page/datasets_zlib.html:69
 #: allthethings/page/templates/page/datasets_zlib.html:76
 #, fuzzy
@@ -4038,7 +4057,7 @@ msgstr "ໄຟລ໌ທີ່ຖືກສຳເນົາໂດຍ Anna’s Archi
 #: allthethings/page/templates/page/datasets_lgrs.html:86
 #: allthethings/page/templates/page/datasets_magzdb.html:71
 #: allthethings/page/templates/page/datasets_nexusstc.html:77
-#: allthethings/page/templates/page/datasets_oclc.html:65
+#: allthethings/page/templates/page/datasets_oclc.html:122
 #: allthethings/page/templates/page/datasets_ol.html:46
 #: allthethings/page/templates/page/datasets_zlib.html:79
 #, fuzzy
@@ -4055,10 +4074,10 @@ msgstr "Torrents ໂດຍ Anna’s Archive"
 #: allthethings/page/templates/page/datasets_ia.html:79
 #: allthethings/page/templates/page/datasets_lgli.html:113
 #: allthethings/page/templates/page/datasets_lgrs.html:90
-#: allthethings/page/templates/page/datasets_oclc.html:67
+#: allthethings/page/templates/page/datasets_oclc.html:124
 #: allthethings/page/templates/page/datasets_ol.html:47
 #: allthethings/page/templates/page/datasets_scihub.html:96
-#: allthethings/page/templates/page/datasets_upload.html:227
+#: allthethings/page/templates/page/datasets_upload.html:110
 #, fuzzy
 msgid "page.datasets.common.aa_example_record"
 msgstr "ຕົວຢ່າງບັນທຶກໃນ ຄັງເກັບຂໍ້ມູນຂອງ Anna"
@@ -4074,11 +4093,11 @@ msgstr "ບລັອກໂພສຂອງພວກເຮົາກ່ຽວກັ
 #: allthethings/page/templates/page/datasets_lgrs.html:101
 #: allthethings/page/templates/page/datasets_magzdb.html:78
 #: allthethings/page/templates/page/datasets_nexusstc.html:92
-#: allthethings/page/templates/page/datasets_oclc.html:70
+#: allthethings/page/templates/page/datasets_oclc.html:127
 #: allthethings/page/templates/page/datasets_ol.html:50
-#: allthethings/page/templates/page/datasets_other_metadata.html:153
+#: allthethings/page/templates/page/datasets_other_metadata.html:75
 #: allthethings/page/templates/page/datasets_scihub.html:104
-#: allthethings/page/templates/page/datasets_upload.html:228
+#: allthethings/page/templates/page/datasets_upload.html:111
 #: allthethings/page/templates/page/datasets_zlib.html:87
 #, fuzzy
 msgid "page.datasets.common.import_scripts"
@@ -4090,11 +4109,11 @@ msgstr "ສະບັບສຳລັບນຳເຂົ້າຂໍ້ມູນເ
 #: allthethings/page/templates/page/datasets_lgrs.html:102
 #: allthethings/page/templates/page/datasets_magzdb.html:79
 #: allthethings/page/templates/page/datasets_nexusstc.html:93
-#: allthethings/page/templates/page/datasets_oclc.html:71
+#: allthethings/page/templates/page/datasets_oclc.html:128
 #: allthethings/page/templates/page/datasets_ol.html:51
-#: allthethings/page/templates/page/datasets_other_metadata.html:154
+#: allthethings/page/templates/page/datasets_other_metadata.html:76
 #: allthethings/page/templates/page/datasets_scihub.html:105
-#: allthethings/page/templates/page/datasets_upload.html:229
+#: allthethings/page/templates/page/datasets_upload.html:112
 #: allthethings/page/templates/page/datasets_zlib.html:88
 #, fuzzy
 msgid "page.datasets.common.aac"
@@ -4140,7 +4159,7 @@ msgstr "ການປະຕິບັດງານໃໝ່ເພີ່ມເຕີ
 #: allthethings/page/templates/page/datasets_ia.html:80
 #: allthethings/page/templates/page/datasets_lgli.html:114
 #: allthethings/page/templates/page/datasets_lgrs.html:91
-#: allthethings/page/templates/page/datasets_oclc.html:68
+#: allthethings/page/templates/page/datasets_oclc.html:125
 #: allthethings/page/templates/page/datasets_ol.html:48
 #: allthethings/page/templates/page/datasets_scihub.html:97
 #, fuzzy
@@ -4435,7 +4454,7 @@ msgstr "ຄືກັນກັບການຮວບຮວມ Z-Library, ພວກ
 
 #: allthethings/page/templates/page/datasets_oclc.html:4
 #: allthethings/page/templates/page/datasets_oclc.html:7
-#: allthethings/page/templates/page/datasets_oclc.html:68
+#: allthethings/page/templates/page/datasets_oclc.html:125
 #, fuzzy
 msgid "page.datasets.worldcat.title"
 msgstr "OCLC (WorldCat)"
@@ -4445,17 +4464,17 @@ msgstr "OCLC (WorldCat)"
 msgid "page.datasets.worldcat.description"
 msgstr "<a %(a_worldcat)s>WorldCat</a> ແມ່ນຖານຂໍ້ມູນທີ່ມີລິຂະສິດໂດຍບໍລິສັດບໍ່ສະແຫວງຫາກຳໄລ <a %(a_oclc)s>OCLC</a>, ທີ່ຮວບຮວມບັນທຶກ metadata ຈາກຫໍສະໝຸດທົ່ວໂລກ. ມັນອາດຈະເປັນຄັງສະມາຊິກ metadata ຫໍສະໝຸດທີ່ໃຫຍ່ທີ່ສຸດໃນໂລກ."
 
-#: allthethings/page/templates/page/datasets_oclc.html:52
+#: allthethings/page/templates/page/datasets_oclc.html:54
 #, fuzzy
 msgid "page.datasets.worldcat.description2"
 msgstr "ໃນເດືອນຕຸລາ 2023 ພວກເຮົາໄດ້ <a %(a_scrape)s>ປ່ອຍ</a> ການຂູດຂໍ້ມູນທີ່ຄົບຖ້ວນຂອງຖານຂໍ້ມູນ OCLC (WorldCat), ໃນ <a %(a_aac)s>ຮູບແບບ Anna’s Archive Containers</a>."
 
-#: allthethings/page/templates/page/datasets_oclc.html:66
+#: allthethings/page/templates/page/datasets_oclc.html:123
 #, fuzzy
 msgid "page.datasets.worldcat.torrents"
 msgstr "Torrents ໂດຍ Anna’s Archive"
 
-#: allthethings/page/templates/page/datasets_oclc.html:69
+#: allthethings/page/templates/page/datasets_oclc.html:126
 #, fuzzy
 msgid "page.datasets.worldcat.blog_announcement"
 msgstr "ບົດຄວາມບລັອກຂອງພວກເຮົາກ່ຽວກັບຂໍ້ມູນນີ້"
@@ -4477,22 +4496,22 @@ msgstr "Open Library ແມ່ນໂຄງການໂຄດເປັນໂຄ�
 msgid "page.datesets.openlib.link_metadata"
 msgstr "ຂໍ້ມູນຂ່າວສານ"
 
-#: allthethings/page/templates/page/datasets_other_metadata.html:92
+#: allthethings/page/templates/page/datasets_other_metadata.html:61
 #, fuzzy
 msgid "page.datasets.isbndb.release1.title"
 msgstr "ປ່ອຍຄັ້ງທີ 1 (2022-10-31)"
 
-#: allthethings/page/templates/page/datasets_other_metadata.html:93
+#: allthethings/page/templates/page/datasets_other_metadata.html:61
 #, fuzzy
 msgid "page.datasets.isbndb.release1.text1"
 msgstr "ນີ້ແມ່ນການດຳເນີນການດຶງຂໍ້ມູນຈາກ isbndb.com ໃນເດືອນກັນຍາ 2022. ພວກເຮົາພະຍາຍາມຄົບຄຸມທຸກຊ່ວງເວລາ ISBN. ມີບັນທຶກປະມານ 30.9 ລ້ານລາຍການ. ບ່ອນເວັບໄຊທ໌ຂອງພວກເຂົາອ້າງວ່າພວກເຂົາມີບັນທຶກຈຳນວນ 32.6 ລ້ານ, ດັ່ງນັ້ນພວກເຮົາອາດຈະພາດບາງສ່ວນ, ຫຼື <em>ພວກເຂົາ</em> ອາດຈະທຳຜິດພາດບາງຢ່າງ."
 
-#: allthethings/page/templates/page/datasets_other_metadata.html:94
+#: allthethings/page/templates/page/datasets_other_metadata.html:61
 #, fuzzy
 msgid "page.datasets.isbndb.release1.text2"
 msgstr "ການຕອບກັບ JSON ແມ່ນຄ່ອນຂ້າງດິບຈາກເຊີເວີຂອງພວກເຂົາ. ປັນຫາຄຸນນະພາບຂໍ້ມູນທີ່ພວກເຮົາສັງເກດເຫັນແມ່ນ, ສຳລັບເລກ ISBN-13 ທີ່ເລີ່ມຕົ້ນດ້ວຍຄຳນຳຫນ້າທີ່ແຕກຕ່າງຈາກ “978-”, ພວກເຂົາຍັງລວມເຂົ້າກັບຊ່ອງ “isbn” ທີ່ເປັນເລກ ISBN-13 ທີ່ຕັດຕົວເລກ 3 ຕົວແລະຄິດໄລ່ເລກກວດສອບໃໝ່. ນີ້ແມ່ນຜິດພາດຢ່າງແຈ້ງຈະແຈງ, ແຕ່ນີ້ແມ່ນວິທີທີ່ພວກເຂົາເຮັດ, ດັ່ງນັ້ນພວກເຮົາບໍ່ໄດ້ປ່ຽນແປງມັນ."
 
-#: allthethings/page/templates/page/datasets_other_metadata.html:95
+#: allthethings/page/templates/page/datasets_other_metadata.html:61
 #, fuzzy
 msgid "page.datasets.isbndb.release1.text3"
 msgstr "ອີກປັນຫາທີ່ທ່ານອາດຈະເຈີຜົນແມ່ນ, ຄວາມຈິງທີ່ຊ່ອງ “isbn13” ມີການຊ້ຳກັນ, ດັ່ງນັ້ນທ່ານບໍ່ສາມາດໃຊ້ມັນເປັນກຸນແຈສຳຄັນໃນຖານຂໍ້ມູນໄດ້. ຊ່ອງ “isbn13”+“isbn” ທີ່ລວມກັນດູເຫັນວ່າເປັນເອກະລັກ."
@@ -4585,162 +4604,189 @@ msgstr "ຫົວໝວດນ້ອຍຫຼາຍໆເອງກໍປະກອ
 msgid "page.datasets.upload.subs.heading"
 msgstr "ຫົວໝວດນ້ອຍມີດັ່ງນີ້:"
 
+#: allthethings/page/templates/page/datasets_upload.html:63
+#: allthethings/page/templates/page/datasets_upload.html:64
 #: allthethings/page/templates/page/datasets_upload.html:65
+#: allthethings/page/templates/page/datasets_upload.html:66
+#: allthethings/page/templates/page/datasets_upload.html:67
+#: allthethings/page/templates/page/datasets_upload.html:68
+#: allthethings/page/templates/page/datasets_upload.html:69
+#: allthethings/page/templates/page/datasets_upload.html:70
+#: allthethings/page/templates/page/datasets_upload.html:71
 #: allthethings/page/templates/page/datasets_upload.html:72
+#: allthethings/page/templates/page/datasets_upload.html:73
+#: allthethings/page/templates/page/datasets_upload.html:74
+#: allthethings/page/templates/page/datasets_upload.html:75
+#: allthethings/page/templates/page/datasets_upload.html:76
+#: allthethings/page/templates/page/datasets_upload.html:77
+#: allthethings/page/templates/page/datasets_upload.html:78
 #: allthethings/page/templates/page/datasets_upload.html:79
+#: allthethings/page/templates/page/datasets_upload.html:80
+#: allthethings/page/templates/page/datasets_upload.html:81
+#: allthethings/page/templates/page/datasets_upload.html:82
+#: allthethings/page/templates/page/datasets_upload.html:83
+#: allthethings/page/templates/page/datasets_upload.html:84
+#: allthethings/page/templates/page/datasets_upload.html:85
 #: allthethings/page/templates/page/datasets_upload.html:86
+#: allthethings/page/templates/page/datasets_upload.html:87
+#: allthethings/page/templates/page/datasets_upload.html:88
+#: allthethings/page/templates/page/datasets_upload.html:89
+#: allthethings/page/templates/page/datasets_upload.html:90
+#: allthethings/page/templates/page/datasets_upload.html:91
+#: allthethings/page/templates/page/datasets_upload.html:92
 #: allthethings/page/templates/page/datasets_upload.html:93
-#: allthethings/page/templates/page/datasets_upload.html:100
-#: allthethings/page/templates/page/datasets_upload.html:107
-#: allthethings/page/templates/page/datasets_upload.html:114
-#: allthethings/page/templates/page/datasets_upload.html:121
-#: allthethings/page/templates/page/datasets_upload.html:128
-#: allthethings/page/templates/page/datasets_upload.html:135
-#: allthethings/page/templates/page/datasets_upload.html:142
-#: allthethings/page/templates/page/datasets_upload.html:149
-#: allthethings/page/templates/page/datasets_upload.html:156
-#: allthethings/page/templates/page/datasets_upload.html:163
-#: allthethings/page/templates/page/datasets_upload.html:170
-#: allthethings/page/templates/page/datasets_upload.html:177
-#: allthethings/page/templates/page/datasets_upload.html:184
-#: allthethings/page/templates/page/datasets_upload.html:191
-#: allthethings/page/templates/page/datasets_upload.html:198
-#: allthethings/page/templates/page/datasets_upload.html:212
+#: allthethings/page/templates/page/datasets_upload.html:94
+#: allthethings/page/templates/page/datasets_upload.html:95
+#: allthethings/page/templates/page/datasets_upload.html:96
+#: allthethings/page/templates/page/datasets_upload.html:97
+#: allthethings/page/templates/page/datasets_upload.html:98
+#: allthethings/page/templates/page/datasets_upload.html:99
 #, fuzzy
 msgid "page.datasets.upload.action.browse"
 msgstr "ເບິ່ງ"
 
+#: allthethings/page/templates/page/datasets_upload.html:63
+#: allthethings/page/templates/page/datasets_upload.html:64
+#: allthethings/page/templates/page/datasets_upload.html:65
 #: allthethings/page/templates/page/datasets_upload.html:66
+#: allthethings/page/templates/page/datasets_upload.html:67
+#: allthethings/page/templates/page/datasets_upload.html:68
+#: allthethings/page/templates/page/datasets_upload.html:69
+#: allthethings/page/templates/page/datasets_upload.html:70
+#: allthethings/page/templates/page/datasets_upload.html:71
+#: allthethings/page/templates/page/datasets_upload.html:72
 #: allthethings/page/templates/page/datasets_upload.html:73
+#: allthethings/page/templates/page/datasets_upload.html:74
+#: allthethings/page/templates/page/datasets_upload.html:75
+#: allthethings/page/templates/page/datasets_upload.html:76
+#: allthethings/page/templates/page/datasets_upload.html:77
+#: allthethings/page/templates/page/datasets_upload.html:78
+#: allthethings/page/templates/page/datasets_upload.html:79
 #: allthethings/page/templates/page/datasets_upload.html:80
+#: allthethings/page/templates/page/datasets_upload.html:81
+#: allthethings/page/templates/page/datasets_upload.html:82
+#: allthethings/page/templates/page/datasets_upload.html:83
+#: allthethings/page/templates/page/datasets_upload.html:84
+#: allthethings/page/templates/page/datasets_upload.html:85
+#: allthethings/page/templates/page/datasets_upload.html:86
 #: allthethings/page/templates/page/datasets_upload.html:87
+#: allthethings/page/templates/page/datasets_upload.html:88
+#: allthethings/page/templates/page/datasets_upload.html:89
+#: allthethings/page/templates/page/datasets_upload.html:90
+#: allthethings/page/templates/page/datasets_upload.html:91
+#: allthethings/page/templates/page/datasets_upload.html:92
+#: allthethings/page/templates/page/datasets_upload.html:93
 #: allthethings/page/templates/page/datasets_upload.html:94
-#: allthethings/page/templates/page/datasets_upload.html:101
-#: allthethings/page/templates/page/datasets_upload.html:108
-#: allthethings/page/templates/page/datasets_upload.html:115
-#: allthethings/page/templates/page/datasets_upload.html:122
-#: allthethings/page/templates/page/datasets_upload.html:129
-#: allthethings/page/templates/page/datasets_upload.html:136
-#: allthethings/page/templates/page/datasets_upload.html:143
-#: allthethings/page/templates/page/datasets_upload.html:150
-#: allthethings/page/templates/page/datasets_upload.html:157
-#: allthethings/page/templates/page/datasets_upload.html:164
-#: allthethings/page/templates/page/datasets_upload.html:171
-#: allthethings/page/templates/page/datasets_upload.html:178
-#: allthethings/page/templates/page/datasets_upload.html:185
-#: allthethings/page/templates/page/datasets_upload.html:192
-#: allthethings/page/templates/page/datasets_upload.html:199
-#: allthethings/page/templates/page/datasets_upload.html:213
+#: allthethings/page/templates/page/datasets_upload.html:95
+#: allthethings/page/templates/page/datasets_upload.html:96
+#: allthethings/page/templates/page/datasets_upload.html:97
+#: allthethings/page/templates/page/datasets_upload.html:98
+#: allthethings/page/templates/page/datasets_upload.html:99
 #, fuzzy
 msgid "page.datasets.upload.action.search"
 msgstr "ຄົ້ນຫາ"
 
-#: allthethings/page/templates/page/datasets_upload.html:67
+#: allthethings/page/templates/page/datasets_upload.html:63
 #, fuzzy
 msgid "page.datasets.upload.source.aaaaarg"
 msgstr "ຈາກ <a %(a_href)s>aaaaarg.fail</a>. ເຫັນວ່າຄ່ອນຂ້າງຄົບຖ້ວນ. ຈາກອາສາສະໝັກຂອງພວກເຮົາ “cgiym”."
 
-#: allthethings/page/templates/page/datasets_upload.html:74
+#: allthethings/page/templates/page/datasets_upload.html:64
 #, fuzzy
 msgid "page.datasets.upload.source.acm"
 msgstr "ຈາກ <a %(a_href)s><q>ACM Digital Library 2020</q></a> torrent. ມີການຊ້ອນທັບຄ່ອນຂ້າງສູງກັບການເກັບລວມເອກະສານທີ່ມີຢູ່ແລ້ວ, ແຕ່ມີການຕົກລົງຂອງ MD5 ນ້ອຍຫລາຍ, ດັ່ງນັ້ນພວກເຮົາຕັດສິນໃຈທີ່ຈະເກັບມັນໄວ້ທັງໝົດ."
 
-#: allthethings/page/templates/page/datasets_upload.html:81
-#, fuzzy
-msgid "page.datasets.upload.source.alexandrina"
-msgstr "ຈາກການເກັບລວມ <a %(a_href)s><q>Bibliotheca Alexandrina,</q></a> ຕົ້ນກໍາເນີດທີ່ບໍ່ຊັດເຈນ. ບາງສ່ວນມາຈາກ the-eye.eu, ບາງສ່ວນມາຈາກແຫຼ່ງອື່ນ."
-
-#: allthethings/page/templates/page/datasets_upload.html:88
+#: allthethings/page/templates/page/datasets_upload.html:67
 #, fuzzy
 msgid "page.datasets.upload.source.bibliotik"
 msgstr "ຈາກເວັບໄຊທ໌ torrent ຫນັງສືສ່ວນຕົວ, <a %(a_href)s>Bibliotik</a> (ມັກຈະຖືກອ້າງອີງວ່າ “Bib”), ຫນັງສືທີ່ຖືກມັດເປັນ torrents ຕາມຊື່ (A.torrent, B.torrent) ແລະຖືກແຈກຢາຍຜ່ານ the-eye.eu."
 
-#: allthethings/page/templates/page/datasets_upload.html:95
+#: allthethings/page/templates/page/datasets_upload.html:68
 #, fuzzy
 msgid "page.datasets.upload.source.bpb9v_cadal"
 msgstr "ຈາກອາສາສະໝັກຂອງພວກເຮົາ “bpb9v”. ສໍາລັບຂໍ້ມູນເພີ່ມເຕີມກ່ຽວກັບ <a %(a_href)s>CADAL</a>, ກະລຸນາເບິ່ງບັນທຶກໃນ <a %(a_duxiu)s>ເວັບໄຊທ໌ DuXiu dataset</a> ຂອງພວກເຮົາ."
 
-#: allthethings/page/templates/page/datasets_upload.html:102
+#: allthethings/page/templates/page/datasets_upload.html:69
 #, fuzzy
 msgid "page.datasets.upload.source.bpb9v_direct"
 msgstr "ຂໍ້ມູນເພີ່ມເຕີມຈາກອາສາສະໝັກຂອງພວກເຮົາ “bpb9v”, ສ່ວນໃຫຍ່ແມ່ນໄຟລ໌ DuXiu, ພ້ອມກັບໂຟນເດີ “WenQu” ແລະ “SuperStar_Journals” (SuperStar ແມ່ນບໍລິສັດທີ່ຢູ່ເບື້ອງຫລັງ DuXiu)."
 
-#: allthethings/page/templates/page/datasets_upload.html:109
+#: allthethings/page/templates/page/datasets_upload.html:70
 #, fuzzy
 msgid "page.datasets.upload.source.cgiym_chinese"
 msgstr "ຈາກອາສາສະໝັກຂອງພວກເຮົາ “cgiym”, ຂໍ້ຄວາມຈີນຈາກແຫຼ່ງຕ່າງໆ (ຖືກສະແດງເປັນຫນ່ວຍຍ່ອຍ), ລວມທັງຈາກ <a %(a_href)s>China Machine Press</a> (ຜູ້ພິມຈີນທີ່ສໍາຄັນ)."
 
-#: allthethings/page/templates/page/datasets_upload.html:116
+#: allthethings/page/templates/page/datasets_upload.html:71
 #, fuzzy
 msgid "page.datasets.upload.source.cgiym_more"
 msgstr "ການເກັບລວມທີ່ບໍ່ແມ່ນຂອງຈີນ (ຖືກສະແດງເປັນຫນ່ວຍຍ່ອຍ) ຈາກອາສາສະໝັກຂອງພວກເຮົາ “cgiym”."
 
-#: allthethings/page/templates/page/datasets_upload.html:123
+#: allthethings/page/templates/page/datasets_upload.html:73
 #, fuzzy
 msgid "page.datasets.upload.source.degruyter"
 msgstr "ຫນັງສືຈາກສໍານັກພິມວິຊາການ <a %(a_href)s>De Gruyter</a>, ຖືກເກັບລວມຈາກ torrent ໃຫຍ່ບາງອັນ."
 
-#: allthethings/page/templates/page/datasets_upload.html:130
+#: allthethings/page/templates/page/datasets_upload.html:74
 #, fuzzy
 msgid "page.datasets.upload.source.docer"
 msgstr "ການຂູດຂໍ້ມູນຂອງ <a %(a_href)s>docer.pl</a>, ເວັບໄຊທ໌ແບ່ງປັນໄຟລ໌ຂອງໂປໂລນທີ່ມຸ່ງເນັ້ນຫນັງສືແລະຜົນງານຂຽນອື່ນໆ. ຖືກຂູດຂໍ້ມູນໃນປາຍປີ 2023 ໂດຍອາສາສະໝັກ “p”. ພວກເຮົາບໍ່ມີເມຕາດາຕ້າທີ່ດີຈາກເວັບໄຊທ໌ຕົ້ນສະບັບ (ແມ່ນກະທັ້ງນາມສະກຸນໄຟລ໌), ແຕ່ພວກເຮົາໄດ້ກັດກອນໄຟລ໌ທີ່ຄ້າຍຄືຫນັງສືແລະມັກຈະສາມາດສະກັດເມຕາດາຕ້າຈາກໄຟລ໌ເອງ."
 
-#: allthethings/page/templates/page/datasets_upload.html:137
+#: allthethings/page/templates/page/datasets_upload.html:75
 #, fuzzy
 msgid "page.datasets.upload.source.duxiu_epub"
 msgstr "DuXiu epubs, ໂດຍກົງຈາກ DuXiu, ເກັບລວມໂດຍອາສາສະໝັກ “w”. ຫນັງສື DuXiu ທີ່ເປັນ ebooks ທີ່ມີຢູ່ໂດຍກົງແມ່ນຫນັງສືທີ່ໃຫມ່ສຸດ, ດັ່ງນັ້ນສ່ວນໃຫຍ່ຂອງເຫຼົ່ານີ້ຕ້ອງເປັນຫນັງສືໃຫມ່."
 
-#: allthethings/page/templates/page/datasets_upload.html:144
+#: allthethings/page/templates/page/datasets_upload.html:76
 #, fuzzy
 msgid "page.datasets.upload.source.duxiu_main"
 msgstr "ໄຟລ໌ DuXiu ທີ່ເຫຼືອຈາກອາສາສະໝັກ “m”, ທີ່ບໍ່ແມ່ນຮູບແບບ proprietary PDG ຂອງ DuXiu (ຖານຂໍ້ມູນ <a %(a_href)s>DuXiu</a> ຫລັກ). ເກັບລວມຈາກແຫຼ່ງຕົ້ນສະບັບຫລາຍໆ, ໂຊກບໍ່ດີທີ່ບໍ່ໄດ້ຮັກສາແຫຼ່ງເຫຼົ່ານັ້ນໄວ້ໃນເສັ້ນທາງໄຟລ໌."
 
-#: allthethings/page/templates/page/datasets_upload.html:151
+#: allthethings/page/templates/page/datasets_upload.html:83
 #, fuzzy
 msgid "page.datasets.upload.source.japanese_manga"
 msgstr "ການເກັບລວມທີ່ຖືກຂູດຂໍ້ມູນຈາກສໍານັກພິມ Manga ຂອງຍີ່ປຸ່ນໂດຍອາສາສະໝັກ “t”."
 
-#: allthethings/page/templates/page/datasets_upload.html:158
+#: allthethings/page/templates/page/datasets_upload.html:84
 #, fuzzy
 msgid "page.datasets.upload.source.longquan_archives"
 msgstr "<a %(a_href)s>ຄັງຂໍ້ມູນຕຸລາການທີ່ເລືອກຂອງ Longquan</a>, ຈັດຫາໂດຍອາສາສະໝັກ “c”."
 
-#: allthethings/page/templates/page/datasets_upload.html:165
+#: allthethings/page/templates/page/datasets_upload.html:85
 #, fuzzy
 msgid "page.datasets.upload.source.magzdb"
 msgstr "ການຂູດຂໍ້ມູນຂອງ <a %(a_href)s>magzdb.org</a>, ພັນທະມິດຂອງ Library Genesis (ມັນຖືກເຊື່ອມໂຍງຢູ່ໜ້າເວັບ libgen.rs) ແຕ່ບໍ່ຕ້ອງການສະໜອງໄຟລ໌ຂອງພວກເຂົາໂດຍກົງ. ໄດ້ຮັບໂດຍອາສາສະໝັກ \"p\" ໃນປີ 2023."
 
-#: allthethings/page/templates/page/datasets_upload.html:172
+#: allthethings/page/templates/page/datasets_upload.html:87
 #, fuzzy
 msgid "page.datasets.upload.source.misc"
 msgstr "ການອັບໂຫລດນ້ອຍໆຕ່າງໆ, ທີ່ນ້ອຍເກີນໄປທີ່ຈະເປັນຫົວໝວດນ້ອຍເປັນຂອງຕົນເອງ, ແຕ່ຖືກສະແດງເປັນໄດເຣັກໂຕຣີ."
 
-#: allthethings/page/templates/page/datasets_upload.html:179
+#: allthethings/page/templates/page/datasets_upload.html:91
 #, fuzzy
 msgid "page.datasets.upload.source.polish"
 msgstr "ການລວມລວມຂອງອາສາສະໝັກ “o” ທີ່ເກັບຮວບຫວຍປື້ມໂປແລນຈາກເວັບໄຊຕ໌ຕົ້ນສະບັບ (“scene”)."
 
-#: allthethings/page/templates/page/datasets_upload.html:186
+#: allthethings/page/templates/page/datasets_upload.html:92
 #, fuzzy
 msgid "page.datasets.upload.source.shuge"
 msgstr "ການລວມລວມຂອງ <a %(a_href)s>shuge.org</a> ໂດຍອາສາສະໝັກ “cgiym” ແລະ “woz9ts”."
 
-#: allthethings/page/templates/page/datasets_upload.html:193
+#: allthethings/page/templates/page/datasets_upload.html:94
 #, fuzzy
 msgid "page.datasets.upload.source.trantor"
 msgstr "<a %(a_href)s>“ຫໍສະໝຸດຈັກວານຂອງ Trantor”</a> (ຕັ້ງຊື່ຕາມຫໍສະໝຸດໃນນິຍາຍ), ຖືກລວມລວມໃນປີ 2022 ໂດຍອາສາສະໝັກ “t”."
 
-#: allthethings/page/templates/page/datasets_upload.html:200
+#: allthethings/page/templates/page/datasets_upload.html:98
 #, fuzzy
 msgid "page.datasets.upload.source.woz9ts_direct"
 msgstr "ຊຸດຍ່ອຍ (ຖືກສະແດງເປັນໄດເຣັກໂຕຣີ) ຈາກອາສາສະໝັກ “woz9ts”: <a %(a_program_think)s>program-think</a>, <a %(a_haodoo)s>haodoo</a>, <a %(a_skqs)s>skqs</a> (ໂດຍ <a %(a_sikuquanshu)s>Dizhi(迪志)</a> ຢູ່ໄຕ້ຫວັນ), mebook (mebook.cc, 我的小书屋, ຫໍປື້ມນ້ອຍຂອງຂ້ອຍ — woz9ts: “ເວັບໄຊຕ໌ນີ້ເນັ້ນການແບ່ງປັນໄຟລ໌ ebook ທີ່ມີຄຸນນະພາບສູງ, ບາງສ່ວນໄດ້ຖືກຈັດຮູບແບບໂດຍເຈົ້າຂອງເອງ. ເຈົ້າຂອງເວັບໄດ້ຖືກ<a %(a_arrested)s>ຈັບກຸມ</a>ໃນປີ 2019 ແລະມີຄົນເຮັດການລວມລວມໄຟລ໌ທີ່ເຂົາແບ່ງປັນ.”)."
 
-#: allthethings/page/templates/page/datasets_upload.html:214
+#: allthethings/page/templates/page/datasets_upload.html:99
 #, fuzzy
 msgid "page.datasets.upload.source.woz9ts_duxiu"
 msgstr "ໄຟລ໌ DuXiu ທີ່ເຫຼືອຈາກອາສາສະໝັກ “woz9ts”, ທີ່ບໍ່ໄດ້ຢູ່ໃນຮູບແບບ PDG ຂອງ DuXiu (ຍັງຕ້ອງຖືກແປງເປັນ PDF)."
 
-#: allthethings/page/templates/page/datasets_upload.html:226
+#: allthethings/page/templates/page/datasets_upload.html:109
 #, fuzzy
 msgid "page.datasets.upload.aa_torrents"
 msgstr "Torrents ໂດຍ Anna’s Archive"
@@ -5317,122 +5363,122 @@ msgstr "1. ແຕ່ລະການລວມຫຼືການປ່ອຍມີ
 msgid "page.faq.torrents.a6.li2"
 msgstr "2. ພວກເຮົາແນະນຳໃຫ້ <a %(a_generate)s>ສ້າງ</a> ຫຼື <a %(a_download)s>ດາວໂຫລດ</a> ຖານຂໍ້ມູນ ElasticSearch ແລະ MariaDB ຂອງພວກເຮົາ. ເຫຼົ່ານີ້ມີການແມບສຳລັບແຕ່ລະບັນທຶກໃນ Anna’s Archive ກັບໄຟລ໌ໂຕເຣນທີ່ສອດຄ່ອງ (ຖ້າມີ), ຢູ່ພາຍໃຕ້ “torrent_paths” ໃນ ElasticSearch JSON."
 
-#: allthethings/page/templates/page/faq.html:273
+#: allthethings/page/templates/page/faq.html:280
 #, fuzzy
 msgid "page.faq.security.title"
 msgstr "ທ່ານມີໂຄງການເຜີຍແຜ່ຢ່າງຮັບຜິດຊອບບໍ?"
 
-#: allthethings/page/templates/page/faq.html:276
+#: allthethings/page/templates/page/faq.html:283
 #, fuzzy
 msgid "page.faq.security.text1"
 msgstr "ພວກເຮົາຍິນດີຕ້ອນຮັບນັກຄົ້ນຄວ້າຄວາມປອດໄພໃຫ້ຄົ້ນຫາຈຸດອ່ອນໃນລະບົບຂອງພວກເຮົາ. ພວກເຮົາເປັນຜູ້ສະໜັບສະໜູນຢ່າງໃຫຍ່ຂອງການເຜີຍແຜ່ຢ່າງຮັບຜິດຊອບ. ຕິດຕໍ່ພວກເຮົາ <a %(a_contact)s>ທີ່ນີ້</a>."
 
-#: allthethings/page/templates/page/faq.html:280
+#: allthethings/page/templates/page/faq.html:287
 #, fuzzy
 msgid "page.faq.security.text2"
 msgstr "ພວກເຮົາບໍ່ສາມາດມອບລາງວັນສຳລັບການຄົ້ນພົບຂໍ້ບົກພ່ອງໄດ້ໃນປັດຈຸບັນ, ເຊັ່ນດຽວກັນກັບຂໍ້ບົກພ່ອງທີ່ມີ <a %(a_link)s>ສັກຍາພາບທີ່ຈະທຳລາຍຄວາມລັບຂອງພວກເຮົາ</a>, ສຳລັບທີ່ພວກເຮົາມອບລາງວັນໃນຊ່ວງ $10k-50k. ພວກເຮົາຢາກມີຂອບເຂດກວ້າງຂຶ້ນສຳລັບການມອບລາງວັນຂໍ້ບົກພ່ອງໃນອະນາຄົດ! ກະລຸນາສັງເກດວ່າການໂຈມຕີທາງສັງຄົມບໍ່ຢູ່ໃນຂອບເຂດ."
 
-#: allthethings/page/templates/page/faq.html:284
+#: allthethings/page/templates/page/faq.html:291
 #, fuzzy
 msgid "page.faq.security.text3"
 msgstr "ຖ້າທ່ານສົນໃຈໃນຄວາມປອດໄພແບບຮຸນແຮງ, ແລະຕ້ອງການຊ່ວຍເຫຼືອໃນການບັນທຶກຄວາມຮູ້ແລະວັດທະນະທຳຂອງໂລກ, ຢ່າລືມຕິດຕໍ່ພວກເຮົາ. ມີຫຼາຍວິທີທີ່ທ່ານສາມາດຊ່ວຍເຫຼືອໄດ້."
 
-#: allthethings/page/templates/page/faq.html:287
+#: allthethings/page/templates/page/faq.html:294
 #, fuzzy
 msgid "page.faq.resources.title"
 msgstr "ມີຊັບພະຍາກອນອື່ນໆກ່ຽວກັບ Anna’s Archive ບໍ?"
 
-#: allthethings/page/templates/page/faq.html:290
+#: allthethings/page/templates/page/faq.html:297
 #, fuzzy
 msgid "page.faq.resources.annas_blog"
 msgstr "<a %(a_blog)s>ບລັອກຂອງ Anna</a>, <a %(a_reddit_u)s>Reddit</a>, <a %(a_reddit_r)s>Subreddit</a> — ການອັບເດດປະຈຳ"
 
-#: allthethings/page/templates/page/faq.html:291
+#: allthethings/page/templates/page/faq.html:298
 #, fuzzy
 msgid "page.faq.resources.annas_software"
 msgstr "<a %(a_software)s>ຊອບແວຂອງ Anna</a> — ຊອບແວເປີດແຫຼ່ງຂອງພວກເຮົາ"
 
-#: allthethings/page/templates/page/faq.html:292
+#: allthethings/page/templates/page/faq.html:299
 #, fuzzy
 msgid "page.faq.resources.translate"
 msgstr "<a %(a_translate)s>ແປພາສາໃນຊອບແວຂອງ Anna</a> — ລະບົບການແປພາສາຂອງພວກເຮົາ"
 
-#: allthethings/page/templates/page/faq.html:293
+#: allthethings/page/templates/page/faq.html:300
 #, fuzzy
 msgid "page.faq.resources.datasets"
 msgstr "<a %(a_datasets)s>ຊຸດຂໍ້ມູນ</a> —"
 
-#: allthethings/page/templates/page/faq.html:294
+#: allthethings/page/templates/page/faq.html:301
 #, fuzzy
 msgid "page.faq.resources.domains"
 msgstr "<a %(a_li)s>.li</a>, <a %(a_se)s>.se</a>, <a %(a_org)s>.org</a> — ໂດເມນທາງເລືອກ"
 
-#: allthethings/page/templates/page/faq.html:295
+#: allthethings/page/templates/page/faq.html:302
 #, fuzzy
 msgid "page.faq.resources.wikipedia"
 msgstr "<a %(a_wikipedia)s>Wikipedia</a> — ເພີ່ມເຕີມກ່ຽວກັບພວກເຮົາ (ກະລຸນາຊ່ວຍຮັກສາໜ້ານີ້ໃຫ້ທັນສະໄໝ, ຫຼືສ້າງໜ້າໃໝ່ສຳລັບພາສາຂອງທ່ານເອງ!)"
 
-#: allthethings/page/templates/page/faq.html:298
+#: allthethings/page/templates/page/faq.html:305
 #, fuzzy
 msgid "page.faq.copyright.title"
 msgstr "ຂ້ອຍຈະລາຍງານການລະເມີດລິຂະສິດໄດ້ຢ່າງໃດ?"
 
-#: allthethings/page/templates/page/faq.html:301
+#: allthethings/page/templates/page/faq.html:308
 #, fuzzy
 msgid "page.faq.copyright.text1"
 msgstr "ພວກເຮົາບໍ່ໄດ້ເກັບຮັກສາວັດຖຸທີ່ມີລິຂະສິດໃດໆຢູ່ທີ່ນີ້. ພວກເຮົາເປັນເຄື່ອງມືຄົ້ນຫາ, ແລະດັ່ງນັ້ນຈຶ່ງຈະດັດສະນີຂໍ້ມູນທີ່ມີຢູ່ແລ້ວໃນທີ່ສາທາລະນະເທົ່ານັ້ນ. ເມື່ອທ່ານດາວໂຫລດຈາກແຫຼ່ງພາຍນອກເຫຼົ່ານັ້ນ, ພວກເຮົາແນະນຳໃຫ້ທ່ານກວດສອບກົດໝາຍໃນຂອບເຂດຂອງທ່ານກ່ຽວກັບສິ່ງທີ່ຖືກຕ້ອງ. ພວກເຮົາບໍ່ຮັບຜິດຊອບສຳລັບເນື້ອຫາທີ່ຖືກເກັບຮັກສາໂດຍຜູ້ອື່ນ."
 
-#: allthethings/page/templates/page/faq.html:305
+#: allthethings/page/templates/page/faq.html:312
 #, fuzzy
 msgid "page.faq.copyright.text2"
 msgstr "ຖ້າທ່ານມີຄຳຮ້ອງທຸກກ່ຽວກັບສິ່ງທີ່ທ່ານເຫັນຢູ່ທີ່ນີ້, ທາງທີ່ດີທີ່ສຸດຂອງທ່ານຄືການຕິດຕໍ່ເວັບໄຊດັ້ງເດີມ. ພວກເຮົາດຶງຂໍ້ມູນຂອງພວກເຂົາເຂົ້າມາໃນຖານຂໍ້ມູນຂອງພວກເຮົາຢ່າງສະໝໍ່ສະເມີ. ຖ້າທ່ານຄິດວ່າທ່ານມີຄຳຮ້ອງທຸກ DMCA ທີ່ຖືກຕ້ອງທີ່ພວກເຮົາຄວນຕອບສະໜອງ, ກະລຸນາກອກແບບຟອມ <a %(a_copyright)s>ຄຳຮ້ອງທຸກ DMCA / ລິຂະສິດ</a>. ພວກເຮົາໃຫ້ຄວາມສຳຄັນກັບຄຳຮ້ອງທຸກຂອງທ່ານ, ແລະຈະຕອບກັບທ່ານໃຫ້ໄວທີ່ສຸດ."
 
-#: allthethings/page/templates/page/faq.html:308
+#: allthethings/page/templates/page/faq.html:315
 #, fuzzy
 msgid "page.faq.hate.title"
 msgstr "ຂ້ອຍບໍ່ມັກວິທີການທີ່ທ່ານດຳເນີນໂຄງການນີ້!"
 
-#: allthethings/page/templates/page/faq.html:311
+#: allthethings/page/templates/page/faq.html:318
 #, fuzzy
 msgid "page.faq.hate.text1"
 msgstr "ພວກເຮົາຍັງຢາກຈະຂໍເຕືອນທຸກຄົນວ່າລະຫັດແລະຂໍ້ມູນທັງໝົດຂອງພວກເຮົາເປັນເປີດແຫຼ່ງທັງໝົດ. ນີ້ເປັນສິ່ງທີ່ເປັນເອກະລັກສຳລັບໂຄງການເຊັ່ນພວກເຮົາ — ພວກເຮົາບໍ່ຮູ້ຈັກໂຄງການອື່ນໃດທີ່ມີຖານຂໍ້ມູນຂະໜາດໃຫຍ່ທີ່ເປັນເປີດແຫຼ່ງດ້ວຍ. ພວກເຮົາຍິນດີຕ້ອນຮັບທຸກຄົນທີ່ຄິດວ່າພວກເຮົາດຳເນີນໂຄງການບໍ່ດີໃຫ້ເອົາລະຫັດແລະຂໍ້ມູນຂອງພວກເຮົາໄປສ້າງຫ້ອງສະໝຸດເງາຂອງຕົນເອງ! ພວກເຮົາບໍ່ໄດ້ກ່າວນີ້ດ້ວຍຄວາມຫມັ້ນໄສຫຼືສິ່ງໃດ — ພວກເຮົາຄິດວ່ານີ້ຈະເປັນສິ່ງທີ່ຍິ່ງໃຫຍ່ເພາະມັນຈະຍົກລະດັບມາດຕະຖານສຳລັບທຸກຄົນ, ແລະຮັກສາມໍລະດົກຂອງມະນຸດໃຫ້ດີຂຶ້ນ."
 
-#: allthethings/page/templates/page/faq.html:314
+#: allthethings/page/templates/page/faq.html:321
 #, fuzzy
 msgid "page.faq.uptime.title"
 msgstr "ທ່ານມີຕົວຈັບຕາການເຂົ້າເຖິງບໍ?"
 
-#: allthethings/page/templates/page/faq.html:317
+#: allthethings/page/templates/page/faq.html:324
 #, fuzzy
 msgid "page.faq.uptime.text1"
 msgstr "ກະລຸນາເບິ່ງ <a %(a_href)s>ໂຄງການທີ່ດີເລີດນີ້</a>."
 
-#: allthethings/page/templates/page/faq.html:330
+#: allthethings/page/templates/page/faq.html:337
 #, fuzzy
 msgid "page.faq.physical.title"
 msgstr "ຂ້ອຍຈະບໍລິຈາກປື້ມຫຼືວັດຖຸທາງກາຍອື່ນໆໄດ້ຢ່າງໃດ?"
 
-#: allthethings/page/templates/page/faq.html:333
+#: allthethings/page/templates/page/faq.html:340
 #, fuzzy
 msgid "page.faq.physical.text1"
 msgstr "ກະລຸນາສົ່ງພວກມັນໄປທີ່ <a %(a_archive)s>Internet Archive</a>. ພວກເຂົາຈະສະຫງວນພວກມັນໃຫ້ຖືກຕ້ອງ."
 
-#: allthethings/page/templates/page/faq.html:336
+#: allthethings/page/templates/page/faq.html:343
 #, fuzzy
 msgid "page.faq.anna.title"
 msgstr "ແອນນາແມ່ນໃຜ?"
 
-#: allthethings/page/templates/page/faq.html:340
+#: allthethings/page/templates/page/faq.html:347
 #, fuzzy
 msgid "page.faq.anna.text1"
 msgstr "ທ່ານແມ່ນແອນນາ!"
 
-#: allthethings/page/templates/page/faq.html:344
+#: allthethings/page/templates/page/faq.html:351
 #, fuzzy
 msgid "page.faq.favorite.title"
 msgstr "ປຶ້ມທີ່ທ່ານມັກຄືຫຍັງ?"
 
-#: allthethings/page/templates/page/faq.html:347
+#: allthethings/page/templates/page/faq.html:354
 #, fuzzy
 msgid "page.faq.favorite.text1"
 msgstr "ນີ້ແມ່ນປຶ້ມບາງເລື່ອງທີ່ມີຄວາມສຳຄັນພິເສດຕໍ່ໂລກຂອງຫ້ອງສະໝຸດເງາແລະການຮັກສາຂໍ້ມູນດິຈິຕອນ:"
@@ -5471,30 +5517,30 @@ msgstr "ຄົ້ນຫາ"
 #: allthethings/page/templates/page/scidb_home.html:3
 #: allthethings/page/templates/page/scidb_home.html:6
 #: allthethings/templates/layouts/index.html:493
-#: allthethings/templates/layouts/index.html:506
-#: allthethings/templates/layouts/index.html:521
-#: allthethings/templates/layouts/index.html:588
+#: allthethings/templates/layouts/index.html:507
+#: allthethings/templates/layouts/index.html:523
+#: allthethings/templates/layouts/index.html:591
 #, fuzzy
 msgid "page.home.scidb.header"
 msgstr "SciDB"
 
 #: allthethings/page/templates/page/home.html:19
-#: allthethings/templates/layouts/index.html:541
+#: allthethings/templates/layouts/index.html:544
 #, fuzzy
 msgid "layout.index.header.nav.beta"
 msgstr "beta"
 
 #: allthethings/page/templates/page/home.html:22
 #: allthethings/page/templates/page/scidb_home.html:9
-#: allthethings/page/templates/page/search.html:355
-#: allthethings/page/templates/page/search.html:419
+#: allthethings/page/templates/page/search.html:359
+#: allthethings/page/templates/page/search.html:423
 #, fuzzy
 msgid "page.home.scidb.scihub_paused"
 msgstr "Sci-Hub ໄດ້ <a %(a_paused)s>ຢຸດ</a> ການອັບໂຫລດເອກະສານໃໝ່."
 
 #: allthethings/page/templates/page/home.html:23
-#: allthethings/page/templates/page/search.html:356
-#: allthethings/page/templates/page/search.html:420
+#: allthethings/page/templates/page/search.html:360
+#: allthethings/page/templates/page/search.html:424
 #, fuzzy
 msgid "page.home.scidb.continuation"
 msgstr "🧬&nbsp;SciDB ແມ່ນການສືບຕໍ່ຂອງ Sci-Hub."
@@ -5537,19 +5583,19 @@ msgid "page.home.torrents.body"
 msgstr "ທ່ານສາມາດຊ່ວຍໄດ້ຢ່າງຫຼາຍໂດຍການສຳເນົາ torrents. <a %(a_torrents)s>ຮຽນຮູ້ເພີ່ມເຕີມ…</a>"
 
 #: allthethings/page/templates/page/home.html:47
-#: allthethings/page/templates/page/torrents.html:75
+#: allthethings/page/templates/page/torrents.html:79
 #, fuzzy
 msgid "page.home.torrents.legend_less"
 msgstr "<%(count)s ຜູ້ສຳເນົາ"
 
 #: allthethings/page/templates/page/home.html:48
-#: allthethings/page/templates/page/torrents.html:76
+#: allthethings/page/templates/page/torrents.html:80
 #, fuzzy
 msgid "page.home.torrents.legend_range"
 msgstr "%(count_min)s–%(count_max)s ຜູ້ສຳເນົາ"
 
 #: allthethings/page/templates/page/home.html:49
-#: allthethings/page/templates/page/torrents.html:77
+#: allthethings/page/templates/page/torrents.html:81
 #, fuzzy
 msgid "page.home.torrents.legend_greater"
 msgstr ">%(count)s ຜູ້ສຳເນົາ"
@@ -5585,8 +5631,8 @@ msgid "page.home.payment_processor.body"
 msgstr "ຖ້າທ່ານເປັນຜູ້ດຳເນີນການຊຳລະເງິນທີ່ບໍ່ມີຄວາມສຽງສູງ, ກະລຸນາຕິດຕໍ່ພວກເຮົາ. ພວກເຮົາກຳລັງມອງຫາຄົນທີ່ຈະວາງໂຄສະນານ້ອຍໆທີ່ມີຄວາມສຸພາບ. ລາຍໄດ້ທັງໝົດຈະໄປສູ່ຄວາມພະຍາຍາມການຮັກສາຂອງພວກເຮົາ."
 
 #: allthethings/page/templates/page/home.html:98
-#: allthethings/templates/layouts/index.html:529
-#: allthethings/templates/layouts/index.html:608
+#: allthethings/templates/layouts/index.html:532
+#: allthethings/templates/layouts/index.html:611
 #, fuzzy
 msgid "layout.index.header.nav.annasblog"
 msgstr "ບລັອກຂອງ Anna ↗"
@@ -6130,7 +6176,7 @@ msgid "page.search.tabs.metadata"
 msgstr "ເມຕາດາຕ້າ"
 
 #: allthethings/page/templates/page/search.html:107
-#: allthethings/templates/layouts/index.html:537
+#: allthethings/templates/layouts/index.html:540
 #, fuzzy
 msgid "common.search.placeholder"
 msgstr "ຊື່ເລື່ອງ, ຜູ້ແຕ່ງ, DOI, ISBN, MD5, …"
@@ -6147,7 +6193,7 @@ msgid "page.search.search_settings"
 msgstr "ຕັ້ງຄ່າການຄົ້ນຫາ"
 
 #: allthethings/page/templates/page/search.html:136
-#: allthethings/page/templates/page/search.html:274
+#: allthethings/page/templates/page/search.html:278
 #, fuzzy
 msgid "page.search.submit"
 msgstr "ຄົ້ນຫາ"
@@ -6158,8 +6204,8 @@ msgid "page.search.too_long_broad_query"
 msgstr "ການຄົ້ນຫາໃຊ້ເວລາດົນເກີນໄປ, ເປັນສິ່ງທີ່ພົບເຫັນໄດ້ບໍ່ຍາກສຳລັບການຄົ້ນຫາທີ່ກວ້າງ. ຈຳນວນການກັ່ນຕອງອາດຈະບໍ່ແມ່ນຄວາມຈິງ."
 
 #: allthethings/page/templates/page/search.html:145
-#: allthethings/page/templates/page/search.html:448
-#: allthethings/page/templates/page/search.html:455
+#: allthethings/page/templates/page/search.html:452
+#: allthethings/page/templates/page/search.html:459
 #, fuzzy
 msgid "page.search.too_inaccurate"
 msgstr "ການຄົ້ນຫາໃຊ້ເວລາດົນເກີນໄປ, ເຊິ່ງຫມາຍຄວາມວ່າທ່ານອາດຈະເຫັນຜົນທີ່ບໍ່ແມ່ນຄວາມຈິງ. ບາງຄັ້ງ <a %(a_reload)s>ການໂຫຼດໜ້າໃໝ່</a> ຊ່ວຍໄດ້."
@@ -6185,7 +6231,7 @@ msgid "page.search.advanced.header"
 msgstr "ຂັ້ນສູງ"
 
 #: allthethings/page/templates/page/search.html:159
-#: allthethings/page/templates/page/search.html:292
+#: allthethings/page/templates/page/search.html:296
 #, fuzzy
 msgid "page.search.advanced.description_comments"
 msgstr "ຄົ້ນຫາຄຳອະທິບາຍແລະຄຳເຫັນເມຕາດາຕ້າ"
@@ -6206,262 +6252,263 @@ msgid "page.search.advanced.field.year_published"
 msgstr "ປີທີ່ຕີພິມ"
 
 #: allthethings/page/templates/page/search.html:208
-#: allthethings/page/templates/page/search.html:300
-#: allthethings/page/templates/page/search.html:303
+#: allthethings/page/templates/page/search.html:304
+#: allthethings/page/templates/page/search.html:307
 #, fuzzy
 msgid "page.search.filters.content.header"
 msgstr "ເນື້ອຫາ"
 
 #: allthethings/page/templates/page/search.html:218
-#: allthethings/page/templates/page/search.html:306
-#: allthethings/page/templates/page/search.html:309
+#: allthethings/page/templates/page/search.html:310
+#: allthethings/page/templates/page/search.html:313
 #, fuzzy
 msgid "page.search.filters.filetype.header"
 msgstr "ປະເພດໄຟລ໌"
 
-#: allthethings/page/templates/page/search.html:228
-#: allthethings/page/templates/page/search.html:312
-#: allthethings/page/templates/page/search.html:315
-#, fuzzy
-msgid "page.search.filters.access.header"
-msgstr "ການເຂົ້າເຖິງ"
-
-#: allthethings/page/templates/page/search.html:237
-#: allthethings/page/templates/page/search.html:318
-#: allthethings/page/templates/page/search.html:321
-#, fuzzy
-msgid "page.search.filters.source.header"
-msgstr "ແຫຼ່ງທີ່ມາ"
-
-#: allthethings/page/templates/page/search.html:242
-#, fuzzy
-msgid "page.search.filters.source.scraped"
-msgstr "ຂຽນແລະເປີດເຜີຍໂດຍ AA"
-
-#: allthethings/page/templates/page/search.html:247
-#: allthethings/page/templates/page/search.html:327
-#: allthethings/page/templates/page/search.html:330
-#, fuzzy
-msgid "page.search.filters.language.header"
-msgstr "ພາສາ"
-
-#: allthethings/page/templates/page/search.html:256
+#: allthethings/page/templates/page/search.html:227
+#: allthethings/page/templates/page/search.html:259
 #, fuzzy
 msgid "page.search.more"
 msgstr "ເພີ່ມເຕີມ…"
 
-#: allthethings/page/templates/page/search.html:261
-#: allthethings/page/templates/page/search.html:324
+#: allthethings/page/templates/page/search.html:231
+#: allthethings/page/templates/page/search.html:316
+#: allthethings/page/templates/page/search.html:319
+#, fuzzy
+msgid "page.search.filters.access.header"
+msgstr "ການເຂົ້າເຖິງ"
+
+#: allthethings/page/templates/page/search.html:240
+#: allthethings/page/templates/page/search.html:322
+#: allthethings/page/templates/page/search.html:325
+#, fuzzy
+msgid "page.search.filters.source.header"
+msgstr "ແຫຼ່ງທີ່ມາ"
+
+#: allthethings/page/templates/page/search.html:245
+#, fuzzy
+msgid "page.search.filters.source.scraped"
+msgstr "ຂຽນແລະເປີດເຜີຍໂດຍ AA"
+
+#: allthethings/page/templates/page/search.html:250
+#: allthethings/page/templates/page/search.html:331
+#: allthethings/page/templates/page/search.html:334
+#, fuzzy
+msgid "page.search.filters.language.header"
+msgstr "ພາສາ"
+
+#: allthethings/page/templates/page/search.html:264
+#: allthethings/page/templates/page/search.html:328
 #, fuzzy
 msgid "page.search.filters.order_by.header"
 msgstr "ຈັດລຽງຕາມ"
 
-#: allthethings/page/templates/page/search.html:264
+#: allthethings/page/templates/page/search.html:267
 #, fuzzy
 msgid "page.search.filters.sorting.most_relevant"
 msgstr "ທີ່ສຳຄັນທີ່ສຸດ"
 
-#: allthethings/page/templates/page/search.html:265
-#: allthethings/page/templates/page/search.html:269
-#: allthethings/page/templates/page/search.html:324
+#: allthethings/page/templates/page/search.html:268
+#: allthethings/page/templates/page/search.html:272
+#: allthethings/page/templates/page/search.html:328
 #, fuzzy
 msgid "page.search.filters.sorting.newest"
 msgstr "ໃໝ່ທີ່ສຸດ"
 
-#: allthethings/page/templates/page/search.html:265
-#: allthethings/page/templates/page/search.html:266
-#: allthethings/page/templates/page/search.html:324
+#: allthethings/page/templates/page/search.html:268
+#: allthethings/page/templates/page/search.html:269
+#: allthethings/page/templates/page/search.html:328
 #, fuzzy
 msgid "page.search.filters.sorting.note_publication_year"
 msgstr "(ປີທີ່ຕີພິມ)"
 
-#: allthethings/page/templates/page/search.html:266
-#: allthethings/page/templates/page/search.html:270
-#: allthethings/page/templates/page/search.html:324
+#: allthethings/page/templates/page/search.html:269
+#: allthethings/page/templates/page/search.html:273
+#: allthethings/page/templates/page/search.html:328
 #, fuzzy
 msgid "page.search.filters.sorting.oldest"
 msgstr "ເກົ່າທີ່ສຸດ"
 
-#: allthethings/page/templates/page/search.html:267
-#: allthethings/page/templates/page/search.html:324
+#: allthethings/page/templates/page/search.html:270
+#: allthethings/page/templates/page/search.html:328
 #, fuzzy
 msgid "page.search.filters.sorting.largest"
 msgstr "ໃຫຍ່ທີ່ສຸດ"
 
-#: allthethings/page/templates/page/search.html:267
-#: allthethings/page/templates/page/search.html:268
-#: allthethings/page/templates/page/search.html:324
+#: allthethings/page/templates/page/search.html:270
+#: allthethings/page/templates/page/search.html:271
+#: allthethings/page/templates/page/search.html:328
 #, fuzzy
 msgid "page.search.filters.sorting.note_filesize"
 msgstr "(ຂະໜາດໄຟລ໌)"
 
-#: allthethings/page/templates/page/search.html:268
-#: allthethings/page/templates/page/search.html:324
+#: allthethings/page/templates/page/search.html:271
+#: allthethings/page/templates/page/search.html:328
 #, fuzzy
 msgid "page.search.filters.sorting.smallest"
 msgstr "ນ້ອຍທີ່ສຸດ"
 
-#: allthethings/page/templates/page/search.html:269
-#: allthethings/page/templates/page/search.html:270
-#: allthethings/page/templates/page/search.html:324
+#: allthethings/page/templates/page/search.html:272
+#: allthethings/page/templates/page/search.html:273
+#: allthethings/page/templates/page/search.html:328
 #, fuzzy
 msgid "page.search.filters.sorting.note_open_sourced"
 msgstr "(ເປີດແຫຼ່ງ)"
 
-#: allthethings/page/templates/page/search.html:278
+#: allthethings/page/templates/page/search.html:282
 #, fuzzy
 msgid "page.search.header.update_info"
 msgstr "ດັດສະນີການຄົ້ນຫາຖືກປັບປຸງທຸກໆເດືອນ. ປັດຈຸບັນມີລາຍການຈົນເຖິງ %(last_data_refresh_date)s. ສຳລັບຂໍ້ມູນເພີ່ມເຕີມທາງເທັກນິກ, ກະລຸນາເບິ່ງ <a %(link_open_tag)s>ໜ້າຊຸດຂໍ້ມູນ</a>."
 
-#: allthethings/page/templates/page/search.html:280
+#: allthethings/page/templates/page/search.html:284
 #, fuzzy
 msgid "page.search.header.codes_explorer"
 msgstr "ເພື່ອສຳຫຼວດດັດຊະນີການຄົ້ນຫາໂດຍໂຄດ, ໃຊ້ <a %(a_href)s>Codes Explorer</a>."
 
-#: allthethings/page/templates/page/search.html:338
+#: allthethings/page/templates/page/search.html:342
 #, fuzzy
 msgid "page.search.results.search_downloads"
 msgstr "ພິມໃນກ່ອງເພື່ອຄົ້ນຫາລາຍການຂອງເອກະສານ %(count)s ທີ່ສາມາດດາວໂຫລດໄດ້ໂດຍກົງ, ທີ່ພວກເຮົາ <a %(a_preserve)s>ຮັກສາຕະຫຼອດໄປ</a>."
 
-#: allthethings/page/templates/page/search.html:339
+#: allthethings/page/templates/page/search.html:343
 #, fuzzy
 msgid "page.search.results.help_preserve"
 msgstr "ແທ້ຈິງແລ້ວ, ຄົນໃດກໍສາມາດຊ່ວຍຮັກສາເອກະສານເຫຼົ່ານີ້ໄດ້ໂດຍການສົ່ງຕໍ່ <a %(a_torrents)s>ລາຍການທໍເຣນທີ່ຮວມກັນ</a>."
 
-#: allthethings/page/templates/page/search.html:342
+#: allthethings/page/templates/page/search.html:346
 #, fuzzy
 msgid "page.search.results.most_comprehensive"
 msgstr "ພວກເຮົາມີລາຍການເປີດທີ່ຄົບຖ້ວນທີ່ສຸດໃນໂລກຂອງປື້ມ, ເອກະສານ, ແລະຜົນງານຂຽນອື່ນໆ. ພວກເຮົາສະທ້ອນ Sci-Hub, Library Genesis, Z-Library, <a %(a_datasets)s>ແລະອື່ນໆ</a>."
 
-#: allthethings/page/templates/page/search.html:345
+#: allthethings/page/templates/page/search.html:349
 #, fuzzy
 msgid "page.search.results.other_shadow_libs"
 msgstr "ຖ້າທ່ານພົບຫ້ອງສະໝຸດ “ເງົາ” ອື່ນໆທີ່ພວກເຮົາຄວນສະທ້ອນ, ຫຼືຖ້າທ່ານມີຄຳຖາມໃດໆ, ກະລຸນາຕິດຕໍ່ພວກເຮົາທີ່ %(email)s."
 
-#: allthethings/page/templates/page/search.html:346
+#: allthethings/page/templates/page/search.html:350
 #, fuzzy
 msgid "page.search.results.dmca"
 msgstr "ສຳລັບການຮ້ອງຮຽນສິດທິບັດ / ລິຂະສິດ <a %(a_copyright)s>ກົດທີ່ນີ້</a>."
 
-#: allthethings/page/templates/page/search.html:350
-#: allthethings/page/templates/page/search.html:365
-#: allthethings/page/templates/page/search.html:379
-#: allthethings/page/templates/page/search.html:403
-#: allthethings/page/templates/page/search.html:411
+#: allthethings/page/templates/page/search.html:354
+#: allthethings/page/templates/page/search.html:369
+#: allthethings/page/templates/page/search.html:383
+#: allthethings/page/templates/page/search.html:407
+#: allthethings/page/templates/page/search.html:415
 #, fuzzy
 msgid "page.search.results.shortcuts"
 msgstr "ເຄັມລັບ: ໃຊ້ປຸ່ມລັດ “/” (ໂຟກັດການຄົ້ນຫາ), “enter” (ຄົ້ນຫາ), “j” (ຂຶ້ນ), “k” (ລົງ), “<” (ໜ້າກ່ອນ), “>” (ໜ້າຕໍ່ໄປ) ເພື່ອການນຳທາງທີ່ໄວກວ່າ."
 
-#: allthethings/page/templates/page/search.html:354
-#: allthethings/page/templates/page/search.html:418
+#: allthethings/page/templates/page/search.html:358
+#: allthethings/page/templates/page/search.html:422
 #, fuzzy
 msgid "page.search.results.looking_for_papers"
 msgstr "ກຳລັງມອງຫາເອກະສານບໍ?"
 
-#: allthethings/page/templates/page/search.html:361
+#: allthethings/page/templates/page/search.html:365
 #, fuzzy
 msgid "page.search.results.search_journals"
 msgstr "ພິມໃນກ່ອງເພື່ອຄົ້ນຫາລາຍການຂອງເອກະສານວິຊາການ ແລະບົດຄວາມວາລະສານ %(count)s, ທີ່ພວກເຮົາ <a %(a_preserve)s>ຮັກສາຕະຫຼອດໄປ</a>."
 
-#: allthethings/page/templates/page/search.html:369
+#: allthethings/page/templates/page/search.html:373
 #, fuzzy
 msgid "page.search.results.search_digital_lending"
 msgstr "ພິມໃນກ່ອງເພື່ອຄົ້ນຫາເອກະສານໃນຫ້ອງສະໝຸດດິຈິຕອນທີ່ໃຫ້ຢືມ."
 
-#: allthethings/page/templates/page/search.html:372
+#: allthethings/page/templates/page/search.html:376
 #, fuzzy
 msgid "page.search.results.digital_lending_info"
 msgstr "ດັດສະນີການຄົ້ນຫານີ້ປັດຈຸບັນມີຂໍ້ມູນຈາກຫ້ອງສະໝຸດດິຈິຕອນທີ່ຄວບຄຸມການຢືມຂອງ Internet Archive. <a %(a_datasets)s>ເພີ່ມເຕີມກ່ຽວກັບຊຸດຂໍ້ມູນຂອງພວກເຮົາ</a>."
 
-#: allthethings/page/templates/page/search.html:375
+#: allthethings/page/templates/page/search.html:379
 #, fuzzy
 msgid "page.search.results.digital_lending_info_more"
 msgstr "ສຳລັບຫ້ອງສະໝຸດດິຈິຕອນທີ່ໃຫ້ຢືມເພີ່ມເຕີມ, ກະລຸນາເບິ່ງ <a %(a_wikipedia)s>Wikipedia</a> ແລະ <a %(a_mobileread)s>MobileRead Wiki</a>."
 
-#: allthethings/page/templates/page/search.html:383
-#: allthethings/page/templates/page/search.html:430
+#: allthethings/page/templates/page/search.html:387
+#: allthethings/page/templates/page/search.html:434
 #, fuzzy
 msgid "page.search.results.search_metadata"
 msgstr "ພິມໃນກ່ອງເພື່ອຄົ້ນຫາຂໍ້ມູນຈາກຫ້ອງສະໝຸດ. ນີ້ອາດຈະເປັນປະໂຫຍດເມື່ອ <a %(a_request)s>ຮ້ອງຂໍເອກະສານ</a>."
 
-#: allthethings/page/templates/page/search.html:387
-#: allthethings/page/templates/page/search.html:434
+#: allthethings/page/templates/page/search.html:391
+#: allthethings/page/templates/page/search.html:438
 #, fuzzy
 msgid "page.search.results.metadata_info"
 msgstr "ດັດສະນີການຄົ້ນຫານີ້ປັດຈຸບັນມີຂໍ້ມູນຈາກແຫຼ່ງຂໍ້ມູນຕ່າງໆ. <a %(a_datasets)s>ເພີ່ມເຕີມກ່ຽວກັບຊຸດຂໍ້ມູນຂອງພວກເຮົາ</a>."
 
-#: allthethings/page/templates/page/search.html:388
-#: allthethings/page/templates/page/search.html:435
+#: allthethings/page/templates/page/search.html:392
+#: allthethings/page/templates/page/search.html:439
 #, fuzzy
 msgid "page.search.results.metadata_no_merging"
 msgstr "ສຳລັບຂໍ້ມູນ, ພວກເຮົາສະແດງບັນທຶກຕົ້ນສະບັບ. ພວກເຮົາບໍ່ໄດ້ຄວບຄຸມການລວມບັນທຶກ."
 
-#: allthethings/page/templates/page/search.html:399
+#: allthethings/page/templates/page/search.html:403
 #, fuzzy
 msgid "page.search.results.metadata_info_more"
 msgstr "ມີແຫຼ່ງຂໍ້ມູນຫຼາຍໆສຳລັບຜົນງານຂຽນທົ່ວໂລກ. <a %(a_wikipedia)s>ໜ້າ Wikipedia ນີ້</a> ເປັນຈຸດເລີ່ມຕົ້ນທີ່ດີ, ແຕ່ຖ້າທ່ານຮູ້ຈັກລາຍການທີ່ດີອື່ນໆ, ກະລຸນາແຈ້ງໃຫ້ພວກເຮົາຮູ້."
 
-#: allthethings/page/templates/page/search.html:407
+#: allthethings/page/templates/page/search.html:411
 #, fuzzy
 msgid "page.search.results.search_generic"
 msgstr "ພິມໃນກ່ອງເພື່ອຄົ້ນຫາ."
 
-#: allthethings/page/templates/page/search.html:426
+#: allthethings/page/templates/page/search.html:430
 #, fuzzy
 msgid "page.search.results.these_are_records"
 msgstr "ນີ້ແມ່ນບັນທຶກຂໍ້ມູນ, <span %(classname)s>ບໍ່ແມ່ນ</span> ໄຟລ໌ທີ່ສາມາດດາວໂຫລດໄດ້."
 
-#: allthethings/page/templates/page/search.html:442
+#: allthethings/page/templates/page/search.html:446
 #, fuzzy
 msgid "page.search.results.error.header"
 msgstr "ມີຂໍ້ຜິດພາດໃນການຄົ້ນຫາ."
 
-#: allthethings/page/templates/page/search.html:444
+#: allthethings/page/templates/page/search.html:448
 #, fuzzy
 msgid "page.search.results.error.unknown"
 msgstr "ລອງ <a %(a_reload)s>ໂຫຼດໜ້າໃໝ່</a>. ຖ້າບັນຫາຍັງຄົງຢູ່, ກະລຸນາສົ່ງອີເມວຫາພວກເຮົາທີ່ %(email)s."
 
-#: allthethings/page/templates/page/search.html:457
+#: allthethings/page/templates/page/search.html:461
 #, fuzzy
 msgid "page.search.results.none"
 msgstr "<span class=\"font-bold\">ບໍ່ພົບໄຟລ.</span> ລອງໃຊ້ຄຳຄົ້ນຫາຫຼືຕົວກອງທີ່ແຕກຕ່າງກັນ."
 
-#: allthethings/page/templates/page/search.html:460
+#: allthethings/page/templates/page/search.html:464
 #, fuzzy
 msgid "page.search.results.incorrectly_slow"
 msgstr "➡️ ບາງຄັ້ງນີ້ເກີດຂຶ້ນຜິດພາດເມື່ອເຊີບເວີຄົ້ນຫາຊ້າ. ໃນກໍລະນີນີ້, <a %(a_attrs)s>ການໂຫຼດໃໝ່</a> ສາມາດຊ່ວຍໄດ້."
 
-#: allthethings/page/templates/page/search.html:467
+#: allthethings/page/templates/page/search.html:471
 #, fuzzy
 msgid "page.search.found_matches.main"
 msgstr "ພວກເຮົາພົບການຕົກລົງໃນ: %(in)s. ທ່ານສາມາດອ້າງອີງ URL ທີ່ພົບເມື່ອ <a %(a_request)s>ຮ້ອງຂໍໄຟລ</a>."
 
-#: allthethings/page/templates/page/search.html:467
+#: allthethings/page/templates/page/search.html:471
 #, fuzzy
 msgid "page.search.found_matches.journals"
 msgstr "ບົດຄວາມວາລະສານ (%(count)s)"
 
-#: allthethings/page/templates/page/search.html:467
+#: allthethings/page/templates/page/search.html:471
 #, fuzzy
 msgid "page.search.found_matches.digital_lending"
 msgstr "ການຢືມດິຈິຕອນ (%(count)s)"
 
-#: allthethings/page/templates/page/search.html:467
+#: allthethings/page/templates/page/search.html:471
 #, fuzzy
 msgid "page.search.found_matches.metadata"
 msgstr "ຂໍ້ມູນເມຕາ (%(count)s)"
 
-#: allthethings/page/templates/page/search.html:474
+#: allthethings/page/templates/page/search.html:478
 #, fuzzy
 msgid "page.search.results.numbers_pages"
 msgstr "ຜົນການຄົ້ນຫາ %(from)s-%(to)s (%(total)s ທັງໝົດ)"
 
-#: allthethings/page/templates/page/search.html:485
+#: allthethings/page/templates/page/search.html:490
 #, fuzzy
 msgid "page.search.results.partial_more"
 msgstr "%(num)d+ ການຕົກລົງບາງສ່ວນ"
 
-#: allthethings/page/templates/page/search.html:485
+#: allthethings/page/templates/page/search.html:490
 #, fuzzy
 msgid "page.search.results.partial"
 msgstr "%(num)d ການຕົກລົງບາງສ່ວນ"
@@ -6587,47 +6634,47 @@ msgstr "%(links)s ລິ້ງຫຼືຮູບພາບຫນ້າຈໍຂ�
 msgid "page.volunteering.table.misc.task"
 msgstr "ວຽກເລັກໆທີ່ໂພສໃນ <a %(a_telegram)s>ການສົນທະນາອາສາສະໝັກທີ່ Telegram</a>. ປົກກະຕິສຳລັບການເປັນສະມາຊິກ, ບາງຄັ້ງສຳລັບລາວັນເລັກໆ."
 
-#: allthethings/page/templates/page/volunteering.html:66
+#: allthethings/page/templates/page/volunteering.html:67
 #, fuzzy
 msgid "page.volunteering.table.misc.milestone"
 msgstr "ຂຶ້ນກັບວຽກ."
 
-#: allthethings/page/templates/page/volunteering.html:70
+#: allthethings/page/templates/page/volunteering.html:71
 #, fuzzy
 msgid "page.volunteering.section.bounties.heading"
 msgstr "ລາງວັນ"
 
-#: allthethings/page/templates/page/volunteering.html:73
+#: allthethings/page/templates/page/volunteering.html:74
 #, fuzzy
 msgid "page.volunteering.section.bounties.text1"
 msgstr "ພວກເຮົາກຳລັງມອງຫາຄົນທີ່ມີທັກສະການຂຽນໂປຣແກຣມຫຼືທັກສະການຮຸກຮາຄວາມປອດໄພທີ່ແຂງແກ່ວເພື່ອມາມີສ່ວນຮ່ວມ. ທ່ານສາມາດສ້າງຜົນກະທົບຢ່າງຈິງຈັງໃນການຮັກສາມໍລະດົກຂອງມະນຸດ."
 
-#: allthethings/page/templates/page/volunteering.html:77
+#: allthethings/page/templates/page/volunteering.html:78
 #, fuzzy
 msgid "page.volunteering.section.bounties.text2"
 msgstr "ເປັນການຂອບໃຈ, ພວກເຮົາແຈກການເປັນສະມາຊິກສຳລັບການມອບໝາຍທີ່ແຂງແຮງ. ເປັນການຂອບໃຈຢ່າງຫຼາຍ, ພວກເຮົາແຈກລາງວັນເງິນສຳລັບວຽກງານທີ່ສຳຄັນແລະຍາກຫຼາຍ. ນີ້ບໍ່ຄວນຖືກມອງເປັນການແທນທີ່ສຳລັບວຽກງານ, ແຕ່ມັນເປັນການສົ່ງເສີມເພີ່ມເຕີມແລະສາມາດຊ່ວຍກັບຄ່າໃຊ້ຈ່າຍທີ່ເກີດຂຶ້ນ."
 
-#: allthethings/page/templates/page/volunteering.html:81
+#: allthethings/page/templates/page/volunteering.html:82
 #, fuzzy
 msgid "page.volunteering.section.bounties.text3"
 msgstr "ສ່ວນໃຫຍ່ຂອງໂຄດຂອງພວກເຮົາແມ່ນເປີດເປັນຊອບແວທີ່ເປີດແຫຼ່ງທີ່ມາ, ແລະພວກເຮົາຈະຂໍໃຫ້ໂຄດຂອງທ່ານເປັນເຊັ່ນນັ້ນເມື່ອມອບລາງວັນ. ມີບາງກໍລະນີທີ່ພວກເຮົາສາມາດຫາລືກັນເປັນລາຍບຸກຄົນໄດ້."
 
-#: allthethings/page/templates/page/volunteering.html:85
+#: allthethings/page/templates/page/volunteering.html:86
 #, fuzzy
 msgid "page.volunteering.section.bounties.text4"
 msgstr "ລາງວັນຈະຖືກມອບໃຫ້ກັບຄົນທຳວຽກສຳເລັດຄົນທຳອິດ. ກະລຸນາຄອມເມັນຕໍ່ລາງວັນເພື່ອໃຫ້ຄົນອື່ນຮູ້ວ່າທ່ານກຳລັງເຮັດວຽກຢູ່, ເພື່ອໃຫ້ຄົນອື່ນລໍຖ້າຫຼືຕິດຕໍ່ທ່ານເພື່ອຮ່ວມມື. ແຕ່ກະລຸນາຮູ້ວ່າຄົນອື່ນຍັງສາມາດເຮັດວຽກຢູ່ເຊັ່ນກັນແລະພະຍາຍາມເອົາລາງວັນກ່ອນທ່ານ. ແຕ່ພວກເຮົາບໍ່ມອບລາງວັນສຳລັບວຽກທີ່ບໍ່ມີຄຸນະພາບ. ຖ້າມີການສົ່ງວຽກທີ່ມີຄຸນະພາບສູງສອງຄັ້ງທີ່ໃກ້ກັນ (ພາຍໃນຫນຶ່ງຫຼືສອງມື້), ພວກເຮົາອາດຈະເລືອກມອບລາງວັນໃຫ້ທັງສອງ, ຕາມດຸລິພິນຂອງພວກເຮົາ, ເຊັ່ນ 100%% ສຳລັບການສົ່ງຄັ້ງທຳອິດແລະ 50%% ສຳລັບການສົ່ງຄັ້ງທີສອງ (ດັ່ງນັ້ນລວມເປັນ 150%%)."
 
-#: allthethings/page/templates/page/volunteering.html:89
+#: allthethings/page/templates/page/volunteering.html:90
 #, fuzzy
 msgid "page.volunteering.section.bounties.text5"
 msgstr "ສຳລັບລາງວັນທີ່ໃຫຍ່ກວ່າ (ເປັນພິເສດລາງວັນການຂູດຂໍ້ມູນ), ກະລຸນາຕິດຕໍ່ພວກເຮົາເມື່ອທ່ານໄດ້ສຳເລັດ ~5%% ຂອງມັນ, ແລະທ່ານມີຄວາມໝັ້ນໃຈວ່າວິທີການຂອງທ່ານຈະຂະຫຍາຍໄປສູ່ເປົ້າໝາຍທີ່ຕັ້ງໄວ້ໄດ້. ທ່ານຈະຕ້ອງແບ່ງປັນວິທີການຂອງທ່ານກັບພວກເຮົາເພື່ອທີ່ພວກເຮົາຈະໃຫ້ຄຳແນະນຳ. ນອກຈາກນີ້, ວິທີນີ້ພວກເຮົາສາມາດຕັດສິນວ່າຈະເຮັດຢ່າງໃດຖ້າມີຄົນຫຼາຍຄົນທີ່ກຳລັງເຂົ້າໃກ້ກັບລາງວັນ, ເຊັ່ນການມອບລາງວັນໃຫ້ຄົນຫຼາຍຄົນ, ການສົ່ງເສີມໃຫ້ຄົນຮ່ວມມືກັນ, ອື່ນໆ."
 
-#: allthethings/page/templates/page/volunteering.html:93
+#: allthethings/page/templates/page/volunteering.html:94
 #, fuzzy
 msgid "page.volunteering.section.bounties.text6"
 msgstr "ຄຳເຕືອນ: ວຽກທີ່ມີລາງວັນສູງແມ່ນ <span %(bold)s>ຍາກ</span> — ມັນອາດຈະດີທີ່ຈະເລີ່ມຕົ້ນດ້ວຍວຽກທີ່ງ່າຍກ່ອນ."
 
-#: allthethings/page/templates/page/volunteering.html:97
+#: allthethings/page/templates/page/volunteering.html:98
 #, fuzzy
 msgid "page.volunteering.section.bounties.text7"
 msgstr "ໄປທີ່ <a %(a_gitlab)s>ລາຍການປັນຫາຂອງ Gitlab</a> ແລະຈັດລຽງຕາມ “Label priority”. ນີ້ຈະສະແດງລຳດັບຂອງວຽກທີ່ພວກເຮົາໃສ່ໃຈ. ວຽກທີ່ບໍ່ມີລາງວັນຢ່າງເປັນທາງການຍັງຄົງມີສິດໄດ້ຮັບສະມາຊິກ, ເປັນພິເສດວຽກທີ່ຖືກຕິດປ້າຍ “Accepted” ແລະ “Anna’s favorite”. ທ່ານອາດຈະຕ້ອງການເລີ"
@@ -6670,8 +6717,8 @@ msgstr "ໃຊ້ໄດ້ຈົນສິ້ນເດືອນນີ້."
 #: allthethings/templates/layouts/index.html:227
 #: allthethings/templates/layouts/index.html:233
 #: allthethings/templates/layouts/index.html:267
-#: allthethings/templates/layouts/index.html:533
-#: allthethings/templates/layouts/index.html:590
+#: allthethings/templates/layouts/index.html:536
+#: allthethings/templates/layouts/index.html:593
 #, fuzzy
 msgid "layout.index.header.nav.donate"
 msgstr "ບໍລິຈາກ"
@@ -6712,166 +6759,161 @@ msgid "layout.index.header.recent_downloads"
 msgstr "ການດາວໂຫລດລ່າສຸດ:"
 
 #: allthethings/templates/layouts/index.html:492
-#: allthethings/templates/layouts/index.html:505
-#: allthethings/templates/layouts/index.html:520
-#: allthethings/templates/layouts/index.html:587
+#: allthethings/templates/layouts/index.html:506
+#: allthethings/templates/layouts/index.html:522
+#: allthethings/templates/layouts/index.html:590
 #, fuzzy
 msgid "layout.index.header.nav.search"
 msgstr "ຄົ້ນຫາ"
 
 #: allthethings/templates/layouts/index.html:494
-#: allthethings/templates/layouts/index.html:507
-#: allthethings/templates/layouts/index.html:522
-#: allthethings/templates/layouts/index.html:589
-#: allthethings/templates/layouts/index.html:615
+#: allthethings/templates/layouts/index.html:508
+#: allthethings/templates/layouts/index.html:524
+#: allthethings/templates/layouts/index.html:592
+#: allthethings/templates/layouts/index.html:618
 #, fuzzy
 msgid "layout.index.header.nav.faq"
 msgstr "FAQ"
 
 #: allthethings/templates/layouts/index.html:495
-#: allthethings/templates/layouts/index.html:508
-#: allthethings/templates/layouts/index.html:523
-#: allthethings/templates/layouts/index.html:616
+#: allthethings/templates/layouts/index.html:509
+#: allthethings/templates/layouts/index.html:525
+#: allthethings/templates/layouts/index.html:619
 #, fuzzy
 msgid "layout.index.header.nav.improve_metadata"
 msgstr "ປັບປຸງຂໍ້ມູນເພີ່ມເຕີມ"
 
 #: allthethings/templates/layouts/index.html:496
-#: allthethings/templates/layouts/index.html:509
-#: allthethings/templates/layouts/index.html:524
-#: allthethings/templates/layouts/index.html:617
+#: allthethings/templates/layouts/index.html:510
+#: allthethings/templates/layouts/index.html:526
+#: allthethings/templates/layouts/index.html:620
 #, fuzzy
 msgid "layout.index.header.nav.volunteering"
 msgstr "ອາສາສະໝັກ & ລາງວັນ"
 
 #: allthethings/templates/layouts/index.html:497
-#: allthethings/templates/layouts/index.html:510
-#: allthethings/templates/layouts/index.html:525
-#: allthethings/templates/layouts/index.html:618
+#: allthethings/templates/layouts/index.html:511
+#: allthethings/templates/layouts/index.html:527
+#: allthethings/templates/layouts/index.html:621
 #, fuzzy
 msgid "layout.index.header.nav.datasets"
 msgstr "Datasets"
 
 #: allthethings/templates/layouts/index.html:498
-#: allthethings/templates/layouts/index.html:511
-#: allthethings/templates/layouts/index.html:526
-#: allthethings/templates/layouts/index.html:619
+#: allthethings/templates/layouts/index.html:512
+#: allthethings/templates/layouts/index.html:528
+#: allthethings/templates/layouts/index.html:622
 #, fuzzy
 msgid "layout.index.header.nav.torrents"
 msgstr "Torrents"
 
-#: allthethings/templates/layouts/index.html:499
-#: allthethings/templates/layouts/index.html:512
-#: allthethings/templates/layouts/index.html:527
-#: allthethings/templates/layouts/index.html:620
+#: allthethings/templates/layouts/index.html:500
+#: allthethings/templates/layouts/index.html:514
+#: allthethings/templates/layouts/index.html:530
+#: allthethings/templates/layouts/index.html:624
 #, fuzzy
 msgid "layout.index.header.nav.codes"
 msgstr "ຄົ້ນຫາລະຫັດ"
 
-#: allthethings/templates/layouts/index.html:500
-#: allthethings/templates/layouts/index.html:513
-#: allthethings/templates/layouts/index.html:528
-#: allthethings/templates/layouts/index.html:621
+#: allthethings/templates/layouts/index.html:501
+#: allthethings/templates/layouts/index.html:515
+#: allthethings/templates/layouts/index.html:531
+#: allthethings/templates/layouts/index.html:625
 #, fuzzy
 msgid "layout.index.header.nav.llm_data"
 msgstr "ຂໍ້ມູນ LLM"
 
-#: allthethings/templates/layouts/index.html:501
-#: allthethings/templates/layouts/index.html:514
-#: allthethings/templates/layouts/index.html:519
-#: allthethings/templates/layouts/index.html:586
+#: allthethings/templates/layouts/index.html:502
+#: allthethings/templates/layouts/index.html:516
+#: allthethings/templates/layouts/index.html:521
+#: allthethings/templates/layouts/index.html:589
 #, fuzzy
 msgid "layout.index.header.nav.home"
 msgstr "ໜ້າຫຼັກ"
 
-#: allthethings/templates/layouts/index.html:530
-#: allthethings/templates/layouts/index.html:609
+#: allthethings/templates/layouts/index.html:533
+#: allthethings/templates/layouts/index.html:612
 #, fuzzy
 msgid "layout.index.header.nav.annassoftware"
 msgstr "ຊອບແວຂອງ Anna ↗"
 
-#: allthethings/templates/layouts/index.html:531
-#: allthethings/templates/layouts/index.html:610
+#: allthethings/templates/layouts/index.html:534
+#: allthethings/templates/layouts/index.html:613
 #, fuzzy
 msgid "layout.index.header.nav.translate"
 msgstr "ແປພາສາ ↗"
 
-#: allthethings/templates/layouts/index.html:544
-#: allthethings/templates/layouts/index.html:548
-#: allthethings/templates/layouts/index.html:553
+#: allthethings/templates/layouts/index.html:547
+#: allthethings/templates/layouts/index.html:551
+#: allthethings/templates/layouts/index.html:556
 #, fuzzy
 msgid "layout.index.header.nav.login_register"
 msgstr "ເຂົ້າລະບົບ / ລົງທະບຽນ"
 
-#: allthethings/templates/layouts/index.html:560
-#: allthethings/templates/layouts/index.html:567
-#: allthethings/templates/layouts/index.html:572
+#: allthethings/templates/layouts/index.html:563
+#: allthethings/templates/layouts/index.html:570
+#: allthethings/templates/layouts/index.html:575
 #, fuzzy
 msgid "layout.index.header.nav.account"
 msgstr "ບັນຊີ"
 
-#: allthethings/templates/layouts/index.html:585
+#: allthethings/templates/layouts/index.html:588
 #, fuzzy
 msgid "layout.index.footer.list1.header"
 msgstr "ຫໍຈຳເອກສານຂອງ Anna"
 
-#: allthethings/templates/layouts/index.html:604
+#: allthethings/templates/layouts/index.html:607
 #, fuzzy
 msgid "layout.index.footer.list2.header"
 msgstr "ຕິດຕໍ່ພວກເຮົາ"
 
-#: allthethings/templates/layouts/index.html:606
+#: allthethings/templates/layouts/index.html:609
 #, fuzzy
 msgid "layout.index.footer.list2.dmca_copyright"
 msgstr "ການຮ້ອງຮຽນ DMCA / ລິຂະສິດ"
 
-#: allthethings/templates/layouts/index.html:607
+#: allthethings/templates/layouts/index.html:610
 #, fuzzy
 msgid "layout.index.footer.list2.reddit"
 msgstr "Reddit"
 
-#: allthethings/templates/layouts/index.html:607
+#: allthethings/templates/layouts/index.html:610
 #, fuzzy
 msgid "layout.index.footer.list2.telegram"
 msgstr "Telegram"
 
-#: allthethings/templates/layouts/index.html:614
+#: allthethings/templates/layouts/index.html:617
 #, fuzzy
 msgid "layout.index.header.nav.advanced"
 msgstr "ຂັ້ນສູງ"
 
-#: allthethings/templates/layouts/index.html:622
+#: allthethings/templates/layouts/index.html:626
 #, fuzzy
 msgid "layout.index.header.nav.security"
 msgstr "ຄວາມປອດໄພ"
 
-#: allthethings/templates/layouts/index.html:626
+#: allthethings/templates/layouts/index.html:630
 #, fuzzy
 msgid "layout.index.footer.list3.header"
 msgstr "ທາງເລືອກ"
 
-#: allthethings/templates/layouts/index.html:630
+#: allthethings/templates/layouts/index.html:634
 #, fuzzy
 msgid "layout.index.footer.list3.link.slum"
 msgstr "SLUM (%(unaffiliated)s)"
 
-#: allthethings/templates/layouts/index.html:630
+#: allthethings/templates/layouts/index.html:634
 #, fuzzy
 msgid "layout.index.footer.list3.link.unaffiliated"
 msgstr "ບໍ່ສັນພັນ"
 
-#: allthethings/templates/macros/aarecord_list.html:90
-#: allthethings/templates/macros/aarecord_list.html:125
+#: allthethings/templates/macros/aarecord_list.html:92
+#: allthethings/templates/macros/aarecord_list.html:127
 #, fuzzy
 msgid "page.search.results.issues"
 msgstr "❌ ໄຟລນີ້ອາດມີບັນຫາ."
 
-#: allthethings/templates/macros/aarecord_list.html:116
-#, fuzzy
-msgid "page.search.results.download_time"
-msgstr "ເວລາດາວໂຫລດ"
-
-#: allthethings/templates/macros/aarecord_list.html:116
+#: allthethings/templates/macros/aarecord_list.html:118
 #, fuzzy
 msgid "page.search.results.fast_download"
 msgstr "ດາວໂຫລດໄວ"
@@ -7055,4 +7097,7 @@ msgstr "ຕໍ່ໄປ"
 
 #~ msgid "common.md5.servers.fast_partner.recommended"
 #~ msgstr "(%(recommended)s)"
+
+#~ msgid "page.datasets.upload.source.alexandrina"
+#~ msgstr "ຈາກການເກັບລວມ <a %(a_href)s><q>Bibliotheca Alexandrina,</q></a> ຕົ້ນກໍາເນີດທີ່ບໍ່ຊັດເຈນ. ບາງສ່ວນມາຈາກ the-eye.eu, ບາງສ່ວນມາຈາກແຫຼ່ງອື່ນ."
 

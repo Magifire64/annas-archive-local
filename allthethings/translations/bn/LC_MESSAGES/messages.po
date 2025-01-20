@@ -125,16 +125,16 @@ msgstr "অনবদ্য তথ্যরক্ষক"
 msgid "common.membership.tier_name.5"
 msgstr "আশ্চর্য আর্কাইভকারি"
 
-#: allthethings/utils.py:641
+#: allthethings/utils.py:656
 msgid "common.membership.format_currency.total"
 msgstr "%(amount)s মোট"
 
-#: allthethings/utils.py:648
+#: allthethings/utils.py:663
 #, fuzzy
 msgid "common.membership.format_currency.total_with_usd"
 msgstr "%(amount)s (%(amount_usd)s) মোট"
 
-#: allthethings/utils.py:650 allthethings/utils.py:651
+#: allthethings/utils.py:665 allthethings/utils.py:666
 msgid "common.membership.format_currency.amount_with_usd"
 msgstr "%(amount)s (%(amount_usd)s)"
 
@@ -288,7 +288,7 @@ msgid "page.donate.expert.contact_us"
 msgstr "যোগাযোগ করুন"
 
 #: allthethings/account/templates/account/donate.html:101
-#: allthethings/account/templates/account/donation.html:716
+#: allthethings/account/templates/account/donation.html:766
 #: allthethings/page/templates/page/contact.html:22
 #, fuzzy
 msgid "page.donate.small_team"
@@ -335,7 +335,7 @@ msgid "page.donate.payment.select_method"
 msgstr "একটি পেমেন্ট পদ্ধতি নির্বাচন করুন।"
 
 #: allthethings/account/templates/account/donate.html:132
-#: allthethings/account/templates/account/donate.html:503
+#: allthethings/account/templates/account/donate.html:507
 msgid "page.donate.discount"
 msgstr "-%(percentage)s%%"
 
@@ -352,230 +352,221 @@ msgid "page.donate.payment.buttons.amazon_cc"
 msgstr "%(amazon)s উপহার কার্ড"
 
 #: allthethings/account/templates/account/donate.html:152
+#: allthethings/account/templates/account/donate.html:153
+#: allthethings/account/templates/account/donate.html:154
 #, fuzzy
 msgid "page.donate.payment.buttons.bank_card_app"
 msgstr "ব্যাংক কার্ড (অ্যাপ ব্যবহার করে)"
 
-#: allthethings/account/templates/account/donate.html:153
-#: allthethings/account/templates/account/donate.html:163
-#: allthethings/account/templates/account/donate.html:164
-#: allthethings/account/templates/account/donate.html:450
+#: allthethings/account/templates/account/donate.html:155
+#: allthethings/account/templates/account/donate.html:165
+#: allthethings/account/templates/account/donate.html:166
+#: allthethings/account/templates/account/donate.html:454
 msgid "page.donate.payment.buttons.crypto"
 msgstr "ক্রিপ্টো %(bitcoin_icon)s"
 
-#: allthethings/account/templates/account/donate.html:155
+#: allthethings/account/templates/account/donate.html:157
 msgid "page.donate.payment.buttons.credit_debit"
 msgstr "ক্রেডিট/ডেবিট কার্ড"
 
-#: allthethings/account/templates/account/donate.html:156
+#: allthethings/account/templates/account/donate.html:158
 msgid "page.donate.payment.buttons.paypal"
 msgstr "পেপাল (US) %(bitcoin_icon)s"
 
-#: allthethings/account/templates/account/donate.html:157
+#: allthethings/account/templates/account/donate.html:159
 #, fuzzy
 msgid "page.donate.payment.buttons.paypalreg"
 msgstr "PayPal (নিয়মিত)"
 
-#: allthethings/account/templates/account/donate.html:158
+#: allthethings/account/templates/account/donate.html:160
 #, fuzzy
 msgid "page.donate.payment.buttons.givebutter"
 msgstr "কার্ড / PayPal / Venmo"
 
-#: allthethings/account/templates/account/donate.html:160
+#: allthethings/account/templates/account/donate.html:162
 #, fuzzy
 msgid "page.donate.payment.buttons.bmc"
 msgstr "ক্রেডিট/ডেবিট/অ্যাপল/গুগল (BMC)"
 
-#: allthethings/account/templates/account/donate.html:161
-#: allthethings/account/templates/account/donate.html:201
-#: allthethings/account/templates/account/donate.html:210
-#: allthethings/account/templates/account/donate.html:211
-#: allthethings/account/templates/account/donate.html:444
+#: allthethings/account/templates/account/donate.html:163
+#: allthethings/account/templates/account/donate.html:203
+#: allthethings/account/templates/account/donate.html:213
+#: allthethings/account/templates/account/donate.html:214
+#: allthethings/account/templates/account/donate.html:448
 msgid "page.donate.payment.buttons.alipay"
 msgstr "আলি'পে"
 
-#: allthethings/account/templates/account/donate.html:162
+#: allthethings/account/templates/account/donate.html:164
 msgid "page.donate.payment.buttons.pix"
 msgstr "পিক্স (ব্রাজিল)"
 
-#: allthethings/account/templates/account/donate.html:166
+#: allthethings/account/templates/account/donate.html:168
 msgid "page.donate.payment.buttons.cashapp"
 msgstr "আর্থিক অ্যাপ"
 
-#: allthethings/account/templates/account/donate.html:167
+#: allthethings/account/templates/account/donate.html:169
 #, fuzzy
 msgid "page.donate.payment.buttons.revolut"
 msgstr "রেভোলুট"
 
-#: allthethings/account/templates/account/donate.html:168
+#: allthethings/account/templates/account/donate.html:170
 msgid "page.donate.payment.buttons.paypal_plain"
 msgstr "পেপাল"
 
-#: allthethings/account/templates/account/donate.html:169
+#: allthethings/account/templates/account/donate.html:171
 #, fuzzy
 msgid "page.donate.payment.buttons.bank_card"
 msgstr "ব্যাংক কার্ড"
 
-#: allthethings/account/templates/account/donate.html:170
+#: allthethings/account/templates/account/donate.html:172
 #, fuzzy
 msgid "page.donate.payment.buttons.credit_debit_backup"
 msgstr "ক্রেডিট/ডেবিট কার্ড (ব্যাকআপ)"
 
-#: allthethings/account/templates/account/donate.html:171
+#: allthethings/account/templates/account/donate.html:173
 #, fuzzy
 msgid "page.donate.payment.buttons.credit_debit2"
 msgstr "ক্রেডিট/ডেবিট কার্ড ২"
 
-#: allthethings/account/templates/account/donate.html:173
+#: allthethings/account/templates/account/donate.html:175
 #, fuzzy
 msgid "page.donate.payment.buttons.binance"
 msgstr "বিনান্স"
 
-#: allthethings/account/templates/account/donate.html:200
-#: allthethings/account/templates/account/donate.html:204
-#: allthethings/account/templates/account/donate.html:205
-#: allthethings/account/templates/account/donate.html:447
+#: allthethings/account/templates/account/donate.html:202
+#: allthethings/account/templates/account/donate.html:206
+#: allthethings/account/templates/account/donate.html:207
+#: allthethings/account/templates/account/donate.html:451
 msgid "page.donate.payment.buttons.wechat"
 msgstr "উইচ্যাট"
 
-#: allthethings/account/templates/account/donate.html:215
-#: allthethings/account/templates/account/donate.html:216
+#: allthethings/account/templates/account/donate.html:219
+#: allthethings/account/templates/account/donate.html:220
 #, fuzzy
 msgid "page.donate.payment.buttons.alipay_wechat"
 msgstr "Alipay 支付宝 / WeChat 微信"
 
-#: allthethings/account/templates/account/donate.html:235
+#: allthethings/account/templates/account/donate.html:239
 #, fuzzy
 msgid "page.donate.payment.desc.crypto"
 msgstr "ক্রিপ্টো ব্যবহার করে আপনি BTC, ETH, XMR, এবং SOL দিয়ে দান করতে পারেন। আপনি যদি ক্রিপ্টোকারেন্সি সম্পর্কে ইতিমধ্যে পরিচিত হন তবে এই বিকল্পটি ব্যবহার করুন।"
 
-#: allthethings/account/templates/account/donate.html:239
+#: allthethings/account/templates/account/donate.html:243
 #, fuzzy
 msgid "page.donate.payment.desc.crypto2"
 msgstr "ক্রিপ্টো ব্যবহার করে আপনি BTC, ETH, XMR এবং আরও অনেক কিছু দিয়ে দান করতে পারেন।"
 
-#: allthethings/account/templates/account/donate.html:242
-#: allthethings/account/templates/account/donate.html:452
+#: allthethings/account/templates/account/donate.html:246
+#: allthethings/account/templates/account/donate.html:456
 #, fuzzy
 msgid "page.donate.payment.desc.crypto_suggestion_dynamic"
 msgstr "যদি আপনি প্রথমবারের মতো ক্রিপ্টো ব্যবহার করছেন, আমরা %(options)s ব্যবহার করে Bitcoin (মূল এবং সবচেয়ে ব্যবহৃত ক্রিপ্টোকারেন্সি) কেনা এবং দান করার পরামর্শ দিই।"
 
-#: allthethings/account/templates/account/donate.html:245
-#: allthethings/account/templates/account/donate.html:455
+#: allthethings/account/templates/account/donate.html:249
+#: allthethings/account/templates/account/donate.html:459
 #, fuzzy
 msgid "page.donate.payment.processor.binance"
 msgstr "বিনান্স"
 
-#: allthethings/account/templates/account/donate.html:246
-#: allthethings/account/templates/account/donate.html:456
+#: allthethings/account/templates/account/donate.html:250
+#: allthethings/account/templates/account/donate.html:460
 #, fuzzy
 msgid "page.donate.payment.processor.coinbase"
 msgstr "কয়েনবেস"
 
-#: allthethings/account/templates/account/donate.html:247
-#: allthethings/account/templates/account/donate.html:457
+#: allthethings/account/templates/account/donate.html:251
+#: allthethings/account/templates/account/donate.html:461
 #, fuzzy
 msgid "page.donate.payment.processor.kraken"
 msgstr "ক্রাকেন"
 
-#: allthethings/account/templates/account/donate.html:255
+#: allthethings/account/templates/account/donate.html:259
 #, fuzzy
 msgid "page.donate.payment.desc.paypal"
 msgstr "PayPal US ব্যবহার করে দান করতে, আমরা PayPal Crypto ব্যবহার করব, যা আমাদের গোপনীয় থাকতে সাহায্য করে। এই পদ্ধতিতে দান করার জন্য সময় নেওয়ার জন্য আমরা আপনার প্রশংসা করি, কারণ এটি আমাদের অনেক সাহায্য করে।"
 
-#: allthethings/account/templates/account/donate.html:256
+#: allthethings/account/templates/account/donate.html:260
 #, fuzzy
 msgid "page.donate.payment.desc.paypal_short"
 msgstr "PayPal ব্যবহার করে দান করুন।"
 
-#: allthethings/account/templates/account/donate.html:262
+#: allthethings/account/templates/account/donate.html:266
 #, fuzzy
 msgid "page.donate.payment.desc.cashapp"
 msgstr "ক্যাশ অ্যাপ ব্যবহার করে অনুদান দিন।"
 
-#: allthethings/account/templates/account/donate.html:263
+#: allthethings/account/templates/account/donate.html:267
 #, fuzzy
 msgid "page.donate.payment.desc.cashapp_easy"
 msgstr "যদি আপনার কাছে Cash App থাকে, এটি দান করার সবচেয়ে সহজ উপায়!"
 
-#: allthethings/account/templates/account/donate.html:266
-#: allthethings/account/templates/account/donate.html:276
+#: allthethings/account/templates/account/donate.html:270
+#: allthethings/account/templates/account/donate.html:280
 #, fuzzy
 msgid "page.donate.payment.desc.cashapp_fee"
 msgstr "দয়া করে মনে রাখবেন যে %(amount)s এর নিচে লেনদেনের জন্য, ক্যাশ অ্যাপ একটি %(fee)s ফি চার্জ করতে পারে। %(amount)s বা তার উপরে, এটি বিনামূল্যে!"
 
-#: allthethings/account/templates/account/donate.html:272
+#: allthethings/account/templates/account/donate.html:276
 #, fuzzy
 msgid "page.donate.payment.desc.revolut"
 msgstr "Revolut ব্যবহার করে দান করুন।"
 
-#: allthethings/account/templates/account/donate.html:273
+#: allthethings/account/templates/account/donate.html:277
 #, fuzzy
 msgid "page.donate.payment.desc.revolut_easy"
 msgstr "যদি আপনার কাছে Revolut থাকে, এটি দান করার সবচেয়ে সহজ উপায়!"
 
-#: allthethings/account/templates/account/donate.html:282
-#: allthethings/account/templates/account/donate.html:398
+#: allthethings/account/templates/account/donate.html:286
+#: allthethings/account/templates/account/donate.html:402
 #, fuzzy
 msgid "page.donate.payment.desc.credit_debit"
 msgstr "ক্রেডিট বা ডেবিট কার্ড দিয়ে দান করুন।"
 
-#: allthethings/account/templates/account/donate.html:283
+#: allthethings/account/templates/account/donate.html:287
 #, fuzzy
 msgid "page.donate.payment.desc.google_apple"
 msgstr "গুগল পে এবং অ্যাপল পে-ও কাজ করতে পারে।"
 
-#: allthethings/account/templates/account/donate.html:284
+#: allthethings/account/templates/account/donate.html:288
 #, fuzzy
 msgid "page.donate.payment.desc.elimate_discount"
 msgstr "দয়া করে মনে রাখবেন যে ছোট অনুদানের জন্য ক্রেডিট কার্ড ফি আমাদের %(discount)s%% ছাড় বাতিল করতে পারে, তাই আমরা দীর্ঘমেয়াদী সাবস্ক্রিপশন সুপারিশ করি।"
 
-#: allthethings/account/templates/account/donate.html:285
+#: allthethings/account/templates/account/donate.html:289
 #, fuzzy
 msgid "page.donate.payment.desc.longer_subs"
 msgstr "দয়া করে মনে রাখবেন যে ছোট অনুদানের জন্য ফি বেশি, তাই আমরা দীর্ঘমেয়াদী সাবস্ক্রিপশন সুপারিশ করি।"
 
-#: allthethings/account/templates/account/donate.html:291
+#: allthethings/account/templates/account/donate.html:295
 #, fuzzy
 msgid "page.donate.payment.desc.binance_p1"
 msgstr "Binance এর সাথে, আপনি একটি ক্রেডিট/ডেবিট কার্ড বা ব্যাংক অ্যাকাউন্ট দিয়ে Bitcoin কিনতে পারেন, এবং তারপর সেই Bitcoin আমাদের দান করতে পারেন। এইভাবে আমরা আপনার অনুদান গ্রহণ করার সময় নিরাপদ এবং বেনামী থাকতে পারি।"
 
-#: allthethings/account/templates/account/donate.html:295
+#: allthethings/account/templates/account/donate.html:299
 #, fuzzy
 msgid "page.donate.payment.desc.binance_p2"
 msgstr "Binance প্রায় প্রতিটি দেশে উপলব্ধ, এবং বেশিরভাগ ব্যাংক এবং ক্রেডিট/ডেবিট কার্ড সমর্থন করে। এটি বর্তমানে আমাদের প্রধান সুপারিশ। আপনি এই পদ্ধতি ব্যবহার করে অনুদান দেওয়ার জন্য সময় নেওয়ার জন্য আমরা কৃতজ্ঞ, কারণ এটি আমাদের অনেক সাহায্য করে।"
 
-#: allthethings/account/templates/account/donate.html:301
+#: allthethings/account/templates/account/donate.html:305
 #, fuzzy
 msgid "page.donate.payment.desc.paypalreg"
 msgstr "আপনার নিয়মিত পেপ্যাল অ্যাকাউন্ট ব্যবহার করে দান করুন।"
 
-#: allthethings/account/templates/account/donate.html:307
+#: allthethings/account/templates/account/donate.html:311
 #, fuzzy
 msgid "page.donate.payment.desc.givebutter"
 msgstr "ক্রেডিট/ডেবিট কার্ড, PayPal, বা Venmo ব্যবহার করে দান করুন। আপনি পরবর্তী পৃষ্ঠায় এগুলির মধ্যে বেছে নিতে পারেন।"
 
-#: allthethings/account/templates/account/donate.html:313
-#: allthethings/account/templates/account/donate.html:325
-#: allthethings/account/templates/account/donate.html:337
-#: allthethings/account/templates/account/donate.html:349
-#: allthethings/account/templates/account/donate.html:361
-#: allthethings/account/templates/account/donate.html:373
-#: allthethings/account/templates/account/donate.html:385
+#: allthethings/account/templates/account/donate.html:317
+#: allthethings/account/templates/account/donate.html:329
+#: allthethings/account/templates/account/donate.html:341
+#: allthethings/account/templates/account/donate.html:353
+#: allthethings/account/templates/account/donate.html:365
+#: allthethings/account/templates/account/donate.html:377
+#: allthethings/account/templates/account/donate.html:389
 #, fuzzy
 msgid "page.donate.payment.desc.amazon"
 msgstr "অ্যামাজন গিফট কার্ড ব্যবহার করে দান করুন।"
-
-#: allthethings/account/templates/account/donate.html:314
-#: allthethings/account/templates/account/donate.html:326
-#: allthethings/account/templates/account/donate.html:338
-#: allthethings/account/templates/account/donate.html:350
-#: allthethings/account/templates/account/donate.html:362
-#: allthethings/account/templates/account/donate.html:374
-#: allthethings/account/templates/account/donate.html:386
-#, fuzzy
-msgid "page.donate.payment.desc.amazon_round"
-msgstr "দয়া করে মনে রাখবেন যে আমাদের পুনর্বিক্রেতাদের দ্বারা গৃহীত পরিমাণে রাউন্ড করতে হবে (সর্বনিম্ন %(minimum)s)।"
 
 #: allthethings/account/templates/account/donate.html:318
 #: allthethings/account/templates/account/donate.html:330
@@ -584,355 +575,366 @@ msgstr "দয়া করে মনে রাখবেন যে আমাদ�
 #: allthethings/account/templates/account/donate.html:366
 #: allthethings/account/templates/account/donate.html:378
 #: allthethings/account/templates/account/donate.html:390
-#: allthethings/account/templates/account/donation.html:373
+#, fuzzy
+msgid "page.donate.payment.desc.amazon_round"
+msgstr "দয়া করে মনে রাখবেন যে আমাদের পুনর্বিক্রেতাদের দ্বারা গৃহীত পরিমাণে রাউন্ড করতে হবে (সর্বনিম্ন %(minimum)s)।"
+
+#: allthethings/account/templates/account/donate.html:322
+#: allthethings/account/templates/account/donate.html:334
+#: allthethings/account/templates/account/donate.html:346
+#: allthethings/account/templates/account/donate.html:358
+#: allthethings/account/templates/account/donate.html:370
+#: allthethings/account/templates/account/donate.html:382
+#: allthethings/account/templates/account/donate.html:394
+#: allthethings/account/templates/account/donation.html:405
 #, fuzzy
 msgid "page.donate.payment.desc.amazon_com"
 msgstr "<strong>গুরুত্বপূর্ণ:</strong> আমরা শুধুমাত্র Amazon.com সমর্থন করি, অন্যান্য Amazon ওয়েবসাইট নয়। উদাহরণস্বরূপ, .de, .co.uk, .ca, সমর্থিত নয়।"
 
-#: allthethings/account/templates/account/donate.html:319
-#: allthethings/account/templates/account/donate.html:331
-#: allthethings/account/templates/account/donate.html:343
-#: allthethings/account/templates/account/donate.html:355
-#: allthethings/account/templates/account/donate.html:367
-#: allthethings/account/templates/account/donate.html:379
-#: allthethings/account/templates/account/donate.html:391
+#: allthethings/account/templates/account/donate.html:323
+#: allthethings/account/templates/account/donate.html:335
+#: allthethings/account/templates/account/donate.html:347
+#: allthethings/account/templates/account/donate.html:359
+#: allthethings/account/templates/account/donate.html:371
+#: allthethings/account/templates/account/donate.html:383
+#: allthethings/account/templates/account/donate.html:395
 #, fuzzy
 msgid "page.donate.payment.desc.amazon_cc"
 msgstr "<strong>গুরুত্বপূর্ণ:</strong> এই বিকল্পটি %(amazon)s এর জন্য। আপনি যদি অন্য কোনো Amazon ওয়েবসাইট ব্যবহার করতে চান, তাহলে উপরে নির্বাচন করুন।"
 
-#: allthethings/account/templates/account/donate.html:399
+#: allthethings/account/templates/account/donate.html:403
 #, fuzzy
 msgid "page.donate.payment.desc.credit_debit_backup"
 msgstr "এই পদ্ধতিটি একটি ক্রিপ্টোকারেন্সি প্রদানকারীকে মধ্যবর্তী রূপান্তর হিসাবে ব্যবহার করে। এটি কিছুটা বিভ্রান্তিকর হতে পারে, তাই অনুগ্রহ করে শুধুমাত্র এই পদ্ধতিটি ব্যবহার করুন যদি অন্যান্য পেমেন্ট পদ্ধতিগুলি কাজ না করে। এটি সব দেশেও কাজ করে না।"
 
-#: allthethings/account/templates/account/donate.html:405
+#: allthethings/account/templates/account/donate.html:409
 #, fuzzy
 msgid "page.donate.payment.desc.bank_card_app"
 msgstr "Alipay অ্যাপের মাধ্যমে ক্রেডিট/ডেবিট কার্ড ব্যবহার করে অনুদান দিন (সেট আপ করা খুব সহজ)।"
 
-#: allthethings/account/templates/account/donate.html:409
-#: allthethings/account/templates/account/donation.html:519
+#: allthethings/account/templates/account/donate.html:413
+#: allthethings/account/templates/account/donation.html:563
 #, fuzzy
 msgid "page.donate.payment.desc.bank_card_app.step1.header"
 msgstr "<span %(style)s>১</span> Alipay অ্যাপ ইনস্টল করুন"
 
-#: allthethings/account/templates/account/donate.html:413
-#: allthethings/account/templates/account/donation.html:523
+#: allthethings/account/templates/account/donate.html:417
+#: allthethings/account/templates/account/donation.html:567
 #, fuzzy
 msgid "page.donate.payment.desc.bank_card_app.step1.desc1"
 msgstr "<a %(a_app_store)s>অ্যাপল অ্যাপ স্টোর</a> বা <a %(a_play_store)s>গুগল প্লে স্টোর</a> থেকে Alipay অ্যাপ ইনস্টল করুন।"
 
-#: allthethings/account/templates/account/donate.html:417
-#: allthethings/account/templates/account/donation.html:527
+#: allthethings/account/templates/account/donate.html:421
+#: allthethings/account/templates/account/donation.html:571
 #, fuzzy
 msgid "page.donate.payment.desc.bank_card_app.step1.desc2"
 msgstr "আপনার ফোন নম্বর ব্যবহার করে নিবন্ধন করুন।"
 
-#: allthethings/account/templates/account/donate.html:418
-#: allthethings/account/templates/account/donation.html:528
+#: allthethings/account/templates/account/donate.html:422
+#: allthethings/account/templates/account/donation.html:572
 #, fuzzy
 msgid "page.donate.payment.desc.bank_card_app.step1.desc3"
 msgstr "আরও কোনো ব্যক্তিগত তথ্যের প্রয়োজন নেই।"
 
-#: allthethings/account/templates/account/donate.html:422
-#: allthethings/account/templates/account/donation.html:532
+#: allthethings/account/templates/account/donate.html:426
+#: allthethings/account/templates/account/donation.html:576
 #, fuzzy
 msgid "page.donate.payment.desc.bank_card_app.step2.header"
 msgstr "<span %(style)s>২</span> ব্যাংক কার্ড যোগ করুন"
 
-#: allthethings/account/templates/account/donate.html:430
-#: allthethings/account/templates/account/donation.html:540
+#: allthethings/account/templates/account/donate.html:434
+#: allthethings/account/templates/account/donation.html:584
 #, fuzzy
 msgid "page.donate.payment.desc.bank_card_app.step2.desc1"
 msgstr "সমর্থিত: ভিসা, মাস্টারকার্ড, জেসিবি, ডিনার্স ক্লাব এবং ডিসকভার।"
 
-#: allthethings/account/templates/account/donate.html:431
-#: allthethings/account/templates/account/donation.html:541
+#: allthethings/account/templates/account/donate.html:435
+#: allthethings/account/templates/account/donation.html:585
 #, fuzzy
 msgid "page.donate.payment.desc.bank_card_app.step2.desc2"
 msgstr "আরও তথ্যের জন্য <a %(a_alipay)s>এই গাইড</a> দেখুন।"
 
-#: allthethings/account/templates/account/donate.html:437
+#: allthethings/account/templates/account/donate.html:441
 #, fuzzy
 msgid "page.donate.payment.desc.credit_debit_explained"
 msgstr "আমরা সরাসরি ক্রেডিট/ডেবিট কার্ড সমর্থন করতে পারি না, কারণ ব্যাংকগুলি আমাদের সাথে কাজ করতে চায় না। ☹ তবে, অন্যান্য পেমেন্ট পদ্ধতি ব্যবহার করে ক্রেডিট/ডেবিট কার্ড ব্যবহার করার বেশ কয়েকটি উপায় রয়েছে:"
 
-#: allthethings/account/templates/account/donate.html:441
+#: allthethings/account/templates/account/donate.html:445
 #, fuzzy
 msgid "page.donate.payment.buttons.amazon"
 msgstr "অ্যামাজন গিফট কার্ড"
 
-#: allthethings/account/templates/account/donate.html:442
+#: allthethings/account/templates/account/donate.html:446
 #, fuzzy
 msgid "page.donate.ccexp.amazon_com"
 msgstr "আপনার ক্রেডিট/ডেবিট কার্ড ব্যবহার করে আমাদের Amazon.com উপহার কার্ড পাঠান।"
 
-#: allthethings/account/templates/account/donate.html:445
+#: allthethings/account/templates/account/donate.html:449
 #, fuzzy
 msgid "page.donate.ccexp.alipay"
 msgstr "Alipay আন্তর্জাতিক ক্রেডিট/ডেবিট কার্ড সমর্থন করে। আরও তথ্যের জন্য <a %(a_alipay)s>এই গাইডটি</a> দেখুন।"
 
-#: allthethings/account/templates/account/donate.html:448
+#: allthethings/account/templates/account/donate.html:452
 #, fuzzy
 msgid "page.donate.ccexp.wechat"
 msgstr "WeChat (Weixin Pay) আন্তর্জাতিক ক্রেডিট/ডেবিট কার্ড সমর্থন করে। WeChat অ্যাপে, “Me => Services => Wallet => Add a Card” এ যান। যদি আপনি এটি না দেখেন, তবে “Me => Settings => General => Tools => Weixin Pay => Enable” ব্যবহার করে এটি সক্রিয় করুন।"
 
-#: allthethings/account/templates/account/donate.html:451
+#: allthethings/account/templates/account/donate.html:455
 #, fuzzy
 msgid "page.donate.ccexp.crypto"
 msgstr "আপনি ক্রেডিট/ডেবিট কার্ড ব্যবহার করে ক্রিপ্টো কিনতে পারেন।"
 
-#: allthethings/account/templates/account/donate.html:461
+#: allthethings/account/templates/account/donate.html:465
 #, fuzzy
 msgid "page.donate.payment.desc.crypto_express_services"
 msgstr "ক্রিপ্টো এক্সপ্রেস পরিষেবা"
 
-#: allthethings/account/templates/account/donate.html:463
+#: allthethings/account/templates/account/donate.html:467
 #, fuzzy
 msgid "page.donation.ccexp.crypto_express_services.1"
 msgstr "এক্সপ্রেস পরিষেবাগুলি সুবিধাজনক, তবে বেশি ফি নেয়।"
 
-#: allthethings/account/templates/account/donate.html:464
+#: allthethings/account/templates/account/donate.html:468
 #, fuzzy
 msgid "page.donation.ccexp.crypto_express_services.2"
 msgstr "আপনি যদি দ্রুত একটি বড় অনুদান দিতে চান এবং $5-10 ফি দিতে আপত্তি না করেন তবে এটি ক্রিপ্টো এক্সচেঞ্জের পরিবর্তে ব্যবহার করতে পারেন।"
 
-#: allthethings/account/templates/account/donate.html:467
+#: allthethings/account/templates/account/donate.html:471
 #, fuzzy
 msgid "page.donation.ccexp.crypto_express_services.3"
 msgstr "অনুদান পৃষ্ঠায় প্রদর্শিত সঠিক ক্রিপ্টো পরিমাণ পাঠাতে নিশ্চিত হন, $USD পরিমাণ নয়।"
 
-#: allthethings/account/templates/account/donate.html:468
+#: allthethings/account/templates/account/donate.html:472
 #, fuzzy
 msgid "page.donation.ccexp.crypto_express_services.4"
 msgstr "অন্যথায় ফি কেটে নেওয়া হবে এবং আমরা আপনার সদস্যপদ স্বয়ংক্রিয়ভাবে প্রক্রিয়া করতে পারব না।"
 
-#: allthethings/account/templates/account/donate.html:471
-#: allthethings/account/templates/account/donation.html:304
+#: allthethings/account/templates/account/donate.html:475
+#: allthethings/account/templates/account/donation.html:328
 #, fuzzy
 msgid "page.donation.payment2cc.method.paybis"
 msgstr "(সর্বনিম্ন: %(minimum)s)"
 
-#: allthethings/account/templates/account/donate.html:472
-#: allthethings/account/templates/account/donation.html:305
+#: allthethings/account/templates/account/donate.html:476
+#: allthethings/account/templates/account/donation.html:329
 #, fuzzy
 msgid "page.donation.payment2cc.method.switchere"
 msgstr "(সর্বনিম্ন: %(minimum)s দেশের উপর নির্ভর করে, প্রথম লেনদেনের জন্য কোনো যাচাইকরণ নেই)"
 
-#: allthethings/account/templates/account/donate.html:473
-#: allthethings/account/templates/account/donation.html:306
+#: allthethings/account/templates/account/donate.html:477
+#: allthethings/account/templates/account/donation.html:330
 #, fuzzy
 msgid "page.donation.payment2cc.method.munzen"
 msgstr "(সর্বনিম্ন: %(minimum)s, প্রথম লেনদেনের জন্য কোনো যাচাইকরণ নেই)"
 
-#: allthethings/account/templates/account/donate.html:474
-#: allthethings/account/templates/account/donation.html:307
+#: allthethings/account/templates/account/donate.html:478
+#: allthethings/account/templates/account/donation.html:331
 #, fuzzy
 msgid "page.donation.payment2cc.method.mercuryo"
 msgstr "(সর্বনিম্ন: %(minimum)s)"
 
-#: allthethings/account/templates/account/donate.html:475
-#: allthethings/account/templates/account/donation.html:308
+#: allthethings/account/templates/account/donate.html:479
+#: allthethings/account/templates/account/donation.html:332
 #, fuzzy
 msgid "page.donation.payment2cc.method.moonpay"
 msgstr "(সর্বনিম্ন: %(minimum)s)"
 
-#: allthethings/account/templates/account/donate.html:476
-#: allthethings/account/templates/account/donation.html:309
+#: allthethings/account/templates/account/donate.html:480
+#: allthethings/account/templates/account/donation.html:333
 #, fuzzy
 msgid "page.donation.payment2cc.method.coingate"
 msgstr "(সর্বনিম্ন: %(minimum)s)"
 
-#: allthethings/account/templates/account/donate.html:478
-#: allthethings/account/templates/account/donation.html:311
+#: allthethings/account/templates/account/donate.html:482
+#: allthethings/account/templates/account/donation.html:335
 #, fuzzy
 msgid "page.donation.payment2cc.cc2btc.outdated"
 msgstr "যদি এই তথ্যের কোনোটি পুরানো হয়, দয়া করে আমাদের ইমেল করে জানান।"
 
-#: allthethings/account/templates/account/donate.html:485
+#: allthethings/account/templates/account/donate.html:489
 #, fuzzy
 msgid "page.donate.payment.desc.bmc"
 msgstr "ক্রেডিট কার্ড, ডেবিট কার্ড, Apple Pay এবং Google Pay এর জন্য, আমরা “Buy Me a Coffee” (BMC <span class=\"icon-[ph--coffee-fill] text-lg align-text-bottom\"></span>) ব্যবহার করি। তাদের সিস্টেমে, এক “কফি” $5 এর সমান, তাই আপনার দান ৫ এর নিকটতম গুণিতকে রাউন্ড করা হবে।"
 
-#: allthethings/account/templates/account/donate.html:492
+#: allthethings/account/templates/account/donate.html:496
 msgid "page.donate.duration.intro"
 msgstr "আপনি কতদিন সাবস্ক্রাইব করে থাকতে ইচ্ছুক তা নির্বাচন করুন।"
 
-#: allthethings/account/templates/account/donate.html:509
+#: allthethings/account/templates/account/donate.html:513
 msgid "page.donate.duration.1_mo"
 msgstr "১ মাস"
 
-#: allthethings/account/templates/account/donate.html:510
+#: allthethings/account/templates/account/donate.html:514
 msgid "page.donate.duration.3_mo"
 msgstr "৩ মাস"
 
-#: allthethings/account/templates/account/donate.html:511
+#: allthethings/account/templates/account/donate.html:515
 msgid "page.donate.duration.6_mo"
 msgstr "৬ মাস"
 
-#: allthethings/account/templates/account/donate.html:512
+#: allthethings/account/templates/account/donate.html:516
 msgid "page.donate.duration.12_mo"
 msgstr "১২ মাস"
 
-#: allthethings/account/templates/account/donate.html:513
+#: allthethings/account/templates/account/donate.html:517
 msgid "page.donate.duration.24_mo"
 msgstr "২৪ মাস"
 
-#: allthethings/account/templates/account/donate.html:514
+#: allthethings/account/templates/account/donate.html:518
 #, fuzzy
 msgid "page.donate.duration.48_mo"
 msgstr "৪৮ মাস"
 
-#: allthethings/account/templates/account/donate.html:515
+#: allthethings/account/templates/account/donate.html:519
 #, fuzzy
 msgid "page.donate.duration.96_mo"
 msgstr "৯৬ মাস"
 
-#: allthethings/account/templates/account/donate.html:518
+#: allthethings/account/templates/account/donate.html:522
 #, fuzzy
 msgid "page.donate.duration.summary"
 msgstr "<div %(div_monthly_cost)s></div><div %(div_after)s>ছাড়ের পরে <span %(span_discount)s></span></div><div %(div_total)s></div><div %(div_duration)s></div>"
 
-#: allthethings/account/templates/account/donate.html:525
+#: allthethings/account/templates/account/donate.html:529
 #, fuzzy
 msgid "page.donate.payment.minimum_method"
 msgstr "এই পেমেন্ট পদ্ধতিতে ন্যূনতম %(amount)s প্রয়োজন। অনুগ্রহ করে একটি ভিন্ন সময়কাল বা পেমেন্ট পদ্ধতি নির্বাচন করুন।"
 
-#: allthethings/account/templates/account/donate.html:526
 #: allthethings/account/templates/account/donate.html:530
+#: allthethings/account/templates/account/donate.html:534
 #, fuzzy
 msgid "page.donate.buttons.donate"
 msgstr "দান করুন"
 
-#: allthethings/account/templates/account/donate.html:529
+#: allthethings/account/templates/account/donate.html:533
 #, fuzzy
 msgid "page.donate.payment.maximum_method"
 msgstr "এই পেমেন্ট পদ্ধতিটি সর্বাধিক %(amount)s পর্যন্ত অনুমতি দেয়। দয়া করে একটি ভিন্ন সময়কাল বা পেমেন্ট পদ্ধতি নির্বাচন করুন।"
 
-#: allthethings/account/templates/account/donate.html:536
+#: allthethings/account/templates/account/donate.html:540
 #, fuzzy
 msgid "page.donate.login2"
 msgstr "সদস্য হতে, দয়া করে <a %(a_login)s>লগ ইন বা রেজিস্টার</a> করুন। আপনার সমর্থনের জন্য ধন্যবাদ!"
 
-#: allthethings/account/templates/account/donate.html:543
+#: allthethings/account/templates/account/donate.html:547
 #, fuzzy
 msgid "page.donate.payment.crypto_select"
 msgstr "আপনার পছন্দের ক্রিপ্টো কয়েন নির্বাচন করুন:"
 
-#: allthethings/account/templates/account/donate.html:548
+#: allthethings/account/templates/account/donate.html:552
 #, fuzzy
 msgid "page.donate.currency_lowest_minimum"
 msgstr "(সর্বনিম্ন পরিমাণ)"
 
-#: allthethings/account/templates/account/donate.html:551
+#: allthethings/account/templates/account/donate.html:555
 #, fuzzy
 msgid "page.donate.coinbase_eth"
 msgstr "(Coinbase থেকে Ethereum পাঠানোর সময় ব্যবহার করুন)"
 
-#: allthethings/account/templates/account/donate.html:563
-#: allthethings/account/templates/account/donate.html:564
+#: allthethings/account/templates/account/donate.html:567
 #: allthethings/account/templates/account/donate.html:568
-#: allthethings/account/templates/account/donate.html:570
+#: allthethings/account/templates/account/donate.html:572
+#: allthethings/account/templates/account/donate.html:574
 #, fuzzy
 msgid "page.donate.currency_warning_high_minimum"
 msgstr "(সতর্কতা: উচ্চ ন্যূনতম পরিমাণ)"
 
-#: allthethings/account/templates/account/donate.html:579
+#: allthethings/account/templates/account/donate.html:583
 msgid "page.donate.submit.confirm"
 msgstr "অনুদানটি নিশ্চিত করতে অনুদান বাটনে ক্লিক করুন।"
 
-#: allthethings/account/templates/account/donate.html:587
+#: allthethings/account/templates/account/donate.html:591
 msgid "page.donate.submit.button"
 msgstr "অনুদান প্রদান করুন <span %(span_cost)s></span> <span %(span_label)s></span>"
 
-#: allthethings/account/templates/account/donate.html:592
+#: allthethings/account/templates/account/donate.html:596
 msgid "page.donate.submit.cancel_note"
 msgstr "চেকআউটের সময়ও আপনার অনুদান প্রদান প্রক্রিয়াটি বাতিল করার ক্ষমতা রয়েছে।"
 
-#: allthethings/account/templates/account/donate.html:596
+#: allthethings/account/templates/account/donate.html:600
 msgid "page.donate.submit.success"
 msgstr "✅ আপনাকে অনুদান পাতায় ফিরিয়ে নেওয়া হচ্ছে…"
 
-#: allthethings/account/templates/account/donate.html:597
+#: allthethings/account/templates/account/donate.html:601
 msgid "page.donate.submit.failure"
 msgstr "❌ কিছু একটা সমস্যা হয়েছে। অনুগ্রহ করে পাতাটি রিলোড করুন এবং আবারও চেষ্টা করুন।"
 
-#: allthethings/account/templates/account/donate.html:651
+#: allthethings/account/templates/account/donate.html:655
 #, fuzzy
 msgid "page.donate.duration.summary.discount"
 msgstr "%(percentage)s%%"
 
-#: allthethings/account/templates/account/donate.html:652
+#: allthethings/account/templates/account/donate.html:656
 #, fuzzy
 msgid "page.donate.duration.summary.monthly_cost"
 msgstr "%(monthly_cost)s / মাস"
 
-#: allthethings/account/templates/account/donate.html:655
+#: allthethings/account/templates/account/donate.html:659
 #, fuzzy
 msgid "page.donate.duration.summary.duration.1_mo"
 msgstr "১ মাসের জন্য"
 
-#: allthethings/account/templates/account/donate.html:656
+#: allthethings/account/templates/account/donate.html:660
 #, fuzzy
 msgid "page.donate.duration.summary.duration.3_mo"
 msgstr "৩ মাসের জন্য"
 
-#: allthethings/account/templates/account/donate.html:657
+#: allthethings/account/templates/account/donate.html:661
 #, fuzzy
 msgid "page.donate.duration.summary.duration.6_mo"
 msgstr "৬ মাসের জন্য"
 
-#: allthethings/account/templates/account/donate.html:658
+#: allthethings/account/templates/account/donate.html:662
 #, fuzzy
 msgid "page.donate.duration.summary.duration.12_mo"
 msgstr "১২ মাসের জন্য"
 
-#: allthethings/account/templates/account/donate.html:659
+#: allthethings/account/templates/account/donate.html:663
 #, fuzzy
 msgid "page.donate.duration.summary.duration.24_mo"
 msgstr "২৪ মাসের জন্য"
 
-#: allthethings/account/templates/account/donate.html:660
+#: allthethings/account/templates/account/donate.html:664
 #, fuzzy
 msgid "page.donate.duration.summary.duration.48_mo"
 msgstr "৪৮ মাসের জন্য"
 
-#: allthethings/account/templates/account/donate.html:661
+#: allthethings/account/templates/account/donate.html:665
 #, fuzzy
 msgid "page.donate.duration.summary.duration.96_mo"
 msgstr "৯৬ মাসের জন্য"
 
-#: allthethings/account/templates/account/donate.html:665
+#: allthethings/account/templates/account/donate.html:669
 #, fuzzy
 msgid "page.donate.submit.button.label.1_mo"
 msgstr "১ মাসের জন্য “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:666
+#: allthethings/account/templates/account/donate.html:670
 #, fuzzy
 msgid "page.donate.submit.button.label.3_mo"
 msgstr "৩ মাসের জন্য “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:667
+#: allthethings/account/templates/account/donate.html:671
 #, fuzzy
 msgid "page.donate.submit.button.label.6_mo"
 msgstr "৬ মাসের জন্য “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:668
+#: allthethings/account/templates/account/donate.html:672
 #, fuzzy
 msgid "page.donate.submit.button.label.12_mo"
 msgstr "12 মাসের জন্য “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:669
+#: allthethings/account/templates/account/donate.html:673
 #, fuzzy
 msgid "page.donate.submit.button.label.24_mo"
 msgstr "২৪ মাসের জন্য “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:670
+#: allthethings/account/templates/account/donate.html:674
 #, fuzzy
 msgid "page.donate.submit.button.label.48_mo"
 msgstr "৪৮ মাসের জন্য “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:671
+#: allthethings/account/templates/account/donate.html:675
 #, fuzzy
 msgid "page.donate.submit.button.label.96_mo"
 msgstr "৯৬ মাসের জন্য “%(tier_name)s”"
@@ -1008,6 +1010,14 @@ msgstr "আপনি ইতিমধ্যে অর্থ প্রদান �
 
 #: allthethings/account/templates/account/donation.html:52
 #: allthethings/account/templates/account/donation.html:68
+#: allthethings/account/templates/account/donation.html:170
+#: allthethings/account/templates/account/donation.html:216
+#: allthethings/account/templates/account/donation.html:265
+#: allthethings/account/templates/account/donation.html:318
+#: allthethings/account/templates/account/donation.html:367
+#: allthethings/account/templates/account/donation.html:509
+#: allthethings/account/templates/account/donation.html:554
+#: allthethings/account/templates/account/donation.html:636
 #, fuzzy
 msgid "page.donation.old_instructions.show_button"
 msgstr "পুরানো পেমেন্ট নির্দেশাবলী দেখান"
@@ -1041,18 +1051,18 @@ msgstr "<strong>গুরুত্বপূর্ণ নোট:</strong> ক্�
 #: allthethings/account/templates/account/donation.html:95
 #: allthethings/account/templates/account/donation.html:116
 #: allthethings/account/templates/account/donation.html:167
-#: allthethings/account/templates/account/donation.html:207
-#: allthethings/account/templates/account/donation.html:250
-#: allthethings/account/templates/account/donation.html:297
-#: allthethings/account/templates/account/donation.html:340
-#: allthethings/account/templates/account/donation.html:407
-#: allthethings/account/templates/account/donation.html:423
-#: allthethings/account/templates/account/donation.html:441
-#: allthethings/account/templates/account/donation.html:457
-#: allthethings/account/templates/account/donation.html:474
-#: allthethings/account/templates/account/donation.html:513
-#: allthethings/account/templates/account/donation.html:589
-#: allthethings/account/templates/account/donation.html:619
+#: allthethings/account/templates/account/donation.html:213
+#: allthethings/account/templates/account/donation.html:262
+#: allthethings/account/templates/account/donation.html:315
+#: allthethings/account/templates/account/donation.html:364
+#: allthethings/account/templates/account/donation.html:439
+#: allthethings/account/templates/account/donation.html:455
+#: allthethings/account/templates/account/donation.html:473
+#: allthethings/account/templates/account/donation.html:489
+#: allthethings/account/templates/account/donation.html:506
+#: allthethings/account/templates/account/donation.html:551
+#: allthethings/account/templates/account/donation.html:633
+#: allthethings/account/templates/account/donation.html:669
 #, fuzzy
 msgid "page.donation.expired"
 msgstr "এই দানটির মেয়াদ শেষ হয়েছে। দয়া করে বাতিল করুন এবং একটি নতুন তৈরি করুন।"
@@ -1076,7 +1086,7 @@ msgid "page.donate.submit.header1"
 msgstr "<span %(span_circle)s>1</span>পেপালে বিটকয়েন কিনুন"
 
 #: allthethings/account/templates/account/donation.html:122
-#: allthethings/account/templates/account/donation.html:173
+#: allthethings/account/templates/account/donation.html:179
 #, fuzzy
 msgid "page.donate.one_time_payment.paypal.text2"
 msgstr "আপনার PayPal অ্যাপ বা ওয়েবসাইটে “Crypto” পৃষ্ঠা খুঁজুন। এটি সাধারণত “Finances” এর অধীনে থাকে।"
@@ -1102,7 +1112,7 @@ msgid "page.donation.payment.paypal.text5"
 msgstr "আমাদের বিটকয়েন (BTC) ঠিকানা প্রাপক হিসাবে প্রবেশ করুন, এবং আপনার অনুদান %(total)s পাঠানোর জন্য নির্দেশাবলী অনুসরণ করুন:"
 
 #: allthethings/account/templates/account/donation.html:140
-#: allthethings/account/templates/account/donation.html:293
+#: allthethings/account/templates/account/donation.html:311
 #, fuzzy
 msgid "page.donation.credit_debit_card_instructions"
 msgstr "ক্রেডিট / ডেবিট কার্ড নির্দেশাবলী"
@@ -1123,477 +1133,477 @@ msgid "page.donation.stepbystep_below"
 msgstr "নীচের ধাপে ধাপে নির্দেশিকা দেখুন।"
 
 #: allthethings/account/templates/account/donation.html:149
-#: allthethings/account/templates/account/donation.html:192
-#: allthethings/account/templates/account/donation.html:235
-#: allthethings/account/templates/account/donation.html:280
-#: allthethings/account/templates/account/donation.html:323
-#: allthethings/account/templates/account/donation.html:352
-#: allthethings/account/templates/account/donation.html:388
-#: allthethings/account/templates/account/donation.html:498
-#: allthethings/account/templates/account/donation.html:574
-#: allthethings/account/templates/account/donation.html:605
+#: allthethings/account/templates/account/donation.html:198
+#: allthethings/account/templates/account/donation.html:247
+#: allthethings/account/templates/account/donation.html:298
+#: allthethings/account/templates/account/donation.html:347
+#: allthethings/account/templates/account/donation.html:384
+#: allthethings/account/templates/account/donation.html:420
+#: allthethings/account/templates/account/donation.html:536
+#: allthethings/account/templates/account/donation.html:618
+#: allthethings/account/templates/account/donation.html:655
 msgid "page.donation.status_header"
 msgstr "অবস্থা:"
 
 #: allthethings/account/templates/account/donation.html:149
-#: allthethings/account/templates/account/donation.html:192
-#: allthethings/account/templates/account/donation.html:235
-#: allthethings/account/templates/account/donation.html:280
-#: allthethings/account/templates/account/donation.html:323
-#: allthethings/account/templates/account/donation.html:352
-#: allthethings/account/templates/account/donation.html:498
-#: allthethings/account/templates/account/donation.html:574
-#: allthethings/account/templates/account/donation.html:605
+#: allthethings/account/templates/account/donation.html:198
+#: allthethings/account/templates/account/donation.html:247
+#: allthethings/account/templates/account/donation.html:298
+#: allthethings/account/templates/account/donation.html:347
+#: allthethings/account/templates/account/donation.html:384
+#: allthethings/account/templates/account/donation.html:536
+#: allthethings/account/templates/account/donation.html:618
+#: allthethings/account/templates/account/donation.html:655
 #, fuzzy
 msgid "page.donation.waiting_for_confirmation_refresh"
 msgstr "নিশ্চিতকরণের জন্য অপেক্ষা করা হচ্ছে (পরীক্ষা করতে পৃষ্ঠাটি রিফ্রেশ করুন)…"
 
 #: allthethings/account/templates/account/donation.html:149
-#: allthethings/account/templates/account/donation.html:192
-#: allthethings/account/templates/account/donation.html:235
-#: allthethings/account/templates/account/donation.html:280
-#: allthethings/account/templates/account/donation.html:323
-#: allthethings/account/templates/account/donation.html:352
-#: allthethings/account/templates/account/donation.html:498
-#: allthethings/account/templates/account/donation.html:574
-#: allthethings/account/templates/account/donation.html:605
+#: allthethings/account/templates/account/donation.html:198
+#: allthethings/account/templates/account/donation.html:247
+#: allthethings/account/templates/account/donation.html:298
+#: allthethings/account/templates/account/donation.html:347
+#: allthethings/account/templates/account/donation.html:384
+#: allthethings/account/templates/account/donation.html:536
+#: allthethings/account/templates/account/donation.html:618
+#: allthethings/account/templates/account/donation.html:655
 #, fuzzy
 msgid "page.donation.waiting_for_transfer_refresh"
 msgstr "ট্রান্সফারের জন্য অপেক্ষা করা হচ্ছে (চেক করার জন্য পৃষ্ঠাটি রিফ্রেশ করুন)…"
 
 #: allthethings/account/templates/account/donation.html:150
-#: allthethings/account/templates/account/donation.html:193
-#: allthethings/account/templates/account/donation.html:236
-#: allthethings/account/templates/account/donation.html:281
-#: allthethings/account/templates/account/donation.html:324
-#: allthethings/account/templates/account/donation.html:353
-#: allthethings/account/templates/account/donation.html:499
-#: allthethings/account/templates/account/donation.html:575
-#: allthethings/account/templates/account/donation.html:606
+#: allthethings/account/templates/account/donation.html:199
+#: allthethings/account/templates/account/donation.html:248
+#: allthethings/account/templates/account/donation.html:299
+#: allthethings/account/templates/account/donation.html:348
+#: allthethings/account/templates/account/donation.html:385
+#: allthethings/account/templates/account/donation.html:537
+#: allthethings/account/templates/account/donation.html:619
+#: allthethings/account/templates/account/donation.html:656
 msgid "page.donation.time_left_header"
 msgstr "সময় বাকি:"
 
 #: allthethings/account/templates/account/donation.html:150
-#: allthethings/account/templates/account/donation.html:193
-#: allthethings/account/templates/account/donation.html:236
-#: allthethings/account/templates/account/donation.html:281
-#: allthethings/account/templates/account/donation.html:324
-#: allthethings/account/templates/account/donation.html:353
-#: allthethings/account/templates/account/donation.html:499
-#: allthethings/account/templates/account/donation.html:575
-#: allthethings/account/templates/account/donation.html:606
+#: allthethings/account/templates/account/donation.html:199
+#: allthethings/account/templates/account/donation.html:248
+#: allthethings/account/templates/account/donation.html:299
+#: allthethings/account/templates/account/donation.html:348
+#: allthethings/account/templates/account/donation.html:385
+#: allthethings/account/templates/account/donation.html:537
+#: allthethings/account/templates/account/donation.html:619
+#: allthethings/account/templates/account/donation.html:656
 #, fuzzy
 msgid "page.donation.might_want_to_cancel"
 msgstr "(আপনি হয়তো বাতিল করে একটি নতুন অনুদান তৈরি করতে চাইবেন)"
 
 #: allthethings/account/templates/account/donation.html:154
-#: allthethings/account/templates/account/donation.html:197
-#: allthethings/account/templates/account/donation.html:240
-#: allthethings/account/templates/account/donation.html:285
-#: allthethings/account/templates/account/donation.html:328
-#: allthethings/account/templates/account/donation.html:357
-#: allthethings/account/templates/account/donation.html:503
-#: allthethings/account/templates/account/donation.html:579
-#: allthethings/account/templates/account/donation.html:610
+#: allthethings/account/templates/account/donation.html:203
+#: allthethings/account/templates/account/donation.html:252
+#: allthethings/account/templates/account/donation.html:303
+#: allthethings/account/templates/account/donation.html:352
+#: allthethings/account/templates/account/donation.html:389
+#: allthethings/account/templates/account/donation.html:541
+#: allthethings/account/templates/account/donation.html:623
+#: allthethings/account/templates/account/donation.html:660
 #, fuzzy
 msgid "page.donation.reset_timer"
 msgstr "টাইমার রিসেট করতে, কেবল একটি নতুন দান তৈরি করুন।"
 
 #: allthethings/account/templates/account/donation.html:158
-#: allthethings/account/templates/account/donation.html:201
-#: allthethings/account/templates/account/donation.html:244
-#: allthethings/account/templates/account/donation.html:289
-#: allthethings/account/templates/account/donation.html:332
-#: allthethings/account/templates/account/donation.html:361
-#: allthethings/account/templates/account/donation.html:392
-#: allthethings/account/templates/account/donation.html:507
-#: allthethings/account/templates/account/donation.html:583
-#: allthethings/account/templates/account/donation.html:614
+#: allthethings/account/templates/account/donation.html:207
+#: allthethings/account/templates/account/donation.html:256
+#: allthethings/account/templates/account/donation.html:307
+#: allthethings/account/templates/account/donation.html:356
+#: allthethings/account/templates/account/donation.html:393
+#: allthethings/account/templates/account/donation.html:424
+#: allthethings/account/templates/account/donation.html:545
+#: allthethings/account/templates/account/donation.html:627
+#: allthethings/account/templates/account/donation.html:664
 msgid "page.donation.refresh_status"
 msgstr "অবস্থা হালনাগাদ"
 
 #: allthethings/account/templates/account/donation.html:162
-#: allthethings/account/templates/account/donation.html:714
+#: allthethings/account/templates/account/donation.html:764
 #, fuzzy
 msgid "page.donation.footer.issues_contact"
 msgstr "যদি আপনি কোনো সমস্যার সম্মুখীন হন, অনুগ্রহ করে %(email)s এ আমাদের সাথে যোগাযোগ করুন এবং যতটা সম্ভব তথ্য (যেমন স্ক্রিনশট) অন্তর্ভুক্ত করুন।"
 
-#: allthethings/account/templates/account/donation.html:170
-#: allthethings/account/templates/account/donation.html:210
-#: allthethings/account/templates/account/donation.html:253
+#: allthethings/account/templates/account/donation.html:176
+#: allthethings/account/templates/account/donation.html:222
+#: allthethings/account/templates/account/donation.html:271
 #, fuzzy
 msgid "page.donation.step1"
 msgstr "১"
 
-#: allthethings/account/templates/account/donation.html:170
+#: allthethings/account/templates/account/donation.html:176
 #, fuzzy
 msgid "page.donation.buy_pyusd"
 msgstr "PayPal-এ PYUSD কয়েন কিনুন"
 
-#: allthethings/account/templates/account/donation.html:177
+#: allthethings/account/templates/account/donation.html:183
 #, fuzzy
 msgid "page.donation.pyusd.instructions"
 msgstr "PYUSD কয়েন (PayPal USD) কিনতে নির্দেশাবলী অনুসরণ করুন।"
 
-#: allthethings/account/templates/account/donation.html:178
+#: allthethings/account/templates/account/donation.html:184
 #, fuzzy
 msgid "page.donation.pyusd.more"
 msgstr "আপনার অনুদানের পরিমাণের চেয়ে একটু বেশি (আমরা সুপারিশ করি %(more)s বেশি) কিনুন (%(amount)s), লেনদেনের ফি কভার করতে। আপনি যা বাকি থাকবে তা রাখতে পারবেন।"
 
-#: allthethings/account/templates/account/donation.html:181
-#: allthethings/account/templates/account/donation.html:220
-#: allthethings/account/templates/account/donation.html:263
+#: allthethings/account/templates/account/donation.html:187
+#: allthethings/account/templates/account/donation.html:232
+#: allthethings/account/templates/account/donation.html:281
 #, fuzzy
 msgid "page.donation.step2"
 msgstr "২"
 
-#: allthethings/account/templates/account/donation.html:184
+#: allthethings/account/templates/account/donation.html:190
 #, fuzzy
 msgid "page.donation.pyusd.transfer"
 msgstr "আপনার PayPal অ্যাপ বা ওয়েবসাইটে \"PYUSD\" পৃষ্ঠায় যান। \"ট্রান্সফার\" বোতামটি চাপুন %(icon)s, এবং তারপর \"সেন্ড\"।"
 
-#: allthethings/account/templates/account/donation.html:188
-#: allthethings/account/templates/account/donation.html:227
-#: allthethings/account/templates/account/donation.html:272
-#: allthethings/account/templates/account/donation.html:344
+#: allthethings/account/templates/account/donation.html:194
+#: allthethings/account/templates/account/donation.html:239
+#: allthethings/account/templates/account/donation.html:290
+#: allthethings/account/templates/account/donation.html:374
 #, fuzzy
 msgid "page.donation.transfer_amount_to"
 msgstr "%(amount)s থেকে %(account)s এ স্থানান্তর করুন"
 
-#: allthethings/account/templates/account/donation.html:210
+#: allthethings/account/templates/account/donation.html:222
 #, fuzzy
 msgid "page.donation.cash_app_btc.step1"
 msgstr "Cash App-এ Bitcoin (BTC) কিনুন"
 
-#: allthethings/account/templates/account/donation.html:213
+#: allthethings/account/templates/account/donation.html:225
 #, fuzzy
 msgid "page.donation.cash_app_btc.step1.text1"
 msgstr "Cash App-এ “Bitcoin” (BTC) পৃষ্ঠায় যান।"
 
-#: allthethings/account/templates/account/donation.html:217
+#: allthethings/account/templates/account/donation.html:229
 #, fuzzy
 msgid "page.donation.cash_app_btc.step1.more"
 msgstr "লেনদেন ফি কভার করতে আপনি যে পরিমাণ দান করছেন (%(amount)s), তার চেয়ে একটু বেশি (আমরা %(more)s বেশি সুপারিশ করি) কিনুন। আপনি যা বাকি থাকবে তা রাখতে পারবেন।"
 
-#: allthethings/account/templates/account/donation.html:220
+#: allthethings/account/templates/account/donation.html:232
 #, fuzzy
 msgid "page.donation.cash_app_btc.step2"
 msgstr "আমাদের ঠিকানায় বিটকয়েন স্থানান্তর করুন"
 
-#: allthethings/account/templates/account/donation.html:223
+#: allthethings/account/templates/account/donation.html:235
 #, fuzzy
 msgid "page.donation.cash_app_btc.step2.transfer"
 msgstr "“বিটকয়েন পাঠান” বোতামে ক্লিক করে “উত্তোলন” করুন। ডলার থেকে BTC-তে পরিবর্তন করতে %(icon)s আইকনে চাপুন। নিচে BTC পরিমাণ লিখুন এবং “পাঠান” ক্লিক করুন। যদি আটকে যান, <a %(help_video)s>এই ভিডিওটি</a> দেখুন।"
 
-#: allthethings/account/templates/account/donation.html:231
+#: allthethings/account/templates/account/donation.html:243
 #, fuzzy
 msgid "page.donation.cash_app_btc.step2.rush_priority"
 msgstr "ছোট দানের জন্য ($২৫ এর নিচে), আপনাকে হয়তো Rush বা Priority ব্যবহার করতে হতে পারে।"
 
-#: allthethings/account/templates/account/donation.html:253
+#: allthethings/account/templates/account/donation.html:271
 #, fuzzy
 msgid "page.donation.revolut.step1"
 msgstr "Revolut-এ Bitcoin (BTC) কিনুন"
 
-#: allthethings/account/templates/account/donation.html:256
+#: allthethings/account/templates/account/donation.html:274
 #, fuzzy
 msgid "page.donation.revolut.step1.text1"
 msgstr "Bitcoin (BTC) কেনার জন্য Revolut-এর “Crypto” পৃষ্ঠায় যান।"
 
-#: allthethings/account/templates/account/donation.html:260
+#: allthethings/account/templates/account/donation.html:278
 #, fuzzy
 msgid "page.donation.revolut.step1.more"
 msgstr "লেনদেন ফি কভার করতে আপনি যে পরিমাণ দান করছেন (%(amount)s), তার চেয়ে একটু বেশি (আমরা %(more)s বেশি সুপারিশ করি) কিনুন। আপনি যা বাকি থাকবে তা রাখতে পারবেন।"
 
-#: allthethings/account/templates/account/donation.html:263
+#: allthethings/account/templates/account/donation.html:281
 #, fuzzy
 msgid "page.donation.revolut.step2"
 msgstr "আমাদের ঠিকানায় বিটকয়েন স্থানান্তর করুন"
 
-#: allthethings/account/templates/account/donation.html:266
+#: allthethings/account/templates/account/donation.html:284
 #, fuzzy
 msgid "page.donation.revolut.step2.transfer"
 msgstr "“বিটকয়েন পাঠান” বোতামে ক্লিক করে “উত্তোলন” করুন। ইউরো থেকে BTC-তে পরিবর্তন করতে %(icon)s আইকনে চাপুন। নিচে BTC পরিমাণ লিখুন এবং “পাঠান” ক্লিক করুন। যদি আটকে যান, <a %(help_video)s>এই ভিডিওটি</a> দেখুন।"
 
-#: allthethings/account/templates/account/donation.html:269
+#: allthethings/account/templates/account/donation.html:287
 #, fuzzy
 msgid "page.donation.revolut.btc_amount_below"
 msgstr "নিচের BTC পরিমাণটি ব্যবহার করতে নিশ্চিত হন, <em>ইউরো বা ডলার</em> নয়, অন্যথায় আমরা সঠিক পরিমাণ পাব না এবং আপনার সদস্যপদ স্বয়ংক্রিয়ভাবে নিশ্চিত করতে পারব না।"
 
-#: allthethings/account/templates/account/donation.html:276
+#: allthethings/account/templates/account/donation.html:294
 #, fuzzy
 msgid "page.donation.revolut.step2.rush_priority"
 msgstr "ছোট দানের জন্য ($25 এর নিচে) আপনাকে Rush বা Priority ব্যবহার করতে হতে পারে।"
 
-#: allthethings/account/templates/account/donation.html:301
+#: allthethings/account/templates/account/donation.html:325
 #, fuzzy
 msgid "page.donation.payment2cc.cc2btc"
 msgstr "নিম্নলিখিত “ক্রেডিট কার্ড থেকে বিটকয়েন” এক্সপ্রেস পরিষেবাগুলির যেকোনো একটি ব্যবহার করুন, যা মাত্র কয়েক মিনিট সময় নেয়:"
 
-#: allthethings/account/templates/account/donation.html:314
+#: allthethings/account/templates/account/donation.html:338
 #, fuzzy
 msgid "page.donation.payment2cc.cc2btc.form"
 msgstr "ফর্মে নিম্নলিখিত বিবরণ পূরণ করুন:"
 
-#: allthethings/account/templates/account/donation.html:318
+#: allthethings/account/templates/account/donation.html:342
 #, fuzzy
 msgid "page.donation.payment2cc.cc2btc.btc_amount"
 msgstr "BTC / বিটকয়েন পরিমাণ:"
 
-#: allthethings/account/templates/account/donation.html:318
+#: allthethings/account/templates/account/donation.html:342
 #, fuzzy
 msgid "page.donation.payment2cc.exact_amount"
 msgstr "দয়া করে এই <span %(underline)s>নির্দিষ্ট পরিমাণ</span> ব্যবহার করুন। আপনার মোট খরচ ক্রেডিট কার্ড ফি এর কারণে বেশি হতে পারে। ছোট পরিমাণের জন্য এটি আমাদের ছাড়ের চেয়ে বেশি হতে পারে, দুর্ভাগ্যবশত।"
 
-#: allthethings/account/templates/account/donation.html:319
+#: allthethings/account/templates/account/donation.html:343
 #, fuzzy
 msgid "page.donation.payment2cc.cc2btc.btc_address"
 msgstr "BTC / বিটকয়েন ঠিকানা (বাহ্যিক ওয়ালেট):"
 
-#: allthethings/account/templates/account/donation.html:336
+#: allthethings/account/templates/account/donation.html:360
 msgid "page.donation.crypto_instructions"
 msgstr "%(coin_name)s নির্দেশিকা"
 
-#: allthethings/account/templates/account/donation.html:348
+#: allthethings/account/templates/account/donation.html:378
 #, fuzzy
 msgid "page.donation.crypto_standard"
 msgstr "আমরা শুধুমাত্র ক্রিপ্টো কয়েনের স্ট্যান্ডার্ড সংস্করণ সমর্থন করি, কোনো অদ্ভুত নেটওয়ার্ক বা কয়েনের সংস্করণ নয়। কয়েনের উপর নির্ভর করে লেনদেন নিশ্চিত করতে এক ঘন্টা পর্যন্ত সময় লাগতে পারে।"
 
-#: allthethings/account/templates/account/donation.html:365
+#: allthethings/account/templates/account/donation.html:397
 #, fuzzy
 msgid "page.donation.amazon.header"
 msgstr "অ্যামাজন গিফট কার্ড"
 
-#: allthethings/account/templates/account/donation.html:368
+#: allthethings/account/templates/account/donation.html:400
 #, fuzzy
 msgid "page.donation.amazon.form_instructions"
 msgstr "আমাদের একটি উপহার কার্ড পাঠাতে <a %(a_form)s>অফিসিয়াল Amazon.com ফর্ম</a> ব্যবহার করুন %(amount)s নীচের ইমেল ঠিকানায়।"
 
-#: allthethings/account/templates/account/donation.html:369
+#: allthethings/account/templates/account/donation.html:401
 #, fuzzy
 msgid "page.donation.amazon.only_official"
 msgstr "আমরা উপহার কার্ডের অন্যান্য পদ্ধতি গ্রহণ করতে পারি না, <strong>শুধুমাত্র Amazon.com এর অফিসিয়াল ফর্ম থেকে সরাসরি পাঠানো হয়েছে</strong>। আপনি যদি এই ফর্মটি ব্যবহার না করেন তবে আমরা আপনার উপহার কার্ড ফেরত দিতে পারব না।"
 
-#: allthethings/account/templates/account/donation.html:374
+#: allthethings/account/templates/account/donation.html:406
 #, fuzzy
 msgid "page.donate.payment.desc.amazon_message_1"
 msgstr "নির্দিষ্ট পরিমাণ লিখুন: %(amount)s"
 
-#: allthethings/account/templates/account/donation.html:375
+#: allthethings/account/templates/account/donation.html:407
 #, fuzzy
 msgid "page.donate.payment.desc.amazon_message"
 msgstr "দয়া করে আপনার নিজস্ব বার্তা লিখবেন না।"
 
-#: allthethings/account/templates/account/donation.html:379
+#: allthethings/account/templates/account/donation.html:411
 #, fuzzy
 msgid "page.donation.amazon.form_to"
 msgstr "\"প্রাপক\" ইমেল নিম্নলিখিত ফর্মে:"
 
-#: allthethings/account/templates/account/donation.html:382
+#: allthethings/account/templates/account/donation.html:414
 #, fuzzy
 msgid "page.donation.amazon.unique"
 msgstr "আপনার অ্যাকাউন্টের জন্য অনন্য, শেয়ার করবেন না।"
 
-#: allthethings/account/templates/account/donation.html:383
+#: allthethings/account/templates/account/donation.html:415
 #, fuzzy
 msgid "page.donation.amazon.only_use_once"
 msgstr "শুধুমাত্র একবার ব্যবহার করুন।"
 
-#: allthethings/account/templates/account/donation.html:388
+#: allthethings/account/templates/account/donation.html:420
 #, fuzzy
 msgid "page.donation.amazon.waiting_gift_card"
 msgstr "উপহার কার্ডের জন্য অপেক্ষা করা হচ্ছে… (পরীক্ষা করতে পৃষ্ঠাটি রিফ্রেশ করুন)"
 
-#: allthethings/account/templates/account/donation.html:396
+#: allthethings/account/templates/account/donation.html:428
 #, fuzzy
 msgid "page.donation.amazon.confirm_automated"
 msgstr "আপনার উপহার কার্ড পাঠানোর পরে, আমাদের স্বয়ংক্রিয় সিস্টেম এটি কয়েক মিনিটের মধ্যে নিশ্চিত করবে। যদি এটি কাজ না করে, আপনার উপহার কার্ডটি পুনরায় পাঠানোর চেষ্টা করুন (<a %(a_instr)s>নির্দেশাবলী</a>)।"
 
-#: allthethings/account/templates/account/donation.html:397
+#: allthethings/account/templates/account/donation.html:429
 #, fuzzy
 msgid "page.donation.amazon.doesnt_work"
 msgstr "যদি তাও কাজ না করে, দয়া করে আমাদের ইমেল করুন এবং আন্না এটি ম্যানুয়ালি পর্যালোচনা করবেন (এটি কয়েক দিন সময় নিতে পারে), এবং আপনি ইতিমধ্যে পুনরায় পাঠানোর চেষ্টা করেছেন কিনা তা উল্লেখ করতে ভুলবেন না।"
 
-#: allthethings/account/templates/account/donation.html:400
+#: allthethings/account/templates/account/donation.html:432
 msgid "page.donation.amazon.example"
 msgstr "উদাহরণ:"
 
-#: allthethings/account/templates/account/donation.html:436
-#: allthethings/account/templates/account/donation.html:453
-#: allthethings/account/templates/account/donation.html:469
-#: allthethings/account/templates/account/donation.html:494
-#: allthethings/account/templates/account/donation.html:570
-#: allthethings/account/templates/account/donation.html:631
+#: allthethings/account/templates/account/donation.html:468
+#: allthethings/account/templates/account/donation.html:485
+#: allthethings/account/templates/account/donation.html:501
+#: allthethings/account/templates/account/donation.html:532
+#: allthethings/account/templates/account/donation.html:614
+#: allthethings/account/templates/account/donation.html:681
 #, fuzzy
 msgid "page.donate.strange_account"
 msgstr "অ্যাকাউন্টের নাম বা ছবি অদ্ভুত দেখাতে পারে। চিন্তার কিছু নেই! এই অ্যাকাউন্টগুলি আমাদের দান অংশীদারদের দ্বারা পরিচালিত হয়। আমাদের অ্যাকাউন্ট হ্যাক করা হয়নি।"
 
-#: allthethings/account/templates/account/donation.html:460
-#: allthethings/account/templates/account/donation.html:477
-#: allthethings/account/templates/account/donation.html:516
+#: allthethings/account/templates/account/donation.html:492
+#: allthethings/account/templates/account/donation.html:515
+#: allthethings/account/templates/account/donation.html:560
 msgid "page.donation.payment.alipay.top_header"
 msgstr "আলিপে নির্দেশিকা"
 
-#: allthethings/account/templates/account/donation.html:462
-#: allthethings/account/templates/account/donation.html:479
+#: allthethings/account/templates/account/donation.html:494
+#: allthethings/account/templates/account/donation.html:517
 #, fuzzy
 msgid "page.donation.payment.alipay.header1"
 msgstr "<span %(span_circle)s>১</span>Alipay-এ দান করুন"
 
-#: allthethings/account/templates/account/donation.html:465
-#: allthethings/account/templates/account/donation.html:482
+#: allthethings/account/templates/account/donation.html:497
+#: allthethings/account/templates/account/donation.html:520
 #, fuzzy
 msgid "page.donation.payment.alipay.text1_new"
 msgstr "মোট %(total)s অনুদান দিন <a %(a_account)s>এই Alipay অ্যাকাউন্ট ব্যবহার করে</a>"
 
-#: allthethings/account/templates/account/donation.html:486
-#: allthethings/account/templates/account/donation.html:562
-#: allthethings/account/templates/account/donation.html:601
+#: allthethings/account/templates/account/donation.html:524
+#: allthethings/account/templates/account/donation.html:606
+#: allthethings/account/templates/account/donation.html:651
 #, fuzzy
 msgid "page.donation.page_blocked"
 msgstr "যদি দান পৃষ্ঠা ব্লক হয়ে যায়, তাহলে একটি ভিন্ন ইন্টারনেট সংযোগ চেষ্টা করুন (যেমন VPN বা ফোন ইন্টারনেট)।"
 
-#: allthethings/account/templates/account/donation.html:490
-#: allthethings/account/templates/account/donation.html:566
+#: allthethings/account/templates/account/donation.html:528
+#: allthethings/account/templates/account/donation.html:610
 #, fuzzy
 msgid "page.donation.payment.alipay.error"
 msgstr "দুঃখিত, Alipay পৃষ্ঠাটি প্রায়শই শুধুমাত্র <strong>মূল ভূখণ্ড চীন</strong> থেকে অ্যাক্সেসযোগ্য। আপনাকে সাময়িকভাবে আপনার VPN নিষ্ক্রিয় করতে হতে পারে, অথবা মূল ভূখণ্ড চীনে (বা কখনও কখনও হংকংও কাজ করে) একটি VPN ব্যবহার করতে হতে পারে।"
 
-#: allthethings/account/templates/account/donation.html:545
+#: allthethings/account/templates/account/donation.html:589
 #, fuzzy
 msgid "page.donation.bank_card_app.step3.header"
 msgstr "<span %(style)s>৩</span> অনুদান দিন (QR কোড স্ক্যান করুন বা বোতাম টিপুন)"
 
-#: allthethings/account/templates/account/donation.html:549
+#: allthethings/account/templates/account/donation.html:593
 #, fuzzy
 msgid "page.donation.bank_card_app.step3.desc.1"
 msgstr "<a %(a_href)s>QR-কোড অনুদান পৃষ্ঠা</a> খুলুন।"
 
-#: allthethings/account/templates/account/donation.html:553
+#: allthethings/account/templates/account/donation.html:597
 #, fuzzy
 msgid "page.donation.bank_card_app.step3.desc.2"
 msgstr "Alipay অ্যাপ দিয়ে QR কোড স্ক্যান করুন, অথবা Alipay অ্যাপ খুলতে বোতাম টিপুন।"
 
-#: allthethings/account/templates/account/donation.html:554
+#: allthethings/account/templates/account/donation.html:598
 #, fuzzy
 msgid "page.donation.bank_card_app.step3.desc.3"
 msgstr "দয়া করে ধৈর্য ধরুন; পৃষ্ঠাটি লোড হতে কিছুটা সময় লাগতে পারে কারণ এটি চীনে অবস্থিত।"
 
-#: allthethings/account/templates/account/donation.html:592
+#: allthethings/account/templates/account/donation.html:642
 #, fuzzy
 msgid "page.donation.payment.wechat.top_header"
 msgstr "WeChat নির্দেশাবলী"
 
-#: allthethings/account/templates/account/donation.html:594
+#: allthethings/account/templates/account/donation.html:644
 #, fuzzy
 msgid "page.donation.payment.wechat.header1"
 msgstr "<span %(span_circle)s>1</span>WeChat-এ দান করুন"
 
-#: allthethings/account/templates/account/donation.html:597
+#: allthethings/account/templates/account/donation.html:647
 #, fuzzy
 msgid "page.donation.payment.wechat.text1"
 msgstr "মোট %(total)s দান করুন <a %(a_account)s>এই WeChat অ্যাকাউন্ট ব্যবহার করে</a>"
 
-#: allthethings/account/templates/account/donation.html:622
+#: allthethings/account/templates/account/donation.html:672
 msgid "page.donation.payment.pix.top_header"
 msgstr "পিক্স নির্দেশিকা"
 
-#: allthethings/account/templates/account/donation.html:624
+#: allthethings/account/templates/account/donation.html:674
 #, fuzzy
 msgid "page.donation.payment.pix.header1"
 msgstr "<span %(span_circle)s>1</span>Pix এ দান করুন"
 
-#: allthethings/account/templates/account/donation.html:627
+#: allthethings/account/templates/account/donation.html:677
 #, fuzzy
 msgid "page.donation.payment.pix.text1"
 msgstr "এই Pix অ্যাকাউন্ট ব্যবহার করে মোট পরিমাণ %(total)s দান করুন"
 
-#: allthethings/account/templates/account/donation.html:636
+#: allthethings/account/templates/account/donation.html:686
 #, fuzzy
 msgid "page.donation.footer.header"
 msgstr "<span %(span_circle)s>%(circle_number)s</span>আমাদের রসিদ ইমেল করুন"
 
-#: allthethings/account/templates/account/donation.html:640
+#: allthethings/account/templates/account/donation.html:690
 #, fuzzy
 msgid "page.donation.footer.verification"
 msgstr "আপনার ব্যক্তিগত যাচাইকরণ ঠিকানায় একটি রসিদ বা স্ক্রিনশট পাঠান। আপনার PayPal দানের জন্য এই ইমেল ঠিকানা ব্যবহার করবেন না।"
 
-#: allthethings/account/templates/account/donation.html:642
+#: allthethings/account/templates/account/donation.html:692
 #, fuzzy
 msgid "page.donation.footer.text1"
 msgstr "আপনার ব্যক্তিগত যাচাইকরণ ঠিকানায় একটি রসিদ বা স্ক্রিনশট পাঠান:"
 
-#: allthethings/account/templates/account/donation.html:652
+#: allthethings/account/templates/account/donation.html:702
 #, fuzzy
 msgid "page.donation.footer.crypto_note"
 msgstr "যদি লেনদেনের সময় ক্রিপ্টো এক্সচেঞ্জ রেট পরিবর্তিত হয়, তাহলে মূল এক্সচেঞ্জ রেট দেখানো রসিদটি অন্তর্ভুক্ত করতে ভুলবেন না। ক্রিপ্টো ব্যবহার করার জন্য আপনি যে কষ্ট করছেন তার জন্য আমরা সত্যিই কৃতজ্ঞ, এটি আমাদের অনেক সাহায্য করে!"
 
-#: allthethings/account/templates/account/donation.html:657
+#: allthethings/account/templates/account/donation.html:707
 #, fuzzy
 msgid "page.donation.footer.text2"
 msgstr "যখন আপনি আপনার রসিদ ইমেল করেছেন, এই বোতামটি ক্লিক করুন, যাতে আন্না এটি ম্যানুয়ালি পর্যালোচনা করতে পারেন (এটি কয়েক দিন সময় নিতে পারে):"
 
-#: allthethings/account/templates/account/donation.html:667
+#: allthethings/account/templates/account/donation.html:717
 #, fuzzy
 msgid "page.donation.footer.button"
 msgstr "হ্যাঁ, আমি আমার রসিদ ইমেইল করেছি"
 
-#: allthethings/account/templates/account/donation.html:670
+#: allthethings/account/templates/account/donation.html:720
 #, fuzzy
 msgid "page.donation.footer.success"
 msgstr "✅ আপনার দানের জন্য ধন্যবাদ! আন্না কয়েক দিনের মধ্যে আপনার সদস্যপদ ম্যানুয়ালি সক্রিয় করবেন।"
 
-#: allthethings/account/templates/account/donation.html:671
+#: allthethings/account/templates/account/donation.html:721
 #, fuzzy
 msgid "page.donation.footer.failure"
 msgstr "❌ কিছু ভুল হয়েছে। দয়া করে পৃষ্ঠাটি রিলোড করুন এবং আবার চেষ্টা করুন।"
 
-#: allthethings/account/templates/account/donation.html:676
+#: allthethings/account/templates/account/donation.html:726
 #, fuzzy
 msgid "page.donation.stepbystep"
 msgstr "ধাপে ধাপে নির্দেশিকা"
 
-#: allthethings/account/templates/account/donation.html:678
+#: allthethings/account/templates/account/donation.html:728
 #, fuzzy
 msgid "page.donation.crypto_dont_worry"
 msgstr "কিছু ধাপ ক্রিপ্টো ওয়ালেট উল্লেখ করে, কিন্তু চিন্তা করবেন না, এর জন্য আপনাকে ক্রিপ্টো সম্পর্কে কিছু শিখতে হবে না।"
 
-#: allthethings/account/templates/account/donation.html:680
+#: allthethings/account/templates/account/donation.html:730
 #, fuzzy
 msgid "page.donation.hoodpay.step1"
 msgstr "১. আপনার ইমেল লিখুন।"
 
-#: allthethings/account/templates/account/donation.html:686
+#: allthethings/account/templates/account/donation.html:736
 #, fuzzy
 msgid "page.donation.hoodpay.step2"
 msgstr "2. আপনার পেমেন্ট পদ্ধতি নির্বাচন করুন।"
 
-#: allthethings/account/templates/account/donation.html:692
+#: allthethings/account/templates/account/donation.html:742
 #, fuzzy
 msgid "page.donation.hoodpay.step3"
 msgstr "৩. আপনার পেমেন্ট পদ্ধতি আবার নির্বাচন করুন।"
 
-#: allthethings/account/templates/account/donation.html:698
+#: allthethings/account/templates/account/donation.html:748
 #, fuzzy
 msgid "page.donation.hoodpay.step4"
 msgstr "৪. “স্ব-হোস্টেড” ওয়ালেট নির্বাচন করুন।"
 
-#: allthethings/account/templates/account/donation.html:704
+#: allthethings/account/templates/account/donation.html:754
 #, fuzzy
 msgid "page.donation.hoodpay.step5"
 msgstr "৫. \"আমি মালিকানা নিশ্চিত করছি\" ক্লিক করুন।"
 
-#: allthethings/account/templates/account/donation.html:710
+#: allthethings/account/templates/account/donation.html:760
 #, fuzzy
 msgid "page.donation.hoodpay.step6"
 msgstr "৬. আপনি একটি ইমেল রসিদ পাবেন। অনুগ্রহ করে সেটি আমাদের কাছে পাঠান, এবং আমরা যত তাড়াতাড়ি সম্ভব আপনার দান নিশ্চিত করব।"
 
-#: allthethings/account/templates/account/donation.html:715
+#: allthethings/account/templates/account/donation.html:765
 #, fuzzy
 msgid "page.donate.wait_new"
 msgstr "আমাদের সাথে যোগাযোগ করার আগে অনুগ্রহ করে অন্তত <span %(span_hours)s>২৪ ঘন্টা</span> অপেক্ষা করুন (এবং এই পৃষ্ঠাটি রিফ্রেশ করুন)।"
 
-#: allthethings/account/templates/account/donation.html:716
+#: allthethings/account/templates/account/donation.html:766
 #, fuzzy
 msgid "page.donate.mistake"
 msgstr "যদি আপনি অর্থ প্রদানের সময় কোনো ভুল করে থাকেন, আমরা ফেরত দিতে পারি না, তবে আমরা এটি ঠিক করার চেষ্টা করব।"
@@ -1743,11 +1753,11 @@ msgstr "আপনার সদস্যপদ একটি উচ্চতর �
 #: allthethings/page/templates/page/home.html:77
 #: allthethings/page/templates/page/home.html:82
 #: allthethings/page/templates/page/home.html:90
-#: allthethings/page/templates/page/search.html:345
-#: allthethings/page/templates/page/search.html:444
+#: allthethings/page/templates/page/search.html:349
+#: allthethings/page/templates/page/search.html:448
 #: allthethings/templates/layouts/index.html:248
 #: allthethings/templates/layouts/index.html:252
-#: allthethings/templates/layouts/index.html:605
+#: allthethings/templates/layouts/index.html:608
 #, fuzzy
 msgid "page.contact.title"
 msgstr "যোগাযোগ ইমেইল"
@@ -1759,23 +1769,23 @@ msgid "page.account.logged_in.membership_multiple"
 msgstr "আপনি একাধিক সদস্যপদ একত্রিত করতে পারেন (প্রতি ২৪ ঘন্টায় দ্রুত ডাউনলোডগুলি একত্রিত হবে)।"
 
 #: allthethings/account/templates/account/index.html:41
-#: allthethings/templates/layouts/index.html:557
-#: allthethings/templates/layouts/index.html:564
-#: allthethings/templates/layouts/index.html:573
+#: allthethings/templates/layouts/index.html:560
+#: allthethings/templates/layouts/index.html:567
+#: allthethings/templates/layouts/index.html:576
 msgid "layout.index.header.nav.public_profile"
 msgstr "প্রকাশ্য প্রোফাইল"
 
 #: allthethings/account/templates/account/index.html:42
-#: allthethings/templates/layouts/index.html:558
-#: allthethings/templates/layouts/index.html:565
-#: allthethings/templates/layouts/index.html:574
+#: allthethings/templates/layouts/index.html:561
+#: allthethings/templates/layouts/index.html:568
+#: allthethings/templates/layouts/index.html:577
 msgid "layout.index.header.nav.downloaded_files"
 msgstr "ডাউনলোডকৃত ফাইলসমূহ"
 
 #: allthethings/account/templates/account/index.html:43
-#: allthethings/templates/layouts/index.html:559
-#: allthethings/templates/layouts/index.html:566
-#: allthethings/templates/layouts/index.html:575
+#: allthethings/templates/layouts/index.html:562
+#: allthethings/templates/layouts/index.html:569
+#: allthethings/templates/layouts/index.html:578
 msgid "layout.index.header.nav.my_donations"
 msgstr "আমার অনুদানসমূহ"
 
@@ -1938,142 +1948,142 @@ msgstr "এখনো কোনো তালিকা নেই"
 msgid "page.profile.lists.new_list"
 msgstr "একটি ফাইল খুঁজে এবং “তালিকা” ট্যাবটি খুলে একটি নতুন তালিকা তৈরি করুন।"
 
-#: allthethings/dyn/views.py:906 allthethings/dyn/views.py:970
-#: allthethings/dyn/views.py:981
+#: allthethings/dyn/views.py:1100 allthethings/dyn/views.py:1172
+#: allthethings/dyn/views.py:1183
 #, fuzzy
 msgid "dyn.buy_membership.error.unknown"
 msgstr "একটি অজানা ত্রুটি ঘটেছে। দয়া করে একটি স্ক্রিনশট সহ %(email)s এ আমাদের সাথে যোগাযোগ করুন।"
 
-#: allthethings/dyn/views.py:955 allthethings/dyn/views.py:975
+#: allthethings/dyn/views.py:1157 allthethings/dyn/views.py:1177
 #, fuzzy
 msgid "dyn.buy_membership.error.minimum"
 msgstr "এই কয়েনটির ন্যূনতম পরিমাণ সাধারণের চেয়ে বেশি। দয়া করে একটি ভিন্ন সময়কাল বা একটি ভিন্ন কয়েন নির্বাচন করুন।"
 
-#: allthethings/dyn/views.py:967
+#: allthethings/dyn/views.py:1169
 #, fuzzy
 msgid "dyn.buy_membership.error.try_again"
 msgstr "অনুরোধটি সম্পন্ন করা যায়নি। অনুগ্রহ করে কয়েক মিনিট পরে আবার চেষ্টা করুন, এবং যদি এটি বারবার ঘটে তবে আমাদের সাথে %(email)s এ একটি স্ক্রিনশট সহ যোগাযোগ করুন।"
 
-#: allthethings/dyn/views.py:978
+#: allthethings/dyn/views.py:1180
 #, fuzzy
 msgid "dyn.buy_membership.error.wait"
 msgstr "পেমেন্ট প্রক্রিয়াকরণে ত্রুটি। অনুগ্রহ করে একটি মুহূর্ত অপেক্ষা করুন এবং আবার চেষ্টা করুন। যদি সমস্যা ২৪ ঘণ্টার বেশি সময় ধরে থাকে, তাহলে অনুগ্রহ করে একটি স্ক্রিনশট সহ %(email)s এ আমাদের সাথে যোগাযোগ করুন।"
 
-#: allthethings/page/views.py:5536
+#: allthethings/page/views.py:5575
 #, fuzzy
 msgid "page.md5.box.download.affected_files"
 msgstr "%(count)s প্রভাবিত পৃষ্ঠাগুলি"
 
-#: allthethings/page/views.py:6533
+#: allthethings/page/views.py:6563
 msgid "common.md5_problem_type_mapping.lgrsnf_visible"
 msgstr "Libgen.rs নন-ফিকশনে দৃশ্যমান নয়"
 
-#: allthethings/page/views.py:6534
+#: allthethings/page/views.py:6564
 msgid "common.md5_problem_type_mapping.lgrsfic_visible"
 msgstr "Libgen.rs ফিকশনে দৃশ্যমান নয়"
 
-#: allthethings/page/views.py:6535
+#: allthethings/page/views.py:6565
 msgid "common.md5_problem_type_mapping.lgli_visible"
 msgstr "Libgen.li এ দৃশ্যমান নয়"
 
-#: allthethings/page/views.py:6536
+#: allthethings/page/views.py:6566
 msgid "common.md5_problem_type_mapping.lgli_broken"
 msgstr "Libgen.li ভিতরে ভাঙ্গা হিসাবে চিহ্নিত"
 
-#: allthethings/page/views.py:6537
+#: allthethings/page/views.py:6567
 msgid "common.md5_problem_type_mapping.zlib_missing"
 msgstr "জেড-লাইব্রেরীতে নেই"
 
-#: allthethings/page/views.py:6538
+#: allthethings/page/views.py:6568
 #, fuzzy
 msgid "common.md5_problem_type_mapping.zlib_spam"
 msgstr "Z-লাইব্রেরিতে “স্প্যাম” হিসাবে চিহ্নিত"
 
-#: allthethings/page/views.py:6539
+#: allthethings/page/views.py:6569
 #, fuzzy
 msgid "common.md5_problem_type_mapping.zlib_bad_file"
 msgstr "Z-লাইব্রেরিতে “খারাপ ফাইল” হিসাবে চিহ্নিত"
 
-#: allthethings/page/views.py:6540
+#: allthethings/page/views.py:6570
 #, fuzzy
 msgid "common.md5_problem_type_mapping.duxiu_pdg_broken_files"
 msgstr "সমস্ত পৃষ্ঠা পিডিএফ-এ রূপান্তরিত করা যায়নি"
 
-#: allthethings/page/views.py:6541
+#: allthethings/page/views.py:6571
 #, fuzzy
 msgid "common.md5_problem_type_mapping.upload_exiftool_failed"
 msgstr "এই ফাইলে exiftool চালানো ব্যর্থ হয়েছে"
 
-#: allthethings/page/views.py:6547
+#: allthethings/page/views.py:6577
 msgid "common.md5_content_type_mapping.book_unknown"
 msgstr "বই (অপরিচিত)"
 
-#: allthethings/page/views.py:6548
+#: allthethings/page/views.py:6578
 msgid "common.md5_content_type_mapping.book_nonfiction"
 msgstr "বই (নন-ফিকশন)"
 
-#: allthethings/page/views.py:6549
+#: allthethings/page/views.py:6579
 msgid "common.md5_content_type_mapping.book_fiction"
 msgstr "বই (কল্পকাহিনী)"
 
-#: allthethings/page/views.py:6550
+#: allthethings/page/views.py:6580
 msgid "common.md5_content_type_mapping.journal_article"
 msgstr "জার্নাল আর্টিকেল"
 
-#: allthethings/page/views.py:6551
+#: allthethings/page/views.py:6581
 msgid "common.md5_content_type_mapping.standards_document"
 msgstr "যান দলিল"
 
-#: allthethings/page/views.py:6552
+#: allthethings/page/views.py:6582
 msgid "common.md5_content_type_mapping.magazine"
 msgstr "সাময়িক পত্রিকা"
 
-#: allthethings/page/views.py:6553
+#: allthethings/page/views.py:6583
 msgid "common.md5_content_type_mapping.book_comic"
 msgstr "কমিক বই"
 
-#: allthethings/page/views.py:6554
+#: allthethings/page/views.py:6584
 #, fuzzy
 msgid "common.md5_content_type_mapping.musical_score"
 msgstr "সঙ্গীত স্কোর"
 
-#: allthethings/page/views.py:6555
+#: allthethings/page/views.py:6585
 #, fuzzy
 msgid "common.md5_content_type_mapping.audiobook"
 msgstr "অডিওবুক"
 
-#: allthethings/page/views.py:6556
+#: allthethings/page/views.py:6586
 msgid "common.md5_content_type_mapping.other"
 msgstr "অন্যান্য"
 
-#: allthethings/page/views.py:6562
+#: allthethings/page/views.py:6592
 #, fuzzy
 msgid "common.access_types_mapping.aa_download"
 msgstr "পার্টনার সার্ভার ডাউনলোড"
 
-#: allthethings/page/views.py:6563
+#: allthethings/page/views.py:6593
 #, fuzzy
 msgid "common.access_types_mapping.aa_scidb"
 msgstr "সাইডিবি"
 
-#: allthethings/page/views.py:6564
+#: allthethings/page/views.py:6594
 msgid "common.access_types_mapping.external_download"
 msgstr "বহিঃস্থ ডাউনলোড"
 
-#: allthethings/page/views.py:6565
+#: allthethings/page/views.py:6595
 msgid "common.access_types_mapping.external_borrow"
 msgstr "বহিঃস্থ ধার"
 
-#: allthethings/page/views.py:6566
+#: allthethings/page/views.py:6596
 #, fuzzy
 msgid "common.access_types_mapping.external_borrow_printdisabled"
 msgstr "বাহ্যিক ধার (প্রিন্ট অক্ষম)"
 
-#: allthethings/page/views.py:6567
+#: allthethings/page/views.py:6597
 msgid "common.access_types_mapping.meta_explore"
 msgstr "উপতথ্য দেখো"
 
-#: allthethings/page/views.py:6568
+#: allthethings/page/views.py:6598
 #, fuzzy
 msgid "common.access_types_mapping.torrents_available"
 msgstr "টরেন্টে অন্তর্ভুক্ত"
@@ -2081,53 +2091,53 @@ msgstr "টরেন্টে অন্তর্ভুক্ত"
 #: allthethings/page/templates/page/datasets.html:43
 #: allthethings/page/templates/page/datasets.html:254
 #: allthethings/page/templates/page/datasets_lgrs.html:25
-#: allthethings/page/views.py:6574
+#: allthethings/page/views.py:6604
 msgid "common.record_sources_mapping.lgrs"
 msgstr "Libgen.rs"
 
 #: allthethings/page/templates/page/datasets.html:80
 #: allthethings/page/templates/page/datasets.html:317
 #: allthethings/page/templates/page/datasets_lgli.html:29
-#: allthethings/page/views.py:6575
+#: allthethings/page/views.py:6605
 msgid "common.record_sources_mapping.lgli"
 msgstr "Libgen.li"
 
 #: allthethings/page/templates/page/datasets.html:98
 #: allthethings/page/templates/page/datasets.html:352
 #: allthethings/page/templates/page/datasets_zlib.html:25
-#: allthethings/page/views.py:6576
+#: allthethings/page/views.py:6606
 msgid "common.record_sources_mapping.zlib"
 msgstr "জেড-লাইব্রেরি"
 
 #: allthethings/page/templates/page/datasets.html:114
-#: allthethings/page/views.py:6577
+#: allthethings/page/views.py:6607
 #, fuzzy
 msgid "common.record_sources_mapping.zlibzh"
 msgstr "Z-Library চীনা"
 
-#: allthethings/page/views.py:6578
+#: allthethings/page/views.py:6608
 #, fuzzy
 msgid "common.record_sources_mapping.ia"
 msgstr "IA"
 
-#: allthethings/page/views.py:6579
+#: allthethings/page/views.py:6609
 msgid "common.record_sources_mapping.isbndb"
 msgstr "ISBNdb"
 
 #: allthethings/page/templates/page/datasets.html:525
 #: allthethings/page/templates/page/datasets_ol.html:25
-#: allthethings/page/views.py:6580
+#: allthethings/page/views.py:6610
 msgid "common.record_sources_mapping.ol"
 msgstr "OpenLibrary"
 
 #: allthethings/page/templates/page/datasets.html:60
-#: allthethings/page/views.py:6581
+#: allthethings/page/views.py:6611
 msgid "common.record_sources_mapping.scihub"
 msgstr "Sci-Hub"
 
 #: allthethings/page/templates/page/datasets.html:541
 #: allthethings/page/templates/page/datasets_oclc.html:25
-#: allthethings/page/views.py:6582
+#: allthethings/page/views.py:6612
 #, fuzzy
 msgid "common.record_sources_mapping.oclc"
 msgstr "OCLC (WorldCat)"
@@ -2135,7 +2145,7 @@ msgstr "OCLC (WorldCat)"
 #: allthethings/page/templates/page/datasets.html:148
 #: allthethings/page/templates/page/datasets.html:399
 #: allthethings/page/templates/page/datasets_duxiu.html:25
-#: allthethings/page/views.py:6583
+#: allthethings/page/views.py:6613
 #, fuzzy
 msgid "common.record_sources_mapping.duxiu"
 msgstr "DuXiu 读秀"
@@ -2143,383 +2153,381 @@ msgstr "DuXiu 读秀"
 #: allthethings/page/templates/page/datasets.html:164
 #: allthethings/page/templates/page/datasets.html:433
 #: allthethings/page/templates/page/datasets_upload.html:25
-#: allthethings/page/views.py:6584
+#: allthethings/page/views.py:6614
 #, fuzzy
 msgid "common.record_sources_mapping.uploads"
 msgstr "AA তে আপলোডগুলি"
 
 #: allthethings/page/templates/page/datasets.html:180
-#: allthethings/page/views.py:6585
+#: allthethings/page/views.py:6615
 #, fuzzy
 msgid "common.record_sources_mapping.magzdb"
 msgstr "MagzDB"
 
 #: allthethings/page/templates/page/datasets.html:196
-#: allthethings/page/views.py:6586
+#: allthethings/page/views.py:6616
 #, fuzzy
 msgid "common.record_sources_mapping.nexusstc"
 msgstr "Nexus/STC"
 
-#: allthethings/page/views.py:6587
+#: allthethings/page/views.py:6617
 #, fuzzy
 msgid "common.record_sources_mapping.edsebk"
 msgstr "EBSCOhost ইবুক সূচক"
 
-#: allthethings/page/views.py:6588
+#: allthethings/page/views.py:6618
 #, fuzzy
 msgid "common.record_sources_mapping.cerlalc"
 msgstr "Cerlalc"
 
-#: allthethings/page/views.py:6589
+#: allthethings/page/views.py:6619
 #, fuzzy
 msgid "common.record_sources_mapping.czech_oo42hcks"
 msgstr "চেক মেটাডেটা"
 
-#: allthethings/page/views.py:6590
+#: allthethings/page/views.py:6620
 #, fuzzy
 msgid "common.record_sources_mapping.gbooks"
 msgstr "গুগল বই"
 
-#: allthethings/page/views.py:6591
+#: allthethings/page/views.py:6621
 #, fuzzy
 msgid "common.record_sources_mapping.goodreads"
 msgstr "গুডরিডস"
 
-#: allthethings/page/views.py:6592
+#: allthethings/page/views.py:6622
 #, fuzzy
 msgid "common.record_sources_mapping.isbngrp"
 msgstr "ISBN GRP"
 
-#: allthethings/page/views.py:6593
+#: allthethings/page/views.py:6623
 #, fuzzy
 msgid "common.record_sources_mapping.libby"
 msgstr "লিবি"
 
-#: allthethings/page/views.py:6594
+#: allthethings/page/views.py:6624
 #, fuzzy
 msgid "common.record_sources_mapping.rgb"
 msgstr "রাশিয়ান স্টেট লাইব্রেরি"
 
-#: allthethings/page/views.py:6595
+#: allthethings/page/views.py:6625
 #, fuzzy
 msgid "common.record_sources_mapping.trantor"
 msgstr "Trantor"
 
-#: allthethings/page/views.py:6601
+#: allthethings/page/views.py:6631
 #, fuzzy
 msgid "common.specific_search_fields.title"
 msgstr "শিরোনাম"
 
-#: allthethings/page/views.py:6602
+#: allthethings/page/views.py:6632
 #, fuzzy
 msgid "common.specific_search_fields.author"
 msgstr "লেখক"
 
-#: allthethings/page/views.py:6603
+#: allthethings/page/views.py:6633
 #, fuzzy
 msgid "common.specific_search_fields.publisher"
 msgstr "প্রকাশক"
 
-#: allthethings/page/views.py:6604
+#: allthethings/page/views.py:6634
 #, fuzzy
 msgid "common.specific_search_fields.edition_varia"
 msgstr "সংস্করণ"
 
-#: allthethings/page/views.py:6605
+#: allthethings/page/views.py:6635
 #, fuzzy
 msgid "common.specific_search_fields.year"
 msgstr "প্রকাশের বছর"
 
-#: allthethings/page/views.py:6606
+#: allthethings/page/views.py:6636
 #, fuzzy
 msgid "common.specific_search_fields.original_filename"
 msgstr "মূল ফাইলের নাম"
 
-#: allthethings/page/views.py:6607
+#: allthethings/page/views.py:6637
 #, fuzzy
 msgid "common.specific_search_fields.description_comments"
 msgstr "বর্ণনা এবং মেটাডেটা মন্তব্য"
 
-#: allthethings/page/views.py:6631 allthethings/page/views.py:6632
+#: allthethings/page/views.py:6661 allthethings/page/views.py:6662
 #, fuzzy
 msgid "page.md5.box.download.temporarily_unavailable"
 msgstr "এই ফাইলের জন্য পার্টনার সার্ভার ডাউনলোডগুলি সাময়িকভাবে উপলব্ধ নয়।"
 
-#: allthethings/page/views.py:6636
+#: allthethings/page/views.py:6666
 msgid "common.md5.servers.fast_partner"
 msgstr "দ্রুতগতির সহযোগী সার্ভার #%(number)s"
 
-#: allthethings/page/views.py:6636
+#: allthethings/page/views.py:6666
 #, fuzzy
 msgid "common.md5.servers.fast_partner.recommended2"
 msgstr "(প্রস্তাবিত)"
 
-#: allthethings/page/views.py:6636
+#: allthethings/page/views.py:6666
 #, fuzzy
 msgid "common.md5.servers.no_browser_verification_or_waitlists"
 msgstr "(কোনও ব্রাউজার যাচাইকরণ বা অপেক্ষার তালিকা নেই)"
 
 #: allthethings/page/templates/page/partner_download.html:37
-#: allthethings/page/views.py:6639 allthethings/page/views.py:6641
+#: allthethings/page/views.py:6669 allthethings/page/views.py:6671
 msgid "common.md5.servers.slow_partner"
 msgstr "ধীরগতির সহযোগী সার্ভার #%(number)s"
 
-#: allthethings/page/views.py:6639
+#: allthethings/page/views.py:6669
 #, fuzzy
 msgid "common.md5.servers.faster_with_waitlist"
 msgstr "(সামান্য দ্রুত কিন্তু অপেক্ষার তালিকা সহ)"
 
-#: allthethings/page/views.py:6641
+#: allthethings/page/views.py:6671
 #, fuzzy
 msgid "common.md5.servers.slow_no_waitlist"
 msgstr "(কোনো অপেক্ষার তালিকা নেই, তবে খুব ধীর হতে পারে)"
 
-#: allthethings/page/views.py:6728 allthethings/page/views.py:6950
+#: allthethings/page/views.py:6758 allthethings/page/views.py:6983
 msgid "page.md5.box.download.scihub"
 msgstr "সাই-হাব: %(doi)s"
 
-#: allthethings/page/views.py:6805
+#: allthethings/page/views.py:6838
 msgid "page.md5.box.download.lgrsnf"
 msgstr "Libgen.rs নন-ফিকশন"
 
-#: allthethings/page/views.py:6805 allthethings/page/views.py:6821
-#: allthethings/page/views.py:6882
-msgid "page.md5.box.download.extra_also_click_get"
-msgstr "(উপরে \"GET\" এও ক্লিক করুন)"
-
-#: allthethings/page/views.py:6805 allthethings/page/views.py:6821
-#: allthethings/page/views.py:6882
-msgid "page.md5.box.download.extra_click_get"
-msgstr "(শীর্ষে \"GET\" ক্লিক করুন)"
-
-#: allthethings/page/views.py:6821
+#: allthethings/page/views.py:6854
 msgid "page.md5.box.download.lgrsfic"
 msgstr "Libgen.rs ফিকশন"
 
-#: allthethings/page/views.py:6882
+#: allthethings/page/views.py:6915
 msgid "page.md5.box.download.lgli"
 msgstr "Libgen.li"
 
-#: allthethings/page/views.py:6882
+#: allthethings/page/views.py:6915
+msgid "page.md5.box.download.extra_also_click_get"
+msgstr "(উপরে \"GET\" এও ক্লিক করুন)"
+
+#: allthethings/page/views.py:6915
+msgid "page.md5.box.download.extra_click_get"
+msgstr "(শীর্ষে \"GET\" ক্লিক করুন)"
+
+#: allthethings/page/views.py:6915
 #, fuzzy
 msgid "page.md5.box.download.libgen_ads"
 msgstr "তাদের বিজ্ঞাপনগুলি ক্ষতিকারক সফ্টওয়্যার ধারণ করার জন্য পরিচিত, তাই একটি বিজ্ঞাপন ব্লকার ব্যবহার করুন বা বিজ্ঞাপনগুলিতে ক্লিক করবেন না"
 
-#: allthethings/page/views.py:6886
+#: allthethings/page/views.py:6919
 #, fuzzy
 msgid "page.md5.box.download.nexusstc"
 msgstr "Nexus/STC"
 
-#: allthethings/page/views.py:6886
+#: allthethings/page/views.py:6919
 #, fuzzy
 msgid "page.md5.box.download.nexusstc_unreliable"
 msgstr "(Nexus/STC ফাইলগুলি ডাউনলোডের জন্য অবিশ্বস্ত হতে পারে)"
 
-#: allthethings/page/views.py:6933 allthethings/page/views.py:6937
+#: allthethings/page/views.py:6966 allthethings/page/views.py:6970
 #, fuzzy
 msgid "page.md5.box.download.zlib"
 msgstr "Z-Library"
 
-#: allthethings/page/views.py:6934 allthethings/page/views.py:6938
+#: allthethings/page/views.py:6967 allthethings/page/views.py:6971
 msgid "page.md5.box.download.zlib_tor"
 msgstr "Z-Library TOR"
 
-#: allthethings/page/views.py:6934 allthethings/page/views.py:6938
+#: allthethings/page/views.py:6967 allthethings/page/views.py:6971
 msgid "page.md5.box.download.zlib_tor_extra"
 msgstr "(TOR ব্রাউজার প্রয়োজন)"
 
-#: allthethings/page/views.py:6941
+#: allthethings/page/views.py:6974
 #, fuzzy
 msgid "page.md5.box.download.magzdb"
 msgstr "MagzDB"
 
-#: allthethings/page/views.py:6946
+#: allthethings/page/views.py:6979
 msgid "page.md5.box.download.ia_borrow"
 msgstr "ইন্টার্নেট আর্কাইভ থেকে ধার করুন"
 
-#: allthethings/page/views.py:6946
+#: allthethings/page/views.py:6979
 #, fuzzy
 msgid "page.md5.box.download.print_disabled_only"
 msgstr "(শুধুমাত্র মুদ্রণ অক্ষম পৃষ্ঠপোষকদের জন্য)"
 
-#: allthethings/page/views.py:6950
+#: allthethings/page/views.py:6983
 msgid "page.md5.box.download.scihub_maybe"
 msgstr "সংযুক্ত DOI টি সাই-হাবে নাও থাকতে পারে"
 
-#: allthethings/page/views.py:6953
+#: allthethings/page/views.py:6986
 #, fuzzy
 msgid "page.md5.box.download.manualslib"
 msgstr "ManualsLib"
 
-#: allthethings/page/views.py:6956
+#: allthethings/page/views.py:6989
 #, fuzzy
 msgid "page.md5.box.download.pubmed"
 msgstr "PubMed"
 
-#: allthethings/page/views.py:6963
+#: allthethings/page/views.py:6996
 #, fuzzy
 msgid "page.md5.box.download.collection"
 msgstr "সংগ্রহ"
 
-#: allthethings/page/views.py:6964
+#: allthethings/page/views.py:6997
 #, fuzzy
 msgid "page.md5.box.download.torrent"
 msgstr "টরেন্ট"
 
-#: allthethings/page/views.py:6970
+#: allthethings/page/views.py:7003
 #, fuzzy
 msgid "page.md5.box.download.bulk_torrents"
 msgstr "বাল্ক টরেন্ট ডাউনলোড"
 
-#: allthethings/page/views.py:6970
+#: allthethings/page/views.py:7003
 msgid "page.md5.box.download.experts_only"
 msgstr "(শুধুই অভিজ্ঞদের জন্য)"
 
-#: allthethings/page/views.py:6977
+#: allthethings/page/views.py:7010
 #, fuzzy
 msgid "page.md5.box.download.aa_isbn"
 msgstr "ISBN এর জন্য Anna’s Archive অনুসন্ধান করুন"
 
-#: allthethings/page/views.py:6978
+#: allthethings/page/views.py:7011
 #, fuzzy
 msgid "page.md5.box.download.other_isbn"
 msgstr "ISBN এর জন্য বিভিন্ন অন্যান্য ডাটাবেস অনুসন্ধান করুন"
 
-#: allthethings/page/views.py:6979
+#: allthethings/page/views.py:7012
 #, fuzzy
 msgid "page.md5.box.download.original_isbndb"
 msgstr "ISBNdb-তে মূল রেকর্ড খুঁজুন"
 
-#: allthethings/page/views.py:6981
+#: allthethings/page/views.py:7014
 #, fuzzy
 msgid "page.md5.box.download.aa_openlib"
 msgstr "Open Library ID এর জন্য Anna’s Archive অনুসন্ধান করুন"
 
-#: allthethings/page/views.py:6982
+#: allthethings/page/views.py:7015
 #, fuzzy
 msgid "page.md5.box.download.original_openlib"
 msgstr "Open Library-এ মূল রেকর্ড খুঁজুন"
 
-#: allthethings/page/views.py:6984
+#: allthethings/page/views.py:7017
 #, fuzzy
 msgid "page.md5.box.download.aa_oclc"
 msgstr "OCLC (WorldCat) নম্বরের জন্য Anna’s Archive অনুসন্ধান করুন"
 
-#: allthethings/page/views.py:6985
+#: allthethings/page/views.py:7018
 #, fuzzy
 msgid "page.md5.box.download.original_oclc"
 msgstr "WorldCat-এ মূল রেকর্ড খুঁজুন"
 
-#: allthethings/page/views.py:6987
+#: allthethings/page/views.py:7020
 #, fuzzy
 msgid "page.md5.box.download.aa_duxiu"
 msgstr "DuXiu SSID নম্বরের জন্য Anna’s Archive অনুসন্ধান করুন"
 
-#: allthethings/page/views.py:6988
+#: allthethings/page/views.py:7021
 #, fuzzy
 msgid "page.md5.box.download.original_duxiu"
 msgstr "DuXiu এ ম্যানুয়ালি অনুসন্ধান করুন"
 
-#: allthethings/page/views.py:6990
+#: allthethings/page/views.py:7023
 #, fuzzy
 msgid "page.md5.box.download.aa_cadal"
 msgstr "CADAL SSNO নম্বরের জন্য Anna’s Archive অনুসন্ধান করুন"
 
-#: allthethings/page/views.py:6991
+#: allthethings/page/views.py:7024
 #, fuzzy
 msgid "page.md5.box.download.original_cadal"
 msgstr "CADAL-এ মূল রেকর্ড খুঁজুন"
 
-#: allthethings/page/views.py:6995
+#: allthethings/page/views.py:7028
 #, fuzzy
 msgid "page.md5.box.download.aa_dxid"
 msgstr "DuXiu DXID নম্বরের জন্য Anna’s Archive অনুসন্ধান করুন"
 
-#: allthethings/page/views.py:6998
+#: allthethings/page/views.py:7031
 #, fuzzy
 msgid "page.md5.box.download.edsebk"
 msgstr "EBSCOhost ইবুক সূচক"
 
-#: allthethings/page/views.py:7003 allthethings/page/views.py:7004
+#: allthethings/page/views.py:7036 allthethings/page/views.py:7037
 #, fuzzy
 msgid "page.md5.box.download.scidb"
 msgstr "Anna’s Archive 🧬 SciDB"
 
-#: allthethings/page/views.py:7003 allthethings/page/views.py:7004
+#: allthethings/page/views.py:7036 allthethings/page/views.py:7037
 msgid "common.md5.servers.no_browser_verification"
 msgstr "(কোনো ব্রাউজার ভেরিফিকেশন আবশ্যক নয়)"
 
-#: allthethings/page/views.py:7029
+#: allthethings/page/views.py:7062
 #, fuzzy
 msgid "page.md5.top_row.isbndb"
 msgstr "ISBNdb %(id)s}"
 
-#: allthethings/page/views.py:7030
+#: allthethings/page/views.py:7063
 #, fuzzy
 msgid "page.md5.top_row.oclc"
 msgstr "OCLC %(id)s}"
 
-#: allthethings/page/views.py:7031
+#: allthethings/page/views.py:7064
 #, fuzzy
 msgid "page.md5.top_row.duxiu_ssid"
 msgstr "DuXiu SSID %(id)s}"
 
-#: allthethings/page/views.py:7032
+#: allthethings/page/views.py:7065
 #, fuzzy
 msgid "page.md5.top_row.cadal_ssno"
 msgstr "CADAL SSNO %(id)s}"
 
-#: allthethings/page/views.py:7033
+#: allthethings/page/views.py:7066
 #, fuzzy
 msgid "page.md5.top_row.magzdb"
 msgstr "MagzDB %(id)s}"
 
-#: allthethings/page/views.py:7034
+#: allthethings/page/views.py:7067
 #, fuzzy
 msgid "page.md5.top_row.nexusstc"
 msgstr "Nexus/STC %(id)s}"
 
-#: allthethings/page/views.py:7035
+#: allthethings/page/views.py:7068
 #, fuzzy
 msgid "page.md5.top_row.edsebk"
 msgstr "EBSCOhost edsebk %(id)s}"
 
-#: allthethings/page/views.py:7036
+#: allthethings/page/views.py:7069
 #, fuzzy
 msgid "page.md5.top_row.cerlalc"
 msgstr "Cerlalc %(id)s}"
 
-#: allthethings/page/views.py:7037
+#: allthethings/page/views.py:7070
 #, fuzzy
 msgid "page.md5.top_row.czech_oo42hcks"
 msgstr "চেক মেটাডেটা %(id)s}"
 
-#: allthethings/page/views.py:7038
+#: allthethings/page/views.py:7071
 #, fuzzy
 msgid "page.md5.top_row.gbooks"
 msgstr "গুগল বুকস %(id)s}"
 
-#: allthethings/page/views.py:7039
+#: allthethings/page/views.py:7072
 #, fuzzy
 msgid "page.md5.top_row.goodreads"
 msgstr "গুডরিডস %(id)s}"
 
-#: allthethings/page/views.py:7040
+#: allthethings/page/views.py:7073
 #, fuzzy
 msgid "page.md5.top_row.isbngrp"
 msgstr "আইএসবিএন জিআরপি %(id)s}"
 
-#: allthethings/page/views.py:7041
+#: allthethings/page/views.py:7074
 #, fuzzy
 msgid "page.md5.top_row.libby"
 msgstr "লিবি %(id)s}"
 
-#: allthethings/page/views.py:7042
+#: allthethings/page/views.py:7075
 #, fuzzy
 msgid "page.md5.top_row.rgb"
 msgstr "আরএসএল %(id)s}"
 
-#: allthethings/page/views.py:7043
+#: allthethings/page/views.py:7076
 #, fuzzy
 msgid "page.md5.top_row.trantor"
 msgstr "ট্রান্টর %(id)s}"
@@ -2539,57 +2547,57 @@ msgstr "ট্রান্টর %(id)s}"
 #: allthethings/page/templates/page/datasets_scihub.html:18
 #: allthethings/page/templates/page/datasets_upload.html:18
 #: allthethings/page/templates/page/datasets_zlib.html:18
-#: allthethings/page/views.py:7067
+#: allthethings/page/views.py:7100
 #, fuzzy
 msgid "page.datasets.sources.metadata.header"
 msgstr "মেটাডেটা"
 
-#: allthethings/page/views.py:7080
+#: allthethings/page/views.py:7113
 #, fuzzy
 msgid "page.md5.box.descr_title"
 msgstr "বর্ণনা"
 
-#: allthethings/page/views.py:7081
+#: allthethings/page/views.py:7114
 #, fuzzy
 msgid "page.md5.box.alternative_filename"
 msgstr "বিকল্প ফাইলের নাম"
 
-#: allthethings/page/views.py:7082
+#: allthethings/page/views.py:7115
 #, fuzzy
 msgid "page.md5.box.alternative_title"
 msgstr "বিকল্প শিরোনাম"
 
-#: allthethings/page/views.py:7083
+#: allthethings/page/views.py:7116
 #, fuzzy
 msgid "page.md5.box.alternative_author"
 msgstr "বিকল্প লেখক"
 
-#: allthethings/page/views.py:7084
+#: allthethings/page/views.py:7117
 #, fuzzy
 msgid "page.md5.box.alternative_publisher"
 msgstr "বিকল্প প্রকাশক"
 
-#: allthethings/page/views.py:7085
+#: allthethings/page/views.py:7118
 #, fuzzy
 msgid "page.md5.box.alternative_edition"
 msgstr "বিকল্প সংস্করণ"
 
-#: allthethings/page/views.py:7086
+#: allthethings/page/views.py:7119
 #, fuzzy
 msgid "page.md5.box.alternative_extension"
 msgstr "বিকল্প এক্সটেনশন"
 
-#: allthethings/page/views.py:7087
+#: allthethings/page/views.py:7120
 #, fuzzy
 msgid "page.md5.box.metadata_comments_title"
 msgstr "মেটাডেটা মন্তব্য"
 
-#: allthethings/page/views.py:7088
+#: allthethings/page/views.py:7121
 #, fuzzy
 msgid "page.md5.box.alternative_description"
 msgstr "বিকল্প বর্ণনা"
 
-#: allthethings/page/views.py:7089
+#: allthethings/page/views.py:7122
 #, fuzzy
 msgid "page.md5.box.date_open_sourced_title"
 msgstr "তারিখ উন্মুক্ত উৎস করা হয়েছে"
@@ -2655,158 +2663,169 @@ msgstr "Nexus/STC আইডি %(id)s মেটাডেটা রেকর্�
 msgid "page.md5.header.meta_desc"
 msgstr "এটি একটি মেটাডেটা রেকর্ড, ডাউনলোডযোগ্য ফাইল নয়। আপনি <a %(a_request)s>ফাইল অনুরোধ করার সময়</a> এই URL ব্যবহার করতে পারেন।"
 
-#: allthethings/page/templates/page/aarecord.html:57
+#: allthethings/page/templates/page/aarecord.html:59
 #, fuzzy
 msgid "page.md5.text.linked_metadata"
 msgstr "সংযুক্ত রেকর্ড থেকে মেটাডেটা"
 
-#: allthethings/page/templates/page/aarecord.html:58
+#: allthethings/page/templates/page/aarecord.html:60
 #, fuzzy
 msgid "page.md5.text.linked_metadata_openlib"
 msgstr "Open Library-এ মেটাডেটা উন্নত করুন"
 
-#: allthethings/page/templates/page/aarecord.html:61
+#: allthethings/page/templates/page/aarecord.html:63
 #, fuzzy
 msgid "page.md5.warning.multiple_links"
 msgstr "সতর্কতা: একাধিক সংযুক্ত রেকর্ড:"
 
-#: allthethings/page/templates/page/aarecord.html:69
+#: allthethings/page/templates/page/aarecord.html:71
 #, fuzzy
 msgid "page.md5.header.improve_metadata"
 msgstr "মেটাডেটা উন্নত করুন"
 
-#: allthethings/page/templates/page/aarecord.html:71
+#: allthethings/page/templates/page/aarecord.html:73
 #, fuzzy
 msgid "page.md5.text.report_quality"
 msgstr "ফাইলের গুণমান রিপোর্ট করুন"
 
-#: allthethings/page/templates/page/aarecord.html:95
+#: allthethings/page/templates/page/aarecord.html:87
+#: allthethings/page/templates/page/search.html:510
+#: allthethings/page/templates/page/search.html:520
+#: allthethings/page/templates/page/search.html:550
+#: allthethings/templates/macros/aarecord_list.html:118
+#, fuzzy
+msgid "page.search.results.download_time"
+msgstr "ডাউনলোড সময়"
+
+#: allthethings/page/templates/page/aarecord.html:142
 msgid "page.md5.codes.url"
 msgstr "ইউআরএল:"
 
-#: allthethings/page/templates/page/aarecord.html:96
+#: allthethings/page/templates/page/aarecord.html:143
 msgid "page.md5.codes.website"
 msgstr "ওয়েবসাইট:"
 
-#: allthethings/page/templates/page/aarecord.html:97
+#: allthethings/page/templates/page/aarecord.html:144
 #, fuzzy
 msgid "page.md5.codes.aa_abbr"
 msgstr "আআ:"
 
-#: allthethings/page/templates/page/aarecord.html:97
+#: allthethings/page/templates/page/aarecord.html:144
 #, fuzzy
 msgid "page.md5.codes.aa_search"
 msgstr "Anna’s Archive এ “%(name)s” অনুসন্ধান করুন"
 
-#: allthethings/page/templates/page/aarecord.html:98
+#: allthethings/page/templates/page/aarecord.html:145
 #, fuzzy
 msgid "page.md5.codes.code_explorer"
 msgstr "কোড এক্সপ্লোরার:"
 
-#: allthethings/page/templates/page/aarecord.html:98
+#: allthethings/page/templates/page/aarecord.html:145
 #, fuzzy
 msgid "page.md5.codes.code_search"
 msgstr "কোড এক্সপ্লোরারে দেখুন “%(name)s”"
 
-#: allthethings/page/templates/page/aarecord.html:117
+#: allthethings/page/templates/page/aarecord.html:164
 msgid "page.md5.box.descr_read_more"
 msgstr "আরো পড়ো…"
 
-#: allthethings/page/templates/page/aarecord.html:133
+#: allthethings/page/templates/page/aarecord.html:180
 msgid "page.md5.tabs.downloads"
 msgstr "ডাউনলোডসমূহ (%(count)s)"
 
-#: allthethings/page/templates/page/aarecord.html:133
+#: allthethings/page/templates/page/aarecord.html:180
 msgid "page.md5.tabs.borrow"
 msgstr "ধার (%(count)s)"
 
-#: allthethings/page/templates/page/aarecord.html:133
+#: allthethings/page/templates/page/aarecord.html:180
 #, fuzzy
 msgid "page.md5.tabs.explore_metadata"
 msgstr "মেটাডেটা অন্বেষণ করুন (%(count)s)"
 
-#: allthethings/page/templates/page/aarecord.html:135
+#: allthethings/page/templates/page/aarecord.html:183
 msgid "page.md5.tabs.lists"
 msgstr "তালিকা (%(count)s)"
 
-#: allthethings/page/templates/page/aarecord.html:136
+#: allthethings/page/templates/page/aarecord.html:184
 msgid "page.md5.tabs.stats"
 msgstr "পরিসংখ্যান (%(count)s)"
 
-#: allthethings/page/templates/page/aarecord.html:138
+#: allthethings/page/templates/page/aarecord.html:186
 msgid "common.tech_details"
 msgstr "প্রযুক্তিগত বিবরণ (ইংরেজিতে)"
 
-#: allthethings/page/templates/page/aarecord.html:207
+#: allthethings/page/templates/page/aarecord.html:265
 #, fuzzy
 msgid "page.md5.box.issues.text1"
 msgstr "<span class=\"font-bold\">❌ এই ফাইলটিতে সমস্যা থাকতে পারে এবং এটি একটি উৎস লাইব্রেরি থেকে লুকানো হয়েছে।</span> কখনও কখনও এটি কপিরাইট ধারকের অনুরোধে হয়, কখনও কখনও এটি একটি ভাল বিকল্প উপলব্ধ থাকার কারণে হয়, তবে কখনও কখনও এটি ফাইলটির নিজস্ব সমস্যার কারণে হয়। এটি এখনও ডাউনলোড করা যেতে পারে, তবে আমরা প্রথমে একটি বিকল্প ফাইল অনুসন্ধান করার পরামর্শ দিই। আরও বিস্তারিত:"
 
-#: allthethings/page/templates/page/aarecord.html:212
+#: allthethings/page/templates/page/aarecord.html:270
 #, fuzzy
 msgid "page.md5.box.download.better_file"
 msgstr "এই ফাইলটির একটি ভাল সংস্করণ %(link)s এ উপলব্ধ থাকতে পারে"
 
-#: allthethings/page/templates/page/aarecord.html:217
+#: allthethings/page/templates/page/aarecord.html:275
 #, fuzzy
 msgid "page.md5.box.issues.text2"
 msgstr "আপনি যদি এখনও এই ফাইলটি ডাউনলোড করতে চান, তবে এটি খোলার জন্য শুধুমাত্র বিশ্বস্ত, আপডেট করা সফটওয়্যার ব্যবহার করতে নিশ্চিত হন।"
 
-#: allthethings/page/templates/page/aarecord.html:222
+#: allthethings/page/templates/page/aarecord.html:280
 #, fuzzy
 msgid "page.md5.box.download.header_fast_only"
 msgstr "🚀 দ্রুত ডাউনলোড"
 
-#: allthethings/page/templates/page/aarecord.html:224
+#: allthethings/page/templates/page/aarecord.html:282
 #, fuzzy
 msgid "page.md5.box.download.header_fast_no_member"
 msgstr "<strong>🚀 দ্রুত ডাউনলোড</strong> বই, পেপার এবং আরও অনেক কিছুর দীর্ঘমেয়াদী সংরক্ষণকে সমর্থন করতে <a %(a_membership)s>সদস্য হন</a>। আপনার সমর্থনের জন্য আমাদের কৃতজ্ঞতা প্রদর্শনের জন্য, আপনি দ্রুত ডাউনলোড পাবেন। ❤️"
 
-#: allthethings/page/templates/page/aarecord.html:225
+#: allthethings/page/templates/page/aarecord.html:283
 #: allthethings/templates/layouts/index.html:233
 #, fuzzy
 msgid "layout.index.header.banner.fundraiser.this_month"
 msgstr "আপনি যদি এই মাসে দান করেন, আপনি <strong>দ্বিগুণ</strong> দ্রুত ডাউনলোডের সংখ্যা পাবেন।"
 
-#: allthethings/page/templates/page/aarecord.html:227
+#: allthethings/page/templates/page/aarecord.html:285
 #, fuzzy
 msgid "page.md5.box.download.header_fast_member"
 msgstr "<strong>🚀 দ্রুত ডাউনলোড</strong> আপনার আজ %(remaining)s বাকি আছে। সদস্য হওয়ার জন্য ধন্যবাদ! ❤️"
 
-#: allthethings/page/templates/page/aarecord.html:228
+#: allthethings/page/templates/page/aarecord.html:286
 #, fuzzy
 msgid "page.md5.box.download.header_fast_member_no_remaining_new"
 msgstr "<strong>🚀 দ্রুত ডাউনলোড</strong> আপনি আজকের জন্য দ্রুত ডাউনলোডের সীমা শেষ করেছেন।"
 
-#: allthethings/page/templates/page/aarecord.html:229
+#: allthethings/page/templates/page/aarecord.html:287
 #, fuzzy
 msgid "page.md5.box.download.header_fast_member_valid_for"
 msgstr "<strong>🚀 দ্রুত ডাউনলোড</strong> আপনি সম্প্রতি এই ফাইলটি ডাউনলোড করেছেন। লিঙ্কগুলি কিছু সময়ের জন্য বৈধ থাকে।"
 
-#: allthethings/page/templates/page/aarecord.html:234
-#: allthethings/page/templates/page/aarecord.html:251
-#: allthethings/page/templates/page/aarecord.html:283
+#: allthethings/page/templates/page/aarecord.html:292
+#: allthethings/page/templates/page/aarecord.html:293
+#: allthethings/page/templates/page/aarecord.html:311
+#: allthethings/page/templates/page/aarecord.html:347
 msgid "page.md5.box.download.option"
 msgstr "অপশন #%(num)d: %(link)s %(extra)s"
 
-#: allthethings/page/templates/page/aarecord.html:234
+#: allthethings/page/templates/page/aarecord.html:292
+#: allthethings/page/templates/page/aarecord.html:294
 #, fuzzy
 msgid "page.md5.box.download.no_redirect"
 msgstr "(কোনও পুনঃনির্দেশ নয়)"
 
-#: allthethings/page/templates/page/aarecord.html:239
+#: allthethings/page/templates/page/aarecord.html:299
 #: allthethings/templates/layouts/index.html:276
 #, fuzzy
 msgid "layout.index.header.banner.refer"
 msgstr "একজন বন্ধুকে রেফার করুন, এবং আপনি এবং আপনার বন্ধু দুজনেই %(percentage)s%% বোনাস দ্রুত ডাউনলোড পাবেন!"
 
-#: allthethings/page/templates/page/aarecord.html:239
+#: allthethings/page/templates/page/aarecord.html:299
 #: allthethings/page/templates/page/home.html:25
 #: allthethings/page/templates/page/home.html:34
 #: allthethings/page/templates/page/home.html:71
 #: allthethings/page/templates/page/home.html:124
-#: allthethings/page/templates/page/search.html:357
-#: allthethings/page/templates/page/search.html:421
+#: allthethings/page/templates/page/search.html:361
+#: allthethings/page/templates/page/search.html:425
 #: allthethings/templates/layouts/index.html:270
 #: allthethings/templates/layouts/index.html:276
 #: allthethings/templates/layouts/index.html:403
@@ -2816,249 +2835,249 @@ msgstr "একজন বন্ধুকে রেফার করুন, এব�
 msgid "layout.index.header.learn_more"
 msgstr "আরও জানুন…"
 
-#: allthethings/page/templates/page/aarecord.html:246
+#: allthethings/page/templates/page/aarecord.html:306
 #, fuzzy
 msgid "page.md5.box.download.header_slow_only"
 msgstr "🐢 ধীর ডাউনলোড"
 
-#: allthethings/page/templates/page/aarecord.html:247
+#: allthethings/page/templates/page/aarecord.html:307
 #, fuzzy
 msgid "page.md5.box.download.trusted_partners"
 msgstr "বিশ্বস্ত অংশীদারদের থেকে।"
 
-#: allthethings/page/templates/page/aarecord.html:247
+#: allthethings/page/templates/page/aarecord.html:307
 #, fuzzy
 msgid "page.md5.box.download.slow_faq"
 msgstr "আরও তথ্য <a %(a_slow)s>FAQ</a> এ।"
 
-#: allthethings/page/templates/page/aarecord.html:247
+#: allthethings/page/templates/page/aarecord.html:307
 #, fuzzy
 msgid "common.md5.servers.browser_verification_unlimited"
 msgstr "(প্রয়োজন হতে পারে <a %(a_browser)s>ব্রাউজার যাচাইকরণ</a> — সীমাহীন ডাউনলোড!)"
 
-#: allthethings/page/templates/page/aarecord.html:262
+#: allthethings/page/templates/page/aarecord.html:326
 #, fuzzy
 msgid "page.md5.box.external_downloads"
 msgstr "বাহ্যিক ডাউনলোড দেখান"
 
-#: allthethings/page/templates/page/aarecord.html:263
+#: allthethings/page/templates/page/aarecord.html:327
 #, fuzzy
 msgid "page.md5.box.download.header_external"
 msgstr "বাহ্যিক ডাউনলোড"
 
-#: allthethings/page/templates/page/aarecord.html:288
+#: allthethings/page/templates/page/aarecord.html:352
 msgid "page.md5.box.download.no_found"
 msgstr "কোনো ডাউনলোড পাওয়া যায়নি।"
 
-#: allthethings/page/templates/page/aarecord.html:294
+#: allthethings/page/templates/page/aarecord.html:358
 msgid "page.md5.box.download.no_issues_notice"
 msgstr "সমস্ত আয়না একই ফাইল পরিবেশন করে, এবং ব্যবহার করা নিরাপদ হওয়া উচিত। এটি বলেছে, ইন্টারনেট থেকে ফাইল ডাউনলোড করার সময় সর্বদা সতর্ক থাকুন। উদাহরণস্বরূপ, আপনার ডিভাইসগুলিকে আপডেট রাখতে ভুলবেন না।"
 
-#: allthethings/page/templates/page/aarecord.html:300
+#: allthethings/page/templates/page/aarecord.html:364
 #: allthethings/page/templates/page/partner_download.html:83
 #, fuzzy
 msgid "page.md5.box.download.dl_managers"
 msgstr "বড় ফাইলের জন্য, আমরা ডাউনলোড ম্যানেজার ব্যবহার করার পরামর্শ দিই যাতে বিঘ্ন না ঘটে।"
 
-#: allthethings/page/templates/page/aarecord.html:301
+#: allthethings/page/templates/page/aarecord.html:365
 #: allthethings/page/templates/page/partner_download.html:84
 #, fuzzy
 msgid "page.md5.box.download.dl_managers.links"
 msgstr "প্রস্তাবিত ডাউনলোড ম্যানেজার: %(links)s"
 
-#: allthethings/page/templates/page/aarecord.html:309
+#: allthethings/page/templates/page/aarecord.html:373
 #, fuzzy
 msgid "page.md5.box.download.readers"
 msgstr "ফাইলটি খোলার জন্য আপনার একটি ইবুক বা পিডিএফ রিডার প্রয়োজন হবে, ফাইল ফরম্যাটের উপর নির্ভর করে।"
 
-#: allthethings/page/templates/page/aarecord.html:310
+#: allthethings/page/templates/page/aarecord.html:374
 #, fuzzy
 msgid "page.md5.box.download.readers.links"
 msgstr "প্রস্তাবিত ইবুক রিডার: %(links)s"
 
-#: allthethings/page/templates/page/aarecord.html:319
+#: allthethings/page/templates/page/aarecord.html:383
 #, fuzzy
 msgid "page.md5.box.download.conversion"
 msgstr "ফরম্যাটের মধ্যে রূপান্তর করতে অনলাইন টুল ব্যবহার করুন।"
 
-#: allthethings/page/templates/page/aarecord.html:320
+#: allthethings/page/templates/page/aarecord.html:384
 #, fuzzy
 msgid "page.md5.box.download.conversion.links"
 msgstr "প্রস্তাবিত রূপান্তর টুল: %(links)s"
 
-#: allthethings/page/templates/page/aarecord.html:328
+#: allthethings/page/templates/page/aarecord.html:392
 #, fuzzy
 msgid "page.md5.box.download.sendtokindle"
 msgstr "আপনি আপনার কিন্ডল বা কোবো ইরিডারে উভয় পিডিএফ এবং ইপাব ফাইল পাঠাতে পারেন।"
 
-#: allthethings/page/templates/page/aarecord.html:329
+#: allthethings/page/templates/page/aarecord.html:393
 #, fuzzy
 msgid "page.md5.box.download.sendtokindle.links"
 msgstr "প্রস্তাবিত টুল: %(links)s"
 
-#: allthethings/page/templates/page/aarecord.html:332
+#: allthethings/page/templates/page/aarecord.html:396
 #, fuzzy
 msgid "page.md5.box.download.link.send_to_kindle"
 msgstr "অ্যামাজনের “সেন্ড টু কিন্ডল”"
 
-#: allthethings/page/templates/page/aarecord.html:333
+#: allthethings/page/templates/page/aarecord.html:397
 #, fuzzy
 msgid "page.md5.box.download.link.send_to_kobokindle"
 msgstr "ডিজাজের “সেন্ড টু কোবো/কিন্ডল”"
 
-#: allthethings/page/templates/page/aarecord.html:338
+#: allthethings/page/templates/page/aarecord.html:402
 #, fuzzy
 msgid "page.md5.box.download.support"
 msgstr "লেখক এবং লাইব্রেরিগুলিকে সমর্থন করুন"
 
-#: allthethings/page/templates/page/aarecord.html:339
+#: allthethings/page/templates/page/aarecord.html:403
 #, fuzzy
 msgid "page.md5.box.download.support.authors"
 msgstr "আপনার যদি এটি ভালো লাগে এবং আপনি সামর্থ্য রাখেন, তবে মূলটি কেনার কথা বিবেচনা করুন, অথবা সরাসরি লেখকদের সমর্থন করুন।"
 
-#: allthethings/page/templates/page/aarecord.html:340
+#: allthethings/page/templates/page/aarecord.html:404
 #, fuzzy
 msgid "page.md5.box.download.support.libraries"
 msgstr "যদি এটি আপনার স্থানীয় গ্রন্থাগারে উপলব্ধ থাকে, তাহলে বিনামূল্যে সেখানে ধার নেওয়ার কথা বিবেচনা করুন।"
 
-#: allthethings/page/templates/page/aarecord.html:371
+#: allthethings/page/templates/page/aarecord.html:442
 #, fuzzy
 msgid "page.md5.quality.header"
 msgstr "ফাইলের গুণমান"
 
-#: allthethings/page/templates/page/aarecord.html:374
+#: allthethings/page/templates/page/aarecord.html:445
 #, fuzzy
 msgid "page.md5.quality.report"
 msgstr "এই ফাইলের গুণমান রিপোর্ট করে সম্প্রদায়কে সাহায্য করুন! 🙌"
 
-#: allthethings/page/templates/page/aarecord.html:378
+#: allthethings/page/templates/page/aarecord.html:449
 #, fuzzy
 msgid "page.md5.quality.report_issue"
 msgstr "ফাইলের সমস্যা রিপোর্ট করুন (%(count)s)"
 
-#: allthethings/page/templates/page/aarecord.html:380
+#: allthethings/page/templates/page/aarecord.html:451
 #, fuzzy
 msgid "page.md5.quality.great_quality"
 msgstr "চমৎকার ফাইলের গুণমান (%(count)s)"
 
-#: allthethings/page/templates/page/aarecord.html:380
+#: allthethings/page/templates/page/aarecord.html:451
 #, fuzzy
 msgid "page.md5.quality.add_comment"
 msgstr "মন্তব্য যোগ করুন (%(count)s)"
 
-#: allthethings/page/templates/page/aarecord.html:383
+#: allthethings/page/templates/page/aarecord.html:454
 #, fuzzy
 msgid "page.md5.quality.logged_out_login"
 msgstr "অনুগ্রহ করে <a %(a_login)s>লগ ইন</a> করুন।"
 
-#: allthethings/page/templates/page/aarecord.html:387
+#: allthethings/page/templates/page/aarecord.html:458
 #, fuzzy
 msgid "page.md5.quality.what_is_wrong"
 msgstr "এই ফাইলের কী সমস্যা?"
 
-#: allthethings/page/templates/page/aarecord.html:397
+#: allthethings/page/templates/page/aarecord.html:468
 #, fuzzy
 msgid "page.md5.quality.copyright"
 msgstr "অনুগ্রহ করে <a %(a_copyright)s>DMCA / কপিরাইট দাবি ফর্ম</a> ব্যবহার করুন।"
 
-#: allthethings/page/templates/page/aarecord.html:402
+#: allthethings/page/templates/page/aarecord.html:473
 #, fuzzy
 msgid "page.md5.quality.describe_the_issue"
 msgstr "সমস্যার বর্ণনা (প্রয়োজনীয়)"
 
-#: allthethings/page/templates/page/aarecord.html:403
+#: allthethings/page/templates/page/aarecord.html:474
 #, fuzzy
 msgid "page.md5.quality.issue_description"
 msgstr "সমস্যার বর্ণনা"
 
-#: allthethings/page/templates/page/aarecord.html:407
+#: allthethings/page/templates/page/aarecord.html:478
 #, fuzzy
 msgid "page.md5.quality.better_md5.text1"
 msgstr "এই ফাইলের একটি ভাল সংস্করণের MD5 (যদি প্রযোজ্য হয়)।"
 
-#: allthethings/page/templates/page/aarecord.html:407
+#: allthethings/page/templates/page/aarecord.html:478
 #, fuzzy
 msgid "page.md5.quality.better_md5.text2"
 msgstr "যদি এমন আরেকটি ফাইল থাকে যা এই ফাইলের সাথে ঘনিষ্ঠভাবে মেলে (একই সংস্করণ, একই ফাইল এক্সটেনশন যদি আপনি খুঁজে পান), যা এই ফাইলের পরিবর্তে ব্যবহার করা উচিত। যদি আপনি Anna’s Archive-এর বাইরে এই ফাইলের একটি ভাল সংস্করণ জানেন, তাহলে অনুগ্রহ করে <a %(a_upload)s>আপলোড করুন</a>।"
 
-#: allthethings/page/templates/page/aarecord.html:410
+#: allthethings/page/templates/page/aarecord.html:481
 #, fuzzy
 msgid "page.md5.quality.better_md5.line1"
 msgstr "আপনি URL থেকে md5 পেতে পারেন, যেমন"
 
-#: allthethings/page/templates/page/aarecord.html:417
+#: allthethings/page/templates/page/aarecord.html:488
 #, fuzzy
 msgid "page.md5.quality.submit_report"
 msgstr "রিপোর্ট জমা দিন"
 
-#: allthethings/page/templates/page/aarecord.html:422
+#: allthethings/page/templates/page/aarecord.html:493
 #, fuzzy
 msgid "page.md5.quality.improve_the_metadata"
 msgstr "এই ফাইলটির মেটাডেটা কীভাবে নিজে উন্নত করবেন তা শিখুন <a %(a_metadata)s>এখানে</a>।"
 
-#: allthethings/page/templates/page/aarecord.html:426
+#: allthethings/page/templates/page/aarecord.html:497
 #, fuzzy
 msgid "page.md5.quality.report_thanks"
 msgstr "আপনার রিপোর্ট জমা দেওয়ার জন্য ধন্যবাদ। এটি এই পৃষ্ঠায় প্রদর্শিত হবে, এবং ম্যানুয়ালি আন্না দ্বারা পর্যালোচনা করা হবে (যতক্ষণ না আমাদের একটি সঠিক মডারেশন সিস্টেম থাকে)।"
 
-#: allthethings/page/templates/page/aarecord.html:427
+#: allthethings/page/templates/page/aarecord.html:498
 #, fuzzy
 msgid "page.md5.quality.report_error"
 msgstr "কিছু ভুল হয়েছে। দয়া করে পৃষ্ঠাটি পুনরায় লোড করুন এবং আবার চেষ্টা করুন।"
 
-#: allthethings/page/templates/page/aarecord.html:433
+#: allthethings/page/templates/page/aarecord.html:504
 #, fuzzy
 msgid "page.md5.quality.great.summary"
 msgstr "যদি এই ফাইলটির গুণমান চমৎকার হয়, আপনি এখানে এটির সম্পর্কে যেকোনো কিছু আলোচনা করতে পারেন! যদি না হয়, দয়া করে “ফাইল সমস্যা রিপোর্ট করুন” বোতামটি ব্যবহার করুন।"
 
-#: allthethings/page/templates/page/aarecord.html:435
+#: allthethings/page/templates/page/aarecord.html:506
 #, fuzzy
 msgid "page.md5.quality.loved_the_book"
 msgstr "আমি এই বইটি ভালোবাসি!"
 
-#: allthethings/page/templates/page/aarecord.html:437
+#: allthethings/page/templates/page/aarecord.html:508
 #, fuzzy
 msgid "page.md5.quality.submit_comment"
 msgstr "মন্তব্য করুন"
 
-#: allthethings/page/templates/page/aarecord.html:441
+#: allthethings/page/templates/page/aarecord.html:512
 #, fuzzy
 msgid "page.md5.quality.comment_thanks"
 msgstr "আপনি একটি মন্তব্য করেছেন। এটি প্রদর্শিত হতে এক মিনিট সময় লাগতে পারে।"
 
-#: allthethings/page/templates/page/aarecord.html:442
+#: allthethings/page/templates/page/aarecord.html:513
 #, fuzzy
 msgid "page.md5.quality.comment_error"
 msgstr "কিছু ভুল হয়েছে। দয়া করে পৃষ্ঠাটি পুনরায় লোড করুন এবং আবার চেষ্টা করুন।"
 
-#: allthethings/page/templates/page/aarecord.html:452
-#: allthethings/page/templates/page/aarecord.html:453
-#: allthethings/page/templates/page/torrents.html:36
-#: allthethings/page/templates/page/torrents.html:37
+#: allthethings/page/templates/page/aarecord.html:522
+#: allthethings/page/templates/page/aarecord.html:523
+#: allthethings/page/templates/page/torrents.html:40
+#: allthethings/page/templates/page/torrents.html:41
 msgid "common.english_only"
 msgstr "পাঠ্য ইংরেজিতে নীচে চলতে থাকে।"
 
-#: allthethings/page/templates/page/aarecord.html:474
+#: allthethings/page/templates/page/aarecord.html:544
 #, fuzzy
 msgid "page.md5.text.stats.total_downloads"
 msgstr "মোট ডাউনলোড: %(total)s"
 
-#: allthethings/page/templates/page/aarecord.html:506
+#: allthethings/page/templates/page/aarecord.html:576
 #, fuzzy
 msgid "page.md5.text.md5_info.text1"
 msgstr "একটি “ফাইল MD5” হল একটি হ্যাশ যা ফাইলের বিষয়বস্তু থেকে গণনা করা হয়, এবং সেই বিষয়বস্তুর উপর ভিত্তি করে যুক্তিসঙ্গতভাবে অনন্য হয়। আমরা এখানে সূচিকৃত সমস্ত শ্যাডো লাইব্রেরি প্রধানত ফাইলগুলি সনাক্ত করতে MD5 ব্যবহার করে।"
 
-#: allthethings/page/templates/page/aarecord.html:510
+#: allthethings/page/templates/page/aarecord.html:580
 #, fuzzy
 msgid "page.md5.text.md5_info.text2"
 msgstr "একটি ফাইল একাধিক শ্যাডো লাইব্রেরিতে উপস্থিত হতে পারে। আমরা যে বিভিন্ন ডেটাসেট সংকলন করেছি তার তথ্যের জন্য, <a %(a_datasets)s>ডেটাসেট পৃষ্ঠা</a> দেখুন।"
 
-#: allthethings/page/templates/page/aarecord.html:514
+#: allthethings/page/templates/page/aarecord.html:584
 #, fuzzy
 msgid "page.md5.text.ia_info.text1"
 msgstr "এটি <a %(a_ia)s>IA-এর নিয়ন্ত্রিত ডিজিটাল লেন্ডিং</a> লাইব্রেরি দ্বারা পরিচালিত একটি ফাইল, এবং অনুসন্ধানের জন্য আন্নার আর্কাইভ দ্বারা সূচিকৃত। আমরা যে বিভিন্ন ডেটাসেট সংকলন করেছি তার তথ্যের জন্য, <a %(a_datasets)s>ডেটাসেট পৃষ্ঠা</a> দেখুন।"
 
-#: allthethings/page/templates/page/aarecord.html:519
+#: allthethings/page/templates/page/aarecord.html:589
 #, fuzzy
 msgid "page.md5.text.file_info.text1"
 msgstr "এই নির্দিষ্ট ফাইল সম্পর্কে তথ্যের জন্য, এর <a %(a_href)s>JSON ফাইল</a> দেখুন।"
@@ -3758,7 +3777,7 @@ msgstr "আমরা শুধুমাত্র মেটাডেটা উৎ
 
 #: allthethings/page/templates/page/datasets.html:505
 #: allthethings/page/templates/page/faq.html:191
-#: allthethings/page/templates/page/search.html:392
+#: allthethings/page/templates/page/search.html:396
 #, fuzzy
 msgid "page.faq.metadata.inspiration"
 msgstr "আমাদের মেটাডেটা সংগ্রহের অনুপ্রেরণা ছিল অ্যারন শোয়ার্টজের লক্ষ্য \"প্রকাশিত প্রতিটি বইয়ের জন্য একটি ওয়েব পৃষ্ঠা\", যার জন্য তিনি <a %(a_openlib)s>Open Library</a> তৈরি করেছিলেন। সেই প্রকল্পটি ভাল করেছে, তবে আমাদের অনন্য অবস্থান আমাদের এমন মেটাডেটা পেতে দেয় যা তারা পারে না। আরেকটি অনুপ্রেরণা ছিল আমাদের <a %(a_blog)s>বিশ্বে কতগুলি বই আছে</a> তা জানার ইচ্ছা, যাতে আমরা গণনা করতে পারি কতগুলি বই এখনও বাঁচাতে বাকি আছে।"
@@ -3841,11 +3860,11 @@ msgstr "যদিও বইগুলি আধা-সর্বজনীনভা
 #: allthethings/page/templates/page/datasets_lgrs.html:81
 #: allthethings/page/templates/page/datasets_magzdb.html:66
 #: allthethings/page/templates/page/datasets_nexusstc.html:72
-#: allthethings/page/templates/page/datasets_oclc.html:63
+#: allthethings/page/templates/page/datasets_oclc.html:120
 #: allthethings/page/templates/page/datasets_ol.html:44
-#: allthethings/page/templates/page/datasets_other_metadata.html:150
+#: allthethings/page/templates/page/datasets_other_metadata.html:72
 #: allthethings/page/templates/page/datasets_scihub.html:90
-#: allthethings/page/templates/page/datasets_upload.html:221
+#: allthethings/page/templates/page/datasets_upload.html:104
 #: allthethings/page/templates/page/datasets_zlib.html:63
 #, fuzzy
 msgid "page.datasets.common.resources"
@@ -3858,7 +3877,7 @@ msgstr "সম্পদসমূহ"
 #: allthethings/page/templates/page/datasets_magzdb.html:68
 #: allthethings/page/templates/page/datasets_nexusstc.html:74
 #: allthethings/page/templates/page/datasets_scihub.html:92
-#: allthethings/page/templates/page/datasets_upload.html:223
+#: allthethings/page/templates/page/datasets_upload.html:106
 #: allthethings/page/templates/page/datasets_zlib.html:67
 #: allthethings/page/templates/page/datasets_zlib.html:74
 #, fuzzy
@@ -3872,7 +3891,7 @@ msgstr "মোট ফাইল: %(count)s"
 #: allthethings/page/templates/page/datasets_magzdb.html:69
 #: allthethings/page/templates/page/datasets_nexusstc.html:75
 #: allthethings/page/templates/page/datasets_scihub.html:93
-#: allthethings/page/templates/page/datasets_upload.html:224
+#: allthethings/page/templates/page/datasets_upload.html:107
 #: allthethings/page/templates/page/datasets_zlib.html:68
 #: allthethings/page/templates/page/datasets_zlib.html:75
 #, fuzzy
@@ -3886,7 +3905,7 @@ msgstr "মোট ফাইলসাইজ: %(size)s"
 #: allthethings/page/templates/page/datasets_magzdb.html:70
 #: allthethings/page/templates/page/datasets_nexusstc.html:76
 #: allthethings/page/templates/page/datasets_scihub.html:94
-#: allthethings/page/templates/page/datasets_upload.html:225
+#: allthethings/page/templates/page/datasets_upload.html:108
 #: allthethings/page/templates/page/datasets_zlib.html:69
 #: allthethings/page/templates/page/datasets_zlib.html:76
 #, fuzzy
@@ -3899,7 +3918,7 @@ msgstr "আন্নার আর্কাইভ দ্বারা মিরর
 #: allthethings/page/templates/page/datasets_lgrs.html:86
 #: allthethings/page/templates/page/datasets_magzdb.html:71
 #: allthethings/page/templates/page/datasets_nexusstc.html:77
-#: allthethings/page/templates/page/datasets_oclc.html:65
+#: allthethings/page/templates/page/datasets_oclc.html:122
 #: allthethings/page/templates/page/datasets_ol.html:46
 #: allthethings/page/templates/page/datasets_zlib.html:79
 #, fuzzy
@@ -3916,10 +3935,10 @@ msgstr "আন্নার আর্কাইভ দ্বারা টরেন
 #: allthethings/page/templates/page/datasets_ia.html:79
 #: allthethings/page/templates/page/datasets_lgli.html:113
 #: allthethings/page/templates/page/datasets_lgrs.html:90
-#: allthethings/page/templates/page/datasets_oclc.html:67
+#: allthethings/page/templates/page/datasets_oclc.html:124
 #: allthethings/page/templates/page/datasets_ol.html:47
 #: allthethings/page/templates/page/datasets_scihub.html:96
-#: allthethings/page/templates/page/datasets_upload.html:227
+#: allthethings/page/templates/page/datasets_upload.html:110
 #, fuzzy
 msgid "page.datasets.common.aa_example_record"
 msgstr "আন্নার আর্কাইভে উদাহরণ রেকর্ড"
@@ -3935,11 +3954,11 @@ msgstr "এই ডেটা সম্পর্কে আমাদের ব্�
 #: allthethings/page/templates/page/datasets_lgrs.html:101
 #: allthethings/page/templates/page/datasets_magzdb.html:78
 #: allthethings/page/templates/page/datasets_nexusstc.html:92
-#: allthethings/page/templates/page/datasets_oclc.html:70
+#: allthethings/page/templates/page/datasets_oclc.html:127
 #: allthethings/page/templates/page/datasets_ol.html:50
-#: allthethings/page/templates/page/datasets_other_metadata.html:153
+#: allthethings/page/templates/page/datasets_other_metadata.html:75
 #: allthethings/page/templates/page/datasets_scihub.html:104
-#: allthethings/page/templates/page/datasets_upload.html:228
+#: allthethings/page/templates/page/datasets_upload.html:111
 #: allthethings/page/templates/page/datasets_zlib.html:87
 #, fuzzy
 msgid "page.datasets.common.import_scripts"
@@ -3951,11 +3970,11 @@ msgstr "মেটাডেটা আমদানি করার স্ক্র
 #: allthethings/page/templates/page/datasets_lgrs.html:102
 #: allthethings/page/templates/page/datasets_magzdb.html:79
 #: allthethings/page/templates/page/datasets_nexusstc.html:93
-#: allthethings/page/templates/page/datasets_oclc.html:71
+#: allthethings/page/templates/page/datasets_oclc.html:128
 #: allthethings/page/templates/page/datasets_ol.html:51
-#: allthethings/page/templates/page/datasets_other_metadata.html:154
+#: allthethings/page/templates/page/datasets_other_metadata.html:76
 #: allthethings/page/templates/page/datasets_scihub.html:105
-#: allthethings/page/templates/page/datasets_upload.html:229
+#: allthethings/page/templates/page/datasets_upload.html:112
 #: allthethings/page/templates/page/datasets_zlib.html:88
 #, fuzzy
 msgid "page.datasets.common.aac"
@@ -4001,7 +4020,7 @@ msgstr "AAC ব্যবহার করে ধাপে ধাপে নতু�
 #: allthethings/page/templates/page/datasets_ia.html:80
 #: allthethings/page/templates/page/datasets_lgli.html:114
 #: allthethings/page/templates/page/datasets_lgrs.html:91
-#: allthethings/page/templates/page/datasets_oclc.html:68
+#: allthethings/page/templates/page/datasets_oclc.html:125
 #: allthethings/page/templates/page/datasets_ol.html:48
 #: allthethings/page/templates/page/datasets_scihub.html:97
 #, fuzzy
@@ -4296,7 +4315,7 @@ msgstr "Z-Library সংগ্রহের মতো, আমরা এগুল�
 
 #: allthethings/page/templates/page/datasets_oclc.html:4
 #: allthethings/page/templates/page/datasets_oclc.html:7
-#: allthethings/page/templates/page/datasets_oclc.html:68
+#: allthethings/page/templates/page/datasets_oclc.html:125
 #, fuzzy
 msgid "page.datasets.worldcat.title"
 msgstr "OCLC (WorldCat)"
@@ -4306,17 +4325,17 @@ msgstr "OCLC (WorldCat)"
 msgid "page.datasets.worldcat.description"
 msgstr "<a %(a_worldcat)s>WorldCat</a> একটি মালিকানাধীন ডাটাবেস যা অলাভজনক <a %(a_oclc)s>OCLC</a> দ্বারা পরিচালিত হয়, যা সারা বিশ্বের গ্রন্থাগার থেকে মেটাডেটা রেকর্ড সংগ্রহ করে। এটি সম্ভবত বিশ্বের বৃহত্তম গ্রন্থাগার মেটাডেটা সংগ্রহ।"
 
-#: allthethings/page/templates/page/datasets_oclc.html:52
+#: allthethings/page/templates/page/datasets_oclc.html:54
 #, fuzzy
 msgid "page.datasets.worldcat.description2"
 msgstr "অক্টোবর ২০২৩ এ আমরা <a %(a_scrape)s>মুক্তি দিয়েছি</a> OCLC (WorldCat) ডাটাবেসের একটি বিস্তৃত স্ক্র্যাপ, <a %(a_aac)s>Anna’s Archive Containers ফরম্যাটে</a>।"
 
-#: allthethings/page/templates/page/datasets_oclc.html:66
+#: allthethings/page/templates/page/datasets_oclc.html:123
 #, fuzzy
 msgid "page.datasets.worldcat.torrents"
 msgstr "Anna’s Archive দ্বারা টরেন্ট"
 
-#: allthethings/page/templates/page/datasets_oclc.html:69
+#: allthethings/page/templates/page/datasets_oclc.html:126
 #, fuzzy
 msgid "page.datasets.worldcat.blog_announcement"
 msgstr "এই ডেটা সম্পর্কে আমাদের ব্লগ পোস্ট"
@@ -4338,22 +4357,22 @@ msgstr "Open Library হল Internet Archive-এর একটি ওপেন �
 msgid "page.datesets.openlib.link_metadata"
 msgstr "মেটাডেটা"
 
-#: allthethings/page/templates/page/datasets_other_metadata.html:92
+#: allthethings/page/templates/page/datasets_other_metadata.html:61
 #, fuzzy
 msgid "page.datasets.isbndb.release1.title"
 msgstr "রিলিজ 1 (2022-10-31)"
 
-#: allthethings/page/templates/page/datasets_other_metadata.html:93
+#: allthethings/page/templates/page/datasets_other_metadata.html:61
 #, fuzzy
 msgid "page.datasets.isbndb.release1.text1"
 msgstr "এটি সেপ্টেম্বর 2022 এর সময় isbndb.com এ অনেক কলের ডাম্প। আমরা সমস্ত ISBN রেঞ্জ কভার করার চেষ্টা করেছি। এগুলি প্রায় 30.9 মিলিয়ন রেকর্ড। তাদের ওয়েবসাইটে তারা দাবি করে যে তাদের আসলে 32.6 মিলিয়ন রেকর্ড রয়েছে, তাই আমরা হয়তো কিছু মিস করেছি, অথবা <em>তারা</em> কিছু ভুল করছে।"
 
-#: allthethings/page/templates/page/datasets_other_metadata.html:94
+#: allthethings/page/templates/page/datasets_other_metadata.html:61
 #, fuzzy
 msgid "page.datasets.isbndb.release1.text2"
 msgstr "JSON প্রতিক্রিয়াগুলি তাদের সার্ভার থেকে প্রায় কাঁচা। একটি ডেটা গুণমান সমস্যা যা আমরা লক্ষ্য করেছি, তা হল যে ISBN-13 নম্বরগুলির জন্য যা \"978-\" এর ভিন্ন প্রিফিক্স দিয়ে শুরু হয়, তারা এখনও একটি \"isbn\" ক্ষেত্র অন্তর্ভুক্ত করে যা কেবল প্রথম 3 নম্বর কেটে ফেলা (এবং চেক ডিজিট পুনরায় গণনা করা) সহ ISBN-13 নম্বর। এটি স্পষ্টতই ভুল, তবে তারা এটি এভাবেই করে বলে মনে হচ্ছে, তাই আমরা এটি পরিবর্তন করিনি।"
 
-#: allthethings/page/templates/page/datasets_other_metadata.html:95
+#: allthethings/page/templates/page/datasets_other_metadata.html:61
 #, fuzzy
 msgid "page.datasets.isbndb.release1.text3"
 msgstr "আরেকটি সম্ভাব্য সমস্যা যা আপনি সম্মুখীন হতে পারেন, তা হল \"isbn13\" ক্ষেত্রের ডুপ্লিকেট রয়েছে, তাই আপনি এটি একটি ডাটাবেসে প্রাথমিক কী হিসাবে ব্যবহার করতে পারবেন না। \"isbn13\"+\"isbn\" ক্ষেত্রগুলি মিলিতভাবে অনন্য বলে মনে হয়।"
@@ -4446,162 +4465,189 @@ msgstr "অনেক উপ-সংগ্রহ নিজেই উপ-উপ-স
 msgid "page.datasets.upload.subs.heading"
 msgstr "উপ-সংগ্রহগুলি হল:"
 
+#: allthethings/page/templates/page/datasets_upload.html:63
+#: allthethings/page/templates/page/datasets_upload.html:64
 #: allthethings/page/templates/page/datasets_upload.html:65
+#: allthethings/page/templates/page/datasets_upload.html:66
+#: allthethings/page/templates/page/datasets_upload.html:67
+#: allthethings/page/templates/page/datasets_upload.html:68
+#: allthethings/page/templates/page/datasets_upload.html:69
+#: allthethings/page/templates/page/datasets_upload.html:70
+#: allthethings/page/templates/page/datasets_upload.html:71
 #: allthethings/page/templates/page/datasets_upload.html:72
+#: allthethings/page/templates/page/datasets_upload.html:73
+#: allthethings/page/templates/page/datasets_upload.html:74
+#: allthethings/page/templates/page/datasets_upload.html:75
+#: allthethings/page/templates/page/datasets_upload.html:76
+#: allthethings/page/templates/page/datasets_upload.html:77
+#: allthethings/page/templates/page/datasets_upload.html:78
 #: allthethings/page/templates/page/datasets_upload.html:79
+#: allthethings/page/templates/page/datasets_upload.html:80
+#: allthethings/page/templates/page/datasets_upload.html:81
+#: allthethings/page/templates/page/datasets_upload.html:82
+#: allthethings/page/templates/page/datasets_upload.html:83
+#: allthethings/page/templates/page/datasets_upload.html:84
+#: allthethings/page/templates/page/datasets_upload.html:85
 #: allthethings/page/templates/page/datasets_upload.html:86
+#: allthethings/page/templates/page/datasets_upload.html:87
+#: allthethings/page/templates/page/datasets_upload.html:88
+#: allthethings/page/templates/page/datasets_upload.html:89
+#: allthethings/page/templates/page/datasets_upload.html:90
+#: allthethings/page/templates/page/datasets_upload.html:91
+#: allthethings/page/templates/page/datasets_upload.html:92
 #: allthethings/page/templates/page/datasets_upload.html:93
-#: allthethings/page/templates/page/datasets_upload.html:100
-#: allthethings/page/templates/page/datasets_upload.html:107
-#: allthethings/page/templates/page/datasets_upload.html:114
-#: allthethings/page/templates/page/datasets_upload.html:121
-#: allthethings/page/templates/page/datasets_upload.html:128
-#: allthethings/page/templates/page/datasets_upload.html:135
-#: allthethings/page/templates/page/datasets_upload.html:142
-#: allthethings/page/templates/page/datasets_upload.html:149
-#: allthethings/page/templates/page/datasets_upload.html:156
-#: allthethings/page/templates/page/datasets_upload.html:163
-#: allthethings/page/templates/page/datasets_upload.html:170
-#: allthethings/page/templates/page/datasets_upload.html:177
-#: allthethings/page/templates/page/datasets_upload.html:184
-#: allthethings/page/templates/page/datasets_upload.html:191
-#: allthethings/page/templates/page/datasets_upload.html:198
-#: allthethings/page/templates/page/datasets_upload.html:212
+#: allthethings/page/templates/page/datasets_upload.html:94
+#: allthethings/page/templates/page/datasets_upload.html:95
+#: allthethings/page/templates/page/datasets_upload.html:96
+#: allthethings/page/templates/page/datasets_upload.html:97
+#: allthethings/page/templates/page/datasets_upload.html:98
+#: allthethings/page/templates/page/datasets_upload.html:99
 #, fuzzy
 msgid "page.datasets.upload.action.browse"
 msgstr "ব্রাউজ"
 
+#: allthethings/page/templates/page/datasets_upload.html:63
+#: allthethings/page/templates/page/datasets_upload.html:64
+#: allthethings/page/templates/page/datasets_upload.html:65
 #: allthethings/page/templates/page/datasets_upload.html:66
+#: allthethings/page/templates/page/datasets_upload.html:67
+#: allthethings/page/templates/page/datasets_upload.html:68
+#: allthethings/page/templates/page/datasets_upload.html:69
+#: allthethings/page/templates/page/datasets_upload.html:70
+#: allthethings/page/templates/page/datasets_upload.html:71
+#: allthethings/page/templates/page/datasets_upload.html:72
 #: allthethings/page/templates/page/datasets_upload.html:73
+#: allthethings/page/templates/page/datasets_upload.html:74
+#: allthethings/page/templates/page/datasets_upload.html:75
+#: allthethings/page/templates/page/datasets_upload.html:76
+#: allthethings/page/templates/page/datasets_upload.html:77
+#: allthethings/page/templates/page/datasets_upload.html:78
+#: allthethings/page/templates/page/datasets_upload.html:79
 #: allthethings/page/templates/page/datasets_upload.html:80
+#: allthethings/page/templates/page/datasets_upload.html:81
+#: allthethings/page/templates/page/datasets_upload.html:82
+#: allthethings/page/templates/page/datasets_upload.html:83
+#: allthethings/page/templates/page/datasets_upload.html:84
+#: allthethings/page/templates/page/datasets_upload.html:85
+#: allthethings/page/templates/page/datasets_upload.html:86
 #: allthethings/page/templates/page/datasets_upload.html:87
+#: allthethings/page/templates/page/datasets_upload.html:88
+#: allthethings/page/templates/page/datasets_upload.html:89
+#: allthethings/page/templates/page/datasets_upload.html:90
+#: allthethings/page/templates/page/datasets_upload.html:91
+#: allthethings/page/templates/page/datasets_upload.html:92
+#: allthethings/page/templates/page/datasets_upload.html:93
 #: allthethings/page/templates/page/datasets_upload.html:94
-#: allthethings/page/templates/page/datasets_upload.html:101
-#: allthethings/page/templates/page/datasets_upload.html:108
-#: allthethings/page/templates/page/datasets_upload.html:115
-#: allthethings/page/templates/page/datasets_upload.html:122
-#: allthethings/page/templates/page/datasets_upload.html:129
-#: allthethings/page/templates/page/datasets_upload.html:136
-#: allthethings/page/templates/page/datasets_upload.html:143
-#: allthethings/page/templates/page/datasets_upload.html:150
-#: allthethings/page/templates/page/datasets_upload.html:157
-#: allthethings/page/templates/page/datasets_upload.html:164
-#: allthethings/page/templates/page/datasets_upload.html:171
-#: allthethings/page/templates/page/datasets_upload.html:178
-#: allthethings/page/templates/page/datasets_upload.html:185
-#: allthethings/page/templates/page/datasets_upload.html:192
-#: allthethings/page/templates/page/datasets_upload.html:199
-#: allthethings/page/templates/page/datasets_upload.html:213
+#: allthethings/page/templates/page/datasets_upload.html:95
+#: allthethings/page/templates/page/datasets_upload.html:96
+#: allthethings/page/templates/page/datasets_upload.html:97
+#: allthethings/page/templates/page/datasets_upload.html:98
+#: allthethings/page/templates/page/datasets_upload.html:99
 #, fuzzy
 msgid "page.datasets.upload.action.search"
 msgstr "অনুসন্ধান"
 
-#: allthethings/page/templates/page/datasets_upload.html:67
+#: allthethings/page/templates/page/datasets_upload.html:63
 #, fuzzy
 msgid "page.datasets.upload.source.aaaaarg"
 msgstr "<a %(a_href)s>aaaaarg.fail</a> থেকে। বেশ সম্পূর্ণ বলে মনে হচ্ছে। আমাদের স্বেচ্ছাসেবক “cgiym” থেকে।"
 
-#: allthethings/page/templates/page/datasets_upload.html:74
+#: allthethings/page/templates/page/datasets_upload.html:64
 #, fuzzy
 msgid "page.datasets.upload.source.acm"
 msgstr "<a %(a_href)s><q>ACM Digital Library 2020</q></a> টরেন্ট থেকে। বিদ্যমান পেপার সংগ্রহের সাথে বেশ উচ্চ ওভারল্যাপ রয়েছে, কিন্তু খুব কম MD5 ম্যাচ রয়েছে, তাই আমরা এটি সম্পূর্ণরূপে রাখার সিদ্ধান্ত নিয়েছি।"
 
-#: allthethings/page/templates/page/datasets_upload.html:81
-#, fuzzy
-msgid "page.datasets.upload.source.alexandrina"
-msgstr "একটি সংগ্রহ <a %(a_href)s><q>Bibliotheca Alexandrina,</q></a> সঠিক উৎস অস্পষ্ট। আংশিকভাবে the-eye.eu থেকে, আংশিকভাবে অন্যান্য উৎস থেকে।"
-
-#: allthethings/page/templates/page/datasets_upload.html:88
+#: allthethings/page/templates/page/datasets_upload.html:67
 #, fuzzy
 msgid "page.datasets.upload.source.bibliotik"
 msgstr "একটি ব্যক্তিগত বইয়ের টরেন্ট ওয়েবসাইট থেকে, <a %(a_href)s>Bibliotik</a> (প্রায়শই “Bib” নামে পরিচিত), যার বইগুলি নাম অনুসারে টরেন্টে বান্ডিল করা হয়েছিল (A.torrent, B.torrent) এবং the-eye.eu এর মাধ্যমে বিতরণ করা হয়েছিল।"
 
-#: allthethings/page/templates/page/datasets_upload.html:95
+#: allthethings/page/templates/page/datasets_upload.html:68
 #, fuzzy
 msgid "page.datasets.upload.source.bpb9v_cadal"
 msgstr "আমাদের স্বেচ্ছাসেবক “bpb9v” থেকে। <a %(a_href)s>CADAL</a> সম্পর্কে আরও তথ্যের জন্য, আমাদের <a %(a_duxiu)s>DuXiu dataset page</a> এ নোটগুলি দেখুন।"
 
-#: allthethings/page/templates/page/datasets_upload.html:102
+#: allthethings/page/templates/page/datasets_upload.html:69
 #, fuzzy
 msgid "page.datasets.upload.source.bpb9v_direct"
 msgstr "আমাদের স্বেচ্ছাসেবক “bpb9v” থেকে আরও, বেশিরভাগই DuXiu ফাইল, পাশাপাশি একটি ফোল্ডার “WenQu” এবং “SuperStar_Journals” (SuperStar হল DuXiu এর পিছনের কোম্পানি)।"
 
-#: allthethings/page/templates/page/datasets_upload.html:109
+#: allthethings/page/templates/page/datasets_upload.html:70
 #, fuzzy
 msgid "page.datasets.upload.source.cgiym_chinese"
 msgstr "আমাদের স্বেচ্ছাসেবক “cgiym” থেকে, বিভিন্ন উৎস থেকে চীনা পাঠ্য (সাবডিরেক্টরি হিসাবে উপস্থাপিত), যার মধ্যে রয়েছে <a %(a_href)s>China Machine Press</a> (একটি প্রধান চীনা প্রকাশক)।"
 
-#: allthethings/page/templates/page/datasets_upload.html:116
+#: allthethings/page/templates/page/datasets_upload.html:71
 #, fuzzy
 msgid "page.datasets.upload.source.cgiym_more"
 msgstr "আমাদের স্বেচ্ছাসেবক “cgiym” থেকে অ-চীনা সংগ্রহ (সাবডিরেক্টরি হিসাবে উপস্থাপিত)।"
 
-#: allthethings/page/templates/page/datasets_upload.html:123
+#: allthethings/page/templates/page/datasets_upload.html:73
 #, fuzzy
 msgid "page.datasets.upload.source.degruyter"
 msgstr "একাডেমিক প্রকাশনা সংস্থা <a %(a_href)s>De Gruyter</a> থেকে বই, কয়েকটি বড় টরেন্ট থেকে সংগ্রহ করা হয়েছে।"
 
-#: allthethings/page/templates/page/datasets_upload.html:130
+#: allthethings/page/templates/page/datasets_upload.html:74
 #, fuzzy
 msgid "page.datasets.upload.source.docer"
 msgstr "<a %(a_href)s>docer.pl</a> এর স্ক্র্যাপ, একটি পোলিশ ফাইল শেয়ারিং ওয়েবসাইট যা বই এবং অন্যান্য লিখিত কাজের উপর কেন্দ্রীভূত। ২০২৩ সালের শেষের দিকে স্বেচ্ছাসেবক “p” দ্বারা স্ক্র্যাপ করা হয়েছে। আমাদের কাছে মূল ওয়েবসাইট থেকে ভাল মেটাডেটা নেই (এমনকি ফাইল এক্সটেনশনও নেই), কিন্তু আমরা বইয়ের মতো ফাইলগুলির জন্য ফিল্টার করেছি এবং প্রায়শই ফাইলগুলি থেকে মেটাডেটা বের করতে সক্ষম হয়েছি।"
 
-#: allthethings/page/templates/page/datasets_upload.html:137
+#: allthethings/page/templates/page/datasets_upload.html:75
 #, fuzzy
 msgid "page.datasets.upload.source.duxiu_epub"
 msgstr "DuXiu epubs, সরাসরি DuXiu থেকে, স্বেচ্ছাসেবক “w” দ্বারা সংগ্রহ করা হয়েছে। শুধুমাত্র সাম্প্রতিক DuXiu বইগুলি সরাসরি ইবুকের মাধ্যমে উপলব্ধ, তাই এগুলির বেশিরভাগই সাম্প্রতিক হতে হবে।"
 
-#: allthethings/page/templates/page/datasets_upload.html:144
+#: allthethings/page/templates/page/datasets_upload.html:76
 #, fuzzy
 msgid "page.datasets.upload.source.duxiu_main"
 msgstr "স্বেচ্ছাসেবক “m” থেকে অবশিষ্ট DuXiu ফাইলগুলি, যা DuXiu এর মালিকানাধীন PDG ফরম্যাটে ছিল না (প্রধান <a %(a_href)s>DuXiu dataset</a>)। অনেক মূল উৎস থেকে সংগ্রহ করা হয়েছে, দুর্ভাগ্যবশত সেই উৎসগুলি ফাইলপাথে সংরক্ষণ করা হয়নি।"
 
-#: allthethings/page/templates/page/datasets_upload.html:151
+#: allthethings/page/templates/page/datasets_upload.html:83
 #, fuzzy
 msgid "page.datasets.upload.source.japanese_manga"
 msgstr "স্বেচ্ছাসেবক “t” দ্বারা একটি জাপানি মাঙ্গা প্রকাশক থেকে স্ক্র্যাপ করা সংগ্রহ।"
 
-#: allthethings/page/templates/page/datasets_upload.html:158
+#: allthethings/page/templates/page/datasets_upload.html:84
 #, fuzzy
 msgid "page.datasets.upload.source.longquan_archives"
 msgstr "<a %(a_href)s>Selected judicial archives of Longquan</a>, স্বেচ্ছাসেবক “c” দ্বারা সরবরাহিত।"
 
-#: allthethings/page/templates/page/datasets_upload.html:165
+#: allthethings/page/templates/page/datasets_upload.html:85
 #, fuzzy
 msgid "page.datasets.upload.source.magzdb"
 msgstr "<a %(a_href)s>magzdb.org</a> এর স্ক্র্যাপ, Library Genesis এর একটি মিত্র (এটি libgen.rs হোমপেজে লিঙ্ক করা হয়েছে) কিন্তু যারা সরাসরি তাদের ফাইলগুলি সরবরাহ করতে চায়নি। ২০২৩ সালের শেষের দিকে স্বেচ্ছাসেবক “p” দ্বারা প্রাপ্ত।"
 
-#: allthethings/page/templates/page/datasets_upload.html:172
+#: allthethings/page/templates/page/datasets_upload.html:87
 #, fuzzy
 msgid "page.datasets.upload.source.misc"
 msgstr "বিভিন্ন ছোট আপলোড, তাদের নিজস্ব সাবকলেকশন হিসাবে খুব ছোট, কিন্তু ডিরেক্টরি হিসাবে উপস্থাপিত।"
 
-#: allthethings/page/templates/page/datasets_upload.html:179
+#: allthethings/page/templates/page/datasets_upload.html:91
 #, fuzzy
 msgid "page.datasets.upload.source.polish"
 msgstr "স্বেচ্ছাসেবক “o” এর সংগ্রহ যিনি মূল রিলিজ (“scene”) ওয়েবসাইট থেকে সরাসরি পোলিশ বই সংগ্রহ করেছেন।"
 
-#: allthethings/page/templates/page/datasets_upload.html:186
+#: allthethings/page/templates/page/datasets_upload.html:92
 #, fuzzy
 msgid "page.datasets.upload.source.shuge"
 msgstr "স্বেচ্ছাসেবক “cgiym” এবং “woz9ts” দ্বারা <a %(a_href)s>shuge.org</a> এর সম্মিলিত সংগ্রহ।"
 
-#: allthethings/page/templates/page/datasets_upload.html:193
+#: allthethings/page/templates/page/datasets_upload.html:94
 #, fuzzy
 msgid "page.datasets.upload.source.trantor"
 msgstr "<a %(a_href)s>“Imperial Library of Trantor”</a> (কাল্পনিক গ্রন্থাগারের নামে নামকরণ করা হয়েছে), ২০২২ সালে স্বেচ্ছাসেবক “t” দ্বারা স্ক্র্যাপ করা হয়েছে।"
 
-#: allthethings/page/templates/page/datasets_upload.html:200
+#: allthethings/page/templates/page/datasets_upload.html:98
 #, fuzzy
 msgid "page.datasets.upload.source.woz9ts_direct"
 msgstr "স্বেচ্ছাসেবক “woz9ts” থেকে সাব-সাব-সংগ্রহ (ডিরেক্টরি হিসাবে উপস্থাপিত): <a %(a_program_think)s>program-think</a>, <a %(a_haodoo)s>haodoo</a>, <a %(a_skqs)s>skqs</a> (তাইওয়ানে <a %(a_sikuquanshu)s>Dizhi(迪志)</a> দ্বারা), mebook (mebook.cc, আমার ছোট বইয়ের ঘর — woz9ts: “এই সাইটটি প্রধানত উচ্চ মানের ইবুক ফাইলগুলি শেয়ার করার উপর কেন্দ্রীভূত, যার মধ্যে কিছু মালিক নিজেই টাইপসেট করেছেন। মালিককে <a %(a_arrested)s>২০১৯ সালে গ্রেপ্তার</a> করা হয়েছিল এবং কেউ তার শেয়ার করা ফাইলগুলির একটি সংগ্রহ তৈরি করেছিল।”)।"
 
-#: allthethings/page/templates/page/datasets_upload.html:214
+#: allthethings/page/templates/page/datasets_upload.html:99
 #, fuzzy
 msgid "page.datasets.upload.source.woz9ts_duxiu"
 msgstr "স্বেচ্ছাসেবক “woz9ts” থেকে অবশিষ্ট DuXiu ফাইলগুলি, যেগুলি DuXiu এর মালিকানাধীন PDG ফরম্যাটে ছিল না (এখনও PDF এ রূপান্তরিত হতে বাকি)।"
 
-#: allthethings/page/templates/page/datasets_upload.html:226
+#: allthethings/page/templates/page/datasets_upload.html:109
 #, fuzzy
 msgid "page.datasets.upload.aa_torrents"
 msgstr "আন্নার আর্কাইভ দ্বারা টরেন্টস"
@@ -5172,122 +5218,122 @@ msgstr "১. প্রতিটি সংগ্রহ বা রিলিজে�
 msgid "page.faq.torrents.a6.li2"
 msgstr "২. আমরা আমাদের ElasticSearch এবং MariaDB ডাটাবেসগুলি <a %(a_generate)s>উৎপন্ন</a> বা <a %(a_download)s>ডাউনলোড</a> করার পরামর্শ দিই। এগুলি Anna’s Archive এর প্রতিটি রেকর্ডের জন্য তার সংশ্লিষ্ট টরেন্ট ফাইলগুলির একটি ম্যাপিং ধারণ করে (যদি উপলব্ধ থাকে), ElasticSearch JSON এ “torrent_paths” এর অধীনে।"
 
-#: allthethings/page/templates/page/faq.html:273
+#: allthethings/page/templates/page/faq.html:280
 #, fuzzy
 msgid "page.faq.security.title"
 msgstr "আপনার কি দায়িত্বশীল প্রকাশনা প্রোগ্রাম আছে?"
 
-#: allthethings/page/templates/page/faq.html:276
+#: allthethings/page/templates/page/faq.html:283
 #, fuzzy
 msgid "page.faq.security.text1"
 msgstr "আমরা আমাদের সিস্টেমে দুর্বলতা খুঁজে বের করার জন্য নিরাপত্তা গবেষকদের স্বাগত জানাই। আমরা দায়িত্বশীল প্রকাশনার বড় সমর্থক। আমাদের সাথে যোগাযোগ করুন <a %(a_contact)s>এখানে</a>।"
 
-#: allthethings/page/templates/page/faq.html:280
+#: allthethings/page/templates/page/faq.html:287
 #, fuzzy
 msgid "page.faq.security.text2"
 msgstr "আমরা বর্তমানে বাগ বাউন্টি প্রদান করতে অক্ষম, শুধুমাত্র সেই দুর্বলতাগুলির জন্য যা <a %(a_link)s>আমাদের গোপনীয়তা বিপন্ন করার সম্ভাবনা</a> রয়েছে, যার জন্য আমরা $10k-50k পরিসরে বাউন্টি অফার করি। ভবিষ্যতে আমরা বাগ বাউন্টির জন্য বিস্তৃত সুযোগ দিতে চাই! দয়া করে মনে রাখবেন যে সামাজিক প্রকৌশল আক্রমণগুলি পরিধির বাইরে।"
 
-#: allthethings/page/templates/page/faq.html:284
+#: allthethings/page/templates/page/faq.html:291
 #, fuzzy
 msgid "page.faq.security.text3"
 msgstr "যদি আপনি আক্রমণাত্মক নিরাপত্তায় আগ্রহী হন এবং বিশ্বের জ্ঞান ও সংস্কৃতি সংরক্ষণে সাহায্য করতে চান, তাহলে অবশ্যই আমাদের সাথে যোগাযোগ করুন। অনেক উপায়ে আপনি সাহায্য করতে পারেন।"
 
-#: allthethings/page/templates/page/faq.html:287
+#: allthethings/page/templates/page/faq.html:294
 #, fuzzy
 msgid "page.faq.resources.title"
 msgstr "আন্নার আর্কাইভ সম্পর্কে আরও সম্পদ আছে কি?"
 
-#: allthethings/page/templates/page/faq.html:290
+#: allthethings/page/templates/page/faq.html:297
 #, fuzzy
 msgid "page.faq.resources.annas_blog"
 msgstr "<a %(a_blog)s>আন্নার ব্লগ</a>, <a %(a_reddit_u)s>রেডিট</a>, <a %(a_reddit_r)s>সাবরেডিট</a> — নিয়মিত আপডেট"
 
-#: allthethings/page/templates/page/faq.html:291
+#: allthethings/page/templates/page/faq.html:298
 #, fuzzy
 msgid "page.faq.resources.annas_software"
 msgstr "<a %(a_software)s>আন্নার সফটওয়্যার</a> — আমাদের ওপেন সোর্স কোড"
 
-#: allthethings/page/templates/page/faq.html:292
+#: allthethings/page/templates/page/faq.html:299
 #, fuzzy
 msgid "page.faq.resources.translate"
 msgstr "<a %(a_translate)s>আন্নার সফটওয়্যারে অনুবাদ করুন</a> — আমাদের অনুবাদ ব্যবস্থা"
 
-#: allthethings/page/templates/page/faq.html:293
+#: allthethings/page/templates/page/faq.html:300
 #, fuzzy
 msgid "page.faq.resources.datasets"
 msgstr "<a %(a_datasets)s>Datasets</a> — ডেটা সম্পর্কে"
 
-#: allthethings/page/templates/page/faq.html:294
+#: allthethings/page/templates/page/faq.html:301
 #, fuzzy
 msgid "page.faq.resources.domains"
 msgstr "<a %(a_li)s>.li</a>, <a %(a_se)s>.se</a>, <a %(a_org)s>.org</a> — বিকল্প ডোমেইন"
 
-#: allthethings/page/templates/page/faq.html:295
+#: allthethings/page/templates/page/faq.html:302
 #, fuzzy
 msgid "page.faq.resources.wikipedia"
 msgstr "<a %(a_wikipedia)s>উইকিপিডিয়া</a> — আমাদের সম্পর্কে আরও জানুন (এই পৃষ্ঠাটি আপডেট রাখতে সাহায্য করুন, অথবা আপনার নিজের ভাষার জন্য একটি তৈরি করুন!)"
 
-#: allthethings/page/templates/page/faq.html:298
+#: allthethings/page/templates/page/faq.html:305
 #, fuzzy
 msgid "page.faq.copyright.title"
 msgstr "আমি কপিরাইট লঙ্ঘনের রিপোর্ট কিভাবে করব?"
 
-#: allthethings/page/templates/page/faq.html:301
+#: allthethings/page/templates/page/faq.html:308
 #, fuzzy
 msgid "page.faq.copyright.text1"
 msgstr "আমরা এখানে কোনো কপিরাইটযুক্ত সামগ্রী হোস্ট করি না। আমরা একটি সার্চ ইঞ্জিন, এবং সেই হিসেবে শুধুমাত্র মেটাডেটা সূচিবদ্ধ করি যা ইতিমধ্যে সর্বজনীনভাবে উপলব্ধ। এই বাহ্যিক উৎসগুলি থেকে ডাউনলোড করার সময়, আপনার বিচারব্যবস্থায় কী অনুমোদিত তা পরীক্ষা করার পরামর্শ দেব। অন্যদের দ্বারা হোস্ট করা সামগ্রীর জন্য আমরা দায়ী নই।"
 
-#: allthethings/page/templates/page/faq.html:305
+#: allthethings/page/templates/page/faq.html:312
 #, fuzzy
 msgid "page.faq.copyright.text2"
 msgstr "আপনি এখানে যা দেখছেন তার সম্পর্কে অভিযোগ থাকলে, মূল ওয়েবসাইটের সাথে যোগাযোগ করাই আপনার সেরা উপায়। আমরা নিয়মিত তাদের পরিবর্তনগুলি আমাদের ডাটাবেসে অন্তর্ভুক্ত করি। যদি আপনি সত্যিই মনে করেন যে আপনার একটি বৈধ DMCA অভিযোগ আছে যার প্রতি আমাদের সাড়া দেওয়া উচিত, অনুগ্রহ করে <a %(a_copyright)s>DMCA / কপিরাইট দাবি ফর্ম</a> পূরণ করুন। আমরা আপনার অভিযোগগুলি গুরুত্ব সহকারে নিই এবং যত তাড়াতাড়ি সম্ভব আপনার সাথে যোগাযোগ করব।"
 
-#: allthethings/page/templates/page/faq.html:308
+#: allthethings/page/templates/page/faq.html:315
 #, fuzzy
 msgid "page.faq.hate.title"
 msgstr "আমি আপনারা এই প্রকল্পটি যেভাবে পরিচালনা করছেন তা ঘৃণা করি!"
 
-#: allthethings/page/templates/page/faq.html:311
+#: allthethings/page/templates/page/faq.html:318
 #, fuzzy
 msgid "page.faq.hate.text1"
 msgstr "আমরা সবাইকে মনে করিয়ে দিতে চাই যে আমাদের সমস্ত কোড এবং ডেটা সম্পূর্ণ ওপেন সোর্স। আমাদের মতো প্রকল্পগুলির জন্য এটি অনন্য — আমরা এমন কোনো প্রকল্প সম্পর্কে জানি না যার একটি বিশাল ক্যাটালগ সম্পূর্ণ ওপেন সোর্স। আমরা খুবই স্বাগত জানাই যে কেউ যদি মনে করেন আমরা আমাদের প্রকল্পটি খারাপভাবে পরিচালনা করছি, তাহলে তারা আমাদের কোড এবং ডেটা নিয়ে তাদের নিজস্ব শ্যাডো লাইব্রেরি সেট আপ করতে পারেন! আমরা এটি বিদ্বেষ বা অন্য কিছু থেকে বলছি না — আমরা সত্যিই মনে করি এটি দুর্দান্ত হবে কারণ এটি সবার জন্য মান বাড়াবে এবং মানবতার উত্তরাধিকারকে আরও ভালভাবে সংরক্ষণ করবে।"
 
-#: allthethings/page/templates/page/faq.html:314
+#: allthethings/page/templates/page/faq.html:321
 #, fuzzy
 msgid "page.faq.uptime.title"
 msgstr "আপনার কি আপটাইম মনিটর আছে?"
 
-#: allthethings/page/templates/page/faq.html:317
+#: allthethings/page/templates/page/faq.html:324
 #, fuzzy
 msgid "page.faq.uptime.text1"
 msgstr "<a %(a_href)s>এই চমৎকার প্রকল্পটি</a> দেখুন।"
 
-#: allthethings/page/templates/page/faq.html:330
+#: allthethings/page/templates/page/faq.html:337
 #, fuzzy
 msgid "page.faq.physical.title"
 msgstr "আমি কীভাবে বই বা অন্যান্য শারীরিক উপকরণ দান করব?"
 
-#: allthethings/page/templates/page/faq.html:333
+#: allthethings/page/templates/page/faq.html:340
 #, fuzzy
 msgid "page.faq.physical.text1"
 msgstr "দয়া করে সেগুলি <a %(a_archive)s>ইন্টারনেট আর্কাইভ</a> এ পাঠান। তারা সেগুলি সঠিকভাবে সংরক্ষণ করবে।"
 
-#: allthethings/page/templates/page/faq.html:336
+#: allthethings/page/templates/page/faq.html:343
 #, fuzzy
 msgid "page.faq.anna.title"
 msgstr "আন্না কে?"
 
-#: allthethings/page/templates/page/faq.html:340
+#: allthethings/page/templates/page/faq.html:347
 #, fuzzy
 msgid "page.faq.anna.text1"
 msgstr "আপনি আন্না!"
 
-#: allthethings/page/templates/page/faq.html:344
+#: allthethings/page/templates/page/faq.html:351
 #, fuzzy
 msgid "page.faq.favorite.title"
 msgstr "আপনার প্রিয় বইগুলো কী কী?"
 
-#: allthethings/page/templates/page/faq.html:347
+#: allthethings/page/templates/page/faq.html:354
 #, fuzzy
 msgid "page.faq.favorite.text1"
 msgstr "এখানে কিছু বই রয়েছে যা ছায়া গ্রন্থাগার এবং ডিজিটাল সংরক্ষণের জগতে বিশেষ গুরুত্ব বহন করে:"
@@ -5324,28 +5370,28 @@ msgstr "অনুসন্ধান"
 #: allthethings/page/templates/page/scidb_home.html:3
 #: allthethings/page/templates/page/scidb_home.html:6
 #: allthethings/templates/layouts/index.html:493
-#: allthethings/templates/layouts/index.html:506
-#: allthethings/templates/layouts/index.html:521
-#: allthethings/templates/layouts/index.html:588
+#: allthethings/templates/layouts/index.html:507
+#: allthethings/templates/layouts/index.html:523
+#: allthethings/templates/layouts/index.html:591
 msgid "page.home.scidb.header"
 msgstr "সাইডিবি"
 
 #: allthethings/page/templates/page/home.html:19
-#: allthethings/templates/layouts/index.html:541
+#: allthethings/templates/layouts/index.html:544
 msgid "layout.index.header.nav.beta"
 msgstr "বেটা"
 
 #: allthethings/page/templates/page/home.html:22
 #: allthethings/page/templates/page/scidb_home.html:9
-#: allthethings/page/templates/page/search.html:355
-#: allthethings/page/templates/page/search.html:419
+#: allthethings/page/templates/page/search.html:359
+#: allthethings/page/templates/page/search.html:423
 #, fuzzy
 msgid "page.home.scidb.scihub_paused"
 msgstr "Sci-Hub নতুন পেপার আপলোড <a %(a_paused)s>বিরতি</a> দিয়েছে।"
 
 #: allthethings/page/templates/page/home.html:23
-#: allthethings/page/templates/page/search.html:356
-#: allthethings/page/templates/page/search.html:420
+#: allthethings/page/templates/page/search.html:360
+#: allthethings/page/templates/page/search.html:424
 #, fuzzy
 msgid "page.home.scidb.continuation"
 msgstr "🧬&nbsp;SciDB হল Sci-Hub এর একটি ধারাবাহিকতা।"
@@ -5386,19 +5432,19 @@ msgid "page.home.torrents.body"
 msgstr "টরেন্ট সিডিং করে আপনি বিশালভাবে সাহায্য করতে পারেন। <a %(a_torrents)s>আরও জানুন…</a>"
 
 #: allthethings/page/templates/page/home.html:47
-#: allthethings/page/templates/page/torrents.html:75
+#: allthethings/page/templates/page/torrents.html:79
 #, fuzzy
 msgid "page.home.torrents.legend_less"
 msgstr "<%(count)s সিডার"
 
 #: allthethings/page/templates/page/home.html:48
-#: allthethings/page/templates/page/torrents.html:76
+#: allthethings/page/templates/page/torrents.html:80
 #, fuzzy
 msgid "page.home.torrents.legend_range"
 msgstr "%(count_min)s–%(count_max)s সিডার"
 
 #: allthethings/page/templates/page/home.html:49
-#: allthethings/page/templates/page/torrents.html:77
+#: allthethings/page/templates/page/torrents.html:81
 #, fuzzy
 msgid "page.home.torrents.legend_greater"
 msgstr ">%(count)s সিডারস"
@@ -5434,8 +5480,8 @@ msgid "page.home.payment_processor.body"
 msgstr "আপনি যদি একটি উচ্চ-ঝুঁকিপূর্ণ বেনামী পেমেন্ট প্রসেসর চালান, তাহলে আমাদের সাথে যোগাযোগ করুন। আমরা এমন লোকদেরও খুঁজছি যারা রুচিশীল ছোট বিজ্ঞাপন দিতে ইচ্ছুক। সমস্ত আয় আমাদের সংরক্ষণ প্রচেষ্টায় যায়।"
 
 #: allthethings/page/templates/page/home.html:98
-#: allthethings/templates/layouts/index.html:529
-#: allthethings/templates/layouts/index.html:608
+#: allthethings/templates/layouts/index.html:532
+#: allthethings/templates/layouts/index.html:611
 msgid "layout.index.header.nav.annasblog"
 msgstr "অ্যানাজ ব্লগ ↗"
 
@@ -5967,7 +6013,7 @@ msgid "page.search.tabs.metadata"
 msgstr "উপতথ্য"
 
 #: allthethings/page/templates/page/search.html:107
-#: allthethings/templates/layouts/index.html:537
+#: allthethings/templates/layouts/index.html:540
 msgid "common.search.placeholder"
 msgstr "অনুসন্ধান শিরোনাম, লেখক, ভাষা, ফাইলের ধরন, ISBN, MD5, …"
 
@@ -5982,7 +6028,7 @@ msgid "page.search.search_settings"
 msgstr "সার্চ সেটিংস"
 
 #: allthethings/page/templates/page/search.html:136
-#: allthethings/page/templates/page/search.html:274
+#: allthethings/page/templates/page/search.html:278
 msgid "page.search.submit"
 msgstr "অনুসন্ধান"
 
@@ -5992,8 +6038,8 @@ msgid "page.search.too_long_broad_query"
 msgstr "অনুসন্ধানটি খুব বেশি সময় নিয়েছে, যা বিস্তৃত প্রশ্নের জন্য সাধারণ। ফিল্টার গণনা সঠিক নাও হতে পারে।"
 
 #: allthethings/page/templates/page/search.html:145
-#: allthethings/page/templates/page/search.html:448
-#: allthethings/page/templates/page/search.html:455
+#: allthethings/page/templates/page/search.html:452
+#: allthethings/page/templates/page/search.html:459
 #, fuzzy
 msgid "page.search.too_inaccurate"
 msgstr "অনুসন্ধানটি অনেক সময় নিয়েছে, যার মানে আপনি ভুল ফলাফল দেখতে পারেন। কখনও কখনও <a %(a_reload)s>পৃষ্ঠাটি পুনরায় লোড করা</a> সাহায্য করে।"
@@ -6019,7 +6065,7 @@ msgid "page.search.advanced.header"
 msgstr "উন্নত"
 
 #: allthethings/page/templates/page/search.html:159
-#: allthethings/page/templates/page/search.html:292
+#: allthethings/page/templates/page/search.html:296
 #, fuzzy
 msgid "page.search.advanced.description_comments"
 msgstr "বর্ণনা এবং মেটাডেটা মন্তব্য অনুসন্ধান করুন"
@@ -6040,248 +6086,249 @@ msgid "page.search.advanced.field.year_published"
 msgstr "প্রকাশের বছর"
 
 #: allthethings/page/templates/page/search.html:208
-#: allthethings/page/templates/page/search.html:300
-#: allthethings/page/templates/page/search.html:303
+#: allthethings/page/templates/page/search.html:304
+#: allthethings/page/templates/page/search.html:307
 msgid "page.search.filters.content.header"
 msgstr "বিষয়বস্তু"
 
 #: allthethings/page/templates/page/search.html:218
-#: allthethings/page/templates/page/search.html:306
-#: allthethings/page/templates/page/search.html:309
+#: allthethings/page/templates/page/search.html:310
+#: allthethings/page/templates/page/search.html:313
 msgid "page.search.filters.filetype.header"
 msgstr "ফাইলের ধরন"
 
-#: allthethings/page/templates/page/search.html:228
-#: allthethings/page/templates/page/search.html:312
-#: allthethings/page/templates/page/search.html:315
+#: allthethings/page/templates/page/search.html:227
+#: allthethings/page/templates/page/search.html:259
+msgid "page.search.more"
+msgstr "আরো…"
+
+#: allthethings/page/templates/page/search.html:231
+#: allthethings/page/templates/page/search.html:316
+#: allthethings/page/templates/page/search.html:319
 msgid "page.search.filters.access.header"
 msgstr "প্রবেশ"
 
-#: allthethings/page/templates/page/search.html:237
-#: allthethings/page/templates/page/search.html:318
-#: allthethings/page/templates/page/search.html:321
+#: allthethings/page/templates/page/search.html:240
+#: allthethings/page/templates/page/search.html:322
+#: allthethings/page/templates/page/search.html:325
 msgid "page.search.filters.source.header"
 msgstr "উৎস"
 
-#: allthethings/page/templates/page/search.html:242
+#: allthethings/page/templates/page/search.html:245
 #, fuzzy
 msgid "page.search.filters.source.scraped"
 msgstr "AA দ্বারা স্ক্র্যাপ করা এবং ওপেন-সোর্স করা হয়েছে"
 
-#: allthethings/page/templates/page/search.html:247
-#: allthethings/page/templates/page/search.html:327
-#: allthethings/page/templates/page/search.html:330
+#: allthethings/page/templates/page/search.html:250
+#: allthethings/page/templates/page/search.html:331
+#: allthethings/page/templates/page/search.html:334
 msgid "page.search.filters.language.header"
 msgstr "ভাষা"
 
-#: allthethings/page/templates/page/search.html:256
-msgid "page.search.more"
-msgstr "আরো…"
-
-#: allthethings/page/templates/page/search.html:261
-#: allthethings/page/templates/page/search.html:324
+#: allthethings/page/templates/page/search.html:264
+#: allthethings/page/templates/page/search.html:328
 #, fuzzy
 msgid "page.search.filters.order_by.header"
 msgstr "ক্রম অনুসারে সাজান"
 
-#: allthethings/page/templates/page/search.html:264
+#: allthethings/page/templates/page/search.html:267
 msgid "page.search.filters.sorting.most_relevant"
 msgstr "সবচেয়ে প্রাসঙ্গিক"
 
-#: allthethings/page/templates/page/search.html:265
-#: allthethings/page/templates/page/search.html:269
-#: allthethings/page/templates/page/search.html:324
+#: allthethings/page/templates/page/search.html:268
+#: allthethings/page/templates/page/search.html:272
+#: allthethings/page/templates/page/search.html:328
 msgid "page.search.filters.sorting.newest"
 msgstr "নবীনতম"
 
-#: allthethings/page/templates/page/search.html:265
-#: allthethings/page/templates/page/search.html:266
-#: allthethings/page/templates/page/search.html:324
+#: allthethings/page/templates/page/search.html:268
+#: allthethings/page/templates/page/search.html:269
+#: allthethings/page/templates/page/search.html:328
 #, fuzzy
 msgid "page.search.filters.sorting.note_publication_year"
 msgstr "(প্রকাশনার বছর)"
 
-#: allthethings/page/templates/page/search.html:266
-#: allthethings/page/templates/page/search.html:270
-#: allthethings/page/templates/page/search.html:324
+#: allthethings/page/templates/page/search.html:269
+#: allthethings/page/templates/page/search.html:273
+#: allthethings/page/templates/page/search.html:328
 msgid "page.search.filters.sorting.oldest"
 msgstr "প্রবীণতম"
 
-#: allthethings/page/templates/page/search.html:267
-#: allthethings/page/templates/page/search.html:324
+#: allthethings/page/templates/page/search.html:270
+#: allthethings/page/templates/page/search.html:328
 msgid "page.search.filters.sorting.largest"
 msgstr "বৃহত্তম"
 
-#: allthethings/page/templates/page/search.html:267
-#: allthethings/page/templates/page/search.html:268
-#: allthethings/page/templates/page/search.html:324
+#: allthethings/page/templates/page/search.html:270
+#: allthethings/page/templates/page/search.html:271
+#: allthethings/page/templates/page/search.html:328
 msgid "page.search.filters.sorting.note_filesize"
 msgstr "(ফাইল আকার)"
 
-#: allthethings/page/templates/page/search.html:268
-#: allthethings/page/templates/page/search.html:324
+#: allthethings/page/templates/page/search.html:271
+#: allthethings/page/templates/page/search.html:328
 msgid "page.search.filters.sorting.smallest"
 msgstr "ক্ষুদ্রতম"
 
-#: allthethings/page/templates/page/search.html:269
-#: allthethings/page/templates/page/search.html:270
-#: allthethings/page/templates/page/search.html:324
+#: allthethings/page/templates/page/search.html:272
+#: allthethings/page/templates/page/search.html:273
+#: allthethings/page/templates/page/search.html:328
 #, fuzzy
 msgid "page.search.filters.sorting.note_open_sourced"
 msgstr "(ওপেন সোর্সড)"
 
-#: allthethings/page/templates/page/search.html:278
+#: allthethings/page/templates/page/search.html:282
 #, fuzzy
 msgid "page.search.header.update_info"
 msgstr "অনুসন্ধান সূচকটি মাসিক আপডেট করা হয়। বর্তমানে এটি %(last_data_refresh_date)s পর্যন্ত এন্ট্রি অন্তর্ভুক্ত করে। আরও প্রযুক্তিগত তথ্যের জন্য, দেখুন %(link_open_tag)sdatasets page</a>।"
 
-#: allthethings/page/templates/page/search.html:280
+#: allthethings/page/templates/page/search.html:284
 #, fuzzy
 msgid "page.search.header.codes_explorer"
 msgstr "কোড দ্বারা অনুসন্ধান সূচক অন্বেষণ করতে, <a %(a_href)s>কোড এক্সপ্লোরার</a> ব্যবহার করুন।"
 
-#: allthethings/page/templates/page/search.html:338
+#: allthethings/page/templates/page/search.html:342
 #, fuzzy
 msgid "page.search.results.search_downloads"
 msgstr "আমাদের %(count)s সরাসরি ডাউনলোডযোগ্য ফাইলের ক্যাটালগ অনুসন্ধান করতে বাক্সে টাইপ করুন, যা আমরা <a %(a_preserve)s>চিরতরে সংরক্ষণ করি</a>।"
 
-#: allthethings/page/templates/page/search.html:339
+#: allthethings/page/templates/page/search.html:343
 #, fuzzy
 msgid "page.search.results.help_preserve"
 msgstr "প্রকৃতপক্ষে, যে কেউ আমাদের <a %(a_torrents)s>একীভূত টরেন্ট তালিকা</a> বীজ বপন করে এই ফাইলগুলি সংরক্ষণ করতে সাহায্য করতে পারে।"
 
-#: allthethings/page/templates/page/search.html:342
+#: allthethings/page/templates/page/search.html:346
 #, fuzzy
 msgid "page.search.results.most_comprehensive"
 msgstr "আমাদের কাছে বর্তমানে বিশ্বের সবচেয়ে ব্যাপক উন্মুক্ত বই, পেপার এবং অন্যান্য লিখিত কাজের ক্যাটালগ রয়েছে। আমরা Sci-Hub, Library Genesis, Z-Library, <a %(a_datasets)s>এবং আরও অনেক কিছু</a> মিরর করি।"
 
-#: allthethings/page/templates/page/search.html:345
+#: allthethings/page/templates/page/search.html:349
 #, fuzzy
 msgid "page.search.results.other_shadow_libs"
 msgstr "যদি আপনি অন্য “শ্যাডো লাইব্রেরি” খুঁজে পান যা আমাদের আয়না করা উচিত, অথবা আপনার কোনো প্রশ্ন থাকে, অনুগ্রহ করে আমাদের সাথে %(email)s এ যোগাযোগ করুন।"
 
-#: allthethings/page/templates/page/search.html:346
+#: allthethings/page/templates/page/search.html:350
 #, fuzzy
 msgid "page.search.results.dmca"
 msgstr "DMCA / কপিরাইট দাবির জন্য <a %(a_copyright)s>এখানে ক্লিক করুন</a>।"
 
-#: allthethings/page/templates/page/search.html:350
-#: allthethings/page/templates/page/search.html:365
-#: allthethings/page/templates/page/search.html:379
-#: allthethings/page/templates/page/search.html:403
-#: allthethings/page/templates/page/search.html:411
+#: allthethings/page/templates/page/search.html:354
+#: allthethings/page/templates/page/search.html:369
+#: allthethings/page/templates/page/search.html:383
+#: allthethings/page/templates/page/search.html:407
+#: allthethings/page/templates/page/search.html:415
 #, fuzzy
 msgid "page.search.results.shortcuts"
 msgstr "টিপ: দ্রুত নেভিগেশনের জন্য কীবোর্ড শর্টকাটগুলি ব্যবহার করুন “/” (সার্চ ফোকাস), “এন্টার” (সার্চ), “j” (উপরে), “k” (নিচে), “<” (পূর্ববর্তী পৃষ্ঠা), “>” (পরবর্তী পৃষ্ঠা)।"
 
-#: allthethings/page/templates/page/search.html:354
-#: allthethings/page/templates/page/search.html:418
+#: allthethings/page/templates/page/search.html:358
+#: allthethings/page/templates/page/search.html:422
 #, fuzzy
 msgid "page.search.results.looking_for_papers"
 msgstr "পেপার খুঁজছেন?"
 
-#: allthethings/page/templates/page/search.html:361
+#: allthethings/page/templates/page/search.html:365
 #, fuzzy
 msgid "page.search.results.search_journals"
 msgstr "আমাদের ক্যাটালগে %(count)s একাডেমিক পেপার এবং জার্নাল আর্টিকেলগুলি অনুসন্ধান করতে বক্সে টাইপ করুন, যা আমরা <a %(a_preserve)s>চিরতরে সংরক্ষণ করি</a>।"
 
-#: allthethings/page/templates/page/search.html:369
+#: allthethings/page/templates/page/search.html:373
 #, fuzzy
 msgid "page.search.results.search_digital_lending"
 msgstr "ডিজিটাল লেন্ডিং লাইব্রেরিতে ফাইল খুঁজতে বক্সে টাইপ করুন।"
 
-#: allthethings/page/templates/page/search.html:372
+#: allthethings/page/templates/page/search.html:376
 #, fuzzy
 msgid "page.search.results.digital_lending_info"
 msgstr "এই অনুসন্ধান সূচক বর্তমানে Internet Archive-এর নিয়ন্ত্রিত ডিজিটাল লেন্ডিং লাইব্রেরির মেটাডেটা অন্তর্ভুক্ত করে। <a %(a_datasets)s>আমাদের ডেটাসেট সম্পর্কে আরও জানুন</a>।"
 
-#: allthethings/page/templates/page/search.html:375
+#: allthethings/page/templates/page/search.html:379
 #, fuzzy
 msgid "page.search.results.digital_lending_info_more"
 msgstr "আরও ডিজিটাল লেন্ডিং লাইব্রেরির জন্য, <a %(a_wikipedia)s>উইকিপিডিয়া</a> এবং <a %(a_mobileread)s>মোবাইলরিড উইকি</a> দেখুন।"
 
-#: allthethings/page/templates/page/search.html:383
-#: allthethings/page/templates/page/search.html:430
+#: allthethings/page/templates/page/search.html:387
+#: allthethings/page/templates/page/search.html:434
 #, fuzzy
 msgid "page.search.results.search_metadata"
 msgstr "লাইব্রেরি থেকে মেটাডেটা খুঁজতে বক্সে টাইপ করুন। এটি <a %(a_request)s>ফাইল অনুরোধ করার সময়</a> উপকারী হতে পারে।"
 
-#: allthethings/page/templates/page/search.html:387
-#: allthethings/page/templates/page/search.html:434
+#: allthethings/page/templates/page/search.html:391
+#: allthethings/page/templates/page/search.html:438
 #, fuzzy
 msgid "page.search.results.metadata_info"
 msgstr "এই সার্চ ইনডেক্স বর্তমানে বিভিন্ন মেটাডেটা উৎস থেকে মেটাডেটা অন্তর্ভুক্ত করে। <a %(a_datasets)s>আমাদের ডেটাসেট সম্পর্কে আরও জানুন</a>।"
 
-#: allthethings/page/templates/page/search.html:388
-#: allthethings/page/templates/page/search.html:435
+#: allthethings/page/templates/page/search.html:392
+#: allthethings/page/templates/page/search.html:439
 #, fuzzy
 msgid "page.search.results.metadata_no_merging"
 msgstr "মেটাডেটার জন্য, আমরা মূল রেকর্ডগুলি দেখাই। আমরা কোনো রেকর্ড একত্রিত করি না।"
 
-#: allthethings/page/templates/page/search.html:399
+#: allthethings/page/templates/page/search.html:403
 #, fuzzy
 msgid "page.search.results.metadata_info_more"
 msgstr "বিশ্বজুড়ে লিখিত কাজের জন্য অনেক, অনেক মেটাডেটা উৎস রয়েছে। <a %(a_wikipedia)s>এই উইকিপিডিয়া পৃষ্ঠা</a> একটি ভাল শুরু, কিন্তু আপনি যদি অন্য ভাল তালিকা জানেন, তাহলে আমাদের জানান।"
 
-#: allthethings/page/templates/page/search.html:407
+#: allthethings/page/templates/page/search.html:411
 #, fuzzy
 msgid "page.search.results.search_generic"
 msgstr "অনুসন্ধান করতে বক্সে টাইপ করুন।"
 
-#: allthethings/page/templates/page/search.html:426
+#: allthethings/page/templates/page/search.html:430
 #, fuzzy
 msgid "page.search.results.these_are_records"
 msgstr "এগুলি মেটাডেটা রেকর্ড, <span %(classname)s>ডাউনলোডযোগ্য ফাইল নয়</span>।"
 
-#: allthethings/page/templates/page/search.html:442
+#: allthethings/page/templates/page/search.html:446
 msgid "page.search.results.error.header"
 msgstr "অনুসন্ধানের সময় ত্রুটি।"
 
-#: allthethings/page/templates/page/search.html:444
+#: allthethings/page/templates/page/search.html:448
 #, fuzzy
 msgid "page.search.results.error.unknown"
 msgstr "<a %(a_reload)s>পৃষ্ঠাটি পুনরায় লোড</a> করার চেষ্টা করুন। যদি সমস্যা অব্যাহত থাকে, দয়া করে আমাদের %(email)s এ ইমেল করুন।"
 
-#: allthethings/page/templates/page/search.html:457
+#: allthethings/page/templates/page/search.html:461
 #, fuzzy
 msgid "page.search.results.none"
 msgstr "<span class=\"font-bold\">কোন ফাইল পাওয়া যায়নি।</span> কম বা ভিন্ন অনুসন্ধান শব্দ এবং ফিল্টার চেষ্টা করুন।"
 
-#: allthethings/page/templates/page/search.html:460
+#: allthethings/page/templates/page/search.html:464
 #, fuzzy
 msgid "page.search.results.incorrectly_slow"
 msgstr "➡️ কখনও কখনও এটি ভুলভাবে ঘটে যখন সার্চ সার্ভার ধীর হয়। এমন ক্ষেত্রে, <a %(a_attrs)s>রিলোড</a> করা সহায়ক হতে পারে।"
 
-#: allthethings/page/templates/page/search.html:467
+#: allthethings/page/templates/page/search.html:471
 #, fuzzy
 msgid "page.search.found_matches.main"
 msgstr "আমরা মিল খুঁজে পেয়েছি: %(in)s। আপনি যখন <a %(a_request)s>ফাইল অনুরোধ করছেন</a> তখন সেখানে পাওয়া URL উল্লেখ করতে পারেন।"
 
-#: allthethings/page/templates/page/search.html:467
+#: allthethings/page/templates/page/search.html:471
 #, fuzzy
 msgid "page.search.found_matches.journals"
 msgstr "জার্নাল আর্টিকেলস (%(count)s)"
 
-#: allthethings/page/templates/page/search.html:467
+#: allthethings/page/templates/page/search.html:471
 #, fuzzy
 msgid "page.search.found_matches.digital_lending"
 msgstr "ডিজিটাল ঋণদান (%(count)s)"
 
-#: allthethings/page/templates/page/search.html:467
+#: allthethings/page/templates/page/search.html:471
 #, fuzzy
 msgid "page.search.found_matches.metadata"
 msgstr "মেটাডেটা (%(count)s)"
 
-#: allthethings/page/templates/page/search.html:474
+#: allthethings/page/templates/page/search.html:478
 #, fuzzy
 msgid "page.search.results.numbers_pages"
 msgstr "ফলাফল %(from)s-%(to)s (%(total)s মোট)"
 
-#: allthethings/page/templates/page/search.html:485
+#: allthethings/page/templates/page/search.html:490
 msgid "page.search.results.partial_more"
 msgstr "%(num)d+ আংশিক সাদৃশ্যপূর্ণ"
 
-#: allthethings/page/templates/page/search.html:485
+#: allthethings/page/templates/page/search.html:490
 msgid "page.search.results.partial"
 msgstr "%(num)d আংশিক সাদৃশ্যপূর্ণ"
 
@@ -6406,47 +6453,47 @@ msgstr "%(links)s লিঙ্ক বা স্ক্রিনশট আপন�
 msgid "page.volunteering.table.misc.task"
 msgstr "আমাদের <a %(a_telegram)s>Telegram-এ স্বেচ্ছাসেবকদের চ্যাটে</a> পোস্ট করা ছোট কাজগুলি। সাধারণত সদস্যতার জন্য, কখনও কখনও ছোট পুরস্কারের জন্য।"
 
-#: allthethings/page/templates/page/volunteering.html:66
+#: allthethings/page/templates/page/volunteering.html:67
 #, fuzzy
 msgid "page.volunteering.table.misc.milestone"
 msgstr "কাজের উপর নির্ভর করে।"
 
-#: allthethings/page/templates/page/volunteering.html:70
+#: allthethings/page/templates/page/volunteering.html:71
 #, fuzzy
 msgid "page.volunteering.section.bounties.heading"
 msgstr "বাউন্টি"
 
-#: allthethings/page/templates/page/volunteering.html:73
+#: allthethings/page/templates/page/volunteering.html:74
 #, fuzzy
 msgid "page.volunteering.section.bounties.text1"
 msgstr "আমরা সবসময় শক্তিশালী প্রোগ্রামিং বা আক্রমণাত্মক নিরাপত্তা দক্ষতা সম্পন্ন লোকদের সন্ধান করছি যারা জড়িত হতে আগ্রহী। আপনি মানবতার উত্তরাধিকার সংরক্ষণে একটি গুরুতর প্রভাব ফেলতে পারেন।"
 
-#: allthethings/page/templates/page/volunteering.html:77
+#: allthethings/page/templates/page/volunteering.html:78
 #, fuzzy
 msgid "page.volunteering.section.bounties.text2"
 msgstr "ধন্যবাদ হিসেবে, আমরা শক্তিশালী অবদানের জন্য সদস্যপদ প্রদান করি। একটি বিশাল ধন্যবাদ হিসেবে, আমরা বিশেষভাবে গুরুত্বপূর্ণ এবং কঠিন কাজগুলির জন্য আর্থিক বাউন্টি প্রদান করি। এটি চাকরির বিকল্প হিসেবে দেখা উচিত নয়, তবে এটি একটি অতিরিক্ত প্রণোদনা এবং ব্যয়গুলি পূরণে সহায়ক হতে পারে।"
 
-#: allthethings/page/templates/page/volunteering.html:81
+#: allthethings/page/templates/page/volunteering.html:82
 #, fuzzy
 msgid "page.volunteering.section.bounties.text3"
 msgstr "আমাদের বেশিরভাগ কোড ওপেন সোর্স, এবং বাউন্টি প্রদান করার সময় আমরা আপনার কোডের ক্ষেত্রেও এটি চাইব। কিছু ব্যতিক্রম রয়েছে যা আমরা ব্যক্তিগতভাবে আলোচনা করতে পারি।"
 
-#: allthethings/page/templates/page/volunteering.html:85
+#: allthethings/page/templates/page/volunteering.html:86
 #, fuzzy
 msgid "page.volunteering.section.bounties.text4"
 msgstr "বাউন্টি প্রথম ব্যক্তি যিনি একটি কাজ সম্পন্ন করেন তাকে প্রদান করা হয়। অন্যদের জানাতে একটি বাউন্টি টিকিটে মন্তব্য করতে পারেন যে আপনি কিছু কাজ করছেন, যাতে অন্যরা অপেক্ষা করতে পারে বা আপনার সাথে দলবদ্ধ হতে পারে। তবে মনে রাখবেন যে অন্যরাও এটি কাজ করতে এবং আপনাকে পরাজিত করার চেষ্টা করতে পারে। তবে, আমরা খারাপ কাজের জন্য বাউন্টি প্রদান করি না। যদি দুটি উচ্চ মানের জমা কাছাকাছি সময়ে (এক বা দুই দিনের মধ্যে) করা হয়, আমরা আমাদের বিবেচনায় উভয়কে বাউন্টি প্রদান করতে পারি, উদাহরণস্বরূপ প্রথম জমার জন্য ১০০%% এবং দ্বিতীয় জমার জন্য ৫০%% (মোট ১৫০%%)।"
 
-#: allthethings/page/templates/page/volunteering.html:89
+#: allthethings/page/templates/page/volunteering.html:90
 #, fuzzy
 msgid "page.volunteering.section.bounties.text5"
 msgstr "বড় বাউন্টির জন্য (বিশেষ করে স্ক্র্যাপিং বাউন্টি), দয়া করে আমাদের সাথে যোগাযোগ করুন যখন আপনি এটি ~৫%% সম্পন্ন করেছেন, এবং আপনি নিশ্চিত যে আপনার পদ্ধতি সম্পূর্ণ মাইলস্টোনে স্কেল করবে। আপনাকে আমাদের সাথে আপনার পদ্ধতি শেয়ার করতে হবে যাতে আমরা প্রতিক্রিয়া দিতে পারি। এছাড়াও, এইভাবে আমরা সিদ্ধান্ত নিতে পারি যদি একাধিক ব্যক্তি বাউন্টির কাছাকাছি পৌঁছায়, যেমন একাধিক ব্যক্তিকে বাউন্টি প্রদান করা, লোকদের দলবদ্ধ হতে উৎসাহিত করা, ইত্যাদি।"
 
-#: allthethings/page/templates/page/volunteering.html:93
+#: allthethings/page/templates/page/volunteering.html:94
 #, fuzzy
 msgid "page.volunteering.section.bounties.text6"
 msgstr "সতর্কতা: উচ্চ-বাউন্টি কাজগুলি <span %(bold)s>কঠিন</span> — সহজ কাজগুলি দিয়ে শুরু করা বুদ্ধিমানের কাজ হতে পারে।"
 
-#: allthethings/page/templates/page/volunteering.html:97
+#: allthethings/page/templates/page/volunteering.html:98
 #, fuzzy
 msgid "page.volunteering.section.bounties.text7"
 msgstr "আমাদের <a %(a_gitlab)s>Gitlab issues list</a> এ যান এবং \"Label priority\" দ্বারা সাজান। এটি প্রায় সেই কাজগুলির ক্রম দেখায় যা আমরা যত্ন করি। স্পষ্ট বাউন্টি ছাড়া কাজগুলি এখনও সদস্যপদের জন্য যোগ্য, বিশেষ করে যেগুলি \"Accepted\" এবং \"Anna’s favorite\" চিহ্নিত। আপনি একটি \"Starter project\" দিয়ে শুরু করতে পারেন।"
@@ -6487,8 +6534,8 @@ msgstr "এই মাসের শেষ পর্যন্ত বৈধ।"
 #: allthethings/templates/layouts/index.html:227
 #: allthethings/templates/layouts/index.html:233
 #: allthethings/templates/layouts/index.html:267
-#: allthethings/templates/layouts/index.html:533
-#: allthethings/templates/layouts/index.html:590
+#: allthethings/templates/layouts/index.html:536
+#: allthethings/templates/layouts/index.html:593
 msgid "layout.index.header.nav.donate"
 msgstr "দান করুন"
 
@@ -6525,150 +6572,145 @@ msgid "layout.index.header.recent_downloads"
 msgstr "সাম্প্রতিক ডাউনলোডসমূহ:"
 
 #: allthethings/templates/layouts/index.html:492
-#: allthethings/templates/layouts/index.html:505
-#: allthethings/templates/layouts/index.html:520
-#: allthethings/templates/layouts/index.html:587
+#: allthethings/templates/layouts/index.html:506
+#: allthethings/templates/layouts/index.html:522
+#: allthethings/templates/layouts/index.html:590
 msgid "layout.index.header.nav.search"
 msgstr "অনুসন্ধান করুন"
 
 #: allthethings/templates/layouts/index.html:494
-#: allthethings/templates/layouts/index.html:507
-#: allthethings/templates/layouts/index.html:522
-#: allthethings/templates/layouts/index.html:589
-#: allthethings/templates/layouts/index.html:615
+#: allthethings/templates/layouts/index.html:508
+#: allthethings/templates/layouts/index.html:524
+#: allthethings/templates/layouts/index.html:592
+#: allthethings/templates/layouts/index.html:618
 #, fuzzy
 msgid "layout.index.header.nav.faq"
 msgstr "প্রায়শই জিজ্ঞাসিত প্রশ্নাবলী"
 
 #: allthethings/templates/layouts/index.html:495
-#: allthethings/templates/layouts/index.html:508
-#: allthethings/templates/layouts/index.html:523
-#: allthethings/templates/layouts/index.html:616
+#: allthethings/templates/layouts/index.html:509
+#: allthethings/templates/layouts/index.html:525
+#: allthethings/templates/layouts/index.html:619
 #, fuzzy
 msgid "layout.index.header.nav.improve_metadata"
 msgstr "মেটাডেটা উন্নত করুন"
 
 #: allthethings/templates/layouts/index.html:496
-#: allthethings/templates/layouts/index.html:509
-#: allthethings/templates/layouts/index.html:524
-#: allthethings/templates/layouts/index.html:617
+#: allthethings/templates/layouts/index.html:510
+#: allthethings/templates/layouts/index.html:526
+#: allthethings/templates/layouts/index.html:620
 #, fuzzy
 msgid "layout.index.header.nav.volunteering"
 msgstr "স্বেচ্ছাসেবা ও বাউন্টি"
 
 #: allthethings/templates/layouts/index.html:497
-#: allthethings/templates/layouts/index.html:510
-#: allthethings/templates/layouts/index.html:525
-#: allthethings/templates/layouts/index.html:618
+#: allthethings/templates/layouts/index.html:511
+#: allthethings/templates/layouts/index.html:527
+#: allthethings/templates/layouts/index.html:621
 msgid "layout.index.header.nav.datasets"
 msgstr "ডেটাসেট"
 
 #: allthethings/templates/layouts/index.html:498
-#: allthethings/templates/layouts/index.html:511
-#: allthethings/templates/layouts/index.html:526
-#: allthethings/templates/layouts/index.html:619
+#: allthethings/templates/layouts/index.html:512
+#: allthethings/templates/layouts/index.html:528
+#: allthethings/templates/layouts/index.html:622
 msgid "layout.index.header.nav.torrents"
 msgstr "টরেন্ট"
 
-#: allthethings/templates/layouts/index.html:499
-#: allthethings/templates/layouts/index.html:512
-#: allthethings/templates/layouts/index.html:527
-#: allthethings/templates/layouts/index.html:620
+#: allthethings/templates/layouts/index.html:500
+#: allthethings/templates/layouts/index.html:514
+#: allthethings/templates/layouts/index.html:530
+#: allthethings/templates/layouts/index.html:624
 #, fuzzy
 msgid "layout.index.header.nav.codes"
 msgstr "কোডস এক্সপ্লোরার"
 
-#: allthethings/templates/layouts/index.html:500
-#: allthethings/templates/layouts/index.html:513
-#: allthethings/templates/layouts/index.html:528
-#: allthethings/templates/layouts/index.html:621
+#: allthethings/templates/layouts/index.html:501
+#: allthethings/templates/layouts/index.html:515
+#: allthethings/templates/layouts/index.html:531
+#: allthethings/templates/layouts/index.html:625
 #, fuzzy
 msgid "layout.index.header.nav.llm_data"
 msgstr "LLM ডেটা"
 
-#: allthethings/templates/layouts/index.html:501
-#: allthethings/templates/layouts/index.html:514
-#: allthethings/templates/layouts/index.html:519
-#: allthethings/templates/layouts/index.html:586
+#: allthethings/templates/layouts/index.html:502
+#: allthethings/templates/layouts/index.html:516
+#: allthethings/templates/layouts/index.html:521
+#: allthethings/templates/layouts/index.html:589
 msgid "layout.index.header.nav.home"
 msgstr "মূলপাতা"
 
-#: allthethings/templates/layouts/index.html:530
-#: allthethings/templates/layouts/index.html:609
+#: allthethings/templates/layouts/index.html:533
+#: allthethings/templates/layouts/index.html:612
 msgid "layout.index.header.nav.annassoftware"
 msgstr "অ্যানাজ সফটওয়্যার ↗"
 
-#: allthethings/templates/layouts/index.html:531
-#: allthethings/templates/layouts/index.html:610
+#: allthethings/templates/layouts/index.html:534
+#: allthethings/templates/layouts/index.html:613
 msgid "layout.index.header.nav.translate"
 msgstr "অনুবাদ করা ↗"
 
-#: allthethings/templates/layouts/index.html:544
-#: allthethings/templates/layouts/index.html:548
-#: allthethings/templates/layouts/index.html:553
+#: allthethings/templates/layouts/index.html:547
+#: allthethings/templates/layouts/index.html:551
+#: allthethings/templates/layouts/index.html:556
 msgid "layout.index.header.nav.login_register"
 msgstr "লগ ইন / নতুন নিবন্ধন"
 
-#: allthethings/templates/layouts/index.html:560
-#: allthethings/templates/layouts/index.html:567
-#: allthethings/templates/layouts/index.html:572
+#: allthethings/templates/layouts/index.html:563
+#: allthethings/templates/layouts/index.html:570
+#: allthethings/templates/layouts/index.html:575
 msgid "layout.index.header.nav.account"
 msgstr "একাউন্ট"
 
-#: allthethings/templates/layouts/index.html:585
+#: allthethings/templates/layouts/index.html:588
 msgid "layout.index.footer.list1.header"
 msgstr "আনার আর্কাইভ"
 
-#: allthethings/templates/layouts/index.html:604
+#: allthethings/templates/layouts/index.html:607
 msgid "layout.index.footer.list2.header"
 msgstr "সাথেই থাকুন"
 
-#: allthethings/templates/layouts/index.html:606
+#: allthethings/templates/layouts/index.html:609
 msgid "layout.index.footer.list2.dmca_copyright"
 msgstr "DMCA / কপিরাইট দাবি"
 
-#: allthethings/templates/layouts/index.html:607
+#: allthethings/templates/layouts/index.html:610
 msgid "layout.index.footer.list2.reddit"
 msgstr "রেডিট"
 
-#: allthethings/templates/layouts/index.html:607
+#: allthethings/templates/layouts/index.html:610
 msgid "layout.index.footer.list2.telegram"
 msgstr "টেলিগ্রাম"
 
-#: allthethings/templates/layouts/index.html:614
+#: allthethings/templates/layouts/index.html:617
 #, fuzzy
 msgid "layout.index.header.nav.advanced"
 msgstr "উন্নত"
 
-#: allthethings/templates/layouts/index.html:622
+#: allthethings/templates/layouts/index.html:626
 msgid "layout.index.header.nav.security"
 msgstr "নিরাপত্তা"
 
-#: allthethings/templates/layouts/index.html:626
+#: allthethings/templates/layouts/index.html:630
 msgid "layout.index.footer.list3.header"
 msgstr "বিকল্প"
 
-#: allthethings/templates/layouts/index.html:630
+#: allthethings/templates/layouts/index.html:634
 #, fuzzy
 msgid "layout.index.footer.list3.link.slum"
 msgstr "এসএলইউএম (%(unaffiliated)s)"
 
-#: allthethings/templates/layouts/index.html:630
+#: allthethings/templates/layouts/index.html:634
 #, fuzzy
 msgid "layout.index.footer.list3.link.unaffiliated"
 msgstr "অসংযুক্ত"
 
-#: allthethings/templates/macros/aarecord_list.html:90
-#: allthethings/templates/macros/aarecord_list.html:125
+#: allthethings/templates/macros/aarecord_list.html:92
+#: allthethings/templates/macros/aarecord_list.html:127
 msgid "page.search.results.issues"
 msgstr "❌ এই ফাইলে সমস্যা থাকতে পারে।"
 
-#: allthethings/templates/macros/aarecord_list.html:116
-#, fuzzy
-msgid "page.search.results.download_time"
-msgstr "ডাউনলোড সময়"
-
-#: allthethings/templates/macros/aarecord_list.html:116
+#: allthethings/templates/macros/aarecord_list.html:118
 msgid "page.search.results.fast_download"
 msgstr "দ্রুত ডাউনলোড"
 
@@ -7272,4 +7314,7 @@ msgstr "পরবর্তী"
 
 #~ msgid "common.md5.servers.fast_partner.recommended"
 #~ msgstr "(%(recommended)s)"
+
+#~ msgid "page.datasets.upload.source.alexandrina"
+#~ msgstr "একটি সংগ্রহ <a %(a_href)s><q>Bibliotheca Alexandrina,</q></a> সঠিক উৎস অস্পষ্ট। আংশিকভাবে the-eye.eu থেকে, আংশিকভাবে অন্যান্য উৎস থেকে।"
 

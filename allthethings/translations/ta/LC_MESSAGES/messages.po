@@ -142,17 +142,17 @@ msgstr "மின்மினக்கும் தரவுசேகரிப�
 msgid "common.membership.tier_name.5"
 msgstr "அற்புதமான ஆவணக்காப்பாளர்"
 
-#: allthethings/utils.py:641
+#: allthethings/utils.py:656
 #, fuzzy
 msgid "common.membership.format_currency.total"
 msgstr "மொத்தம் %(amount)s"
 
-#: allthethings/utils.py:648
+#: allthethings/utils.py:663
 #, fuzzy
 msgid "common.membership.format_currency.total_with_usd"
 msgstr "%(amount)s (%(amount_usd)s) மொத்தம்"
 
-#: allthethings/utils.py:650 allthethings/utils.py:651
+#: allthethings/utils.py:665 allthethings/utils.py:666
 #, fuzzy
 msgid "common.membership.format_currency.amount_with_usd"
 msgstr "%(amount)s (%(amount_usd)s)"
@@ -304,7 +304,7 @@ msgid "page.donate.expert.contact_us"
 msgstr "எங்களை தொடர்பு கொள்ளவும்"
 
 #: allthethings/account/templates/account/donate.html:101
-#: allthethings/account/templates/account/donation.html:716
+#: allthethings/account/templates/account/donation.html:766
 #: allthethings/page/templates/page/contact.html:22
 msgid "page.donate.small_team"
 msgstr "நாங்கள் சிறிய தன்னார்வலர் குழுவாக உள்ளோம். பதிலளிக்க 1-2 வாரங்கள் ஆகலாம்."
@@ -344,7 +344,7 @@ msgid "page.donate.payment.select_method"
 msgstr "தயவுசெய்து ஒரு கட்டண முறையைத் தேர்ந்தெடுக்கவும்."
 
 #: allthethings/account/templates/account/donate.html:132
-#: allthethings/account/templates/account/donate.html:503
+#: allthethings/account/templates/account/donate.html:507
 msgid "page.donate.discount"
 msgstr "-%(percentage)s%%"
 
@@ -362,237 +362,228 @@ msgid "page.donate.payment.buttons.amazon_cc"
 msgstr "%(amazon)s பரிசு அட்டை"
 
 #: allthethings/account/templates/account/donate.html:152
+#: allthethings/account/templates/account/donate.html:153
+#: allthethings/account/templates/account/donate.html:154
 #, fuzzy
 msgid "page.donate.payment.buttons.bank_card_app"
 msgstr "வங்கி அட்டை (ஆப் பயன்படுத்தி)"
 
-#: allthethings/account/templates/account/donate.html:153
-#: allthethings/account/templates/account/donate.html:163
-#: allthethings/account/templates/account/donate.html:164
-#: allthethings/account/templates/account/donate.html:450
+#: allthethings/account/templates/account/donate.html:155
+#: allthethings/account/templates/account/donate.html:165
+#: allthethings/account/templates/account/donate.html:166
+#: allthethings/account/templates/account/donate.html:454
 msgid "page.donate.payment.buttons.crypto"
 msgstr "கிரிப்டோ %(bitcoin_icon)s"
 
-#: allthethings/account/templates/account/donate.html:155
+#: allthethings/account/templates/account/donate.html:157
 #, fuzzy
 msgid "page.donate.payment.buttons.credit_debit"
 msgstr "கிரெடிட்/டெபிட் கார்டு"
 
-#: allthethings/account/templates/account/donate.html:156
+#: allthethings/account/templates/account/donate.html:158
 #, fuzzy
 msgid "page.donate.payment.buttons.paypal"
 msgstr "பேபால் (அமெரிக்கா) %(bitcoin_icon)s"
 
-#: allthethings/account/templates/account/donate.html:157
+#: allthethings/account/templates/account/donate.html:159
 #, fuzzy
 msgid "page.donate.payment.buttons.paypalreg"
 msgstr "PayPal (வழக்கமான)"
 
-#: allthethings/account/templates/account/donate.html:158
+#: allthethings/account/templates/account/donate.html:160
 #, fuzzy
 msgid "page.donate.payment.buttons.givebutter"
 msgstr "அட்டை / PayPal / Venmo"
 
-#: allthethings/account/templates/account/donate.html:160
+#: allthethings/account/templates/account/donate.html:162
 #, fuzzy
 msgid "page.donate.payment.buttons.bmc"
 msgstr "கிரெடிட்/டெபிட்/ஆப்பிள்/கூகுள் (BMC)"
 
-#: allthethings/account/templates/account/donate.html:161
-#: allthethings/account/templates/account/donate.html:201
-#: allthethings/account/templates/account/donate.html:210
-#: allthethings/account/templates/account/donate.html:211
-#: allthethings/account/templates/account/donate.html:444
+#: allthethings/account/templates/account/donate.html:163
+#: allthethings/account/templates/account/donate.html:203
+#: allthethings/account/templates/account/donate.html:213
+#: allthethings/account/templates/account/donate.html:214
+#: allthethings/account/templates/account/donate.html:448
 #, fuzzy
 msgid "page.donate.payment.buttons.alipay"
 msgstr "அலிபே"
 
-#: allthethings/account/templates/account/donate.html:162
+#: allthethings/account/templates/account/donate.html:164
 #, fuzzy
 msgid "page.donate.payment.buttons.pix"
 msgstr "Pix (பிரேசில்)"
 
-#: allthethings/account/templates/account/donate.html:166
+#: allthethings/account/templates/account/donate.html:168
 #, fuzzy
 msgid "page.donate.payment.buttons.cashapp"
 msgstr "கேஷ் ஆப்"
 
-#: allthethings/account/templates/account/donate.html:167
+#: allthethings/account/templates/account/donate.html:169
 #, fuzzy
 msgid "page.donate.payment.buttons.revolut"
 msgstr "Revolut"
 
-#: allthethings/account/templates/account/donate.html:168
+#: allthethings/account/templates/account/donate.html:170
 #, fuzzy
 msgid "page.donate.payment.buttons.paypal_plain"
 msgstr "பேபால்"
 
-#: allthethings/account/templates/account/donate.html:169
+#: allthethings/account/templates/account/donate.html:171
 #, fuzzy
 msgid "page.donate.payment.buttons.bank_card"
 msgstr "வங்கி அட்டை"
 
-#: allthethings/account/templates/account/donate.html:170
+#: allthethings/account/templates/account/donate.html:172
 #, fuzzy
 msgid "page.donate.payment.buttons.credit_debit_backup"
 msgstr "கிரெடிட்/டெபிட் கார்டு (மீட்பு)"
 
-#: allthethings/account/templates/account/donate.html:171
+#: allthethings/account/templates/account/donate.html:173
 #, fuzzy
 msgid "page.donate.payment.buttons.credit_debit2"
 msgstr "கிரெடிட்/டெபிட் கார்டு 2"
 
-#: allthethings/account/templates/account/donate.html:173
+#: allthethings/account/templates/account/donate.html:175
 #, fuzzy
 msgid "page.donate.payment.buttons.binance"
 msgstr "பைனான்ஸ்"
 
-#: allthethings/account/templates/account/donate.html:200
-#: allthethings/account/templates/account/donate.html:204
-#: allthethings/account/templates/account/donate.html:205
-#: allthethings/account/templates/account/donate.html:447
+#: allthethings/account/templates/account/donate.html:202
+#: allthethings/account/templates/account/donate.html:206
+#: allthethings/account/templates/account/donate.html:207
+#: allthethings/account/templates/account/donate.html:451
 #, fuzzy
 msgid "page.donate.payment.buttons.wechat"
 msgstr "வீசாட்"
 
-#: allthethings/account/templates/account/donate.html:215
-#: allthethings/account/templates/account/donate.html:216
+#: allthethings/account/templates/account/donate.html:219
+#: allthethings/account/templates/account/donate.html:220
 #, fuzzy
 msgid "page.donate.payment.buttons.alipay_wechat"
 msgstr "அலிபே 支付宝 / WeChat 微信"
 
-#: allthethings/account/templates/account/donate.html:235
+#: allthethings/account/templates/account/donate.html:239
 #, fuzzy
 msgid "page.donate.payment.desc.crypto"
 msgstr "கிரிப்டோவுடன், நீங்கள் BTC, ETH, XMR, மற்றும் SOL பயன்படுத்தி நன்கொடை அளிக்கலாம். நீங்கள் ஏற்கனவே கிரிப்டோகரன்சியுடன் பரிச்சயமாக இருந்தால் இந்த விருப்பத்தைப் பயன்படுத்தவும்."
 
-#: allthethings/account/templates/account/donate.html:239
+#: allthethings/account/templates/account/donate.html:243
 #, fuzzy
 msgid "page.donate.payment.desc.crypto2"
 msgstr "கிரிப்டோவுடன், நீங்கள் BTC, ETH, XMR, மற்றும் பலவற்றைப் பயன்படுத்தி நன்கொடை அளிக்கலாம்."
 
-#: allthethings/account/templates/account/donate.html:242
-#: allthethings/account/templates/account/donate.html:452
+#: allthethings/account/templates/account/donate.html:246
+#: allthethings/account/templates/account/donate.html:456
 #, fuzzy
 msgid "page.donate.payment.desc.crypto_suggestion_dynamic"
 msgstr "நீங்கள் முதன்முதலாக கிரிப்டோ பயன்படுத்துகிறீர்கள் என்றால், Bitcoin (அசல் மற்றும் மிகவும் பயன்படுத்தப்படும் கிரிப்டோகரன்சி) வாங்க மற்றும் நன்கொடை அளிக்க %(options)s பயன்படுத்த பரிந்துரைக்கிறோம்."
 
-#: allthethings/account/templates/account/donate.html:245
-#: allthethings/account/templates/account/donate.html:455
+#: allthethings/account/templates/account/donate.html:249
+#: allthethings/account/templates/account/donate.html:459
 #, fuzzy
 msgid "page.donate.payment.processor.binance"
 msgstr "பைனான்ஸ்"
 
-#: allthethings/account/templates/account/donate.html:246
-#: allthethings/account/templates/account/donate.html:456
+#: allthethings/account/templates/account/donate.html:250
+#: allthethings/account/templates/account/donate.html:460
 #, fuzzy
 msgid "page.donate.payment.processor.coinbase"
 msgstr "Coinbase"
 
-#: allthethings/account/templates/account/donate.html:247
-#: allthethings/account/templates/account/donate.html:457
+#: allthethings/account/templates/account/donate.html:251
+#: allthethings/account/templates/account/donate.html:461
 #, fuzzy
 msgid "page.donate.payment.processor.kraken"
 msgstr "Kraken"
 
-#: allthethings/account/templates/account/donate.html:255
+#: allthethings/account/templates/account/donate.html:259
 #, fuzzy
 msgid "page.donate.payment.desc.paypal"
 msgstr "PayPal US-ஐப் பயன்படுத்தி நன்கொடை அளிக்க, நாங்கள் PayPal Crypto-ஐப் பயன்படுத்தப் போகிறோம், இது நமக்கு அநாமதேயமாக இருக்க அனுமதிக்கிறது. இந்த முறையைப் பயன்படுத்தி நன்கொடை அளிப்பது எப்படி என்பதை அறிய நீங்கள் எடுத்துக்கொண்ட நேரத்திற்கு நாங்கள் நன்றி கூறுகிறோம், ஏனெனில் இது எங்களுக்கு மிகவும் உதவுகிறது."
 
-#: allthethings/account/templates/account/donate.html:256
+#: allthethings/account/templates/account/donate.html:260
 #, fuzzy
 msgid "page.donate.payment.desc.paypal_short"
 msgstr "PayPal-ஐப் பயன்படுத்தி நன்கொடை அளிக்கவும்."
 
-#: allthethings/account/templates/account/donate.html:262
+#: allthethings/account/templates/account/donate.html:266
 #, fuzzy
 msgid "page.donate.payment.desc.cashapp"
 msgstr "Cash App-ஐப் பயன்படுத்தி நன்கொடை அளிக்கவும்."
 
-#: allthethings/account/templates/account/donate.html:263
+#: allthethings/account/templates/account/donate.html:267
 #, fuzzy
 msgid "page.donate.payment.desc.cashapp_easy"
 msgstr "உங்களிடம் Cash App இருந்தால், இது நன்கொடை அளிக்க எளிய வழியாகும்!"
 
-#: allthethings/account/templates/account/donate.html:266
-#: allthethings/account/templates/account/donate.html:276
+#: allthethings/account/templates/account/donate.html:270
+#: allthethings/account/templates/account/donate.html:280
 #, fuzzy
 msgid "page.donate.payment.desc.cashapp_fee"
 msgstr "%(amount)s க்குக் குறைவான பரிவர்த்தனைகளுக்கு, Cash App %(fee)s கட்டணத்தை வசூலிக்கலாம். %(amount)s அல்லது அதற்கு மேல், இது இலவசம்!"
 
-#: allthethings/account/templates/account/donate.html:272
+#: allthethings/account/templates/account/donate.html:276
 #, fuzzy
 msgid "page.donate.payment.desc.revolut"
 msgstr "Revolut பயன்படுத்தி நன்கொடை அளிக்கவும்."
 
-#: allthethings/account/templates/account/donate.html:273
+#: allthethings/account/templates/account/donate.html:277
 #, fuzzy
 msgid "page.donate.payment.desc.revolut_easy"
 msgstr "உங்களிடம் Revolut இருந்தால், நன்கொடை அளிக்க இது எளிதான வழி!"
 
-#: allthethings/account/templates/account/donate.html:282
-#: allthethings/account/templates/account/donate.html:398
+#: allthethings/account/templates/account/donate.html:286
+#: allthethings/account/templates/account/donate.html:402
 #, fuzzy
 msgid "page.donate.payment.desc.credit_debit"
 msgstr "கிரெடிட் அல்லது டெபிட் கார்டைப் பயன்படுத்தி நன்கொடை அளிக்கவும்."
 
-#: allthethings/account/templates/account/donate.html:283
+#: allthethings/account/templates/account/donate.html:287
 #, fuzzy
 msgid "page.donate.payment.desc.google_apple"
 msgstr "Google Pay மற்றும் Apple Pay கூட வேலை செய்யலாம்."
 
-#: allthethings/account/templates/account/donate.html:284
+#: allthethings/account/templates/account/donate.html:288
 #, fuzzy
 msgid "page.donate.payment.desc.elimate_discount"
 msgstr "சிறிய நன்கொடைகளுக்கு கிரெடிட் கார்டு கட்டணங்கள் எங்கள் %(discount)s%% தள்ளுபடியை நீக்கக்கூடும் என்பதால், நீண்ட சந்தாக்களை பரிந்துரைக்கிறோம்."
 
-#: allthethings/account/templates/account/donate.html:285
+#: allthethings/account/templates/account/donate.html:289
 #, fuzzy
 msgid "page.donate.payment.desc.longer_subs"
 msgstr "சிறிய நன்கொடைகளுக்கு கட்டணங்கள் அதிகமாக இருப்பதால், நீண்ட சந்தாக்களை பரிந்துரைக்கிறோம்."
 
-#: allthethings/account/templates/account/donate.html:291
+#: allthethings/account/templates/account/donate.html:295
 #, fuzzy
 msgid "page.donate.payment.desc.binance_p1"
 msgstr "Binance உடன், நீங்கள் கிரெடிட்/டெபிட் கார்டு அல்லது வங்கி கணக்கைப் பயன்படுத்தி Bitcoin வாங்கி, அதை நமக்கு நன்கொடை அளிக்கலாம். இந்த வழியில், உங்கள் நன்கொடையை ஏற்றுக்கொள்ளும்போது நாங்கள் பாதுகாப்பாகவும் அநாமதேயமாகவும் இருக்க முடியும்."
 
-#: allthethings/account/templates/account/donate.html:295
+#: allthethings/account/templates/account/donate.html:299
 #, fuzzy
 msgid "page.donate.payment.desc.binance_p2"
 msgstr "Binance பெரும்பாலான நாடுகளில் கிடைக்கிறது மற்றும் பெரும்பாலான வங்கிகள் மற்றும் கிரெடிட்/டெபிட் கார்டுகளை ஆதரிக்கிறது. இது தற்போது எங்கள் முக்கிய பரிந்துரை. இந்த முறையைப் பயன்படுத்தி நன்கொடை அளிப்பது எப்படி என்பதை அறிய நீங்கள் எடுத்துக்கொண்ட நேரத்திற்கு நாங்கள் நன்றி கூறுகிறோம், ஏனெனில் இது எங்களுக்கு மிகவும் உதவுகிறது."
 
-#: allthethings/account/templates/account/donate.html:301
+#: allthethings/account/templates/account/donate.html:305
 #, fuzzy
 msgid "page.donate.payment.desc.paypalreg"
 msgstr "உங்கள் வழக்கமான PayPal கணக்கைப் பயன்படுத்தி நன்கொடை அளிக்கவும்."
 
-#: allthethings/account/templates/account/donate.html:307
+#: allthethings/account/templates/account/donate.html:311
 #, fuzzy
 msgid "page.donate.payment.desc.givebutter"
 msgstr "கிரெடிட்/டெபிட் கார்டு, PayPal, அல்லது Venmo பயன்படுத்தி நன்கொடை அளிக்கவும். அடுத்த பக்கத்தில் இதைத் தேர்ந்தெடுக்கலாம்."
 
-#: allthethings/account/templates/account/donate.html:313
-#: allthethings/account/templates/account/donate.html:325
-#: allthethings/account/templates/account/donate.html:337
-#: allthethings/account/templates/account/donate.html:349
-#: allthethings/account/templates/account/donate.html:361
-#: allthethings/account/templates/account/donate.html:373
-#: allthethings/account/templates/account/donate.html:385
+#: allthethings/account/templates/account/donate.html:317
+#: allthethings/account/templates/account/donate.html:329
+#: allthethings/account/templates/account/donate.html:341
+#: allthethings/account/templates/account/donate.html:353
+#: allthethings/account/templates/account/donate.html:365
+#: allthethings/account/templates/account/donate.html:377
+#: allthethings/account/templates/account/donate.html:389
 #, fuzzy
 msgid "page.donate.payment.desc.amazon"
 msgstr "Amazon பரிசு அட்டையைப் பயன்படுத்தி நன்கொடை அளிக்கவும்."
-
-#: allthethings/account/templates/account/donate.html:314
-#: allthethings/account/templates/account/donate.html:326
-#: allthethings/account/templates/account/donate.html:338
-#: allthethings/account/templates/account/donate.html:350
-#: allthethings/account/templates/account/donate.html:362
-#: allthethings/account/templates/account/donate.html:374
-#: allthethings/account/templates/account/donate.html:386
-#, fuzzy
-msgid "page.donate.payment.desc.amazon_round"
-msgstr "எங்கள் மறுவிற்பனையாளர்களால் ஏற்றுக்கொள்ளப்படும் தொகைகளுக்கு (குறைந்தபட்சம் %(minimum)s) நாங்கள் வட்டமிட வேண்டும் என்பதை கவனிக்கவும்."
 
 #: allthethings/account/templates/account/donate.html:318
 #: allthethings/account/templates/account/donate.html:330
@@ -601,365 +592,376 @@ msgstr "எங்கள் மறுவிற்பனையாளர்கள�
 #: allthethings/account/templates/account/donate.html:366
 #: allthethings/account/templates/account/donate.html:378
 #: allthethings/account/templates/account/donate.html:390
-#: allthethings/account/templates/account/donation.html:373
+#, fuzzy
+msgid "page.donate.payment.desc.amazon_round"
+msgstr "எங்கள் மறுவிற்பனையாளர்களால் ஏற்றுக்கொள்ளப்படும் தொகைகளுக்கு (குறைந்தபட்சம் %(minimum)s) நாங்கள் வட்டமிட வேண்டும் என்பதை கவனிக்கவும்."
+
+#: allthethings/account/templates/account/donate.html:322
+#: allthethings/account/templates/account/donate.html:334
+#: allthethings/account/templates/account/donate.html:346
+#: allthethings/account/templates/account/donate.html:358
+#: allthethings/account/templates/account/donate.html:370
+#: allthethings/account/templates/account/donate.html:382
+#: allthethings/account/templates/account/donate.html:394
+#: allthethings/account/templates/account/donation.html:405
 #, fuzzy
 msgid "page.donate.payment.desc.amazon_com"
 msgstr "<strong>முக்கியம்:</strong> நாங்கள் Amazon.com மட்டுமே ஆதரிக்கிறோம், பிற Amazon வலைத்தளங்களை அல்ல. உதாரணமாக, .de, .co.uk, .ca, ஆதரிக்கப்படவில்லை."
 
-#: allthethings/account/templates/account/donate.html:319
-#: allthethings/account/templates/account/donate.html:331
-#: allthethings/account/templates/account/donate.html:343
-#: allthethings/account/templates/account/donate.html:355
-#: allthethings/account/templates/account/donate.html:367
-#: allthethings/account/templates/account/donate.html:379
-#: allthethings/account/templates/account/donate.html:391
+#: allthethings/account/templates/account/donate.html:323
+#: allthethings/account/templates/account/donate.html:335
+#: allthethings/account/templates/account/donate.html:347
+#: allthethings/account/templates/account/donate.html:359
+#: allthethings/account/templates/account/donate.html:371
+#: allthethings/account/templates/account/donate.html:383
+#: allthethings/account/templates/account/donate.html:395
 #, fuzzy
 msgid "page.donate.payment.desc.amazon_cc"
 msgstr "<strong>முக்கியம்:</strong> இந்த விருப்பம் %(amazon)s க்கானது. நீங்கள் வேறு Amazon இணையதளத்தைப் பயன்படுத்த விரும்பினால், மேலே தேர்ந்தெடுக்கவும்."
 
-#: allthethings/account/templates/account/donate.html:399
+#: allthethings/account/templates/account/donate.html:403
 #, fuzzy
 msgid "page.donate.payment.desc.credit_debit_backup"
 msgstr "இந்த முறை இடைநிலை மாற்றமாக ஒரு கிரிப்டோகரன்சி வழங்குநரைப் பயன்படுத்துகிறது. இது கொஞ்சம் குழப்பமாக இருக்கலாம், எனவே பிற கட்டண முறைகள் வேலை செய்யாவிட்டால் மட்டுமே இந்த முறையைப் பயன்படுத்தவும். இது அனைத்து நாடுகளிலும் வேலை செய்யாது."
 
-#: allthethings/account/templates/account/donate.html:405
+#: allthethings/account/templates/account/donate.html:409
 #, fuzzy
 msgid "page.donate.payment.desc.bank_card_app"
 msgstr "Alipay ஆப் மூலம் கடன்/பற்று அட்டை பயன்படுத்தி நன்கொடை செய்யவும் (அமைக்க மிகவும் எளிது)."
 
-#: allthethings/account/templates/account/donate.html:409
-#: allthethings/account/templates/account/donation.html:519
+#: allthethings/account/templates/account/donate.html:413
+#: allthethings/account/templates/account/donation.html:563
 #, fuzzy
 msgid "page.donate.payment.desc.bank_card_app.step1.header"
 msgstr "<span %(style)s>1</span>Alipay ஆப் நிறுவவும்"
 
-#: allthethings/account/templates/account/donate.html:413
-#: allthethings/account/templates/account/donation.html:523
+#: allthethings/account/templates/account/donate.html:417
+#: allthethings/account/templates/account/donation.html:567
 #, fuzzy
 msgid "page.donate.payment.desc.bank_card_app.step1.desc1"
 msgstr "<a %(a_app_store)s>ஆப்பிள் ஆப் ஸ்டோர்</a> அல்லது <a %(a_play_store)s>கூகுள் பிளே ஸ்டோர்</a> இலிருந்து Alipay ஆப் நிறுவவும்."
 
-#: allthethings/account/templates/account/donate.html:417
-#: allthethings/account/templates/account/donation.html:527
+#: allthethings/account/templates/account/donate.html:421
+#: allthethings/account/templates/account/donation.html:571
 #, fuzzy
 msgid "page.donate.payment.desc.bank_card_app.step1.desc2"
 msgstr "உங்கள் தொலைபேசி எண்ணைப் பயன்படுத்தி பதிவு செய்யவும்."
 
-#: allthethings/account/templates/account/donate.html:418
-#: allthethings/account/templates/account/donation.html:528
+#: allthethings/account/templates/account/donate.html:422
+#: allthethings/account/templates/account/donation.html:572
 #, fuzzy
 msgid "page.donate.payment.desc.bank_card_app.step1.desc3"
 msgstr "மேலும் தனிப்பட்ட விவரங்கள் தேவையில்லை."
 
-#: allthethings/account/templates/account/donate.html:422
-#: allthethings/account/templates/account/donation.html:532
+#: allthethings/account/templates/account/donate.html:426
+#: allthethings/account/templates/account/donation.html:576
 #, fuzzy
 msgid "page.donate.payment.desc.bank_card_app.step2.header"
 msgstr "<span %(style)s>2</span>வங்கி அட்டை சேர்க்கவும்"
 
-#: allthethings/account/templates/account/donate.html:430
-#: allthethings/account/templates/account/donation.html:540
+#: allthethings/account/templates/account/donate.html:434
+#: allthethings/account/templates/account/donation.html:584
 #, fuzzy
 msgid "page.donate.payment.desc.bank_card_app.step2.desc1"
 msgstr "ஆதரிக்கப்படும்: Visa, MasterCard, JCB, Diners Club மற்றும் Discover."
 
-#: allthethings/account/templates/account/donate.html:431
-#: allthethings/account/templates/account/donation.html:541
+#: allthethings/account/templates/account/donate.html:435
+#: allthethings/account/templates/account/donation.html:585
 #, fuzzy
 msgid "page.donate.payment.desc.bank_card_app.step2.desc2"
 msgstr "மேலும் தகவலுக்கு <a %(a_alipay)s>இந்த வழிகாட்டியை</a> பார்க்கவும்."
 
-#: allthethings/account/templates/account/donate.html:437
+#: allthethings/account/templates/account/donate.html:441
 #, fuzzy
 msgid "page.donate.payment.desc.credit_debit_explained"
 msgstr "நாங்கள் நேரடியாக கிரெடிட்/டெபிட் கார்டுகளை ஆதரிக்க முடியாது, ஏனெனில் வங்கிகள் எங்களுடன் வேலை செய்ய விரும்பவில்லை. ☹ எனினும், பிற கட்டண முறைகளைப் பயன்படுத்தி கிரெடிட்/டெபிட் கார்டுகளைப் பயன்படுத்த பல வழிகள் உள்ளன:"
 
-#: allthethings/account/templates/account/donate.html:441
+#: allthethings/account/templates/account/donate.html:445
 msgid "page.donate.payment.buttons.amazon"
 msgstr "அமேசான் பரிசு அட்டை"
 
-#: allthethings/account/templates/account/donate.html:442
+#: allthethings/account/templates/account/donate.html:446
 #, fuzzy
 msgid "page.donate.ccexp.amazon_com"
 msgstr "எங்களுக்கு Amazon.com பரிசு அட்டைகளை உங்கள் கிரெடிட்/டெபிட் கார்டைப் பயன்படுத்தி அனுப்புங்கள்."
 
-#: allthethings/account/templates/account/donate.html:445
+#: allthethings/account/templates/account/donate.html:449
 #, fuzzy
 msgid "page.donate.ccexp.alipay"
 msgstr "Alipay சர்வதேச கிரெடிட்/டெபிட் கார்டுகளை ஆதரிக்கிறது. மேலும் தகவலுக்கு <a %(a_alipay)s>இந்த வழிகாட்டியை</a> பார்க்கவும்."
 
-#: allthethings/account/templates/account/donate.html:448
+#: allthethings/account/templates/account/donate.html:452
 #, fuzzy
 msgid "page.donate.ccexp.wechat"
 msgstr "WeChat (Weixin Pay) சர்வதேச கிரெடிட்/டெபிட் கார்டுகளை ஆதரிக்கிறது. WeChat செயலியில், “நான் => சேவைகள் => பணப்பை => கார்டு சேர்க்க” என்பதற்கு செல்லுங்கள். அது தெரியவில்லை என்றால், “நான் => அமைப்புகள் => பொது => கருவிகள் => Weixin Pay => இயக்கு” என்பதன் மூலம் அதை இயக்கு."
 
-#: allthethings/account/templates/account/donate.html:451
+#: allthethings/account/templates/account/donate.html:455
 #, fuzzy
 msgid "page.donate.ccexp.crypto"
 msgstr "நீங்கள் கிரெடிட்/டெபிட் கார்டுகளைப் பயன்படுத்தி கிரிப்டோ வாங்கலாம்."
 
-#: allthethings/account/templates/account/donate.html:461
+#: allthethings/account/templates/account/donate.html:465
 #, fuzzy
 msgid "page.donate.payment.desc.crypto_express_services"
 msgstr "கிரிப்டோ எக்ஸ்பிரஸ் சேவைகள்"
 
-#: allthethings/account/templates/account/donate.html:463
+#: allthethings/account/templates/account/donate.html:467
 #, fuzzy
 msgid "page.donation.ccexp.crypto_express_services.1"
 msgstr "எக்ஸ்பிரஸ் சேவைகள் வசதியானவை, ஆனால் அதிக கட்டணங்களை வசூலிக்கின்றன."
 
-#: allthethings/account/templates/account/donate.html:464
+#: allthethings/account/templates/account/donate.html:468
 #, fuzzy
 msgid "page.donation.ccexp.crypto_express_services.2"
 msgstr "நீங்கள் விரைவாக பெரிய அளவிலான நன்கொடை செய்ய விரும்பினால், மற்றும் $5-10 கட்டணத்தை பொருட்படுத்தவில்லை என்றால், கிரிப்டோ பரிமாற்றத்திற்கு பதிலாக இதைப் பயன்படுத்தலாம்."
 
-#: allthethings/account/templates/account/donate.html:467
+#: allthethings/account/templates/account/donate.html:471
 #, fuzzy
 msgid "page.donation.ccexp.crypto_express_services.3"
 msgstr "நன்கொடை பக்கத்தில் காட்டப்படும் துல்லியமான கிரிப்டோ தொகையை அனுப்புவதை உறுதிப்படுத்தவும், $USD தொகையை அல்ல."
 
-#: allthethings/account/templates/account/donate.html:468
+#: allthethings/account/templates/account/donate.html:472
 #, fuzzy
 msgid "page.donation.ccexp.crypto_express_services.4"
 msgstr "இல்லையெனில் கட்டணம் கழிக்கப்படும் மற்றும் உங்கள் உறுப்பினர்துவத்தை தானாக செயலாக்க முடியாது."
 
-#: allthethings/account/templates/account/donate.html:471
-#: allthethings/account/templates/account/donation.html:304
+#: allthethings/account/templates/account/donate.html:475
+#: allthethings/account/templates/account/donation.html:328
 #, fuzzy
 msgid "page.donation.payment2cc.method.paybis"
 msgstr "(குறைந்தபட்சம்: %(minimum)s)"
 
-#: allthethings/account/templates/account/donate.html:472
-#: allthethings/account/templates/account/donation.html:305
+#: allthethings/account/templates/account/donate.html:476
+#: allthethings/account/templates/account/donation.html:329
 #, fuzzy
 msgid "page.donation.payment2cc.method.switchere"
 msgstr "(குறைந்தபட்சம்: %(minimum)s நாடு பொறுத்து, முதல் பரிவர்த்தனைக்கு சரிபார்ப்பு தேவையில்லை)"
 
-#: allthethings/account/templates/account/donate.html:473
-#: allthethings/account/templates/account/donation.html:306
+#: allthethings/account/templates/account/donate.html:477
+#: allthethings/account/templates/account/donation.html:330
 #, fuzzy
 msgid "page.donation.payment2cc.method.munzen"
 msgstr "(குறைந்தபட்சம்: %(minimum)s, முதல் பரிவர்த்தனைக்கு சரிபார்ப்பு தேவையில்லை)"
 
-#: allthethings/account/templates/account/donate.html:474
-#: allthethings/account/templates/account/donation.html:307
+#: allthethings/account/templates/account/donate.html:478
+#: allthethings/account/templates/account/donation.html:331
 #, fuzzy
 msgid "page.donation.payment2cc.method.mercuryo"
 msgstr "(குறைந்தபட்சம்: %(minimum)s)"
 
-#: allthethings/account/templates/account/donate.html:475
-#: allthethings/account/templates/account/donation.html:308
+#: allthethings/account/templates/account/donate.html:479
+#: allthethings/account/templates/account/donation.html:332
 #, fuzzy
 msgid "page.donation.payment2cc.method.moonpay"
 msgstr "(குறைந்தபட்சம்: %(minimum)s)"
 
-#: allthethings/account/templates/account/donate.html:476
-#: allthethings/account/templates/account/donation.html:309
+#: allthethings/account/templates/account/donate.html:480
+#: allthethings/account/templates/account/donation.html:333
 #, fuzzy
 msgid "page.donation.payment2cc.method.coingate"
 msgstr "(குறைந்தபட்சம்: %(minimum)s, முதல் பரிவர்த்தனைக்கு சரிபார்ப்பு தேவையில்லை)"
 
-#: allthethings/account/templates/account/donate.html:478
-#: allthethings/account/templates/account/donation.html:311
+#: allthethings/account/templates/account/donate.html:482
+#: allthethings/account/templates/account/donation.html:335
 #, fuzzy
 msgid "page.donation.payment2cc.cc2btc.outdated"
 msgstr "இந்த தகவல் காலாவதியானதாக இருந்தால், தயவுசெய்து எங்களுக்கு மின்னஞ்சல் அனுப்பி தெரியப்படுத்தவும்."
 
-#: allthethings/account/templates/account/donate.html:485
+#: allthethings/account/templates/account/donate.html:489
 #, fuzzy
 msgid "page.donate.payment.desc.bmc"
 msgstr "கிரெடிட் கார்டுகள், டெபிட் கார்டுகள், Apple Pay, மற்றும் Google Pay க்காக, நாங்கள் “Buy Me a Coffee” (BMC <span class=\"icon-[ph--coffee-fill] text-lg align-text-bottom\"></span>) ஐப் பயன்படுத்துகிறோம். அவர்களின் அமைப்பில், ஒரு “காபி” $5 க்கு சமம், எனவே உங்கள் நன்கொடை 5 இன் மிக அருகிலுள்ள பலவாக வட்டமிடப்படும்."
 
-#: allthethings/account/templates/account/donate.html:492
+#: allthethings/account/templates/account/donate.html:496
 #, fuzzy
 msgid "page.donate.duration.intro"
 msgstr "நீங்கள் எவ்வளவு காலத்திற்கு சந்தா செலுத்த விரும்புகிறீர்கள் என்பதைத் தேர்ந்தெடுக்கவும்."
 
-#: allthethings/account/templates/account/donate.html:509
+#: allthethings/account/templates/account/donate.html:513
 #, fuzzy
 msgid "page.donate.duration.1_mo"
 msgstr "1 மாதம்"
 
-#: allthethings/account/templates/account/donate.html:510
+#: allthethings/account/templates/account/donate.html:514
 #, fuzzy
 msgid "page.donate.duration.3_mo"
 msgstr "3 மாதங்கள்"
 
-#: allthethings/account/templates/account/donate.html:511
+#: allthethings/account/templates/account/donate.html:515
 #, fuzzy
 msgid "page.donate.duration.6_mo"
 msgstr "6 மாதங்கள்"
 
-#: allthethings/account/templates/account/donate.html:512
+#: allthethings/account/templates/account/donate.html:516
 #, fuzzy
 msgid "page.donate.duration.12_mo"
 msgstr "12 மாதங்கள்"
 
-#: allthethings/account/templates/account/donate.html:513
+#: allthethings/account/templates/account/donate.html:517
 #, fuzzy
 msgid "page.donate.duration.24_mo"
 msgstr "24 மாதங்கள்"
 
-#: allthethings/account/templates/account/donate.html:514
+#: allthethings/account/templates/account/donate.html:518
 #, fuzzy
 msgid "page.donate.duration.48_mo"
 msgstr "48 மாதங்கள்"
 
-#: allthethings/account/templates/account/donate.html:515
+#: allthethings/account/templates/account/donate.html:519
 #, fuzzy
 msgid "page.donate.duration.96_mo"
 msgstr "96 மாதங்கள்"
 
-#: allthethings/account/templates/account/donate.html:518
+#: allthethings/account/templates/account/donate.html:522
 #, fuzzy
 msgid "page.donate.duration.summary"
 msgstr "<div %(div_monthly_cost)s></div><div %(div_after)s>தள்ளுபடிகள் <span %(span_discount)s></span> பிறகு</div><div %(div_total)s></div><div %(div_duration)s></div>"
 
-#: allthethings/account/templates/account/donate.html:525
+#: allthethings/account/templates/account/donate.html:529
 #, fuzzy
 msgid "page.donate.payment.minimum_method"
 msgstr "இந்த கட்டண முறைக்கு குறைந்தபட்சம் %(amount)s தேவை. வேறு கால அளவோ அல்லது கட்டண முறையோ தேர்ந்தெடுக்கவும்."
 
-#: allthethings/account/templates/account/donate.html:526
 #: allthethings/account/templates/account/donate.html:530
+#: allthethings/account/templates/account/donate.html:534
 #, fuzzy
 msgid "page.donate.buttons.donate"
 msgstr "நன்கொடை"
 
-#: allthethings/account/templates/account/donate.html:529
+#: allthethings/account/templates/account/donate.html:533
 #, fuzzy
 msgid "page.donate.payment.maximum_method"
 msgstr "இந்த கட்டண முறையில் அதிகபட்சம் %(amount)s மட்டுமே அனுமதிக்கப்படுகிறது. வேறு கால அளவோ அல்லது கட்டண முறையோ தேர்ந்தெடுக்கவும்."
 
-#: allthethings/account/templates/account/donate.html:536
+#: allthethings/account/templates/account/donate.html:540
 #, fuzzy
 msgid "page.donate.login2"
 msgstr "உறுப்பினராக ஆக, தயவுசெய்து <a %(a_login)s>உள்நுழையவோ அல்லது பதிவு செய்யவோ</a>. உங்கள் ஆதரவுக்கு நன்றி!"
 
-#: allthethings/account/templates/account/donate.html:543
+#: allthethings/account/templates/account/donate.html:547
 #, fuzzy
 msgid "page.donate.payment.crypto_select"
 msgstr "உங்கள் விருப்பமான கிரிப்டோ நாணயத்தைத் தேர்ந்தெடுக்கவும்:"
 
-#: allthethings/account/templates/account/donate.html:548
+#: allthethings/account/templates/account/donate.html:552
 #, fuzzy
 msgid "page.donate.currency_lowest_minimum"
 msgstr "(குறைந்தபட்ச தொகை குறைவாக உள்ளது)"
 
-#: allthethings/account/templates/account/donate.html:551
+#: allthethings/account/templates/account/donate.html:555
 #, fuzzy
 msgid "page.donate.coinbase_eth"
 msgstr "(Coinbase இலிருந்து Ethereum அனுப்பும்போது பயன்படுத்தவும்)"
 
-#: allthethings/account/templates/account/donate.html:563
-#: allthethings/account/templates/account/donate.html:564
+#: allthethings/account/templates/account/donate.html:567
 #: allthethings/account/templates/account/donate.html:568
-#: allthethings/account/templates/account/donate.html:570
+#: allthethings/account/templates/account/donate.html:572
+#: allthethings/account/templates/account/donate.html:574
 #, fuzzy
 msgid "page.donate.currency_warning_high_minimum"
 msgstr "(எச்சரிக்கை: குறைந்தபட்ச தொகை அதிகமாக உள்ளது)"
 
-#: allthethings/account/templates/account/donate.html:579
+#: allthethings/account/templates/account/donate.html:583
 #, fuzzy
 msgid "page.donate.submit.confirm"
 msgstr "இந்த நன்கொடை உறுதிப்படுத்த நன்கொடை பொத்தானை அழுத்தவும்."
 
-#: allthethings/account/templates/account/donate.html:587
+#: allthethings/account/templates/account/donate.html:591
 #, fuzzy
 msgid "page.donate.submit.button"
 msgstr "நன்கொடை <span %(span_cost)s></span> <span %(span_label)s></span>"
 
-#: allthethings/account/templates/account/donate.html:592
+#: allthethings/account/templates/account/donate.html:596
 #, fuzzy
 msgid "page.donate.submit.cancel_note"
 msgstr "காசோலைக் கட்டும் போது நீங்கள் இன்னும் நன்கொடை ரத்து செய்யலாம்."
 
-#: allthethings/account/templates/account/donate.html:596
+#: allthethings/account/templates/account/donate.html:600
 #, fuzzy
 msgid "page.donate.submit.success"
 msgstr "✅ நன்கொடைப் பக்கத்திற்கு மாற்றப்படுகிறது…"
 
-#: allthethings/account/templates/account/donate.html:597
+#: allthethings/account/templates/account/donate.html:601
 #, fuzzy
 msgid "page.donate.submit.failure"
 msgstr "❌ ஏதோ தவறு ஏற்பட்டது. பக்கத்தை மீண்டும் ஏற்றவும் மற்றும் மீண்டும் முயற்சிக்கவும்."
 
-#: allthethings/account/templates/account/donate.html:651
+#: allthethings/account/templates/account/donate.html:655
 #, fuzzy
 msgid "page.donate.duration.summary.discount"
 msgstr "%(percentage)s%%"
 
-#: allthethings/account/templates/account/donate.html:652
+#: allthethings/account/templates/account/donate.html:656
 #, fuzzy
 msgid "page.donate.duration.summary.monthly_cost"
 msgstr "%(monthly_cost)s / மாதம்"
 
-#: allthethings/account/templates/account/donate.html:655
+#: allthethings/account/templates/account/donate.html:659
 #, fuzzy
 msgid "page.donate.duration.summary.duration.1_mo"
 msgstr "1 மாதத்திற்கு"
 
-#: allthethings/account/templates/account/donate.html:656
+#: allthethings/account/templates/account/donate.html:660
 #, fuzzy
 msgid "page.donate.duration.summary.duration.3_mo"
 msgstr "3 மாதங்களுக்கு"
 
-#: allthethings/account/templates/account/donate.html:657
+#: allthethings/account/templates/account/donate.html:661
 #, fuzzy
 msgid "page.donate.duration.summary.duration.6_mo"
 msgstr "6 மாதங்களுக்கு"
 
-#: allthethings/account/templates/account/donate.html:658
+#: allthethings/account/templates/account/donate.html:662
 #, fuzzy
 msgid "page.donate.duration.summary.duration.12_mo"
 msgstr "12 மாதங்களுக்கு"
 
-#: allthethings/account/templates/account/donate.html:659
+#: allthethings/account/templates/account/donate.html:663
 #, fuzzy
 msgid "page.donate.duration.summary.duration.24_mo"
 msgstr "24 மாதங்களுக்கு"
 
-#: allthethings/account/templates/account/donate.html:660
+#: allthethings/account/templates/account/donate.html:664
 #, fuzzy
 msgid "page.donate.duration.summary.duration.48_mo"
 msgstr "48 மாதங்களுக்கு"
 
-#: allthethings/account/templates/account/donate.html:661
+#: allthethings/account/templates/account/donate.html:665
 #, fuzzy
 msgid "page.donate.duration.summary.duration.96_mo"
 msgstr "96 மாதங்களுக்கு"
 
-#: allthethings/account/templates/account/donate.html:665
+#: allthethings/account/templates/account/donate.html:669
 #, fuzzy
 msgid "page.donate.submit.button.label.1_mo"
 msgstr "1 மாதத்திற்கு “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:666
+#: allthethings/account/templates/account/donate.html:670
 #, fuzzy
 msgid "page.donate.submit.button.label.3_mo"
 msgstr "3 மாதங்களுக்கு “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:667
+#: allthethings/account/templates/account/donate.html:671
 #, fuzzy
 msgid "page.donate.submit.button.label.6_mo"
 msgstr "6 மாதங்களுக்கு “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:668
+#: allthethings/account/templates/account/donate.html:672
 #, fuzzy
 msgid "page.donate.submit.button.label.12_mo"
 msgstr "12 மாதங்களுக்கு “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:669
+#: allthethings/account/templates/account/donate.html:673
 #, fuzzy
 msgid "page.donate.submit.button.label.24_mo"
 msgstr "24 மாதங்களுக்கு “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:670
+#: allthethings/account/templates/account/donate.html:674
 #, fuzzy
 msgid "page.donate.submit.button.label.48_mo"
 msgstr "48 மாதங்களுக்கு “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:671
+#: allthethings/account/templates/account/donate.html:675
 #, fuzzy
 msgid "page.donate.submit.button.label.96_mo"
 msgstr "96 மாதங்களுக்கு “%(tier_name)s”"
@@ -1037,6 +1039,14 @@ msgstr "நீங்கள் ஏற்கனவே பணம் செலுத
 
 #: allthethings/account/templates/account/donation.html:52
 #: allthethings/account/templates/account/donation.html:68
+#: allthethings/account/templates/account/donation.html:170
+#: allthethings/account/templates/account/donation.html:216
+#: allthethings/account/templates/account/donation.html:265
+#: allthethings/account/templates/account/donation.html:318
+#: allthethings/account/templates/account/donation.html:367
+#: allthethings/account/templates/account/donation.html:509
+#: allthethings/account/templates/account/donation.html:554
+#: allthethings/account/templates/account/donation.html:636
 #, fuzzy
 msgid "page.donation.old_instructions.show_button"
 msgstr "பழைய கட்டண வழிமுறைகளை காட்டு"
@@ -1070,18 +1080,18 @@ msgstr "<strong>முக்கிய குறிப்பு:</strong> கி�
 #: allthethings/account/templates/account/donation.html:95
 #: allthethings/account/templates/account/donation.html:116
 #: allthethings/account/templates/account/donation.html:167
-#: allthethings/account/templates/account/donation.html:207
-#: allthethings/account/templates/account/donation.html:250
-#: allthethings/account/templates/account/donation.html:297
-#: allthethings/account/templates/account/donation.html:340
-#: allthethings/account/templates/account/donation.html:407
-#: allthethings/account/templates/account/donation.html:423
-#: allthethings/account/templates/account/donation.html:441
-#: allthethings/account/templates/account/donation.html:457
-#: allthethings/account/templates/account/donation.html:474
-#: allthethings/account/templates/account/donation.html:513
-#: allthethings/account/templates/account/donation.html:589
-#: allthethings/account/templates/account/donation.html:619
+#: allthethings/account/templates/account/donation.html:213
+#: allthethings/account/templates/account/donation.html:262
+#: allthethings/account/templates/account/donation.html:315
+#: allthethings/account/templates/account/donation.html:364
+#: allthethings/account/templates/account/donation.html:439
+#: allthethings/account/templates/account/donation.html:455
+#: allthethings/account/templates/account/donation.html:473
+#: allthethings/account/templates/account/donation.html:489
+#: allthethings/account/templates/account/donation.html:506
+#: allthethings/account/templates/account/donation.html:551
+#: allthethings/account/templates/account/donation.html:633
+#: allthethings/account/templates/account/donation.html:669
 #, fuzzy
 msgid "page.donation.expired"
 msgstr "இந்த நன்கொடை காலாவதியானது. தயவுசெய்து ரத்து செய்து புதியதை உருவாக்கவும்."
@@ -1107,7 +1117,7 @@ msgid "page.donate.submit.header1"
 msgstr "<span %(span_circle)s>1</span> பேபால் மூலம் பிட்காயின் வாங்கவும்"
 
 #: allthethings/account/templates/account/donation.html:122
-#: allthethings/account/templates/account/donation.html:173
+#: allthethings/account/templates/account/donation.html:179
 #, fuzzy
 msgid "page.donate.one_time_payment.paypal.text2"
 msgstr "உங்கள் பேபால் செயலி அல்லது வலைத்தளத்தில் “கிரிப்டோ” பக்கத்தை கண்டுபிடிக்கவும். இது பொதுவாக “நிதிகள்” கீழ் இருக்கும்."
@@ -1133,7 +1143,7 @@ msgid "page.donation.payment.paypal.text5"
 msgstr "எங்கள் பிட்காயின் (BTC) முகவரியை பெறுநராக உள்ளிடவும், மற்றும் உங்கள் %(total)s நன்கொடையை அனுப்புவதற்கான வழிமுறைகளை பின்பற்றவும்:"
 
 #: allthethings/account/templates/account/donation.html:140
-#: allthethings/account/templates/account/donation.html:293
+#: allthethings/account/templates/account/donation.html:311
 #, fuzzy
 msgid "page.donation.credit_debit_card_instructions"
 msgstr "கிரெடிட் / டெபிட் கார்டு வழிமுறைகள்"
@@ -1154,484 +1164,484 @@ msgid "page.donation.stepbystep_below"
 msgstr "கீழே உள்ள படி படி வழிகாட்டியைப் பார்க்கவும்."
 
 #: allthethings/account/templates/account/donation.html:149
-#: allthethings/account/templates/account/donation.html:192
-#: allthethings/account/templates/account/donation.html:235
-#: allthethings/account/templates/account/donation.html:280
-#: allthethings/account/templates/account/donation.html:323
-#: allthethings/account/templates/account/donation.html:352
-#: allthethings/account/templates/account/donation.html:388
-#: allthethings/account/templates/account/donation.html:498
-#: allthethings/account/templates/account/donation.html:574
-#: allthethings/account/templates/account/donation.html:605
+#: allthethings/account/templates/account/donation.html:198
+#: allthethings/account/templates/account/donation.html:247
+#: allthethings/account/templates/account/donation.html:298
+#: allthethings/account/templates/account/donation.html:347
+#: allthethings/account/templates/account/donation.html:384
+#: allthethings/account/templates/account/donation.html:420
+#: allthethings/account/templates/account/donation.html:536
+#: allthethings/account/templates/account/donation.html:618
+#: allthethings/account/templates/account/donation.html:655
 #, fuzzy
 msgid "page.donation.status_header"
 msgstr "நிலை:"
 
 #: allthethings/account/templates/account/donation.html:149
-#: allthethings/account/templates/account/donation.html:192
-#: allthethings/account/templates/account/donation.html:235
-#: allthethings/account/templates/account/donation.html:280
-#: allthethings/account/templates/account/donation.html:323
-#: allthethings/account/templates/account/donation.html:352
-#: allthethings/account/templates/account/donation.html:498
-#: allthethings/account/templates/account/donation.html:574
-#: allthethings/account/templates/account/donation.html:605
+#: allthethings/account/templates/account/donation.html:198
+#: allthethings/account/templates/account/donation.html:247
+#: allthethings/account/templates/account/donation.html:298
+#: allthethings/account/templates/account/donation.html:347
+#: allthethings/account/templates/account/donation.html:384
+#: allthethings/account/templates/account/donation.html:536
+#: allthethings/account/templates/account/donation.html:618
+#: allthethings/account/templates/account/donation.html:655
 #, fuzzy
 msgid "page.donation.waiting_for_confirmation_refresh"
 msgstr "உறுதிப்படுத்தல் காத்திருக்கிறது (சரிபார்க்க பக்கத்தை புதுப்பிக்கவும்)…"
 
 #: allthethings/account/templates/account/donation.html:149
-#: allthethings/account/templates/account/donation.html:192
-#: allthethings/account/templates/account/donation.html:235
-#: allthethings/account/templates/account/donation.html:280
-#: allthethings/account/templates/account/donation.html:323
-#: allthethings/account/templates/account/donation.html:352
-#: allthethings/account/templates/account/donation.html:498
-#: allthethings/account/templates/account/donation.html:574
-#: allthethings/account/templates/account/donation.html:605
+#: allthethings/account/templates/account/donation.html:198
+#: allthethings/account/templates/account/donation.html:247
+#: allthethings/account/templates/account/donation.html:298
+#: allthethings/account/templates/account/donation.html:347
+#: allthethings/account/templates/account/donation.html:384
+#: allthethings/account/templates/account/donation.html:536
+#: allthethings/account/templates/account/donation.html:618
+#: allthethings/account/templates/account/donation.html:655
 #, fuzzy
 msgid "page.donation.waiting_for_transfer_refresh"
 msgstr "மாற்றம் காத்திருக்கிறது (சரிபார்க்க பக்கத்தை புதுப்பிக்கவும்)…"
 
 #: allthethings/account/templates/account/donation.html:150
-#: allthethings/account/templates/account/donation.html:193
-#: allthethings/account/templates/account/donation.html:236
-#: allthethings/account/templates/account/donation.html:281
-#: allthethings/account/templates/account/donation.html:324
-#: allthethings/account/templates/account/donation.html:353
-#: allthethings/account/templates/account/donation.html:499
-#: allthethings/account/templates/account/donation.html:575
-#: allthethings/account/templates/account/donation.html:606
+#: allthethings/account/templates/account/donation.html:199
+#: allthethings/account/templates/account/donation.html:248
+#: allthethings/account/templates/account/donation.html:299
+#: allthethings/account/templates/account/donation.html:348
+#: allthethings/account/templates/account/donation.html:385
+#: allthethings/account/templates/account/donation.html:537
+#: allthethings/account/templates/account/donation.html:619
+#: allthethings/account/templates/account/donation.html:656
 #, fuzzy
 msgid "page.donation.time_left_header"
 msgstr "மீதமுள்ள நேரம்:"
 
 #: allthethings/account/templates/account/donation.html:150
-#: allthethings/account/templates/account/donation.html:193
-#: allthethings/account/templates/account/donation.html:236
-#: allthethings/account/templates/account/donation.html:281
-#: allthethings/account/templates/account/donation.html:324
-#: allthethings/account/templates/account/donation.html:353
-#: allthethings/account/templates/account/donation.html:499
-#: allthethings/account/templates/account/donation.html:575
-#: allthethings/account/templates/account/donation.html:606
+#: allthethings/account/templates/account/donation.html:199
+#: allthethings/account/templates/account/donation.html:248
+#: allthethings/account/templates/account/donation.html:299
+#: allthethings/account/templates/account/donation.html:348
+#: allthethings/account/templates/account/donation.html:385
+#: allthethings/account/templates/account/donation.html:537
+#: allthethings/account/templates/account/donation.html:619
+#: allthethings/account/templates/account/donation.html:656
 #, fuzzy
 msgid "page.donation.might_want_to_cancel"
 msgstr "(நீங்கள் ரத்து செய்து புதிய நன்கொடை உருவாக்க விரும்பலாம்)"
 
 #: allthethings/account/templates/account/donation.html:154
-#: allthethings/account/templates/account/donation.html:197
-#: allthethings/account/templates/account/donation.html:240
-#: allthethings/account/templates/account/donation.html:285
-#: allthethings/account/templates/account/donation.html:328
-#: allthethings/account/templates/account/donation.html:357
-#: allthethings/account/templates/account/donation.html:503
-#: allthethings/account/templates/account/donation.html:579
-#: allthethings/account/templates/account/donation.html:610
+#: allthethings/account/templates/account/donation.html:203
+#: allthethings/account/templates/account/donation.html:252
+#: allthethings/account/templates/account/donation.html:303
+#: allthethings/account/templates/account/donation.html:352
+#: allthethings/account/templates/account/donation.html:389
+#: allthethings/account/templates/account/donation.html:541
+#: allthethings/account/templates/account/donation.html:623
+#: allthethings/account/templates/account/donation.html:660
 #, fuzzy
 msgid "page.donation.reset_timer"
 msgstr "டைமரை மீண்டும் அமைக்க, ஒரு புதிய நன்கொடை உருவாக்கவும்."
 
 #: allthethings/account/templates/account/donation.html:158
-#: allthethings/account/templates/account/donation.html:201
-#: allthethings/account/templates/account/donation.html:244
-#: allthethings/account/templates/account/donation.html:289
-#: allthethings/account/templates/account/donation.html:332
-#: allthethings/account/templates/account/donation.html:361
-#: allthethings/account/templates/account/donation.html:392
-#: allthethings/account/templates/account/donation.html:507
-#: allthethings/account/templates/account/donation.html:583
-#: allthethings/account/templates/account/donation.html:614
+#: allthethings/account/templates/account/donation.html:207
+#: allthethings/account/templates/account/donation.html:256
+#: allthethings/account/templates/account/donation.html:307
+#: allthethings/account/templates/account/donation.html:356
+#: allthethings/account/templates/account/donation.html:393
+#: allthethings/account/templates/account/donation.html:424
+#: allthethings/account/templates/account/donation.html:545
+#: allthethings/account/templates/account/donation.html:627
+#: allthethings/account/templates/account/donation.html:664
 #, fuzzy
 msgid "page.donation.refresh_status"
 msgstr "நிலையைப் புதுப்பிக்கவும்"
 
 #: allthethings/account/templates/account/donation.html:162
-#: allthethings/account/templates/account/donation.html:714
+#: allthethings/account/templates/account/donation.html:764
 #, fuzzy
 msgid "page.donation.footer.issues_contact"
 msgstr "எந்தவொரு சிக்கலையும் சந்தித்தால், %(email)s என்ற முகவரியில் எங்களை தொடர்பு கொள்ளவும் மற்றும் அதிகமான தகவல்களை (ஸ்கிரீன்ஷாட்கள் போன்றவை) சேர்க்கவும்."
 
-#: allthethings/account/templates/account/donation.html:170
-#: allthethings/account/templates/account/donation.html:210
-#: allthethings/account/templates/account/donation.html:253
+#: allthethings/account/templates/account/donation.html:176
+#: allthethings/account/templates/account/donation.html:222
+#: allthethings/account/templates/account/donation.html:271
 #, fuzzy
 msgid "page.donation.step1"
 msgstr "1"
 
-#: allthethings/account/templates/account/donation.html:170
+#: allthethings/account/templates/account/donation.html:176
 #, fuzzy
 msgid "page.donation.buy_pyusd"
 msgstr "PayPal இல் PYUSD நாணயத்தை வாங்கவும்"
 
-#: allthethings/account/templates/account/donation.html:177
+#: allthethings/account/templates/account/donation.html:183
 #, fuzzy
 msgid "page.donation.pyusd.instructions"
 msgstr "PYUSD நாணயத்தை (PayPal USD) வாங்குவதற்கான வழிமுறைகளைப் பின்பற்றவும்."
 
-#: allthethings/account/templates/account/donation.html:178
+#: allthethings/account/templates/account/donation.html:184
 #, fuzzy
 msgid "page.donation.pyusd.more"
 msgstr "நீங்கள் நன்கொடை அளிக்கும் தொகையை (%(amount)s) விட கொஞ்சம் கூடுதலாக (நாங்கள் %(more)s கூடுதலாக பரிந்துரைக்கிறோம்) வாங்கவும், பரிவர்த்தனை கட்டணங்களை மூட. மீதமுள்ளதை நீங்கள் வைத்துக்கொள்ளலாம்."
 
-#: allthethings/account/templates/account/donation.html:181
-#: allthethings/account/templates/account/donation.html:220
-#: allthethings/account/templates/account/donation.html:263
+#: allthethings/account/templates/account/donation.html:187
+#: allthethings/account/templates/account/donation.html:232
+#: allthethings/account/templates/account/donation.html:281
 #, fuzzy
 msgid "page.donation.step2"
 msgstr "2"
 
-#: allthethings/account/templates/account/donation.html:184
+#: allthethings/account/templates/account/donation.html:190
 #, fuzzy
 msgid "page.donation.pyusd.transfer"
 msgstr "உங்கள் PayPal செயலி அல்லது வலைத்தளத்தில் “PYUSD” பக்கத்திற்கு செல்லவும். “Transfer” பொத்தானை அழுத்தி %(icon)s, பின்னர் “Send” என்பதைத் தேர்ந்தெடுக்கவும்."
 
-#: allthethings/account/templates/account/donation.html:188
-#: allthethings/account/templates/account/donation.html:227
-#: allthethings/account/templates/account/donation.html:272
-#: allthethings/account/templates/account/donation.html:344
+#: allthethings/account/templates/account/donation.html:194
+#: allthethings/account/templates/account/donation.html:239
+#: allthethings/account/templates/account/donation.html:290
+#: allthethings/account/templates/account/donation.html:374
 #, fuzzy
 msgid "page.donation.transfer_amount_to"
 msgstr "%(amount)s ஐ %(account)s க்கு மாற்றவும்"
 
-#: allthethings/account/templates/account/donation.html:210
+#: allthethings/account/templates/account/donation.html:222
 #, fuzzy
 msgid "page.donation.cash_app_btc.step1"
 msgstr "Cash App-ல் Bitcoin (BTC) வாங்கவும்"
 
-#: allthethings/account/templates/account/donation.html:213
+#: allthethings/account/templates/account/donation.html:225
 #, fuzzy
 msgid "page.donation.cash_app_btc.step1.text1"
 msgstr "Cash App-ல் “Bitcoin” (BTC) பக்கத்திற்கு செல்லவும்."
 
-#: allthethings/account/templates/account/donation.html:217
+#: allthethings/account/templates/account/donation.html:229
 #, fuzzy
 msgid "page.donation.cash_app_btc.step1.more"
 msgstr "நீங்கள் நன்கொடை அளிக்கும் தொகையை விட கொஞ்சம் கூடுதலாக (%(more)s) வாங்கவும், பரிவர்த்தனை கட்டணங்களை மூடுவதற்காக. மீதமுள்ளதை நீங்கள் வைத்துக்கொள்ளலாம்."
 
-#: allthethings/account/templates/account/donation.html:220
+#: allthethings/account/templates/account/donation.html:232
 #, fuzzy
 msgid "page.donation.cash_app_btc.step2"
 msgstr "Bitcoin-ஐ எங்கள் முகவரிக்கு மாற்றவும்"
 
-#: allthethings/account/templates/account/donation.html:223
+#: allthethings/account/templates/account/donation.html:235
 #, fuzzy
 msgid "page.donation.cash_app_btc.step2.transfer"
 msgstr "“Send bitcoin” பொத்தானை அழுத்தி “withdrawal” செய்யவும். %(icon)s ஐகானை அழுத்தி டாலரிலிருந்து BTC-க்கு மாறவும். கீழே உள்ள BTC தொகையை உள்ளீடு செய்து “Send” அழுத்தவும். சிக்கலாக இருந்தால் <a %(help_video)s>இந்த வீடியோவை</a> பார்க்கவும்."
 
-#: allthethings/account/templates/account/donation.html:231
+#: allthethings/account/templates/account/donation.html:243
 #, fuzzy
 msgid "page.donation.cash_app_btc.step2.rush_priority"
 msgstr "சிறிய நன்கொடைகளுக்கு ($25 க்குக் குறைவாக), நீங்கள் Rush அல்லது Priority பயன்படுத்த வேண்டியிருக்கும்."
 
-#: allthethings/account/templates/account/donation.html:253
+#: allthethings/account/templates/account/donation.html:271
 #, fuzzy
 msgid "page.donation.revolut.step1"
 msgstr "Revolut-ல் Bitcoin (BTC) வாங்கவும்"
 
-#: allthethings/account/templates/account/donation.html:256
+#: allthethings/account/templates/account/donation.html:274
 #, fuzzy
 msgid "page.donation.revolut.step1.text1"
 msgstr "Bitcoin (BTC) வாங்க Revolut-ல் “Crypto” பக்கத்திற்கு செல்லவும்."
 
-#: allthethings/account/templates/account/donation.html:260
+#: allthethings/account/templates/account/donation.html:278
 #, fuzzy
 msgid "page.donation.revolut.step1.more"
 msgstr "நீங்கள் நன்கொடை அளிக்கும் தொகையை விட கொஞ்சம் கூடுதலாக (%(more)s) வாங்கவும், பரிவர்த்தனை கட்டணங்களை மூடுவதற்காக. மீதமுள்ளதை நீங்கள் வைத்துக்கொள்ளலாம்."
 
-#: allthethings/account/templates/account/donation.html:263
+#: allthethings/account/templates/account/donation.html:281
 #, fuzzy
 msgid "page.donation.revolut.step2"
 msgstr "Bitcoin-ஐ எங்கள் முகவரிக்கு மாற்றவும்"
 
-#: allthethings/account/templates/account/donation.html:266
+#: allthethings/account/templates/account/donation.html:284
 #, fuzzy
 msgid "page.donation.revolut.step2.transfer"
 msgstr "“Send bitcoin” பொத்தானை அழுத்தி “withdrawal” செய்யவும். %(icon)s ஐகானை அழுத்தி யூரோவிலிருந்து BTC-க்கு மாறவும். கீழே உள்ள BTC தொகையை உள்ளீடு செய்து “Send” அழுத்தவும். சிக்கலாக இருந்தால் <a %(help_video)s>இந்த வீடியோவை</a> பார்க்கவும்."
 
-#: allthethings/account/templates/account/donation.html:269
+#: allthethings/account/templates/account/donation.html:287
 #, fuzzy
 msgid "page.donation.revolut.btc_amount_below"
 msgstr "கீழே உள்ள BTC தொகையை பயன்படுத்தவும், <em>யூரோக்கள் அல்லது டாலர்கள்</em> அல்ல, இல்லையெனில் நாங்கள் சரியான தொகையை பெற முடியாது மற்றும் உங்கள் உறுப்பினரத்தை தானாக உறுதிப்படுத்த முடியாது."
 
-#: allthethings/account/templates/account/donation.html:276
+#: allthethings/account/templates/account/donation.html:294
 #, fuzzy
 msgid "page.donation.revolut.step2.rush_priority"
 msgstr "சிறிய நன்கொடைகளுக்கு ($25 க்குக் குறைவாக) நீங்கள் Rush அல்லது Priority பயன்படுத்த வேண்டியிருக்கும்."
 
-#: allthethings/account/templates/account/donation.html:301
+#: allthethings/account/templates/account/donation.html:325
 #, fuzzy
 msgid "page.donation.payment2cc.cc2btc"
 msgstr "கீழே உள்ள “கிரெடிட் கார்டு முதல் Bitcoin” விரைவான சேவைகளை பயன்படுத்தவும், சில நிமிடங்களில் முடியும்:"
 
-#: allthethings/account/templates/account/donation.html:314
+#: allthethings/account/templates/account/donation.html:338
 #, fuzzy
 msgid "page.donation.payment2cc.cc2btc.form"
 msgstr "படிவத்தில் பின்வரும் விவரங்களை நிரப்பவும்:"
 
-#: allthethings/account/templates/account/donation.html:318
+#: allthethings/account/templates/account/donation.html:342
 #, fuzzy
 msgid "page.donation.payment2cc.cc2btc.btc_amount"
 msgstr "BTC / Bitcoin தொகை:"
 
-#: allthethings/account/templates/account/donation.html:318
+#: allthethings/account/templates/account/donation.html:342
 #, fuzzy
 msgid "page.donation.payment2cc.exact_amount"
 msgstr "தயவுசெய்து இந்த <span %(underline)s>சரியான தொகையை</span> பயன்படுத்தவும். உங்கள் மொத்த செலவு கிரெடிட் கார்டு கட்டணங்களால் அதிகமாக இருக்கலாம். குறைந்த தொகைகளுக்கு, இது எங்கள் தள்ளுபடியை விட அதிகமாக இருக்கக்கூடும், துரதிர்ஷ்டவசமாக."
 
-#: allthethings/account/templates/account/donation.html:319
+#: allthethings/account/templates/account/donation.html:343
 #, fuzzy
 msgid "page.donation.payment2cc.cc2btc.btc_address"
 msgstr "BTC / Bitcoin முகவரி (வெளிப்புற பணப்பை):"
 
-#: allthethings/account/templates/account/donation.html:336
+#: allthethings/account/templates/account/donation.html:360
 #, fuzzy
 msgid "page.donation.crypto_instructions"
 msgstr "%(coin_name)s வழிமுறைகள்"
 
-#: allthethings/account/templates/account/donation.html:348
+#: allthethings/account/templates/account/donation.html:378
 #, fuzzy
 msgid "page.donation.crypto_standard"
 msgstr "நாங்கள் நாணயங்களின் நிலையான பதிப்பை மட்டுமே ஆதரிக்கிறோம், எக்ஸாடிக் நெட்வொர்க்கள் அல்லது நாணயங்களின் பதிப்புகளை அல்ல. பரிவர்த்தனையை உறுதிப்படுத்த ஒரு மணி நேரம் வரை ஆகலாம், நாணயத்தைப் பொறுத்து."
 
-#: allthethings/account/templates/account/donation.html:365
+#: allthethings/account/templates/account/donation.html:397
 #, fuzzy
 msgid "page.donation.amazon.header"
 msgstr "அமேசான் பரிசு அட்டை"
 
-#: allthethings/account/templates/account/donation.html:368
+#: allthethings/account/templates/account/donation.html:400
 #, fuzzy
 msgid "page.donation.amazon.form_instructions"
 msgstr "%(a_form)s>அதிகாரப்பூர்வ Amazon.com படிவத்தை</a> பயன்படுத்தி கீழே உள்ள மின்னஞ்சல் முகவரிக்கு %(amount)s பரிசு அட்டையை அனுப்பவும்."
 
-#: allthethings/account/templates/account/donation.html:369
+#: allthethings/account/templates/account/donation.html:401
 #, fuzzy
 msgid "page.donation.amazon.only_official"
 msgstr "<strong>அமேசான்.காம் இல் இருந்து நேரடியாக அதிகாரப்பூர்வ படிவத்தில் அனுப்பப்பட்ட பரிசு அட்டைகளை மட்டுமே நாங்கள் ஏற்க முடியும்</strong>. இந்த படிவத்தை நீங்கள் பயன்படுத்தாவிட்டால், உங்கள் பரிசு அட்டையை நாங்கள் திருப்பி அனுப்ப முடியாது."
 
-#: allthethings/account/templates/account/donation.html:374
+#: allthethings/account/templates/account/donation.html:406
 #, fuzzy
 msgid "page.donate.payment.desc.amazon_message_1"
 msgstr "சரியான தொகையை உள்ளிடவும்: %(amount)s"
 
-#: allthethings/account/templates/account/donation.html:375
+#: allthethings/account/templates/account/donation.html:407
 #, fuzzy
 msgid "page.donate.payment.desc.amazon_message"
 msgstr "தயவுசெய்து உங்கள் சொந்த செய்தியை எழுத வேண்டாம்."
 
-#: allthethings/account/templates/account/donation.html:379
+#: allthethings/account/templates/account/donation.html:411
 #, fuzzy
 msgid "page.donation.amazon.form_to"
 msgstr "படிவத்தில் “To” பெறுநர் மின்னஞ்சல்:"
 
-#: allthethings/account/templates/account/donation.html:382
+#: allthethings/account/templates/account/donation.html:414
 #, fuzzy
 msgid "page.donation.amazon.unique"
 msgstr "உங்கள் கணக்கிற்கு தனிப்பட்டது, பகிர வேண்டாம்."
 
-#: allthethings/account/templates/account/donation.html:383
+#: allthethings/account/templates/account/donation.html:415
 #, fuzzy
 msgid "page.donation.amazon.only_use_once"
 msgstr "ஒருமுறை மட்டுமே பயன்படுத்தவும்."
 
-#: allthethings/account/templates/account/donation.html:388
+#: allthethings/account/templates/account/donation.html:420
 #, fuzzy
 msgid "page.donation.amazon.waiting_gift_card"
 msgstr "பரிசு அட்டை காத்திருக்கிறது… (சரிபார்க்க பக்கத்தைப் புதுப்பிக்கவும்)"
 
-#: allthethings/account/templates/account/donation.html:396
+#: allthethings/account/templates/account/donation.html:428
 #, fuzzy
 msgid "page.donation.amazon.confirm_automated"
 msgstr "உங்கள் பரிசு அட்டையை அனுப்பிய பிறகு, எங்கள் தானியங்கி அமைப்பு அதை சில நிமிடங்களில் உறுதிப்படுத்தும். இது வேலை செய்யவில்லை என்றால், உங்கள் பரிசு அட்டையை மீண்டும் அனுப்ப முயற்சிக்கவும் (<a %(a_instr)s>வழிமுறைகள்</a>)."
 
-#: allthethings/account/templates/account/donation.html:397
+#: allthethings/account/templates/account/donation.html:429
 #, fuzzy
 msgid "page.donation.amazon.doesnt_work"
 msgstr "இது இன்னும் வேலை செய்யவில்லை என்றால், தயவுசெய்து எங்களுக்கு மின்னஞ்சல் அனுப்பவும், அன்னா அதை கையால் மதிப்பீடு செய்வார் (இதற்கு சில நாட்கள் ஆகலாம்), மேலும் நீங்கள் மீண்டும் அனுப்ப முயற்சித்தீர்களா என்பதை குறிப்பிடவும்."
 
-#: allthethings/account/templates/account/donation.html:400
+#: allthethings/account/templates/account/donation.html:432
 #, fuzzy
 msgid "page.donation.amazon.example"
 msgstr "உதாரணம்:"
 
-#: allthethings/account/templates/account/donation.html:436
-#: allthethings/account/templates/account/donation.html:453
-#: allthethings/account/templates/account/donation.html:469
-#: allthethings/account/templates/account/donation.html:494
-#: allthethings/account/templates/account/donation.html:570
-#: allthethings/account/templates/account/donation.html:631
+#: allthethings/account/templates/account/donation.html:468
+#: allthethings/account/templates/account/donation.html:485
+#: allthethings/account/templates/account/donation.html:501
+#: allthethings/account/templates/account/donation.html:532
+#: allthethings/account/templates/account/donation.html:614
+#: allthethings/account/templates/account/donation.html:681
 #, fuzzy
 msgid "page.donate.strange_account"
 msgstr "கணக்கு பெயர் அல்லது படம் விசித்திரமாக தோன்றலாம் என்பதை கவனிக்கவும். கவலைப்பட தேவையில்லை! இந்த கணக்குகள் எங்கள் நன்கொடை கூட்டாளர்களால் நிர்வகிக்கப்படுகின்றன. எங்கள் கணக்குகள் ஹேக் செய்யப்படவில்லை."
 
-#: allthethings/account/templates/account/donation.html:460
-#: allthethings/account/templates/account/donation.html:477
-#: allthethings/account/templates/account/donation.html:516
+#: allthethings/account/templates/account/donation.html:492
+#: allthethings/account/templates/account/donation.html:515
+#: allthethings/account/templates/account/donation.html:560
 #, fuzzy
 msgid "page.donation.payment.alipay.top_header"
 msgstr "Alipay வழிமுறைகள்"
 
-#: allthethings/account/templates/account/donation.html:462
-#: allthethings/account/templates/account/donation.html:479
+#: allthethings/account/templates/account/donation.html:494
+#: allthethings/account/templates/account/donation.html:517
 #, fuzzy
 msgid "page.donation.payment.alipay.header1"
 msgstr "<span %(span_circle)s>1</span>Alipay மூலம் நன்கொடை அளிக்கவும்"
 
-#: allthethings/account/templates/account/donation.html:465
-#: allthethings/account/templates/account/donation.html:482
+#: allthethings/account/templates/account/donation.html:497
+#: allthethings/account/templates/account/donation.html:520
 #, fuzzy
 msgid "page.donation.payment.alipay.text1_new"
 msgstr "<a %(a_account)s>இந்த Alipay கணக்கை</a> பயன்படுத்தி மொத்த தொகையான %(total)s ஐ நன்கொடை அளிக்கவும்"
 
-#: allthethings/account/templates/account/donation.html:486
-#: allthethings/account/templates/account/donation.html:562
-#: allthethings/account/templates/account/donation.html:601
+#: allthethings/account/templates/account/donation.html:524
+#: allthethings/account/templates/account/donation.html:606
+#: allthethings/account/templates/account/donation.html:651
 #, fuzzy
 msgid "page.donation.page_blocked"
 msgstr "நன்கொடை பக்கம் தடுக்கப்பட்டால், வேறு இணைய இணைப்பை முயற்சிக்கவும் (உதாரணமாக VPN அல்லது மொபைல் இணையம்)."
 
-#: allthethings/account/templates/account/donation.html:490
-#: allthethings/account/templates/account/donation.html:566
+#: allthethings/account/templates/account/donation.html:528
+#: allthethings/account/templates/account/donation.html:610
 #, fuzzy
 msgid "page.donation.payment.alipay.error"
 msgstr "துரதிருஷ்டவசமாக, Alipay பக்கம் பெரும்பாலும் <strong>மெயின்லேண்ட் சீனா</strong>வில் மட்டுமே அணுகக்கூடியதாக இருக்கும். உங்கள் VPN ஐ தற்காலிகமாக முடக்க வேண்டியிருக்கும், அல்லது மெயின்லேண்ட் சீனா (அல்லது சில நேரங்களில் ஹாங்காங்) VPN ஐ பயன்படுத்தவும்."
 
-#: allthethings/account/templates/account/donation.html:545
+#: allthethings/account/templates/account/donation.html:589
 #, fuzzy
 msgid "page.donation.bank_card_app.step3.header"
 msgstr "<span %(style)s>3</span>நன்கொடை செய்யவும் (QR குறியீட்டை ஸ்கேன் செய்யவும் அல்லது பொத்தானை அழுத்தவும்)"
 
-#: allthethings/account/templates/account/donation.html:549
+#: allthethings/account/templates/account/donation.html:593
 #, fuzzy
 msgid "page.donation.bank_card_app.step3.desc.1"
 msgstr "<a %(a_href)s>QR குறியீடு நன்கொடை பக்கம்</a> திறக்கவும்."
 
-#: allthethings/account/templates/account/donation.html:553
+#: allthethings/account/templates/account/donation.html:597
 #, fuzzy
 msgid "page.donation.bank_card_app.step3.desc.2"
 msgstr "Alipay ஆப்பை திறக்க QR குறியீட்டை Alipay ஆப் மூலம் ஸ்கேன் செய்யவும், அல்லது பொத்தானை அழுத்தவும்."
 
-#: allthethings/account/templates/account/donation.html:554
+#: allthethings/account/templates/account/donation.html:598
 #, fuzzy
 msgid "page.donation.bank_card_app.step3.desc.3"
 msgstr "தயவுசெய்து பொறுமையாக இருங்கள்; இது சீனாவில் இருப்பதால் பக்கம் ஏற்றுவதற்கு சில நேரம் ஆகலாம்."
 
-#: allthethings/account/templates/account/donation.html:592
+#: allthethings/account/templates/account/donation.html:642
 #, fuzzy
 msgid "page.donation.payment.wechat.top_header"
 msgstr "WeChat வழிமுறைகள்"
 
-#: allthethings/account/templates/account/donation.html:594
+#: allthethings/account/templates/account/donation.html:644
 #, fuzzy
 msgid "page.donation.payment.wechat.header1"
 msgstr "<span %(span_circle)s>1</span>WeChat மூலம் நன்கொடை அளிக்கவும்"
 
-#: allthethings/account/templates/account/donation.html:597
+#: allthethings/account/templates/account/donation.html:647
 #, fuzzy
 msgid "page.donation.payment.wechat.text1"
 msgstr "<a %(a_account)s>இந்த WeChat கணக்கை</a> பயன்படுத்தி மொத்த தொகையான %(total)s ஐ நன்கொடை அளிக்கவும்"
 
-#: allthethings/account/templates/account/donation.html:622
+#: allthethings/account/templates/account/donation.html:672
 #, fuzzy
 msgid "page.donation.payment.pix.top_header"
 msgstr "Pix வழிமுறைகள்"
 
-#: allthethings/account/templates/account/donation.html:624
+#: allthethings/account/templates/account/donation.html:674
 #, fuzzy
 msgid "page.donation.payment.pix.header1"
 msgstr "<span %(span_circle)s>1</span>Pix மூலம் நன்கொடை அளிக்கவும்"
 
-#: allthethings/account/templates/account/donation.html:627
+#: allthethings/account/templates/account/donation.html:677
 #, fuzzy
 msgid "page.donation.payment.pix.text1"
 msgstr "<a %(a_account)s>இந்த Pix கணக்கை</a> பயன்படுத்தி மொத்த தொகையான %(total)s ஐ நன்கொடை அளிக்கவும்"
 
-#: allthethings/account/templates/account/donation.html:636
+#: allthethings/account/templates/account/donation.html:686
 #, fuzzy
 msgid "page.donation.footer.header"
 msgstr "<span %(span_circle)s>%(circle_number)s</span>ரசீதை எங்களுக்கு மின்னஞ்சல் செய்யவும்"
 
-#: allthethings/account/templates/account/donation.html:640
+#: allthethings/account/templates/account/donation.html:690
 #, fuzzy
 msgid "page.donation.footer.verification"
 msgstr "உங்கள் தனிப்பட்ட சரிபார்ப்பு முகவரிக்கு ரசீது அல்லது ஸ்கிரீன்ஷாட் அனுப்பவும். உங்கள் PayPal நன்கொடைக்காக இந்த மின்னஞ்சல் முகவரியை பயன்படுத்த வேண்டாம்."
 
-#: allthethings/account/templates/account/donation.html:642
+#: allthethings/account/templates/account/donation.html:692
 #, fuzzy
 msgid "page.donation.footer.text1"
 msgstr "உங்கள் தனிப்பட்ட சரிபார்ப்பு முகவரிக்கு ரசீது அல்லது ஸ்கிரீன்ஷாட்டை அனுப்பவும்:"
 
-#: allthethings/account/templates/account/donation.html:652
+#: allthethings/account/templates/account/donation.html:702
 #, fuzzy
 msgid "page.donation.footer.crypto_note"
 msgstr "பரிவர்த்தனைக்குப் போது கிரிப்டோ மாற்று விகிதம் மாறினால், அசல் மாற்று விகிதத்தை காட்டும் ரசீதையும் சேர்க்கவும். கிரிப்டோவைப் பயன்படுத்துவதற்காக நீங்கள் எடுத்துக்கொண்ட சிரமத்திற்கு நாங்கள் உண்மையிலேயே நன்றி கூறுகிறோம், இது எங்களுக்கு மிகவும் உதவுகிறது!"
 
-#: allthethings/account/templates/account/donation.html:657
+#: allthethings/account/templates/account/donation.html:707
 #, fuzzy
 msgid "page.donation.footer.text2"
 msgstr "உங்கள் ரசீதை மின்னஞ்சல் செய்த பிறகு, இந்த பொத்தானை கிளிக் செய்யவும், அன்னா அதை கையால் மதிப்பீடு செய்வார் (இதற்கு சில நாட்கள் ஆகலாம்):"
 
-#: allthethings/account/templates/account/donation.html:667
+#: allthethings/account/templates/account/donation.html:717
 #, fuzzy
 msgid "page.donation.footer.button"
 msgstr "ஆம், நான் எனது ரசீதை மின்னஞ்சல் செய்தேன்"
 
-#: allthethings/account/templates/account/donation.html:670
+#: allthethings/account/templates/account/donation.html:720
 #, fuzzy
 msgid "page.donation.footer.success"
 msgstr "✅ உங்கள் நன்கொடைக்கு நன்றி! அன்னா சில நாட்களில் உங்கள் உறுப்பினராக்கத்தை கையால் செயல்படுத்துவார்."
 
-#: allthethings/account/templates/account/donation.html:671
+#: allthethings/account/templates/account/donation.html:721
 #, fuzzy
 msgid "page.donation.footer.failure"
 msgstr "❌ ஏதோ தவறு ஏற்பட்டது. பக்கத்தை மீண்டும் ஏற்றவும் மற்றும் மீண்டும் முயற்சிக்கவும்."
 
-#: allthethings/account/templates/account/donation.html:676
+#: allthethings/account/templates/account/donation.html:726
 #, fuzzy
 msgid "page.donation.stepbystep"
 msgstr "படிப்படியாக வழிகாட்டி"
 
-#: allthethings/account/templates/account/donation.html:678
+#: allthethings/account/templates/account/donation.html:728
 #, fuzzy
 msgid "page.donation.crypto_dont_worry"
 msgstr "சில படிகள் கிரிப்டோ வாலெட்டுகளை குறிப்பிடுகின்றன, ஆனால் கவலைப்பட வேண்டாம், இதற்காக நீங்கள் கிரிப்டோ பற்றி எதையும் கற்றுக்கொள்ள வேண்டியதில்லை."
 
-#: allthethings/account/templates/account/donation.html:680
+#: allthethings/account/templates/account/donation.html:730
 #, fuzzy
 msgid "page.donation.hoodpay.step1"
 msgstr "1. உங்கள் மின்னஞ்சலை உள்ளிடவும்."
 
-#: allthethings/account/templates/account/donation.html:686
+#: allthethings/account/templates/account/donation.html:736
 #, fuzzy
 msgid "page.donation.hoodpay.step2"
 msgstr "2. உங்கள் கட்டண முறையைத் தேர்ந்தெடுக்கவும்."
 
-#: allthethings/account/templates/account/donation.html:692
+#: allthethings/account/templates/account/donation.html:742
 #, fuzzy
 msgid "page.donation.hoodpay.step3"
 msgstr "3. உங்கள் கட்டண முறையை மீண்டும் தேர்ந்தெடுக்கவும்."
 
-#: allthethings/account/templates/account/donation.html:698
+#: allthethings/account/templates/account/donation.html:748
 #, fuzzy
 msgid "page.donation.hoodpay.step4"
 msgstr "4. “சுய-ஓரிடப்பட்ட” பணப்பையைத் தேர்ந்தெடுக்கவும்."
 
-#: allthethings/account/templates/account/donation.html:704
+#: allthethings/account/templates/account/donation.html:754
 #, fuzzy
 msgid "page.donation.hoodpay.step5"
 msgstr "5. “நான் உரிமையை உறுதிப்படுத்துகிறேன்” என்பதைக் கிளிக் செய்யவும்."
 
-#: allthethings/account/templates/account/donation.html:710
+#: allthethings/account/templates/account/donation.html:760
 #, fuzzy
 msgid "page.donation.hoodpay.step6"
 msgstr "6. நீங்கள் ஒரு மின்னஞ்சல் ரசீதைப் பெற வேண்டும். அதை எங்களுக்கு அனுப்பவும், உங்கள் நன்கொடை விரைவில் உறுதிப்படுத்தப்படும்."
 
-#: allthethings/account/templates/account/donation.html:715
+#: allthethings/account/templates/account/donation.html:765
 #, fuzzy
 msgid "page.donate.wait_new"
 msgstr "தயவுசெய்து எங்களை தொடர்பு கொள்ளும் முன் குறைந்தது <span %(span_hours)s>24 மணி நேரம்</span> காத்திருந்து (மற்றும் இந்தப் பக்கத்தை புதுப்பிக்கவும்)."
 
-#: allthethings/account/templates/account/donation.html:716
+#: allthethings/account/templates/account/donation.html:766
 #, fuzzy
 msgid "page.donate.mistake"
 msgstr "கட்டணத்தின் போது நீங்கள் தவறு செய்தால், நாங்கள் பணத்தைத் திருப்பித் தர முடியாது, ஆனால் அதை சரி செய்ய முயற்சிப்போம்."
@@ -1783,11 +1793,11 @@ msgstr "உறுப்பினர் நிலையை உயர்ந்த 
 #: allthethings/page/templates/page/home.html:77
 #: allthethings/page/templates/page/home.html:82
 #: allthethings/page/templates/page/home.html:90
-#: allthethings/page/templates/page/search.html:345
-#: allthethings/page/templates/page/search.html:444
+#: allthethings/page/templates/page/search.html:349
+#: allthethings/page/templates/page/search.html:448
 #: allthethings/templates/layouts/index.html:248
 #: allthethings/templates/layouts/index.html:252
-#: allthethings/templates/layouts/index.html:605
+#: allthethings/templates/layouts/index.html:608
 #, fuzzy
 msgid "page.contact.title"
 msgstr "தொடர்பு மின்னஞ்சல்"
@@ -1799,25 +1809,25 @@ msgid "page.account.logged_in.membership_multiple"
 msgstr "நீங்கள் பல உறுப்பினர்களை இணைக்கலாம் (24 மணி நேரத்திற்கு ஒரு முறை விரைவான பதிவிறக்கங்கள் சேர்க்கப்படும்)."
 
 #: allthethings/account/templates/account/index.html:41
-#: allthethings/templates/layouts/index.html:557
-#: allthethings/templates/layouts/index.html:564
-#: allthethings/templates/layouts/index.html:573
+#: allthethings/templates/layouts/index.html:560
+#: allthethings/templates/layouts/index.html:567
+#: allthethings/templates/layouts/index.html:576
 #, fuzzy
 msgid "layout.index.header.nav.public_profile"
 msgstr "பொது சுயவிவரம்"
 
 #: allthethings/account/templates/account/index.html:42
-#: allthethings/templates/layouts/index.html:558
-#: allthethings/templates/layouts/index.html:565
-#: allthethings/templates/layouts/index.html:574
+#: allthethings/templates/layouts/index.html:561
+#: allthethings/templates/layouts/index.html:568
+#: allthethings/templates/layouts/index.html:577
 #, fuzzy
 msgid "layout.index.header.nav.downloaded_files"
 msgstr "பதிவிறக்கப்பட்ட கோப்புகள்"
 
 #: allthethings/account/templates/account/index.html:43
-#: allthethings/templates/layouts/index.html:559
-#: allthethings/templates/layouts/index.html:566
-#: allthethings/templates/layouts/index.html:575
+#: allthethings/templates/layouts/index.html:562
+#: allthethings/templates/layouts/index.html:569
+#: allthethings/templates/layouts/index.html:578
 #, fuzzy
 msgid "layout.index.header.nav.my_donations"
 msgstr "என் நன்கொடை"
@@ -1997,158 +2007,158 @@ msgstr "இன்னும் பட்டியல்கள் இல்லை"
 msgid "page.profile.lists.new_list"
 msgstr "ஒரு புதிய பட்டியலை உருவாக்க ஒரு கோப்பை கண்டுபிடித்து “பட்டியல்கள்” தாவலைத் திறக்கவும்."
 
-#: allthethings/dyn/views.py:906 allthethings/dyn/views.py:970
-#: allthethings/dyn/views.py:981
+#: allthethings/dyn/views.py:1100 allthethings/dyn/views.py:1172
+#: allthethings/dyn/views.py:1183
 #, fuzzy
 msgid "dyn.buy_membership.error.unknown"
 msgstr "ஒரு அறியப்படாத பிழை ஏற்பட்டது. தயவுசெய்து %(email)s இல் எங்களை தொடர்பு கொள்ளவும் மற்றும் ஒரு ஸ்கிரீன்ஷாட்டை அனுப்பவும்."
 
-#: allthethings/dyn/views.py:955 allthethings/dyn/views.py:975
+#: allthethings/dyn/views.py:1157 allthethings/dyn/views.py:1177
 #, fuzzy
 msgid "dyn.buy_membership.error.minimum"
 msgstr "இந்த நாணயம் வழக்கத்தைவிட அதிகபட்சம் குறைந்தது. வேறு கால அளவையோ அல்லது வேறு நாணயத்தையோ தேர்ந்தெடுக்கவும்."
 
-#: allthethings/dyn/views.py:967
+#: allthethings/dyn/views.py:1169
 #, fuzzy
 msgid "dyn.buy_membership.error.try_again"
 msgstr "கோரிக்கை நிறைவேற்ற முடியவில்லை. சில நிமிடங்களில் மீண்டும் முயற்சிக்கவும், இது தொடர்ந்து நடந்தால், %(email)s இல் எங்களை தொடர்பு கொள்ளவும் மற்றும் ஒரு ஸ்கிரீன்ஷாட்டை அனுப்பவும்."
 
-#: allthethings/dyn/views.py:978
+#: allthethings/dyn/views.py:1180
 #, fuzzy
 msgid "dyn.buy_membership.error.wait"
 msgstr "கட்டண செயலாக்கத்தில் பிழை. ஒரு நிமிடம் காத்திருந்து மீண்டும் முயற்சிக்கவும். 24 மணி நேரத்திற்கு மேல் இந்த பிரச்சனை நீடித்தால், %(email)s இல் எங்களை தொடர்பு கொள்ளவும் மற்றும் ஒரு ஸ்கிரீன்ஷாட்டை அனுப்பவும்."
 
-#: allthethings/page/views.py:5536
+#: allthethings/page/views.py:5575
 #, fuzzy
 msgid "page.md5.box.download.affected_files"
 msgstr "%(count)s பாதிக்கப்பட்ட பக்கங்கள்"
 
-#: allthethings/page/views.py:6533
+#: allthethings/page/views.py:6563
 #, fuzzy
 msgid "common.md5_problem_type_mapping.lgrsnf_visible"
 msgstr "Libgen.rs இல் காணப்படவில்லை (நாடகமல்லாத)"
 
-#: allthethings/page/views.py:6534
+#: allthethings/page/views.py:6564
 #, fuzzy
 msgid "common.md5_problem_type_mapping.lgrsfic_visible"
 msgstr "Libgen.rs இல் காணப்படவில்லை (நாடகம்)"
 
-#: allthethings/page/views.py:6535
+#: allthethings/page/views.py:6565
 #, fuzzy
 msgid "common.md5_problem_type_mapping.lgli_visible"
 msgstr "Libgen.li இல் காணப்படவில்லை"
 
-#: allthethings/page/views.py:6536
+#: allthethings/page/views.py:6566
 #, fuzzy
 msgid "common.md5_problem_type_mapping.lgli_broken"
 msgstr "Libgen.li இல் சேதமடைந்ததாக குறிக்கப்பட்டது"
 
-#: allthethings/page/views.py:6537
+#: allthethings/page/views.py:6567
 #, fuzzy
 msgid "common.md5_problem_type_mapping.zlib_missing"
 msgstr "Z-Library இல் காணப்படவில்லை"
 
-#: allthethings/page/views.py:6538
+#: allthethings/page/views.py:6568
 #, fuzzy
 msgid "common.md5_problem_type_mapping.zlib_spam"
 msgstr "Z-நூலகத்தில் “ஸ்பாம்” என குறிக்கப்பட்டது"
 
-#: allthethings/page/views.py:6539
+#: allthethings/page/views.py:6569
 #, fuzzy
 msgid "common.md5_problem_type_mapping.zlib_bad_file"
 msgstr "Z-நூலகத்தில் “தவறான கோப்பு” என குறிக்கப்பட்டது"
 
-#: allthethings/page/views.py:6540
+#: allthethings/page/views.py:6570
 #, fuzzy
 msgid "common.md5_problem_type_mapping.duxiu_pdg_broken_files"
 msgstr "அனைத்து பக்கங்களையும் PDF ஆக மாற்ற முடியவில்லை"
 
-#: allthethings/page/views.py:6541
+#: allthethings/page/views.py:6571
 #, fuzzy
 msgid "common.md5_problem_type_mapping.upload_exiftool_failed"
 msgstr "இந்த கோப்பில் exiftool இயங்குவதில் தோல்வி"
 
-#: allthethings/page/views.py:6547
+#: allthethings/page/views.py:6577
 #, fuzzy
 msgid "common.md5_content_type_mapping.book_unknown"
 msgstr "புத்தகம் (தெரியாதது)"
 
-#: allthethings/page/views.py:6548
+#: allthethings/page/views.py:6578
 #, fuzzy
 msgid "common.md5_content_type_mapping.book_nonfiction"
 msgstr "புத்தகம் (நாடகமல்லாத)"
 
-#: allthethings/page/views.py:6549
+#: allthethings/page/views.py:6579
 #, fuzzy
 msgid "common.md5_content_type_mapping.book_fiction"
 msgstr "புத்தகம் (நாடகம்)"
 
-#: allthethings/page/views.py:6550
+#: allthethings/page/views.py:6580
 #, fuzzy
 msgid "common.md5_content_type_mapping.journal_article"
 msgstr "ஜர்னல் கட்டுரை"
 
-#: allthethings/page/views.py:6551
+#: allthethings/page/views.py:6581
 #, fuzzy
 msgid "common.md5_content_type_mapping.standards_document"
 msgstr "தரநிலை ஆவணம்"
 
-#: allthethings/page/views.py:6552
+#: allthethings/page/views.py:6582
 #, fuzzy
 msgid "common.md5_content_type_mapping.magazine"
 msgstr "மாசிகம்"
 
-#: allthethings/page/views.py:6553
+#: allthethings/page/views.py:6583
 #, fuzzy
 msgid "common.md5_content_type_mapping.book_comic"
 msgstr "காமிக் புத்தகம்"
 
-#: allthethings/page/views.py:6554
+#: allthethings/page/views.py:6584
 #, fuzzy
 msgid "common.md5_content_type_mapping.musical_score"
 msgstr "இசைத் தாள்கள்"
 
-#: allthethings/page/views.py:6555
+#: allthethings/page/views.py:6585
 #, fuzzy
 msgid "common.md5_content_type_mapping.audiobook"
 msgstr "ஆடியோபுக்"
 
-#: allthethings/page/views.py:6556
+#: allthethings/page/views.py:6586
 #, fuzzy
 msgid "common.md5_content_type_mapping.other"
 msgstr "மற்றவை"
 
-#: allthethings/page/views.py:6562
+#: allthethings/page/views.py:6592
 #, fuzzy
 msgid "common.access_types_mapping.aa_download"
 msgstr "பங்குதாரர் சர்வர் பதிவிறக்கம்"
 
-#: allthethings/page/views.py:6563
+#: allthethings/page/views.py:6593
 #, fuzzy
 msgid "common.access_types_mapping.aa_scidb"
 msgstr "SciDB"
 
-#: allthethings/page/views.py:6564
+#: allthethings/page/views.py:6594
 #, fuzzy
 msgid "common.access_types_mapping.external_download"
 msgstr "வெளியக பதிவிறக்கம்"
 
-#: allthethings/page/views.py:6565
+#: allthethings/page/views.py:6595
 #, fuzzy
 msgid "common.access_types_mapping.external_borrow"
 msgstr "வெளியக கடன்"
 
-#: allthethings/page/views.py:6566
+#: allthethings/page/views.py:6596
 #, fuzzy
 msgid "common.access_types_mapping.external_borrow_printdisabled"
 msgstr "வெளிப்புற கடன் (அச்சு முடக்கப்பட்டுள்ளது)"
 
-#: allthethings/page/views.py:6567
+#: allthethings/page/views.py:6597
 #, fuzzy
 msgid "common.access_types_mapping.meta_explore"
 msgstr "மெட்டாடேட்டாவை ஆராயுங்கள்"
 
-#: allthethings/page/views.py:6568
+#: allthethings/page/views.py:6598
 #, fuzzy
 msgid "common.access_types_mapping.torrents_available"
 msgstr "டோரண்ட்களில் அடங்கியுள்ளது"
@@ -2156,7 +2166,7 @@ msgstr "டோரண்ட்களில் அடங்கியுள்ள�
 #: allthethings/page/templates/page/datasets.html:43
 #: allthethings/page/templates/page/datasets.html:254
 #: allthethings/page/templates/page/datasets_lgrs.html:25
-#: allthethings/page/views.py:6574
+#: allthethings/page/views.py:6604
 #, fuzzy
 msgid "common.record_sources_mapping.lgrs"
 msgstr "Libgen.rs"
@@ -2164,7 +2174,7 @@ msgstr "Libgen.rs"
 #: allthethings/page/templates/page/datasets.html:80
 #: allthethings/page/templates/page/datasets.html:317
 #: allthethings/page/templates/page/datasets_lgli.html:29
-#: allthethings/page/views.py:6575
+#: allthethings/page/views.py:6605
 #, fuzzy
 msgid "common.record_sources_mapping.lgli"
 msgstr "Libgen.li"
@@ -2172,43 +2182,43 @@ msgstr "Libgen.li"
 #: allthethings/page/templates/page/datasets.html:98
 #: allthethings/page/templates/page/datasets.html:352
 #: allthethings/page/templates/page/datasets_zlib.html:25
-#: allthethings/page/views.py:6576
+#: allthethings/page/views.py:6606
 #, fuzzy
 msgid "common.record_sources_mapping.zlib"
 msgstr "Z-Library"
 
 #: allthethings/page/templates/page/datasets.html:114
-#: allthethings/page/views.py:6577
+#: allthethings/page/views.py:6607
 #, fuzzy
 msgid "common.record_sources_mapping.zlibzh"
 msgstr "Z-நூலகம் சீனம்"
 
-#: allthethings/page/views.py:6578
+#: allthethings/page/views.py:6608
 #, fuzzy
 msgid "common.record_sources_mapping.ia"
 msgstr "IA"
 
-#: allthethings/page/views.py:6579
+#: allthethings/page/views.py:6609
 #, fuzzy
 msgid "common.record_sources_mapping.isbndb"
 msgstr "ISBNdb"
 
 #: allthethings/page/templates/page/datasets.html:525
 #: allthethings/page/templates/page/datasets_ol.html:25
-#: allthethings/page/views.py:6580
+#: allthethings/page/views.py:6610
 #, fuzzy
 msgid "common.record_sources_mapping.ol"
 msgstr "OpenLibrary"
 
 #: allthethings/page/templates/page/datasets.html:60
-#: allthethings/page/views.py:6581
+#: allthethings/page/views.py:6611
 #, fuzzy
 msgid "common.record_sources_mapping.scihub"
 msgstr "Sci-Hub"
 
 #: allthethings/page/templates/page/datasets.html:541
 #: allthethings/page/templates/page/datasets_oclc.html:25
-#: allthethings/page/views.py:6582
+#: allthethings/page/views.py:6612
 #, fuzzy
 msgid "common.record_sources_mapping.oclc"
 msgstr "OCLC (WorldCat)"
@@ -2216,7 +2226,7 @@ msgstr "OCLC (WorldCat)"
 #: allthethings/page/templates/page/datasets.html:148
 #: allthethings/page/templates/page/datasets.html:399
 #: allthethings/page/templates/page/datasets_duxiu.html:25
-#: allthethings/page/views.py:6583
+#: allthethings/page/views.py:6613
 #, fuzzy
 msgid "common.record_sources_mapping.duxiu"
 msgstr "DuXiu 读秀"
@@ -2224,397 +2234,395 @@ msgstr "DuXiu 读秀"
 #: allthethings/page/templates/page/datasets.html:164
 #: allthethings/page/templates/page/datasets.html:433
 #: allthethings/page/templates/page/datasets_upload.html:25
-#: allthethings/page/views.py:6584
+#: allthethings/page/views.py:6614
 #, fuzzy
 msgid "common.record_sources_mapping.uploads"
 msgstr "AAக்கு பதிவேற்றங்கள்"
 
 #: allthethings/page/templates/page/datasets.html:180
-#: allthethings/page/views.py:6585
+#: allthethings/page/views.py:6615
 #, fuzzy
 msgid "common.record_sources_mapping.magzdb"
 msgstr "மக்ஸ்‌டிபி"
 
 #: allthethings/page/templates/page/datasets.html:196
-#: allthethings/page/views.py:6586
+#: allthethings/page/views.py:6616
 #, fuzzy
 msgid "common.record_sources_mapping.nexusstc"
 msgstr "நெக்சஸ்/STC"
 
-#: allthethings/page/views.py:6587
+#: allthethings/page/views.py:6617
 #, fuzzy
 msgid "common.record_sources_mapping.edsebk"
 msgstr "EBSCOhost eBook Index"
 
-#: allthethings/page/views.py:6588
+#: allthethings/page/views.py:6618
 #, fuzzy
 msgid "common.record_sources_mapping.cerlalc"
 msgstr "Cerlalc"
 
-#: allthethings/page/views.py:6589
+#: allthethings/page/views.py:6619
 #, fuzzy
 msgid "common.record_sources_mapping.czech_oo42hcks"
 msgstr "செக் மெட்டாடேட்டா"
 
-#: allthethings/page/views.py:6590
+#: allthethings/page/views.py:6620
 #, fuzzy
 msgid "common.record_sources_mapping.gbooks"
 msgstr "Google Books"
 
-#: allthethings/page/views.py:6591
+#: allthethings/page/views.py:6621
 #, fuzzy
 msgid "common.record_sources_mapping.goodreads"
 msgstr "Goodreads"
 
-#: allthethings/page/views.py:6592
+#: allthethings/page/views.py:6622
 #, fuzzy
 msgid "common.record_sources_mapping.isbngrp"
 msgstr "ISBN GRP"
 
-#: allthethings/page/views.py:6593
+#: allthethings/page/views.py:6623
 #, fuzzy
 msgid "common.record_sources_mapping.libby"
 msgstr "லிபி"
 
-#: allthethings/page/views.py:6594
+#: allthethings/page/views.py:6624
 #, fuzzy
 msgid "common.record_sources_mapping.rgb"
 msgstr "ரஷ்ய மாநில நூலகம்"
 
-#: allthethings/page/views.py:6595
+#: allthethings/page/views.py:6625
 #, fuzzy
 msgid "common.record_sources_mapping.trantor"
 msgstr "Trantor"
 
-#: allthethings/page/views.py:6601
+#: allthethings/page/views.py:6631
 #, fuzzy
 msgid "common.specific_search_fields.title"
 msgstr "தலைப்பு"
 
-#: allthethings/page/views.py:6602
+#: allthethings/page/views.py:6632
 #, fuzzy
 msgid "common.specific_search_fields.author"
 msgstr "ஆசிரியர்"
 
-#: allthethings/page/views.py:6603
+#: allthethings/page/views.py:6633
 #, fuzzy
 msgid "common.specific_search_fields.publisher"
 msgstr "பதிப்பாளர்"
 
-#: allthethings/page/views.py:6604
+#: allthethings/page/views.py:6634
 #, fuzzy
 msgid "common.specific_search_fields.edition_varia"
 msgstr "பதிப்பு"
 
-#: allthethings/page/views.py:6605
+#: allthethings/page/views.py:6635
 #, fuzzy
 msgid "common.specific_search_fields.year"
 msgstr "வெளியிடப்பட்ட ஆண்டு"
 
-#: allthethings/page/views.py:6606
+#: allthethings/page/views.py:6636
 #, fuzzy
 msgid "common.specific_search_fields.original_filename"
 msgstr "மூல கோப்பின் பெயர்"
 
-#: allthethings/page/views.py:6607
+#: allthethings/page/views.py:6637
 #, fuzzy
 msgid "common.specific_search_fields.description_comments"
 msgstr "விளக்கம் மற்றும் மெட்டாடேட்டா கருத்துகள்"
 
-#: allthethings/page/views.py:6631 allthethings/page/views.py:6632
+#: allthethings/page/views.py:6661 allthethings/page/views.py:6662
 #, fuzzy
 msgid "page.md5.box.download.temporarily_unavailable"
 msgstr "கூட்டாளர் சர்வர் பதிவிறக்கங்கள் தற்காலிகமாக கிடைக்கவில்லை."
 
-#: allthethings/page/views.py:6636
+#: allthethings/page/views.py:6666
 #, fuzzy
 msgid "common.md5.servers.fast_partner"
 msgstr "வேகமான கூட்டாளி சர்வர் #%(number)s"
 
-#: allthethings/page/views.py:6636
+#: allthethings/page/views.py:6666
 #, fuzzy
 msgid "common.md5.servers.fast_partner.recommended2"
 msgstr "(பரிந்துரைக்கப்படுகிறது)"
 
-#: allthethings/page/views.py:6636
+#: allthethings/page/views.py:6666
 #, fuzzy
 msgid "common.md5.servers.no_browser_verification_or_waitlists"
 msgstr "(உலாவி சரிபார்ப்பு அல்லது காத்திருப்பு பட்டியல் இல்லை)"
 
 #: allthethings/page/templates/page/partner_download.html:37
-#: allthethings/page/views.py:6639 allthethings/page/views.py:6641
+#: allthethings/page/views.py:6669 allthethings/page/views.py:6671
 #, fuzzy
 msgid "common.md5.servers.slow_partner"
 msgstr "மெதுவான கூட்டாளி சர்வர் #%(number)s"
 
-#: allthethings/page/views.py:6639
+#: allthethings/page/views.py:6669
 #, fuzzy
 msgid "common.md5.servers.faster_with_waitlist"
 msgstr "(சிறிது வேகமாக, ஆனால் காத்திருப்பு பட்டியலுடன்)"
 
-#: allthethings/page/views.py:6641
+#: allthethings/page/views.py:6671
 #, fuzzy
 msgid "common.md5.servers.slow_no_waitlist"
 msgstr "(காத்திருப்பு பட்டியல் இல்லை, ஆனால் மிகவும் மெதுவாக இருக்கலாம்)"
 
-#: allthethings/page/views.py:6728 allthethings/page/views.py:6950
+#: allthethings/page/views.py:6758 allthethings/page/views.py:6983
 #, fuzzy
 msgid "page.md5.box.download.scihub"
 msgstr "Sci-Hub: %(doi)s"
 
-#: allthethings/page/views.py:6805
+#: allthethings/page/views.py:6838
 #, fuzzy
 msgid "page.md5.box.download.lgrsnf"
 msgstr "Libgen.rs நான்ஃபிக்ஷன்"
 
-#: allthethings/page/views.py:6805 allthethings/page/views.py:6821
-#: allthethings/page/views.py:6882
-#, fuzzy
-msgid "page.md5.box.download.extra_also_click_get"
-msgstr "(மேலே உள்ள “GET” ஐ கிளிக் செய்யவும்)"
-
-#: allthethings/page/views.py:6805 allthethings/page/views.py:6821
-#: allthethings/page/views.py:6882
-#, fuzzy
-msgid "page.md5.box.download.extra_click_get"
-msgstr "(மேலே உள்ள “GET” ஐ கிளிக் செய்யவும்)"
-
-#: allthethings/page/views.py:6821
+#: allthethings/page/views.py:6854
 #, fuzzy
 msgid "page.md5.box.download.lgrsfic"
 msgstr "Libgen.rs புனைகதை"
 
-#: allthethings/page/views.py:6882
+#: allthethings/page/views.py:6915
 #, fuzzy
 msgid "page.md5.box.download.lgli"
 msgstr "Libgen.li"
 
-#: allthethings/page/views.py:6882
+#: allthethings/page/views.py:6915
+#, fuzzy
+msgid "page.md5.box.download.extra_also_click_get"
+msgstr "(மேலே உள்ள “GET” ஐ கிளிக் செய்யவும்)"
+
+#: allthethings/page/views.py:6915
+#, fuzzy
+msgid "page.md5.box.download.extra_click_get"
+msgstr "(மேலே உள்ள “GET” ஐ கிளிக் செய்யவும்)"
+
+#: allthethings/page/views.py:6915
 #, fuzzy
 msgid "page.md5.box.download.libgen_ads"
 msgstr "அவர்களின் விளம்பரங்களில் தீங்கிழைக்கும் மென்பொருள் உள்ளதாக அறியப்படுகிறது, எனவே விளம்பர தடுப்பியைப் பயன்படுத்தவும் அல்லது விளம்பரங்களை கிளிக் செய்யாதீர்கள்"
 
-#: allthethings/page/views.py:6886
+#: allthethings/page/views.py:6919
 #, fuzzy
 msgid "page.md5.box.download.nexusstc"
 msgstr "நெக்சஸ்/எஸ்டிசி"
 
-#: allthethings/page/views.py:6886
+#: allthethings/page/views.py:6919
 #, fuzzy
 msgid "page.md5.box.download.nexusstc_unreliable"
 msgstr "(நெக்சஸ்/STC கோப்புகளை பதிவிறக்கம் செய்வது நம்பகமற்றதாக இருக்கலாம்)"
 
-#: allthethings/page/views.py:6933 allthethings/page/views.py:6937
+#: allthethings/page/views.py:6966 allthethings/page/views.py:6970
 #, fuzzy
 msgid "page.md5.box.download.zlib"
 msgstr "ஜெட்-லைப்ரரி"
 
-#: allthethings/page/views.py:6934 allthethings/page/views.py:6938
+#: allthethings/page/views.py:6967 allthethings/page/views.py:6971
 #, fuzzy
 msgid "page.md5.box.download.zlib_tor"
 msgstr "Z-நூலகம் Tor-ல்"
 
-#: allthethings/page/views.py:6934 allthethings/page/views.py:6938
+#: allthethings/page/views.py:6967 allthethings/page/views.py:6971
 #, fuzzy
 msgid "page.md5.box.download.zlib_tor_extra"
 msgstr "(Tor உலாவி தேவை)"
 
-#: allthethings/page/views.py:6941
+#: allthethings/page/views.py:6974
 #, fuzzy
 msgid "page.md5.box.download.magzdb"
 msgstr "மக்ஸ்‌டிபி"
 
-#: allthethings/page/views.py:6946
+#: allthethings/page/views.py:6979
 #, fuzzy
 msgid "page.md5.box.download.ia_borrow"
 msgstr "இணையக் காப்பகத்திலிருந்து கடன் பெறுங்கள்"
 
-#: allthethings/page/views.py:6946
+#: allthethings/page/views.py:6979
 #, fuzzy
 msgid "page.md5.box.download.print_disabled_only"
 msgstr "(அச்சு முடக்கப்பட்ட பயனர்கள் மட்டும்)"
 
-#: allthethings/page/views.py:6950
+#: allthethings/page/views.py:6983
 #, fuzzy
 msgid "page.md5.box.download.scihub_maybe"
 msgstr "(சம்பந்தப்பட்ட DOI, Sci-Hub இல் கிடைக்காமல் இருக்கலாம்)"
 
-#: allthethings/page/views.py:6953
+#: allthethings/page/views.py:6986
 #, fuzzy
 msgid "page.md5.box.download.manualslib"
 msgstr "மேனுவல்ஸ்‌லிப்"
 
-#: allthethings/page/views.py:6956
+#: allthethings/page/views.py:6989
 #, fuzzy
 msgid "page.md5.box.download.pubmed"
 msgstr "பப்‌மேட்"
 
-#: allthethings/page/views.py:6963
+#: allthethings/page/views.py:6996
 #, fuzzy
 msgid "page.md5.box.download.collection"
 msgstr "தொகுப்பு"
 
-#: allthethings/page/views.py:6964
+#: allthethings/page/views.py:6997
 #, fuzzy
 msgid "page.md5.box.download.torrent"
 msgstr "டோரண்ட்"
 
-#: allthethings/page/views.py:6970
+#: allthethings/page/views.py:7003
 #, fuzzy
 msgid "page.md5.box.download.bulk_torrents"
 msgstr "மொத்த டோரண்ட் பதிவிறக்கங்கள்"
 
-#: allthethings/page/views.py:6970
+#: allthethings/page/views.py:7003
 #, fuzzy
 msgid "page.md5.box.download.experts_only"
 msgstr "(நிபுணர்கள் மட்டும்)"
 
-#: allthethings/page/views.py:6977
+#: allthethings/page/views.py:7010
 #, fuzzy
 msgid "page.md5.box.download.aa_isbn"
 msgstr "ISBN க்கான Anna’s Archive இல் தேடுங்கள்"
 
-#: allthethings/page/views.py:6978
+#: allthethings/page/views.py:7011
 #, fuzzy
 msgid "page.md5.box.download.other_isbn"
 msgstr "ISBN க்கான பல்வேறு தரவுத்தொகுப்புகளில் தேடுங்கள்"
 
-#: allthethings/page/views.py:6979
+#: allthethings/page/views.py:7012
 #, fuzzy
 msgid "page.md5.box.download.original_isbndb"
 msgstr "ISBNdb இல் அசல் பதிவை கண்டறியுங்கள்"
 
-#: allthethings/page/views.py:6981
+#: allthethings/page/views.py:7014
 #, fuzzy
 msgid "page.md5.box.download.aa_openlib"
 msgstr "Open Library ஐடிக்கான Anna’s Archive இல் தேடுங்கள்"
 
-#: allthethings/page/views.py:6982
+#: allthethings/page/views.py:7015
 #, fuzzy
 msgid "page.md5.box.download.original_openlib"
 msgstr "Open Library இல் அசல் பதிவை கண்டறியுங்கள்"
 
-#: allthethings/page/views.py:6984
+#: allthethings/page/views.py:7017
 #, fuzzy
 msgid "page.md5.box.download.aa_oclc"
 msgstr "OCLC (WorldCat) எண்ணுக்கான Anna’s Archive இல் தேடுங்கள்"
 
-#: allthethings/page/views.py:6985
+#: allthethings/page/views.py:7018
 #, fuzzy
 msgid "page.md5.box.download.original_oclc"
 msgstr "WorldCat இல் அசல் பதிவை கண்டறியுங்கள்"
 
-#: allthethings/page/views.py:6987
+#: allthethings/page/views.py:7020
 #, fuzzy
 msgid "page.md5.box.download.aa_duxiu"
 msgstr "DuXiu SSID எண்ணுக்கான Anna’s Archive இல் தேடுங்கள்"
 
-#: allthethings/page/views.py:6988
+#: allthethings/page/views.py:7021
 #, fuzzy
 msgid "page.md5.box.download.original_duxiu"
 msgstr "DuXiu இல் கையேடு முறையில் தேடுங்கள்"
 
-#: allthethings/page/views.py:6990
+#: allthethings/page/views.py:7023
 #, fuzzy
 msgid "page.md5.box.download.aa_cadal"
 msgstr "CADAL SSNO எண்ணுக்கான Anna’s Archive இல் தேடுங்கள்"
 
-#: allthethings/page/views.py:6991
+#: allthethings/page/views.py:7024
 #, fuzzy
 msgid "page.md5.box.download.original_cadal"
 msgstr "CADAL இல் அசல் பதிவை கண்டறியுங்கள்"
 
-#: allthethings/page/views.py:6995
+#: allthethings/page/views.py:7028
 #, fuzzy
 msgid "page.md5.box.download.aa_dxid"
 msgstr "DuXiu DXID எண்ணுக்கான Anna’s Archive இல் தேடுங்கள்"
 
-#: allthethings/page/views.py:6998
+#: allthethings/page/views.py:7031
 #, fuzzy
 msgid "page.md5.box.download.edsebk"
 msgstr "EBSCOhost eBook Index"
 
-#: allthethings/page/views.py:7003 allthethings/page/views.py:7004
+#: allthethings/page/views.py:7036 allthethings/page/views.py:7037
 #, fuzzy
 msgid "page.md5.box.download.scidb"
 msgstr "Anna’s Archive 🧬 SciDB"
 
-#: allthethings/page/views.py:7003 allthethings/page/views.py:7004
+#: allthethings/page/views.py:7036 allthethings/page/views.py:7037
 #, fuzzy
 msgid "common.md5.servers.no_browser_verification"
 msgstr "(உலாவி சரிபார்ப்பு தேவையில்லை)"
 
-#: allthethings/page/views.py:7029
+#: allthethings/page/views.py:7062
 #, fuzzy
 msgid "page.md5.top_row.isbndb"
 msgstr "ISBNdb %(id)s}"
 
-#: allthethings/page/views.py:7030
+#: allthethings/page/views.py:7063
 #, fuzzy
 msgid "page.md5.top_row.oclc"
 msgstr "OCLC %(id)s}"
 
-#: allthethings/page/views.py:7031
+#: allthethings/page/views.py:7064
 #, fuzzy
 msgid "page.md5.top_row.duxiu_ssid"
 msgstr "DuXiu SSID %(id)s}"
 
-#: allthethings/page/views.py:7032
+#: allthethings/page/views.py:7065
 #, fuzzy
 msgid "page.md5.top_row.cadal_ssno"
 msgstr "CADAL SSNO %(id)s}"
 
-#: allthethings/page/views.py:7033
+#: allthethings/page/views.py:7066
 #, fuzzy
 msgid "page.md5.top_row.magzdb"
 msgstr "MagzDB %(id)s}"
 
-#: allthethings/page/views.py:7034
+#: allthethings/page/views.py:7067
 #, fuzzy
 msgid "page.md5.top_row.nexusstc"
 msgstr "நெக்சஸ்/STC %(id)s}"
 
-#: allthethings/page/views.py:7035
+#: allthethings/page/views.py:7068
 #, fuzzy
 msgid "page.md5.top_row.edsebk"
 msgstr "EBSCOhost edsebk %(id)s}"
 
-#: allthethings/page/views.py:7036
+#: allthethings/page/views.py:7069
 #, fuzzy
 msgid "page.md5.top_row.cerlalc"
 msgstr "Cerlalc %(id)s}"
 
-#: allthethings/page/views.py:7037
+#: allthethings/page/views.py:7070
 #, fuzzy
 msgid "page.md5.top_row.czech_oo42hcks"
 msgstr "செக் மெட்டாடேட்டா %(id)s}"
 
-#: allthethings/page/views.py:7038
+#: allthethings/page/views.py:7071
 #, fuzzy
 msgid "page.md5.top_row.gbooks"
 msgstr "கூகுள் புத்தகங்கள் %(id)s}"
 
-#: allthethings/page/views.py:7039
+#: allthethings/page/views.py:7072
 #, fuzzy
 msgid "page.md5.top_row.goodreads"
 msgstr "குட்ரீட்ஸ் %(id)s}"
 
-#: allthethings/page/views.py:7040
+#: allthethings/page/views.py:7073
 #, fuzzy
 msgid "page.md5.top_row.isbngrp"
 msgstr "ISBN GRP %(id)s}"
 
-#: allthethings/page/views.py:7041
+#: allthethings/page/views.py:7074
 #, fuzzy
 msgid "page.md5.top_row.libby"
 msgstr "லிபி %(id)s}"
 
-#: allthethings/page/views.py:7042
+#: allthethings/page/views.py:7075
 #, fuzzy
 msgid "page.md5.top_row.rgb"
 msgstr "RSL %(id)s}"
 
-#: allthethings/page/views.py:7043
+#: allthethings/page/views.py:7076
 #, fuzzy
 msgid "page.md5.top_row.trantor"
 msgstr "டிராண்டோர் %(id)s}"
@@ -2634,57 +2642,57 @@ msgstr "டிராண்டோர் %(id)s}"
 #: allthethings/page/templates/page/datasets_scihub.html:18
 #: allthethings/page/templates/page/datasets_upload.html:18
 #: allthethings/page/templates/page/datasets_zlib.html:18
-#: allthethings/page/views.py:7067
+#: allthethings/page/views.py:7100
 #, fuzzy
 msgid "page.datasets.sources.metadata.header"
 msgstr "Metadata"
 
-#: allthethings/page/views.py:7080
+#: allthethings/page/views.py:7113
 #, fuzzy
 msgid "page.md5.box.descr_title"
 msgstr "விளக்கம்"
 
-#: allthethings/page/views.py:7081
+#: allthethings/page/views.py:7114
 #, fuzzy
 msgid "page.md5.box.alternative_filename"
 msgstr "மாற்று கோப்புப்பெயர்"
 
-#: allthethings/page/views.py:7082
+#: allthethings/page/views.py:7115
 #, fuzzy
 msgid "page.md5.box.alternative_title"
 msgstr "மாற்று தலைப்பு"
 
-#: allthethings/page/views.py:7083
+#: allthethings/page/views.py:7116
 #, fuzzy
 msgid "page.md5.box.alternative_author"
 msgstr "மாற்று ஆசிரியர்"
 
-#: allthethings/page/views.py:7084
+#: allthethings/page/views.py:7117
 #, fuzzy
 msgid "page.md5.box.alternative_publisher"
 msgstr "மாற்று பதிப்பாளர்"
 
-#: allthethings/page/views.py:7085
+#: allthethings/page/views.py:7118
 #, fuzzy
 msgid "page.md5.box.alternative_edition"
 msgstr "மாற்று பதிப்பு"
 
-#: allthethings/page/views.py:7086
+#: allthethings/page/views.py:7119
 #, fuzzy
 msgid "page.md5.box.alternative_extension"
 msgstr "மாற்று நீட்டிப்பு"
 
-#: allthethings/page/views.py:7087
+#: allthethings/page/views.py:7120
 #, fuzzy
 msgid "page.md5.box.metadata_comments_title"
 msgstr "மெட்டாடேட்டா கருத்துகள்"
 
-#: allthethings/page/views.py:7088
+#: allthethings/page/views.py:7121
 #, fuzzy
 msgid "page.md5.box.alternative_description"
 msgstr "மாற்று விளக்கம்"
 
-#: allthethings/page/views.py:7089
+#: allthethings/page/views.py:7122
 #, fuzzy
 msgid "page.md5.box.date_open_sourced_title"
 msgstr "திறந்த மூலமாக்கிய தேதி"
@@ -2750,167 +2758,178 @@ msgstr "நெக்சஸ்/எஸ்டிசி ஐடி %(id)s மெட�
 msgid "page.md5.header.meta_desc"
 msgstr "இது ஒரு மெய்நிகர் பதிவேடு, பதிவிறக்கக்கூடிய கோப்பு அல்ல. <a %(a_request)s>கோப்பை கோரும்போது</a> இந்த URL ஐ பயன்படுத்தலாம்."
 
-#: allthethings/page/templates/page/aarecord.html:57
+#: allthethings/page/templates/page/aarecord.html:59
 #, fuzzy
 msgid "page.md5.text.linked_metadata"
 msgstr "இணைக்கப்பட்ட பதிவின் மெட்டாடேட்டா"
 
-#: allthethings/page/templates/page/aarecord.html:58
+#: allthethings/page/templates/page/aarecord.html:60
 #, fuzzy
 msgid "page.md5.text.linked_metadata_openlib"
 msgstr "Open Library இல் மெட்டாடேட்டாவை மேம்படுத்தவும்"
 
-#: allthethings/page/templates/page/aarecord.html:61
+#: allthethings/page/templates/page/aarecord.html:63
 #, fuzzy
 msgid "page.md5.warning.multiple_links"
 msgstr "எச்சரிக்கை: பல இணைக்கப்பட்ட பதிவுகள்:"
 
-#: allthethings/page/templates/page/aarecord.html:69
+#: allthethings/page/templates/page/aarecord.html:71
 #, fuzzy
 msgid "page.md5.header.improve_metadata"
 msgstr "தரவுத்தொகுப்பை மேம்படுத்துங்கள்"
 
-#: allthethings/page/templates/page/aarecord.html:71
+#: allthethings/page/templates/page/aarecord.html:73
 #, fuzzy
 msgid "page.md5.text.report_quality"
 msgstr "கோப்பு தரத்தை புகாரளிக்கவும்"
 
-#: allthethings/page/templates/page/aarecord.html:95
+#: allthethings/page/templates/page/aarecord.html:87
+#: allthethings/page/templates/page/search.html:510
+#: allthethings/page/templates/page/search.html:520
+#: allthethings/page/templates/page/search.html:550
+#: allthethings/templates/macros/aarecord_list.html:118
+#, fuzzy
+msgid "page.search.results.download_time"
+msgstr "பதிவிறக்க நேரம்"
+
+#: allthethings/page/templates/page/aarecord.html:142
 #, fuzzy
 msgid "page.md5.codes.url"
 msgstr "URL:"
 
-#: allthethings/page/templates/page/aarecord.html:96
+#: allthethings/page/templates/page/aarecord.html:143
 #, fuzzy
 msgid "page.md5.codes.website"
 msgstr "வலைத்தளம்:"
 
-#: allthethings/page/templates/page/aarecord.html:97
+#: allthethings/page/templates/page/aarecord.html:144
 #, fuzzy
 msgid "page.md5.codes.aa_abbr"
 msgstr "AA:"
 
-#: allthethings/page/templates/page/aarecord.html:97
+#: allthethings/page/templates/page/aarecord.html:144
 #, fuzzy
 msgid "page.md5.codes.aa_search"
 msgstr "“Anna’s Archive” இல் “%(name)s” ஐத் தேடுங்கள்"
 
-#: allthethings/page/templates/page/aarecord.html:98
+#: allthethings/page/templates/page/aarecord.html:145
 #, fuzzy
 msgid "page.md5.codes.code_explorer"
 msgstr "குறியீடுகள் ஆராய்ச்சி:"
 
-#: allthethings/page/templates/page/aarecord.html:98
+#: allthethings/page/templates/page/aarecord.html:145
 #, fuzzy
 msgid "page.md5.codes.code_search"
 msgstr "குறியீடுகள் ஆராய்ச்சியில் “%(name)s” ஐப் பார்க்கவும்"
 
-#: allthethings/page/templates/page/aarecord.html:117
+#: allthethings/page/templates/page/aarecord.html:164
 #, fuzzy
 msgid "page.md5.box.descr_read_more"
 msgstr "மேலும் படிக்க…"
 
-#: allthethings/page/templates/page/aarecord.html:133
+#: allthethings/page/templates/page/aarecord.html:180
 #, fuzzy
 msgid "page.md5.tabs.downloads"
 msgstr "பதிவிறக்கங்கள் (%(count)s)"
 
-#: allthethings/page/templates/page/aarecord.html:133
+#: allthethings/page/templates/page/aarecord.html:180
 #, fuzzy
 msgid "page.md5.tabs.borrow"
 msgstr "உடன் (%(count)s)"
 
-#: allthethings/page/templates/page/aarecord.html:133
+#: allthethings/page/templates/page/aarecord.html:180
 #, fuzzy
 msgid "page.md5.tabs.explore_metadata"
 msgstr "மெட்டாதரவை ஆராயுங்கள் (%(count)s)"
 
-#: allthethings/page/templates/page/aarecord.html:135
+#: allthethings/page/templates/page/aarecord.html:183
 #, fuzzy
 msgid "page.md5.tabs.lists"
 msgstr "பட்டியல்கள் (%(count)s)"
 
-#: allthethings/page/templates/page/aarecord.html:136
+#: allthethings/page/templates/page/aarecord.html:184
 #, fuzzy
 msgid "page.md5.tabs.stats"
 msgstr "புள்ளிவிவரங்கள் (%(count)s)"
 
-#: allthethings/page/templates/page/aarecord.html:138
+#: allthethings/page/templates/page/aarecord.html:186
 #, fuzzy
 msgid "common.tech_details"
 msgstr "தொழில்நுட்ப விவரங்கள்"
 
-#: allthethings/page/templates/page/aarecord.html:207
+#: allthethings/page/templates/page/aarecord.html:265
 #, fuzzy
 msgid "page.md5.box.issues.text1"
 msgstr "<span class=\"font-bold\">❌ இந்த கோப்பில் சிக்கல்கள் இருக்கலாம், மேலும் இது ஒரு மூல நூலகத்திலிருந்து மறைக்கப்பட்டுள்ளது.</span> சில நேரங்களில் இது பதிப்புரிமை உரிமையாளரின் கோரிக்கையின்படி, சில நேரங்களில் சிறந்த மாற்று கிடைக்கும்போது, ஆனால் சில நேரங்களில் கோப்பின் சிக்கலால். இதை பதிவிறக்குவது சரியாக இருக்கலாம், ஆனால் முதலில் மாற்று கோப்பைத் தேட பரிந்துரைக்கிறோம். மேலும் விவரங்கள்:"
 
-#: allthethings/page/templates/page/aarecord.html:212
+#: allthethings/page/templates/page/aarecord.html:270
 #, fuzzy
 msgid "page.md5.box.download.better_file"
 msgstr "இந்த கோப்பின் சிறந்த பதிப்பு %(link)s இல் கிடைக்கக்கூடும்"
 
-#: allthethings/page/templates/page/aarecord.html:217
+#: allthethings/page/templates/page/aarecord.html:275
 #, fuzzy
 msgid "page.md5.box.issues.text2"
 msgstr "இந்த கோப்பை இன்னும் பதிவிறக்க விரும்பினால், அதைத் திறக்க நம்பகமான, புதுப்பிக்கப்பட்ட மென்பொருளைப் பயன்படுத்துவது உறுதிப்படுத்துங்கள்."
 
-#: allthethings/page/templates/page/aarecord.html:222
+#: allthethings/page/templates/page/aarecord.html:280
 #, fuzzy
 msgid "page.md5.box.download.header_fast_only"
 msgstr "🚀 வேகமான பதிவிறக்கங்கள்"
 
-#: allthethings/page/templates/page/aarecord.html:224
+#: allthethings/page/templates/page/aarecord.html:282
 #, fuzzy
 msgid "page.md5.box.download.header_fast_no_member"
 msgstr "<strong>🚀 வேகமான பதிவிறக்கங்கள்</strong> புத்தகங்கள், ஆவணங்கள் மற்றும் பலவற்றின் நீண்டகால பாதுகாப்பை ஆதரிக்க <a %(a_membership)s>உறுப்பினராக</a> ஆகுங்கள். உங்கள் ஆதரவுக்கு நன்றி தெரிவிக்க, உங்களுக்கு வேகமான பதிவிறக்கங்கள் கிடைக்கும். ❤️"
 
-#: allthethings/page/templates/page/aarecord.html:225
+#: allthethings/page/templates/page/aarecord.html:283
 #: allthethings/templates/layouts/index.html:233
 #, fuzzy
 msgid "layout.index.header.banner.fundraiser.this_month"
 msgstr "இந்த மாதம் நீங்கள் நன்கொடை அளித்தால், நீங்கள் <strong>இரட்டிப்பு</strong> வேகமான பதிவிறக்கங்களைப் பெறுவீர்கள்."
 
-#: allthethings/page/templates/page/aarecord.html:227
+#: allthethings/page/templates/page/aarecord.html:285
 #, fuzzy
 msgid "page.md5.box.download.header_fast_member"
 msgstr "<strong>🚀 வேகமான பதிவிறக்கங்கள்</strong> இன்று உங்களுக்கு %(remaining)s மீதமுள்ளது. உறுப்பினராக இருப்பதற்கு நன்றி! ❤️"
 
-#: allthethings/page/templates/page/aarecord.html:228
+#: allthethings/page/templates/page/aarecord.html:286
 #, fuzzy
 msgid "page.md5.box.download.header_fast_member_no_remaining_new"
 msgstr "<strong>🚀 வேகமான பதிவிறக்கங்கள்</strong> இன்று உங்களுக்கு வேகமான பதிவிறக்கங்கள் முடிந்துவிட்டது."
 
-#: allthethings/page/templates/page/aarecord.html:229
+#: allthethings/page/templates/page/aarecord.html:287
 #, fuzzy
 msgid "page.md5.box.download.header_fast_member_valid_for"
 msgstr "<strong>🚀 வேகமான பதிவிறக்கங்கள்</strong> நீங்கள் சமீபத்தில் இந்த கோப்பை பதிவிறக்கியுள்ளீர்கள். இணைப்புகள் சில நேரம் செல்லுபடியாக இருக்கும்."
 
-#: allthethings/page/templates/page/aarecord.html:234
-#: allthethings/page/templates/page/aarecord.html:251
-#: allthethings/page/templates/page/aarecord.html:283
+#: allthethings/page/templates/page/aarecord.html:292
+#: allthethings/page/templates/page/aarecord.html:293
+#: allthethings/page/templates/page/aarecord.html:311
+#: allthethings/page/templates/page/aarecord.html:347
 #, fuzzy
 msgid "page.md5.box.download.option"
 msgstr "விருப்பம் #%(num)d: %(link)s %(extra)s"
 
-#: allthethings/page/templates/page/aarecord.html:234
+#: allthethings/page/templates/page/aarecord.html:292
+#: allthethings/page/templates/page/aarecord.html:294
 #, fuzzy
 msgid "page.md5.box.download.no_redirect"
 msgstr "(மீளமைப்பு இல்லை)"
 
-#: allthethings/page/templates/page/aarecord.html:239
+#: allthethings/page/templates/page/aarecord.html:299
 #: allthethings/templates/layouts/index.html:276
 #, fuzzy
 msgid "layout.index.header.banner.refer"
 msgstr "ஒரு நண்பரை பரிந்துரை செய்யுங்கள், உங்களுக்கும் உங்கள் நண்பருக்கும் %(percentage)s%% கூடுதல் விரைவான பதிவிறக்கங்கள் கிடைக்கும்!"
 
-#: allthethings/page/templates/page/aarecord.html:239
+#: allthethings/page/templates/page/aarecord.html:299
 #: allthethings/page/templates/page/home.html:25
 #: allthethings/page/templates/page/home.html:34
 #: allthethings/page/templates/page/home.html:71
 #: allthethings/page/templates/page/home.html:124
-#: allthethings/page/templates/page/search.html:357
-#: allthethings/page/templates/page/search.html:421
+#: allthethings/page/templates/page/search.html:361
+#: allthethings/page/templates/page/search.html:425
 #: allthethings/templates/layouts/index.html:270
 #: allthethings/templates/layouts/index.html:276
 #: allthethings/templates/layouts/index.html:403
@@ -2920,252 +2939,252 @@ msgstr "ஒரு நண்பரை பரிந்துரை செய்ய
 msgid "layout.index.header.learn_more"
 msgstr "மேலும் அறிய…"
 
-#: allthethings/page/templates/page/aarecord.html:246
+#: allthethings/page/templates/page/aarecord.html:306
 #, fuzzy
 msgid "page.md5.box.download.header_slow_only"
 msgstr "🐢 மந்தமான பதிவிறக்கங்கள்"
 
-#: allthethings/page/templates/page/aarecord.html:247
+#: allthethings/page/templates/page/aarecord.html:307
 #, fuzzy
 msgid "page.md5.box.download.trusted_partners"
 msgstr "நம்பகமான கூட்டாளர்களிடமிருந்து."
 
-#: allthethings/page/templates/page/aarecord.html:247
+#: allthethings/page/templates/page/aarecord.html:307
 #, fuzzy
 msgid "page.md5.box.download.slow_faq"
 msgstr "மேலும் தகவலுக்கு <a %(a_slow)s>அடிக்கடி கேட்கப்படும் கேள்விகள்</a>."
 
-#: allthethings/page/templates/page/aarecord.html:247
+#: allthethings/page/templates/page/aarecord.html:307
 #, fuzzy
 msgid "common.md5.servers.browser_verification_unlimited"
 msgstr "( <a %(a_browser)s>உலாவி சரிபார்ப்பு</a> தேவைப்படலாம் — வரம்பற்ற பதிவிறக்கங்கள்!)"
 
-#: allthethings/page/templates/page/aarecord.html:262
+#: allthethings/page/templates/page/aarecord.html:326
 #, fuzzy
 msgid "page.md5.box.external_downloads"
 msgstr "வெளிப்புற பதிவிறக்கங்களை காண்பிக்கவும்"
 
-#: allthethings/page/templates/page/aarecord.html:263
+#: allthethings/page/templates/page/aarecord.html:327
 #, fuzzy
 msgid "page.md5.box.download.header_external"
 msgstr "வெளிப்புற பதிவிறக்கங்கள்"
 
-#: allthethings/page/templates/page/aarecord.html:288
+#: allthethings/page/templates/page/aarecord.html:352
 #, fuzzy
 msgid "page.md5.box.download.no_found"
 msgstr "பதிவிறக்கங்கள் எதுவும் கிடைக்கவில்லை."
 
-#: allthethings/page/templates/page/aarecord.html:294
+#: allthethings/page/templates/page/aarecord.html:358
 #, fuzzy
 msgid "page.md5.box.download.no_issues_notice"
 msgstr "அனைத்து பதிவிறக்க விருப்பங்களிலும் ஒரே கோப்பு உள்ளது, மேலும் அவற்றைப் பயன்படுத்துவது பாதுகாப்பானது. அதற்குப் பிறகும், இணையத்திலிருந்து கோப்புகளை பதிவிறக்கும்போது எப்போதும் எச்சரிக்கையாக இருங்கள், குறிப்பாக Anna’s Archiveக்கு வெளியில் உள்ள தளங்களில் இருந்து. உதாரணமாக, உங்கள் சாதனங்களைப் புதுப்பித்துக் கொள்ளுங்கள்."
 
-#: allthethings/page/templates/page/aarecord.html:300
+#: allthethings/page/templates/page/aarecord.html:364
 #: allthethings/page/templates/page/partner_download.html:83
 #, fuzzy
 msgid "page.md5.box.download.dl_managers"
 msgstr "பெரிய கோப்புகளுக்கு, இடையூறுகளைத் தவிர்க்க பதிவிறக்க மேலாளரைப் பயன்படுத்த பரிந்துரைக்கிறோம்."
 
-#: allthethings/page/templates/page/aarecord.html:301
+#: allthethings/page/templates/page/aarecord.html:365
 #: allthethings/page/templates/page/partner_download.html:84
 #, fuzzy
 msgid "page.md5.box.download.dl_managers.links"
 msgstr "பரிந்துரைக்கப்பட்ட பதிவிறக்க மேலாளர்கள்: %(links)s"
 
-#: allthethings/page/templates/page/aarecord.html:309
+#: allthethings/page/templates/page/aarecord.html:373
 #, fuzzy
 msgid "page.md5.box.download.readers"
 msgstr "கோப்பு வடிவமைப்பைப் பொறுத்து, கோப்பைத் திறக்க நீங்கள் ஒரு eBook அல்லது PDF வாசிப்பான் தேவைப்படும்."
 
-#: allthethings/page/templates/page/aarecord.html:310
+#: allthethings/page/templates/page/aarecord.html:374
 #, fuzzy
 msgid "page.md5.box.download.readers.links"
 msgstr "பரிந்துரைக்கப்பட்ட eBook வாசிப்பான்கள்: %(links)s"
 
-#: allthethings/page/templates/page/aarecord.html:319
+#: allthethings/page/templates/page/aarecord.html:383
 #, fuzzy
 msgid "page.md5.box.download.conversion"
 msgstr "வடிவமைப்புகளுக்கு இடையில் மாற்ற ஆன்லைன் கருவிகளைப் பயன்படுத்தவும்."
 
-#: allthethings/page/templates/page/aarecord.html:320
+#: allthethings/page/templates/page/aarecord.html:384
 #, fuzzy
 msgid "page.md5.box.download.conversion.links"
 msgstr "பரிந்துரைக்கப்பட்ட மாற்று கருவிகள்: %(links)s"
 
-#: allthethings/page/templates/page/aarecord.html:328
+#: allthethings/page/templates/page/aarecord.html:392
 #, fuzzy
 msgid "page.md5.box.download.sendtokindle"
 msgstr "நீங்கள் PDF மற்றும் EPUB கோப்புகளை உங்கள் கிண்டில் அல்லது கோபோ eReaderக்கு அனுப்பலாம்."
 
-#: allthethings/page/templates/page/aarecord.html:329
+#: allthethings/page/templates/page/aarecord.html:393
 #, fuzzy
 msgid "page.md5.box.download.sendtokindle.links"
 msgstr "பரிந்துரைக்கப்பட்ட கருவிகள்: %(links)s"
 
-#: allthethings/page/templates/page/aarecord.html:332
+#: allthethings/page/templates/page/aarecord.html:396
 #, fuzzy
 msgid "page.md5.box.download.link.send_to_kindle"
 msgstr "அமேசான் ‘Send to Kindle’"
 
-#: allthethings/page/templates/page/aarecord.html:333
+#: allthethings/page/templates/page/aarecord.html:397
 #, fuzzy
 msgid "page.md5.box.download.link.send_to_kobokindle"
 msgstr "டிஜாஸ் ‘Send to Kobo/Kindle’"
 
-#: allthethings/page/templates/page/aarecord.html:338
+#: allthethings/page/templates/page/aarecord.html:402
 #, fuzzy
 msgid "page.md5.box.download.support"
 msgstr "ஆசிரியர்கள் மற்றும் நூலகங்களை ஆதரிக்கவும்"
 
-#: allthethings/page/templates/page/aarecord.html:339
+#: allthethings/page/templates/page/aarecord.html:403
 #, fuzzy
 msgid "page.md5.box.download.support.authors"
 msgstr "இது பிடித்திருந்தால் மற்றும் நீங்கள் அதைச் செய்ய முடிந்தால், அசல் புத்தகத்தை வாங்கவோ அல்லது நேரடியாக ஆசிரியர்களை ஆதரிக்கவோ பரிந்துரைக்கிறோம்."
 
-#: allthethings/page/templates/page/aarecord.html:340
+#: allthethings/page/templates/page/aarecord.html:404
 #, fuzzy
 msgid "page.md5.box.download.support.libraries"
 msgstr "இது உங்கள் உள்ளூர் நூலகத்தில் கிடைக்குமாயின், அதை அங்கு இலவசமாக கடனாக எடுத்துச் செல்லவும்."
 
-#: allthethings/page/templates/page/aarecord.html:371
+#: allthethings/page/templates/page/aarecord.html:442
 #, fuzzy
 msgid "page.md5.quality.header"
 msgstr "கோப்பு தரம்"
 
-#: allthethings/page/templates/page/aarecord.html:374
+#: allthethings/page/templates/page/aarecord.html:445
 #, fuzzy
 msgid "page.md5.quality.report"
 msgstr "இந்த கோப்பின் தரத்தை புகாரளிப்பதன் மூலம் சமூகத்திற்கு உதவுங்கள்! 🙌"
 
-#: allthethings/page/templates/page/aarecord.html:378
+#: allthethings/page/templates/page/aarecord.html:449
 #, fuzzy
 msgid "page.md5.quality.report_issue"
 msgstr "கோப்பு சிக்கலை புகாரளிக்கவும் (%(count)s)"
 
-#: allthethings/page/templates/page/aarecord.html:380
+#: allthethings/page/templates/page/aarecord.html:451
 #, fuzzy
 msgid "page.md5.quality.great_quality"
 msgstr "சிறந்த கோப்பு தரம் (%(count)s)"
 
-#: allthethings/page/templates/page/aarecord.html:380
+#: allthethings/page/templates/page/aarecord.html:451
 #, fuzzy
 msgid "page.md5.quality.add_comment"
 msgstr "கருத்தைச் சேர்க்கவும் (%(count)s)"
 
-#: allthethings/page/templates/page/aarecord.html:383
+#: allthethings/page/templates/page/aarecord.html:454
 #, fuzzy
 msgid "page.md5.quality.logged_out_login"
 msgstr "தயவுசெய்து <a %(a_login)s>உள்நுழைக</a>."
 
-#: allthethings/page/templates/page/aarecord.html:387
+#: allthethings/page/templates/page/aarecord.html:458
 #, fuzzy
 msgid "page.md5.quality.what_is_wrong"
 msgstr "இந்த கோப்பில் என்ன தவறு?"
 
-#: allthethings/page/templates/page/aarecord.html:397
+#: allthethings/page/templates/page/aarecord.html:468
 #, fuzzy
 msgid "page.md5.quality.copyright"
 msgstr "தயவுசெய்து <a %(a_copyright)s>DMCA / காப்புரிமை கோரிக்கை படிவத்தை</a> பயன்படுத்தவும்."
 
-#: allthethings/page/templates/page/aarecord.html:402
+#: allthethings/page/templates/page/aarecord.html:473
 #, fuzzy
 msgid "page.md5.quality.describe_the_issue"
 msgstr "சிக்கலை விவரிக்கவும் (தேவையானது)"
 
-#: allthethings/page/templates/page/aarecord.html:403
+#: allthethings/page/templates/page/aarecord.html:474
 #, fuzzy
 msgid "page.md5.quality.issue_description"
 msgstr "சிக்கல் விவரம்"
 
-#: allthethings/page/templates/page/aarecord.html:407
+#: allthethings/page/templates/page/aarecord.html:478
 #, fuzzy
 msgid "page.md5.quality.better_md5.text1"
 msgstr "இந்த கோப்பின் சிறந்த பதிப்பின் MD5 (பொருந்துமானால்)."
 
-#: allthethings/page/templates/page/aarecord.html:407
+#: allthethings/page/templates/page/aarecord.html:478
 #, fuzzy
 msgid "page.md5.quality.better_md5.text2"
 msgstr "இந்த கோப்புடன் நெருக்கமாக பொருந்தும் மற்றொரு கோப்பு (அதே பதிப்பு, அதே கோப்பு நீட்சியுடன்) இருந்தால், அதை நிரப்பவும், மக்கள் இந்த கோப்பின் பதிலாக அதை பயன்படுத்த வேண்டும். Anna’s Archive க்கு வெளியே இந்த கோப்பின் சிறந்த பதிப்பு இருந்தால், தயவுசெய்து <a %(a_upload)s>அதைப் பதிவேற்றவும்</a>."
 
-#: allthethings/page/templates/page/aarecord.html:410
+#: allthethings/page/templates/page/aarecord.html:481
 #, fuzzy
 msgid "page.md5.quality.better_md5.line1"
 msgstr "URL இலிருந்து md5 ஐப் பெறலாம், உதாரணமாக"
 
-#: allthethings/page/templates/page/aarecord.html:417
+#: allthethings/page/templates/page/aarecord.html:488
 #, fuzzy
 msgid "page.md5.quality.submit_report"
 msgstr "புகாரை சமர்ப்பிக்கவும்"
 
-#: allthethings/page/templates/page/aarecord.html:422
+#: allthethings/page/templates/page/aarecord.html:493
 #, fuzzy
 msgid "page.md5.quality.improve_the_metadata"
 msgstr "இந்த கோப்பின் மெட்டாடேட்டாவை நீங்களே <a %(a_metadata)s>மேம்படுத்துவது</a> எப்படி என்று கற்றுக்கொள்ளுங்கள்."
 
-#: allthethings/page/templates/page/aarecord.html:426
+#: allthethings/page/templates/page/aarecord.html:497
 #, fuzzy
 msgid "page.md5.quality.report_thanks"
 msgstr "உங்கள் அறிக்கையை சமர்ப்பித்ததற்கு நன்றி. இது இந்தப் பக்கத்தில் காண்பிக்கப்படும், மேலும் அன்னா (நாங்கள் சரியான மிதமான அமைப்பை உருவாக்கும் வரை) கையால் மதிப்பீடு செய்யப்படும்."
 
-#: allthethings/page/templates/page/aarecord.html:427
+#: allthethings/page/templates/page/aarecord.html:498
 #, fuzzy
 msgid "page.md5.quality.report_error"
 msgstr "ஏதோ தவறாகிவிட்டது. தயவுசெய்து பக்கத்தை மீண்டும் ஏற்றவும் மற்றும் மீண்டும் முயற்சிக்கவும்."
 
-#: allthethings/page/templates/page/aarecord.html:433
+#: allthethings/page/templates/page/aarecord.html:504
 #, fuzzy
 msgid "page.md5.quality.great.summary"
 msgstr "இந்த கோப்பின் தரம் மிகச் சிறப்பாக இருந்தால், இதைப் பற்றி எதையும் இங்கே விவாதிக்கலாம்! இல்லையெனில், “கோப்பு பிரச்சினையை அறிவிக்கவும்” பொத்தானைப் பயன்படுத்தவும்."
 
-#: allthethings/page/templates/page/aarecord.html:435
+#: allthethings/page/templates/page/aarecord.html:506
 #, fuzzy
 msgid "page.md5.quality.loved_the_book"
 msgstr "நான் இந்தப் புத்தகத்தை மிகவும் விரும்பினேன்!"
 
-#: allthethings/page/templates/page/aarecord.html:437
+#: allthethings/page/templates/page/aarecord.html:508
 #, fuzzy
 msgid "page.md5.quality.submit_comment"
 msgstr "கருத்து இடவும்"
 
-#: allthethings/page/templates/page/aarecord.html:441
+#: allthethings/page/templates/page/aarecord.html:512
 #, fuzzy
 msgid "page.md5.quality.comment_thanks"
 msgstr "நீங்கள் ஒரு கருத்தை விட்டுவிட்டீர்கள். அது காண்பிக்க ஒரு நிமிடம் ஆகலாம்."
 
-#: allthethings/page/templates/page/aarecord.html:442
+#: allthethings/page/templates/page/aarecord.html:513
 #, fuzzy
 msgid "page.md5.quality.comment_error"
 msgstr "ஏதோ தவறாகிவிட்டது. தயவுசெய்து பக்கத்தை மீண்டும் ஏற்றவும் மற்றும் மீண்டும் முயற்சிக்கவும்."
 
-#: allthethings/page/templates/page/aarecord.html:452
-#: allthethings/page/templates/page/aarecord.html:453
-#: allthethings/page/templates/page/torrents.html:36
-#: allthethings/page/templates/page/torrents.html:37
+#: allthethings/page/templates/page/aarecord.html:522
+#: allthethings/page/templates/page/aarecord.html:523
+#: allthethings/page/templates/page/torrents.html:40
+#: allthethings/page/templates/page/torrents.html:41
 #, fuzzy
 msgid "common.english_only"
 msgstr "கீழே உள்ள உரை ஆங்கிலத்தில் தொடர்கிறது."
 
-#: allthethings/page/templates/page/aarecord.html:474
+#: allthethings/page/templates/page/aarecord.html:544
 #, fuzzy
 msgid "page.md5.text.stats.total_downloads"
 msgstr "மொத்த பதிவிறக்கங்கள்: %(total)s"
 
-#: allthethings/page/templates/page/aarecord.html:506
+#: allthethings/page/templates/page/aarecord.html:576
 #, fuzzy
 msgid "page.md5.text.md5_info.text1"
 msgstr "“கோப்பு MD5” என்பது கோப்பு உள்ளடக்கத்திலிருந்து கணக்கிடப்படும் ஒரு ஹாஷ் ஆகும், மற்றும் அந்த உள்ளடக்கத்தின் அடிப்படையில் நியாயமாக தனித்துவமானது. நாங்கள் இங்கே குறியீட்டில் வைத்துள்ள அனைத்து நிழல் நூலகங்களும் முதன்மையாக கோப்புகளை அடையாளம் காண MD5களைப் பயன்படுத்துகின்றன."
 
-#: allthethings/page/templates/page/aarecord.html:510
+#: allthethings/page/templates/page/aarecord.html:580
 #, fuzzy
 msgid "page.md5.text.md5_info.text2"
 msgstr "ஒரு கோப்பு பல நிழல் நூலகங்களில் தோன்றலாம். நாங்கள் தொகுத்துள்ள பல்வேறு தரவுத்தொகுப்புகள் பற்றிய தகவலுக்கு, <a %(a_datasets)s>Datasets பக்கம்</a> பார்க்கவும்."
 
-#: allthethings/page/templates/page/aarecord.html:514
+#: allthethings/page/templates/page/aarecord.html:584
 #, fuzzy
 msgid "page.md5.text.ia_info.text1"
 msgstr "இது <a %(a_ia)s>IA’s Controlled Digital Lending</a> நூலகத்தால் நிர்வகிக்கப்படும் ஒரு கோப்பு, மற்றும் தேடலுக்காக அன்னாவின் காப்பகத்தால் குறியீட்டில் வைக்கப்பட்டுள்ளது. நாங்கள் தொகுத்துள்ள பல்வேறு தரவுத்தொகுப்புகள் பற்றிய தகவலுக்கு, <a %(a_datasets)s>Datasets பக்கம்</a> பார்க்கவும்."
 
-#: allthethings/page/templates/page/aarecord.html:519
+#: allthethings/page/templates/page/aarecord.html:589
 #, fuzzy
 msgid "page.md5.text.file_info.text1"
 msgstr "இந்த குறிப்பிட்ட கோப்பின் தகவலுக்கு, அதன் <a %(a_href)s>JSON கோப்பை</a> பார்க்கவும்."
@@ -3868,7 +3887,7 @@ msgstr "நாங்கள் எங்கள் தொகுப்பை metada
 
 #: allthethings/page/templates/page/datasets.html:505
 #: allthethings/page/templates/page/faq.html:191
-#: allthethings/page/templates/page/search.html:392
+#: allthethings/page/templates/page/search.html:396
 #, fuzzy
 msgid "page.faq.metadata.inspiration"
 msgstr "நாங்கள் மெட்டாடேட்டாவை சேகரிக்க ஊக்கமளித்தது ஆரோன் ஸ்வார்ட்ஸின் “ஒவ்வொரு புத்தகமும் வெளியிடப்பட்ட ஒவ்வொரு வலைப்பக்கமும்” என்ற இலக்காகும், இதற்காக அவர் <a %(a_openlib)s>Open Library</a> உருவாக்கினார். அந்த திட்டம் நன்றாக செயல்பட்டது, ஆனால் நாங்கள் பெற முடியாத மெட்டாடேட்டாவை பெற நாங்கள் தனித்துவமான நிலையைப் பெற்றுள்ளோம். மற்றொரு ஊக்கமாக உலகில் எத்தனை புத்தகங்கள் உள்ளன என்பதை அறிய விரும்பியது, இதனால் எத்தனை புத்தகங்களை இன்னும் காப்பாற்ற வேண்டும் என்பதை கணக்கிட முடியும்."
@@ -3951,11 +3970,11 @@ msgstr "புத்தகங்கள் அரை-பொதுவாக வி
 #: allthethings/page/templates/page/datasets_lgrs.html:81
 #: allthethings/page/templates/page/datasets_magzdb.html:66
 #: allthethings/page/templates/page/datasets_nexusstc.html:72
-#: allthethings/page/templates/page/datasets_oclc.html:63
+#: allthethings/page/templates/page/datasets_oclc.html:120
 #: allthethings/page/templates/page/datasets_ol.html:44
-#: allthethings/page/templates/page/datasets_other_metadata.html:150
+#: allthethings/page/templates/page/datasets_other_metadata.html:72
 #: allthethings/page/templates/page/datasets_scihub.html:90
-#: allthethings/page/templates/page/datasets_upload.html:221
+#: allthethings/page/templates/page/datasets_upload.html:104
 #: allthethings/page/templates/page/datasets_zlib.html:63
 #, fuzzy
 msgid "page.datasets.common.resources"
@@ -3968,7 +3987,7 @@ msgstr "வளங்கள்"
 #: allthethings/page/templates/page/datasets_magzdb.html:68
 #: allthethings/page/templates/page/datasets_nexusstc.html:74
 #: allthethings/page/templates/page/datasets_scihub.html:92
-#: allthethings/page/templates/page/datasets_upload.html:223
+#: allthethings/page/templates/page/datasets_upload.html:106
 #: allthethings/page/templates/page/datasets_zlib.html:67
 #: allthethings/page/templates/page/datasets_zlib.html:74
 #, fuzzy
@@ -3982,7 +4001,7 @@ msgstr "மொத்த கோப்புகள்: %(count)s"
 #: allthethings/page/templates/page/datasets_magzdb.html:69
 #: allthethings/page/templates/page/datasets_nexusstc.html:75
 #: allthethings/page/templates/page/datasets_scihub.html:93
-#: allthethings/page/templates/page/datasets_upload.html:224
+#: allthethings/page/templates/page/datasets_upload.html:107
 #: allthethings/page/templates/page/datasets_zlib.html:68
 #: allthethings/page/templates/page/datasets_zlib.html:75
 #, fuzzy
@@ -3996,7 +4015,7 @@ msgstr "மொத்த கோப்பின் அளவு: %(size)s"
 #: allthethings/page/templates/page/datasets_magzdb.html:70
 #: allthethings/page/templates/page/datasets_nexusstc.html:76
 #: allthethings/page/templates/page/datasets_scihub.html:94
-#: allthethings/page/templates/page/datasets_upload.html:225
+#: allthethings/page/templates/page/datasets_upload.html:108
 #: allthethings/page/templates/page/datasets_zlib.html:69
 #: allthethings/page/templates/page/datasets_zlib.html:76
 #, fuzzy
@@ -4009,7 +4028,7 @@ msgstr "அன்னாவின் காப்பகத்தால் பி�
 #: allthethings/page/templates/page/datasets_lgrs.html:86
 #: allthethings/page/templates/page/datasets_magzdb.html:71
 #: allthethings/page/templates/page/datasets_nexusstc.html:77
-#: allthethings/page/templates/page/datasets_oclc.html:65
+#: allthethings/page/templates/page/datasets_oclc.html:122
 #: allthethings/page/templates/page/datasets_ol.html:46
 #: allthethings/page/templates/page/datasets_zlib.html:79
 #, fuzzy
@@ -4026,10 +4045,10 @@ msgstr "அன்னாவின் காப்பகத்தின் டோ�
 #: allthethings/page/templates/page/datasets_ia.html:79
 #: allthethings/page/templates/page/datasets_lgli.html:113
 #: allthethings/page/templates/page/datasets_lgrs.html:90
-#: allthethings/page/templates/page/datasets_oclc.html:67
+#: allthethings/page/templates/page/datasets_oclc.html:124
 #: allthethings/page/templates/page/datasets_ol.html:47
 #: allthethings/page/templates/page/datasets_scihub.html:96
-#: allthethings/page/templates/page/datasets_upload.html:227
+#: allthethings/page/templates/page/datasets_upload.html:110
 #, fuzzy
 msgid "page.datasets.common.aa_example_record"
 msgstr "அன்னாவின் காப்பகத்தில் எடுத்துக்காட்டு பதிவு"
@@ -4045,11 +4064,11 @@ msgstr "இந்த தரவுக்கான எங்கள் வலைப
 #: allthethings/page/templates/page/datasets_lgrs.html:101
 #: allthethings/page/templates/page/datasets_magzdb.html:78
 #: allthethings/page/templates/page/datasets_nexusstc.html:92
-#: allthethings/page/templates/page/datasets_oclc.html:70
+#: allthethings/page/templates/page/datasets_oclc.html:127
 #: allthethings/page/templates/page/datasets_ol.html:50
-#: allthethings/page/templates/page/datasets_other_metadata.html:153
+#: allthethings/page/templates/page/datasets_other_metadata.html:75
 #: allthethings/page/templates/page/datasets_scihub.html:104
-#: allthethings/page/templates/page/datasets_upload.html:228
+#: allthethings/page/templates/page/datasets_upload.html:111
 #: allthethings/page/templates/page/datasets_zlib.html:87
 #, fuzzy
 msgid "page.datasets.common.import_scripts"
@@ -4061,11 +4080,11 @@ msgstr "மெட்டாடேட்டா இறக்குமதி செ�
 #: allthethings/page/templates/page/datasets_lgrs.html:102
 #: allthethings/page/templates/page/datasets_magzdb.html:79
 #: allthethings/page/templates/page/datasets_nexusstc.html:93
-#: allthethings/page/templates/page/datasets_oclc.html:71
+#: allthethings/page/templates/page/datasets_oclc.html:128
 #: allthethings/page/templates/page/datasets_ol.html:51
-#: allthethings/page/templates/page/datasets_other_metadata.html:154
+#: allthethings/page/templates/page/datasets_other_metadata.html:76
 #: allthethings/page/templates/page/datasets_scihub.html:105
-#: allthethings/page/templates/page/datasets_upload.html:229
+#: allthethings/page/templates/page/datasets_upload.html:112
 #: allthethings/page/templates/page/datasets_zlib.html:88
 #, fuzzy
 msgid "page.datasets.common.aac"
@@ -4111,7 +4130,7 @@ msgstr "AAC பயன்படுத்தி புதிய இடைப்ப
 #: allthethings/page/templates/page/datasets_ia.html:80
 #: allthethings/page/templates/page/datasets_lgli.html:114
 #: allthethings/page/templates/page/datasets_lgrs.html:91
-#: allthethings/page/templates/page/datasets_oclc.html:68
+#: allthethings/page/templates/page/datasets_oclc.html:125
 #: allthethings/page/templates/page/datasets_ol.html:48
 #: allthethings/page/templates/page/datasets_scihub.html:97
 #, fuzzy
@@ -4406,7 +4425,7 @@ msgstr "Z-Library தொகுப்பைப் போலவே, அவற்�
 
 #: allthethings/page/templates/page/datasets_oclc.html:4
 #: allthethings/page/templates/page/datasets_oclc.html:7
-#: allthethings/page/templates/page/datasets_oclc.html:68
+#: allthethings/page/templates/page/datasets_oclc.html:125
 #, fuzzy
 msgid "page.datasets.worldcat.title"
 msgstr "OCLC (WorldCat)"
@@ -4416,17 +4435,17 @@ msgstr "OCLC (WorldCat)"
 msgid "page.datasets.worldcat.description"
 msgstr "<a %(a_worldcat)s>WorldCat</a> என்பது லாபநோக்கற்ற <a %(a_oclc)s>OCLC</a> ஆல் உருவாக்கப்பட்ட ஒரு சொந்தமான தரவுத்தொகுப்பாகும், இது உலகம் முழுவதும் உள்ள நூலகங்களின் மெட்டாடேட்டா பதிவுகளை ஒருங்கிணைக்கிறது. இது உலகின் மிகப்பெரிய நூலக மெட்டாடேட்டா தொகுப்பாக இருக்கலாம்."
 
-#: allthethings/page/templates/page/datasets_oclc.html:52
+#: allthethings/page/templates/page/datasets_oclc.html:54
 #, fuzzy
 msgid "page.datasets.worldcat.description2"
 msgstr "2023 அக்டோபரில், நாங்கள் OCLC (WorldCat) தரவுத்தொகுப்பின் முழுமையான ஸ்கிரேப்பை <a %(a_scrape)s>வெளியிட்டோம்</a>, <a %(a_aac)s>அன்னாவின் காப்பகக் கொள்கலன்கள் வடிவத்தில்</a>."
 
-#: allthethings/page/templates/page/datasets_oclc.html:66
+#: allthethings/page/templates/page/datasets_oclc.html:123
 #, fuzzy
 msgid "page.datasets.worldcat.torrents"
 msgstr "அன்னாவின் காப்பகத்தில் டோரண்டுகள்"
 
-#: allthethings/page/templates/page/datasets_oclc.html:69
+#: allthethings/page/templates/page/datasets_oclc.html:126
 #, fuzzy
 msgid "page.datasets.worldcat.blog_announcement"
 msgstr "இந்த தரவின் குறித்த எங்கள் வலைப்பதிவு பதிவு"
@@ -4448,22 +4467,22 @@ msgstr "Open Library என்பது உலகின் ஒவ்வொரு
 msgid "page.datesets.openlib.link_metadata"
 msgstr "Metadata"
 
-#: allthethings/page/templates/page/datasets_other_metadata.html:92
+#: allthethings/page/templates/page/datasets_other_metadata.html:61
 #, fuzzy
 msgid "page.datasets.isbndb.release1.title"
 msgstr "வெளியீடு 1 (2022-10-31)"
 
-#: allthethings/page/templates/page/datasets_other_metadata.html:93
+#: allthethings/page/templates/page/datasets_other_metadata.html:61
 #, fuzzy
 msgid "page.datasets.isbndb.release1.text1"
 msgstr "இது 2022 செப்டம்பரில் isbndb.com க்கு பல அழைப்புகளின் தொகுப்பாகும். அனைத்து ISBN வரம்புகளையும் உள்ளடக்க முயற்சித்தோம். இவை சுமார் 30.9 மில்லியன் பதிவுகள். அவர்களின் இணையதளத்தில் அவர்கள் உண்மையில் 32.6 மில்லியன் பதிவுகள் உள்ளன என்று கூறுகிறார்கள், எனவே நாங்கள் ஏதோ தவறவிட்டிருக்கலாம், அல்லது <em>அவர்கள்</em> ஏதோ தவறாகச் செய்கிறார்கள்."
 
-#: allthethings/page/templates/page/datasets_other_metadata.html:94
+#: allthethings/page/templates/page/datasets_other_metadata.html:61
 #, fuzzy
 msgid "page.datasets.isbndb.release1.text2"
 msgstr "JSON பதில்கள் அவர்களின் சர்வரிலிருந்து கச்சிதமாக உள்ளன. நாங்கள் கவனித்த தரவுத் தரம் பிரச்சினை என்னவென்றால், “978-” என்ற முன்னொட்டு இல்லாத ISBN-13 எண்களுக்கு, அவர்கள் இன்னும் “isbn” புலத்தைச் சேர்க்கிறார்கள், இது פשוט ISBN-13 எண்ணின் முதல் 3 எண்களை வெட்டி (மற்றும் சரிபார்ப்பு இலக்கத்தை மீண்டும் கணக்கிடுகிறது). இது தெளிவாக தவறு, ஆனால் அவர்கள் இதை இப்படித்தான் செய்கிறார்கள், எனவே நாங்கள் அதை மாற்றவில்லை."
 
-#: allthethings/page/templates/page/datasets_other_metadata.html:95
+#: allthethings/page/templates/page/datasets_other_metadata.html:61
 #, fuzzy
 msgid "page.datasets.isbndb.release1.text3"
 msgstr "நீங்கள் சந்திக்கக்கூடிய மற்றொரு சாத்தியமான பிரச்சினை, “isbn13” புலத்தில் நகல் பதிவுகள் உள்ளன, எனவே அதை தரவுத்தொகுப்பில் முதன்மை விசையாகப் பயன்படுத்த முடியாது. “isbn13”+“isbn” புலங்கள் இணைந்தால் தனித்துவமாகத் தோன்றுகின்றன."
@@ -4556,162 +4575,189 @@ msgstr "பல துணைத் தொகுப்புகள் தாமா
 msgid "page.datasets.upload.subs.heading"
 msgstr "துணைத் தொகுப்புகள்:"
 
+#: allthethings/page/templates/page/datasets_upload.html:63
+#: allthethings/page/templates/page/datasets_upload.html:64
 #: allthethings/page/templates/page/datasets_upload.html:65
+#: allthethings/page/templates/page/datasets_upload.html:66
+#: allthethings/page/templates/page/datasets_upload.html:67
+#: allthethings/page/templates/page/datasets_upload.html:68
+#: allthethings/page/templates/page/datasets_upload.html:69
+#: allthethings/page/templates/page/datasets_upload.html:70
+#: allthethings/page/templates/page/datasets_upload.html:71
 #: allthethings/page/templates/page/datasets_upload.html:72
+#: allthethings/page/templates/page/datasets_upload.html:73
+#: allthethings/page/templates/page/datasets_upload.html:74
+#: allthethings/page/templates/page/datasets_upload.html:75
+#: allthethings/page/templates/page/datasets_upload.html:76
+#: allthethings/page/templates/page/datasets_upload.html:77
+#: allthethings/page/templates/page/datasets_upload.html:78
 #: allthethings/page/templates/page/datasets_upload.html:79
+#: allthethings/page/templates/page/datasets_upload.html:80
+#: allthethings/page/templates/page/datasets_upload.html:81
+#: allthethings/page/templates/page/datasets_upload.html:82
+#: allthethings/page/templates/page/datasets_upload.html:83
+#: allthethings/page/templates/page/datasets_upload.html:84
+#: allthethings/page/templates/page/datasets_upload.html:85
 #: allthethings/page/templates/page/datasets_upload.html:86
+#: allthethings/page/templates/page/datasets_upload.html:87
+#: allthethings/page/templates/page/datasets_upload.html:88
+#: allthethings/page/templates/page/datasets_upload.html:89
+#: allthethings/page/templates/page/datasets_upload.html:90
+#: allthethings/page/templates/page/datasets_upload.html:91
+#: allthethings/page/templates/page/datasets_upload.html:92
 #: allthethings/page/templates/page/datasets_upload.html:93
-#: allthethings/page/templates/page/datasets_upload.html:100
-#: allthethings/page/templates/page/datasets_upload.html:107
-#: allthethings/page/templates/page/datasets_upload.html:114
-#: allthethings/page/templates/page/datasets_upload.html:121
-#: allthethings/page/templates/page/datasets_upload.html:128
-#: allthethings/page/templates/page/datasets_upload.html:135
-#: allthethings/page/templates/page/datasets_upload.html:142
-#: allthethings/page/templates/page/datasets_upload.html:149
-#: allthethings/page/templates/page/datasets_upload.html:156
-#: allthethings/page/templates/page/datasets_upload.html:163
-#: allthethings/page/templates/page/datasets_upload.html:170
-#: allthethings/page/templates/page/datasets_upload.html:177
-#: allthethings/page/templates/page/datasets_upload.html:184
-#: allthethings/page/templates/page/datasets_upload.html:191
-#: allthethings/page/templates/page/datasets_upload.html:198
-#: allthethings/page/templates/page/datasets_upload.html:212
+#: allthethings/page/templates/page/datasets_upload.html:94
+#: allthethings/page/templates/page/datasets_upload.html:95
+#: allthethings/page/templates/page/datasets_upload.html:96
+#: allthethings/page/templates/page/datasets_upload.html:97
+#: allthethings/page/templates/page/datasets_upload.html:98
+#: allthethings/page/templates/page/datasets_upload.html:99
 #, fuzzy
 msgid "page.datasets.upload.action.browse"
 msgstr "உலாவுக"
 
+#: allthethings/page/templates/page/datasets_upload.html:63
+#: allthethings/page/templates/page/datasets_upload.html:64
+#: allthethings/page/templates/page/datasets_upload.html:65
 #: allthethings/page/templates/page/datasets_upload.html:66
+#: allthethings/page/templates/page/datasets_upload.html:67
+#: allthethings/page/templates/page/datasets_upload.html:68
+#: allthethings/page/templates/page/datasets_upload.html:69
+#: allthethings/page/templates/page/datasets_upload.html:70
+#: allthethings/page/templates/page/datasets_upload.html:71
+#: allthethings/page/templates/page/datasets_upload.html:72
 #: allthethings/page/templates/page/datasets_upload.html:73
+#: allthethings/page/templates/page/datasets_upload.html:74
+#: allthethings/page/templates/page/datasets_upload.html:75
+#: allthethings/page/templates/page/datasets_upload.html:76
+#: allthethings/page/templates/page/datasets_upload.html:77
+#: allthethings/page/templates/page/datasets_upload.html:78
+#: allthethings/page/templates/page/datasets_upload.html:79
 #: allthethings/page/templates/page/datasets_upload.html:80
+#: allthethings/page/templates/page/datasets_upload.html:81
+#: allthethings/page/templates/page/datasets_upload.html:82
+#: allthethings/page/templates/page/datasets_upload.html:83
+#: allthethings/page/templates/page/datasets_upload.html:84
+#: allthethings/page/templates/page/datasets_upload.html:85
+#: allthethings/page/templates/page/datasets_upload.html:86
 #: allthethings/page/templates/page/datasets_upload.html:87
+#: allthethings/page/templates/page/datasets_upload.html:88
+#: allthethings/page/templates/page/datasets_upload.html:89
+#: allthethings/page/templates/page/datasets_upload.html:90
+#: allthethings/page/templates/page/datasets_upload.html:91
+#: allthethings/page/templates/page/datasets_upload.html:92
+#: allthethings/page/templates/page/datasets_upload.html:93
 #: allthethings/page/templates/page/datasets_upload.html:94
-#: allthethings/page/templates/page/datasets_upload.html:101
-#: allthethings/page/templates/page/datasets_upload.html:108
-#: allthethings/page/templates/page/datasets_upload.html:115
-#: allthethings/page/templates/page/datasets_upload.html:122
-#: allthethings/page/templates/page/datasets_upload.html:129
-#: allthethings/page/templates/page/datasets_upload.html:136
-#: allthethings/page/templates/page/datasets_upload.html:143
-#: allthethings/page/templates/page/datasets_upload.html:150
-#: allthethings/page/templates/page/datasets_upload.html:157
-#: allthethings/page/templates/page/datasets_upload.html:164
-#: allthethings/page/templates/page/datasets_upload.html:171
-#: allthethings/page/templates/page/datasets_upload.html:178
-#: allthethings/page/templates/page/datasets_upload.html:185
-#: allthethings/page/templates/page/datasets_upload.html:192
-#: allthethings/page/templates/page/datasets_upload.html:199
-#: allthethings/page/templates/page/datasets_upload.html:213
+#: allthethings/page/templates/page/datasets_upload.html:95
+#: allthethings/page/templates/page/datasets_upload.html:96
+#: allthethings/page/templates/page/datasets_upload.html:97
+#: allthethings/page/templates/page/datasets_upload.html:98
+#: allthethings/page/templates/page/datasets_upload.html:99
 #, fuzzy
 msgid "page.datasets.upload.action.search"
 msgstr "தேடல்"
 
-#: allthethings/page/templates/page/datasets_upload.html:67
+#: allthethings/page/templates/page/datasets_upload.html:63
 #, fuzzy
 msgid "page.datasets.upload.source.aaaaarg"
 msgstr "<a %(a_href)s>aaaaarg.fail</a> இலிருந்து. முழுமையானதாகத் தோன்றுகிறது. எங்கள் தன்னார்வலர் “cgiym” வழங்கியது."
 
-#: allthethings/page/templates/page/datasets_upload.html:74
+#: allthethings/page/templates/page/datasets_upload.html:64
 #, fuzzy
 msgid "page.datasets.upload.source.acm"
 msgstr "<a %(a_href)s><q>ACM Digital Library 2020</q></a> டோரண்ட் இலிருந்து. ஏற்கனவே உள்ள கட்டுரைகள் தொகுப்புகளுடன் அதிகமான ஒற்றுமை உள்ளது, ஆனால் மிகக் குறைவான MD5 பொருத்தங்கள் உள்ளன, எனவே இதை முழுமையாக வைத்திருக்க முடிவு செய்தோம்."
 
-#: allthethings/page/templates/page/datasets_upload.html:81
-#, fuzzy
-msgid "page.datasets.upload.source.alexandrina"
-msgstr "<a %(a_href)s><q>Bibliotheca Alexandrina,</q></a> என்ற தொகுப்பிலிருந்து, துல்லியமான மூலத்தைத் தெளிவாக அறிய முடியவில்லை. பகுதியளவில் the-eye.eu இலிருந்து, மற்ற மூலங்களிலிருந்தும்."
-
-#: allthethings/page/templates/page/datasets_upload.html:88
+#: allthethings/page/templates/page/datasets_upload.html:67
 #, fuzzy
 msgid "page.datasets.upload.source.bibliotik"
 msgstr "தனியார் புத்தக டோரண்ட் இணையதளமான <a %(a_href)s>Bibliotik</a> (அடிக்கடி “Bib” என குறிப்பிடப்படுகிறது) இலிருந்து, புத்தகங்கள் பெயரால் (A.torrent, B.torrent) டோரண்ட்களாகக் கட்டமைக்கப்பட்டு the-eye.eu மூலம் விநியோகிக்கப்பட்டன."
 
-#: allthethings/page/templates/page/datasets_upload.html:95
+#: allthethings/page/templates/page/datasets_upload.html:68
 #, fuzzy
 msgid "page.datasets.upload.source.bpb9v_cadal"
 msgstr "எங்கள் தன்னார்வலர் “bpb9v” வழங்கியது. <a %(a_href)s>CADAL</a> பற்றிய கூடுதல் தகவலுக்கு, எங்கள் <a %(a_duxiu)s>DuXiu dataset page</a> இல் குறிப்புகளைப் பார்க்கவும்."
 
-#: allthethings/page/templates/page/datasets_upload.html:102
+#: allthethings/page/templates/page/datasets_upload.html:69
 #, fuzzy
 msgid "page.datasets.upload.source.bpb9v_direct"
 msgstr "எங்கள் தன்னார்வலர் “bpb9v” வழங்கிய மேலும் சில, பெரும்பாலும் DuXiu கோப்புகள், மேலும் “WenQu” மற்றும் “SuperStar_Journals” என்ற கோப்புறைகள் (SuperStar என்பது DuXiu இன் பின்னணியில் உள்ள நிறுவனம்)."
 
-#: allthethings/page/templates/page/datasets_upload.html:109
+#: allthethings/page/templates/page/datasets_upload.html:70
 #, fuzzy
 msgid "page.datasets.upload.source.cgiym_chinese"
 msgstr "எங்கள் தன்னார்வலர் “cgiym” வழங்கியவை, பல்வேறு மூலங்களிலிருந்து (துணை அடைவுகளாக பிரதிநிதித்துவம் செய்யப்படுகிறது) சீன உரைகள், <a %(a_href)s>China Machine Press</a> (ஒரு முக்கிய சீன வெளியீட்டாளர்) உட்பட."
 
-#: allthethings/page/templates/page/datasets_upload.html:116
+#: allthethings/page/templates/page/datasets_upload.html:71
 #, fuzzy
 msgid "page.datasets.upload.source.cgiym_more"
 msgstr "எங்கள் தன்னார்வலர் “cgiym” வழங்கிய சீனமற்ற தொகுப்புகள் (துணை அடைவுகளாக பிரதிநிதித்துவம் செய்யப்படுகிறது)."
 
-#: allthethings/page/templates/page/datasets_upload.html:123
+#: allthethings/page/templates/page/datasets_upload.html:73
 #, fuzzy
 msgid "page.datasets.upload.source.degruyter"
 msgstr "அகாதமிக் வெளியீட்டாளர் <a %(a_href)s>De Gruyter</a> இலிருந்து புத்தகங்கள், சில பெரிய டோரண்ட்களிலிருந்து சேகரிக்கப்பட்டவை."
 
-#: allthethings/page/templates/page/datasets_upload.html:130
+#: allthethings/page/templates/page/datasets_upload.html:74
 #, fuzzy
 msgid "page.datasets.upload.source.docer"
 msgstr "<a %(a_href)s>docer.pl</a> என்ற போலிஷ் கோப்பு பகிர்வு இணையதளத்தின் ஸ்கிரேப், புத்தகங்கள் மற்றும் பிற எழுத்து படைப்புகளை மையமாகக் கொண்டது. 2023 இன் இறுதியில் தன்னார்வலர் “p” மூலம் ஸ்கிரேப் செய்யப்பட்டது. மூல இணையதளத்திலிருந்து நாங்கள் நல்ல மெட்டாடேட்டாவை (கோப்பு நீட்டிப்புகள் கூட இல்லை) பெறவில்லை, ஆனால் புத்தக போன்ற கோப்புகளை வடிகட்டியோம் மற்றும் கோப்புகளிலிருந்தே மெட்டாடேட்டாவை அடிக்கடி எடுக்க முடிந்தது."
 
-#: allthethings/page/templates/page/datasets_upload.html:137
+#: allthethings/page/templates/page/datasets_upload.html:75
 #, fuzzy
 msgid "page.datasets.upload.source.duxiu_epub"
 msgstr "DuXiu epubs, நேரடியாக DuXiu இலிருந்து, தன்னார்வலர் “w” சேகரித்தது. சமீபத்திய DuXiu புத்தகங்கள் மட்டுமே ebooks மூலம் நேரடியாக கிடைக்கின்றன, எனவே இவை பெரும்பாலும் சமீபத்தியவை."
 
-#: allthethings/page/templates/page/datasets_upload.html:144
+#: allthethings/page/templates/page/datasets_upload.html:76
 #, fuzzy
 msgid "page.datasets.upload.source.duxiu_main"
 msgstr "தன்னார்வலர் “m” வழங்கிய DuXiu கோப்புகளின் மீதம், DuXiu உரிமத்துக்குரிய PDG வடிவத்தில் (முக்கிய <a %(a_href)s>DuXiu dataset</a>) இல்லை. பல மூலங்களிலிருந்து சேகரிக்கப்பட்டது, துரதிருஷ்டவசமாக அந்த மூலங்களை கோப்புப் பாதையில் பாதுகாக்கவில்லை."
 
-#: allthethings/page/templates/page/datasets_upload.html:151
+#: allthethings/page/templates/page/datasets_upload.html:83
 #, fuzzy
 msgid "page.datasets.upload.source.japanese_manga"
 msgstr "தன்னார்வலர் “t” மூலம் ஜப்பானிய மாங்கா வெளியீட்டாளரிடமிருந்து சேகரிக்கப்பட்ட தொகுப்பு."
 
-#: allthethings/page/templates/page/datasets_upload.html:158
+#: allthethings/page/templates/page/datasets_upload.html:84
 #, fuzzy
 msgid "page.datasets.upload.source.longquan_archives"
 msgstr "<a %(a_href)s>Selected judicial archives of Longquan</a>, தன்னார்வலர் “c” வழங்கியது."
 
-#: allthethings/page/templates/page/datasets_upload.html:165
+#: allthethings/page/templates/page/datasets_upload.html:85
 #, fuzzy
 msgid "page.datasets.upload.source.magzdb"
 msgstr "<a %(a_href)s>magzdb.org</a> இன் ஸ்கிரேப், இது Library Genesis இன் கூட்டாளி (இது libgen.rs முகப்புப் பக்கத்தில் இணைக்கப்பட்டுள்ளது) ஆனால் அவர்கள் தங்கள் கோப்புகளை நேரடியாக வழங்க விரும்பவில்லை. தன்னார்வலர் “p” 2023 இன் இறுதியில் பெற்றது."
 
-#: allthethings/page/templates/page/datasets_upload.html:172
+#: allthethings/page/templates/page/datasets_upload.html:87
 #, fuzzy
 msgid "page.datasets.upload.source.misc"
 msgstr "பல்வேறு சிறிய பதிவேற்றங்கள், தனித்த துணைத் தொகுப்பாக மிகச் சிறியது, ஆனால் அடைவுகளாக பிரதிநிதித்துவம் செய்யப்படுகிறது."
 
-#: allthethings/page/templates/page/datasets_upload.html:179
+#: allthethings/page/templates/page/datasets_upload.html:91
 #, fuzzy
 msgid "page.datasets.upload.source.polish"
 msgstr "தன்னார்வலர் “o” இன் தொகுப்பு, அவர் போலிஷ் புத்தகங்களை நேரடியாக மூல வெளியீட்டு (“scene”) இணையதளங்களில் இருந்து சேகரித்தார்."
 
-#: allthethings/page/templates/page/datasets_upload.html:186
+#: allthethings/page/templates/page/datasets_upload.html:92
 #, fuzzy
 msgid "page.datasets.upload.source.shuge"
 msgstr "தன்னார்வலர்கள் “cgiym” மற்றும் “woz9ts” இணைந்து சேகரித்த <a %(a_href)s>shuge.org</a> இன் இணைந்த தொகுப்புகள்."
 
-#: allthethings/page/templates/page/datasets_upload.html:193
+#: allthethings/page/templates/page/datasets_upload.html:94
 #, fuzzy
 msgid "page.datasets.upload.source.trantor"
 msgstr "<a %(a_href)s>“Imperial Library of Trantor”</a> (கற்பனை நூலகத்தின் பெயரால் பெயரிடப்பட்டது), தன்னார்வலர் “t” 2022 இல் ஸ்கிரேப் செய்தது."
 
-#: allthethings/page/templates/page/datasets_upload.html:200
+#: allthethings/page/templates/page/datasets_upload.html:98
 #, fuzzy
 msgid "page.datasets.upload.source.woz9ts_direct"
 msgstr "தன்னார்வலர் “woz9ts” இன் துணை-துணை-தொகுப்புகள் (அடைவுகளாக பிரதிநிதித்துவம் செய்யப்படுகிறது): <a %(a_program_think)s>program-think</a>, <a %(a_haodoo)s>haodoo</a>, <a %(a_skqs)s>skqs</a> (தாய்வானில் <a %(a_sikuquanshu)s>Dizhi(迪志)</a> மூலம்), mebook (mebook.cc, 我的小书屋, என் சிறிய புத்தக அறை — woz9ts: “இந்த தளம் முக்கியமாக உயர் தரமான ebook கோப்புகளைப் பகிர்வதை மையமாகக் கொண்டுள்ளது, அவற்றில் சிலவற்றை உரிமையாளர் தானே அமைத்துள்ளார். உரிமையாளர் 2019 இல் <a %(a_arrested)s>கைது</a> செய்யப்பட்டார் மற்றும் அவர் பகிர்ந்த கோப்புகளின் தொகுப்பை யாரோ உருவாக்கினர்.”)."
 
-#: allthethings/page/templates/page/datasets_upload.html:214
+#: allthethings/page/templates/page/datasets_upload.html:99
 #, fuzzy
 msgid "page.datasets.upload.source.woz9ts_duxiu"
 msgstr "தன்னார்வலர் “woz9ts” வழங்கிய DuXiu கோப்புகள், அவை DuXiu சொந்த PDG வடிவத்தில் இல்லை (PDF ஆக மாற்றப்பட வேண்டியது)."
 
-#: allthethings/page/templates/page/datasets_upload.html:226
+#: allthethings/page/templates/page/datasets_upload.html:109
 #, fuzzy
 msgid "page.datasets.upload.aa_torrents"
 msgstr "அன்னாவின் காப்பகத்தின் மூலம் டோரண்டுகள்"
@@ -5288,122 +5334,122 @@ msgstr "1. ஒவ்வொரு தொகுப்பிற்கும் அ�
 msgid "page.faq.torrents.a6.li2"
 msgstr "2. எங்கள் ElasticSearch மற்றும் MariaDB தரவுத்தொகுப்புகளை <a %(a_generate)s>உருவாக்க</a> அல்லது <a %(a_download)s>பதிவிறக்கம்</a> செய்வதை நாங்கள் பரிந்துரைக்கிறோம். இவை Anna’s Archive இல் உள்ள ஒவ்வொரு பதிவுக்கும் அதன் தொடர்புடைய டோரண்ட் கோப்புகளுக்கான வரைபடத்தை (இருப்பின்) “torrent_paths” இல் ElasticSearch JSON இல் கொண்டுள்ளன."
 
-#: allthethings/page/templates/page/faq.html:273
+#: allthethings/page/templates/page/faq.html:280
 #, fuzzy
 msgid "page.faq.security.title"
 msgstr "உங்களுக்கு பொறுப்பான வெளிப்படுத்தல் திட்டம் உள்ளதா?"
 
-#: allthethings/page/templates/page/faq.html:276
+#: allthethings/page/templates/page/faq.html:283
 #, fuzzy
 msgid "page.faq.security.text1"
 msgstr "எங்கள் அமைப்புகளில் பாதிப்புகளைத் தேடுவதற்கு பாதுகாப்பு ஆராய்ச்சியாளர்களை வரவேற்கிறோம். பொறுப்பான வெளிப்படுத்தலின் பெரிய ஆதரவாளர்கள் நாங்கள். எங்களை <a %(a_contact)s>இங்கே</a> தொடர்பு கொள்ளவும்."
 
-#: allthethings/page/templates/page/faq.html:280
+#: allthethings/page/templates/page/faq.html:287
 #, fuzzy
 msgid "page.faq.security.text2"
 msgstr "எங்கள் அடையாளத்தை ஆபத்துக்குள்ளாக்கும் <a %(a_link)s>சாத்தியமுள்ள பாதிப்புகளுக்கு</a> மட்டும் $10k-50k வரையிலான பரிசுகளை வழங்குகிறோம். எதிர்காலத்தில் பிழை பரிசுகளுக்கான பரந்த அளவிலான பரிசுகளை வழங்க விரும்புகிறோம்! சமூக பொறியியல் தாக்குதல்கள் பரிசளிப்பின் வரம்பிற்குள் இல்லை என்பதை நினைவில் கொள்ளவும்."
 
-#: allthethings/page/templates/page/faq.html:284
+#: allthethings/page/templates/page/faq.html:291
 #, fuzzy
 msgid "page.faq.security.text3"
 msgstr "நீங்கள் தாக்குதல் பாதுகாப்பில் ஆர்வமாக இருந்தால், மற்றும் உலகின் அறிவு மற்றும் கலாச்சாரத்தை காப்பாற்ற உதவ விரும்பினால், எங்களை தொடர்பு கொள்ளுங்கள். உங்களுக்கு உதவ பல வழிகள் உள்ளன."
 
-#: allthethings/page/templates/page/faq.html:287
+#: allthethings/page/templates/page/faq.html:294
 #, fuzzy
 msgid "page.faq.resources.title"
 msgstr "Anna’s Archive பற்றிய மேலும் வளங்கள் உள்ளனவா?"
 
-#: allthethings/page/templates/page/faq.html:290
+#: allthethings/page/templates/page/faq.html:297
 #, fuzzy
 msgid "page.faq.resources.annas_blog"
 msgstr "<a %(a_blog)s>Anna’s Blog</a>, <a %(a_reddit_u)s>Reddit</a>, <a %(a_reddit_r)s>Subreddit</a> — வழக்கமான புதுப்பிப்புகள்"
 
-#: allthethings/page/templates/page/faq.html:291
+#: allthethings/page/templates/page/faq.html:298
 #, fuzzy
 msgid "page.faq.resources.annas_software"
 msgstr "<a %(a_software)s>அன்னாவின் மென்பொருள்</a> — எங்கள் திறந்த மூல குறியீடு"
 
-#: allthethings/page/templates/page/faq.html:292
+#: allthethings/page/templates/page/faq.html:299
 #, fuzzy
 msgid "page.faq.resources.translate"
 msgstr "<a %(a_translate)s>அன்னாவின் மென்பொருளில் மொழிபெயர்க்கவும்</a> — எங்கள் மொழிபெயர்ப்பு அமைப்பு"
 
-#: allthethings/page/templates/page/faq.html:293
+#: allthethings/page/templates/page/faq.html:300
 #, fuzzy
 msgid "page.faq.resources.datasets"
 msgstr "<a %(a_datasets)s>Datasets</a> — தரவுகள் பற்றி"
 
-#: allthethings/page/templates/page/faq.html:294
+#: allthethings/page/templates/page/faq.html:301
 #, fuzzy
 msgid "page.faq.resources.domains"
 msgstr "<a %(a_li)s>.li</a>, <a %(a_se)s>.se</a>, <a %(a_org)s>.org</a> — மாற்று டொமைன்கள்"
 
-#: allthethings/page/templates/page/faq.html:295
+#: allthethings/page/templates/page/faq.html:302
 #, fuzzy
 msgid "page.faq.resources.wikipedia"
 msgstr "<a %(a_wikipedia)s>விக்கிப்பீடியா</a> — எங்களை பற்றி மேலும் (இந்தப் பக்கத்தை புதுப்பிக்க உதவுங்கள், அல்லது உங்கள் சொந்த மொழிக்கு ஒன்றை உருவாக்குங்கள்!)"
 
-#: allthethings/page/templates/page/faq.html:298
+#: allthethings/page/templates/page/faq.html:305
 #, fuzzy
 msgid "page.faq.copyright.title"
 msgstr "நான் காப்புரிமை மீறலை எவ்வாறு புகாரளிக்கலாம்?"
 
-#: allthethings/page/templates/page/faq.html:301
+#: allthethings/page/templates/page/faq.html:308
 #, fuzzy
 msgid "page.faq.copyright.text1"
 msgstr "நாங்கள் இங்கு எந்தவொரு காப்புரிமை பெற்ற பொருட்களையும் ஹோஸ்ட் செய்யவில்லை. நாங்கள் ஒரு தேடல் இயந்திரமாக இருப்பதால், பொதுவாகவே கிடைக்கும் மெட்டாடேட்டாவை மட்டுமே குறியிடுகிறோம். இந்த வெளிப்புற ஆதாரங்களில் இருந்து பதிவிறக்கம் செய்யும்போது, உங்கள் சட்டப்பரப்பில் எது அனுமதிக்கப்படுகிறது என்பதைக் கண்காணிக்க பரிந்துரைக்கிறோம். மற்றவர்களால் ஹோஸ்ட் செய்யப்பட்ட உள்ளடக்கத்திற்கு நாங்கள் பொறுப்பல்ல."
 
-#: allthethings/page/templates/page/faq.html:305
+#: allthethings/page/templates/page/faq.html:312
 #, fuzzy
 msgid "page.faq.copyright.text2"
 msgstr "நீங்கள் இங்கு காண்பதற்கான புகார்களைப் பற்றி நீங்கள் கொண்டிருப்பின், உங்கள் சிறந்த தேர்வு அசல் இணையதளத்தை தொடர்பு கொள்வது. அவர்களின் மாற்றங்களை எங்கள் தரவுத்தொகுப்பில் நாங்கள் முறையாக இழுக்கிறோம். நீங்கள் உண்மையில் நாங்கள் பதிலளிக்க வேண்டிய செல்லத்தக்க DMCA புகார் உள்ளது என்று நினைத்தால், தயவுசெய்து <a %(a_copyright)s>DMCA / காப்புரிமை கோரிக்கை படிவத்தை</a> பூர்த்தி செய்யுங்கள். உங்கள் புகார்களை நாங்கள் தீவிரமாக எடுத்துக்கொள்கிறோம், மற்றும் விரைவில் உங்களுக்கு பதிலளிப்போம்."
 
-#: allthethings/page/templates/page/faq.html:308
+#: allthethings/page/templates/page/faq.html:315
 #, fuzzy
 msgid "page.faq.hate.title"
 msgstr "நீங்கள் இந்த திட்டத்தை எவ்வாறு நடத்துகிறீர்கள் என்பதில் எனக்கு வெறுப்பு!"
 
-#: allthethings/page/templates/page/faq.html:311
+#: allthethings/page/templates/page/faq.html:318
 #, fuzzy
 msgid "page.faq.hate.text1"
 msgstr "எங்கள் அனைத்து குறியீடும் தரவுகளும் முற்றிலும் திறந்த மூலமாக இருப்பதை அனைவருக்கும் நினைவூட்ட விரும்புகிறோம். எங்கள் போன்ற திட்டங்களுக்கு இது தனித்துவமானது — இதே போன்ற பெரிய பட்டியலுடன் முழுமையாக திறந்த மூலமாக இருக்கும் வேறு எந்த திட்டத்தையும் நாங்கள் அறியவில்லை. எங்கள் திட்டத்தை நாங்கள் மோசமாக நடத்துகிறோம் என்று நினைக்கும் எவரையும் எங்கள் குறியீடு மற்றும் தரவுகளை எடுத்து தங்கள் சொந்த நிழல் நூலகத்தை அமைக்க நாங்கள் மிகவும் வரவேற்கிறோம்! இதை நாங்கள் spite அல்லது ஏதோ ஒன்றாகச் சொல்லவில்லை — இது அனைவருக்கும் தரத்தை உயர்த்தும் மற்றும் மனித குலத்தின் பாரம்பரியத்தை சிறப்பாக பாதுகாக்கும் என்பதால் இது அற்புதமாக இருக்கும் என்று நாங்கள் உண்மையாகவே நினைக்கிறோம்."
 
-#: allthethings/page/templates/page/faq.html:314
+#: allthethings/page/templates/page/faq.html:321
 #, fuzzy
 msgid "page.faq.uptime.title"
 msgstr "உங்களுக்கு ஒரு உபயோக நேர கண்காணிப்பாளர் உள்ளதா?"
 
-#: allthethings/page/templates/page/faq.html:317
+#: allthethings/page/templates/page/faq.html:324
 #, fuzzy
 msgid "page.faq.uptime.text1"
 msgstr "இந்த <a %(a_href)s>சிறந்த திட்டத்தை</a> பார்க்கவும்."
 
-#: allthethings/page/templates/page/faq.html:330
+#: allthethings/page/templates/page/faq.html:337
 #, fuzzy
 msgid "page.faq.physical.title"
 msgstr "நான் புத்தகங்கள் அல்லது பிற உடல் பொருட்களை எப்படி நன்கொடை அளிப்பது?"
 
-#: allthethings/page/templates/page/faq.html:333
+#: allthethings/page/templates/page/faq.html:340
 #, fuzzy
 msgid "page.faq.physical.text1"
 msgstr "அவற்றை <a %(a_archive)s>Internet Archive</a> க்கு அனுப்பவும். அவர்கள் அவற்றை சரியாக பாதுகாப்பார்கள்."
 
-#: allthethings/page/templates/page/faq.html:336
+#: allthethings/page/templates/page/faq.html:343
 #, fuzzy
 msgid "page.faq.anna.title"
 msgstr "அன்னா யார்?"
 
-#: allthethings/page/templates/page/faq.html:340
+#: allthethings/page/templates/page/faq.html:347
 #, fuzzy
 msgid "page.faq.anna.text1"
 msgstr "நீங்களே அன்னா!"
 
-#: allthethings/page/templates/page/faq.html:344
+#: allthethings/page/templates/page/faq.html:351
 #, fuzzy
 msgid "page.faq.favorite.title"
 msgstr "உங்கள் விருப்பமான புத்தகங்கள் என்ன?"
 
-#: allthethings/page/templates/page/faq.html:347
+#: allthethings/page/templates/page/faq.html:354
 #, fuzzy
 msgid "page.faq.favorite.text1"
 msgstr "நிழல் நூலகங்கள் மற்றும் டிஜிட்டல் பாதுகாப்பு உலகிற்கு சிறப்பு முக்கியத்துவம் வாய்ந்த சில புத்தகங்கள் இங்கே:"
@@ -5442,30 +5488,30 @@ msgstr "தேடல்"
 #: allthethings/page/templates/page/scidb_home.html:3
 #: allthethings/page/templates/page/scidb_home.html:6
 #: allthethings/templates/layouts/index.html:493
-#: allthethings/templates/layouts/index.html:506
-#: allthethings/templates/layouts/index.html:521
-#: allthethings/templates/layouts/index.html:588
+#: allthethings/templates/layouts/index.html:507
+#: allthethings/templates/layouts/index.html:523
+#: allthethings/templates/layouts/index.html:591
 #, fuzzy
 msgid "page.home.scidb.header"
 msgstr "SciDB"
 
 #: allthethings/page/templates/page/home.html:19
-#: allthethings/templates/layouts/index.html:541
+#: allthethings/templates/layouts/index.html:544
 #, fuzzy
 msgid "layout.index.header.nav.beta"
 msgstr "பீட்டா"
 
 #: allthethings/page/templates/page/home.html:22
 #: allthethings/page/templates/page/scidb_home.html:9
-#: allthethings/page/templates/page/search.html:355
-#: allthethings/page/templates/page/search.html:419
+#: allthethings/page/templates/page/search.html:359
+#: allthethings/page/templates/page/search.html:423
 #, fuzzy
 msgid "page.home.scidb.scihub_paused"
 msgstr "Sci-Hub புதிய ஆவணங்களை பதிவேற்றத்தை <a %(a_paused)s>இடைநிறுத்தியுள்ளது</a>."
 
 #: allthethings/page/templates/page/home.html:23
-#: allthethings/page/templates/page/search.html:356
-#: allthethings/page/templates/page/search.html:420
+#: allthethings/page/templates/page/search.html:360
+#: allthethings/page/templates/page/search.html:424
 #, fuzzy
 msgid "page.home.scidb.continuation"
 msgstr "🧬&nbsp;SciDB என்பது Sci-Hub இன் தொடர்ச்சி."
@@ -5508,19 +5554,19 @@ msgid "page.home.torrents.body"
 msgstr "டோரண்ட்களை விதைப்பதன் மூலம் நீங்கள் பெரிதும் உதவலாம். <a %(a_torrents)s>மேலும் அறிய…</a>"
 
 #: allthethings/page/templates/page/home.html:47
-#: allthethings/page/templates/page/torrents.html:75
+#: allthethings/page/templates/page/torrents.html:79
 #, fuzzy
 msgid "page.home.torrents.legend_less"
 msgstr "<%(count)s விதைப்பவர்கள்"
 
 #: allthethings/page/templates/page/home.html:48
-#: allthethings/page/templates/page/torrents.html:76
+#: allthethings/page/templates/page/torrents.html:80
 #, fuzzy
 msgid "page.home.torrents.legend_range"
 msgstr "%(count_min)s–%(count_max)s விதைப்பவர்கள்"
 
 #: allthethings/page/templates/page/home.html:49
-#: allthethings/page/templates/page/torrents.html:77
+#: allthethings/page/templates/page/torrents.html:81
 #, fuzzy
 msgid "page.home.torrents.legend_greater"
 msgstr ">%(count)s விதைப்பவர்கள்"
@@ -5556,8 +5602,8 @@ msgid "page.home.payment_processor.body"
 msgstr "நீங்கள் ஒரு உயர் ஆபத்தான அநாமதேய கட்டண செயலாக்கியை இயக்கினால், தயவுசெய்து எங்களை தொடர்பு கொள்ளுங்கள். நாங்கள் சுவாரஸ்யமான சிறிய விளம்பரங்களை இட விரும்பும் நபர்களையும் தேடுகிறோம். அனைத்து வருவாயும் எங்கள் பாதுகாப்பு முயற்சிகளுக்காக செலவிடப்படும்."
 
 #: allthethings/page/templates/page/home.html:98
-#: allthethings/templates/layouts/index.html:529
-#: allthethings/templates/layouts/index.html:608
+#: allthethings/templates/layouts/index.html:532
+#: allthethings/templates/layouts/index.html:611
 #, fuzzy
 msgid "layout.index.header.nav.annasblog"
 msgstr "அன்னாவின் வலைப்பதிவு ↗"
@@ -6101,7 +6147,7 @@ msgid "page.search.tabs.metadata"
 msgstr "தரவுத்தொகுப்பு"
 
 #: allthethings/page/templates/page/search.html:107
-#: allthethings/templates/layouts/index.html:537
+#: allthethings/templates/layouts/index.html:540
 #, fuzzy
 msgid "common.search.placeholder"
 msgstr "தலைப்பு, ஆசிரியர், DOI, ISBN, MD5, …"
@@ -6118,7 +6164,7 @@ msgid "page.search.search_settings"
 msgstr "தேடல் அமைப்புகள்"
 
 #: allthethings/page/templates/page/search.html:136
-#: allthethings/page/templates/page/search.html:274
+#: allthethings/page/templates/page/search.html:278
 #, fuzzy
 msgid "page.search.submit"
 msgstr "தேடல்"
@@ -6129,8 +6175,8 @@ msgid "page.search.too_long_broad_query"
 msgstr "தேடல் மிகவும் நீண்ட நேரம் எடுத்துக்கொண்டது, இது பரந்த கேள்விகளுக்கு பொதுவானது. வடிகட்டி எண்ணிக்கைகள் சரியாக இருக்காது."
 
 #: allthethings/page/templates/page/search.html:145
-#: allthethings/page/templates/page/search.html:448
-#: allthethings/page/templates/page/search.html:455
+#: allthethings/page/templates/page/search.html:452
+#: allthethings/page/templates/page/search.html:459
 #, fuzzy
 msgid "page.search.too_inaccurate"
 msgstr "தேடல் மிகவும் நீண்ட நேரம் எடுத்துக்கொண்டது, இதனால் நீங்கள் தவறான முடிவுகளைப் பார்க்கலாம். சில நேரங்களில் <a %(a_reload)s>பக்கத்தை மீண்டும் ஏற்றுதல்</a> உதவுகிறது."
@@ -6156,7 +6202,7 @@ msgid "page.search.advanced.header"
 msgstr "மேம்பட்டது"
 
 #: allthethings/page/templates/page/search.html:159
-#: allthethings/page/templates/page/search.html:292
+#: allthethings/page/templates/page/search.html:296
 #, fuzzy
 msgid "page.search.advanced.description_comments"
 msgstr "விளக்கங்கள் மற்றும் மெட்டாடேட்டா கருத்துகளைத் தேடுங்கள்"
@@ -6177,262 +6223,263 @@ msgid "page.search.advanced.field.year_published"
 msgstr "வெளியிடப்பட்ட ஆண்டு"
 
 #: allthethings/page/templates/page/search.html:208
-#: allthethings/page/templates/page/search.html:300
-#: allthethings/page/templates/page/search.html:303
+#: allthethings/page/templates/page/search.html:304
+#: allthethings/page/templates/page/search.html:307
 #, fuzzy
 msgid "page.search.filters.content.header"
 msgstr "உள்ளடக்கம்"
 
 #: allthethings/page/templates/page/search.html:218
-#: allthethings/page/templates/page/search.html:306
-#: allthethings/page/templates/page/search.html:309
+#: allthethings/page/templates/page/search.html:310
+#: allthethings/page/templates/page/search.html:313
 #, fuzzy
 msgid "page.search.filters.filetype.header"
 msgstr "கோப்பு வகை"
 
-#: allthethings/page/templates/page/search.html:228
-#: allthethings/page/templates/page/search.html:312
-#: allthethings/page/templates/page/search.html:315
-#, fuzzy
-msgid "page.search.filters.access.header"
-msgstr "அணுகல்"
-
-#: allthethings/page/templates/page/search.html:237
-#: allthethings/page/templates/page/search.html:318
-#: allthethings/page/templates/page/search.html:321
-#, fuzzy
-msgid "page.search.filters.source.header"
-msgstr "மூலம்"
-
-#: allthethings/page/templates/page/search.html:242
-#, fuzzy
-msgid "page.search.filters.source.scraped"
-msgstr "AA மூலம் சேகரிக்கப்பட்டு திறந்த மூலமாக்கப்பட்டது"
-
-#: allthethings/page/templates/page/search.html:247
-#: allthethings/page/templates/page/search.html:327
-#: allthethings/page/templates/page/search.html:330
-#, fuzzy
-msgid "page.search.filters.language.header"
-msgstr "மொழி"
-
-#: allthethings/page/templates/page/search.html:256
+#: allthethings/page/templates/page/search.html:227
+#: allthethings/page/templates/page/search.html:259
 #, fuzzy
 msgid "page.search.more"
 msgstr "மேலும்…"
 
-#: allthethings/page/templates/page/search.html:261
-#: allthethings/page/templates/page/search.html:324
+#: allthethings/page/templates/page/search.html:231
+#: allthethings/page/templates/page/search.html:316
+#: allthethings/page/templates/page/search.html:319
+#, fuzzy
+msgid "page.search.filters.access.header"
+msgstr "அணுகல்"
+
+#: allthethings/page/templates/page/search.html:240
+#: allthethings/page/templates/page/search.html:322
+#: allthethings/page/templates/page/search.html:325
+#, fuzzy
+msgid "page.search.filters.source.header"
+msgstr "மூலம்"
+
+#: allthethings/page/templates/page/search.html:245
+#, fuzzy
+msgid "page.search.filters.source.scraped"
+msgstr "AA மூலம் சேகரிக்கப்பட்டு திறந்த மூலமாக்கப்பட்டது"
+
+#: allthethings/page/templates/page/search.html:250
+#: allthethings/page/templates/page/search.html:331
+#: allthethings/page/templates/page/search.html:334
+#, fuzzy
+msgid "page.search.filters.language.header"
+msgstr "மொழி"
+
+#: allthethings/page/templates/page/search.html:264
+#: allthethings/page/templates/page/search.html:328
 #, fuzzy
 msgid "page.search.filters.order_by.header"
 msgstr "வரிசைப்படுத்த"
 
-#: allthethings/page/templates/page/search.html:264
+#: allthethings/page/templates/page/search.html:267
 #, fuzzy
 msgid "page.search.filters.sorting.most_relevant"
 msgstr "மிகவும் தொடர்புடையது"
 
-#: allthethings/page/templates/page/search.html:265
-#: allthethings/page/templates/page/search.html:269
-#: allthethings/page/templates/page/search.html:324
+#: allthethings/page/templates/page/search.html:268
+#: allthethings/page/templates/page/search.html:272
+#: allthethings/page/templates/page/search.html:328
 #, fuzzy
 msgid "page.search.filters.sorting.newest"
 msgstr "புதியவை"
 
-#: allthethings/page/templates/page/search.html:265
-#: allthethings/page/templates/page/search.html:266
-#: allthethings/page/templates/page/search.html:324
+#: allthethings/page/templates/page/search.html:268
+#: allthethings/page/templates/page/search.html:269
+#: allthethings/page/templates/page/search.html:328
 #, fuzzy
 msgid "page.search.filters.sorting.note_publication_year"
 msgstr "(வெளியீட்டு ஆண்டு)"
 
-#: allthethings/page/templates/page/search.html:266
-#: allthethings/page/templates/page/search.html:270
-#: allthethings/page/templates/page/search.html:324
+#: allthethings/page/templates/page/search.html:269
+#: allthethings/page/templates/page/search.html:273
+#: allthethings/page/templates/page/search.html:328
 #, fuzzy
 msgid "page.search.filters.sorting.oldest"
 msgstr "பழமையானவை"
 
-#: allthethings/page/templates/page/search.html:267
-#: allthethings/page/templates/page/search.html:324
+#: allthethings/page/templates/page/search.html:270
+#: allthethings/page/templates/page/search.html:328
 #, fuzzy
 msgid "page.search.filters.sorting.largest"
 msgstr "பெரியவை"
 
-#: allthethings/page/templates/page/search.html:267
-#: allthethings/page/templates/page/search.html:268
-#: allthethings/page/templates/page/search.html:324
+#: allthethings/page/templates/page/search.html:270
+#: allthethings/page/templates/page/search.html:271
+#: allthethings/page/templates/page/search.html:328
 #, fuzzy
 msgid "page.search.filters.sorting.note_filesize"
 msgstr "(கோப்பு அளவு)"
 
-#: allthethings/page/templates/page/search.html:268
-#: allthethings/page/templates/page/search.html:324
+#: allthethings/page/templates/page/search.html:271
+#: allthethings/page/templates/page/search.html:328
 #, fuzzy
 msgid "page.search.filters.sorting.smallest"
 msgstr "சிறியவை"
 
-#: allthethings/page/templates/page/search.html:269
-#: allthethings/page/templates/page/search.html:270
-#: allthethings/page/templates/page/search.html:324
+#: allthethings/page/templates/page/search.html:272
+#: allthethings/page/templates/page/search.html:273
+#: allthethings/page/templates/page/search.html:328
 #, fuzzy
 msgid "page.search.filters.sorting.note_open_sourced"
 msgstr "(திறந்த மூலமாக)"
 
-#: allthethings/page/templates/page/search.html:278
+#: allthethings/page/templates/page/search.html:282
 #, fuzzy
 msgid "page.search.header.update_info"
 msgstr "தேடல் குறியீடு மாதாந்திரம் புதுப்பிக்கப்படுகிறது. இது தற்போது %(last_data_refresh_date)s வரை உள்ள பதிவுகளை உள்ளடக்கியுள்ளது. மேலும் தொழில்நுட்ப தகவல்களுக்கு, %(link_open_tag)sதொகுப்புகள் பக்கம்</a> ஐப் பார்க்கவும்."
 
-#: allthethings/page/templates/page/search.html:280
+#: allthethings/page/templates/page/search.html:284
 #, fuzzy
 msgid "page.search.header.codes_explorer"
 msgstr "குறியீடுகளால் தேடல் குறியீட்டை ஆராய, <a %(a_href)s>Codes Explorer</a> ஐப் பயன்படுத்தவும்."
 
-#: allthethings/page/templates/page/search.html:338
+#: allthethings/page/templates/page/search.html:342
 #, fuzzy
 msgid "page.search.results.search_downloads"
 msgstr "எங்கள் பட்டியலில் உள்ள %(count)s நேரடியாகப் பதிவிறக்கக்கூடிய கோப்புகளைத் தேட பெட்டியில் தட்டச்சு செய்யவும், அவற்றை நாங்கள் <a %(a_preserve)s>என்றென்றும் பாதுகாக்கிறோம்</a>."
 
-#: allthethings/page/templates/page/search.html:339
+#: allthethings/page/templates/page/search.html:343
 #, fuzzy
 msgid "page.search.results.help_preserve"
 msgstr "உண்மையில், எங்கள் <a %(a_torrents)s>ஒற்றுமையான டோரண்ட் பட்டியலை</a> விதைப்பதன் மூலம் யாரும் இந்த கோப்புகளைப் பாதுகாக்க உதவலாம்."
 
-#: allthethings/page/templates/page/search.html:342
+#: allthethings/page/templates/page/search.html:346
 #, fuzzy
 msgid "page.search.results.most_comprehensive"
 msgstr "நாங்கள் தற்போது உலகின் மிக விரிவான திறந்த புத்தகங்கள், கட்டுரைகள் மற்றும் பிற எழுத்து படைப்புகளின் பட்டியலைக் கொண்டுள்ளோம். நாங்கள் Sci-Hub, Library Genesis, Z-Library, <a %(a_datasets)s>மற்றும் பலவற்றை</a> பிரதிபலிக்கிறோம்."
 
-#: allthethings/page/templates/page/search.html:345
+#: allthethings/page/templates/page/search.html:349
 #, fuzzy
 msgid "page.search.results.other_shadow_libs"
 msgstr "நாங்கள் பிரதிபலிக்க வேண்டிய பிற “நிழல் நூலகங்கள்” இருப்பின், அல்லது உங்களுக்கு ஏதேனும் கேள்விகள் இருந்தால், %(email)s இல் எங்களைத் தொடர்பு கொள்ளவும்."
 
-#: allthethings/page/templates/page/search.html:346
+#: allthethings/page/templates/page/search.html:350
 #, fuzzy
 msgid "page.search.results.dmca"
 msgstr "DMCA / காப்புரிமை கோரிக்கைகளுக்கு <a %(a_copyright)s>இங்கே கிளிக் செய்யவும்</a>."
 
-#: allthethings/page/templates/page/search.html:350
-#: allthethings/page/templates/page/search.html:365
-#: allthethings/page/templates/page/search.html:379
-#: allthethings/page/templates/page/search.html:403
-#: allthethings/page/templates/page/search.html:411
+#: allthethings/page/templates/page/search.html:354
+#: allthethings/page/templates/page/search.html:369
+#: allthethings/page/templates/page/search.html:383
+#: allthethings/page/templates/page/search.html:407
+#: allthethings/page/templates/page/search.html:415
 #, fuzzy
 msgid "page.search.results.shortcuts"
 msgstr "குறிப்பு: விரைவான வழிசெலுத்தலுக்காக “/” (தேடல் மையம்), “enter” (தேடல்), “j” (மேலே), “k” (கீழே), “<” (முந்தைய பக்கம்), “>” (அடுத்த பக்கம்) போன்ற விசைப்பலகை குறுக்குவழிகளைப் பயன்படுத்தவும்."
 
-#: allthethings/page/templates/page/search.html:354
-#: allthethings/page/templates/page/search.html:418
+#: allthethings/page/templates/page/search.html:358
+#: allthethings/page/templates/page/search.html:422
 #, fuzzy
 msgid "page.search.results.looking_for_papers"
 msgstr "கட்டுரைகளைத் தேடுகிறீர்களா?"
 
-#: allthethings/page/templates/page/search.html:361
+#: allthethings/page/templates/page/search.html:365
 #, fuzzy
 msgid "page.search.results.search_journals"
 msgstr "எங்கள் பட்டியலில் உள்ள %(count)s கல்வி கட்டுரைகள் மற்றும் இதழ் கட்டுரைகளைத் தேட பெட்டியில் தட்டச்சு செய்யவும், அவற்றை நாங்கள் <a %(a_preserve)s>என்றென்றும் பாதுகாக்கிறோம்</a>."
 
-#: allthethings/page/templates/page/search.html:369
+#: allthethings/page/templates/page/search.html:373
 #, fuzzy
 msgid "page.search.results.search_digital_lending"
 msgstr "டிஜிட்டல் கடன் நூலகங்களில் உள்ள கோப்புகளைத் தேட பெட்டியில் தட்டச்சு செய்யவும்."
 
-#: allthethings/page/templates/page/search.html:372
+#: allthethings/page/templates/page/search.html:376
 #, fuzzy
 msgid "page.search.results.digital_lending_info"
 msgstr "இந்த தேடல் குறியீடு தற்போது Internet Archive இன் கட்டுப்படுத்தப்பட்ட டிஜிட்டல் கடன் நூலகத்தின் மெட்டாடேட்டாவை உள்ளடக்கியுள்ளது. <a %(a_datasets)s>எங்கள் தரவுத்தொகுப்புகள் பற்றி மேலும்</a>."
 
-#: allthethings/page/templates/page/search.html:375
+#: allthethings/page/templates/page/search.html:379
 #, fuzzy
 msgid "page.search.results.digital_lending_info_more"
 msgstr "மேலும் டிஜிட்டல் கடன் நூலகங்களுக்கு, <a %(a_wikipedia)s>விக்கிப்பீடியா</a> மற்றும் <a %(a_mobileread)s>மொபைல் ரீட் விக்கி</a> ஐப் பார்க்கவும்."
 
-#: allthethings/page/templates/page/search.html:383
-#: allthethings/page/templates/page/search.html:430
+#: allthethings/page/templates/page/search.html:387
+#: allthethings/page/templates/page/search.html:434
 #, fuzzy
 msgid "page.search.results.search_metadata"
 msgstr "நூலகங்களில் இருந்து மெட்டாடேட்டாவைத் தேட பெட்டியில் தட்டச்சு செய்யவும். இது <a %(a_request)s>கோப்பை கோரும்போது</a> பயனுள்ளதாக இருக்கும்."
 
-#: allthethings/page/templates/page/search.html:387
-#: allthethings/page/templates/page/search.html:434
+#: allthethings/page/templates/page/search.html:391
+#: allthethings/page/templates/page/search.html:438
 #, fuzzy
 msgid "page.search.results.metadata_info"
 msgstr "இந்த தேடல் குறியீடு தற்போது பல்வேறு மெட்டாடேட்டா ஆதாரங்களிலிருந்து மெட்டாடேட்டாவை உள்ளடக்கியுள்ளது. <a %(a_datasets)s>எங்கள் தரவுத்தொகுப்புகள் பற்றி மேலும்</a>."
 
-#: allthethings/page/templates/page/search.html:388
-#: allthethings/page/templates/page/search.html:435
+#: allthethings/page/templates/page/search.html:392
+#: allthethings/page/templates/page/search.html:439
 #, fuzzy
 msgid "page.search.results.metadata_no_merging"
 msgstr "எழுத்து ஆவணங்களுக்கான மெட்டாடேட்டாவை நாங்கள் ஒருங்கிணைக்கவில்லை. அசல் பதிவுகளை மட்டுமே காட்டுகிறோம்."
 
-#: allthethings/page/templates/page/search.html:399
+#: allthethings/page/templates/page/search.html:403
 #, fuzzy
 msgid "page.search.results.metadata_info_more"
 msgstr "உலகம் முழுவதும் எழுத்து ஆவணங்களுக்கான மெட்டாடேட்டா பல, பல மூலங்கள் உள்ளன. <a %(a_wikipedia)s>இந்த விக்கிப்பீடியா பக்கம்</a> ஒரு நல்ல தொடக்கம், ஆனால் நீங்கள் அறிந்துள்ள பிற நல்ல பட்டியல்கள் இருந்தால், தயவுசெய்து எங்களுக்கு தெரியப்படுத்துங்கள்."
 
-#: allthethings/page/templates/page/search.html:407
+#: allthethings/page/templates/page/search.html:411
 #, fuzzy
 msgid "page.search.results.search_generic"
 msgstr "தேடுவதற்கு பெட்டியில் தட்டச்சு செய்யவும்."
 
-#: allthethings/page/templates/page/search.html:426
+#: allthethings/page/templates/page/search.html:430
 #, fuzzy
 msgid "page.search.results.these_are_records"
 msgstr "இவை மெட்டாடேட்டா பதிவுகள், <span %(classname)s>பதிவிறக்கக்கூடிய கோப்புகள் அல்ல</span>."
 
-#: allthethings/page/templates/page/search.html:442
+#: allthethings/page/templates/page/search.html:446
 #, fuzzy
 msgid "page.search.results.error.header"
 msgstr "தேடல் செய்யும் போது பிழை ஏற்பட்டது."
 
-#: allthethings/page/templates/page/search.html:444
+#: allthethings/page/templates/page/search.html:448
 #, fuzzy
 msgid "page.search.results.error.unknown"
 msgstr "<a %(a_reload)s>பக்கத்தை மீண்டும் ஏற்றவும்</a> முயற்சிக்கவும். பிரச்சினை தொடர்ந்தால், தயவுசெய்து எங்களுக்கு %(email)s இல் மின்னஞ்சல் அனுப்பவும்."
 
-#: allthethings/page/templates/page/search.html:457
+#: allthethings/page/templates/page/search.html:461
 #, fuzzy
 msgid "page.search.results.none"
 msgstr "<span class=\"font-bold\"> கோப்புகள் எதுவும் கிடைக்கவில்லை.</span> குறைவான அல்லது மாறுபட்ட தேடல் சொற்கள் மற்றும் வடிகட்டிகளை முயற்சிக்கவும்."
 
-#: allthethings/page/templates/page/search.html:460
+#: allthethings/page/templates/page/search.html:464
 #, fuzzy
 msgid "page.search.results.incorrectly_slow"
 msgstr "➡️ சில நேரங்களில் தேடல் சேவையகம் மெதுவாக இருக்கும் போது இது தவறாக நடக்கலாம். அத்தகைய சந்தர்ப்பங்களில், <a %(a_attrs)s>மீண்டும் ஏற்றுதல்</a> உதவக்கூடும்."
 
-#: allthethings/page/templates/page/search.html:467
+#: allthethings/page/templates/page/search.html:471
 #, fuzzy
 msgid "page.search.found_matches.main"
 msgstr "நாங்கள் பொருத்தங்களை கண்டுபிடித்துள்ளோம்: %(in)s. <a %(a_request)s>கோப்பை கோரும்போது</a> அங்கு காணப்படும் URL ஐ நீங்கள் குறிப்பிடலாம்."
 
-#: allthethings/page/templates/page/search.html:467
+#: allthethings/page/templates/page/search.html:471
 #, fuzzy
 msgid "page.search.found_matches.journals"
 msgstr "ஜர்னல் கட்டுரைகள் (%(count)s)"
 
-#: allthethings/page/templates/page/search.html:467
+#: allthethings/page/templates/page/search.html:471
 #, fuzzy
 msgid "page.search.found_matches.digital_lending"
 msgstr "டிஜிட்டல் கடன் (%(count)s)"
 
-#: allthethings/page/templates/page/search.html:467
+#: allthethings/page/templates/page/search.html:471
 #, fuzzy
 msgid "page.search.found_matches.metadata"
 msgstr "மெட்டாடேட்டா (%(count)s)"
 
-#: allthethings/page/templates/page/search.html:474
+#: allthethings/page/templates/page/search.html:478
 #, fuzzy
 msgid "page.search.results.numbers_pages"
 msgstr "முடிவுகள் %(from)s-%(to)s (%(total)s மொத்தம்)"
 
-#: allthethings/page/templates/page/search.html:485
+#: allthethings/page/templates/page/search.html:490
 #, fuzzy
 msgid "page.search.results.partial_more"
 msgstr "%(num)d+ பகுதி பொருத்தங்கள்"
 
-#: allthethings/page/templates/page/search.html:485
+#: allthethings/page/templates/page/search.html:490
 #, fuzzy
 msgid "page.search.results.partial"
 msgstr "%(num)d பகுதி பொருத்தங்கள்"
@@ -6558,47 +6605,47 @@ msgstr "%(links)s நீங்கள் நிறைவேற்றிய கோ
 msgid "page.volunteering.table.misc.task"
 msgstr "எங்கள் <a %(a_telegram)s>Telegram இல் தன்னார்விகள் அரட்டை</a>யில் இடுகையிடப்பட்ட சிறிய பணிகள். பொதுவாக உறுப்பினர், சில சமயங்களில் சிறிய பரிசுகளுக்காக."
 
-#: allthethings/page/templates/page/volunteering.html:66
+#: allthethings/page/templates/page/volunteering.html:67
 #, fuzzy
 msgid "page.volunteering.table.misc.milestone"
 msgstr "பணியின் அடிப்படையில்."
 
-#: allthethings/page/templates/page/volunteering.html:70
+#: allthethings/page/templates/page/volunteering.html:71
 #, fuzzy
 msgid "page.volunteering.section.bounties.heading"
 msgstr "பவுண்டிகள்"
 
-#: allthethings/page/templates/page/volunteering.html:73
+#: allthethings/page/templates/page/volunteering.html:74
 #, fuzzy
 msgid "page.volunteering.section.bounties.text1"
 msgstr "நாங்கள் எப்போதும் திடமான நிரலாக்க அல்லது தாக்குதல் பாதுகாப்பு திறன்களைக் கொண்ட أشخاصயை தேடுகிறோம். நீங்கள் மனித குலத்தின் பாரம்பரியத்தை பாதுகாக்க ஒரு முக்கிய பங்கு வகிக்கலாம்."
 
-#: allthethings/page/templates/page/volunteering.html:77
+#: allthethings/page/templates/page/volunteering.html:78
 #, fuzzy
 msgid "page.volunteering.section.bounties.text2"
 msgstr "நன்றி தெரிவிக்கும் விதமாக, திடமான பங்களிப்புகளுக்கு நாங்கள் உறுப்பினராக்கத்தை வழங்குகிறோம். மிகப்பெரிய நன்றி தெரிவிக்கும் விதமாக, குறிப்பாக முக்கியமான மற்றும் கடினமான பணிகளுக்கு நாங்கள் பண பரிசுகளை வழங்குகிறோம். இது ஒரு வேலைக்கு மாற்றாகக் கருதப்படக்கூடாது, ஆனால் இது கூடுதல் ஊக்கமாகவும், ஏற்பட்ட செலவுகளை சமாளிக்க உதவியாகவும் இருக்கும்."
 
-#: allthethings/page/templates/page/volunteering.html:81
+#: allthethings/page/templates/page/volunteering.html:82
 #, fuzzy
 msgid "page.volunteering.section.bounties.text3"
 msgstr "எங்கள் பெரும்பாலான குறியீடு திறந்த மூலமாகும், மேலும் பரிசு வழங்கும் போது உங்கள் குறியீடும் அப்படியே இருக்க வேண்டும் என்று நாங்கள் கேட்போம். சில விதிவிலக்குகள் உள்ளன, அவற்றைப் பற்றி தனிப்பட்ட முறையில் விவாதிக்கலாம்."
 
-#: allthethings/page/templates/page/volunteering.html:85
+#: allthethings/page/templates/page/volunteering.html:86
 #, fuzzy
 msgid "page.volunteering.section.bounties.text4"
 msgstr "பவுண்டிகள் ஒரு பணியை முடிக்கும் முதல் நபருக்கு வழங்கப்படுகின்றன. நீங்கள் ஏதாவது பணியில் ஈடுபடுகிறீர்கள் என்பதை மற்றவர்களுக்கு தெரியப்படுத்த பவுண்டி டிக்கெட்டில் கருத்து தெரிவிக்கலாம், இதனால் மற்றவர்கள் தாமதிக்கவோ அல்லது உங்களுடன் இணைந்து பணியாற்றவோ முடியும். ஆனால், மற்றவர்களும் அதில் பணியாற்றுவதற்கும் உங்களை முந்துவதற்கும் சுதந்திரமாக இருப்பார்கள் என்பதை நினைவில் கொள்ளுங்கள். இருப்பினும், நாங்கள் அலட்சியமான பணிக்கு பவுண்டிகளை வழங்க மாட்டோம். இரண்டு உயர்தரமான சமர்ப்பிப்புகள் ஒரே நேரத்தில் (ஒரு நாள் அல்லது இரண்டு நாட்களுக்குள்) செய்யப்பட்டால், நாங்கள் இரண்டுக்கும் பவுண்டிகளை வழங்க முடிவு செய்யலாம், எ.கா., முதல் சமர்ப்பிப்புக்கு 100%% மற்றும் இரண்டாவது சமர்ப்பிப்புக்கு 50%% (மொத்தம் 150%%)."
 
-#: allthethings/page/templates/page/volunteering.html:89
+#: allthethings/page/templates/page/volunteering.html:90
 #, fuzzy
 msgid "page.volunteering.section.bounties.text5"
 msgstr "பெரிய பவுண்டிகளுக்கு (முக்கியமாக ஸ்கிரேப்பிங் பவுண்டிகள்), நீங்கள் ~5%% முடித்தவுடன், உங்கள் முறை முழு மைல்கல்லை அடையும் என்று நம்புகிறீர்கள் என்றால், எங்களை தொடர்பு கொள்ளவும். உங்கள் முறையை எங்களுடன் பகிர்ந்து கொள்ள வேண்டும், இதனால் நாங்கள் கருத்துக்களை வழங்க முடியும். மேலும், பலர் பவுண்டிக்கு நெருக்கமாக இருப்பின் என்ன செய்ய வேண்டும் என்பதையும் நாங்கள் முடிவு செய்ய முடியும், உதாரணமாக பலருக்கும் வழங்குதல், ஒருவருடன் இணைந்து பணியாற்ற ஊக்குவித்தல் போன்றவை."
 
-#: allthethings/page/templates/page/volunteering.html:93
+#: allthethings/page/templates/page/volunteering.html:94
 #, fuzzy
 msgid "page.volunteering.section.bounties.text6"
 msgstr "எச்சரிக்கை: உயர் பவுண்டி பணிகள் <span %(bold)s>கடினமானவை</span> — எளிதானவற்றில் தொடங்குவது புத்திசாலித்தனமாக இருக்கலாம்."
 
-#: allthethings/page/templates/page/volunteering.html:97
+#: allthethings/page/templates/page/volunteering.html:98
 #, fuzzy
 msgid "page.volunteering.section.bounties.text7"
 msgstr "எங்கள் <a %(a_gitlab)s>Gitlab பிரச்சினைகள் பட்டியலுக்கு</a> சென்று “Label priority” மூலம் வரிசைப்படுத்தவும். இது எங்களுக்கு முக்கியமான பணிகளின் வரிசையை சுமார் காட்டுகிறது. வெளிப்படையான பவுண்டிகள் இல்லாத பணிகள் இன்னும் உறுப்பினராக்கத்திற்கு தகுதியானவை, குறிப்பாக “Accepted” மற்றும் “Anna’s favorite” என்று குறிக்கப்பட்டவை. நீங்கள் “Starter project” ஒன்றில் தொடங்க விரும்பலாம்."
@@ -6641,8 +6688,8 @@ msgstr "இந்த மாதத்தின் இறுதி வரை ச�
 #: allthethings/templates/layouts/index.html:227
 #: allthethings/templates/layouts/index.html:233
 #: allthethings/templates/layouts/index.html:267
-#: allthethings/templates/layouts/index.html:533
-#: allthethings/templates/layouts/index.html:590
+#: allthethings/templates/layouts/index.html:536
+#: allthethings/templates/layouts/index.html:593
 #, fuzzy
 msgid "layout.index.header.nav.donate"
 msgstr "நன்கொடை அளிக்கவும்"
@@ -6683,166 +6730,161 @@ msgid "layout.index.header.recent_downloads"
 msgstr "சமீபத்திய பதிவிறக்கங்கள்:"
 
 #: allthethings/templates/layouts/index.html:492
-#: allthethings/templates/layouts/index.html:505
-#: allthethings/templates/layouts/index.html:520
-#: allthethings/templates/layouts/index.html:587
+#: allthethings/templates/layouts/index.html:506
+#: allthethings/templates/layouts/index.html:522
+#: allthethings/templates/layouts/index.html:590
 #, fuzzy
 msgid "layout.index.header.nav.search"
 msgstr "தேடல்"
 
 #: allthethings/templates/layouts/index.html:494
-#: allthethings/templates/layouts/index.html:507
-#: allthethings/templates/layouts/index.html:522
-#: allthethings/templates/layouts/index.html:589
-#: allthethings/templates/layouts/index.html:615
+#: allthethings/templates/layouts/index.html:508
+#: allthethings/templates/layouts/index.html:524
+#: allthethings/templates/layouts/index.html:592
+#: allthethings/templates/layouts/index.html:618
 #, fuzzy
 msgid "layout.index.header.nav.faq"
 msgstr "அடிக்கடி கேட்கப்படும் கேள்விகள்"
 
 #: allthethings/templates/layouts/index.html:495
-#: allthethings/templates/layouts/index.html:508
-#: allthethings/templates/layouts/index.html:523
-#: allthethings/templates/layouts/index.html:616
+#: allthethings/templates/layouts/index.html:509
+#: allthethings/templates/layouts/index.html:525
+#: allthethings/templates/layouts/index.html:619
 #, fuzzy
 msgid "layout.index.header.nav.improve_metadata"
 msgstr "தரவுத்தொகுப்புகளை மேம்படுத்தவும்"
 
 #: allthethings/templates/layouts/index.html:496
-#: allthethings/templates/layouts/index.html:509
-#: allthethings/templates/layouts/index.html:524
-#: allthethings/templates/layouts/index.html:617
+#: allthethings/templates/layouts/index.html:510
+#: allthethings/templates/layouts/index.html:526
+#: allthethings/templates/layouts/index.html:620
 #, fuzzy
 msgid "layout.index.header.nav.volunteering"
 msgstr "தன்னார்வம் & பரிசுகள்"
 
 #: allthethings/templates/layouts/index.html:497
-#: allthethings/templates/layouts/index.html:510
-#: allthethings/templates/layouts/index.html:525
-#: allthethings/templates/layouts/index.html:618
+#: allthethings/templates/layouts/index.html:511
+#: allthethings/templates/layouts/index.html:527
+#: allthethings/templates/layouts/index.html:621
 #, fuzzy
 msgid "layout.index.header.nav.datasets"
 msgstr "Datasets"
 
 #: allthethings/templates/layouts/index.html:498
-#: allthethings/templates/layouts/index.html:511
-#: allthethings/templates/layouts/index.html:526
-#: allthethings/templates/layouts/index.html:619
+#: allthethings/templates/layouts/index.html:512
+#: allthethings/templates/layouts/index.html:528
+#: allthethings/templates/layouts/index.html:622
 #, fuzzy
 msgid "layout.index.header.nav.torrents"
 msgstr "டோரண்டுகள்"
 
-#: allthethings/templates/layouts/index.html:499
-#: allthethings/templates/layouts/index.html:512
-#: allthethings/templates/layouts/index.html:527
-#: allthethings/templates/layouts/index.html:620
+#: allthethings/templates/layouts/index.html:500
+#: allthethings/templates/layouts/index.html:514
+#: allthethings/templates/layouts/index.html:530
+#: allthethings/templates/layouts/index.html:624
 #, fuzzy
 msgid "layout.index.header.nav.codes"
 msgstr "குறியீடுகள் ஆராய்ச்சி"
 
-#: allthethings/templates/layouts/index.html:500
-#: allthethings/templates/layouts/index.html:513
-#: allthethings/templates/layouts/index.html:528
-#: allthethings/templates/layouts/index.html:621
+#: allthethings/templates/layouts/index.html:501
+#: allthethings/templates/layouts/index.html:515
+#: allthethings/templates/layouts/index.html:531
+#: allthethings/templates/layouts/index.html:625
 #, fuzzy
 msgid "layout.index.header.nav.llm_data"
 msgstr "LLM தரவுகள்"
 
-#: allthethings/templates/layouts/index.html:501
-#: allthethings/templates/layouts/index.html:514
-#: allthethings/templates/layouts/index.html:519
-#: allthethings/templates/layouts/index.html:586
+#: allthethings/templates/layouts/index.html:502
+#: allthethings/templates/layouts/index.html:516
+#: allthethings/templates/layouts/index.html:521
+#: allthethings/templates/layouts/index.html:589
 #, fuzzy
 msgid "layout.index.header.nav.home"
 msgstr "முகப்பு"
 
-#: allthethings/templates/layouts/index.html:530
-#: allthethings/templates/layouts/index.html:609
+#: allthethings/templates/layouts/index.html:533
+#: allthethings/templates/layouts/index.html:612
 #, fuzzy
 msgid "layout.index.header.nav.annassoftware"
 msgstr "அன்னாவின் மென்பொருள் ↗"
 
-#: allthethings/templates/layouts/index.html:531
-#: allthethings/templates/layouts/index.html:610
+#: allthethings/templates/layouts/index.html:534
+#: allthethings/templates/layouts/index.html:613
 #, fuzzy
 msgid "layout.index.header.nav.translate"
 msgstr "மொழிபெயர்ப்பு ↗"
 
-#: allthethings/templates/layouts/index.html:544
-#: allthethings/templates/layouts/index.html:548
-#: allthethings/templates/layouts/index.html:553
+#: allthethings/templates/layouts/index.html:547
+#: allthethings/templates/layouts/index.html:551
+#: allthethings/templates/layouts/index.html:556
 #, fuzzy
 msgid "layout.index.header.nav.login_register"
 msgstr "உள்நுழைய / பதிவு செய்ய"
 
-#: allthethings/templates/layouts/index.html:560
-#: allthethings/templates/layouts/index.html:567
-#: allthethings/templates/layouts/index.html:572
+#: allthethings/templates/layouts/index.html:563
+#: allthethings/templates/layouts/index.html:570
+#: allthethings/templates/layouts/index.html:575
 #, fuzzy
 msgid "layout.index.header.nav.account"
 msgstr "கணக்கு"
 
-#: allthethings/templates/layouts/index.html:585
+#: allthethings/templates/layouts/index.html:588
 #, fuzzy
 msgid "layout.index.footer.list1.header"
 msgstr "அன்னாவின் காப்பகம்"
 
-#: allthethings/templates/layouts/index.html:604
+#: allthethings/templates/layouts/index.html:607
 #, fuzzy
 msgid "layout.index.footer.list2.header"
 msgstr "தொடர்பு வைக்கவும்"
 
-#: allthethings/templates/layouts/index.html:606
+#: allthethings/templates/layouts/index.html:609
 #, fuzzy
 msgid "layout.index.footer.list2.dmca_copyright"
 msgstr "DMCA / பதிப்புரிமை கோரிக்கைகள்"
 
-#: allthethings/templates/layouts/index.html:607
+#: allthethings/templates/layouts/index.html:610
 #, fuzzy
 msgid "layout.index.footer.list2.reddit"
 msgstr "Reddit"
 
-#: allthethings/templates/layouts/index.html:607
+#: allthethings/templates/layouts/index.html:610
 #, fuzzy
 msgid "layout.index.footer.list2.telegram"
 msgstr "Telegram"
 
-#: allthethings/templates/layouts/index.html:614
+#: allthethings/templates/layouts/index.html:617
 #, fuzzy
 msgid "layout.index.header.nav.advanced"
 msgstr "மேம்பட்டது"
 
-#: allthethings/templates/layouts/index.html:622
+#: allthethings/templates/layouts/index.html:626
 #, fuzzy
 msgid "layout.index.header.nav.security"
 msgstr "பாதுகாப்பு"
 
-#: allthethings/templates/layouts/index.html:626
+#: allthethings/templates/layouts/index.html:630
 #, fuzzy
 msgid "layout.index.footer.list3.header"
 msgstr "மாற்று வழிகள்"
 
-#: allthethings/templates/layouts/index.html:630
+#: allthethings/templates/layouts/index.html:634
 #, fuzzy
 msgid "layout.index.footer.list3.link.slum"
 msgstr "SLUM (%(unaffiliated)s)"
 
-#: allthethings/templates/layouts/index.html:630
+#: allthethings/templates/layouts/index.html:634
 #, fuzzy
 msgid "layout.index.footer.list3.link.unaffiliated"
 msgstr "தொடர்பில்லாதது"
 
-#: allthethings/templates/macros/aarecord_list.html:90
-#: allthethings/templates/macros/aarecord_list.html:125
+#: allthethings/templates/macros/aarecord_list.html:92
+#: allthethings/templates/macros/aarecord_list.html:127
 #, fuzzy
 msgid "page.search.results.issues"
 msgstr "❌ இந்த கோப்பில் சிக்கல்கள் இருக்கலாம்."
 
-#: allthethings/templates/macros/aarecord_list.html:116
-#, fuzzy
-msgid "page.search.results.download_time"
-msgstr "பதிவிறக்க நேரம்"
-
-#: allthethings/templates/macros/aarecord_list.html:116
+#: allthethings/templates/macros/aarecord_list.html:118
 #, fuzzy
 msgid "page.search.results.fast_download"
 msgstr "விரைவான பதிவிறக்கம்"
@@ -7026,4 +7068,7 @@ msgstr "அடுத்தது"
 
 #~ msgid "common.md5.servers.fast_partner.recommended"
 #~ msgstr "(%(recommended)s)"
+
+#~ msgid "page.datasets.upload.source.alexandrina"
+#~ msgstr "<a %(a_href)s><q>Bibliotheca Alexandrina,</q></a> என்ற தொகுப்பிலிருந்து, துல்லியமான மூலத்தைத் தெளிவாக அறிய முடியவில்லை. பகுதியளவில் the-eye.eu இலிருந்து, மற்ற மூலங்களிலிருந்தும்."
 

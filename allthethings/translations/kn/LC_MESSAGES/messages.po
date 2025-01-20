@@ -144,17 +144,17 @@ msgstr "ಅದ್ಭುತ ಡೇಟಾಹೋರ್ಡರ್"
 msgid "common.membership.tier_name.5"
 msgstr "ಅದ್ಭುತ ಆರ್ಕಿವಿಸ್ಟ್"
 
-#: allthethings/utils.py:641
+#: allthethings/utils.py:656
 #, fuzzy
 msgid "common.membership.format_currency.total"
 msgstr "%(amount)s ಒಟ್ಟು"
 
-#: allthethings/utils.py:648
+#: allthethings/utils.py:663
 #, fuzzy
 msgid "common.membership.format_currency.total_with_usd"
 msgstr "%(amount)s (%(amount_usd)s) ಒಟ್ಟು"
 
-#: allthethings/utils.py:650 allthethings/utils.py:651
+#: allthethings/utils.py:665 allthethings/utils.py:666
 #, fuzzy
 msgid "common.membership.format_currency.amount_with_usd"
 msgstr "%(amount)s (%(amount_usd)s)"
@@ -325,7 +325,7 @@ msgid "page.donate.expert.contact_us"
 msgstr "ನಮ್ಮನ್ನು ಸಂಪರ್ಕಿಸಿ"
 
 #: allthethings/account/templates/account/donate.html:101
-#: allthethings/account/templates/account/donation.html:716
+#: allthethings/account/templates/account/donation.html:766
 #: allthethings/page/templates/page/contact.html:22
 #, fuzzy
 msgid "page.donate.small_team"
@@ -372,7 +372,7 @@ msgid "page.donate.payment.select_method"
 msgstr "ದಯವಿಟ್ಟು ಪಾವತಿ ವಿಧಾನವನ್ನು ಆಯ್ಕೆಮಾಡಿ."
 
 #: allthethings/account/templates/account/donate.html:132
-#: allthethings/account/templates/account/donate.html:503
+#: allthethings/account/templates/account/donate.html:507
 #, fuzzy
 msgid "page.donate.discount"
 msgstr "-%(percentage)s%%"
@@ -391,238 +391,229 @@ msgid "page.donate.payment.buttons.amazon_cc"
 msgstr "%(amazon)s ಗಿಫ್ಟ್ ಕಾರ್ಡ್"
 
 #: allthethings/account/templates/account/donate.html:152
+#: allthethings/account/templates/account/donate.html:153
+#: allthethings/account/templates/account/donate.html:154
 #, fuzzy
 msgid "page.donate.payment.buttons.bank_card_app"
 msgstr "ಬ್ಯಾಂಕ್ ಕಾರ್ಡ್ (ಆಪ್ ಬಳಸಿ)"
 
-#: allthethings/account/templates/account/donate.html:153
-#: allthethings/account/templates/account/donate.html:163
-#: allthethings/account/templates/account/donate.html:164
-#: allthethings/account/templates/account/donate.html:450
+#: allthethings/account/templates/account/donate.html:155
+#: allthethings/account/templates/account/donate.html:165
+#: allthethings/account/templates/account/donate.html:166
+#: allthethings/account/templates/account/donate.html:454
 #, fuzzy
 msgid "page.donate.payment.buttons.crypto"
 msgstr "ಕ್ರಿಪ್ಟೋ %(bitcoin_icon)s"
 
-#: allthethings/account/templates/account/donate.html:155
+#: allthethings/account/templates/account/donate.html:157
 #, fuzzy
 msgid "page.donate.payment.buttons.credit_debit"
 msgstr "ಕ್ರೆಡಿಟ್/ಡೆಬಿಟ್ ಕಾರ್ಡ್"
 
-#: allthethings/account/templates/account/donate.html:156
+#: allthethings/account/templates/account/donate.html:158
 #, fuzzy
 msgid "page.donate.payment.buttons.paypal"
 msgstr "ಪೇಪಾಲ್ (US) %(bitcoin_icon)s"
 
-#: allthethings/account/templates/account/donate.html:157
+#: allthethings/account/templates/account/donate.html:159
 #, fuzzy
 msgid "page.donate.payment.buttons.paypalreg"
 msgstr "ಪೇಪಾಲ್ (ಸಾಮಾನ್ಯ)"
 
-#: allthethings/account/templates/account/donate.html:158
+#: allthethings/account/templates/account/donate.html:160
 #, fuzzy
 msgid "page.donate.payment.buttons.givebutter"
 msgstr "ಕಾರ್ಡ್ / ಪೇಪಾಲ್ / ವೆನ್ಮೋ"
 
-#: allthethings/account/templates/account/donate.html:160
+#: allthethings/account/templates/account/donate.html:162
 #, fuzzy
 msgid "page.donate.payment.buttons.bmc"
 msgstr "ಕ್ರೆಡಿಟ್/ಡೆಬಿಟ್/ಆಪಲ್/ಗೂಗಲ್ (BMC)"
 
-#: allthethings/account/templates/account/donate.html:161
-#: allthethings/account/templates/account/donate.html:201
-#: allthethings/account/templates/account/donate.html:210
-#: allthethings/account/templates/account/donate.html:211
-#: allthethings/account/templates/account/donate.html:444
+#: allthethings/account/templates/account/donate.html:163
+#: allthethings/account/templates/account/donate.html:203
+#: allthethings/account/templates/account/donate.html:213
+#: allthethings/account/templates/account/donate.html:214
+#: allthethings/account/templates/account/donate.html:448
 #, fuzzy
 msgid "page.donate.payment.buttons.alipay"
 msgstr "ಅಲಿಪೇ"
 
-#: allthethings/account/templates/account/donate.html:162
+#: allthethings/account/templates/account/donate.html:164
 #, fuzzy
 msgid "page.donate.payment.buttons.pix"
 msgstr "Pix (Brazil)"
 
-#: allthethings/account/templates/account/donate.html:166
+#: allthethings/account/templates/account/donate.html:168
 #, fuzzy
 msgid "page.donate.payment.buttons.cashapp"
 msgstr "ಕ್ಯಾಶ್ ಆಪ್"
 
-#: allthethings/account/templates/account/donate.html:167
+#: allthethings/account/templates/account/donate.html:169
 #, fuzzy
 msgid "page.donate.payment.buttons.revolut"
 msgstr "ರೆವೊಲ್ಯೂಟ್"
 
-#: allthethings/account/templates/account/donate.html:168
+#: allthethings/account/templates/account/donate.html:170
 #, fuzzy
 msgid "page.donate.payment.buttons.paypal_plain"
 msgstr "ಪೇಪಾಲ್"
 
-#: allthethings/account/templates/account/donate.html:169
+#: allthethings/account/templates/account/donate.html:171
 #, fuzzy
 msgid "page.donate.payment.buttons.bank_card"
 msgstr "ಬ್ಯಾಂಕ್ ಕಾರ್ಡ್"
 
-#: allthethings/account/templates/account/donate.html:170
+#: allthethings/account/templates/account/donate.html:172
 #, fuzzy
 msgid "page.donate.payment.buttons.credit_debit_backup"
 msgstr "ಕ್ರೆಡಿಟ್/ಡೆಬಿಟ್ ಕಾರ್ಡ್ (ಬ್ಯಾಕಪ್)"
 
-#: allthethings/account/templates/account/donate.html:171
+#: allthethings/account/templates/account/donate.html:173
 #, fuzzy
 msgid "page.donate.payment.buttons.credit_debit2"
 msgstr "ಕ್ರೆಡಿಟ್/ಡೆಬಿಟ್ ಕಾರ್ಡ್ 2"
 
-#: allthethings/account/templates/account/donate.html:173
+#: allthethings/account/templates/account/donate.html:175
 #, fuzzy
 msgid "page.donate.payment.buttons.binance"
 msgstr "ಬೈನಾನ್ಸ್"
 
-#: allthethings/account/templates/account/donate.html:200
-#: allthethings/account/templates/account/donate.html:204
-#: allthethings/account/templates/account/donate.html:205
-#: allthethings/account/templates/account/donate.html:447
+#: allthethings/account/templates/account/donate.html:202
+#: allthethings/account/templates/account/donate.html:206
+#: allthethings/account/templates/account/donate.html:207
+#: allthethings/account/templates/account/donate.html:451
 #, fuzzy
 msgid "page.donate.payment.buttons.wechat"
 msgstr "WeChat"
 
-#: allthethings/account/templates/account/donate.html:215
-#: allthethings/account/templates/account/donate.html:216
+#: allthethings/account/templates/account/donate.html:219
+#: allthethings/account/templates/account/donate.html:220
 #, fuzzy
 msgid "page.donate.payment.buttons.alipay_wechat"
 msgstr "Alipay 支付宝 / WeChat 微信"
 
-#: allthethings/account/templates/account/donate.html:235
+#: allthethings/account/templates/account/donate.html:239
 #, fuzzy
 msgid "page.donate.payment.desc.crypto"
 msgstr "ಕ್ರಿಪ್ಟೊ ಬಳಸಿ ನೀವು BTC, ETH, XMR, ಮತ್ತು SOL ಬಳಸಿ ದೇಣಿಗೆ ನೀಡಬಹುದು. ನೀವು ಕ್ರಿಪ್ಟೋಕರೆನ್ಸಿ ಬಗ್ಗೆ ಈಗಾಗಲೇ ಪರಿಚಿತರಾಗಿದ್ದರೆ ಈ ಆಯ್ಕೆಯನ್ನು ಬಳಸಿ."
 
-#: allthethings/account/templates/account/donate.html:239
+#: allthethings/account/templates/account/donate.html:243
 #, fuzzy
 msgid "page.donate.payment.desc.crypto2"
 msgstr "ಕ್ರಿಪ್ಟೊ ಬಳಸಿ ನೀವು BTC, ETH, XMR, ಮತ್ತು ಇನ್ನಷ್ಟು ಬಳಸಿ ದೇಣಿಗೆ ನೀಡಬಹುದು."
 
-#: allthethings/account/templates/account/donate.html:242
-#: allthethings/account/templates/account/donate.html:452
+#: allthethings/account/templates/account/donate.html:246
+#: allthethings/account/templates/account/donate.html:456
 #, fuzzy
 msgid "page.donate.payment.desc.crypto_suggestion_dynamic"
 msgstr "ನೀವು ಮೊದಲ ಬಾರಿಗೆ ಕ್ರಿಪ್ಟೋ ಬಳಸುತ್ತಿದ್ದರೆ, ಬಿಟ್‌ಕಾಯಿನ್ (ಮೂಲ ಮತ್ತು ಹೆಚ್ಚು ಬಳಸುವ ಕ್ರಿಪ್ಟೋಕರೆನ್ಸಿ) ಖರೀದಿಸಲು ಮತ್ತು ದಾನ ಮಾಡಲು %(options)s ಬಳಸಲು ನಾವು ಶಿಫಾರಸು ಮಾಡುತ್ತೇವೆ."
 
-#: allthethings/account/templates/account/donate.html:245
-#: allthethings/account/templates/account/donate.html:455
+#: allthethings/account/templates/account/donate.html:249
+#: allthethings/account/templates/account/donate.html:459
 #, fuzzy
 msgid "page.donate.payment.processor.binance"
 msgstr "ಬೈನಾನ್ಸ್"
 
-#: allthethings/account/templates/account/donate.html:246
-#: allthethings/account/templates/account/donate.html:456
+#: allthethings/account/templates/account/donate.html:250
+#: allthethings/account/templates/account/donate.html:460
 #, fuzzy
 msgid "page.donate.payment.processor.coinbase"
 msgstr "ಕಾಯ್ನ್‌ಬೇಸ್"
 
-#: allthethings/account/templates/account/donate.html:247
-#: allthethings/account/templates/account/donate.html:457
+#: allthethings/account/templates/account/donate.html:251
+#: allthethings/account/templates/account/donate.html:461
 #, fuzzy
 msgid "page.donate.payment.processor.kraken"
 msgstr "ಕ್ರಾಕನ್"
 
-#: allthethings/account/templates/account/donate.html:255
+#: allthethings/account/templates/account/donate.html:259
 #, fuzzy
 msgid "page.donate.payment.desc.paypal"
 msgstr "PayPal US ಬಳಸಿ ದೇಣಿಗೆ ನೀಡಲು, ನಾವು PayPal Crypto ಅನ್ನು ಬಳಸುತ್ತೇವೆ, ಇದು ನಮಗೆ ಅನಾಮಧೇಯವಾಗಿರಲು ಅನುಮತಿಸುತ್ತದೆ. ಈ ವಿಧಾನವನ್ನು ಬಳಸಿಕೊಂಡು ದೇಣಿಗೆ ನೀಡುವುದು ಹೇಗೆ ಎಂಬುದನ್ನು ಕಲಿಯಲು ನೀವು ಸಮಯ ತೆಗೆದುಕೊಳ್ಳುತ್ತಿರುವುದಕ್ಕೆ ನಾವು ಮೆಚ್ಚುಗೆ ವ್ಯಕ್ತಪಡಿಸುತ್ತೇವೆ, ಏಕೆಂದರೆ ಇದು ನಮಗೆ ಬಹಳ ಸಹಾಯ ಮಾಡುತ್ತದೆ."
 
-#: allthethings/account/templates/account/donate.html:256
+#: allthethings/account/templates/account/donate.html:260
 #, fuzzy
 msgid "page.donate.payment.desc.paypal_short"
 msgstr "PayPal ಬಳಸಿ ದೇಣಿಗೆ ನೀಡಿ."
 
-#: allthethings/account/templates/account/donate.html:262
+#: allthethings/account/templates/account/donate.html:266
 #, fuzzy
 msgid "page.donate.payment.desc.cashapp"
 msgstr "Cash App ಬಳಸಿ ದೇಣಿಗೆ ನೀಡಿ."
 
-#: allthethings/account/templates/account/donate.html:263
+#: allthethings/account/templates/account/donate.html:267
 #, fuzzy
 msgid "page.donate.payment.desc.cashapp_easy"
 msgstr "ನಿಮ್ಮ ಬಳಿ ಕ್ಯಾಶ್ ಆಪ್ ಇದ್ದರೆ, ದೇಣಿಗೆ ನೀಡಲು ಇದು ಸುಲಭವಾದ ಮಾರ್ಗ!"
 
-#: allthethings/account/templates/account/donate.html:266
-#: allthethings/account/templates/account/donate.html:276
+#: allthethings/account/templates/account/donate.html:270
+#: allthethings/account/templates/account/donate.html:280
 #, fuzzy
 msgid "page.donate.payment.desc.cashapp_fee"
 msgstr "%(amount)s ಕ್ಕಿಂತ ಕಡಿಮೆ ವ್ಯವಹಾರಗಳಿಗೆ, ಕ್ಯಾಶ್ ಆಪ್ %(fee)s ಶುಲ್ಕವನ್ನು ವಿಧಿಸಬಹುದು. %(amount)s ಅಥವಾ ಅದಕ್ಕಿಂತ ಹೆಚ್ಚು, ಇದು ಉಚಿತ!"
 
-#: allthethings/account/templates/account/donate.html:272
+#: allthethings/account/templates/account/donate.html:276
 #, fuzzy
 msgid "page.donate.payment.desc.revolut"
 msgstr "ರೆವೊಲ್ಯೂಟ್ ಬಳಸಿ ದೇಣಿಗೆ ನೀಡಿ."
 
-#: allthethings/account/templates/account/donate.html:273
+#: allthethings/account/templates/account/donate.html:277
 #, fuzzy
 msgid "page.donate.payment.desc.revolut_easy"
 msgstr "ನಿಮ್ಮ ಬಳಿ ರೆವೊಲ್ಯೂಟ್ ಇದ್ದರೆ, ದೇಣಿಗೆ ನೀಡಲು ಇದು ಸುಲಭವಾದ ಮಾರ್ಗ!"
 
-#: allthethings/account/templates/account/donate.html:282
-#: allthethings/account/templates/account/donate.html:398
+#: allthethings/account/templates/account/donate.html:286
+#: allthethings/account/templates/account/donate.html:402
 #, fuzzy
 msgid "page.donate.payment.desc.credit_debit"
 msgstr "ಕ್ರೆಡಿಟ್ ಅಥವಾ ಡೆಬಿಟ್ ಕಾರ್ಡ್‌ನೊಂದಿಗೆ ದೇಣಿಗೆ ನೀಡಿ."
 
-#: allthethings/account/templates/account/donate.html:283
+#: allthethings/account/templates/account/donate.html:287
 #, fuzzy
 msgid "page.donate.payment.desc.google_apple"
 msgstr "Google Pay ಮತ್ತು Apple Pay ಕೂಡ ಕೆಲಸ ಮಾಡಬಹುದು."
 
-#: allthethings/account/templates/account/donate.html:284
+#: allthethings/account/templates/account/donate.html:288
 #, fuzzy
 msgid "page.donate.payment.desc.elimate_discount"
 msgstr "ಸಣ್ಣ ದೇಣಿಗೆಗಳಿಗೆ ಕ್ರೆಡಿಟ್ ಕಾರ್ಡ್ ಶುಲ್ಕಗಳು ನಮ್ಮ %(discount)s%% ರಿಯಾಯಿತಿಯನ್ನು ನಿವಾರಿಸಬಹುದು, ಆದ್ದರಿಂದ ನಾವು ದೀರ್ಘಾವಧಿಯ ಚಂದಾದಾರಿಕೆಗಳನ್ನು ಶಿಫಾರಸು ಮಾಡುತ್ತೇವೆ."
 
-#: allthethings/account/templates/account/donate.html:285
+#: allthethings/account/templates/account/donate.html:289
 #, fuzzy
 msgid "page.donate.payment.desc.longer_subs"
 msgstr "ಸಣ್ಣ ದೇಣಿಗೆಗಳಿಗೆ ಶುಲ್ಕಗಳು ಹೆಚ್ಚು, ಆದ್ದರಿಂದ ನಾವು ದೀರ್ಘಾವಧಿಯ ಚಂದಾದಾರಿಕೆಗಳನ್ನು ಶಿಫಾರಸು ಮಾಡುತ್ತೇವೆ."
 
-#: allthethings/account/templates/account/donate.html:291
+#: allthethings/account/templates/account/donate.html:295
 #, fuzzy
 msgid "page.donate.payment.desc.binance_p1"
 msgstr "Binance ನೊಂದಿಗೆ, ನೀವು ಕ್ರೆಡಿಟ್/ಡೆಬಿಟ್ ಕಾರ್ಡ್ ಅಥವಾ ಬ್ಯಾಂಕ್ ಖಾತೆಯೊಂದಿಗೆ ಬಿಟ್‌ಕಾಯಿನ್ ಖರೀದಿಸಿ, ನಂತರ ಆ ಬಿಟ್‌ಕಾಯಿನ್ ಅನ್ನು ನಮಗೆ ದಾನ ಮಾಡಬಹುದು. ಈ ರೀತಿಯಾಗಿ, ನಿಮ್ಮ ದಾನವನ್ನು ಸ್ವೀಕರಿಸುವಾಗ ನಾವು ಸುರಕ್ಷಿತ ಮತ್ತು ಅನಾಮಧೇಯವಾಗಿರಬಹುದು."
 
-#: allthethings/account/templates/account/donate.html:295
+#: allthethings/account/templates/account/donate.html:299
 #, fuzzy
 msgid "page.donate.payment.desc.binance_p2"
 msgstr "Binance ಬಹುತೇಕ ಪ್ರತಿಯೊಂದು ದೇಶದಲ್ಲೂ ಲಭ್ಯವಿದೆ, ಮತ್ತು ಹೆಚ್ಚಿನ ಬ್ಯಾಂಕುಗಳು ಮತ್ತು ಕ್ರೆಡಿಟ್/ಡೆಬಿಟ್ ಕಾರ್ಡ್‌ಗಳನ್ನು ಬೆಂಬಲಿಸುತ್ತದೆ. ಇದು ಪ್ರಸ್ತುತ ನಮ್ಮ ಮುಖ್ಯ ಶಿಫಾರಸು. ಈ ವಿಧಾನವನ್ನು ಬಳಸಿಕೊಂಡು ದಾನ ಮಾಡುವುದನ್ನು ಕಲಿಯಲು ನೀವು ತೆಗೆದುಕೊಳ್ಳುವ ಸಮಯವನ್ನು ನಾವು ಮೆಚ್ಚುತ್ತೇವೆ, ಏಕೆಂದರೆ ಇದು ನಮಗೆ ಬಹಳ ಸಹಾಯ ಮಾಡುತ್ತದೆ."
 
-#: allthethings/account/templates/account/donate.html:301
+#: allthethings/account/templates/account/donate.html:305
 #, fuzzy
 msgid "page.donate.payment.desc.paypalreg"
 msgstr "ನಿಮ್ಮ ಸಾಮಾನ್ಯ ಪೇಪಾಲ್ ಖಾತೆಯನ್ನು ಬಳಸಿ ದೇಣಿಗೆ ನೀಡಿ."
 
-#: allthethings/account/templates/account/donate.html:307
+#: allthethings/account/templates/account/donate.html:311
 #, fuzzy
 msgid "page.donate.payment.desc.givebutter"
 msgstr "ಕ್ರೆಡಿಟ್/ಡೆಬಿಟ್ ಕಾರ್ಡ್, ಪೇಪಾಲ್ ಅಥವಾ ವೆನ್ಮೋ ಬಳಸಿ ದೇಣಿಗೆ ನೀಡಿ. ನೀವು ಮುಂದಿನ ಪುಟದಲ್ಲಿ ಇವುಗಳ ನಡುವೆ ಆಯ್ಕೆ ಮಾಡಬಹುದು."
 
-#: allthethings/account/templates/account/donate.html:313
-#: allthethings/account/templates/account/donate.html:325
-#: allthethings/account/templates/account/donate.html:337
-#: allthethings/account/templates/account/donate.html:349
-#: allthethings/account/templates/account/donate.html:361
-#: allthethings/account/templates/account/donate.html:373
-#: allthethings/account/templates/account/donate.html:385
+#: allthethings/account/templates/account/donate.html:317
+#: allthethings/account/templates/account/donate.html:329
+#: allthethings/account/templates/account/donate.html:341
+#: allthethings/account/templates/account/donate.html:353
+#: allthethings/account/templates/account/donate.html:365
+#: allthethings/account/templates/account/donate.html:377
+#: allthethings/account/templates/account/donate.html:389
 #, fuzzy
 msgid "page.donate.payment.desc.amazon"
 msgstr "ಅಮೆಜಾನ್ ಗಿಫ್ಟ್ ಕಾರ್ಡ್ ಬಳಸಿ ದೇಣಿಗೆ ನೀಡಿ."
-
-#: allthethings/account/templates/account/donate.html:314
-#: allthethings/account/templates/account/donate.html:326
-#: allthethings/account/templates/account/donate.html:338
-#: allthethings/account/templates/account/donate.html:350
-#: allthethings/account/templates/account/donate.html:362
-#: allthethings/account/templates/account/donate.html:374
-#: allthethings/account/templates/account/donate.html:386
-#, fuzzy
-msgid "page.donate.payment.desc.amazon_round"
-msgstr "ನಮ್ಮ ಪುನರ್ವಿಕ್ರೇತಾರರು ಸ್ವೀಕರಿಸುವ ಮೊತ್ತಗಳಿಗೆ ನಾವು ಸುತ್ತುವರೆಯಬೇಕೆಂದು ಗಮನಿಸಿ (ಕನಿಷ್ಠ %(minimum)s)."
 
 #: allthethings/account/templates/account/donate.html:318
 #: allthethings/account/templates/account/donate.html:330
@@ -631,366 +622,377 @@ msgstr "ನಮ್ಮ ಪುನರ್ವಿಕ್ರೇತಾರರು ಸ್ವ�
 #: allthethings/account/templates/account/donate.html:366
 #: allthethings/account/templates/account/donate.html:378
 #: allthethings/account/templates/account/donate.html:390
-#: allthethings/account/templates/account/donation.html:373
+#, fuzzy
+msgid "page.donate.payment.desc.amazon_round"
+msgstr "ನಮ್ಮ ಪುನರ್ವಿಕ್ರೇತಾರರು ಸ್ವೀಕರಿಸುವ ಮೊತ್ತಗಳಿಗೆ ನಾವು ಸುತ್ತುವರೆಯಬೇಕೆಂದು ಗಮನಿಸಿ (ಕನಿಷ್ಠ %(minimum)s)."
+
+#: allthethings/account/templates/account/donate.html:322
+#: allthethings/account/templates/account/donate.html:334
+#: allthethings/account/templates/account/donate.html:346
+#: allthethings/account/templates/account/donate.html:358
+#: allthethings/account/templates/account/donate.html:370
+#: allthethings/account/templates/account/donate.html:382
+#: allthethings/account/templates/account/donate.html:394
+#: allthethings/account/templates/account/donation.html:405
 #, fuzzy
 msgid "page.donate.payment.desc.amazon_com"
 msgstr "<strong>ಮುಖ್ಯವಾದುದು:</strong> ನಾವು Amazon.com ಅನ್ನು ಮಾತ್ರ ಬೆಂಬಲಿಸುತ್ತೇವೆ, ಇತರ Amazon ವೆಬ್‌ಸೈಟ್‌ಗಳನ್ನು ಬೆಂಬಲಿಸುವುದಿಲ್ಲ. ಉದಾಹರಣೆಗೆ, .de, .co.uk, .ca, ಬೆಂಬಲಿಸಲಾಗುವುದಿಲ್ಲ."
 
-#: allthethings/account/templates/account/donate.html:319
-#: allthethings/account/templates/account/donate.html:331
-#: allthethings/account/templates/account/donate.html:343
-#: allthethings/account/templates/account/donate.html:355
-#: allthethings/account/templates/account/donate.html:367
-#: allthethings/account/templates/account/donate.html:379
-#: allthethings/account/templates/account/donate.html:391
+#: allthethings/account/templates/account/donate.html:323
+#: allthethings/account/templates/account/donate.html:335
+#: allthethings/account/templates/account/donate.html:347
+#: allthethings/account/templates/account/donate.html:359
+#: allthethings/account/templates/account/donate.html:371
+#: allthethings/account/templates/account/donate.html:383
+#: allthethings/account/templates/account/donate.html:395
 #, fuzzy
 msgid "page.donate.payment.desc.amazon_cc"
 msgstr "<strong>ಮುಖ್ಯವಾದುದು:</strong> ಈ ಆಯ್ಕೆಯು %(amazon)sಗಾಗಿ. ನೀವು ಬೇರೆ ಅಮೆಜಾನ್ ವೆಬ್‌ಸೈಟ್ ಅನ್ನು ಬಳಸಲು ಬಯಸಿದರೆ, ಅದನ್ನು ಮೇಲಿನ ಆಯ್ಕೆಮಾಡಿ."
 
-#: allthethings/account/templates/account/donate.html:399
+#: allthethings/account/templates/account/donate.html:403
 #, fuzzy
 msgid "page.donate.payment.desc.credit_debit_backup"
 msgstr "ಈ ವಿಧಾನವು ಮಧ್ಯಂತರ ಪರಿವರ್ತನೆಗಾಗಿ ಕ್ರಿಪ್ಟೋಕರೆನ್ಸಿ ಪೂರೈಕೆದಾರರನ್ನು ಬಳಸುತ್ತದೆ. ಇದು ಸ್ವಲ್ಪ ಗೊಂದಲಕಾರಿಯಾಗಬಹುದು, ಆದ್ದರಿಂದ ದಯವಿಟ್ಟು ಇತರ ಪಾವತಿ ವಿಧಾನಗಳು ಕೆಲಸ ಮಾಡದಿದ್ದರೆ ಮಾತ್ರ ಈ ವಿಧಾನವನ್ನು ಬಳಸಿರಿ. ಇದು ಎಲ್ಲಾ ದೇಶಗಳಲ್ಲಿ ಕೆಲಸ ಮಾಡುವುದಿಲ್ಲ."
 
-#: allthethings/account/templates/account/donate.html:405
+#: allthethings/account/templates/account/donate.html:409
 #, fuzzy
 msgid "page.donate.payment.desc.bank_card_app"
 msgstr "Alipay ಆಪ್ ಮೂಲಕ ಕ್ರೆಡಿಟ್/ಡೆಬಿಟ್ ಕಾರ್ಡ್ ಬಳಸಿ ದೇಣಿಗೆ ನೀಡಿ (ಸೆಟ್ ಅಪ್ ಮಾಡಲು ತುಂಬಾ ಸುಲಭ)."
 
-#: allthethings/account/templates/account/donate.html:409
-#: allthethings/account/templates/account/donation.html:519
+#: allthethings/account/templates/account/donate.html:413
+#: allthethings/account/templates/account/donation.html:563
 #, fuzzy
 msgid "page.donate.payment.desc.bank_card_app.step1.header"
 msgstr "<span %(style)s>1</span>Alipay ಆಪ್ ಅನ್ನು ಇನ್‌ಸ್ಟಾಲ್ ಮಾಡಿ"
 
-#: allthethings/account/templates/account/donate.html:413
-#: allthethings/account/templates/account/donation.html:523
+#: allthethings/account/templates/account/donate.html:417
+#: allthethings/account/templates/account/donation.html:567
 #, fuzzy
 msgid "page.donate.payment.desc.bank_card_app.step1.desc1"
 msgstr "<a %(a_app_store)s>ಆಪಲ್ ಆಪ್ ಸ್ಟೋರ್</a> ಅಥವಾ <a %(a_play_store)s>ಗೂಗಲ್ ಪ್ಲೇ ಸ್ಟೋರ್</a> ನಿಂದ Alipay ಆಪ್ ಅನ್ನು ಇನ್‌ಸ್ಟಾಲ್ ಮಾಡಿ."
 
-#: allthethings/account/templates/account/donate.html:417
-#: allthethings/account/templates/account/donation.html:527
+#: allthethings/account/templates/account/donate.html:421
+#: allthethings/account/templates/account/donation.html:571
 #, fuzzy
 msgid "page.donate.payment.desc.bank_card_app.step1.desc2"
 msgstr "ನಿಮ್ಮ ಫೋನ್ ಸಂಖ್ಯೆಯನ್ನು ಬಳಸಿ ನೋಂದಣಿ ಮಾಡಿ."
 
-#: allthethings/account/templates/account/donate.html:418
-#: allthethings/account/templates/account/donation.html:528
+#: allthethings/account/templates/account/donate.html:422
+#: allthethings/account/templates/account/donation.html:572
 #, fuzzy
 msgid "page.donate.payment.desc.bank_card_app.step1.desc3"
 msgstr "ಹೆಚ್ಚಿನ ವೈಯಕ್ತಿಕ ವಿವರಗಳು ಅಗತ್ಯವಿಲ್ಲ."
 
-#: allthethings/account/templates/account/donate.html:422
-#: allthethings/account/templates/account/donation.html:532
+#: allthethings/account/templates/account/donate.html:426
+#: allthethings/account/templates/account/donation.html:576
 #, fuzzy
 msgid "page.donate.payment.desc.bank_card_app.step2.header"
 msgstr "<span %(style)s>2</span>ಬ್ಯಾಂಕ್ ಕಾರ್ಡ್ ಸೇರಿಸಿ"
 
-#: allthethings/account/templates/account/donate.html:430
-#: allthethings/account/templates/account/donation.html:540
+#: allthethings/account/templates/account/donate.html:434
+#: allthethings/account/templates/account/donation.html:584
 #, fuzzy
 msgid "page.donate.payment.desc.bank_card_app.step2.desc1"
 msgstr "ಬೆಂಬಲಿತ: ವೀಸಾ, ಮಾಸ್ಟರ್‌ಕಾರ್ಡ್, JCB, ಡೈನರ್ಸ್ ಕ್ಲಬ್ ಮತ್ತು ಡಿಸ್ಕವರ್."
 
-#: allthethings/account/templates/account/donate.html:431
-#: allthethings/account/templates/account/donation.html:541
+#: allthethings/account/templates/account/donate.html:435
+#: allthethings/account/templates/account/donation.html:585
 #, fuzzy
 msgid "page.donate.payment.desc.bank_card_app.step2.desc2"
 msgstr "ಹೆಚ್ಚಿನ ಮಾಹಿತಿಗಾಗಿ <a %(a_alipay)s>ಈ ಮಾರ್ಗದರ್ಶಿ</a> ನೋಡಿ."
 
-#: allthethings/account/templates/account/donate.html:437
+#: allthethings/account/templates/account/donate.html:441
 #, fuzzy
 msgid "page.donate.payment.desc.credit_debit_explained"
 msgstr "ನಾವು ಕ್ರೆಡಿಟ್/ಡೆಬಿಟ್ ಕಾರ್ಡ್‌ಗಳನ್ನು ನೇರವಾಗಿ ಬೆಂಬಲಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ, ಏಕೆಂದರೆ ಬ್ಯಾಂಕ್‌ಗಳು ನಮ್ಮೊಂದಿಗೆ ಕೆಲಸ ಮಾಡಲು ಇಚ್ಛಿಸುವುದಿಲ್ಲ. ☹ ಆದರೆ, ಇತರ ಪಾವತಿ ವಿಧಾನಗಳನ್ನು ಬಳಸಿಕೊಂಡು ಕ್ರೆಡಿಟ್/ಡೆಬಿಟ್ ಕಾರ್ಡ್‌ಗಳನ್ನು ಬಳಸುವ ಹಲವು ಮಾರ್ಗಗಳಿವೆ:"
 
-#: allthethings/account/templates/account/donate.html:441
+#: allthethings/account/templates/account/donate.html:445
 #, fuzzy
 msgid "page.donate.payment.buttons.amazon"
 msgstr "ಅಮೆಜಾನ್ ಗಿಫ್ಟ್ ಕಾರ್ಡ್"
 
-#: allthethings/account/templates/account/donate.html:442
+#: allthethings/account/templates/account/donate.html:446
 #, fuzzy
 msgid "page.donate.ccexp.amazon_com"
 msgstr "ನಿಮ್ಮ ಕ್ರೆಡಿಟ್/ಡೆಬಿಟ್ ಕಾರ್ಡ್ ಬಳಸಿ Amazon.com ಗಿಫ್ಟ್ ಕಾರ್ಡ್‌ಗಳನ್ನು ನಮಗೆ ಕಳುಹಿಸಿ."
 
-#: allthethings/account/templates/account/donate.html:445
+#: allthethings/account/templates/account/donate.html:449
 #, fuzzy
 msgid "page.donate.ccexp.alipay"
 msgstr "ಅಲಿಪೇ ಅಂತರರಾಷ್ಟ್ರೀಯ ಕ್ರೆಡಿಟ್/ಡೆಬಿಟ್ ಕಾರ್ಡ್‌ಗಳನ್ನು ಬೆಂಬಲಿಸುತ್ತದೆ. ಹೆಚ್ಚಿನ ಮಾಹಿತಿಗಾಗಿ <a %(a_alipay)s>ಈ ಮಾರ್ಗದರ್ಶಿಯನ್ನು</a> ನೋಡಿ."
 
-#: allthethings/account/templates/account/donate.html:448
+#: allthethings/account/templates/account/donate.html:452
 #, fuzzy
 msgid "page.donate.ccexp.wechat"
 msgstr "WeChat (Weixin Pay) ಅಂತರರಾಷ್ಟ್ರೀಯ ಕ್ರೆಡಿಟ್/ಡೆಬಿಟ್ ಕಾರ್ಡ್‌ಗಳನ್ನು ಬೆಂಬಲಿಸುತ್ತದೆ. WeChat ಆಪ್‌ನಲ್ಲಿ, “Me => Services => Wallet => Add a Card” ಗೆ ಹೋಗಿ. ನೀವು ಅದನ್ನು ಕಾಣದಿದ್ದರೆ, “Me => Settings => General => Tools => Weixin Pay => Enable” ಬಳಸಿ ಅದನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಿ."
 
-#: allthethings/account/templates/account/donate.html:451
+#: allthethings/account/templates/account/donate.html:455
 #, fuzzy
 msgid "page.donate.ccexp.crypto"
 msgstr "ನೀವು ಕ್ರೆಡಿಟ್/ಡೆಬಿಟ್ ಕಾರ್ಡ್‌ಗಳನ್ನು ಬಳಸಿಕೊಂಡು ಕ್ರಿಪ್ಟೋ ಖರೀದಿಸಬಹುದು."
 
-#: allthethings/account/templates/account/donate.html:461
+#: allthethings/account/templates/account/donate.html:465
 #, fuzzy
 msgid "page.donate.payment.desc.crypto_express_services"
 msgstr "ಕ್ರಿಪ್ಟೋ ಎಕ್ಸ್‌ಪ್ರೆಸ್ ಸೇವೆಗಳು"
 
-#: allthethings/account/templates/account/donate.html:463
+#: allthethings/account/templates/account/donate.html:467
 #, fuzzy
 msgid "page.donation.ccexp.crypto_express_services.1"
 msgstr "ಎಕ್ಸ್‌ಪ್ರೆಸ್ ಸೇವೆಗಳು ಅನುಕೂಲಕರವಾಗಿವೆ, ಆದರೆ ಹೆಚ್ಚಿನ ಶುಲ್ಕಗಳನ್ನು ವಿಧಿಸುತ್ತವೆ."
 
-#: allthethings/account/templates/account/donate.html:464
+#: allthethings/account/templates/account/donate.html:468
 #, fuzzy
 msgid "page.donation.ccexp.crypto_express_services.2"
 msgstr "ನೀವು ವೇಗವಾಗಿ ದೊಡ್ಡ ದೇಣಿಗೆ ನೀಡಲು ಬಯಸಿದರೆ ಮತ್ತು $5-10 ಶುಲ್ಕವನ್ನು ಪರಿಗಣಿಸದಿದ್ದರೆ, ನೀವು ಇದನ್ನು ಕ್ರಿಪ್ಟೋ ವಿನಿಮಯದ ಬದಲು ಬಳಸಬಹುದು."
 
-#: allthethings/account/templates/account/donate.html:467
+#: allthethings/account/templates/account/donate.html:471
 #, fuzzy
 msgid "page.donation.ccexp.crypto_express_services.3"
 msgstr "ದೇಣಿಗೆ ಪುಟದಲ್ಲಿ ತೋರಿಸಲಾದ ನಿಖರವಾದ ಕ್ರಿಪ್ಟೋ ಮೊತ್ತವನ್ನು ಕಳುಹಿಸುವುದನ್ನು ಖಚಿತಪಡಿಸಿಕೊಳ್ಳಿ, $USD ಮೊತ್ತವನ್ನು ಅಲ್ಲ."
 
-#: allthethings/account/templates/account/donate.html:468
+#: allthethings/account/templates/account/donate.html:472
 #, fuzzy
 msgid "page.donation.ccexp.crypto_express_services.4"
 msgstr "ಇಲ್ಲದಿದ್ದರೆ ಶುಲ್ಕವನ್ನು ಕಡಿತಗೊಳಿಸಲಾಗುತ್ತದೆ ಮತ್ತು ನಾವು ನಿಮ್ಮ ಸದಸ್ಯತ್ವವನ್ನು ಸ್ವಯಂಚಾಲಿತವಾಗಿ ಪ್ರಕ್ರಿಯೆಗೊಳಿಸಲು ಸಾಧ್ಯವಾಗುವುದಿಲ್ಲ."
 
-#: allthethings/account/templates/account/donate.html:471
-#: allthethings/account/templates/account/donation.html:304
+#: allthethings/account/templates/account/donate.html:475
+#: allthethings/account/templates/account/donation.html:328
 #, fuzzy
 msgid "page.donation.payment2cc.method.paybis"
 msgstr "(ಕನಿಷ್ಠ: %(minimum)s)"
 
-#: allthethings/account/templates/account/donate.html:472
-#: allthethings/account/templates/account/donation.html:305
+#: allthethings/account/templates/account/donate.html:476
+#: allthethings/account/templates/account/donation.html:329
 #, fuzzy
 msgid "page.donation.payment2cc.method.switchere"
 msgstr "(ಕನಿಷ್ಠ: %(minimum)s ದೇಶದ ಅವಲಂಬನೆ, ಮೊದಲ ವ್ಯವಹಾರದಿಗಾಗಿ ಯಾವುದೇ ಪರಿಶೀಲನೆ ಇಲ್ಲ)"
 
-#: allthethings/account/templates/account/donate.html:473
-#: allthethings/account/templates/account/donation.html:306
+#: allthethings/account/templates/account/donate.html:477
+#: allthethings/account/templates/account/donation.html:330
 #, fuzzy
 msgid "page.donation.payment2cc.method.munzen"
 msgstr "(ಕನಿಷ್ಠ: %(minimum)s, ಮೊದಲ ವ್ಯವಹಾರದಿಗಾಗಿ ಯಾವುದೇ ಪರಿಶೀಲನೆ ಇಲ್ಲ)"
 
-#: allthethings/account/templates/account/donate.html:474
-#: allthethings/account/templates/account/donation.html:307
+#: allthethings/account/templates/account/donate.html:478
+#: allthethings/account/templates/account/donation.html:331
 #, fuzzy
 msgid "page.donation.payment2cc.method.mercuryo"
 msgstr "(ಕನಿಷ್ಠ: %(minimum)s)"
 
-#: allthethings/account/templates/account/donate.html:475
-#: allthethings/account/templates/account/donation.html:308
+#: allthethings/account/templates/account/donate.html:479
+#: allthethings/account/templates/account/donation.html:332
 #, fuzzy
 msgid "page.donation.payment2cc.method.moonpay"
 msgstr "(ಕನಿಷ್ಠ: %(minimum)s)"
 
-#: allthethings/account/templates/account/donate.html:476
-#: allthethings/account/templates/account/donation.html:309
+#: allthethings/account/templates/account/donate.html:480
+#: allthethings/account/templates/account/donation.html:333
 #, fuzzy
 msgid "page.donation.payment2cc.method.coingate"
 msgstr "(ಕನಿಷ್ಠ: %(minimum)s, ಮೊದಲ ವ್ಯವಹಾರದಿಗಾಗಿ ಯಾವುದೇ ಪರಿಶೀಲನೆ ಇಲ್ಲ)"
 
-#: allthethings/account/templates/account/donate.html:478
-#: allthethings/account/templates/account/donation.html:311
+#: allthethings/account/templates/account/donate.html:482
+#: allthethings/account/templates/account/donation.html:335
 #, fuzzy
 msgid "page.donation.payment2cc.cc2btc.outdated"
 msgstr "ಈ ಮಾಹಿತಿಯು ಹಳೆಯದಾಗಿದ್ದರೆ, ದಯವಿಟ್ಟು ನಮಗೆ ಇಮೇಲ್ ಮಾಡಿ ತಿಳಿಸಿ."
 
-#: allthethings/account/templates/account/donate.html:485
+#: allthethings/account/templates/account/donate.html:489
 #, fuzzy
 msgid "page.donate.payment.desc.bmc"
 msgstr "ಕ್ರೆಡಿಟ್ ಕಾರ್ಡ್‌ಗಳು, ಡೆಬಿಟ್ ಕಾರ್ಡ್‌ಗಳು, ಆಪಲ್ ಪೇ ಮತ್ತು ಗೂಗಲ್ ಪೇಗಾಗಿ, ನಾವು “Buy Me a Coffee” (BMC <span class=\"icon-[ph--coffee-fill] text-lg align-text-bottom\"></span>) ಅನ್ನು ಬಳಸುತ್ತೇವೆ. ಅವರ ವ್ಯವಸ್ಥೆಯಲ್ಲಿ, ಒಂದು “ಕಾಫಿ” $5 ಗೆ ಸಮಾನವಾಗಿರುತ್ತದೆ, ಆದ್ದರಿಂದ ನಿಮ್ಮ ದೇಣಿಗೆ 5 ರ ಬಹುಗುಣಾಕಾರಕ್ಕೆ ಸಮೀಪದ ಸಂಖ್ಯೆಗೆ ಸುತ್ತಿಕೊಳ್ಳಲಾಗುತ್ತದೆ."
 
-#: allthethings/account/templates/account/donate.html:492
+#: allthethings/account/templates/account/donate.html:496
 #, fuzzy
 msgid "page.donate.duration.intro"
 msgstr "ನೀವು ಎಷ್ಟು ಸಮಯದವರೆಗೆ ಚಂದಾದಾರರಾಗಲು ಬಯಸುತ್ತೀರಿ ಎಂಬುದನ್ನು ಆಯ್ಕೆಮಾಡಿ."
 
-#: allthethings/account/templates/account/donate.html:509
+#: allthethings/account/templates/account/donate.html:513
 #, fuzzy
 msgid "page.donate.duration.1_mo"
 msgstr "1 ತಿಂಗಳು"
 
-#: allthethings/account/templates/account/donate.html:510
+#: allthethings/account/templates/account/donate.html:514
 #, fuzzy
 msgid "page.donate.duration.3_mo"
 msgstr "3 ತಿಂಗಳು"
 
-#: allthethings/account/templates/account/donate.html:511
+#: allthethings/account/templates/account/donate.html:515
 #, fuzzy
 msgid "page.donate.duration.6_mo"
 msgstr "6 ತಿಂಗಳು"
 
-#: allthethings/account/templates/account/donate.html:512
+#: allthethings/account/templates/account/donate.html:516
 #, fuzzy
 msgid "page.donate.duration.12_mo"
 msgstr "12 ತಿಂಗಳು"
 
-#: allthethings/account/templates/account/donate.html:513
+#: allthethings/account/templates/account/donate.html:517
 #, fuzzy
 msgid "page.donate.duration.24_mo"
 msgstr "24 ತಿಂಗಳು"
 
-#: allthethings/account/templates/account/donate.html:514
+#: allthethings/account/templates/account/donate.html:518
 #, fuzzy
 msgid "page.donate.duration.48_mo"
 msgstr "48 ತಿಂಗಳು"
 
-#: allthethings/account/templates/account/donate.html:515
+#: allthethings/account/templates/account/donate.html:519
 #, fuzzy
 msgid "page.donate.duration.96_mo"
 msgstr "96 ತಿಂಗಳು"
 
-#: allthethings/account/templates/account/donate.html:518
+#: allthethings/account/templates/account/donate.html:522
 #, fuzzy
 msgid "page.donate.duration.summary"
 msgstr "<div %(div_monthly_cost)s></div><div %(div_after)s><span %(span_discount)s></span> ರಿಯಾಯಿತಿಗಳ ನಂತರ</div><div %(div_total)s></div><div %(div_duration)s></div>"
 
-#: allthethings/account/templates/account/donate.html:525
+#: allthethings/account/templates/account/donate.html:529
 #, fuzzy
 msgid "page.donate.payment.minimum_method"
 msgstr "ಈ ಪಾವತಿ ವಿಧಾನವು ಕನಿಷ್ಠ %(amount)s ಅಗತ್ಯವಿದೆ. ದಯವಿಟ್ಟು ವಿಭಿನ್ನ ಅವಧಿ ಅಥವಾ ಪಾವತಿ ವಿಧಾನವನ್ನು ಆಯ್ಕೆಮಾಡಿ."
 
-#: allthethings/account/templates/account/donate.html:526
 #: allthethings/account/templates/account/donate.html:530
+#: allthethings/account/templates/account/donate.html:534
 #, fuzzy
 msgid "page.donate.buttons.donate"
 msgstr "ದಾನ ಮಾಡಿ"
 
-#: allthethings/account/templates/account/donate.html:529
+#: allthethings/account/templates/account/donate.html:533
 #, fuzzy
 msgid "page.donate.payment.maximum_method"
 msgstr "ಈ ಪಾವತಿ ವಿಧಾನವು ಗರಿಷ್ಠ %(amount)s ಮಾತ್ರ ಅನುಮತಿಸುತ್ತದೆ. ದಯವಿಟ್ಟು ವಿಭಿನ್ನ ಅವಧಿ ಅಥವಾ ಪಾವತಿ ವಿಧಾನವನ್ನು ಆಯ್ಕೆಮಾಡಿ."
 
-#: allthethings/account/templates/account/donate.html:536
+#: allthethings/account/templates/account/donate.html:540
 #, fuzzy
 msgid "page.donate.login2"
 msgstr "ಸದಸ್ಯರಾಗಲು, ದಯವಿಟ್ಟು <a %(a_login)s>ಲಾಗಿನ್ ಅಥವಾ ನೋಂದಣಿ</a> ಮಾಡಿ. ನಿಮ್ಮ ಬೆಂಬಲಕ್ಕೆ ಧನ್ಯವಾದಗಳು!"
 
-#: allthethings/account/templates/account/donate.html:543
+#: allthethings/account/templates/account/donate.html:547
 #, fuzzy
 msgid "page.donate.payment.crypto_select"
 msgstr "ನೀವು ಇಷ್ಟಪಡುವ ಕ್ರಿಪ್ಟೋ ನಾಣ್ಯವನ್ನು ಆಯ್ಕೆಮಾಡಿ:"
 
-#: allthethings/account/templates/account/donate.html:548
+#: allthethings/account/templates/account/donate.html:552
 #, fuzzy
 msgid "page.donate.currency_lowest_minimum"
 msgstr "(ಕನಿಷ್ಠ ಮೊತ್ತ)"
 
-#: allthethings/account/templates/account/donate.html:551
+#: allthethings/account/templates/account/donate.html:555
 #, fuzzy
 msgid "page.donate.coinbase_eth"
 msgstr "(Coinbase ನಿಂದ ಇಥೀರಿಯಂ ಕಳುಹಿಸುವಾಗ ಬಳಸಿ)"
 
-#: allthethings/account/templates/account/donate.html:563
-#: allthethings/account/templates/account/donate.html:564
+#: allthethings/account/templates/account/donate.html:567
 #: allthethings/account/templates/account/donate.html:568
-#: allthethings/account/templates/account/donate.html:570
+#: allthethings/account/templates/account/donate.html:572
+#: allthethings/account/templates/account/donate.html:574
 #, fuzzy
 msgid "page.donate.currency_warning_high_minimum"
 msgstr "(ಎಚ್ಚರಿಕೆ: ಕನಿಷ್ಠ ಮೊತ್ತ ಹೆಚ್ಚು)"
 
-#: allthethings/account/templates/account/donate.html:579
+#: allthethings/account/templates/account/donate.html:583
 #, fuzzy
 msgid "page.donate.submit.confirm"
 msgstr "ಈ ದೇಣಿಗೆಯನ್ನು ದೃಢೀಕರಿಸಲು ದೇಣಿಗೆ ಬಟನ್ ಕ್ಲಿಕ್ ಮಾಡಿ."
 
-#: allthethings/account/templates/account/donate.html:587
+#: allthethings/account/templates/account/donate.html:591
 #, fuzzy
 msgid "page.donate.submit.button"
 msgstr "ದಾನ ಮಾಡಿ <span %(span_cost)s></span> <span %(span_label)s></span>"
 
-#: allthethings/account/templates/account/donate.html:592
+#: allthethings/account/templates/account/donate.html:596
 #, fuzzy
 msgid "page.donate.submit.cancel_note"
 msgstr "ಚೆಕ್ಔಟ್ ಸಮಯದಲ್ಲಿ ದೇಣಿಗೆ ರದ್ದುಗೊಳಿಸಲು ನೀವು ಇನ್ನೂ ಸಾಧ್ಯ."
 
-#: allthethings/account/templates/account/donate.html:596
+#: allthethings/account/templates/account/donate.html:600
 #, fuzzy
 msgid "page.donate.submit.success"
 msgstr "✅ ದೇಣಿಗೆ ಪುಟಕ್ಕೆ ಮರುನಿರ್ದೇಶನ ಮಾಡಲಾಗುತ್ತಿದೆ…"
 
-#: allthethings/account/templates/account/donate.html:597
+#: allthethings/account/templates/account/donate.html:601
 #, fuzzy
 msgid "page.donate.submit.failure"
 msgstr "❌ ಏನೋ ತಪ್ಪಾಗಿದೆ. ದಯವಿಟ್ಟು ಪುಟವನ್ನು ಮರುಲೋಡ್ ಮಾಡಿ ಮತ್ತು ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ."
 
-#: allthethings/account/templates/account/donate.html:651
+#: allthethings/account/templates/account/donate.html:655
 #, fuzzy
 msgid "page.donate.duration.summary.discount"
 msgstr "%(percentage)s%%"
 
-#: allthethings/account/templates/account/donate.html:652
+#: allthethings/account/templates/account/donate.html:656
 #, fuzzy
 msgid "page.donate.duration.summary.monthly_cost"
 msgstr "%(monthly_cost)s / ತಿಂಗಳು"
 
-#: allthethings/account/templates/account/donate.html:655
+#: allthethings/account/templates/account/donate.html:659
 #, fuzzy
 msgid "page.donate.duration.summary.duration.1_mo"
 msgstr "1 ತಿಂಗಳ ಕಾಲ"
 
-#: allthethings/account/templates/account/donate.html:656
+#: allthethings/account/templates/account/donate.html:660
 #, fuzzy
 msgid "page.donate.duration.summary.duration.3_mo"
 msgstr "3 ತಿಂಗಳುಗಳ ಕಾಲ"
 
-#: allthethings/account/templates/account/donate.html:657
+#: allthethings/account/templates/account/donate.html:661
 #, fuzzy
 msgid "page.donate.duration.summary.duration.6_mo"
 msgstr "6 ತಿಂಗಳುಗಳ ಕಾಲ"
 
-#: allthethings/account/templates/account/donate.html:658
+#: allthethings/account/templates/account/donate.html:662
 #, fuzzy
 msgid "page.donate.duration.summary.duration.12_mo"
 msgstr "12 ತಿಂಗಳುಗಳ ಕಾಲ"
 
-#: allthethings/account/templates/account/donate.html:659
+#: allthethings/account/templates/account/donate.html:663
 #, fuzzy
 msgid "page.donate.duration.summary.duration.24_mo"
 msgstr "24 ತಿಂಗಳ ಕಾಲ"
 
-#: allthethings/account/templates/account/donate.html:660
+#: allthethings/account/templates/account/donate.html:664
 #, fuzzy
 msgid "page.donate.duration.summary.duration.48_mo"
 msgstr "48 ತಿಂಗಳ ಕಾಲ"
 
-#: allthethings/account/templates/account/donate.html:661
+#: allthethings/account/templates/account/donate.html:665
 #, fuzzy
 msgid "page.donate.duration.summary.duration.96_mo"
 msgstr "96 ತಿಂಗಳುಗಳ ಕಾಲ"
 
-#: allthethings/account/templates/account/donate.html:665
+#: allthethings/account/templates/account/donate.html:669
 #, fuzzy
 msgid "page.donate.submit.button.label.1_mo"
 msgstr "1 ತಿಂಗಳ “%(tier_name)s” ಗೆ"
 
-#: allthethings/account/templates/account/donate.html:666
+#: allthethings/account/templates/account/donate.html:670
 #, fuzzy
 msgid "page.donate.submit.button.label.3_mo"
 msgstr "3 ತಿಂಗಳು “%(tier_name)s” ಗೆ"
 
-#: allthethings/account/templates/account/donate.html:667
+#: allthethings/account/templates/account/donate.html:671
 #, fuzzy
 msgid "page.donate.submit.button.label.6_mo"
 msgstr "6 ತಿಂಗಳ ಕಾಲ “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:668
+#: allthethings/account/templates/account/donate.html:672
 #, fuzzy
 msgid "page.donate.submit.button.label.12_mo"
 msgstr "12 ತಿಂಗಳುಗಳ “%(tier_name)s”ಗಾಗಿ"
 
-#: allthethings/account/templates/account/donate.html:669
+#: allthethings/account/templates/account/donate.html:673
 #, fuzzy
 msgid "page.donate.submit.button.label.24_mo"
 msgstr "24 ತಿಂಗಳುಗಳ “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:670
+#: allthethings/account/templates/account/donate.html:674
 #, fuzzy
 msgid "page.donate.submit.button.label.48_mo"
 msgstr "48 ತಿಂಗಳುಗಳ ಕಾಲ “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:671
+#: allthethings/account/templates/account/donate.html:675
 #, fuzzy
 msgid "page.donate.submit.button.label.96_mo"
 msgstr "96 ತಿಂಗಳುಗಳ ಕಾಲ “%(tier_name)s”"
@@ -1068,6 +1070,14 @@ msgstr "ನೀವು ಈಗಾಗಲೇ ಪಾವತಿಸಿದ್ದೀರಿ.
 
 #: allthethings/account/templates/account/donation.html:52
 #: allthethings/account/templates/account/donation.html:68
+#: allthethings/account/templates/account/donation.html:170
+#: allthethings/account/templates/account/donation.html:216
+#: allthethings/account/templates/account/donation.html:265
+#: allthethings/account/templates/account/donation.html:318
+#: allthethings/account/templates/account/donation.html:367
+#: allthethings/account/templates/account/donation.html:509
+#: allthethings/account/templates/account/donation.html:554
+#: allthethings/account/templates/account/donation.html:636
 #, fuzzy
 msgid "page.donation.old_instructions.show_button"
 msgstr "ಹಳೆಯ ಪಾವತಿ ಸೂಚನೆಗಳನ್ನು ತೋರಿಸಿ"
@@ -1101,18 +1111,18 @@ msgstr "<strong>ಮುಖ್ಯ ಟಿಪ್ಪಣಿ:</strong> ಕ್ರಿಪ�
 #: allthethings/account/templates/account/donation.html:95
 #: allthethings/account/templates/account/donation.html:116
 #: allthethings/account/templates/account/donation.html:167
-#: allthethings/account/templates/account/donation.html:207
-#: allthethings/account/templates/account/donation.html:250
-#: allthethings/account/templates/account/donation.html:297
-#: allthethings/account/templates/account/donation.html:340
-#: allthethings/account/templates/account/donation.html:407
-#: allthethings/account/templates/account/donation.html:423
-#: allthethings/account/templates/account/donation.html:441
-#: allthethings/account/templates/account/donation.html:457
-#: allthethings/account/templates/account/donation.html:474
-#: allthethings/account/templates/account/donation.html:513
-#: allthethings/account/templates/account/donation.html:589
-#: allthethings/account/templates/account/donation.html:619
+#: allthethings/account/templates/account/donation.html:213
+#: allthethings/account/templates/account/donation.html:262
+#: allthethings/account/templates/account/donation.html:315
+#: allthethings/account/templates/account/donation.html:364
+#: allthethings/account/templates/account/donation.html:439
+#: allthethings/account/templates/account/donation.html:455
+#: allthethings/account/templates/account/donation.html:473
+#: allthethings/account/templates/account/donation.html:489
+#: allthethings/account/templates/account/donation.html:506
+#: allthethings/account/templates/account/donation.html:551
+#: allthethings/account/templates/account/donation.html:633
+#: allthethings/account/templates/account/donation.html:669
 #, fuzzy
 msgid "page.donation.expired"
 msgstr "ಈ ದಾನ ಅವಧಿ ಮುಗಿದಿದೆ. ದಯವಿಟ್ಟು ರದ್ದು ಮಾಡಿ ಮತ್ತು ಹೊಸದಾಗಿ ಸೃಷ್ಟಿಸಿ."
@@ -1138,7 +1148,7 @@ msgid "page.donate.submit.header1"
 msgstr "<span %(span_circle)s>1</span>Paypal ನಲ್ಲಿ ಬಿಟ್‌ಕಾಯಿನ್ ಖರೀದಿಸಿ"
 
 #: allthethings/account/templates/account/donation.html:122
-#: allthethings/account/templates/account/donation.html:173
+#: allthethings/account/templates/account/donation.html:179
 #, fuzzy
 msgid "page.donate.one_time_payment.paypal.text2"
 msgstr "ನಿಮ್ಮ ಪೇಪಾಲ್ ಆಪ್ ಅಥವಾ ವೆಬ್‌ಸೈಟ್‌ನಲ್ಲಿ “ಕ್ರಿಪ್ಟೋ” ಪುಟವನ್ನು ಹುಡುಕಿ. ಇದು ಸಾಮಾನ್ಯವಾಗಿ “ಹಣಕಾಸು” ಅಡಿಯಲ್ಲಿ ಇರುತ್ತದೆ."
@@ -1164,7 +1174,7 @@ msgid "page.donation.payment.paypal.text5"
 msgstr "ನಮ್ಮ ಬಿಟ್‌ಕಾಯಿನ್ (BTC) ವಿಳಾಸವನ್ನು ಸ್ವೀಕರಿಸುವವರಾಗಿ ನಮೂದಿಸಿ, ಮತ್ತು ನಿಮ್ಮ %(total)s ದೇಣಿಗೆ ಕಳುಹಿಸಲು ಸೂಚನೆಗಳನ್ನು ಅನುಸರಿಸಿ:"
 
 #: allthethings/account/templates/account/donation.html:140
-#: allthethings/account/templates/account/donation.html:293
+#: allthethings/account/templates/account/donation.html:311
 #, fuzzy
 msgid "page.donation.credit_debit_card_instructions"
 msgstr "ಕ್ರೆಡಿಟ್ / ಡೆಬಿಟ್ ಕಾರ್ಡ್ ಸೂಚನೆಗಳು"
@@ -1185,484 +1195,484 @@ msgid "page.donation.stepbystep_below"
 msgstr "ಹಂತ ಹಂತದ ಮಾರ್ಗದರ್ಶಿಯನ್ನು ಕೆಳಗೆ ನೋಡಿ."
 
 #: allthethings/account/templates/account/donation.html:149
-#: allthethings/account/templates/account/donation.html:192
-#: allthethings/account/templates/account/donation.html:235
-#: allthethings/account/templates/account/donation.html:280
-#: allthethings/account/templates/account/donation.html:323
-#: allthethings/account/templates/account/donation.html:352
-#: allthethings/account/templates/account/donation.html:388
-#: allthethings/account/templates/account/donation.html:498
-#: allthethings/account/templates/account/donation.html:574
-#: allthethings/account/templates/account/donation.html:605
+#: allthethings/account/templates/account/donation.html:198
+#: allthethings/account/templates/account/donation.html:247
+#: allthethings/account/templates/account/donation.html:298
+#: allthethings/account/templates/account/donation.html:347
+#: allthethings/account/templates/account/donation.html:384
+#: allthethings/account/templates/account/donation.html:420
+#: allthethings/account/templates/account/donation.html:536
+#: allthethings/account/templates/account/donation.html:618
+#: allthethings/account/templates/account/donation.html:655
 #, fuzzy
 msgid "page.donation.status_header"
 msgstr "ಸ್ಥಿತಿ:"
 
 #: allthethings/account/templates/account/donation.html:149
-#: allthethings/account/templates/account/donation.html:192
-#: allthethings/account/templates/account/donation.html:235
-#: allthethings/account/templates/account/donation.html:280
-#: allthethings/account/templates/account/donation.html:323
-#: allthethings/account/templates/account/donation.html:352
-#: allthethings/account/templates/account/donation.html:498
-#: allthethings/account/templates/account/donation.html:574
-#: allthethings/account/templates/account/donation.html:605
+#: allthethings/account/templates/account/donation.html:198
+#: allthethings/account/templates/account/donation.html:247
+#: allthethings/account/templates/account/donation.html:298
+#: allthethings/account/templates/account/donation.html:347
+#: allthethings/account/templates/account/donation.html:384
+#: allthethings/account/templates/account/donation.html:536
+#: allthethings/account/templates/account/donation.html:618
+#: allthethings/account/templates/account/donation.html:655
 #, fuzzy
 msgid "page.donation.waiting_for_confirmation_refresh"
 msgstr "ದೃಢೀಕರಣಕ್ಕಾಗಿ ಕಾಯಲಾಗುತ್ತಿದೆ (ಪಟವನ್ನು ರಿಫ್ರೆಶ್ ಮಾಡಿ ಪರಿಶೀಲಿಸಿ)…"
 
 #: allthethings/account/templates/account/donation.html:149
-#: allthethings/account/templates/account/donation.html:192
-#: allthethings/account/templates/account/donation.html:235
-#: allthethings/account/templates/account/donation.html:280
-#: allthethings/account/templates/account/donation.html:323
-#: allthethings/account/templates/account/donation.html:352
-#: allthethings/account/templates/account/donation.html:498
-#: allthethings/account/templates/account/donation.html:574
-#: allthethings/account/templates/account/donation.html:605
+#: allthethings/account/templates/account/donation.html:198
+#: allthethings/account/templates/account/donation.html:247
+#: allthethings/account/templates/account/donation.html:298
+#: allthethings/account/templates/account/donation.html:347
+#: allthethings/account/templates/account/donation.html:384
+#: allthethings/account/templates/account/donation.html:536
+#: allthethings/account/templates/account/donation.html:618
+#: allthethings/account/templates/account/donation.html:655
 #, fuzzy
 msgid "page.donation.waiting_for_transfer_refresh"
 msgstr "ಹಸ್ತಾಂತರಕ್ಕಾಗಿ ಕಾಯಲಾಗುತ್ತಿದೆ (ಪೇಜ್ ಅನ್ನು ರಿಫ್ರೆಶ್ ಮಾಡಿ ಪರಿಶೀಲಿಸಿ)…"
 
 #: allthethings/account/templates/account/donation.html:150
-#: allthethings/account/templates/account/donation.html:193
-#: allthethings/account/templates/account/donation.html:236
-#: allthethings/account/templates/account/donation.html:281
-#: allthethings/account/templates/account/donation.html:324
-#: allthethings/account/templates/account/donation.html:353
-#: allthethings/account/templates/account/donation.html:499
-#: allthethings/account/templates/account/donation.html:575
-#: allthethings/account/templates/account/donation.html:606
+#: allthethings/account/templates/account/donation.html:199
+#: allthethings/account/templates/account/donation.html:248
+#: allthethings/account/templates/account/donation.html:299
+#: allthethings/account/templates/account/donation.html:348
+#: allthethings/account/templates/account/donation.html:385
+#: allthethings/account/templates/account/donation.html:537
+#: allthethings/account/templates/account/donation.html:619
+#: allthethings/account/templates/account/donation.html:656
 #, fuzzy
 msgid "page.donation.time_left_header"
 msgstr "ಉಳಿದ ಸಮಯ:"
 
 #: allthethings/account/templates/account/donation.html:150
-#: allthethings/account/templates/account/donation.html:193
-#: allthethings/account/templates/account/donation.html:236
-#: allthethings/account/templates/account/donation.html:281
-#: allthethings/account/templates/account/donation.html:324
-#: allthethings/account/templates/account/donation.html:353
-#: allthethings/account/templates/account/donation.html:499
-#: allthethings/account/templates/account/donation.html:575
-#: allthethings/account/templates/account/donation.html:606
+#: allthethings/account/templates/account/donation.html:199
+#: allthethings/account/templates/account/donation.html:248
+#: allthethings/account/templates/account/donation.html:299
+#: allthethings/account/templates/account/donation.html:348
+#: allthethings/account/templates/account/donation.html:385
+#: allthethings/account/templates/account/donation.html:537
+#: allthethings/account/templates/account/donation.html:619
+#: allthethings/account/templates/account/donation.html:656
 #, fuzzy
 msgid "page.donation.might_want_to_cancel"
 msgstr "(ನೀವು ರದ್ದುಮಾಡಿ ಹೊಸ ದೇಣಿಗೆ ಸೃಷ್ಟಿಸಲು ಬಯಸಬಹುದು)"
 
 #: allthethings/account/templates/account/donation.html:154
-#: allthethings/account/templates/account/donation.html:197
-#: allthethings/account/templates/account/donation.html:240
-#: allthethings/account/templates/account/donation.html:285
-#: allthethings/account/templates/account/donation.html:328
-#: allthethings/account/templates/account/donation.html:357
-#: allthethings/account/templates/account/donation.html:503
-#: allthethings/account/templates/account/donation.html:579
-#: allthethings/account/templates/account/donation.html:610
+#: allthethings/account/templates/account/donation.html:203
+#: allthethings/account/templates/account/donation.html:252
+#: allthethings/account/templates/account/donation.html:303
+#: allthethings/account/templates/account/donation.html:352
+#: allthethings/account/templates/account/donation.html:389
+#: allthethings/account/templates/account/donation.html:541
+#: allthethings/account/templates/account/donation.html:623
+#: allthethings/account/templates/account/donation.html:660
 #, fuzzy
 msgid "page.donation.reset_timer"
 msgstr "ಟೈಮರ್ ಅನ್ನು ಮರುಹೊಂದಿಸಲು, ಹೊಸ ದೇಣಿಗೆಯನ್ನು ಸೃಷ್ಟಿಸಿ."
 
 #: allthethings/account/templates/account/donation.html:158
-#: allthethings/account/templates/account/donation.html:201
-#: allthethings/account/templates/account/donation.html:244
-#: allthethings/account/templates/account/donation.html:289
-#: allthethings/account/templates/account/donation.html:332
-#: allthethings/account/templates/account/donation.html:361
-#: allthethings/account/templates/account/donation.html:392
-#: allthethings/account/templates/account/donation.html:507
-#: allthethings/account/templates/account/donation.html:583
-#: allthethings/account/templates/account/donation.html:614
+#: allthethings/account/templates/account/donation.html:207
+#: allthethings/account/templates/account/donation.html:256
+#: allthethings/account/templates/account/donation.html:307
+#: allthethings/account/templates/account/donation.html:356
+#: allthethings/account/templates/account/donation.html:393
+#: allthethings/account/templates/account/donation.html:424
+#: allthethings/account/templates/account/donation.html:545
+#: allthethings/account/templates/account/donation.html:627
+#: allthethings/account/templates/account/donation.html:664
 #, fuzzy
 msgid "page.donation.refresh_status"
 msgstr "ಸ್ಥಿತಿಯನ್ನು ನವೀಕರಿಸಿ"
 
 #: allthethings/account/templates/account/donation.html:162
-#: allthethings/account/templates/account/donation.html:714
+#: allthethings/account/templates/account/donation.html:764
 #, fuzzy
 msgid "page.donation.footer.issues_contact"
 msgstr "ನೀವು ಯಾವುದೇ ಸಮಸ್ಯೆಗಳನ್ನು ಎದುರಿಸಿದರೆ, ದಯವಿಟ್ಟು %(email)s ನಲ್ಲಿ ನಮ್ಮನ್ನು ಸಂಪರ್ಕಿಸಿ ಮತ್ತು ಸಾಧ್ಯವಾದಷ್ಟು ಮಾಹಿತಿಯನ್ನು (ಸ್ಕ್ರೀನ್‌ಶಾಟ್‌ಗಳು ಮುಂತಾದವು) ಸೇರಿಸಿ."
 
-#: allthethings/account/templates/account/donation.html:170
-#: allthethings/account/templates/account/donation.html:210
-#: allthethings/account/templates/account/donation.html:253
+#: allthethings/account/templates/account/donation.html:176
+#: allthethings/account/templates/account/donation.html:222
+#: allthethings/account/templates/account/donation.html:271
 #, fuzzy
 msgid "page.donation.step1"
 msgstr "1"
 
-#: allthethings/account/templates/account/donation.html:170
+#: allthethings/account/templates/account/donation.html:176
 #, fuzzy
 msgid "page.donation.buy_pyusd"
 msgstr "PayPal ನಲ್ಲಿ PYUSD ನಾಣ್ಯವನ್ನು ಖರೀದಿಸಿ"
 
-#: allthethings/account/templates/account/donation.html:177
+#: allthethings/account/templates/account/donation.html:183
 #, fuzzy
 msgid "page.donation.pyusd.instructions"
 msgstr "PYUSD ನಾಣ್ಯ (ಪೇಪಾಲ್ USD) ಖರೀದಿಸಲು ಸೂಚನೆಗಳನ್ನು ಅನುಸರಿಸಿ."
 
-#: allthethings/account/templates/account/donation.html:178
+#: allthethings/account/templates/account/donation.html:184
 #, fuzzy
 msgid "page.donation.pyusd.more"
 msgstr "ನೀವು ದೇಣಿಗೆ ನೀಡುತ್ತಿರುವ ಮೊತ್ತಕ್ಕಿಂತ (%(amount)s) ಸ್ವಲ್ಪ ಹೆಚ್ಚು (%(more)s ಹೆಚ್ಚು) ಖರೀದಿಸಲು ನಾವು ಶಿಫಾರಸು ಮಾಡುತ್ತೇವೆ, ವ್ಯವಹಾರ ಶುಲ್ಕಗಳನ್ನು ಮುಚ್ಚಲು. ಉಳಿದಿರುವುದನ್ನು ನೀವು ಇಟ್ಟುಕೊಳ್ಳಬಹುದು."
 
-#: allthethings/account/templates/account/donation.html:181
-#: allthethings/account/templates/account/donation.html:220
-#: allthethings/account/templates/account/donation.html:263
+#: allthethings/account/templates/account/donation.html:187
+#: allthethings/account/templates/account/donation.html:232
+#: allthethings/account/templates/account/donation.html:281
 #, fuzzy
 msgid "page.donation.step2"
 msgstr "2"
 
-#: allthethings/account/templates/account/donation.html:184
+#: allthethings/account/templates/account/donation.html:190
 #, fuzzy
 msgid "page.donation.pyusd.transfer"
 msgstr "ನಿಮ್ಮ PayPal ಅಪ್ಲಿಕೇಶನ್ ಅಥವಾ ವೆಬ್‌ಸೈಟ್‌ನಲ್ಲಿ “PYUSD” ಪುಟಕ್ಕೆ ಹೋಗಿ. “ಟ್ರಾನ್ಸ್‌ಫರ್” ಬಟನ್ %(icon)s ಒತ್ತಿ, ನಂತರ “ಕಳುಹಿಸಿ” ಒತ್ತಿ."
 
-#: allthethings/account/templates/account/donation.html:188
-#: allthethings/account/templates/account/donation.html:227
-#: allthethings/account/templates/account/donation.html:272
-#: allthethings/account/templates/account/donation.html:344
+#: allthethings/account/templates/account/donation.html:194
+#: allthethings/account/templates/account/donation.html:239
+#: allthethings/account/templates/account/donation.html:290
+#: allthethings/account/templates/account/donation.html:374
 #, fuzzy
 msgid "page.donation.transfer_amount_to"
 msgstr "%(amount)s ಅನ್ನು %(account)s ಗೆ ವರ್ಗಾಯಿಸಿ"
 
-#: allthethings/account/templates/account/donation.html:210
+#: allthethings/account/templates/account/donation.html:222
 #, fuzzy
 msgid "page.donation.cash_app_btc.step1"
 msgstr "ಕ್ಯಾಶ್ ಆ್ಯಪ್‌ನಲ್ಲಿ ಬಿಟ್‌ಕಾಯಿನ್ (BTC) ಖರೀದಿಸಿ"
 
-#: allthethings/account/templates/account/donation.html:213
+#: allthethings/account/templates/account/donation.html:225
 #, fuzzy
 msgid "page.donation.cash_app_btc.step1.text1"
 msgstr "ಕ್ಯಾಶ್ ಆ್ಯಪ್‌ನಲ್ಲಿ “ಬಿಟ್‌ಕಾಯಿನ್” (BTC) ಪುಟಕ್ಕೆ ಹೋಗಿ."
 
-#: allthethings/account/templates/account/donation.html:217
+#: allthethings/account/templates/account/donation.html:229
 #, fuzzy
 msgid "page.donation.cash_app_btc.step1.more"
 msgstr "ನೀವು ದೇಣಿಗೆ ನೀಡುತ್ತಿರುವ ಮೊತ್ತವನ್ನು (%(amount)s) ಮುಚ್ಚಲು, ನೀವು ಸ್ವಲ್ಪ ಹೆಚ್ಚು (ನಾವು %(more)s ಹೆಚ್ಚು ಶಿಫಾರಸು ಮಾಡುತ್ತೇವೆ) ಖರೀದಿಸಿ. ಉಳಿದಿರುವುದನ್ನು ನೀವು ಇಟ್ಟುಕೊಳ್ಳಬಹುದು."
 
-#: allthethings/account/templates/account/donation.html:220
+#: allthethings/account/templates/account/donation.html:232
 #, fuzzy
 msgid "page.donation.cash_app_btc.step2"
 msgstr "ನಮ್ಮ ವಿಳಾಸಕ್ಕೆ ಬಿಟ್‌ಕಾಯಿನ್ ವರ್ಗಾಯಿಸಿ"
 
-#: allthethings/account/templates/account/donation.html:223
+#: allthethings/account/templates/account/donation.html:235
 #, fuzzy
 msgid "page.donation.cash_app_btc.step2.transfer"
 msgstr "“Send bitcoin” ಬಟನ್ ಕ್ಲಿಕ್ ಮಾಡಿ “withdrawal” ಮಾಡಿ. ಡಾಲರ್‌ಗಳಿಂದ BTC ಗೆ ಬದಲಾಯಿಸಲು %(icon)s ಐಕಾನ್ ಒತ್ತಿ. ಕೆಳಗಿನ BTC ಮೊತ್ತವನ್ನು ನಮೂದಿಸಿ ಮತ್ತು “Send” ಕ್ಲಿಕ್ ಮಾಡಿ. ನೀವು ಸಿಕ್ಕಿಹಾಕಿಕೊಂಡರೆ <a %(help_video)s>ಈ ವೀಡಿಯೊ</a> ನೋಡಿ."
 
-#: allthethings/account/templates/account/donation.html:231
+#: allthethings/account/templates/account/donation.html:243
 #, fuzzy
 msgid "page.donation.cash_app_btc.step2.rush_priority"
 msgstr "ಸಣ್ಣ ದೇಣಿಗೆಗಳ (25 ಡಾಲರ್‌ಗಳಿಗಿಂತ ಕಡಿಮೆ)ಗಾಗಿ, ನೀವು ರಶ್ ಅಥವಾ ಪ್ರೈಯಾರಿಟಿ ಬಳಸಬೇಕಾಗಬಹುದು."
 
-#: allthethings/account/templates/account/donation.html:253
+#: allthethings/account/templates/account/donation.html:271
 #, fuzzy
 msgid "page.donation.revolut.step1"
 msgstr "ರೇವೋಲಟ್‌ನಲ್ಲಿ ಬಿಟ್‌ಕಾಯಿನ್ (BTC) ಖರೀದಿಸಿ"
 
-#: allthethings/account/templates/account/donation.html:256
+#: allthethings/account/templates/account/donation.html:274
 #, fuzzy
 msgid "page.donation.revolut.step1.text1"
 msgstr "ಬಿಟ್‌ಕಾಯಿನ್ (BTC) ಖರೀದಿಸಲು ರೇವೋಲಟ್‌ನಲ್ಲಿ “ಕ್ರಿಪ್ಟೋ” ಪುಟಕ್ಕೆ ಹೋಗಿ."
 
-#: allthethings/account/templates/account/donation.html:260
+#: allthethings/account/templates/account/donation.html:278
 #, fuzzy
 msgid "page.donation.revolut.step1.more"
 msgstr "ನೀವು ದೇಣಿಗೆ ನೀಡುತ್ತಿರುವ ಮೊತ್ತವನ್ನು (%(amount)s) ಮುಚ್ಚಲು, ನೀವು ಸ್ವಲ್ಪ ಹೆಚ್ಚು (ನಾವು %(more)s ಹೆಚ್ಚು ಶಿಫಾರಸು ಮಾಡುತ್ತೇವೆ) ಖರೀದಿಸಿ. ಉಳಿದಿರುವುದನ್ನು ನೀವು ಇಟ್ಟುಕೊಳ್ಳಬಹುದು."
 
-#: allthethings/account/templates/account/donation.html:263
+#: allthethings/account/templates/account/donation.html:281
 #, fuzzy
 msgid "page.donation.revolut.step2"
 msgstr "ನಮ್ಮ ವಿಳಾಸಕ್ಕೆ ಬಿಟ್‌ಕಾಯಿನ್ ವರ್ಗಾಯಿಸಿ"
 
-#: allthethings/account/templates/account/donation.html:266
+#: allthethings/account/templates/account/donation.html:284
 #, fuzzy
 msgid "page.donation.revolut.step2.transfer"
 msgstr "“Send bitcoin” ಬಟನ್ ಕ್ಲಿಕ್ ಮಾಡಿ “withdrawal” ಮಾಡಿ. ಯೂರೋಗಳಿಂದ BTC ಗೆ ಬದಲಾಯಿಸಲು %(icon)s ಐಕಾನ್ ಒತ್ತಿ. ಕೆಳಗಿನ BTC ಮೊತ್ತವನ್ನು ನಮೂದಿಸಿ ಮತ್ತು “Send” ಕ್ಲಿಕ್ ಮಾಡಿ. ನೀವು ಸಿಕ್ಕಿಹಾಕಿಕೊಂಡರೆ <a %(help_video)s>ಈ ವೀಡಿಯೊ</a> ನೋಡಿ."
 
-#: allthethings/account/templates/account/donation.html:269
+#: allthethings/account/templates/account/donation.html:287
 #, fuzzy
 msgid "page.donation.revolut.btc_amount_below"
 msgstr "ದಯವಿಟ್ಟು ಕೆಳಗಿನ BTC ಮೊತ್ತವನ್ನು ಬಳಸಿ, <em>ಯೂರೋ ಅಥವಾ ಡಾಲರ್</em> ಅಲ್ಲ, ಇಲ್ಲದಿದ್ದರೆ ನಾವು ಸರಿಯಾದ ಮೊತ್ತವನ್ನು ಸ್ವೀಕರಿಸಲು ಸಾಧ್ಯವಾಗುವುದಿಲ್ಲ ಮತ್ತು ನಿಮ್ಮ ಸದಸ್ಯತ್ವವನ್ನು ಸ್ವಯಂಚಾಲಿತವಾಗಿ ದೃಢೀಕರಿಸಲು ಸಾಧ್ಯವಾಗುವುದಿಲ್ಲ."
 
-#: allthethings/account/templates/account/donation.html:276
+#: allthethings/account/templates/account/donation.html:294
 #, fuzzy
 msgid "page.donation.revolut.step2.rush_priority"
 msgstr "ಸಣ್ಣ ದೇಣಿಗೆಗಳ (25 ಡಾಲರ್‌ಗಳಿಗಿಂತ ಕಡಿಮೆ)ಗಾಗಿ, ನೀವು ರಶ್ ಅಥವಾ ಪ್ರೈಯಾರಿಟಿ ಬಳಸಬೇಕಾಗಬಹುದು."
 
-#: allthethings/account/templates/account/donation.html:301
+#: allthethings/account/templates/account/donation.html:325
 #, fuzzy
 msgid "page.donation.payment2cc.cc2btc"
 msgstr "ಕೆಲವು ನಿಮಿಷಗಳಲ್ಲಿ ಮಾತ್ರ ಪೂರ್ಣಗೊಳ್ಳುವ ಈ ಕೆಳಗಿನ “ಕ್ರೆಡಿಟ್ ಕಾರ್ಡ್ ಟು ಬಿಟ್‌ಕಾಯಿನ್” ಎಕ್ಸ್‌ಪ್ರೆಸ್ ಸೇವೆಗಳಲ್ಲಿ ಯಾವುದನ್ನಾದರೂ ಬಳಸಿ:"
 
-#: allthethings/account/templates/account/donation.html:314
+#: allthethings/account/templates/account/donation.html:338
 #, fuzzy
 msgid "page.donation.payment2cc.cc2btc.form"
 msgstr "ದಯವಿಟ್ಟು ಈ ವಿವರಗಳನ್ನು ಫಾರ್ಮ್‌ನಲ್ಲಿ ಭರ್ತಿ ಮಾಡಿ:"
 
-#: allthethings/account/templates/account/donation.html:318
+#: allthethings/account/templates/account/donation.html:342
 #, fuzzy
 msgid "page.donation.payment2cc.cc2btc.btc_amount"
 msgstr "BTC / ಬಿಟ್‌ಕಾಯಿನ್ ಮೊತ್ತ:"
 
-#: allthethings/account/templates/account/donation.html:318
+#: allthethings/account/templates/account/donation.html:342
 #, fuzzy
 msgid "page.donation.payment2cc.exact_amount"
 msgstr "ದಯವಿಟ್ಟು ಈ <span %(underline)s>ನಿಖರ ಮೊತ್ತ</span>ವನ್ನು ಬಳಸಿ. ನಿಮ್ಮ ಒಟ್ಟು ವೆಚ್ಚವು ಕ್ರೆಡಿಟ್ ಕಾರ್ಡ್ ಶುಲ್ಕಗಳ ಕಾರಣದಿಂದ ಹೆಚ್ಚಾಗಬಹುದು. ಕಡಿಮೆ ಮೊತ್ತಗಳಿಗೆ ಇದು ನಮ್ಮ ರಿಯಾಯಿತಿಗಿಂತ ಹೆಚ್ಚು ಇರಬಹುದು, ದುರದೃಷ್ಟವಶಾತ್."
 
-#: allthethings/account/templates/account/donation.html:319
+#: allthethings/account/templates/account/donation.html:343
 #, fuzzy
 msgid "page.donation.payment2cc.cc2btc.btc_address"
 msgstr "BTC / ಬಿಟ್‌ಕಾಯಿನ್ ವಿಳಾಸ (ಬಾಹ್ಯ ವಾಲೆಟ್):"
 
-#: allthethings/account/templates/account/donation.html:336
+#: allthethings/account/templates/account/donation.html:360
 #, fuzzy
 msgid "page.donation.crypto_instructions"
 msgstr "%(coin_name)s ಸೂಚನೆಗಳು"
 
-#: allthethings/account/templates/account/donation.html:348
+#: allthethings/account/templates/account/donation.html:378
 #, fuzzy
 msgid "page.donation.crypto_standard"
 msgstr "ನಾವು ಕೇವಲ ಕ್ರಿಪ್ಟೋ ನಾಣ್ಯಗಳ ಮಾನಕ ಆವೃತ್ತಿಯನ್ನು ಮಾತ್ರ ಬೆಂಬಲಿಸುತ್ತೇವೆ, ಯಾವುದೇ ವಿಚಿತ್ರ ಜಾಲಗಳು ಅಥವಾ ನಾಣ್ಯಗಳ ಆವೃತ್ತಿಗಳನ್ನು ಬೆಂಬಲಿಸುವುದಿಲ್ಲ. ನಾಣ್ಯದ ಅವಲಂಬನೆಯಂತೆ ವ್ಯವಹಾರವನ್ನು ದೃಢೀಕರಿಸಲು ಒಂದು ಗಂಟೆಯವರೆಗೆ ಸಮಯ ತೆಗೆದುಕೊಳ್ಳಬಹುದು."
 
-#: allthethings/account/templates/account/donation.html:365
+#: allthethings/account/templates/account/donation.html:397
 #, fuzzy
 msgid "page.donation.amazon.header"
 msgstr "ಅಮೆಜಾನ್ ಗಿಫ್ಟ್ ಕಾರ್ಡ್"
 
-#: allthethings/account/templates/account/donation.html:368
+#: allthethings/account/templates/account/donation.html:400
 #, fuzzy
 msgid "page.donation.amazon.form_instructions"
 msgstr "ದಯವಿಟ್ಟು <a %(a_form)s>ಅಧಿಕೃತ Amazon.com ಫಾರ್ಮ್</a> ಅನ್ನು ಬಳಸಿಕೊಂಡು ಕೆಳಗಿನ ಇಮೇಲ್ ವಿಳಾಸಕ್ಕೆ %(amount)s ಗಿಫ್ಟ್ ಕಾರ್ಡ್ ಕಳುಹಿಸಿ."
 
-#: allthethings/account/templates/account/donation.html:369
+#: allthethings/account/templates/account/donation.html:401
 #, fuzzy
 msgid "page.donation.amazon.only_official"
 msgstr "ನಾವು Amazon.com ನ ಅಧಿಕೃತ ಫಾರ್ಮ್‌ನಿಂದ ನೇರವಾಗಿ ಕಳುಹಿಸಿದ <strong>ಗಿಫ್ಟ್ ಕಾರ್ಡ್‌ಗಳನ್ನಷ್ಟೇ</strong> ಸ್ವೀಕರಿಸಬಹುದು. ನೀವು ಈ ಫಾರ್ಮ್ ಅನ್ನು ಬಳಸದಿದ್ದರೆ ನಿಮ್ಮ ಗಿಫ್ಟ್ ಕಾರ್ಡ್ ಅನ್ನು ಹಿಂತಿರುಗಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ."
 
-#: allthethings/account/templates/account/donation.html:374
+#: allthethings/account/templates/account/donation.html:406
 #, fuzzy
 msgid "page.donate.payment.desc.amazon_message_1"
 msgstr "ನಿಖರವಾದ ಮೊತ್ತವನ್ನು ನಮೂದಿಸಿ: %(amount)s"
 
-#: allthethings/account/templates/account/donation.html:375
+#: allthethings/account/templates/account/donation.html:407
 #, fuzzy
 msgid "page.donate.payment.desc.amazon_message"
 msgstr "ದಯವಿಟ್ಟು ನಿಮ್ಮದೇ ಸಂದೇಶವನ್ನು ಬರೆಯಬೇಡಿ."
 
-#: allthethings/account/templates/account/donation.html:379
+#: allthethings/account/templates/account/donation.html:411
 #, fuzzy
 msgid "page.donation.amazon.form_to"
 msgstr "“To” ಸ್ವೀಕರಿಸುವವರ ಇಮೇಲ್ ಈ ರೂಪದಲ್ಲಿ:"
 
-#: allthethings/account/templates/account/donation.html:382
+#: allthethings/account/templates/account/donation.html:414
 #, fuzzy
 msgid "page.donation.amazon.unique"
 msgstr "ನಿಮ್ಮ ಖಾತೆಗೆ ವಿಶಿಷ್ಟ, ಹಂಚಿಕೊಳ್ಳಬೇಡಿ."
 
-#: allthethings/account/templates/account/donation.html:383
+#: allthethings/account/templates/account/donation.html:415
 #, fuzzy
 msgid "page.donation.amazon.only_use_once"
 msgstr "ಒಮ್ಮೆ ಮಾತ್ರ ಬಳಸಿ."
 
-#: allthethings/account/templates/account/donation.html:388
+#: allthethings/account/templates/account/donation.html:420
 #, fuzzy
 msgid "page.donation.amazon.waiting_gift_card"
 msgstr "ಗಿಫ್ಟ್ ಕಾರ್ಡ್‌ಗಾಗಿ ಕಾಯಲಾಗುತ್ತಿದೆ… (ಪೇಜ್ ಅನ್ನು ರಿಫ್ರೆಶ್ ಮಾಡಿ ಪರಿಶೀಲಿಸಿ)"
 
-#: allthethings/account/templates/account/donation.html:396
+#: allthethings/account/templates/account/donation.html:428
 #, fuzzy
 msgid "page.donation.amazon.confirm_automated"
 msgstr "ನಿಮ್ಮ ಉಡುಗೊರೆ ಕಾರ್ಡ್ ಕಳುಹಿಸಿದ ನಂತರ, ನಮ್ಮ ಸ್ವಯಂಚಾಲಿತ ವ್ಯವಸ್ಥೆ ಅದನ್ನು ಕೆಲವು ನಿಮಿಷಗಳಲ್ಲಿ ದೃಢೀಕರಿಸುತ್ತದೆ. ಇದು ಕೆಲಸ ಮಾಡದಿದ್ದರೆ, ನಿಮ್ಮ ಉಡುಗೊರೆ ಕಾರ್ಡ್ ಅನ್ನು ಮರುಕಳುಹಿಸಲು ಪ್ರಯತ್ನಿಸಿ (<a %(a_instr)s>ಸೂಚನೆಗಳು</a>)."
 
-#: allthethings/account/templates/account/donation.html:397
+#: allthethings/account/templates/account/donation.html:429
 #, fuzzy
 msgid "page.donation.amazon.doesnt_work"
 msgstr "ಅದು ಇನ್ನೂ ಕೆಲಸ ಮಾಡದಿದ್ದರೆ ದಯವಿಟ್ಟು ನಮಗೆ ಇಮೇಲ್ ಮಾಡಿ ಮತ್ತು ಅಣ್ಣಾ ಅದನ್ನು ಕೈಯಾರೆ ಪರಿಶೀಲಿಸುತ್ತಾರೆ (ಇದು ಕೆಲವು ದಿನಗಳನ್ನು ತೆಗೆದುಕೊಳ್ಳಬಹುದು), ಮತ್ತು ನೀವು ಮರುಕಳುಹಿಸಲು ಪ್ರಯತ್ನಿಸಿದ್ದೀರಾ ಎಂಬುದನ್ನು ಖಚಿತಪಡಿಸಿಕೊಳ್ಳಿ."
 
-#: allthethings/account/templates/account/donation.html:400
+#: allthethings/account/templates/account/donation.html:432
 #, fuzzy
 msgid "page.donation.amazon.example"
 msgstr "ಉದಾಹರಣೆ:"
 
-#: allthethings/account/templates/account/donation.html:436
-#: allthethings/account/templates/account/donation.html:453
-#: allthethings/account/templates/account/donation.html:469
-#: allthethings/account/templates/account/donation.html:494
-#: allthethings/account/templates/account/donation.html:570
-#: allthethings/account/templates/account/donation.html:631
+#: allthethings/account/templates/account/donation.html:468
+#: allthethings/account/templates/account/donation.html:485
+#: allthethings/account/templates/account/donation.html:501
+#: allthethings/account/templates/account/donation.html:532
+#: allthethings/account/templates/account/donation.html:614
+#: allthethings/account/templates/account/donation.html:681
 #, fuzzy
 msgid "page.donate.strange_account"
 msgstr "ಖಾತೆ ಹೆಸರು ಅಥವಾ ಚಿತ್ರ ವಿಚಿತ್ರವಾಗಿ ಕಾಣಬಹುದು ಎಂದು ಗಮನಿಸಿ. ಚಿಂತೆ ಬೇಡ! ಈ ಖಾತೆಗಳನ್ನು ನಮ್ಮ ದಾನದ ಸಹಭಾಗಿಗಳು ನಿರ್ವಹಿಸುತ್ತಾರೆ. ನಮ್ಮ ಖಾತೆಗಳನ್ನು ಹ್ಯಾಕ್ ಮಾಡಿಲ್ಲ."
 
-#: allthethings/account/templates/account/donation.html:460
-#: allthethings/account/templates/account/donation.html:477
-#: allthethings/account/templates/account/donation.html:516
+#: allthethings/account/templates/account/donation.html:492
+#: allthethings/account/templates/account/donation.html:515
+#: allthethings/account/templates/account/donation.html:560
 #, fuzzy
 msgid "page.donation.payment.alipay.top_header"
 msgstr "Alipay ಸೂಚನೆಗಳು"
 
-#: allthethings/account/templates/account/donation.html:462
-#: allthethings/account/templates/account/donation.html:479
+#: allthethings/account/templates/account/donation.html:494
+#: allthethings/account/templates/account/donation.html:517
 #, fuzzy
 msgid "page.donation.payment.alipay.header1"
 msgstr "<span %(span_circle)s>1</span>ಅಲಿಪೇಯಲ್ಲಿ ದೇಣಿಗೆ ನೀಡಿ"
 
-#: allthethings/account/templates/account/donation.html:465
-#: allthethings/account/templates/account/donation.html:482
+#: allthethings/account/templates/account/donation.html:497
+#: allthethings/account/templates/account/donation.html:520
 #, fuzzy
 msgid "page.donation.payment.alipay.text1_new"
 msgstr "<a %(a_account)s>ಈ Alipay ಖಾತೆ</a> ಬಳಸಿ ಒಟ್ಟು %(total)s ದೇಣಿಗೆ ನೀಡಿ"
 
-#: allthethings/account/templates/account/donation.html:486
-#: allthethings/account/templates/account/donation.html:562
-#: allthethings/account/templates/account/donation.html:601
+#: allthethings/account/templates/account/donation.html:524
+#: allthethings/account/templates/account/donation.html:606
+#: allthethings/account/templates/account/donation.html:651
 #, fuzzy
 msgid "page.donation.page_blocked"
 msgstr "ದಾನ ಪುಟವನ್ನು ತಡೆಹಿಡಿದರೆ, ಬೇರೆ ಇಂಟರ್ನೆಟ್ ಸಂಪರ್ಕವನ್ನು ಪ್ರಯತ್ನಿಸಿ (ಉದಾ. VPN ಅಥವಾ ಫೋನ್ ಇಂಟರ್ನೆಟ್)."
 
-#: allthethings/account/templates/account/donation.html:490
-#: allthethings/account/templates/account/donation.html:566
+#: allthethings/account/templates/account/donation.html:528
+#: allthethings/account/templates/account/donation.html:610
 #, fuzzy
 msgid "page.donation.payment.alipay.error"
 msgstr "ದುರದೃಷ್ಟವಶಾತ್, Alipay ಪುಟವನ್ನು ಸಾಮಾನ್ಯವಾಗಿ <strong>ಮೇನ್‌ಲ್ಯಾಂಡ್ ಚೀನಾ</strong>ಯಿಂದ ಮಾತ್ರ ಪ್ರವೇಶಿಸಬಹುದು. ನೀವು ತಾತ್ಕಾಲಿಕವಾಗಿ ನಿಮ್ಮ VPN ಅನ್ನು ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಬೇಕಾಗಬಹುದು, ಅಥವಾ ಮೇನ್‌ಲ್ಯಾಂಡ್ ಚೀನಾ (ಅಥವಾ ಹಾಂಗ್ ಕಾಂಗ್ ಕೂಡ ಕೆಲವೊಮ್ಮೆ ಕೆಲಸ ಮಾಡುತ್ತದೆ) ಗೆ VPN ಅನ್ನು ಬಳಸಬಹುದು."
 
-#: allthethings/account/templates/account/donation.html:545
+#: allthethings/account/templates/account/donation.html:589
 #, fuzzy
 msgid "page.donation.bank_card_app.step3.header"
 msgstr "<span %(style)s>3</span>ದೇಣಿಗೆ ನೀಡಿ (QR ಕೋಡ್ ಸ್ಕ್ಯಾನ್ ಮಾಡಿ ಅಥವಾ ಬಟನ್ ಒತ್ತಿ)"
 
-#: allthethings/account/templates/account/donation.html:549
+#: allthethings/account/templates/account/donation.html:593
 #, fuzzy
 msgid "page.donation.bank_card_app.step3.desc.1"
 msgstr "<a %(a_href)s>QR-ಕೋಡ್ ದೇಣಿಗೆ ಪುಟ</a>ವನ್ನು ತೆರೆಯಿರಿ."
 
-#: allthethings/account/templates/account/donation.html:553
+#: allthethings/account/templates/account/donation.html:597
 #, fuzzy
 msgid "page.donation.bank_card_app.step3.desc.2"
 msgstr "Alipay ಆಪ್‌ನೊಂದಿಗೆ QR ಕೋಡ್ ಅನ್ನು ಸ್ಕ್ಯಾನ್ ಮಾಡಿ, ಅಥವಾ Alipay ಆಪ್ ಅನ್ನು ತೆರೆಯಲು ಬಟನ್ ಒತ್ತಿ."
 
-#: allthethings/account/templates/account/donation.html:554
+#: allthethings/account/templates/account/donation.html:598
 #, fuzzy
 msgid "page.donation.bank_card_app.step3.desc.3"
 msgstr "ದಯವಿಟ್ಟು ಸಹನೆ ವಹಿಸಿ; ಪುಟವನ್ನು ಲೋಡ್ ಮಾಡಲು ಸ್ವಲ್ಪ ಸಮಯ ಹಿಡಿಯಬಹುದು ಏಕೆಂದರೆ ಇದು ಚೀನಾದಲ್ಲಿದೆ."
 
-#: allthethings/account/templates/account/donation.html:592
+#: allthethings/account/templates/account/donation.html:642
 #, fuzzy
 msgid "page.donation.payment.wechat.top_header"
 msgstr "WeChat ಸೂಚನೆಗಳು"
 
-#: allthethings/account/templates/account/donation.html:594
+#: allthethings/account/templates/account/donation.html:644
 #, fuzzy
 msgid "page.donation.payment.wechat.header1"
 msgstr "<span %(span_circle)s>1</span>WeChat ನಲ್ಲಿ ದಾನ ಮಾಡಿ"
 
-#: allthethings/account/templates/account/donation.html:597
+#: allthethings/account/templates/account/donation.html:647
 #, fuzzy
 msgid "page.donation.payment.wechat.text1"
 msgstr "<a %(a_account)s>ಈ WeChat ಖಾತೆಯನ್ನು</a> ಬಳಸಿ ಒಟ್ಟು %(total)s ದಾನ ಮಾಡಿ"
 
-#: allthethings/account/templates/account/donation.html:622
+#: allthethings/account/templates/account/donation.html:672
 #, fuzzy
 msgid "page.donation.payment.pix.top_header"
 msgstr "ಪಿಕ್ಸ್ ಸೂಚನೆಗಳು"
 
-#: allthethings/account/templates/account/donation.html:624
+#: allthethings/account/templates/account/donation.html:674
 #, fuzzy
 msgid "page.donation.payment.pix.header1"
 msgstr "<span %(span_circle)s>1</span>ಪಿಕ್ಸ್‌ನಲ್ಲಿ ದೇಣಿಗೆ ನೀಡಿ"
 
-#: allthethings/account/templates/account/donation.html:627
+#: allthethings/account/templates/account/donation.html:677
 #, fuzzy
 msgid "page.donation.payment.pix.text1"
 msgstr "<a %(a_account)s>ಈ ಪಿಕ್ಸ್ ಖಾತೆ</a> ಬಳಸಿ ಒಟ್ಟು %(total)s ದೇಣಿಗೆ ನೀಡಿ"
 
-#: allthethings/account/templates/account/donation.html:636
+#: allthethings/account/templates/account/donation.html:686
 #, fuzzy
 msgid "page.donation.footer.header"
 msgstr "<span %(span_circle)s>%(circle_number)s</span> ರಸೀದಿಯನ್ನು ನಮಗೆ ಇಮೇಲ್ ಮಾಡಿ"
 
-#: allthethings/account/templates/account/donation.html:640
+#: allthethings/account/templates/account/donation.html:690
 #, fuzzy
 msgid "page.donation.footer.verification"
 msgstr "ನಿಮ್ಮ ವೈಯಕ್ತಿಕ ಪರಿಶೀಲನಾ ವಿಳಾಸಕ್ಕೆ ರಸೀದಿ ಅಥವಾ ಸ್ಕ್ರೀನ್‌ಶಾಟ್ ಕಳುಹಿಸಿ. ದಯವಿಟ್ಟು ನಿಮ್ಮ PayPal ದೇಣಿಗೆಗಾಗಿ ಈ ಇಮೇಲ್ ವಿಳಾಸವನ್ನು ಬಳಸಬೇಡಿ."
 
-#: allthethings/account/templates/account/donation.html:642
+#: allthethings/account/templates/account/donation.html:692
 #, fuzzy
 msgid "page.donation.footer.text1"
 msgstr "ರಸೀದಿ ಅಥವಾ ಸ್ಕ್ರೀನ್‌ಶಾಟ್ ಅನ್ನು ನಿಮ್ಮ ವೈಯಕ್ತಿಕ ಪರಿಶೀಲನಾ ವಿಳಾಸಕ್ಕೆ ಕಳುಹಿಸಿ:"
 
-#: allthethings/account/templates/account/donation.html:652
+#: allthethings/account/templates/account/donation.html:702
 #, fuzzy
 msgid "page.donation.footer.crypto_note"
 msgstr "ವ್ಯವಹಾರದ ಸಮಯದಲ್ಲಿ ಕ್ರಿಪ್ಟೋ ವಿನಿಮಯ ದರದಲ್ಲಿ ಬದಲಾವಣೆ ಆಗಿದ್ದರೆ, ಮೂಲ ವಿನಿಮಯ ದರವನ್ನು ತೋರಿಸುವ ರಸೀದಿಯನ್ನು ಸೇರಿಸಲು ಖಚಿತಪಡಿಸಿಕೊಳ್ಳಿ. ಕ್ರಿಪ್ಟೋ ಬಳಸಲು ನೀವು ತೆಗೆದುಕೊಳ್ಳುವ ತೊಂದರೆಗಾಗಿ ನಾವು ತುಂಬಾ ಕೃತಜ್ಞರಾಗಿದ್ದೇವೆ, ಇದು ನಮಗೆ ತುಂಬಾ ಸಹಾಯ ಮಾಡುತ್ತದೆ!"
 
-#: allthethings/account/templates/account/donation.html:657
+#: allthethings/account/templates/account/donation.html:707
 #, fuzzy
 msgid "page.donation.footer.text2"
 msgstr "ನೀವು ನಿಮ್ಮ ರಸೀದಿಯನ್ನು ಇಮೇಲ್ ಮಾಡಿದಾಗ, ಈ ಬಟನ್ ಕ್ಲಿಕ್ ಮಾಡಿ, ಆದ್ದರಿಂದ ಅಣ್ಣಾ ಅದನ್ನು ಕೈಯಾರೆ ಪರಿಶೀಲಿಸಬಹುದು (ಇದು ಕೆಲವು ದಿನಗಳನ್ನು ತೆಗೆದುಕೊಳ್ಳಬಹುದು):"
 
-#: allthethings/account/templates/account/donation.html:667
+#: allthethings/account/templates/account/donation.html:717
 #, fuzzy
 msgid "page.donation.footer.button"
 msgstr "ಹೌದು, ನಾನು ನನ್ನ ರಸೀದಿಯನ್ನು ಇಮೇಲ್ ಮಾಡಿದ್ದೇನೆ"
 
-#: allthethings/account/templates/account/donation.html:670
+#: allthethings/account/templates/account/donation.html:720
 #, fuzzy
 msgid "page.donation.footer.success"
 msgstr "✅ ನಿಮ್ಮ ದೇಣಿಗೆಗೆ ಧನ್ಯವಾದಗಳು! ಅನ್ನಾ ಕೆಲವು ದಿನಗಳಲ್ಲಿ ನಿಮ್ಮ ಸದಸ್ಯತ್ವವನ್ನು ಕೈಯಾರೆ ಸಕ್ರಿಯಗೊಳಿಸುತ್ತಾರೆ."
 
-#: allthethings/account/templates/account/donation.html:671
+#: allthethings/account/templates/account/donation.html:721
 #, fuzzy
 msgid "page.donation.footer.failure"
 msgstr "❌ ಏನೋ ತಪ್ಪಾಗಿದೆ. ದಯವಿಟ್ಟು ಪುಟವನ್ನು ಮರುಲೋಡ್ ಮಾಡಿ ಮತ್ತು ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ."
 
-#: allthethings/account/templates/account/donation.html:676
+#: allthethings/account/templates/account/donation.html:726
 #, fuzzy
 msgid "page.donation.stepbystep"
 msgstr "ಹಂತ ಹಂತದ ಮಾರ್ಗದರ್ಶಿ"
 
-#: allthethings/account/templates/account/donation.html:678
+#: allthethings/account/templates/account/donation.html:728
 #, fuzzy
 msgid "page.donation.crypto_dont_worry"
 msgstr "ಕೆಲವು ಹಂತಗಳು ಕ್ರಿಪ್ಟೋ ವಾಲೆಟ್‌ಗಳನ್ನು ಉಲ್ಲೇಖಿಸುತ್ತವೆ, ಆದರೆ ಚಿಂತೆ ಮಾಡಬೇಡಿ, ಇದಕ್ಕಾಗಿ ನೀವು ಕ್ರಿಪ್ಟೋ ಬಗ್ಗೆ ಏನನ್ನೂ ಕಲಿಯಬೇಕಾಗಿಲ್ಲ."
 
-#: allthethings/account/templates/account/donation.html:680
+#: allthethings/account/templates/account/donation.html:730
 #, fuzzy
 msgid "page.donation.hoodpay.step1"
 msgstr "1. ನಿಮ್ಮ ಇಮೇಲ್ ನಮೂದಿಸಿ."
 
-#: allthethings/account/templates/account/donation.html:686
+#: allthethings/account/templates/account/donation.html:736
 #, fuzzy
 msgid "page.donation.hoodpay.step2"
 msgstr "2. ನಿಮ್ಮ ಪಾವತಿ ವಿಧಾನವನ್ನು ಆಯ್ಕೆಮಾಡಿ."
 
-#: allthethings/account/templates/account/donation.html:692
+#: allthethings/account/templates/account/donation.html:742
 #, fuzzy
 msgid "page.donation.hoodpay.step3"
 msgstr "3. ನಿಮ್ಮ ಪಾವತಿ ವಿಧಾನವನ್ನು ಮತ್ತೆ ಆಯ್ಕೆಮಾಡಿ."
 
-#: allthethings/account/templates/account/donation.html:698
+#: allthethings/account/templates/account/donation.html:748
 #, fuzzy
 msgid "page.donation.hoodpay.step4"
 msgstr "4. “ಸ್ವಯಂ-ಹೋಸ್ಟ್‌ಡ್” ವಾಲೆಟ್ ಆಯ್ಕೆಮಾಡಿ."
 
-#: allthethings/account/templates/account/donation.html:704
+#: allthethings/account/templates/account/donation.html:754
 #, fuzzy
 msgid "page.donation.hoodpay.step5"
 msgstr "5. “ನಾನು ಮಾಲೀಕತ್ವವನ್ನು ದೃಢೀಕರಿಸುತ್ತೇನೆ” ಕ್ಲಿಕ್ ಮಾಡಿ."
 
-#: allthethings/account/templates/account/donation.html:710
+#: allthethings/account/templates/account/donation.html:760
 #, fuzzy
 msgid "page.donation.hoodpay.step6"
 msgstr "6. ನೀವು ಇಮೇಲ್ ರಸೀದಿ ಪಡೆಯಬೇಕು. ದಯವಿಟ್ಟು ಅದನ್ನು ನಮಗೆ ಕಳುಹಿಸಿ, ಮತ್ತು ನಾವು ನಿಮ್ಮ ದಾನವನ್ನು ಸಾಧ್ಯವಾದಷ್ಟು ಬೇಗ ದೃಢೀಕರಿಸುತ್ತೇವೆ."
 
-#: allthethings/account/templates/account/donation.html:715
+#: allthethings/account/templates/account/donation.html:765
 #, fuzzy
 msgid "page.donate.wait_new"
 msgstr "ದಯವಿಟ್ಟು ನಮ್ಮನ್ನು ಸಂಪರ್ಕಿಸುವ ಮೊದಲು ಕನಿಷ್ಠ <span %(span_hours)s>24 ಗಂಟೆಗಳ</span> ಕಾಲ ಕಾಯಿರಿ (ಮತ್ತು ಈ ಪುಟವನ್ನು ರಿಫ್ರೆಶ್ ಮಾಡಿ)."
 
-#: allthethings/account/templates/account/donation.html:716
+#: allthethings/account/templates/account/donation.html:766
 #, fuzzy
 msgid "page.donate.mistake"
 msgstr "ನೀವು ಪಾವತಿ ಸಮಯದಲ್ಲಿ ತಪ್ಪು ಮಾಡಿದರೆ, ನಾವು ಮರುಪಾವತಿಗಳನ್ನು ಮಾಡಲಾರೆವು, ಆದರೆ ನಾವು ಅದನ್ನು ಸರಿಪಡಿಸಲು ಪ್ರಯತ್ನಿಸುತ್ತೇವೆ."
@@ -1814,11 +1824,11 @@ msgstr "ಅನ್ನ ಅವರನ್ನು %(email)s ನಲ್ಲಿ ಸಂಪ�
 #: allthethings/page/templates/page/home.html:77
 #: allthethings/page/templates/page/home.html:82
 #: allthethings/page/templates/page/home.html:90
-#: allthethings/page/templates/page/search.html:345
-#: allthethings/page/templates/page/search.html:444
+#: allthethings/page/templates/page/search.html:349
+#: allthethings/page/templates/page/search.html:448
 #: allthethings/templates/layouts/index.html:248
 #: allthethings/templates/layouts/index.html:252
-#: allthethings/templates/layouts/index.html:605
+#: allthethings/templates/layouts/index.html:608
 #, fuzzy
 msgid "page.contact.title"
 msgstr "ಸಂಪರ್ಕ ಇಮೇಲ್"
@@ -1830,25 +1840,25 @@ msgid "page.account.logged_in.membership_multiple"
 msgstr "ನೀವು ಬಹು ಸದಸ್ಯತ್ವಗಳನ್ನು ಸಂಯೋಜಿಸಬಹುದು (24 ಗಂಟೆಗಳಲ್ಲಿ ವೇಗದ ಡೌನ್‌ಲೋಡ್‌ಗಳನ್ನು ಒಟ್ಟಿಗೆ ಸೇರಿಸಲಾಗುತ್ತದೆ)."
 
 #: allthethings/account/templates/account/index.html:41
-#: allthethings/templates/layouts/index.html:557
-#: allthethings/templates/layouts/index.html:564
-#: allthethings/templates/layouts/index.html:573
+#: allthethings/templates/layouts/index.html:560
+#: allthethings/templates/layouts/index.html:567
+#: allthethings/templates/layouts/index.html:576
 #, fuzzy
 msgid "layout.index.header.nav.public_profile"
 msgstr "ಸಾರ್ವಜನಿಕ ಪ್ರೊಫೈಲ್"
 
 #: allthethings/account/templates/account/index.html:42
-#: allthethings/templates/layouts/index.html:558
-#: allthethings/templates/layouts/index.html:565
-#: allthethings/templates/layouts/index.html:574
+#: allthethings/templates/layouts/index.html:561
+#: allthethings/templates/layouts/index.html:568
+#: allthethings/templates/layouts/index.html:577
 #, fuzzy
 msgid "layout.index.header.nav.downloaded_files"
 msgstr "ಡೌನ್‌ಲೋಡ್ ಮಾಡಿದ ಫೈಲ್‌ಗಳು"
 
 #: allthethings/account/templates/account/index.html:43
-#: allthethings/templates/layouts/index.html:559
-#: allthethings/templates/layouts/index.html:566
-#: allthethings/templates/layouts/index.html:575
+#: allthethings/templates/layouts/index.html:562
+#: allthethings/templates/layouts/index.html:569
+#: allthethings/templates/layouts/index.html:578
 #, fuzzy
 msgid "layout.index.header.nav.my_donations"
 msgstr "ನನ್ನ ದೇಣಿಗೆಗಳು"
@@ -2028,158 +2038,158 @@ msgstr "ಯಾವುದೇ ಪಟ್ಟಿಗಳು ಇಲ್ಲ"
 msgid "page.profile.lists.new_list"
 msgstr "ಫೈಲ್ ಅನ್ನು ಹುಡುಕಿ ಮತ್ತು “ಪಟ್ಟಿಗಳು” ಟ್ಯಾಬ್ ಅನ್ನು ತೆರೆಯುವ ಮೂಲಕ ಹೊಸ ಪಟ್ಟಿ ರಚಿಸಿ."
 
-#: allthethings/dyn/views.py:906 allthethings/dyn/views.py:970
-#: allthethings/dyn/views.py:981
+#: allthethings/dyn/views.py:1100 allthethings/dyn/views.py:1172
+#: allthethings/dyn/views.py:1183
 #, fuzzy
 msgid "dyn.buy_membership.error.unknown"
 msgstr "ಅಪರಿಚಿತ ದೋಷ ಸಂಭವಿಸಿದೆ. ದಯವಿಟ್ಟು %(email)s ನಲ್ಲಿ ಸ್ಕ್ರೀನ್‌ಶಾಟ್‌ನೊಂದಿಗೆ ನಮ್ಮನ್ನು ಸಂಪರ್ಕಿಸಿ."
 
-#: allthethings/dyn/views.py:955 allthethings/dyn/views.py:975
+#: allthethings/dyn/views.py:1157 allthethings/dyn/views.py:1177
 #, fuzzy
 msgid "dyn.buy_membership.error.minimum"
 msgstr "ಈ ನಾಣ್ಯವು ಸಾಮಾನ್ಯಕ್ಕಿಂತ ಹೆಚ್ಚು ಕನಿಷ್ಠವನ್ನು ಹೊಂದಿದೆ. ದಯವಿಟ್ಟು ವಿಭಿನ್ನ ಅವಧಿಯನ್ನು ಅಥವಾ ವಿಭಿನ್ನ ನಾಣ್ಯವನ್ನು ಆಯ್ಕೆಮಾಡಿ."
 
-#: allthethings/dyn/views.py:967
+#: allthethings/dyn/views.py:1169
 #, fuzzy
 msgid "dyn.buy_membership.error.try_again"
 msgstr "ವಿನಂತಿಯನ್ನು ಪೂರ್ಣಗೊಳಿಸಲಾಗಲಿಲ್ಲ. ದಯವಿಟ್ಟು ಕೆಲವು ನಿಮಿಷಗಳಲ್ಲಿ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ, ಮತ್ತು ಇದು ಮುಂದುವರಿದರೆ, ದಯವಿಟ್ಟು %(email)s ಗೆ ಸ್ಕ್ರೀನ್‌ಶಾಟ್‌ನೊಂದಿಗೆ ನಮ್ಮನ್ನು ಸಂಪರ್ಕಿಸಿ."
 
-#: allthethings/dyn/views.py:978
+#: allthethings/dyn/views.py:1180
 #, fuzzy
 msgid "dyn.buy_membership.error.wait"
 msgstr "ಪಾವತಿ ಪ್ರಕ್ರಿಯೆಯಲ್ಲಿ ದೋಷ. ದಯವಿಟ್ಟು ಕ್ಷಣಕಾಲ ಕಾಯಿರಿ ಮತ್ತು ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ. ಸಮಸ್ಯೆ 24 ಗಂಟೆಗಳಿಗಿಂತ ಹೆಚ್ಚು ಕಾಲ ಮುಂದುವರಿದರೆ, ದಯವಿಟ್ಟು %(email)s ಗೆ ಸ್ಕ್ರೀನ್‌ಶಾಟ್‌ನೊಂದಿಗೆ ನಮ್ಮನ್ನು ಸಂಪರ್ಕಿಸಿ."
 
-#: allthethings/page/views.py:5536
+#: allthethings/page/views.py:5575
 #, fuzzy
 msgid "page.md5.box.download.affected_files"
 msgstr "%(count)s ಪ್ರಭಾವಿತ ಪುಟಗಳು"
 
-#: allthethings/page/views.py:6533
+#: allthethings/page/views.py:6563
 #, fuzzy
 msgid "common.md5_problem_type_mapping.lgrsnf_visible"
 msgstr "Libgen.rs ನಾನ್-ಫಿಕ್ಷನ್‌ನಲ್ಲಿ ಕಾಣಿಸದು"
 
-#: allthethings/page/views.py:6534
+#: allthethings/page/views.py:6564
 #, fuzzy
 msgid "common.md5_problem_type_mapping.lgrsfic_visible"
 msgstr "Libgen.rs ಫಿಕ್ಷನ್‌ನಲ್ಲಿ ಕಾಣಿಸದು"
 
-#: allthethings/page/views.py:6535
+#: allthethings/page/views.py:6565
 #, fuzzy
 msgid "common.md5_problem_type_mapping.lgli_visible"
 msgstr "Libgen.li ನಲ್ಲಿ ಕಾಣಿಸದು"
 
-#: allthethings/page/views.py:6536
+#: allthethings/page/views.py:6566
 #, fuzzy
 msgid "common.md5_problem_type_mapping.lgli_broken"
 msgstr "Libgen.li ನಲ್ಲಿ ಹಾಳಾಗಿದೆ ಎಂದು ಗುರುತಿಸಲಾಗಿದೆ"
 
-#: allthethings/page/views.py:6537
+#: allthethings/page/views.py:6567
 #, fuzzy
 msgid "common.md5_problem_type_mapping.zlib_missing"
 msgstr "Z-ಲೈಬ್ರರಿ ಯಿಂದ ಕಾಣೆಯಾಗಿದೆ"
 
-#: allthethings/page/views.py:6538
+#: allthethings/page/views.py:6568
 #, fuzzy
 msgid "common.md5_problem_type_mapping.zlib_spam"
 msgstr "Z-ಲೈಬ್ರರಿಯಲ್ಲಿ “ಸ್ಪ್ಯಾಮ್” ಎಂದು ಗುರುತಿಸಲಾಗಿದೆ"
 
-#: allthethings/page/views.py:6539
+#: allthethings/page/views.py:6569
 #, fuzzy
 msgid "common.md5_problem_type_mapping.zlib_bad_file"
 msgstr "Z-ಲೈಬ್ರರಿಯಲ್ಲಿ “ಕೆಟ್ಟ ಫೈಲ್” ಎಂದು ಗುರುತಿಸಲಾಗಿದೆ"
 
-#: allthethings/page/views.py:6540
+#: allthethings/page/views.py:6570
 #, fuzzy
 msgid "common.md5_problem_type_mapping.duxiu_pdg_broken_files"
 msgstr "ಎಲ್ಲಾ ಪುಟಗಳನ್ನು PDF ಗೆ ಪರಿವರ್ತಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ"
 
-#: allthethings/page/views.py:6541
+#: allthethings/page/views.py:6571
 #, fuzzy
 msgid "common.md5_problem_type_mapping.upload_exiftool_failed"
 msgstr "ಈ ಫೈಲ್‌ನಲ್ಲಿ exiftool ಅನ್ನು ಚಲಾಯಿಸುವುದು ವಿಫಲವಾಗಿದೆ"
 
-#: allthethings/page/views.py:6547
+#: allthethings/page/views.py:6577
 #, fuzzy
 msgid "common.md5_content_type_mapping.book_unknown"
 msgstr "ಪುಸ್ತಕ (ಅಜ್ಞಾತ)"
 
-#: allthethings/page/views.py:6548
+#: allthethings/page/views.py:6578
 #, fuzzy
 msgid "common.md5_content_type_mapping.book_nonfiction"
 msgstr "ಪುಸ್ತಕ (ಅಕಾದಮಿಕ)"
 
-#: allthethings/page/views.py:6549
+#: allthethings/page/views.py:6579
 #, fuzzy
 msgid "common.md5_content_type_mapping.book_fiction"
 msgstr "ಪುಸ್ತಕ (ಕಾದಂಬರಿ)"
 
-#: allthethings/page/views.py:6550
+#: allthethings/page/views.py:6580
 #, fuzzy
 msgid "common.md5_content_type_mapping.journal_article"
 msgstr "ಜರ್ನಲ್ ಲೇಖನ"
 
-#: allthethings/page/views.py:6551
+#: allthethings/page/views.py:6581
 #, fuzzy
 msgid "common.md5_content_type_mapping.standards_document"
 msgstr "ಮಾಪದವಿವರ ಡಾಕ್ಯುಮೆಂಟ್"
 
-#: allthethings/page/views.py:6552
+#: allthethings/page/views.py:6582
 #, fuzzy
 msgid "common.md5_content_type_mapping.magazine"
 msgstr "ಮಾಸಪತ್ರಿಕೆ"
 
-#: allthethings/page/views.py:6553
+#: allthethings/page/views.py:6583
 #, fuzzy
 msgid "common.md5_content_type_mapping.book_comic"
 msgstr "ಕಾಮಿಕ್ ಪುಸ್ತಕ"
 
-#: allthethings/page/views.py:6554
+#: allthethings/page/views.py:6584
 #, fuzzy
 msgid "common.md5_content_type_mapping.musical_score"
 msgstr "ಸಂಗೀತ ಸ್ಕೋರ್"
 
-#: allthethings/page/views.py:6555
+#: allthethings/page/views.py:6585
 #, fuzzy
 msgid "common.md5_content_type_mapping.audiobook"
 msgstr "ಆಡಿಯೋಬುಕ್"
 
-#: allthethings/page/views.py:6556
+#: allthethings/page/views.py:6586
 #, fuzzy
 msgid "common.md5_content_type_mapping.other"
 msgstr "ಇತರೆ"
 
-#: allthethings/page/views.py:6562
+#: allthethings/page/views.py:6592
 #, fuzzy
 msgid "common.access_types_mapping.aa_download"
 msgstr "ಪಾರ್ಟ್ನರ್ ಸರ್ವರ್ ಡೌನ್‌ಲೋಡ್"
 
-#: allthethings/page/views.py:6563
+#: allthethings/page/views.py:6593
 #, fuzzy
 msgid "common.access_types_mapping.aa_scidb"
 msgstr "ಸೈಡಿಬಿ"
 
-#: allthethings/page/views.py:6564
+#: allthethings/page/views.py:6594
 #, fuzzy
 msgid "common.access_types_mapping.external_download"
 msgstr "ಬಾಹ್ಯ ಡೌನ್‌ಲೋಡ್"
 
-#: allthethings/page/views.py:6565
+#: allthethings/page/views.py:6595
 #, fuzzy
 msgid "common.access_types_mapping.external_borrow"
 msgstr "ಬಾಹ್ಯ ಸಾಲ"
 
-#: allthethings/page/views.py:6566
+#: allthethings/page/views.py:6596
 #, fuzzy
 msgid "common.access_types_mapping.external_borrow_printdisabled"
 msgstr "ಬಾಹ್ಯ ಸಾಲ (ಮುದ್ರಣ ಅಸಮರ್ಥ)"
 
-#: allthethings/page/views.py:6567
+#: allthethings/page/views.py:6597
 #, fuzzy
 msgid "common.access_types_mapping.meta_explore"
 msgstr "ಮೆಟಾಡೇಟಾವನ್ನು ಅನ್ವೇಷಿಸಿ"
 
-#: allthethings/page/views.py:6568
+#: allthethings/page/views.py:6598
 #, fuzzy
 msgid "common.access_types_mapping.torrents_available"
 msgstr "ಟೊರೆಂಟ್ಗಳಲ್ಲಿ ಒಳಗೊಂಡಿದೆ"
@@ -2187,7 +2197,7 @@ msgstr "ಟೊರೆಂಟ್ಗಳಲ್ಲಿ ಒಳಗೊಂಡಿದೆ"
 #: allthethings/page/templates/page/datasets.html:43
 #: allthethings/page/templates/page/datasets.html:254
 #: allthethings/page/templates/page/datasets_lgrs.html:25
-#: allthethings/page/views.py:6574
+#: allthethings/page/views.py:6604
 #, fuzzy
 msgid "common.record_sources_mapping.lgrs"
 msgstr "Libgen.rs"
@@ -2195,7 +2205,7 @@ msgstr "Libgen.rs"
 #: allthethings/page/templates/page/datasets.html:80
 #: allthethings/page/templates/page/datasets.html:317
 #: allthethings/page/templates/page/datasets_lgli.html:29
-#: allthethings/page/views.py:6575
+#: allthethings/page/views.py:6605
 #, fuzzy
 msgid "common.record_sources_mapping.lgli"
 msgstr "Libgen.li"
@@ -2203,43 +2213,43 @@ msgstr "Libgen.li"
 #: allthethings/page/templates/page/datasets.html:98
 #: allthethings/page/templates/page/datasets.html:352
 #: allthethings/page/templates/page/datasets_zlib.html:25
-#: allthethings/page/views.py:6576
+#: allthethings/page/views.py:6606
 #, fuzzy
 msgid "common.record_sources_mapping.zlib"
 msgstr "Z-ಲೈಬ್ರರಿ"
 
 #: allthethings/page/templates/page/datasets.html:114
-#: allthethings/page/views.py:6577
+#: allthethings/page/views.py:6607
 #, fuzzy
 msgid "common.record_sources_mapping.zlibzh"
 msgstr "Z-ಲೈಬ್ರರಿ ಚೈನೀಸ್"
 
-#: allthethings/page/views.py:6578
+#: allthethings/page/views.py:6608
 #, fuzzy
 msgid "common.record_sources_mapping.ia"
 msgstr "IA"
 
-#: allthethings/page/views.py:6579
+#: allthethings/page/views.py:6609
 #, fuzzy
 msgid "common.record_sources_mapping.isbndb"
 msgstr "ಐಎಸ್‌ಬಿಎನ್‌ಡಿಬಿ"
 
 #: allthethings/page/templates/page/datasets.html:525
 #: allthethings/page/templates/page/datasets_ol.html:25
-#: allthethings/page/views.py:6580
+#: allthethings/page/views.py:6610
 #, fuzzy
 msgid "common.record_sources_mapping.ol"
 msgstr "OpenLibrary"
 
 #: allthethings/page/templates/page/datasets.html:60
-#: allthethings/page/views.py:6581
+#: allthethings/page/views.py:6611
 #, fuzzy
 msgid "common.record_sources_mapping.scihub"
 msgstr "Sci-Hub"
 
 #: allthethings/page/templates/page/datasets.html:541
 #: allthethings/page/templates/page/datasets_oclc.html:25
-#: allthethings/page/views.py:6582
+#: allthethings/page/views.py:6612
 #, fuzzy
 msgid "common.record_sources_mapping.oclc"
 msgstr "OCLC (WorldCat)"
@@ -2247,7 +2257,7 @@ msgstr "OCLC (WorldCat)"
 #: allthethings/page/templates/page/datasets.html:148
 #: allthethings/page/templates/page/datasets.html:399
 #: allthethings/page/templates/page/datasets_duxiu.html:25
-#: allthethings/page/views.py:6583
+#: allthethings/page/views.py:6613
 #, fuzzy
 msgid "common.record_sources_mapping.duxiu"
 msgstr "DuXiu 读秀"
@@ -2255,397 +2265,395 @@ msgstr "DuXiu 读秀"
 #: allthethings/page/templates/page/datasets.html:164
 #: allthethings/page/templates/page/datasets.html:433
 #: allthethings/page/templates/page/datasets_upload.html:25
-#: allthethings/page/views.py:6584
+#: allthethings/page/views.py:6614
 #, fuzzy
 msgid "common.record_sources_mapping.uploads"
 msgstr "AA ಗೆ ಅಪ್ಲೋಡ್‌ಗಳು"
 
 #: allthethings/page/templates/page/datasets.html:180
-#: allthethings/page/views.py:6585
+#: allthethings/page/views.py:6615
 #, fuzzy
 msgid "common.record_sources_mapping.magzdb"
 msgstr "ಮ್ಯಾಗ್ಜಿಡಿಬಿ"
 
 #: allthethings/page/templates/page/datasets.html:196
-#: allthethings/page/views.py:6586
+#: allthethings/page/views.py:6616
 #, fuzzy
 msgid "common.record_sources_mapping.nexusstc"
 msgstr "ನೆಕ್ಸಸ್/STC"
 
-#: allthethings/page/views.py:6587
+#: allthethings/page/views.py:6617
 #, fuzzy
 msgid "common.record_sources_mapping.edsebk"
 msgstr "EBSCOhost ಇಬುಕ್ ಸೂಚ್ಯಂಕ"
 
-#: allthethings/page/views.py:6588
+#: allthethings/page/views.py:6618
 #, fuzzy
 msgid "common.record_sources_mapping.cerlalc"
 msgstr "Cerlalc"
 
-#: allthethings/page/views.py:6589
+#: allthethings/page/views.py:6619
 #, fuzzy
 msgid "common.record_sources_mapping.czech_oo42hcks"
 msgstr "ಚೆಕ್ ಮೆಟಾಡೇಟಾ"
 
-#: allthethings/page/views.py:6590
+#: allthethings/page/views.py:6620
 #, fuzzy
 msgid "common.record_sources_mapping.gbooks"
 msgstr "ಗೂಗಲ್ ಪುಸ್ತಕಗಳು"
 
-#: allthethings/page/views.py:6591
+#: allthethings/page/views.py:6621
 #, fuzzy
 msgid "common.record_sources_mapping.goodreads"
 msgstr "ಗುಡ್‌ರೀಡ್ಸ್"
 
-#: allthethings/page/views.py:6592
+#: allthethings/page/views.py:6622
 #, fuzzy
 msgid "common.record_sources_mapping.isbngrp"
 msgstr "ISBN GRP"
 
-#: allthethings/page/views.py:6593
+#: allthethings/page/views.py:6623
 #, fuzzy
 msgid "common.record_sources_mapping.libby"
 msgstr "ಲಿಬಿ"
 
-#: allthethings/page/views.py:6594
+#: allthethings/page/views.py:6624
 #, fuzzy
 msgid "common.record_sources_mapping.rgb"
 msgstr "ರಷ್ಯನ್ ಸ್ಟೇಟ್ ಲೈಬ್ರರಿ"
 
-#: allthethings/page/views.py:6595
+#: allthethings/page/views.py:6625
 #, fuzzy
 msgid "common.record_sources_mapping.trantor"
 msgstr "ಟ್ರಾಂಟರ್"
 
-#: allthethings/page/views.py:6601
+#: allthethings/page/views.py:6631
 #, fuzzy
 msgid "common.specific_search_fields.title"
 msgstr "ಶೀರ್ಷಿಕೆ"
 
-#: allthethings/page/views.py:6602
+#: allthethings/page/views.py:6632
 #, fuzzy
 msgid "common.specific_search_fields.author"
 msgstr "ಲೇಖಕ"
 
-#: allthethings/page/views.py:6603
+#: allthethings/page/views.py:6633
 #, fuzzy
 msgid "common.specific_search_fields.publisher"
 msgstr "ಪ್ರಕಾಶಕ"
 
-#: allthethings/page/views.py:6604
+#: allthethings/page/views.py:6634
 #, fuzzy
 msgid "common.specific_search_fields.edition_varia"
 msgstr "ಆವೃತ್ತಿ"
 
-#: allthethings/page/views.py:6605
+#: allthethings/page/views.py:6635
 #, fuzzy
 msgid "common.specific_search_fields.year"
 msgstr "ಪ್ರಕಾಶಿತ ವರ್ಷ"
 
-#: allthethings/page/views.py:6606
+#: allthethings/page/views.py:6636
 #, fuzzy
 msgid "common.specific_search_fields.original_filename"
 msgstr "ಮೂಲ ಫೈಲ್ ಹೆಸರು"
 
-#: allthethings/page/views.py:6607
+#: allthethings/page/views.py:6637
 #, fuzzy
 msgid "common.specific_search_fields.description_comments"
 msgstr "ವಿವರಣೆ ಮತ್ತು ಮೆಟಾಡೇಟಾ ಕಾಮೆಂಟ್‌ಗಳು"
 
-#: allthethings/page/views.py:6631 allthethings/page/views.py:6632
+#: allthethings/page/views.py:6661 allthethings/page/views.py:6662
 #, fuzzy
 msgid "page.md5.box.download.temporarily_unavailable"
 msgstr "ಈ ಫೈಲ್‌ಗೆ ಪಾರ್ಟ್ನರ್ ಸರ್ವರ್ ಡೌನ್‌ಲೋಡ್‌ಗಳು ತಾತ್ಕಾಲಿಕವಾಗಿ ಲಭ್ಯವಿಲ್ಲ."
 
-#: allthethings/page/views.py:6636
+#: allthethings/page/views.py:6666
 #, fuzzy
 msgid "common.md5.servers.fast_partner"
 msgstr "ವೇಗದ ಪಾಲುದಾರ ಸರ್ವರ್ #%(number)s"
 
-#: allthethings/page/views.py:6636
+#: allthethings/page/views.py:6666
 #, fuzzy
 msgid "common.md5.servers.fast_partner.recommended2"
 msgstr "(ಶಿಫಾರಸು ಮಾಡಲಾಗಿದೆ)"
 
-#: allthethings/page/views.py:6636
+#: allthethings/page/views.py:6666
 #, fuzzy
 msgid "common.md5.servers.no_browser_verification_or_waitlists"
 msgstr "(ಯಾವುದೇ ಬ್ರೌಸರ್ ಪರಿಶೀಲನೆ ಅಥವಾ ನಿರೀಕ್ಷಾ ಪಟ್ಟಿಗಳು ಇಲ್ಲ)"
 
 #: allthethings/page/templates/page/partner_download.html:37
-#: allthethings/page/views.py:6639 allthethings/page/views.py:6641
+#: allthethings/page/views.py:6669 allthethings/page/views.py:6671
 #, fuzzy
 msgid "common.md5.servers.slow_partner"
 msgstr "ನಿಧಾನವಾದ ಪಾಲುದಾರ ಸರ್ವರ್ #%(number)s"
 
-#: allthethings/page/views.py:6639
+#: allthethings/page/views.py:6669
 #, fuzzy
 msgid "common.md5.servers.faster_with_waitlist"
 msgstr "(ಸ್ವಲ್ಪ ವೇಗವಾಗಿ ಆದರೆ ನಿರೀಕ್ಷಾ ಪಟ್ಟಿಯೊಂದಿಗೆ)"
 
-#: allthethings/page/views.py:6641
+#: allthethings/page/views.py:6671
 #, fuzzy
 msgid "common.md5.servers.slow_no_waitlist"
 msgstr "(ಯಾವುದೇ ನಿರೀಕ್ಷಾ ಪಟ್ಟಿ ಇಲ್ಲ, ಆದರೆ ತುಂಬಾ ನಿಧಾನವಾಗಿರಬಹುದು)"
 
-#: allthethings/page/views.py:6728 allthethings/page/views.py:6950
+#: allthethings/page/views.py:6758 allthethings/page/views.py:6983
 #, fuzzy
 msgid "page.md5.box.download.scihub"
 msgstr "Sci-Hub: %(doi)s"
 
-#: allthethings/page/views.py:6805
+#: allthethings/page/views.py:6838
 #, fuzzy
 msgid "page.md5.box.download.lgrsnf"
 msgstr "Libgen.rs ನಾನ್-ಫಿಕ್ಷನ್"
 
-#: allthethings/page/views.py:6805 allthethings/page/views.py:6821
-#: allthethings/page/views.py:6882
-#, fuzzy
-msgid "page.md5.box.download.extra_also_click_get"
-msgstr "(ಮೇಲಿನ \"GET\" ಕ್ಲಿಕ್ ಮಾಡಿ)"
-
-#: allthethings/page/views.py:6805 allthethings/page/views.py:6821
-#: allthethings/page/views.py:6882
-#, fuzzy
-msgid "page.md5.box.download.extra_click_get"
-msgstr "(ಮೇಲಿನ “GET” ಕ್ಲಿಕ್ ಮಾಡಿ)"
-
-#: allthethings/page/views.py:6821
+#: allthethings/page/views.py:6854
 #, fuzzy
 msgid "page.md5.box.download.lgrsfic"
 msgstr "Libgen.rs ಕಾದಂಬರಿ"
 
-#: allthethings/page/views.py:6882
+#: allthethings/page/views.py:6915
 #, fuzzy
 msgid "page.md5.box.download.lgli"
 msgstr "Libgen.li"
 
-#: allthethings/page/views.py:6882
+#: allthethings/page/views.py:6915
+#, fuzzy
+msgid "page.md5.box.download.extra_also_click_get"
+msgstr "(ಮೇಲಿನ \"GET\" ಕ್ಲಿಕ್ ಮಾಡಿ)"
+
+#: allthethings/page/views.py:6915
+#, fuzzy
+msgid "page.md5.box.download.extra_click_get"
+msgstr "(ಮೇಲಿನ “GET” ಕ್ಲಿಕ್ ಮಾಡಿ)"
+
+#: allthethings/page/views.py:6915
 #, fuzzy
 msgid "page.md5.box.download.libgen_ads"
 msgstr "ಅವರ ಜಾಹೀರಾತುಗಳಲ್ಲಿ ದುಷ್ಟ ಸಾಫ್ಟ್‌ವೇರ್ ಇರುವುದಾಗಿ ತಿಳಿದುಬಂದಿದೆ, ಆದ್ದರಿಂದ ಜಾಹೀರಾತು ತಡೆಗಾರವನ್ನು ಬಳಸಿರಿ ಅಥವಾ ಜಾಹೀರಾತುಗಳನ್ನು ಕ್ಲಿಕ್ ಮಾಡಬೇಡಿ"
 
-#: allthethings/page/views.py:6886
+#: allthethings/page/views.py:6919
 #, fuzzy
 msgid "page.md5.box.download.nexusstc"
 msgstr "ನೆಕ್ಸಸ್/ಎಸ್‌ಟಿಸಿ"
 
-#: allthethings/page/views.py:6886
+#: allthethings/page/views.py:6919
 #, fuzzy
 msgid "page.md5.box.download.nexusstc_unreliable"
 msgstr "(ನೆಕ್ಸಸ್/STC ಫೈಲ್‌ಗಳನ್ನು ಡೌನ್‌ಲೋಡ್ ಮಾಡಲು ಅವಿಶ್ವಾಸನೀಯವಾಗಿರಬಹುದು)"
 
-#: allthethings/page/views.py:6933 allthethings/page/views.py:6937
+#: allthethings/page/views.py:6966 allthethings/page/views.py:6970
 #, fuzzy
 msgid "page.md5.box.download.zlib"
 msgstr "ಜೆಡ್-ಲೈಬ್ರರಿ"
 
-#: allthethings/page/views.py:6934 allthethings/page/views.py:6938
+#: allthethings/page/views.py:6967 allthethings/page/views.py:6971
 #, fuzzy
 msgid "page.md5.box.download.zlib_tor"
 msgstr "ಟೋರ್‌ನಲ್ಲಿ Z-ಲೈಬ್ರರಿ"
 
-#: allthethings/page/views.py:6934 allthethings/page/views.py:6938
+#: allthethings/page/views.py:6967 allthethings/page/views.py:6971
 #, fuzzy
 msgid "page.md5.box.download.zlib_tor_extra"
 msgstr "(ಟೋರ್ ಬ್ರೌಸರ್ ಅಗತ್ಯವಿದೆ)"
 
-#: allthethings/page/views.py:6941
+#: allthethings/page/views.py:6974
 #, fuzzy
 msgid "page.md5.box.download.magzdb"
 msgstr "ಮ್ಯಾಗ್ಜಿಡಿಬಿ"
 
-#: allthethings/page/views.py:6946
+#: allthethings/page/views.py:6979
 #, fuzzy
 msgid "page.md5.box.download.ia_borrow"
 msgstr "Internet Archive ನಿಂದ ಸಾಲ ಮಾಡಿ"
 
-#: allthethings/page/views.py:6946
+#: allthethings/page/views.py:6979
 #, fuzzy
 msgid "page.md5.box.download.print_disabled_only"
 msgstr "(ಮುದ್ರಣ ಅಸಮರ್ಥ ಪಾಠಕರು ಮಾತ್ರ)"
 
-#: allthethings/page/views.py:6950
+#: allthethings/page/views.py:6983
 #, fuzzy
 msgid "page.md5.box.download.scihub_maybe"
 msgstr "(ಸಂಬಂಧಿತ DOI Sci-Hub ನಲ್ಲಿ ಲಭ್ಯವಿಲ್ಲದಿರಬಹುದು)"
 
-#: allthethings/page/views.py:6953
+#: allthethings/page/views.py:6986
 #, fuzzy
 msgid "page.md5.box.download.manualslib"
 msgstr "ಮ್ಯಾನುಯಲ್ಸ್‌ಲಿಬ್"
 
-#: allthethings/page/views.py:6956
+#: allthethings/page/views.py:6989
 #, fuzzy
 msgid "page.md5.box.download.pubmed"
 msgstr "ಪಬ್‌ಮೆಡ್"
 
-#: allthethings/page/views.py:6963
+#: allthethings/page/views.py:6996
 #, fuzzy
 msgid "page.md5.box.download.collection"
 msgstr "ಸಂಗ್ರಹ"
 
-#: allthethings/page/views.py:6964
+#: allthethings/page/views.py:6997
 #, fuzzy
 msgid "page.md5.box.download.torrent"
 msgstr "ಟೊರೆಂಟ್"
 
-#: allthethings/page/views.py:6970
+#: allthethings/page/views.py:7003
 #, fuzzy
 msgid "page.md5.box.download.bulk_torrents"
 msgstr "ಸಮೂಹ ಟೋರಂಟ್ ಡೌನ್‌ಲೋಡ್‌ಗಳು"
 
-#: allthethings/page/views.py:6970
+#: allthethings/page/views.py:7003
 #, fuzzy
 msgid "page.md5.box.download.experts_only"
 msgstr "(ತಜ್ಞರು ಮಾತ್ರ)"
 
-#: allthethings/page/views.py:6977
+#: allthethings/page/views.py:7010
 #, fuzzy
 msgid "page.md5.box.download.aa_isbn"
 msgstr "ISBNಗಾಗಿ ಅನ್ನಾ’ಸ್ ಆರ್ಕೈವ್ ಹುಡುಕಿ"
 
-#: allthethings/page/views.py:6978
+#: allthethings/page/views.py:7011
 #, fuzzy
 msgid "page.md5.box.download.other_isbn"
 msgstr "ಐಎಸ್‌ಬಿಎನ್‌ಗಾಗಿ ವಿವಿಧ ಇತರ ಡೇಟಾಬೇಸ್‌ಗಳನ್ನು ಹುಡುಕಿ"
 
-#: allthethings/page/views.py:6979
+#: allthethings/page/views.py:7012
 #, fuzzy
 msgid "page.md5.box.download.original_isbndb"
 msgstr "ISBNdb ನಲ್ಲಿ ಮೂಲ ದಾಖಲೆ ಹುಡುಕಿ"
 
-#: allthethings/page/views.py:6981
+#: allthethings/page/views.py:7014
 #, fuzzy
 msgid "page.md5.box.download.aa_openlib"
 msgstr "Open Library ID ಗೆ Anna’s Archive ನಲ್ಲಿ ಹುಡುಕಿ"
 
-#: allthethings/page/views.py:6982
+#: allthethings/page/views.py:7015
 #, fuzzy
 msgid "page.md5.box.download.original_openlib"
 msgstr "Open Library ನಲ್ಲಿ ಮೂಲ ದಾಖಲೆ ಹುಡುಕಿ"
 
-#: allthethings/page/views.py:6984
+#: allthethings/page/views.py:7017
 #, fuzzy
 msgid "page.md5.box.download.aa_oclc"
 msgstr "OCLC (ವಿಶ್ವಕ್ಯಾಟ್) ಸಂಖ್ಯೆಗೆ ಅಣ್ಣಾ’ಸ್ ಆರ್ಕೈವ್ ಹುಡುಕಿ"
 
-#: allthethings/page/views.py:6985
+#: allthethings/page/views.py:7018
 #, fuzzy
 msgid "page.md5.box.download.original_oclc"
 msgstr "ವಿಶ್ವಕ್ಯಾಟ್‌ನಲ್ಲಿ ಮೂಲ ದಾಖಲೆ ಹುಡುಕಿ"
 
-#: allthethings/page/views.py:6987
+#: allthethings/page/views.py:7020
 #, fuzzy
 msgid "page.md5.box.download.aa_duxiu"
 msgstr "DuXiu SSID ಸಂಖ್ಯೆಗೆ ಅನ್ನಾ’ಸ್ ಆರ್ಕೈವ್ ಹುಡುಕಿ"
 
-#: allthethings/page/views.py:6988
+#: allthethings/page/views.py:7021
 #, fuzzy
 msgid "page.md5.box.download.original_duxiu"
 msgstr "DuXiu ನಲ್ಲಿ ಕೈಯಾರೆ ಹುಡುಕಿ"
 
-#: allthethings/page/views.py:6990
+#: allthethings/page/views.py:7023
 #, fuzzy
 msgid "page.md5.box.download.aa_cadal"
 msgstr "CADAL SSNO ಸಂಖ್ಯೆಗೆ ಅಣ್ಣಾ’ಸ್ ಆರ್ಕೈವ್ ಹುಡುಕಿ"
 
-#: allthethings/page/views.py:6991
+#: allthethings/page/views.py:7024
 #, fuzzy
 msgid "page.md5.box.download.original_cadal"
 msgstr "CADAL ನಲ್ಲಿ ಮೂಲ ದಾಖಲೆ ಹುಡುಕಿ"
 
-#: allthethings/page/views.py:6995
+#: allthethings/page/views.py:7028
 #, fuzzy
 msgid "page.md5.box.download.aa_dxid"
 msgstr "ಅನ್ನಾ’ಸ್ ಆರ್ಕೈವ್‌ನಲ್ಲಿ ಡುಕ್ಸಿಯು ಡಿಎಕ್ಸ್ಐಡಿ ಸಂಖ್ಯೆಯನ್ನು ಹುಡುಕಿ"
 
-#: allthethings/page/views.py:6998
+#: allthethings/page/views.py:7031
 #, fuzzy
 msgid "page.md5.box.download.edsebk"
 msgstr "EBSCOhost ಇಬುಕ್ ಸೂಚ್ಯಂಕ"
 
-#: allthethings/page/views.py:7003 allthethings/page/views.py:7004
+#: allthethings/page/views.py:7036 allthethings/page/views.py:7037
 #, fuzzy
 msgid "page.md5.box.download.scidb"
 msgstr "ಅನ್ನಾ’ಸ್ ಆರ್ಕೈವ್ 🧬 SciDB"
 
-#: allthethings/page/views.py:7003 allthethings/page/views.py:7004
+#: allthethings/page/views.py:7036 allthethings/page/views.py:7037
 #, fuzzy
 msgid "common.md5.servers.no_browser_verification"
 msgstr "(ಬ್ರೌಸರ್ ಪರಿಶೀಲನೆ ಅಗತ್ಯವಿಲ್ಲ)"
 
-#: allthethings/page/views.py:7029
+#: allthethings/page/views.py:7062
 #, fuzzy
 msgid "page.md5.top_row.isbndb"
 msgstr "ISBNdb %(id)s}"
 
-#: allthethings/page/views.py:7030
+#: allthethings/page/views.py:7063
 #, fuzzy
 msgid "page.md5.top_row.oclc"
 msgstr "OCLC %(id)s}"
 
-#: allthethings/page/views.py:7031
+#: allthethings/page/views.py:7064
 #, fuzzy
 msgid "page.md5.top_row.duxiu_ssid"
 msgstr "DuXiu SSID %(id)s}"
 
-#: allthethings/page/views.py:7032
+#: allthethings/page/views.py:7065
 #, fuzzy
 msgid "page.md5.top_row.cadal_ssno"
 msgstr "CADAL SSNO %(id)s}"
 
-#: allthethings/page/views.py:7033
+#: allthethings/page/views.py:7066
 #, fuzzy
 msgid "page.md5.top_row.magzdb"
 msgstr "MagzDB %(id)s}"
 
-#: allthethings/page/views.py:7034
+#: allthethings/page/views.py:7067
 #, fuzzy
 msgid "page.md5.top_row.nexusstc"
 msgstr "ನೆಕ್ಸಸ್/STC %(id)s}"
 
-#: allthethings/page/views.py:7035
+#: allthethings/page/views.py:7068
 #, fuzzy
 msgid "page.md5.top_row.edsebk"
 msgstr "EBSCOhost edsebk %(id)s}"
 
-#: allthethings/page/views.py:7036
+#: allthethings/page/views.py:7069
 #, fuzzy
 msgid "page.md5.top_row.cerlalc"
 msgstr "Cerlalc %(id)s}"
 
-#: allthethings/page/views.py:7037
+#: allthethings/page/views.py:7070
 #, fuzzy
 msgid "page.md5.top_row.czech_oo42hcks"
 msgstr "ಚೆಕ್ ಮೆಟಾಡೇಟಾ %(id)s}"
 
-#: allthethings/page/views.py:7038
+#: allthethings/page/views.py:7071
 #, fuzzy
 msgid "page.md5.top_row.gbooks"
 msgstr "ಗೂಗಲ್ ಪುಸ್ತಕಗಳು %(id)s}"
 
-#: allthethings/page/views.py:7039
+#: allthethings/page/views.py:7072
 #, fuzzy
 msgid "page.md5.top_row.goodreads"
 msgstr "ಗುಡ್‌ರೀಡ್ಸ್ %(id)s}"
 
-#: allthethings/page/views.py:7040
+#: allthethings/page/views.py:7073
 #, fuzzy
 msgid "page.md5.top_row.isbngrp"
 msgstr "ಐಎಸ್‌ಬಿಎನ್ ಜಿಆರ್‌ಪಿ %(id)s}"
 
-#: allthethings/page/views.py:7041
+#: allthethings/page/views.py:7074
 #, fuzzy
 msgid "page.md5.top_row.libby"
 msgstr "ಲಿಬಿ %(id)s}"
 
-#: allthethings/page/views.py:7042
+#: allthethings/page/views.py:7075
 #, fuzzy
 msgid "page.md5.top_row.rgb"
 msgstr "ಆರ್‌ಎಸ್‌ಎಲ್ %(id)s}"
 
-#: allthethings/page/views.py:7043
+#: allthethings/page/views.py:7076
 #, fuzzy
 msgid "page.md5.top_row.trantor"
 msgstr "ಟ್ರಾಂಟರ್ %(id)s}"
@@ -2665,57 +2673,57 @@ msgstr "ಟ್ರಾಂಟರ್ %(id)s}"
 #: allthethings/page/templates/page/datasets_scihub.html:18
 #: allthethings/page/templates/page/datasets_upload.html:18
 #: allthethings/page/templates/page/datasets_zlib.html:18
-#: allthethings/page/views.py:7067
+#: allthethings/page/views.py:7100
 #, fuzzy
 msgid "page.datasets.sources.metadata.header"
 msgstr "ಮೆಟಾಡೇಟಾ"
 
-#: allthethings/page/views.py:7080
+#: allthethings/page/views.py:7113
 #, fuzzy
 msgid "page.md5.box.descr_title"
 msgstr "ವಿವರಣೆ"
 
-#: allthethings/page/views.py:7081
+#: allthethings/page/views.py:7114
 #, fuzzy
 msgid "page.md5.box.alternative_filename"
 msgstr "ಬದಲಿ ಫೈಲ್ ಹೆಸರು"
 
-#: allthethings/page/views.py:7082
+#: allthethings/page/views.py:7115
 #, fuzzy
 msgid "page.md5.box.alternative_title"
 msgstr "ಪರ್ಯಾಯ ಶೀರ್ಷಿಕೆ"
 
-#: allthethings/page/views.py:7083
+#: allthethings/page/views.py:7116
 #, fuzzy
 msgid "page.md5.box.alternative_author"
 msgstr "ಪರ್ಯಾಯ ಲೇಖಕ"
 
-#: allthethings/page/views.py:7084
+#: allthethings/page/views.py:7117
 #, fuzzy
 msgid "page.md5.box.alternative_publisher"
 msgstr "ಪರ್ಯಾಯ ಪ್ರಕಾಶಕ"
 
-#: allthethings/page/views.py:7085
+#: allthethings/page/views.py:7118
 #, fuzzy
 msgid "page.md5.box.alternative_edition"
 msgstr "ಪರ್ಯಾಯ ಆವೃತ್ತಿ"
 
-#: allthethings/page/views.py:7086
+#: allthethings/page/views.py:7119
 #, fuzzy
 msgid "page.md5.box.alternative_extension"
 msgstr "ಪರ್ಯಾಯ ವಿಸ್ತರಣೆ"
 
-#: allthethings/page/views.py:7087
+#: allthethings/page/views.py:7120
 #, fuzzy
 msgid "page.md5.box.metadata_comments_title"
 msgstr "ಮೆಟಾಡೇಟಾ ಕಾಮೆಂಟ್‌ಗಳು"
 
-#: allthethings/page/views.py:7088
+#: allthethings/page/views.py:7121
 #, fuzzy
 msgid "page.md5.box.alternative_description"
 msgstr "ಪರ್ಯಾಯ ವಿವರಣೆ"
 
-#: allthethings/page/views.py:7089
+#: allthethings/page/views.py:7122
 #, fuzzy
 msgid "page.md5.box.date_open_sourced_title"
 msgstr "ತೆರೆದ ಮೂಲದ ದಿನಾಂಕ"
@@ -2781,167 +2789,178 @@ msgstr "ನೆಕ್ಸಸ್/ಎಸ್‌ಟಿಸಿ ಐಡಿ %(id)s ಮೆ�
 msgid "page.md5.header.meta_desc"
 msgstr "ಇದು ಮೆಟಾಡೇಟಾ ದಾಖಲೆ, ಡೌನ್‌ಲೋಡ್ ಮಾಡಬಹುದಾದ ಫೈಲ್ ಅಲ್ಲ. ನೀವು <a %(a_request)s>ಫೈಲ್ ಅನ್ನು ವಿನಂತಿಸುವಾಗ</a> ಈ URL ಅನ್ನು ಬಳಸಬಹುದು."
 
-#: allthethings/page/templates/page/aarecord.html:57
+#: allthethings/page/templates/page/aarecord.html:59
 #, fuzzy
 msgid "page.md5.text.linked_metadata"
 msgstr "ಲಿಂಕ್ ಮಾಡಲಾದ ದಾಖಲೆಗಳಿಂದ ಮೆಟಾಡೇಟಾ"
 
-#: allthethings/page/templates/page/aarecord.html:58
+#: allthethings/page/templates/page/aarecord.html:60
 #, fuzzy
 msgid "page.md5.text.linked_metadata_openlib"
 msgstr "Open Library ನಲ್ಲಿ ಮೆಟಾಡೇಟಾವನ್ನು ಸುಧಾರಿಸಿ"
 
-#: allthethings/page/templates/page/aarecord.html:61
+#: allthethings/page/templates/page/aarecord.html:63
 #, fuzzy
 msgid "page.md5.warning.multiple_links"
 msgstr "ಎಚ್ಚರಿಕೆ: ಬಹು ಲಿಂಕ್ ಮಾಡಲಾದ ದಾಖಲೆಗಳು:"
 
-#: allthethings/page/templates/page/aarecord.html:69
+#: allthethings/page/templates/page/aarecord.html:71
 #, fuzzy
 msgid "page.md5.header.improve_metadata"
 msgstr "ಮೆಟಾಡೇಟಾ ಸುಧಾರಿಸಿ"
 
-#: allthethings/page/templates/page/aarecord.html:71
+#: allthethings/page/templates/page/aarecord.html:73
 #, fuzzy
 msgid "page.md5.text.report_quality"
 msgstr "ಫೈಲ್ ಗುಣಮಟ್ಟವನ್ನು ವರದಿ ಮಾಡಿ"
 
-#: allthethings/page/templates/page/aarecord.html:95
+#: allthethings/page/templates/page/aarecord.html:87
+#: allthethings/page/templates/page/search.html:510
+#: allthethings/page/templates/page/search.html:520
+#: allthethings/page/templates/page/search.html:550
+#: allthethings/templates/macros/aarecord_list.html:118
+#, fuzzy
+msgid "page.search.results.download_time"
+msgstr "ಡೌನ್‌ಲೋಡ್ ಸಮಯ"
+
+#: allthethings/page/templates/page/aarecord.html:142
 #, fuzzy
 msgid "page.md5.codes.url"
 msgstr "URL:"
 
-#: allthethings/page/templates/page/aarecord.html:96
+#: allthethings/page/templates/page/aarecord.html:143
 #, fuzzy
 msgid "page.md5.codes.website"
 msgstr "ವೆಬ್‌ಸೈಟ್:"
 
-#: allthethings/page/templates/page/aarecord.html:97
+#: allthethings/page/templates/page/aarecord.html:144
 #, fuzzy
 msgid "page.md5.codes.aa_abbr"
 msgstr "AA:"
 
-#: allthethings/page/templates/page/aarecord.html:97
+#: allthethings/page/templates/page/aarecord.html:144
 #, fuzzy
 msgid "page.md5.codes.aa_search"
 msgstr "Anna’s Archive ನಲ್ಲಿ “%(name)s” ಅನ್ನು ಹುಡುಕಿ"
 
-#: allthethings/page/templates/page/aarecord.html:98
+#: allthethings/page/templates/page/aarecord.html:145
 #, fuzzy
 msgid "page.md5.codes.code_explorer"
 msgstr "ಕೋಡ್ಸ್ ಎಕ್ಸ್‌ಪ್ಲೋರರ್:"
 
-#: allthethings/page/templates/page/aarecord.html:98
+#: allthethings/page/templates/page/aarecord.html:145
 #, fuzzy
 msgid "page.md5.codes.code_search"
 msgstr "ಕೋಡ್ಸ್ ಎಕ್ಸ್‌ಪ್ಲೋರರ್‌ನಲ್ಲಿ ವೀಕ್ಷಿಸಿ \"%(name)s\""
 
-#: allthethings/page/templates/page/aarecord.html:117
+#: allthethings/page/templates/page/aarecord.html:164
 #, fuzzy
 msgid "page.md5.box.descr_read_more"
 msgstr "ಮತ್ತಷ್ಟು ಓದಿ…"
 
-#: allthethings/page/templates/page/aarecord.html:133
+#: allthethings/page/templates/page/aarecord.html:180
 #, fuzzy
 msgid "page.md5.tabs.downloads"
 msgstr "ಡೌನ್‌ಲೋಡ್‌ಗಳು (%(count)s)"
 
-#: allthethings/page/templates/page/aarecord.html:133
+#: allthethings/page/templates/page/aarecord.html:180
 #, fuzzy
 msgid "page.md5.tabs.borrow"
 msgstr "ಸಾಲಕ್ಕೆ (%(count)s)"
 
-#: allthethings/page/templates/page/aarecord.html:133
+#: allthethings/page/templates/page/aarecord.html:180
 #, fuzzy
 msgid "page.md5.tabs.explore_metadata"
 msgstr "ಮೆಟಾಡೇಟಾವನ್ನು ಅನ್ವೇಷಿಸಿ (%(count)s)"
 
-#: allthethings/page/templates/page/aarecord.html:135
+#: allthethings/page/templates/page/aarecord.html:183
 #, fuzzy
 msgid "page.md5.tabs.lists"
 msgstr "ಪಟ್ಟಿಗಳು (%(count)s)"
 
-#: allthethings/page/templates/page/aarecord.html:136
+#: allthethings/page/templates/page/aarecord.html:184
 #, fuzzy
 msgid "page.md5.tabs.stats"
 msgstr "ಅಂಕಿಅಂಶಗಳು (%(count)s)"
 
-#: allthethings/page/templates/page/aarecord.html:138
+#: allthethings/page/templates/page/aarecord.html:186
 #, fuzzy
 msgid "common.tech_details"
 msgstr "ತಾಂತ್ರಿಕ ವಿವರಗಳು"
 
-#: allthethings/page/templates/page/aarecord.html:207
+#: allthethings/page/templates/page/aarecord.html:265
 #, fuzzy
 msgid "page.md5.box.issues.text1"
 msgstr "<span class=\"font-bold\">❌ ಈ ಫೈಲ್‌ನಲ್ಲಿ ಸಮಸ್ಯೆಗಳು ಇರಬಹುದು, ಮತ್ತು ಮೂಲ ಗ್ರಂಥಾಲಯದಿಂದ ಅಡಗಿಸಲಾಗಿದೆ.</span> ಕೆಲವೊಮ್ಮೆ ಇದು ಕಾಪಿರೈಟ್ ಹಕ್ಕುದಾರರ ವಿನಂತಿಯಿಂದ, ಕೆಲವೊಮ್ಮೆ ಉತ್ತಮ ಪರ್ಯಾಯ ಲಭ್ಯವಿರುವುದರಿಂದ, ಆದರೆ ಕೆಲವೊಮ್ಮೆ ಫೈಲ್‌ನಲ್ಲಿಯೇ ಸಮಸ್ಯೆ ಇರುತ್ತದೆ. ಡೌನ್‌ಲೋಡ್ ಮಾಡಲು ಇದು ಇನ್ನೂ ಸರಿಯಾಗಿರಬಹುದು, ಆದರೆ ಮೊದಲು ಪರ್ಯಾಯ ಫೈಲ್ ಹುಡುಕಲು ನಾವು ಶಿಫಾರಸು ಮಾಡುತ್ತೇವೆ. ಹೆಚ್ಚಿನ ವಿವರಗಳು:"
 
-#: allthethings/page/templates/page/aarecord.html:212
+#: allthethings/page/templates/page/aarecord.html:270
 #, fuzzy
 msgid "page.md5.box.download.better_file"
 msgstr "%(link)s ನಲ್ಲಿ ಈ ಫೈಲ್‌ನ ಉತ್ತಮ ಆವೃತ್ತಿ ಲಭ್ಯವಿರಬಹುದು"
 
-#: allthethings/page/templates/page/aarecord.html:217
+#: allthethings/page/templates/page/aarecord.html:275
 #, fuzzy
 msgid "page.md5.box.issues.text2"
 msgstr "ನೀವು ಇನ್ನೂ ಈ ಫೈಲ್ ಅನ್ನು ಡೌನ್‌ಲೋಡ್ ಮಾಡಲು ಬಯಸಿದರೆ, ಅದನ್ನು ತೆರೆಯಲು ವಿಶ್ವಾಸಾರ್ಹ, ನವೀಕರಿಸಿದ ಸಾಫ್ಟ್‌ವೇರ್ ಅನ್ನು ಮಾತ್ರ ಬಳಸಲು ಖಚಿತಪಡಿಸಿಕೊಳ್ಳಿ."
 
-#: allthethings/page/templates/page/aarecord.html:222
+#: allthethings/page/templates/page/aarecord.html:280
 #, fuzzy
 msgid "page.md5.box.download.header_fast_only"
 msgstr "🚀 ವೇಗದ ಡೌನ್‌ಲೋಡ್‌ಗಳು"
 
-#: allthethings/page/templates/page/aarecord.html:224
+#: allthethings/page/templates/page/aarecord.html:282
 #, fuzzy
 msgid "page.md5.box.download.header_fast_no_member"
 msgstr "<strong>🚀 ವೇಗವಾದ ಡೌನ್‌ಲೋಡ್‌ಗಳು</strong> ಪುಸ್ತಕಗಳು, ಪೇಪರ್‌ಗಳು ಮತ್ತು ಇನ್ನಷ್ಟು ದೀರ್ಘಕಾಲದ ಸಂರಕ್ಷಣೆಯನ್ನು ಬೆಂಬಲಿಸಲು <a %(a_membership)s>ಸದಸ್ಯರಾಗಿ</a>. ನಿಮ್ಮ ಬೆಂಬಲಕ್ಕಾಗಿ ನಮ್ಮ ಕೃತಜ್ಞತೆಯನ್ನು ತೋರಿಸಲು, ನೀವು ವೇಗವಾದ ಡೌನ್‌ಲೋಡ್‌ಗಳನ್ನು ಪಡೆಯುತ್ತೀರಿ. ❤️"
 
-#: allthethings/page/templates/page/aarecord.html:225
+#: allthethings/page/templates/page/aarecord.html:283
 #: allthethings/templates/layouts/index.html:233
 #, fuzzy
 msgid "layout.index.header.banner.fundraiser.this_month"
 msgstr "ನೀವು ಈ ತಿಂಗಳು ದೇಣಿಗೆ ನೀಡಿದರೆ, ನೀವು <strong>ಎರಡು</strong> ಪಟ್ಟು ವೇಗದ ಡೌನ್‌ಲೋಡ್‌ಗಳನ್ನು ಪಡೆಯುತ್ತೀರಿ."
 
-#: allthethings/page/templates/page/aarecord.html:227
+#: allthethings/page/templates/page/aarecord.html:285
 #, fuzzy
 msgid "page.md5.box.download.header_fast_member"
 msgstr "<strong>🚀 ವೇಗದ ಡೌನ್‌ಲೋಡ್‌ಗಳು</strong> ನೀವು ಇಂದು %(remaining)s ಬಾಕಿ ಇಟ್ಟುಕೊಂಡಿದ್ದೀರಿ. ಸದಸ್ಯರಾಗಿದ್ದಕ್ಕಾಗಿ ಧನ್ಯವಾದಗಳು! ❤️"
 
-#: allthethings/page/templates/page/aarecord.html:228
+#: allthethings/page/templates/page/aarecord.html:286
 #, fuzzy
 msgid "page.md5.box.download.header_fast_member_no_remaining_new"
 msgstr "<strong>🚀 ವೇಗದ ಡೌನ್‌ಲೋಡ್ಗಳು</strong> ನೀವು ಇಂದು ವೇಗದ ಡೌನ್‌ಲೋಡ್ಗಳನ್ನು ಮುಗಿಸಿದ್ದೀರಿ."
 
-#: allthethings/page/templates/page/aarecord.html:229
+#: allthethings/page/templates/page/aarecord.html:287
 #, fuzzy
 msgid "page.md5.box.download.header_fast_member_valid_for"
 msgstr "<strong>🚀 ವೇಗದ ಡೌನ್‌ಲೋಡ್‌ಗಳು</strong> ನೀವು ಇತ್ತೀಚೆಗೆ ಈ ಫೈಲ್ ಅನ್ನು ಡೌನ್‌ಲೋಡ್ ಮಾಡಿದ್ದೀರಿ. ಲಿಂಕ್‌ಗಳು ಕೆಲವು ಕಾಲ ಮಾನ್ಯವಾಗಿರುತ್ತವೆ."
 
-#: allthethings/page/templates/page/aarecord.html:234
-#: allthethings/page/templates/page/aarecord.html:251
-#: allthethings/page/templates/page/aarecord.html:283
+#: allthethings/page/templates/page/aarecord.html:292
+#: allthethings/page/templates/page/aarecord.html:293
+#: allthethings/page/templates/page/aarecord.html:311
+#: allthethings/page/templates/page/aarecord.html:347
 #, fuzzy
 msgid "page.md5.box.download.option"
 msgstr "ಆಯ್ಕೆ #%(num)d: %(link)s %(extra)s"
 
-#: allthethings/page/templates/page/aarecord.html:234
+#: allthethings/page/templates/page/aarecord.html:292
+#: allthethings/page/templates/page/aarecord.html:294
 #, fuzzy
 msgid "page.md5.box.download.no_redirect"
 msgstr "(ಯಾವುದೇ ಮರುನಿರ್ದೇಶನವಿಲ್ಲ)"
 
-#: allthethings/page/templates/page/aarecord.html:239
+#: allthethings/page/templates/page/aarecord.html:299
 #: allthethings/templates/layouts/index.html:276
 #, fuzzy
 msgid "layout.index.header.banner.refer"
 msgstr "ಮಿತ್ರನನ್ನು ಪರಿಚಯಿಸಿ, ನೀವು ಮತ್ತು ನಿಮ್ಮ ಮಿತ್ರ ಇಬ್ಬರೂ %(percentage)s%% ಬೋನಸ್ ವೇಗದ ಡೌನ್‌ಲೋಡ್‌ಗಳನ್ನು ಪಡೆಯಿರಿ!"
 
-#: allthethings/page/templates/page/aarecord.html:239
+#: allthethings/page/templates/page/aarecord.html:299
 #: allthethings/page/templates/page/home.html:25
 #: allthethings/page/templates/page/home.html:34
 #: allthethings/page/templates/page/home.html:71
 #: allthethings/page/templates/page/home.html:124
-#: allthethings/page/templates/page/search.html:357
-#: allthethings/page/templates/page/search.html:421
+#: allthethings/page/templates/page/search.html:361
+#: allthethings/page/templates/page/search.html:425
 #: allthethings/templates/layouts/index.html:270
 #: allthethings/templates/layouts/index.html:276
 #: allthethings/templates/layouts/index.html:403
@@ -2951,252 +2970,252 @@ msgstr "ಮಿತ್ರನನ್ನು ಪರಿಚಯಿಸಿ, ನೀವು �
 msgid "layout.index.header.learn_more"
 msgstr "ಇನ್ನಷ್ಟು ತಿಳಿಯಿರಿ…"
 
-#: allthethings/page/templates/page/aarecord.html:246
+#: allthethings/page/templates/page/aarecord.html:306
 #, fuzzy
 msgid "page.md5.box.download.header_slow_only"
 msgstr "ಮಂದಗತಿಯಲ್ಲಿ ಡೌನ್‌ಲೋಡ್‌ಗಳು 🐢"
 
-#: allthethings/page/templates/page/aarecord.html:247
+#: allthethings/page/templates/page/aarecord.html:307
 #, fuzzy
 msgid "page.md5.box.download.trusted_partners"
 msgstr "ನಂಬಲರ್ಹ ಸಹಭಾಗಿಗಳಿಂದ."
 
-#: allthethings/page/templates/page/aarecord.html:247
+#: allthethings/page/templates/page/aarecord.html:307
 #, fuzzy
 msgid "page.md5.box.download.slow_faq"
 msgstr "<a %(a_slow)s>FAQ</a> ನಲ್ಲಿ ಹೆಚ್ಚಿನ ಮಾಹಿತಿ."
 
-#: allthethings/page/templates/page/aarecord.html:247
+#: allthethings/page/templates/page/aarecord.html:307
 #, fuzzy
 msgid "common.md5.servers.browser_verification_unlimited"
 msgstr "(ಬ್ರೌಸರ್ ಪರಿಶೀಲನೆ ಅಗತ್ಯವಿರಬಹುದು <a %(a_browser)s>— ಅನಿಯಮಿತ ಡೌನ್‌ಲೋಡ್‌ಗಳು!</a>)"
 
-#: allthethings/page/templates/page/aarecord.html:262
+#: allthethings/page/templates/page/aarecord.html:326
 #, fuzzy
 msgid "page.md5.box.external_downloads"
 msgstr "ಬಾಹ್ಯ ಡೌನ್‌ಲೋಡ್‌ಗಳನ್ನು ತೋರಿಸಿ"
 
-#: allthethings/page/templates/page/aarecord.html:263
+#: allthethings/page/templates/page/aarecord.html:327
 #, fuzzy
 msgid "page.md5.box.download.header_external"
 msgstr "ಹೆಚ್ಚಿನ ಡೌನ್‌ಲೋಡ್‌ಗಳು"
 
-#: allthethings/page/templates/page/aarecord.html:288
+#: allthethings/page/templates/page/aarecord.html:352
 #, fuzzy
 msgid "page.md5.box.download.no_found"
 msgstr "ಯಾವುದೇ ಡೌನ್‌ಲೋಡ್‌ಗಳು ಕಂಡುಬಂದಿಲ್ಲ."
 
-#: allthethings/page/templates/page/aarecord.html:294
+#: allthethings/page/templates/page/aarecord.html:358
 #, fuzzy
 msgid "page.md5.box.download.no_issues_notice"
 msgstr "ಎಲ್ಲಾ ಡೌನ್‌ಲೋಡ್ ಆಯ್ಕೆಗಳು ಒಂದೇ ಫೈಲ್ ಹೊಂದಿವೆ ಮತ್ತು ಬಳಸಲು ಸುರಕ್ಷಿತವಾಗಿರುತ್ತವೆ. ಆದರೂ, ಇಂಟರ್ನೆಟ್‌ನಿಂದ ಫೈಲ್‌ಗಳನ್ನು ಡೌನ್‌ಲೋಡ್ ಮಾಡುವಾಗ, ವಿಶೇಷವಾಗಿ ಅನ್ನಾ’ಸ್ ಆರ್ಕೈವ್ ಹೊರಗಿನ ಸೈಟ್‌ಗಳಿಂದ, ಎಚ್ಚರಿಕೆಯಿಂದಿರಿ. ಉದಾಹರಣೆಗೆ, ನಿಮ್ಮ ಸಾಧನಗಳನ್ನು ನವೀಕರಿಸಿಡಲು ಖಚಿತಪಡಿಸಿಕೊಳ್ಳಿ."
 
-#: allthethings/page/templates/page/aarecord.html:300
+#: allthethings/page/templates/page/aarecord.html:364
 #: allthethings/page/templates/page/partner_download.html:83
 #, fuzzy
 msgid "page.md5.box.download.dl_managers"
 msgstr "ದೊಡ್ಡ ಫೈಲ್‌ಗಳಿಗೆ, ವ್ಯತ್ಯಯಗಳನ್ನು ತಡೆಯಲು ಡೌನ್‌ಲೋಡ್ ಮ್ಯಾನೇಜರ್ ಬಳಸುವಂತೆ ಶಿಫಾರಸು ಮಾಡಲಾಗುತ್ತದೆ."
 
-#: allthethings/page/templates/page/aarecord.html:301
+#: allthethings/page/templates/page/aarecord.html:365
 #: allthethings/page/templates/page/partner_download.html:84
 #, fuzzy
 msgid "page.md5.box.download.dl_managers.links"
 msgstr "ಶಿಫಾರಸು ಮಾಡಿದ ಡೌನ್‌ಲೋಡ್ ಮ್ಯಾನೇಜರ್‌ಗಳು: %(links)s"
 
-#: allthethings/page/templates/page/aarecord.html:309
+#: allthethings/page/templates/page/aarecord.html:373
 #, fuzzy
 msgid "page.md5.box.download.readers"
 msgstr "ಫೈಲ್ ಸ್ವರೂಪದ ಮೇಲೆ ಅವಲಂಬಿತವಾಗಿರುವ ಫೈಲ್ ಅನ್ನು ತೆರೆಯಲು ನಿಮಗೆ ಇಬುಕ್ ಅಥವಾ ಪಿಡಿಎಫ್ ರೀಡರ್ ಬೇಕಾಗುತ್ತದೆ."
 
-#: allthethings/page/templates/page/aarecord.html:310
+#: allthethings/page/templates/page/aarecord.html:374
 #, fuzzy
 msgid "page.md5.box.download.readers.links"
 msgstr "ಶಿಫಾರಸು ಮಾಡಿದ ಇಬುಕ್ ರೀಡರ್‌ಗಳು: %(links)s"
 
-#: allthethings/page/templates/page/aarecord.html:319
+#: allthethings/page/templates/page/aarecord.html:383
 #, fuzzy
 msgid "page.md5.box.download.conversion"
 msgstr "ಸ್ವರೂಪಗಳ ನಡುವೆ ಪರಿವರ್ತಿಸಲು ಆನ್‌ಲೈನ್ ಉಪಕರಣಗಳನ್ನು ಬಳಸಿ."
 
-#: allthethings/page/templates/page/aarecord.html:320
+#: allthethings/page/templates/page/aarecord.html:384
 #, fuzzy
 msgid "page.md5.box.download.conversion.links"
 msgstr "ಶಿಫಾರಸು ಮಾಡಿದ ಪರಿವರ್ತನೆ ಉಪಕರಣಗಳು: %(links)s"
 
-#: allthethings/page/templates/page/aarecord.html:328
+#: allthethings/page/templates/page/aarecord.html:392
 #, fuzzy
 msgid "page.md5.box.download.sendtokindle"
 msgstr "ನೀವು ಪಿಡಿಎಫ್ ಮತ್ತು ಇಪಬ್ ಫೈಲ್‌ಗಳನ್ನು ನಿಮ್ಮ ಕಿಂಡಲ್ ಅಥವಾ ಕೋಬೋ ಇ-ರೀಡರ್‌ಗೆ ಕಳುಹಿಸಬಹುದು."
 
-#: allthethings/page/templates/page/aarecord.html:329
+#: allthethings/page/templates/page/aarecord.html:393
 #, fuzzy
 msgid "page.md5.box.download.sendtokindle.links"
 msgstr "ಶಿಫಾರಸು ಮಾಡಿದ ಉಪಕರಣಗಳು: %(links)s"
 
-#: allthethings/page/templates/page/aarecord.html:332
+#: allthethings/page/templates/page/aarecord.html:396
 #, fuzzy
 msgid "page.md5.box.download.link.send_to_kindle"
 msgstr "ಅಮೆಜಾನ್‌ನ “ಕಿಂಡಲ್‌ಗೆ ಕಳುಹಿಸಿ”"
 
-#: allthethings/page/templates/page/aarecord.html:333
+#: allthethings/page/templates/page/aarecord.html:397
 #, fuzzy
 msgid "page.md5.box.download.link.send_to_kobokindle"
 msgstr "ಡಿಜಾಜ್‌ನ “ಕೋಬೋ/ಕಿಂಡಲ್‌ಗೆ ಕಳುಹಿಸಿ”"
 
-#: allthethings/page/templates/page/aarecord.html:338
+#: allthethings/page/templates/page/aarecord.html:402
 #, fuzzy
 msgid "page.md5.box.download.support"
 msgstr "ಲೇಖಕರು ಮತ್ತು ಗ್ರಂಥಾಲಯಗಳನ್ನು ಬೆಂಬಲಿಸಿ"
 
-#: allthethings/page/templates/page/aarecord.html:339
+#: allthethings/page/templates/page/aarecord.html:403
 #, fuzzy
 msgid "page.md5.box.download.support.authors"
 msgstr "ನೀವು ಇದನ್ನು ಇಷ್ಟಪಡುತ್ತೀರಿ ಮತ್ತು ಅದನ್ನು ಖರೀದಿಸಲು ಸಾಧ್ಯವಿದ್ದರೆ, ಮೂಲವನ್ನು ಖರೀದಿಸುವುದು ಅಥವಾ ನೇರವಾಗಿ ಲೇಖಕರನ್ನು ಬೆಂಬಲಿಸುವುದನ್ನು ಪರಿಗಣಿಸಿ."
 
-#: allthethings/page/templates/page/aarecord.html:340
+#: allthethings/page/templates/page/aarecord.html:404
 #, fuzzy
 msgid "page.md5.box.download.support.libraries"
 msgstr "ನಿಮ್ಮ ಸ್ಥಳೀಯ ಗ್ರಂಥಾಲಯದಲ್ಲಿ ಇದು ಲಭ್ಯವಿದ್ದರೆ, ಅದನ್ನು ಉಚಿತವಾಗಿ ಅಲ್ಲಿ ಸಾಲವಾಗಿ ತೆಗೆದುಕೊಳ್ಳಲು ಪರಿಗಣಿಸಿ."
 
-#: allthethings/page/templates/page/aarecord.html:371
+#: allthethings/page/templates/page/aarecord.html:442
 #, fuzzy
 msgid "page.md5.quality.header"
 msgstr "ಫೈಲ್ ಗುಣಮಟ್ಟ"
 
-#: allthethings/page/templates/page/aarecord.html:374
+#: allthethings/page/templates/page/aarecord.html:445
 #, fuzzy
 msgid "page.md5.quality.report"
 msgstr "ಈ ಫೈಲ್‌ನ ಗುಣಮಟ್ಟವನ್ನು ವರದಿ ಮಾಡುವ ಮೂಲಕ ಸಮುದಾಯಕ್ಕೆ ಸಹಾಯ ಮಾಡಿ! 🙌"
 
-#: allthethings/page/templates/page/aarecord.html:378
+#: allthethings/page/templates/page/aarecord.html:449
 #, fuzzy
 msgid "page.md5.quality.report_issue"
 msgstr "ಫೈಲ್ ಸಮಸ್ಯೆಯನ್ನು ವರದಿ ಮಾಡಿ (%(count)s)"
 
-#: allthethings/page/templates/page/aarecord.html:380
+#: allthethings/page/templates/page/aarecord.html:451
 #, fuzzy
 msgid "page.md5.quality.great_quality"
 msgstr "ಅದ್ಭುತ ಫೈಲ್ ಗುಣಮಟ್ಟ (%(count)s)"
 
-#: allthethings/page/templates/page/aarecord.html:380
+#: allthethings/page/templates/page/aarecord.html:451
 #, fuzzy
 msgid "page.md5.quality.add_comment"
 msgstr "ಕಾಮೆಂಟ್ ಸೇರಿಸಿ (%(count)s)"
 
-#: allthethings/page/templates/page/aarecord.html:383
+#: allthethings/page/templates/page/aarecord.html:454
 #, fuzzy
 msgid "page.md5.quality.logged_out_login"
 msgstr "ದಯವಿಟ್ಟು <a %(a_login)s>ಲಾಗಿನ್</a> ಮಾಡಿ."
 
-#: allthethings/page/templates/page/aarecord.html:387
+#: allthethings/page/templates/page/aarecord.html:458
 #, fuzzy
 msgid "page.md5.quality.what_is_wrong"
 msgstr "ಈ ಫೈಲ್‌ನಲ್ಲಿ ಏನು ತಪ್ಪಾಗಿದೆ?"
 
-#: allthethings/page/templates/page/aarecord.html:397
+#: allthethings/page/templates/page/aarecord.html:468
 #, fuzzy
 msgid "page.md5.quality.copyright"
 msgstr "ದಯವಿಟ್ಟು <a %(a_copyright)s>DMCA / ಕಾಪಿರೈಟ್ ದಾವೆ ಫಾರ್ಮ್</a> ಬಳಸಿ."
 
-#: allthethings/page/templates/page/aarecord.html:402
+#: allthethings/page/templates/page/aarecord.html:473
 #, fuzzy
 msgid "page.md5.quality.describe_the_issue"
 msgstr "ಸಮಸ್ಯೆಯನ್ನು ವಿವರಿಸಿ (ಅಗತ್ಯವಿದೆ)"
 
-#: allthethings/page/templates/page/aarecord.html:403
+#: allthethings/page/templates/page/aarecord.html:474
 #, fuzzy
 msgid "page.md5.quality.issue_description"
 msgstr "ಸಮಸ್ಯೆಯ ವಿವರಣೆ"
 
-#: allthethings/page/templates/page/aarecord.html:407
+#: allthethings/page/templates/page/aarecord.html:478
 #, fuzzy
 msgid "page.md5.quality.better_md5.text1"
 msgstr "ಈ ಫೈಲ್‌ನ ಉತ್ತಮ ಆವೃತ್ತಿಯ MD5 (ಅಗತ್ಯವಿದ್ದರೆ)."
 
-#: allthethings/page/templates/page/aarecord.html:407
+#: allthethings/page/templates/page/aarecord.html:478
 #, fuzzy
 msgid "page.md5.quality.better_md5.text2"
 msgstr "ಈ ಫೈಲ್‌ಗೆ ಹತ್ತಿರವಾಗಿ ಹೊಂದುವ ಮತ್ತೊಂದು ಫೈಲ್ (ಅದೇ ಆವೃತ್ತಿ, ಅದೇ ಫೈಲ್ ವಿಸ್ತರಣೆ) ಇದ್ದರೆ, ಈ ಫೈಲ್ ಬದಲು ಅದನ್ನು ಬಳಸಬೇಕು. ನೀವು Anna’s Archive ಹೊರಗಿನ ಈ ಫೈಲ್‌ನ ಉತ್ತಮ ಆವೃತ್ತಿಯನ್ನು ತಿಳಿದಿದ್ದರೆ, ದಯವಿಟ್ಟು <a %(a_upload)s>ಅಪ್‌ಲೋಡ್ ಮಾಡಿ</a>."
 
-#: allthethings/page/templates/page/aarecord.html:410
+#: allthethings/page/templates/page/aarecord.html:481
 #, fuzzy
 msgid "page.md5.quality.better_md5.line1"
 msgstr "ನೀವು URL ನಿಂದ md5 ಪಡೆಯಬಹುದು, ಉದಾ."
 
-#: allthethings/page/templates/page/aarecord.html:417
+#: allthethings/page/templates/page/aarecord.html:488
 #, fuzzy
 msgid "page.md5.quality.submit_report"
 msgstr "ವರದಿ ಸಲ್ಲಿಸಿ"
 
-#: allthethings/page/templates/page/aarecord.html:422
+#: allthethings/page/templates/page/aarecord.html:493
 #, fuzzy
 msgid "page.md5.quality.improve_the_metadata"
 msgstr "ಈ ಫೈಲ್‌ನ ಮೆಟಾಡೇಟಾವನ್ನು ನೀವು ಸ್ವತಃ ಹೇಗೆ ಸುಧಾರಿಸಬಹುದು ಎಂಬುದನ್ನು ಕಲಿಯಿರಿ."
 
-#: allthethings/page/templates/page/aarecord.html:426
+#: allthethings/page/templates/page/aarecord.html:497
 #, fuzzy
 msgid "page.md5.quality.report_thanks"
 msgstr "ನಿಮ್ಮ ವರದಿಯನ್ನು ಸಲ್ಲಿಸಿದ್ದಕ್ಕಾಗಿ ಧನ್ಯವಾದಗಳು. ಇದು ಈ ಪುಟದಲ್ಲಿ ತೋರಿಸಲಾಗುವುದು, ಮತ್ತು ಅಣ್ಣಾ (ನಾವು ಸರಿಯಾದ ಮಿತಿಯ ವ್ಯವಸ್ಥೆಯನ್ನು ಹೊಂದುವವರೆಗೆ) ಕೈಯಾರೆ ಪರಿಶೀಲಿಸುತ್ತಾರೆ."
 
-#: allthethings/page/templates/page/aarecord.html:427
+#: allthethings/page/templates/page/aarecord.html:498
 #, fuzzy
 msgid "page.md5.quality.report_error"
 msgstr "ಏನೋ ತಪ್ಪಾಗಿದೆ. ದಯವಿಟ್ಟು ಪುಟವನ್ನು ಮರುಲೋಡ್ ಮಾಡಿ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ."
 
-#: allthethings/page/templates/page/aarecord.html:433
+#: allthethings/page/templates/page/aarecord.html:504
 #, fuzzy
 msgid "page.md5.quality.great.summary"
 msgstr "ಈ ಫೈಲ್ ಉತ್ತಮ ಗುಣಮಟ್ಟದ್ದಾದರೆ, ನೀವು ಇದರ ಬಗ್ಗೆ ಏನಾದರೂ ಚರ್ಚಿಸಬಹುದು! ಇಲ್ಲದಿದ್ದರೆ, ದಯವಿಟ್ಟು “ಫೈಲ್ ಸಮಸ್ಯೆಯನ್ನು ವರದಿ ಮಾಡಿ” ಬಟನ್ ಬಳಸಿ."
 
-#: allthethings/page/templates/page/aarecord.html:435
+#: allthethings/page/templates/page/aarecord.html:506
 #, fuzzy
 msgid "page.md5.quality.loved_the_book"
 msgstr "ನನಗೆ ಈ ಪುಸ್ತಕ ತುಂಬಾ ಇಷ್ಟವಾಯಿತು!"
 
-#: allthethings/page/templates/page/aarecord.html:437
+#: allthethings/page/templates/page/aarecord.html:508
 #, fuzzy
 msgid "page.md5.quality.submit_comment"
 msgstr "ಕಾಮೆಂಟ್ ಮಾಡಿ"
 
-#: allthethings/page/templates/page/aarecord.html:441
+#: allthethings/page/templates/page/aarecord.html:512
 #, fuzzy
 msgid "page.md5.quality.comment_thanks"
 msgstr "ನೀವು ಕಾಮೆಂಟ್ ಮಾಡಿದ್ದೀರಿ. ಇದು ತೋರಿಸಲು ಒಂದು ನಿಮಿಷ ತೆಗೆದುಕೊಳ್ಳಬಹುದು."
 
-#: allthethings/page/templates/page/aarecord.html:442
+#: allthethings/page/templates/page/aarecord.html:513
 #, fuzzy
 msgid "page.md5.quality.comment_error"
 msgstr "ಏನೋ ತಪ್ಪಾಗಿದೆ. ದಯವಿಟ್ಟು ಪುಟವನ್ನು ಮರುಲೋಡ್ ಮಾಡಿ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ."
 
-#: allthethings/page/templates/page/aarecord.html:452
-#: allthethings/page/templates/page/aarecord.html:453
-#: allthethings/page/templates/page/torrents.html:36
-#: allthethings/page/templates/page/torrents.html:37
+#: allthethings/page/templates/page/aarecord.html:522
+#: allthethings/page/templates/page/aarecord.html:523
+#: allthethings/page/templates/page/torrents.html:40
+#: allthethings/page/templates/page/torrents.html:41
 #, fuzzy
 msgid "common.english_only"
 msgstr "ಇಂಗ್ಲಿಷ್‌ನಲ್ಲಿ ಮುಂದುವರಿಯುತ್ತದೆ."
 
-#: allthethings/page/templates/page/aarecord.html:474
+#: allthethings/page/templates/page/aarecord.html:544
 #, fuzzy
 msgid "page.md5.text.stats.total_downloads"
 msgstr "ಒಟ್ಟು ಡೌನ್‌ಲೋಡ್‌ಗಳು: %(total)s"
 
-#: allthethings/page/templates/page/aarecord.html:506
+#: allthethings/page/templates/page/aarecord.html:576
 #, fuzzy
 msgid "page.md5.text.md5_info.text1"
 msgstr "“ಫೈಲ್ MD5” ಎಂಬುದು ಫೈಲ್ ವಿಷಯದಿಂದ ಲೆಕ್ಕಹಾಕಲ್ಪಡುವ ಹ್ಯಾಶ್ ಆಗಿದ್ದು, ಆ ವಿಷಯದ ಆಧಾರದ ಮೇಲೆ ಸಮಂಜಸವಾಗಿ ವಿಶಿಷ್ಟವಾಗಿದೆ. ನಾವು ಇಲ್ಲಿ ಸೂಚಿಸಿರುವ ಎಲ್ಲಾ ಶ್ಯಾಡೋ ಲೈಬ್ರರಿಗಳು ಮುಖ್ಯವಾಗಿ ಫೈಲ್‌ಗಳನ್ನು ಗುರುತಿಸಲು MD5ಗಳನ್ನು ಬಳಸುತ್ತವೆ."
 
-#: allthethings/page/templates/page/aarecord.html:510
+#: allthethings/page/templates/page/aarecord.html:580
 #, fuzzy
 msgid "page.md5.text.md5_info.text2"
 msgstr "ಫೈಲ್ ಬಹುಶಃ ಹಲವಾರು ಶ್ಯಾಡೋ ಲೈಬ್ರರಿಗಳಲ್ಲಿ ಕಾಣಿಸಬಹುದು. ನಾವು ಸಂಗ್ರಹಿಸಿರುವ ವಿವಿಧ ಡೇಟಾಸೆಟ್‌ಗಳ ಬಗ್ಗೆ ಮಾಹಿತಿಗಾಗಿ, <a %(a_datasets)s>ಡೇಟಾಸೆಟ್‌ಗಳ ಪುಟ</a> ನೋಡಿ."
 
-#: allthethings/page/templates/page/aarecord.html:514
+#: allthethings/page/templates/page/aarecord.html:584
 #, fuzzy
 msgid "page.md5.text.ia_info.text1"
 msgstr "ಇದು <a %(a_ia)s>IA’s Controlled Digital Lending</a> ಲೈಬ್ರರಿಯಿಂದ ನಿರ್ವಹಿಸಲ್ಪಡುವ ಫೈಲ್ ಆಗಿದ್ದು, ಹುಡುಕಾಟಕ್ಕಾಗಿ ಅಣ್ಣಾ’ಸ್ ಆರ್ಕೈವ್ ಮೂಲಕ ಸೂಚಿಸಲಾಗಿದೆ. ನಾವು ಸಂಗ್ರಹಿಸಿರುವ ವಿವಿಧ ಡೇಟಾಸೆಟ್‌ಗಳ ಬಗ್ಗೆ ಮಾಹಿತಿಗಾಗಿ, <a %(a_datasets)s>ಡೇಟಾಸೆಟ್‌ಗಳ ಪುಟ</a> ನೋಡಿ."
 
-#: allthethings/page/templates/page/aarecord.html:519
+#: allthethings/page/templates/page/aarecord.html:589
 #, fuzzy
 msgid "page.md5.text.file_info.text1"
 msgstr "ಈ ವಿಶೇಷ ಫೈಲ್ ಬಗ್ಗೆ ಮಾಹಿತಿಗಾಗಿ, ಅದರ <a %(a_href)s>JSON ಫೈಲ್</a> ನೋಡಿ."
@@ -3899,7 +3918,7 @@ msgstr "ನಾವು ನಮ್ಮ ಸಂಗ್ರಹವನ್ನು ಮೆಟಾ
 
 #: allthethings/page/templates/page/datasets.html:505
 #: allthethings/page/templates/page/faq.html:191
-#: allthethings/page/templates/page/search.html:392
+#: allthethings/page/templates/page/search.html:396
 #, fuzzy
 msgid "page.faq.metadata.inspiration"
 msgstr "ಮೆಟಾಡೇಟಾ ಸಂಗ್ರಹಿಸಲು ನಮ್ಮ ಪ್ರೇರಣೆ ಆರೆನ್ ಸ್ವಾರ್ಟ್ಜ್ ಅವರ “ಪ್ರತಿ ಪ್ರಕಟಿತ ಪುಸ್ತಕಕ್ಕೆ ಒಂದು ವೆಬ್ ಪುಟ” ಎಂಬ ಗುರಿಯಾಗಿದೆ, ಇದಕ್ಕಾಗಿ ಅವರು <a %(a_openlib)s>Open Library</a> ಅನ್ನು ರಚಿಸಿದರು. ಆ ಯೋಜನೆ ಚೆನ್ನಾಗಿ ಮಾಡಿದೆ, ಆದರೆ ನಮ್ಮ ವಿಶಿಷ್ಟ ಸ್ಥಾನವು ಅವರಿಗೆ ಸಾಧ್ಯವಾಗದ ಮೆಟಾಡೇಟಾವನ್ನು ಪಡೆಯಲು ನಮಗೆ ಅವಕಾಶ ನೀಡುತ್ತದೆ. ಮತ್ತೊಂದು ಪ್ರೇರಣೆ ನಮ್ಮನ್ನು <a %(a_blog)s>ವಿಶ್ವದಲ್ಲಿ ಎಷ್ಟು ಪುಸ್ತಕಗಳಿವೆ</a> ಎಂಬುದನ್ನು ತಿಳಿಯಲು ಇಚ್ಛೆ ಇತ್ತು, ಆದ್ದರಿಂದ ನಾವು ಉಳಿಸಲು ಇನ್ನೂ ಎಷ್ಟು ಪುಸ್ತಕಗಳು ಉಳಿದಿವೆ ಎಂಬುದನ್ನು ಲೆಕ್ಕಹಾಕಬಹುದು."
@@ -3982,11 +4001,11 @@ msgstr "ಪುಸ್ತಕಗಳನ್ನು ಅರ್ಧ-ಸಾರ್ವಜನ�
 #: allthethings/page/templates/page/datasets_lgrs.html:81
 #: allthethings/page/templates/page/datasets_magzdb.html:66
 #: allthethings/page/templates/page/datasets_nexusstc.html:72
-#: allthethings/page/templates/page/datasets_oclc.html:63
+#: allthethings/page/templates/page/datasets_oclc.html:120
 #: allthethings/page/templates/page/datasets_ol.html:44
-#: allthethings/page/templates/page/datasets_other_metadata.html:150
+#: allthethings/page/templates/page/datasets_other_metadata.html:72
 #: allthethings/page/templates/page/datasets_scihub.html:90
-#: allthethings/page/templates/page/datasets_upload.html:221
+#: allthethings/page/templates/page/datasets_upload.html:104
 #: allthethings/page/templates/page/datasets_zlib.html:63
 #, fuzzy
 msgid "page.datasets.common.resources"
@@ -3999,7 +4018,7 @@ msgstr "ಸಂಪನ್ಮೂಲಗಳು"
 #: allthethings/page/templates/page/datasets_magzdb.html:68
 #: allthethings/page/templates/page/datasets_nexusstc.html:74
 #: allthethings/page/templates/page/datasets_scihub.html:92
-#: allthethings/page/templates/page/datasets_upload.html:223
+#: allthethings/page/templates/page/datasets_upload.html:106
 #: allthethings/page/templates/page/datasets_zlib.html:67
 #: allthethings/page/templates/page/datasets_zlib.html:74
 #, fuzzy
@@ -4013,7 +4032,7 @@ msgstr "ಒಟ್ಟು ಫೈಲ್‌ಗಳು: %(count)s"
 #: allthethings/page/templates/page/datasets_magzdb.html:69
 #: allthethings/page/templates/page/datasets_nexusstc.html:75
 #: allthethings/page/templates/page/datasets_scihub.html:93
-#: allthethings/page/templates/page/datasets_upload.html:224
+#: allthethings/page/templates/page/datasets_upload.html:107
 #: allthethings/page/templates/page/datasets_zlib.html:68
 #: allthethings/page/templates/page/datasets_zlib.html:75
 #, fuzzy
@@ -4027,7 +4046,7 @@ msgstr "ಒಟ್ಟು ಫೈಲ್‌ಸೈಜ್: %(size)s"
 #: allthethings/page/templates/page/datasets_magzdb.html:70
 #: allthethings/page/templates/page/datasets_nexusstc.html:76
 #: allthethings/page/templates/page/datasets_scihub.html:94
-#: allthethings/page/templates/page/datasets_upload.html:225
+#: allthethings/page/templates/page/datasets_upload.html:108
 #: allthethings/page/templates/page/datasets_zlib.html:69
 #: allthethings/page/templates/page/datasets_zlib.html:76
 #, fuzzy
@@ -4040,7 +4059,7 @@ msgstr "ಅನ್ನಾ’ಸ್ ಆರ್ಕೈವ್ ಮೂಲಕ ಮಿರರ
 #: allthethings/page/templates/page/datasets_lgrs.html:86
 #: allthethings/page/templates/page/datasets_magzdb.html:71
 #: allthethings/page/templates/page/datasets_nexusstc.html:77
-#: allthethings/page/templates/page/datasets_oclc.html:65
+#: allthethings/page/templates/page/datasets_oclc.html:122
 #: allthethings/page/templates/page/datasets_ol.html:46
 #: allthethings/page/templates/page/datasets_zlib.html:79
 #, fuzzy
@@ -4057,10 +4076,10 @@ msgstr "ಅನ್ನಾ’ಸ್ ಆರ್ಕೈವ್ ಟೊರೆಂಟ್ಸ�
 #: allthethings/page/templates/page/datasets_ia.html:79
 #: allthethings/page/templates/page/datasets_lgli.html:113
 #: allthethings/page/templates/page/datasets_lgrs.html:90
-#: allthethings/page/templates/page/datasets_oclc.html:67
+#: allthethings/page/templates/page/datasets_oclc.html:124
 #: allthethings/page/templates/page/datasets_ol.html:47
 #: allthethings/page/templates/page/datasets_scihub.html:96
-#: allthethings/page/templates/page/datasets_upload.html:227
+#: allthethings/page/templates/page/datasets_upload.html:110
 #, fuzzy
 msgid "page.datasets.common.aa_example_record"
 msgstr "ಅನ್ನಾ’ಸ್ ಆರ್ಕೈವ್‌ನಲ್ಲಿ ಉದಾಹರಣೆಯ ದಾಖಲೆ"
@@ -4076,11 +4095,11 @@ msgstr "ಈ ಡೇಟಾದ ಬಗ್ಗೆ ನಮ್ಮ ಬ್ಲಾಗ್ ಪ�
 #: allthethings/page/templates/page/datasets_lgrs.html:101
 #: allthethings/page/templates/page/datasets_magzdb.html:78
 #: allthethings/page/templates/page/datasets_nexusstc.html:92
-#: allthethings/page/templates/page/datasets_oclc.html:70
+#: allthethings/page/templates/page/datasets_oclc.html:127
 #: allthethings/page/templates/page/datasets_ol.html:50
-#: allthethings/page/templates/page/datasets_other_metadata.html:153
+#: allthethings/page/templates/page/datasets_other_metadata.html:75
 #: allthethings/page/templates/page/datasets_scihub.html:104
-#: allthethings/page/templates/page/datasets_upload.html:228
+#: allthethings/page/templates/page/datasets_upload.html:111
 #: allthethings/page/templates/page/datasets_zlib.html:87
 #, fuzzy
 msgid "page.datasets.common.import_scripts"
@@ -4092,11 +4111,11 @@ msgstr "ಮೆಟಾಡೇಟಾ ಆಮದು ಮಾಡಲು ಸ್ಕ್ರಿ
 #: allthethings/page/templates/page/datasets_lgrs.html:102
 #: allthethings/page/templates/page/datasets_magzdb.html:79
 #: allthethings/page/templates/page/datasets_nexusstc.html:93
-#: allthethings/page/templates/page/datasets_oclc.html:71
+#: allthethings/page/templates/page/datasets_oclc.html:128
 #: allthethings/page/templates/page/datasets_ol.html:51
-#: allthethings/page/templates/page/datasets_other_metadata.html:154
+#: allthethings/page/templates/page/datasets_other_metadata.html:76
 #: allthethings/page/templates/page/datasets_scihub.html:105
-#: allthethings/page/templates/page/datasets_upload.html:229
+#: allthethings/page/templates/page/datasets_upload.html:112
 #: allthethings/page/templates/page/datasets_zlib.html:88
 #, fuzzy
 msgid "page.datasets.common.aac"
@@ -4142,7 +4161,7 @@ msgstr "AAC ಬಳಸಿ ಹಂತ ಹಂತವಾಗಿ ಹೊಸ ಬಿಡು�
 #: allthethings/page/templates/page/datasets_ia.html:80
 #: allthethings/page/templates/page/datasets_lgli.html:114
 #: allthethings/page/templates/page/datasets_lgrs.html:91
-#: allthethings/page/templates/page/datasets_oclc.html:68
+#: allthethings/page/templates/page/datasets_oclc.html:125
 #: allthethings/page/templates/page/datasets_ol.html:48
 #: allthethings/page/templates/page/datasets_scihub.html:97
 #, fuzzy
@@ -4437,7 +4456,7 @@ msgstr "Z-Library ಸಂಗ್ರಹದಂತೆ, ನಾವು ಅವುಗಳ�
 
 #: allthethings/page/templates/page/datasets_oclc.html:4
 #: allthethings/page/templates/page/datasets_oclc.html:7
-#: allthethings/page/templates/page/datasets_oclc.html:68
+#: allthethings/page/templates/page/datasets_oclc.html:125
 #, fuzzy
 msgid "page.datasets.worldcat.title"
 msgstr "OCLC (ವಿಶ್ವಕ್ಯಾಟ್)"
@@ -4447,17 +4466,17 @@ msgstr "OCLC (ವಿಶ್ವಕ್ಯಾಟ್)"
 msgid "page.datasets.worldcat.description"
 msgstr "<a %(a_worldcat)s>ವಿಶ್ವಕ್ಯಾಟ್</a> ಒಂದು ಸ್ವಂತ ಡೇಟಾಬೇಸ್ ಆಗಿದ್ದು, ಲಾಭರಹಿತ <a %(a_oclc)s>OCLC</a> ಮೂಲಕ ನಿರ್ವಹಿಸಲಾಗುತ್ತದೆ, ಇದು ವಿಶ್ವದಾದ್ಯಂತದ ಗ್ರಂಥಾಲಯಗಳಿಂದ ಮೆಟಾಡೇಟಾ ದಾಖಲೆಗಳನ್ನು ಸಂಗ್ರಹಿಸುತ್ತದೆ. ಇದು ವಿಶ್ವದ ಅತಿದೊಡ್ಡ ಗ್ರಂಥಾಲಯ ಮೆಟಾಡೇಟಾ ಸಂಗ್ರಹವಾಗಿರುವ ಸಾಧ್ಯತೆ ಇದೆ."
 
-#: allthethings/page/templates/page/datasets_oclc.html:52
+#: allthethings/page/templates/page/datasets_oclc.html:54
 #, fuzzy
 msgid "page.datasets.worldcat.description2"
 msgstr "ಅಕ್ಟೋಬರ್ 2023 ರಲ್ಲಿ ನಾವು <a %(a_scrape)s>OCLC (ವಿಶ್ವಕ್ಯಾಟ್) ಡೇಟಾಬೇಸ್</a> ನ ಸಮಗ್ರ ಸ್ಕ್ರೇಪ್ ಅನ್ನು ಬಿಡುಗಡೆ ಮಾಡಿದ್ದೇವೆ, <a %(a_aac)s>ಅನ್ನಾ’ಸ್ ಆರ್ಕೈವ್ ಕಂಟೈನರ್‌ಗಳ ಸ್ವರೂಪದಲ್ಲಿ</a>."
 
-#: allthethings/page/templates/page/datasets_oclc.html:66
+#: allthethings/page/templates/page/datasets_oclc.html:123
 #, fuzzy
 msgid "page.datasets.worldcat.torrents"
 msgstr "ಅನ್ನಾ’ಸ್ ಆರ್ಕೈವ್ ಮೂಲಕ ಟೋರಂಟ್‌ಗಳು"
 
-#: allthethings/page/templates/page/datasets_oclc.html:69
+#: allthethings/page/templates/page/datasets_oclc.html:126
 #, fuzzy
 msgid "page.datasets.worldcat.blog_announcement"
 msgstr "ಈ ಡೇಟಾ ಬಗ್ಗೆ ನಮ್ಮ ಬ್ಲಾಗ್ ಪೋಸ್ಟ್"
@@ -4479,22 +4498,22 @@ msgstr "Open Library ಪ್ರಪಂಚದ ಪ್ರತಿಯೊಂದು ಪು
 msgid "page.datesets.openlib.link_metadata"
 msgstr "ಮೆಟಾಡೇಟಾ"
 
-#: allthethings/page/templates/page/datasets_other_metadata.html:92
+#: allthethings/page/templates/page/datasets_other_metadata.html:61
 #, fuzzy
 msgid "page.datasets.isbndb.release1.title"
 msgstr "ರಿಲೀಸ್ 1 (2022-10-31)"
 
-#: allthethings/page/templates/page/datasets_other_metadata.html:93
+#: allthethings/page/templates/page/datasets_other_metadata.html:61
 #, fuzzy
 msgid "page.datasets.isbndb.release1.text1"
 msgstr "ಇದು ಸೆಪ್ಟೆಂಬರ್ 2022 ರಲ್ಲಿ isbndb.com ಗೆ ಹಲವಾರು ಕರೆಗಳ ಡಂಪ್ ಆಗಿದೆ. ನಾವು ಎಲ್ಲಾ ಐಎಸ್‌ಬಿಎನ್ ಶ್ರೇಣಿಗಳನ್ನು ಆವರಿಸಲು ಪ್ರಯತ್ನಿಸಿದ್ದೇವೆ. ಇವು ಸುಮಾರು 30.9 ಮಿಲಿಯನ್ ದಾಖಲೆಗಳಾಗಿವೆ. ಅವರ ವೆಬ್‌ಸೈಟ್‌ನಲ್ಲಿ ಅವರು ವಾಸ್ತವವಾಗಿ 32.6 ಮಿಲಿಯನ್ ದಾಖಲೆಗಳನ್ನು ಹೊಂದಿದ್ದಾರೆ ಎಂದು ಅವರು ಹೇಳುತ್ತಾರೆ, ಆದ್ದರಿಂದ ನಾವು ಯಾವುದೋ ರೀತಿಯಲ್ಲಿ ಕೆಲವು ತಪ್ಪಿಸಿಕೊಂಡಿರಬಹುದು, ಅಥವಾ <em>ಅವರು</em> ಏನಾದರೂ ತಪ್ಪು ಮಾಡಬಹುದು."
 
-#: allthethings/page/templates/page/datasets_other_metadata.html:94
+#: allthethings/page/templates/page/datasets_other_metadata.html:61
 #, fuzzy
 msgid "page.datasets.isbndb.release1.text2"
 msgstr "JSON ಪ್ರತಿಕ್ರಿಯೆಗಳು ಅವರ ಸರ್ವರ್‌ನಿಂದ ಬಹಳಷ್ಟು ಕಚ್ಚಾ ಆಗಿವೆ. ನಾವು ಗಮನಿಸಿದ ಒಂದು ಡೇಟಾ ಗುಣಮಟ್ಟದ ಸಮಸ್ಯೆ ಎಂದರೆ, “978-” ಎಂಬ ವಿಭಿನ್ನ ಪೂರ್ವಪ್ರತ್ಯಯದಿಂದ ಪ್ರಾರಂಭವಾಗುವ ISBN-13 ಸಂಖ್ಯೆಗಳಿಗಾಗಿ, ಅವರು ಇನ್ನೂ “isbn” ಕ್ಷೇತ್ರವನ್ನು ಸೇರಿಸುತ್ತಾರೆ ಅದು ಸರಳವಾಗಿ ಮೊದಲ 3 ಸಂಖ್ಯೆಗಳೊಂದಿಗೆ ISBN-13 ಸಂಖ್ಯೆಯಾಗಿದೆ (ಮತ್ತು ಪರಿಶೀಲನಾ ಅಂಕಿಯನ್ನು ಮರುಗಣಿಸಲಾಗಿದೆ). ಇದು ಸ್ಪಷ್ಟವಾಗಿ ತಪ್ಪಾಗಿದೆ, ಆದರೆ ಅವರು ಇದನ್ನು ಹೇಗೆ ಮಾಡುತ್ತಾರೆ ಎಂಬುದೇ ಇದು, ಆದ್ದರಿಂದ ನಾವು ಅದನ್ನು ಬದಲಾಯಿಸಲಿಲ್ಲ."
 
-#: allthethings/page/templates/page/datasets_other_metadata.html:95
+#: allthethings/page/templates/page/datasets_other_metadata.html:61
 #, fuzzy
 msgid "page.datasets.isbndb.release1.text3"
 msgstr "ನೀವು ಎದುರಿಸಬಹುದಾದ ಮತ್ತೊಂದು ಸಾಧ್ಯತೆಯ ಸಮಸ್ಯೆ ಎಂದರೆ, “isbn13” ಕ್ಷೇತ್ರವು ನಕಲುಗಳನ್ನು ಹೊಂದಿದೆ, ಆದ್ದರಿಂದ ನೀವು ಅದನ್ನು ಡೇಟಾಬೇಸ್‌ನಲ್ಲಿ ಪ್ರಾಥಮಿಕ ಕೀ ಆಗಿ ಬಳಸಲು ಸಾಧ್ಯವಿಲ್ಲ. “isbn13”+“isbn” ಕ್ಷೇತ್ರಗಳು ಸಂಯೋಜಿತವಾಗಿರುವುದರಿಂದ ಅವು ಅನನ್ಯವಾಗುತ್ತವೆ."
@@ -4587,162 +4606,189 @@ msgstr "ಅನೆಕ ಉಪಸಂಗ್ರಹಗಳು ತಾವೇ ಉಪ-ಉ�
 msgid "page.datasets.upload.subs.heading"
 msgstr "ಉಪಸಂಗ್ರಹಗಳು:"
 
+#: allthethings/page/templates/page/datasets_upload.html:63
+#: allthethings/page/templates/page/datasets_upload.html:64
 #: allthethings/page/templates/page/datasets_upload.html:65
+#: allthethings/page/templates/page/datasets_upload.html:66
+#: allthethings/page/templates/page/datasets_upload.html:67
+#: allthethings/page/templates/page/datasets_upload.html:68
+#: allthethings/page/templates/page/datasets_upload.html:69
+#: allthethings/page/templates/page/datasets_upload.html:70
+#: allthethings/page/templates/page/datasets_upload.html:71
 #: allthethings/page/templates/page/datasets_upload.html:72
+#: allthethings/page/templates/page/datasets_upload.html:73
+#: allthethings/page/templates/page/datasets_upload.html:74
+#: allthethings/page/templates/page/datasets_upload.html:75
+#: allthethings/page/templates/page/datasets_upload.html:76
+#: allthethings/page/templates/page/datasets_upload.html:77
+#: allthethings/page/templates/page/datasets_upload.html:78
 #: allthethings/page/templates/page/datasets_upload.html:79
+#: allthethings/page/templates/page/datasets_upload.html:80
+#: allthethings/page/templates/page/datasets_upload.html:81
+#: allthethings/page/templates/page/datasets_upload.html:82
+#: allthethings/page/templates/page/datasets_upload.html:83
+#: allthethings/page/templates/page/datasets_upload.html:84
+#: allthethings/page/templates/page/datasets_upload.html:85
 #: allthethings/page/templates/page/datasets_upload.html:86
+#: allthethings/page/templates/page/datasets_upload.html:87
+#: allthethings/page/templates/page/datasets_upload.html:88
+#: allthethings/page/templates/page/datasets_upload.html:89
+#: allthethings/page/templates/page/datasets_upload.html:90
+#: allthethings/page/templates/page/datasets_upload.html:91
+#: allthethings/page/templates/page/datasets_upload.html:92
 #: allthethings/page/templates/page/datasets_upload.html:93
-#: allthethings/page/templates/page/datasets_upload.html:100
-#: allthethings/page/templates/page/datasets_upload.html:107
-#: allthethings/page/templates/page/datasets_upload.html:114
-#: allthethings/page/templates/page/datasets_upload.html:121
-#: allthethings/page/templates/page/datasets_upload.html:128
-#: allthethings/page/templates/page/datasets_upload.html:135
-#: allthethings/page/templates/page/datasets_upload.html:142
-#: allthethings/page/templates/page/datasets_upload.html:149
-#: allthethings/page/templates/page/datasets_upload.html:156
-#: allthethings/page/templates/page/datasets_upload.html:163
-#: allthethings/page/templates/page/datasets_upload.html:170
-#: allthethings/page/templates/page/datasets_upload.html:177
-#: allthethings/page/templates/page/datasets_upload.html:184
-#: allthethings/page/templates/page/datasets_upload.html:191
-#: allthethings/page/templates/page/datasets_upload.html:198
-#: allthethings/page/templates/page/datasets_upload.html:212
+#: allthethings/page/templates/page/datasets_upload.html:94
+#: allthethings/page/templates/page/datasets_upload.html:95
+#: allthethings/page/templates/page/datasets_upload.html:96
+#: allthethings/page/templates/page/datasets_upload.html:97
+#: allthethings/page/templates/page/datasets_upload.html:98
+#: allthethings/page/templates/page/datasets_upload.html:99
 #, fuzzy
 msgid "page.datasets.upload.action.browse"
 msgstr "ಅನುಸಂಧಾನ"
 
+#: allthethings/page/templates/page/datasets_upload.html:63
+#: allthethings/page/templates/page/datasets_upload.html:64
+#: allthethings/page/templates/page/datasets_upload.html:65
 #: allthethings/page/templates/page/datasets_upload.html:66
+#: allthethings/page/templates/page/datasets_upload.html:67
+#: allthethings/page/templates/page/datasets_upload.html:68
+#: allthethings/page/templates/page/datasets_upload.html:69
+#: allthethings/page/templates/page/datasets_upload.html:70
+#: allthethings/page/templates/page/datasets_upload.html:71
+#: allthethings/page/templates/page/datasets_upload.html:72
 #: allthethings/page/templates/page/datasets_upload.html:73
+#: allthethings/page/templates/page/datasets_upload.html:74
+#: allthethings/page/templates/page/datasets_upload.html:75
+#: allthethings/page/templates/page/datasets_upload.html:76
+#: allthethings/page/templates/page/datasets_upload.html:77
+#: allthethings/page/templates/page/datasets_upload.html:78
+#: allthethings/page/templates/page/datasets_upload.html:79
 #: allthethings/page/templates/page/datasets_upload.html:80
+#: allthethings/page/templates/page/datasets_upload.html:81
+#: allthethings/page/templates/page/datasets_upload.html:82
+#: allthethings/page/templates/page/datasets_upload.html:83
+#: allthethings/page/templates/page/datasets_upload.html:84
+#: allthethings/page/templates/page/datasets_upload.html:85
+#: allthethings/page/templates/page/datasets_upload.html:86
 #: allthethings/page/templates/page/datasets_upload.html:87
+#: allthethings/page/templates/page/datasets_upload.html:88
+#: allthethings/page/templates/page/datasets_upload.html:89
+#: allthethings/page/templates/page/datasets_upload.html:90
+#: allthethings/page/templates/page/datasets_upload.html:91
+#: allthethings/page/templates/page/datasets_upload.html:92
+#: allthethings/page/templates/page/datasets_upload.html:93
 #: allthethings/page/templates/page/datasets_upload.html:94
-#: allthethings/page/templates/page/datasets_upload.html:101
-#: allthethings/page/templates/page/datasets_upload.html:108
-#: allthethings/page/templates/page/datasets_upload.html:115
-#: allthethings/page/templates/page/datasets_upload.html:122
-#: allthethings/page/templates/page/datasets_upload.html:129
-#: allthethings/page/templates/page/datasets_upload.html:136
-#: allthethings/page/templates/page/datasets_upload.html:143
-#: allthethings/page/templates/page/datasets_upload.html:150
-#: allthethings/page/templates/page/datasets_upload.html:157
-#: allthethings/page/templates/page/datasets_upload.html:164
-#: allthethings/page/templates/page/datasets_upload.html:171
-#: allthethings/page/templates/page/datasets_upload.html:178
-#: allthethings/page/templates/page/datasets_upload.html:185
-#: allthethings/page/templates/page/datasets_upload.html:192
-#: allthethings/page/templates/page/datasets_upload.html:199
-#: allthethings/page/templates/page/datasets_upload.html:213
+#: allthethings/page/templates/page/datasets_upload.html:95
+#: allthethings/page/templates/page/datasets_upload.html:96
+#: allthethings/page/templates/page/datasets_upload.html:97
+#: allthethings/page/templates/page/datasets_upload.html:98
+#: allthethings/page/templates/page/datasets_upload.html:99
 #, fuzzy
 msgid "page.datasets.upload.action.search"
 msgstr "ಹುಡುಕು"
 
-#: allthethings/page/templates/page/datasets_upload.html:67
+#: allthethings/page/templates/page/datasets_upload.html:63
 #, fuzzy
 msgid "page.datasets.upload.source.aaaaarg"
 msgstr "<a %(a_href)s>aaaaarg.fail</a> ನಿಂದ. ಸಂಪೂರ್ಣವಾಗಿದೆ ಎಂದು ತೋರುತ್ತದೆ. ನಮ್ಮ ಸ್ವಯಂಸೇವಕ “cgiym” ನಿಂದ."
 
-#: allthethings/page/templates/page/datasets_upload.html:74
+#: allthethings/page/templates/page/datasets_upload.html:64
 #, fuzzy
 msgid "page.datasets.upload.source.acm"
 msgstr "<a %(a_href)s><q>ACM ಡಿಜಿಟಲ್ ಲೈಬ್ರರಿ 2020</q></a> ಟೊರೆಂಟ್‌ನಿಂದ. ಇತರ ಪೇಪರ್‌ಗಳ ಸಂಗ್ರಹಗಳೊಂದಿಗೆ ಬಹಳಷ್ಟು ಹೋಲಿಕೆ ಇದೆ, ಆದರೆ ಬಹಳ ಕಡಿಮೆ MD5 ಹೊಂದಾಣಿಕೆ, ಆದ್ದರಿಂದ ನಾವು ಅದನ್ನು ಸಂಪೂರ್ಣವಾಗಿ ಉಳಿಸಲು ನಿರ್ಧರಿಸಿದ್ದೇವೆ."
 
-#: allthethings/page/templates/page/datasets_upload.html:81
-#, fuzzy
-msgid "page.datasets.upload.source.alexandrina"
-msgstr "ಅಲೆಕ್ಸಾಂಡ್ರಿಯಾ ಗ್ರಂಥಾಲಯದ ಸಂಗ್ರಹದಿಂದ <a %(a_href)s><q>ಅಲೆಕ್ಸಾಂಡ್ರಿಯಾ ಗ್ರಂಥಾಲಯ,</q></a> ನಿಖರವಾದ ಮೂಲ ಸ್ಪಷ್ಟವಿಲ್ಲ. ಭಾಗಶಃ the-eye.eu ನಿಂದ, ಭಾಗಶಃ ಇತರ ಮೂಲಗಳಿಂದ."
-
-#: allthethings/page/templates/page/datasets_upload.html:88
+#: allthethings/page/templates/page/datasets_upload.html:67
 #, fuzzy
 msgid "page.datasets.upload.source.bibliotik"
 msgstr "ಖಾಸಗಿ ಪುಸ್ತಕಗಳ ಟೊರೆಂಟ್ ವೆಬ್‌ಸೈಟ್, <a %(a_href)s>Bibliotik</a> (ಅನೆಕ ಬಾರಿ “Bib” ಎಂದು ಕರೆಯಲಾಗುತ್ತದೆ), ಅಲ್ಲಿ ಪುಸ್ತಕಗಳನ್ನು ಹೆಸರಿನ ಮೂಲಕ ಟೊರೆಂಟ್‌ಗಳಲ್ಲಿ ಗುಂಪುಗೊಳಿಸಲಾಗಿತ್ತು (A.torrent, B.torrent) ಮತ್ತು the-eye.eu ಮೂಲಕ ವಿತರಿಸಲಾಯಿತು."
 
-#: allthethings/page/templates/page/datasets_upload.html:95
+#: allthethings/page/templates/page/datasets_upload.html:68
 #, fuzzy
 msgid "page.datasets.upload.source.bpb9v_cadal"
 msgstr "ನಮ್ಮ ಸ್ವಯಂಸೇವಕ “bpb9v” ಯಿಂದ. <a %(a_href)s>CADAL</a> ಬಗ್ಗೆ ಹೆಚ್ಚಿನ ಮಾಹಿತಿಗಾಗಿ, ನಮ್ಮ <a %(a_duxiu)s>DuXiu ಡೇಟಾಸೆಟ್ ಪುಟ</a>ದಲ್ಲಿ ಟಿಪ್ಪಣಿಗಳನ್ನು ನೋಡಿ."
 
-#: allthethings/page/templates/page/datasets_upload.html:102
+#: allthethings/page/templates/page/datasets_upload.html:69
 #, fuzzy
 msgid "page.datasets.upload.source.bpb9v_direct"
 msgstr "ನಮ್ಮ ಸ್ವಯಂಸೇವಕ “bpb9v” ಯಿಂದ ಇನ್ನಷ್ಟು, ಮುಖ್ಯವಾಗಿ DuXiu ಫೈಲ್‌ಗಳು, ಜೊತೆಗೆ “WenQu” ಮತ್ತು “SuperStar_Journals” (SuperStar DuXiu ಹಿಂದೆ ಇರುವ ಕಂಪನಿ) ಫೋಲ್ಡರ್."
 
-#: allthethings/page/templates/page/datasets_upload.html:109
+#: allthethings/page/templates/page/datasets_upload.html:70
 #, fuzzy
 msgid "page.datasets.upload.source.cgiym_chinese"
 msgstr "ನಮ್ಮ ಸ್ವಯಂಸೇವಕ “cgiym” ಯಿಂದ, ವಿವಿಧ ಮೂಲಗಳಿಂದ ಚೀನೀ ಪಠ್ಯಗಳು (ಉಪಡೈರೆಕ್ಟರಿಗಳಾಗಿ ಪ್ರತಿನಿಧಿಸಲಾಗಿದೆ), <a %(a_href)s>ಚೀನಾ ಮೆಷಿನ್ ಪ್ರೆಸ್</a> (ಪ್ರಮುಖ ಚೀನೀ ಪ್ರಕಾಶಕ) ನಿಂದ ಸೇರಿ."
 
-#: allthethings/page/templates/page/datasets_upload.html:116
+#: allthethings/page/templates/page/datasets_upload.html:71
 #, fuzzy
 msgid "page.datasets.upload.source.cgiym_more"
 msgstr "ನಾನ್-ಚೈನೀಸ್ ಸಂಗ್ರಹಗಳು (ಉಪಡೈರೆಕ್ಟರಿಗಳಾಗಿ ಪ್ರತಿನಿಧಿಸಲ್ಪಟ್ಟಿವೆ) ನಮ್ಮ ಸ್ವಯಂಸೇವಕ “cgiym” ನಿಂದ."
 
-#: allthethings/page/templates/page/datasets_upload.html:123
+#: allthethings/page/templates/page/datasets_upload.html:73
 #, fuzzy
 msgid "page.datasets.upload.source.degruyter"
 msgstr "ಅಕಾಡೆಮಿಕ್ ಪ್ರಕಾಶನ ಸಂಸ್ಥೆ <a %(a_href)s>De Gruyter</a> ನಿಂದ ಪುಸ್ತಕಗಳು, ಕೆಲವು ದೊಡ್ಡ ಟೊರೆಂಟ್‌ಗಳಿಂದ ಸಂಗ್ರಹಿಸಲಾಗಿದೆ."
 
-#: allthethings/page/templates/page/datasets_upload.html:130
+#: allthethings/page/templates/page/datasets_upload.html:74
 #, fuzzy
 msgid "page.datasets.upload.source.docer"
 msgstr "<a %(a_href)s>docer.pl</a> ನ ಸ್ಕ್ರೇಪ್, ಪುಸ್ತಕಗಳು ಮತ್ತು ಇತರ ಬರಹಿತ ಕೃತಿಗಳ ಮೇಲೆ ಕೇಂದ್ರೀಕೃತವಾದ ಪೋಲಿಷ್ ಫೈಲ್ ಶೇರ್‌ ಮಾಡುವ ವೆಬ್‌ಸೈಟ್. 2023ರ ಕೊನೆಯಲ್ಲಿ ಸ್ವಯಂಸೇವಕ “p” ನಿಂದ ಸ್ಕ್ರೇಪ್ ಮಾಡಲಾಗಿದೆ. ಮೂಲ ವೆಬ್‌ಸೈಟ್‌ನಿಂದ ಉತ್ತಮ ಮೆಟಾಡೇಟಾ ನಮಗೆ ಇಲ್ಲ (ಫೈಲ್ ವಿಸ್ತರಣೆಗಳೂ ಸಹ ಇಲ್ಲ), ಆದರೆ ನಾವು ಪುಸ್ತಕದಂತಿರುವ ಫೈಲ್‌ಗಳನ್ನು ಫಿಲ್ಟರ್ ಮಾಡಿದ್ದೇವೆ ಮತ್ತು ಫೈಲ್‌ಗಳಿಂದಲೇ ಮೆಟಾಡೇಟಾ ಹೊರತೆಗೆದಿದ್ದೇವೆ."
 
-#: allthethings/page/templates/page/datasets_upload.html:137
+#: allthethings/page/templates/page/datasets_upload.html:75
 #, fuzzy
 msgid "page.datasets.upload.source.duxiu_epub"
 msgstr "DuXiu epubs, ನೇರವಾಗಿ DuXiu ನಿಂದ, ಸ್ವಯಂಸೇವಕ “w” ನಿಂದ ಸಂಗ್ರಹಿಸಲಾಗಿದೆ. ಇತ್ತೀಚಿನ DuXiu ಪುಸ್ತಕಗಳು ಮಾತ್ರ ನೇರವಾಗಿ ಇಬುಕ್ಸ್ ಮೂಲಕ ಲಭ್ಯವಿವೆ, ಆದ್ದರಿಂದ ಇವುಗಳಲ್ಲಿ ಹೆಚ್ಚಿನವು ಇತ್ತೀಚಿನವು."
 
-#: allthethings/page/templates/page/datasets_upload.html:144
+#: allthethings/page/templates/page/datasets_upload.html:76
 #, fuzzy
 msgid "page.datasets.upload.source.duxiu_main"
 msgstr "DuXiu ಸ್ವಂತ PDG ಸ್ವರೂಪದಲ್ಲಿಲ್ಲದ ಸ್ವಯಂಸೇವಕ “m” ನಿಂದ ಉಳಿದ DuXiu ಕಡತಗಳು (ಮುಖ್ಯ <a %(a_href)s>DuXiu ಡೇಟಾಸೆಟ್</a>). ಅನೇಕ ಮೂಲ ಮೂಲಗಳಿಂದ ಸಂಗ್ರಹಿಸಲಾಗಿದೆ, ದುರದೃಷ್ಟವಶಾತ್ ಆ ಮೂಲಗಳನ್ನು ಫೈಲ್‌ಪಾತ್‌ನಲ್ಲಿ ಉಳಿಸದೆ."
 
-#: allthethings/page/templates/page/datasets_upload.html:151
+#: allthethings/page/templates/page/datasets_upload.html:83
 #, fuzzy
 msgid "page.datasets.upload.source.japanese_manga"
 msgstr "ಜಪಾನೀಸ್ ಮಂಗಾ ಪ್ರಕಾಶಕರಿಂದ ಸ್ವಯಂಸೇವಕ “t” ಮೂಲಕ ಸಂಗ್ರಹಿಸಲಾಗಿದೆ."
 
-#: allthethings/page/templates/page/datasets_upload.html:158
+#: allthethings/page/templates/page/datasets_upload.html:84
 #, fuzzy
 msgid "page.datasets.upload.source.longquan_archives"
 msgstr "<a %(a_href)s>ಲಾಂಗ್‌ಕ್ವಾನ್‌ನ ಆಯ್ದ ನ್ಯಾಯಾಂಗ ಆರ್ಕೈವ್ಸ್</a>, ಸ್ವಯಂಸೇವಕ “c” ಮೂಲಕ ಒದಗಿಸಲಾಗಿದೆ."
 
-#: allthethings/page/templates/page/datasets_upload.html:165
+#: allthethings/page/templates/page/datasets_upload.html:85
 #, fuzzy
 msgid "page.datasets.upload.source.magzdb"
 msgstr "<a %(a_href)s>magzdb.org</a> ನ ಸ್ಕ್ರೇಪ್, ಲೈಬ್ರರಿ ಜೆನೆಸಿಸ್‌ನ ಮಿತ್ರ (ಇದು libgen.rs ಹೋಮ್‌ಪೇಜ್‌ನಲ್ಲಿ ಲಿಂಕ್ ಮಾಡಲಾಗಿದೆ) ಆದರೆ ತಮ್ಮ ಕಡತಗಳನ್ನು ನೇರವಾಗಿ ಒದಗಿಸಲು ಇಚ್ಛಿಸದವರು. 2023ರ ಕೊನೆಯಲ್ಲಿ ಸ್ವಯಂಸೇವಕ “p” ಮೂಲಕ ಪಡೆಯಲಾಗಿದೆ."
 
-#: allthethings/page/templates/page/datasets_upload.html:172
+#: allthethings/page/templates/page/datasets_upload.html:87
 #, fuzzy
 msgid "page.datasets.upload.source.misc"
 msgstr "ವಿವಿಧ ಸಣ್ಣ ಅಪ್ಲೋಡ್‌ಗಳು, ತಮ್ಮದೇ ಆದ ಉಪಸಂಗ್ರಹವಾಗಿ ತುಂಬಾ ಸಣ್ಣವಾಗಿವೆ, ಆದರೆ ಡೈರೆಕ್ಟರಿಗಳಾಗಿ ಪ್ರತಿನಿಧಿಸಲ್ಪಟ್ಟಿವೆ."
 
-#: allthethings/page/templates/page/datasets_upload.html:179
+#: allthethings/page/templates/page/datasets_upload.html:91
 #, fuzzy
 msgid "page.datasets.upload.source.polish"
 msgstr "ಸ್ವಯಂಸೇವಕ “o” ಯ ಸಂಗ್ರಹ, ಮೂಲ ಬಿಡುಗಡೆ (“scene”) ವೆಬ್‌ಸೈಟ್‌ಗಳಿಂದ ನೇರವಾಗಿ ಪೋಲಿಷ್ ಪುಸ್ತಕಗಳನ್ನು ಸಂಗ್ರಹಿಸಿದವರು."
 
-#: allthethings/page/templates/page/datasets_upload.html:186
+#: allthethings/page/templates/page/datasets_upload.html:92
 #, fuzzy
 msgid "page.datasets.upload.source.shuge"
 msgstr "<a %(a_href)s>shuge.org</a> ನ ಸಂಯೋಜಿತ ಸಂಗ್ರಹಗಳು ಸ್ವಯಂಸೇವಕರಾದ “cgiym” ಮತ್ತು “woz9ts” ಮೂಲಕ."
 
-#: allthethings/page/templates/page/datasets_upload.html:193
+#: allthethings/page/templates/page/datasets_upload.html:94
 #, fuzzy
 msgid "page.datasets.upload.source.trantor"
 msgstr "<a %(a_href)s>“Imperial Library of Trantor”</a> (ಕಾಲ್ಪನಿಕ ಗ್ರಂಥಾಲಯದ ಹೆಸರಿನಿಂದ), 2022 ರಲ್ಲಿ ಸ್ವಯಂಸೇವಕ “t” ನಿಂದ ಸ್ಕ್ರೇಪ್ ಮಾಡಲಾಗಿದೆ."
 
-#: allthethings/page/templates/page/datasets_upload.html:200
+#: allthethings/page/templates/page/datasets_upload.html:98
 #, fuzzy
 msgid "page.datasets.upload.source.woz9ts_direct"
 msgstr "ಸ್ವಯಂಸೇವಕ “woz9ts” ನಿಂದ ಉಪ-ಉಪ-ಸಂಗ್ರಹಗಳು (ಡೈರೆಕ್ಟರಿಗಳ ರೂಪದಲ್ಲಿ): <a %(a_program_think)s>program-think</a>, <a %(a_haodoo)s>haodoo</a>, <a %(a_skqs)s>skqs</a> (ತೈವಾನ್‌ನ <a %(a_sikuquanshu)s>Dizhi(迪志)</a> ಮೂಲಕ), mebook (mebook.cc, 我的小书屋, ನನ್ನ ಚಿಕ್ಕ ಪುಸ್ತಕ ಕೋಣೆ — woz9ts: “ಈ ತಾಣವು ಮುಖ್ಯವಾಗಿ ಉನ್ನತ ಗುಣಮಟ್ಟದ ಇಬುಕ್ ಫೈಲ್‌ಗಳನ್ನು ಹಂಚಿಕೊಳ್ಳಲು ಕೇಂದ್ರೀಕರಿಸಿದೆ, ಇದರಲ್ಲಿ ಕೆಲವು ಮಾಲೀಕರಿಂದಲೇ ಟೈಪ್ಸೆಟ್ ಮಾಡಲ್ಪಟ್ಟಿವೆ. ಮಾಲೀಕನನ್ನು 2019 ರಲ್ಲಿ <a %(a_arrested)s>ಬಂಧಿಸಲಾಯಿತು</a> ಮತ್ತು ಯಾರೋ ಅವರು ಹಂಚಿದ ಫೈಲ್‌ಗಳ ಸಂಗ್ರಹವನ್ನು ಮಾಡಿದರು.”)."
 
-#: allthethings/page/templates/page/datasets_upload.html:214
+#: allthethings/page/templates/page/datasets_upload.html:99
 #, fuzzy
 msgid "page.datasets.upload.source.woz9ts_duxiu"
 msgstr "ಸ್ವಯಂಸೇವಕ “woz9ts” ನಿಂದ ಉಳಿದ DuXiu ಫೈಲ್‌ಗಳು, ಅವು DuXiu ಮಾಲೀಕತ್ವದ PDG ಸ್ವರೂಪದಲ್ಲಿ ಇರಲಿಲ್ಲ (ಇನ್ನೂ PDF ಗೆ ಪರಿವರ್ತಿಸಲು ಬಾಕಿ)."
 
-#: allthethings/page/templates/page/datasets_upload.html:226
+#: allthethings/page/templates/page/datasets_upload.html:109
 #, fuzzy
 msgid "page.datasets.upload.aa_torrents"
 msgstr "ಅನ್ನಾ’ಸ್ ಆರ್ಕೈವ್‌ನ ಟೊರೆಂಟ್‌ಗಳು"
@@ -5319,122 +5365,122 @@ msgstr "1. ಪ್ರತಿ ಸಂಗ್ರಹ ಅಥವಾ ಬಿಡುಗಡೆ
 msgid "page.faq.torrents.a6.li2"
 msgstr "2. ನಾವು ನಮ್ಮ ಎಲಾಸ್ಟಿಕ್‌ಸರ್ಚ್ ಮತ್ತು ಮರಿಯಾಡಿಬಿ ಡೇಟಾಬೇಸ್‌ಗಳನ್ನು <a %(a_generate)s>ರಚಿಸಲು</a> ಅಥವಾ <a %(a_download)s>ಡೌನ್‌ಲೋಡ್ ಮಾಡಲು</a> ಶಿಫಾರಸು ಮಾಡುತ್ತೇವೆ. ಇವುಗಳಲ್ಲಿ Anna’s Archive ನಲ್ಲಿ ಪ್ರತಿಯೊಂದು ದಾಖಲೆಗೂ ಅದರ ಅನುಸಾರವಾದ ಟೊರೆಂಟ್ ಫೈಲ್‌ಗಳ ಮ್ಯಾಪಿಂಗ್ ಅನ್ನು “torrent_paths” ನಲ್ಲಿ ಎಲಾಸ್ಟಿಕ್‌ಸರ್ಚ್ JSON ನಲ್ಲಿ ಹೊಂದಿರುತ್ತದೆ (ಲಭ್ಯವಿದ್ದರೆ)."
 
-#: allthethings/page/templates/page/faq.html:273
+#: allthethings/page/templates/page/faq.html:280
 #, fuzzy
 msgid "page.faq.security.title"
 msgstr "ನಿಮ್ಮ ಬಳಿ ಜವಾಬ್ದಾರಿ ಬಹಿರಂಗಪಡಿಸುವ ಕಾರ್ಯಕ್ರಮವಿದೆಯೇ?"
 
-#: allthethings/page/templates/page/faq.html:276
+#: allthethings/page/templates/page/faq.html:283
 #, fuzzy
 msgid "page.faq.security.text1"
 msgstr "ನಮ್ಮ ವ್ಯವಸ್ಥೆಗಳಲ್ಲಿ ದುರ್ಬಲತೆಗಳನ್ನು ಹುಡುಕಲು ನಾವು ಭದ್ರತಾ ಸಂಶೋಧಕರನ್ನು ಸ್ವಾಗತಿಸುತ್ತೇವೆ. ನಾವು ಜವಾಬ್ದಾರಿಯುತ ಬಹಿರಂಗಪಡಿಸುವುದರ ದೊಡ್ಡ ಬೆಂಬಲಿಗರಾಗಿದ್ದೇವೆ. ನಮ್ಮನ್ನು <a %(a_contact)s>ಇಲ್ಲಿ</a> ಸಂಪರ್ಕಿಸಿ."
 
-#: allthethings/page/templates/page/faq.html:280
+#: allthethings/page/templates/page/faq.html:287
 #, fuzzy
 msgid "page.faq.security.text2"
 msgstr "ನಾವು ಪ್ರಸ್ತುತ ಬಗ್ ಬೌಂಟಿಗಳನ್ನು ನೀಡಲು ಅಸಮರ್ಥರಾಗಿದ್ದೇವೆ, <a %(a_link)s>ನಮ್ಮ ಅನಾಮಿಕತೆಯನ್ನು ಅಪಾಯಕ್ಕೆ ಒಳಪಡಿಸುವ</a> ದುರ್ಬಲತೆಗಳಿಗೆ ಮಾತ್ರ $10k-50k ಶ್ರೇಣಿಯ ಬೌಂಟಿಗಳನ್ನು ನೀಡುತ್ತೇವೆ. ಭವಿಷ್ಯದಲ್ಲಿ ಬಗ್ ಬೌಂಟಿಗಳ ವ್ಯಾಪ್ತಿಯನ್ನು ವಿಸ್ತರಿಸಲು ನಾವು ಬಯಸುತ್ತೇವೆ! ದಯವಿಟ್ಟು ಗಮನಿಸಿ, ಸಾಮಾಜಿಕ ಇಂಜಿನಿಯರಿಂಗ್ ದಾಳಿಗಳು ವ್ಯಾಪ್ತಿಯ ಹೊರಗಿವೆ."
 
-#: allthethings/page/templates/page/faq.html:284
+#: allthethings/page/templates/page/faq.html:291
 #, fuzzy
 msgid "page.faq.security.text3"
 msgstr "ನೀವು ಆಕ್ರಮಣಕಾರಿ ಭದ್ರತಿಯಲ್ಲಿ ಆಸಕ್ತರಾಗಿದ್ದರೆ, ಮತ್ತು ಜಗತ್ತಿನ ಜ್ಞಾನ ಮತ್ತು ಸಂಸ್ಕೃತಿಯನ್ನು ಆರ್ಕೈವ್ ಮಾಡಲು ಸಹಾಯ ಮಾಡಲು ಬಯಸಿದರೆ, ದಯವಿಟ್ಟು ನಮ್ಮನ್ನು ಸಂಪರ್ಕಿಸಿ. ನೀವು ಸಹಾಯ ಮಾಡಬಹುದಾದ ಅನೇಕ ಮಾರ್ಗಗಳಿವೆ."
 
-#: allthethings/page/templates/page/faq.html:287
+#: allthethings/page/templates/page/faq.html:294
 #, fuzzy
 msgid "page.faq.resources.title"
 msgstr "ಅನ್ನಾ’ಸ್ ಆರ್ಕೈವ್ ಬಗ್ಗೆ ಇನ್ನಷ್ಟು ಸಂಪನ್ಮೂಲಗಳಿವೆಯೇ?"
 
-#: allthethings/page/templates/page/faq.html:290
+#: allthethings/page/templates/page/faq.html:297
 #, fuzzy
 msgid "page.faq.resources.annas_blog"
 msgstr "<a %(a_blog)s>ಅನ್ನಾ’ಸ್ ಬ್ಲಾಗ್</a>, <a %(a_reddit_u)s>Reddit</a>, <a %(a_reddit_r)s>Subreddit</a> — ನಿಯಮಿತ ನವೀಕರಣಗಳು"
 
-#: allthethings/page/templates/page/faq.html:291
+#: allthethings/page/templates/page/faq.html:298
 #, fuzzy
 msgid "page.faq.resources.annas_software"
 msgstr "<a %(a_software)s>ಅನ್ನಾ’ಸ್ ಸಾಫ್ಟ್‌ವೇರ್</a> — ನಮ್ಮ ಓಪನ್ ಸೋರ್ಸ್ ಕೋಡ್"
 
-#: allthethings/page/templates/page/faq.html:292
+#: allthethings/page/templates/page/faq.html:299
 #, fuzzy
 msgid "page.faq.resources.translate"
 msgstr "<a %(a_translate)s>ಅನ್ನಾ’ಸ್ ಸಾಫ್ಟ್‌ವೇರ್‌ನಲ್ಲಿ ಅನುವಾದಿಸಿ</a> — ನಮ್ಮ ಅನುವಾದ ವ್ಯವಸ್ಥೆ"
 
-#: allthethings/page/templates/page/faq.html:293
+#: allthethings/page/templates/page/faq.html:300
 #, fuzzy
 msgid "page.faq.resources.datasets"
 msgstr "<a %(a_datasets)s>Datasets</a> — ಡೇಟಾ ಬಗ್ಗೆ"
 
-#: allthethings/page/templates/page/faq.html:294
+#: allthethings/page/templates/page/faq.html:301
 #, fuzzy
 msgid "page.faq.resources.domains"
 msgstr "<a %(a_li)s>.li</a>, <a %(a_se)s>.se</a>, <a %(a_org)s>.org</a> — ಪರ್ಯಾಯ ಡೊಮೇನ್‌ಗಳು"
 
-#: allthethings/page/templates/page/faq.html:295
+#: allthethings/page/templates/page/faq.html:302
 #, fuzzy
 msgid "page.faq.resources.wikipedia"
 msgstr "<a %(a_wikipedia)s>ವಿಕಿಪೀಡಿಯ</a> — ನಮ್ಮ ಬಗ್ಗೆ ಇನ್ನಷ್ಟು (ದಯವಿಟ್ಟು ಈ ಪುಟವನ್ನು ನವೀಕರಿಸಲು ಸಹಾಯ ಮಾಡಿ, ಅಥವಾ ನಿಮ್ಮದೇ ಭಾಷೆಗೆ ಒಂದು ರಚಿಸಿ!)"
 
-#: allthethings/page/templates/page/faq.html:298
+#: allthethings/page/templates/page/faq.html:305
 #, fuzzy
 msgid "page.faq.copyright.title"
 msgstr "ನಾನು ಕಾಪಿರೈಟ್ ಉಲ್ಲಂಘನೆಯನ್ನು ಹೇಗೆ ವರದಿ ಮಾಡಬಹುದು?"
 
-#: allthethings/page/templates/page/faq.html:301
+#: allthethings/page/templates/page/faq.html:308
 #, fuzzy
 msgid "page.faq.copyright.text1"
 msgstr "ನಾವು ಇಲ್ಲಿ ಯಾವುದೇ ಕಾಪಿರೈಟ್ ಮಾಡಲಾದ ವಸ್ತುಗಳನ್ನು ಹೋಸ್ಟ್ ಮಾಡುತ್ತಿಲ್ಲ. ನಾವು ಹುಡುಕಾಟ ಎಂಜಿನ್ ಆಗಿದ್ದು, ಈ ರೀತಿಯ ಸಾರ್ವಜನಿಕವಾಗಿ ಲಭ್ಯವಿರುವ ಮೆಟಾಡೇಟಾವನ್ನು ಮಾತ್ರ ಸೂಚಿಸುತ್ತೇವೆ. ಈ ಬಾಹ್ಯ ಮೂಲಗಳಿಂದ ಡೌನ್‌ಲೋಡ್ ಮಾಡುವಾಗ, ನಿಮ್ಮ ನ್ಯಾಯವ್ಯವಸ್ಥೆಯಲ್ಲಿ ಅನುಮತಿಸಲಾದವುಗಳ ಬಗ್ಗೆ ಕಾನೂನುಗಳನ್ನು ಪರಿಶೀಲಿಸಲು ನಾವು ಶಿಫಾರಸು ಮಾಡುತ್ತೇವೆ. ಇತರರು ಹೋಸ್ಟ್ ಮಾಡಿದ ವಿಷಯಕ್ಕೆ ನಾವು ಹೊಣೆಗಾರರಲ್ಲ."
 
-#: allthethings/page/templates/page/faq.html:305
+#: allthethings/page/templates/page/faq.html:312
 #, fuzzy
 msgid "page.faq.copyright.text2"
 msgstr "ನೀವು ಇಲ್ಲಿ ನೋಡಿದುದರ ಬಗ್ಗೆ ದೂರುಗಳಿದ್ದರೆ, ನಿಮ್ಮ ಉತ್ತಮ ಆಯ್ಕೆ ಮೂಲ ವೆಬ್‌ಸೈಟ್ ಅನ್ನು ಸಂಪರ್ಕಿಸುವುದು. ನಾವು ನಿಯಮಿತವಾಗಿ ಅವರ ಬದಲಾವಣೆಗಳನ್ನು ನಮ್ಮ ಡೇಟಾಬೇಸ್‌ಗೆ ಎಳೆಯುತ್ತೇವೆ. ನೀವು ನಿಜವಾಗಿಯೂ ನಾವು ಪ್ರತಿಕ್ರಿಯಿಸಬೇಕಾದ ಮಾನ್ಯ DMCA ದೂರು ಹೊಂದಿದ್ದೀರಿ ಎಂದು ನೀವು ಯೋಚಿಸಿದರೆ, ದಯವಿಟ್ಟು <a %(a_copyright)s>DMCA / ಕಾಪಿರೈಟ್ ದಾವೆ ಫಾರ್ಮ್</a> ಅನ್ನು ಭರ್ತಿ ಮಾಡಿ. ನಾವು ನಿಮ್ಮ ದೂರುಗಳನ್ನು ಗಂಭೀರವಾಗಿ ತೆಗೆದುಕೊಳ್ಳುತ್ತೇವೆ ಮತ್ತು ಸಾಧ್ಯವಾದಷ್ಟು ಬೇಗ ನಿಮ್ಮನ್ನು ಸಂಪರ್ಕಿಸುತ್ತೇವೆ."
 
-#: allthethings/page/templates/page/faq.html:308
+#: allthethings/page/templates/page/faq.html:315
 #, fuzzy
 msgid "page.faq.hate.title"
 msgstr "ನೀವು ಈ ಯೋಜನೆಯನ್ನು ಹೇಗೆ ನಡೆಸುತ್ತಿದ್ದಾರೆ ಎಂಬುದು ನನಗೆ ಅಸಹ್ಯವಾಗಿದೆ!"
 
-#: allthethings/page/templates/page/faq.html:311
+#: allthethings/page/templates/page/faq.html:318
 #, fuzzy
 msgid "page.faq.hate.text1"
 msgstr "ನಾವು ಎಲ್ಲರಿಗೂ ಸ್ಮರಿಸಬೇಕೆಂದು ಬಯಸುತ್ತೇವೆ ನಮ್ಮ ಎಲ್ಲಾ ಕೋಡ್ ಮತ್ತು ಡೇಟಾ ಸಂಪೂರ್ಣವಾಗಿ ಓಪನ್ ಸೋರ್ಸ್ ಆಗಿದೆ. ನಮ್ಮಂತಹ ಯೋಜನೆಗಳಿಗೆ ಇದು ವಿಶಿಷ್ಟವಾಗಿದೆ — ಇಂತಹ ದೊಡ್ಡ ಕ್ಯಾಟಲಾಗ್ ಹೊಂದಿರುವ ಯಾವುದೇ ಇತರ ಯೋಜನೆ ಸಂಪೂರ್ಣವಾಗಿ ಓಪನ್ ಸೋರ್ಸ್ ಆಗಿರುವುದನ್ನು ನಾವು ತಿಳಿದಿಲ್ಲ. ನಾವು ನಮ್ಮ ಯೋಜನೆಯನ್ನು ಕೆಟ್ಟ ರೀತಿಯಲ್ಲಿ ನಡೆಸುತ್ತಿದ್ದೇವೆ ಎಂದು ಯೋಚಿಸುವ ಯಾರಾದರೂ ನಮ್ಮ ಕೋಡ್ ಮತ್ತು ಡೇಟಾವನ್ನು ತೆಗೆದುಕೊಂಡು ತಮ್ಮದೇ ಶಾಡೋ ಲೈಬ್ರರಿ ಸ್ಥಾಪಿಸಲು ನಾವು ಬಹಳವಾಗಿ ಸ್ವಾಗತಿಸುತ್ತೇವೆ! ನಾವು ಇದನ್ನು spite ಅಥವಾ ಏನಾದರೂ ಹೊರತುಪಡಿಸಿ ಹೇಳುತ್ತಿಲ್ಲ — ಇದು ಎಲ್ಲರಿಗೂ ಮಟ್ಟವನ್ನು ಹೆಚ್ಚಿಸುತ್ತದೆ ಮತ್ತು ಮಾನವತೆಯ ಪರಂಪರೆಯನ್ನು ಉತ್ತಮವಾಗಿ ಸಂರಕ್ಷಿಸುತ್ತದೆ ಎಂದು ನಾವು ನಿಜವಾಗಿಯೂ ಯೋಚಿಸುತ್ತೇವೆ."
 
-#: allthethings/page/templates/page/faq.html:314
+#: allthethings/page/templates/page/faq.html:321
 #, fuzzy
 msgid "page.faq.uptime.title"
 msgstr "ನಿಮ್ಮ ಬಳಿ ಅಪ್‌ಟೈಮ್ ಮಾನಿಟರ್ ಇದೆಯೇ?"
 
-#: allthethings/page/templates/page/faq.html:317
+#: allthethings/page/templates/page/faq.html:324
 #, fuzzy
 msgid "page.faq.uptime.text1"
 msgstr "ದಯವಿಟ್ಟು <a %(a_href)s>ಈ ಅತ್ಯುತ್ತಮ ಯೋಜನೆ</a> ನೋಡಿ."
 
-#: allthethings/page/templates/page/faq.html:330
+#: allthethings/page/templates/page/faq.html:337
 #, fuzzy
 msgid "page.faq.physical.title"
 msgstr "ನಾನು ಪುಸ್ತಕಗಳು ಅಥವಾ ಇತರ ಭೌತಿಕ ವಸ್ತುಗಳನ್ನು ಹೇಗೆ ದಾನ ಮಾಡಬಹುದು?"
 
-#: allthethings/page/templates/page/faq.html:333
+#: allthethings/page/templates/page/faq.html:340
 #, fuzzy
 msgid "page.faq.physical.text1"
 msgstr "ದಯವಿಟ್ಟು ಅವುಗಳನ್ನು <a %(a_archive)s>Internet Archive</a> ಗೆ ಕಳುಹಿಸಿ. ಅವರು ಅವುಗಳನ್ನು ಸರಿಯಾಗಿ ಸಂರಕ್ಷಿಸುತ್ತಾರೆ."
 
-#: allthethings/page/templates/page/faq.html:336
+#: allthethings/page/templates/page/faq.html:343
 #, fuzzy
 msgid "page.faq.anna.title"
 msgstr "ಅನ್ನಾ ಯಾರು?"
 
-#: allthethings/page/templates/page/faq.html:340
+#: allthethings/page/templates/page/faq.html:347
 #, fuzzy
 msgid "page.faq.anna.text1"
 msgstr "ನೀವು ಅನ್ನಾ!"
 
-#: allthethings/page/templates/page/faq.html:344
+#: allthethings/page/templates/page/faq.html:351
 #, fuzzy
 msgid "page.faq.favorite.title"
 msgstr "ನಿಮ್ಮ ಮೆಚ್ಚಿನ ಪುಸ್ತಕಗಳು ಯಾವುವು?"
 
-#: allthethings/page/templates/page/faq.html:347
+#: allthethings/page/templates/page/faq.html:354
 #, fuzzy
 msgid "page.faq.favorite.text1"
 msgstr "ಶಾಡೋ ಲೈಬ್ರರಿಗಳು ಮತ್ತು ಡಿಜಿಟಲ್ ಸಂರಕ್ಷಣೆ ಜಗತ್ತಿಗೆ ವಿಶೇಷ ಮಹತ್ವ ಹೊಂದಿರುವ ಕೆಲವು ಪುಸ್ತಕಗಳು ಇಲ್ಲಿವೆ:"
@@ -5473,30 +5519,30 @@ msgstr "ಹುಡುಕಿ"
 #: allthethings/page/templates/page/scidb_home.html:3
 #: allthethings/page/templates/page/scidb_home.html:6
 #: allthethings/templates/layouts/index.html:493
-#: allthethings/templates/layouts/index.html:506
-#: allthethings/templates/layouts/index.html:521
-#: allthethings/templates/layouts/index.html:588
+#: allthethings/templates/layouts/index.html:507
+#: allthethings/templates/layouts/index.html:523
+#: allthethings/templates/layouts/index.html:591
 #, fuzzy
 msgid "page.home.scidb.header"
 msgstr "SciDB"
 
 #: allthethings/page/templates/page/home.html:19
-#: allthethings/templates/layouts/index.html:541
+#: allthethings/templates/layouts/index.html:544
 #, fuzzy
 msgid "layout.index.header.nav.beta"
 msgstr "ಬೀಟಾ"
 
 #: allthethings/page/templates/page/home.html:22
 #: allthethings/page/templates/page/scidb_home.html:9
-#: allthethings/page/templates/page/search.html:355
-#: allthethings/page/templates/page/search.html:419
+#: allthethings/page/templates/page/search.html:359
+#: allthethings/page/templates/page/search.html:423
 #, fuzzy
 msgid "page.home.scidb.scihub_paused"
 msgstr "Sci-Hub ಹೊಸ ಪೇಪರ್‌ಗಳ ಅಪ್ಲೋಡ್ ಅನ್ನು <a %(a_paused)s>ನಿಲ್ಲಿಸಿದೆ</a>."
 
 #: allthethings/page/templates/page/home.html:23
-#: allthethings/page/templates/page/search.html:356
-#: allthethings/page/templates/page/search.html:420
+#: allthethings/page/templates/page/search.html:360
+#: allthethings/page/templates/page/search.html:424
 #, fuzzy
 msgid "page.home.scidb.continuation"
 msgstr "🧬&nbsp;SciDB Sci-Hub ನ ಮುಂದುವರಿದ ಭಾಗವಾಗಿದೆ."
@@ -5539,19 +5585,19 @@ msgid "page.home.torrents.body"
 msgstr "ಟೊರೆಂಟ್‌ಗಳನ್ನು ಸೀಡ್ ಮಾಡುವ ಮೂಲಕ ನೀವು ಬಹಳಷ್ಟು ಸಹಾಯ ಮಾಡಬಹುದು. <a %(a_torrents)s>ಇನ್ನಷ್ಟು ತಿಳಿಯಿರಿ…</a>"
 
 #: allthethings/page/templates/page/home.html:47
-#: allthethings/page/templates/page/torrents.html:75
+#: allthethings/page/templates/page/torrents.html:79
 #, fuzzy
 msgid "page.home.torrents.legend_less"
 msgstr "<%(count)s ಸೀಡರ್ಸ್"
 
 #: allthethings/page/templates/page/home.html:48
-#: allthethings/page/templates/page/torrents.html:76
+#: allthethings/page/templates/page/torrents.html:80
 #, fuzzy
 msgid "page.home.torrents.legend_range"
 msgstr "%(count_min)s–%(count_max)s ಬೀಜ ಬಿತ್ತಕರು"
 
 #: allthethings/page/templates/page/home.html:49
-#: allthethings/page/templates/page/torrents.html:77
+#: allthethings/page/templates/page/torrents.html:81
 #, fuzzy
 msgid "page.home.torrents.legend_greater"
 msgstr ">%(count)s ಸೀಡರ್‌ಗಳು"
@@ -5587,8 +5633,8 @@ msgid "page.home.payment_processor.body"
 msgstr "ನೀವು ಹೈ-ರಿಸ್ಕ್ ಅನಾಮಧೇಯ ಪಾವತಿ ಪ್ರೊಸೆಸರ್ ಅನ್ನು ನಡೆಸಿದರೆ, ದಯವಿಟ್ಟು ನಮ್ಮನ್ನು ಸಂಪರ್ಕಿಸಿ. ನಾವು ಸೊಗಸಾದ ಸಣ್ಣ ಜಾಹೀರಾತುಗಳನ್ನು ಸ್ಥಳಾಂತರಿಸಲು ಬಯಸುವ ಜನರನ್ನು ಸಹ ಹುಡುಕುತ್ತಿದ್ದೇವೆ. ಎಲ್ಲಾ ಆದಾಯಗಳು ನಮ್ಮ ಸಂರಕ್ಷಣೆ ಪ್ರಯತ್ನಗಳಿಗೆ ಹೋಗುತ್ತವೆ."
 
 #: allthethings/page/templates/page/home.html:98
-#: allthethings/templates/layouts/index.html:529
-#: allthethings/templates/layouts/index.html:608
+#: allthethings/templates/layouts/index.html:532
+#: allthethings/templates/layouts/index.html:611
 #, fuzzy
 msgid "layout.index.header.nav.annasblog"
 msgstr "ಅನ್ನಾ’ಸ್ ಬ್ಲಾಗ್ ↗"
@@ -6132,7 +6178,7 @@ msgid "page.search.tabs.metadata"
 msgstr "ಮೆಟಾಡೇಟಾ"
 
 #: allthethings/page/templates/page/search.html:107
-#: allthethings/templates/layouts/index.html:537
+#: allthethings/templates/layouts/index.html:540
 #, fuzzy
 msgid "common.search.placeholder"
 msgstr "ಶೀರ್ಷಿಕೆ, ಲೇಖಕ, DOI, ISBN, MD5, …"
@@ -6149,7 +6195,7 @@ msgid "page.search.search_settings"
 msgstr "ಹುಡುಕಾಟ ಸೆಟ್ಟಿಂಗ್‌ಗಳು"
 
 #: allthethings/page/templates/page/search.html:136
-#: allthethings/page/templates/page/search.html:274
+#: allthethings/page/templates/page/search.html:278
 #, fuzzy
 msgid "page.search.submit"
 msgstr "ಹುಡುಕಿ"
@@ -6160,8 +6206,8 @@ msgid "page.search.too_long_broad_query"
 msgstr "ಹುಡುಕಾಟ ಹೆಚ್ಚು ಸಮಯ ತೆಗೆದುಕೊಂಡಿದೆ, ಇದು ವ್ಯಾಪಕವಾದ ಪ್ರಶ್ನೆಗಳಿಗೆ ಸಾಮಾನ್ಯವಾಗಿದೆ. ಫಿಲ್ಟರ್ ಎಣಿಕೆಗಳು ನಿಖರವಾಗಿಲ್ಲದಿರಬಹುದು."
 
 #: allthethings/page/templates/page/search.html:145
-#: allthethings/page/templates/page/search.html:448
-#: allthethings/page/templates/page/search.html:455
+#: allthethings/page/templates/page/search.html:452
+#: allthethings/page/templates/page/search.html:459
 #, fuzzy
 msgid "page.search.too_inaccurate"
 msgstr "ಹುಡುಕಾಟ ಹೆಚ್ಚು ಸಮಯ ತೆಗೆದುಕೊಂಡಿತು, ಅಂದರೆ ನೀವು ತಪ್ಪಾದ ಫಲಿತಾಂಶಗಳನ್ನು ನೋಡಬಹುದು. ಕೆಲವೊಮ್ಮೆ <a %(a_reload)s>ಪುಟವನ್ನು ಮರುಲೋಡ್ ಮಾಡುವುದು</a> ಸಹಾಯ ಮಾಡುತ್ತದೆ."
@@ -6187,7 +6233,7 @@ msgid "page.search.advanced.header"
 msgstr "ಸುಧಾರಿತ"
 
 #: allthethings/page/templates/page/search.html:159
-#: allthethings/page/templates/page/search.html:292
+#: allthethings/page/templates/page/search.html:296
 #, fuzzy
 msgid "page.search.advanced.description_comments"
 msgstr "ವಿವರಣೆಗಳು ಮತ್ತು ಮೆಟಾಡೇಟಾ ಕಾಮೆಂಟ್‌ಗಳನ್ನು ಹುಡುಕಿ"
@@ -6208,262 +6254,263 @@ msgid "page.search.advanced.field.year_published"
 msgstr "ಪ್ರಕಾಶಿತ ವರ್ಷ"
 
 #: allthethings/page/templates/page/search.html:208
-#: allthethings/page/templates/page/search.html:300
-#: allthethings/page/templates/page/search.html:303
+#: allthethings/page/templates/page/search.html:304
+#: allthethings/page/templates/page/search.html:307
 #, fuzzy
 msgid "page.search.filters.content.header"
 msgstr "ವಿಷಯ"
 
 #: allthethings/page/templates/page/search.html:218
-#: allthethings/page/templates/page/search.html:306
-#: allthethings/page/templates/page/search.html:309
+#: allthethings/page/templates/page/search.html:310
+#: allthethings/page/templates/page/search.html:313
 #, fuzzy
 msgid "page.search.filters.filetype.header"
 msgstr "ಫೈಲ್‌ಟೈಪ್"
 
-#: allthethings/page/templates/page/search.html:228
-#: allthethings/page/templates/page/search.html:312
-#: allthethings/page/templates/page/search.html:315
-#, fuzzy
-msgid "page.search.filters.access.header"
-msgstr "ಪ್ರವೇಶ"
-
-#: allthethings/page/templates/page/search.html:237
-#: allthethings/page/templates/page/search.html:318
-#: allthethings/page/templates/page/search.html:321
-#, fuzzy
-msgid "page.search.filters.source.header"
-msgstr "ಮೂಲ"
-
-#: allthethings/page/templates/page/search.html:242
-#, fuzzy
-msgid "page.search.filters.source.scraped"
-msgstr "AA ಮೂಲಕ ಸ್ಕ್ರೇಪ್ ಮತ್ತು ಓಪನ್-ಸೋರ್ಸ್ ಮಾಡಲಾಗಿದೆ"
-
-#: allthethings/page/templates/page/search.html:247
-#: allthethings/page/templates/page/search.html:327
-#: allthethings/page/templates/page/search.html:330
-#, fuzzy
-msgid "page.search.filters.language.header"
-msgstr "ಭಾಷೆ"
-
-#: allthethings/page/templates/page/search.html:256
+#: allthethings/page/templates/page/search.html:227
+#: allthethings/page/templates/page/search.html:259
 #, fuzzy
 msgid "page.search.more"
 msgstr "ಇನ್ನಷ್ಟು…"
 
-#: allthethings/page/templates/page/search.html:261
-#: allthethings/page/templates/page/search.html:324
+#: allthethings/page/templates/page/search.html:231
+#: allthethings/page/templates/page/search.html:316
+#: allthethings/page/templates/page/search.html:319
+#, fuzzy
+msgid "page.search.filters.access.header"
+msgstr "ಪ್ರವೇಶ"
+
+#: allthethings/page/templates/page/search.html:240
+#: allthethings/page/templates/page/search.html:322
+#: allthethings/page/templates/page/search.html:325
+#, fuzzy
+msgid "page.search.filters.source.header"
+msgstr "ಮೂಲ"
+
+#: allthethings/page/templates/page/search.html:245
+#, fuzzy
+msgid "page.search.filters.source.scraped"
+msgstr "AA ಮೂಲಕ ಸ್ಕ್ರೇಪ್ ಮತ್ತು ಓಪನ್-ಸೋರ್ಸ್ ಮಾಡಲಾಗಿದೆ"
+
+#: allthethings/page/templates/page/search.html:250
+#: allthethings/page/templates/page/search.html:331
+#: allthethings/page/templates/page/search.html:334
+#, fuzzy
+msgid "page.search.filters.language.header"
+msgstr "ಭಾಷೆ"
+
+#: allthethings/page/templates/page/search.html:264
+#: allthethings/page/templates/page/search.html:328
 #, fuzzy
 msgid "page.search.filters.order_by.header"
 msgstr "ಆರ್ಡರ್ ಮಾಡಿ"
 
-#: allthethings/page/templates/page/search.html:264
+#: allthethings/page/templates/page/search.html:267
 #, fuzzy
 msgid "page.search.filters.sorting.most_relevant"
 msgstr "ಅತ್ಯಂತ ಪ್ರಸ್ತುತ"
 
-#: allthethings/page/templates/page/search.html:265
-#: allthethings/page/templates/page/search.html:269
-#: allthethings/page/templates/page/search.html:324
+#: allthethings/page/templates/page/search.html:268
+#: allthethings/page/templates/page/search.html:272
+#: allthethings/page/templates/page/search.html:328
 #, fuzzy
 msgid "page.search.filters.sorting.newest"
 msgstr "ಹೊಸದು"
 
-#: allthethings/page/templates/page/search.html:265
-#: allthethings/page/templates/page/search.html:266
-#: allthethings/page/templates/page/search.html:324
+#: allthethings/page/templates/page/search.html:268
+#: allthethings/page/templates/page/search.html:269
+#: allthethings/page/templates/page/search.html:328
 #, fuzzy
 msgid "page.search.filters.sorting.note_publication_year"
 msgstr "(ಪ್ರಕಟನೆಯ ವರ್ಷ)"
 
-#: allthethings/page/templates/page/search.html:266
-#: allthethings/page/templates/page/search.html:270
-#: allthethings/page/templates/page/search.html:324
+#: allthethings/page/templates/page/search.html:269
+#: allthethings/page/templates/page/search.html:273
+#: allthethings/page/templates/page/search.html:328
 #, fuzzy
 msgid "page.search.filters.sorting.oldest"
 msgstr "ಹಳೆಯದು"
 
-#: allthethings/page/templates/page/search.html:267
-#: allthethings/page/templates/page/search.html:324
+#: allthethings/page/templates/page/search.html:270
+#: allthethings/page/templates/page/search.html:328
 #, fuzzy
 msgid "page.search.filters.sorting.largest"
 msgstr "ಅತಿದೊಡ್ಡ"
 
-#: allthethings/page/templates/page/search.html:267
-#: allthethings/page/templates/page/search.html:268
-#: allthethings/page/templates/page/search.html:324
+#: allthethings/page/templates/page/search.html:270
+#: allthethings/page/templates/page/search.html:271
+#: allthethings/page/templates/page/search.html:328
 #, fuzzy
 msgid "page.search.filters.sorting.note_filesize"
 msgstr "(ಫೈಲ್‌ಗಾತ್ರ)"
 
-#: allthethings/page/templates/page/search.html:268
-#: allthethings/page/templates/page/search.html:324
+#: allthethings/page/templates/page/search.html:271
+#: allthethings/page/templates/page/search.html:328
 #, fuzzy
 msgid "page.search.filters.sorting.smallest"
 msgstr "ಅತ್ಯಂತ ಚಿಕ್ಕದು"
 
-#: allthethings/page/templates/page/search.html:269
-#: allthethings/page/templates/page/search.html:270
-#: allthethings/page/templates/page/search.html:324
+#: allthethings/page/templates/page/search.html:272
+#: allthethings/page/templates/page/search.html:273
+#: allthethings/page/templates/page/search.html:328
 #, fuzzy
 msgid "page.search.filters.sorting.note_open_sourced"
 msgstr "(ಓಪನ್ ಸೋರ್ಸ್ ಮಾಡಲಾಗಿದೆ)"
 
-#: allthethings/page/templates/page/search.html:278
+#: allthethings/page/templates/page/search.html:282
 #, fuzzy
 msgid "page.search.header.update_info"
 msgstr "ಹುಡುಕಾಟ ಸೂಚ್ಯಂಕವನ್ನು ತಿಂಗಳಿಗೆ ಒಂದು ಬಾರಿ ನವೀಕರಿಸಲಾಗುತ್ತದೆ. ಪ್ರಸ್ತುತ %(last_data_refresh_date)s ವರೆಗೆ ದಾಖಲೆಗಳನ್ನು ಒಳಗೊಂಡಿದೆ. ಹೆಚ್ಚಿನ ತಾಂತ್ರಿಕ ಮಾಹಿತಿಗಾಗಿ, %(link_open_tag)sಡೇಟಾಸೆಟ್‌ಗಳ ಪುಟವನ್ನು</a> ನೋಡಿ."
 
-#: allthethings/page/templates/page/search.html:280
+#: allthethings/page/templates/page/search.html:284
 #, fuzzy
 msgid "page.search.header.codes_explorer"
 msgstr "ಕೋಡ್‌ಗಳ ಮೂಲಕ ಶೋಧ ಸೂಚ್ಯಂಕವನ್ನು ಅನ್ವೇಷಿಸಲು, <a %(a_href)s>Codes Explorer</a> ಅನ್ನು ಬಳಸಿ."
 
-#: allthethings/page/templates/page/search.html:338
+#: allthethings/page/templates/page/search.html:342
 #, fuzzy
 msgid "page.search.results.search_downloads"
 msgstr "ನಮ್ಮ %(count)s ನೇರವಾಗಿ ಡೌನ್‌ಲೋಡ್ ಮಾಡಬಹುದಾದ ಫೈಲ್‌ಗಳ ಕ್ಯಾಟಲಾಗ್ ಅನ್ನು ಹುಡುಕಲು ಬಾಕ್ಸ್‌ನಲ್ಲಿ ಟೈಪ್ ಮಾಡಿ, ನಾವು <a %(a_preserve)s>ಯುಗಯುಗಾಂತರಕ್ಕೂ ಉಳಿಸುತ್ತೇವೆ</a>."
 
-#: allthethings/page/templates/page/search.html:339
+#: allthethings/page/templates/page/search.html:343
 #, fuzzy
 msgid "page.search.results.help_preserve"
 msgstr "ವಾಸ್ತವವಾಗಿ, ಯಾರಾದರೂ ನಮ್ಮ <a %(a_torrents)s>ಏಕೀಕೃತ ಟೋರಂಟ್ ಪಟ್ಟಿ</a>ಯನ್ನು ಸೀಡ್ ಮಾಡುವ ಮೂಲಕ ಈ ಫೈಲ್‌ಗಳನ್ನು ಸಂರಕ್ಷಿಸಲು ಸಹಾಯ ಮಾಡಬಹುದು."
 
-#: allthethings/page/templates/page/search.html:342
+#: allthethings/page/templates/page/search.html:346
 #, fuzzy
 msgid "page.search.results.most_comprehensive"
 msgstr "ನಾವು ಪ್ರಸ್ತುತ ವಿಶ್ವದ ಅತ್ಯಂತ ಸಮಗ್ರ ಮುಕ್ತ ಗ್ರಂಥಾಲಯದ ಪುಸ್ತಕಗಳು, ಲೇಖನಗಳು ಮತ್ತು ಇತರ ಬರಹಿತ ಕೃತಿಗಳ ಕ್ಯಾಟಲಾಗ್ ಹೊಂದಿದ್ದೇವೆ. ನಾವು Sci-Hub, Library Genesis, Z-Library, <a %(a_datasets)s>ಮತ್ತು ಇನ್ನಷ್ಟು</a>ಗಳನ್ನು ಮಿರರ್ ಮಾಡುತ್ತೇವೆ."
 
-#: allthethings/page/templates/page/search.html:345
+#: allthethings/page/templates/page/search.html:349
 #, fuzzy
 msgid "page.search.results.other_shadow_libs"
 msgstr "ನಾವು ಮಿರರ್ ಮಾಡಬೇಕಾದ ಇತರ “ಶಾಡೋ ಲೈಬ್ರರಿಗಳು” ಇದ್ದರೆ, ಅಥವಾ ನಿಮಗೆ ಯಾವುದೇ ಪ್ರಶ್ನೆಗಳಿದ್ದರೆ, ದಯವಿಟ್ಟು %(email)s ನಲ್ಲಿ ನಮ್ಮನ್ನು ಸಂಪರ್ಕಿಸಿ."
 
-#: allthethings/page/templates/page/search.html:346
+#: allthethings/page/templates/page/search.html:350
 #, fuzzy
 msgid "page.search.results.dmca"
 msgstr "DMCA / ಕಾಪಿರೈಟ್ ದಾವೆಗಳಿಗೆ <a %(a_copyright)s>ಇಲ್ಲಿ ಕ್ಲಿಕ್ ಮಾಡಿ</a>."
 
-#: allthethings/page/templates/page/search.html:350
-#: allthethings/page/templates/page/search.html:365
-#: allthethings/page/templates/page/search.html:379
-#: allthethings/page/templates/page/search.html:403
-#: allthethings/page/templates/page/search.html:411
+#: allthethings/page/templates/page/search.html:354
+#: allthethings/page/templates/page/search.html:369
+#: allthethings/page/templates/page/search.html:383
+#: allthethings/page/templates/page/search.html:407
+#: allthethings/page/templates/page/search.html:415
 #, fuzzy
 msgid "page.search.results.shortcuts"
 msgstr "ಸಲಹೆ: ವೇಗದ ನಾವಿಗೇಶನ್‌ಗಾಗಿ ಕೀಬೋರ್ಡ್ ಶಾರ್ಟ್‌ಕಟ್‌ಗಳನ್ನು “/” (ಹುಡುಕಾಟ ಕೇಂದ್ರೀಕರಣ), “ಎಂಟರ್” (ಹುಡುಕಾಟ), “j” (ಮೇಲೆ), “k” (ಕೆಳಗೆ), “<” (ಹಿಂದಿನ ಪುಟ), “>” (ಮುಂದಿನ ಪುಟ) ಬಳಸಿ."
 
-#: allthethings/page/templates/page/search.html:354
-#: allthethings/page/templates/page/search.html:418
+#: allthethings/page/templates/page/search.html:358
+#: allthethings/page/templates/page/search.html:422
 #, fuzzy
 msgid "page.search.results.looking_for_papers"
 msgstr "ಪತ್ರಿಕೆಗಳನ್ನು ಹುಡುಕುತ್ತಿದ್ದೀರಾ?"
 
-#: allthethings/page/templates/page/search.html:361
+#: allthethings/page/templates/page/search.html:365
 #, fuzzy
 msgid "page.search.results.search_journals"
 msgstr "ನಮ್ಮ %(count)s ಶೈಕ್ಷಣಿಕ ಪೇಪರ್‌ಗಳು ಮತ್ತು ಜರ್ನಲ್ ಲೇಖನಗಳ ಕ್ಯಾಟಲಾಗ್ ಅನ್ನು ಹುಡುಕಲು ಬಾಕ್ಸ್‌ನಲ್ಲಿ ಟೈಪ್ ಮಾಡಿ, ನಾವು <a %(a_preserve)s>ಯಾವತ್ತಿಗೂ ಸಂರಕ್ಷಿಸುತ್ತೇವೆ</a>."
 
-#: allthethings/page/templates/page/search.html:369
+#: allthethings/page/templates/page/search.html:373
 #, fuzzy
 msgid "page.search.results.search_digital_lending"
 msgstr "ಡಿಜಿಟಲ್ ಸಾಲ ಲೈಬ್ರರಿಗಳಲ್ಲಿ ಫೈಲ್‌ಗಳನ್ನು ಹುಡುಕಲು ಬಾಕ್ಸ್‌ನಲ್ಲಿ ಟೈಪ್ ಮಾಡಿ."
 
-#: allthethings/page/templates/page/search.html:372
+#: allthethings/page/templates/page/search.html:376
 #, fuzzy
 msgid "page.search.results.digital_lending_info"
 msgstr "ಈ ಹುಡುಕಾಟ ಸೂಚ್ಯಂಕವು ಪ್ರಸ್ತುತ Internet Archive ನ ನಿಯಂತ್ರಿತ ಡಿಜಿಟಲ್ ಸಾಲ ಗ್ರಂಥಾಲಯದ ಮೆಟಾಡೇಟಾವನ್ನು ಒಳಗೊಂಡಿದೆ. <a %(a_datasets)s>ನಮ್ಮ ಡೇಟಾಸೆಟ್‌ಗಳ ಬಗ್ಗೆ ಇನ್ನಷ್ಟು</a>."
 
-#: allthethings/page/templates/page/search.html:375
+#: allthethings/page/templates/page/search.html:379
 #, fuzzy
 msgid "page.search.results.digital_lending_info_more"
 msgstr "ಹೆಚ್ಚಿನ ಡಿಜಿಟಲ್ ಸಾಲ ಗ್ರಂಥಾಲಯಗಳಿಗಾಗಿ, <a %(a_wikipedia)s>ವಿಕಿಪೀಡಿಯ</a> ಮತ್ತು <a %(a_mobileread)s>ಮೊಬೈಲ್‌ರೀಡ್ ವಿಕಿ</a> ನೋಡಿ."
 
-#: allthethings/page/templates/page/search.html:383
-#: allthethings/page/templates/page/search.html:430
+#: allthethings/page/templates/page/search.html:387
+#: allthethings/page/templates/page/search.html:434
 #, fuzzy
 msgid "page.search.results.search_metadata"
 msgstr "ಗ್ರಂಥಾಲಯಗಳಿಂದ ಮೆಟಾಡೇಟಾವನ್ನು ಹುಡುಕಲು ಬಾಕ್ಸ್‌ನಲ್ಲಿ ಟೈಪ್ ಮಾಡಿ. ಇದು <a %(a_request)s>ಫೈಲ್ ಅನ್ನು ವಿನಂತಿಸುವಾಗ</a> ಉಪಯುಕ್ತವಾಗಬಹುದು."
 
-#: allthethings/page/templates/page/search.html:387
-#: allthethings/page/templates/page/search.html:434
+#: allthethings/page/templates/page/search.html:391
+#: allthethings/page/templates/page/search.html:438
 #, fuzzy
 msgid "page.search.results.metadata_info"
 msgstr "ಈ ಹುಡುಕಾಟ ಸೂಚ್ಯಂಕವು ಪ್ರಸ್ತುತ ವಿವಿಧ ಮೆಟಾಡೇಟಾ ಮೂಲಗಳಿಂದ ಮೆಟಾಡೇಟಾವನ್ನು ಒಳಗೊಂಡಿದೆ. <a %(a_datasets)s>ನಮ್ಮ ಡೇಟಾಸೆಟ್‌ಗಳ ಬಗ್ಗೆ ಹೆಚ್ಚು</a>."
 
-#: allthethings/page/templates/page/search.html:388
-#: allthethings/page/templates/page/search.html:435
+#: allthethings/page/templates/page/search.html:392
+#: allthethings/page/templates/page/search.html:439
 #, fuzzy
 msgid "page.search.results.metadata_no_merging"
 msgstr "ಮೆಟಾಡೇಟಾಗಾಗಿ, ನಾವು ಮೂಲ ದಾಖಲೆಗಳನ್ನು ತೋರಿಸುತ್ತೇವೆ. ನಾವು ಯಾವುದೇ ದಾಖಲೆಗಳನ್ನು ವಿಲೀನಗೊಳಿಸುವುದಿಲ್ಲ."
 
-#: allthethings/page/templates/page/search.html:399
+#: allthethings/page/templates/page/search.html:403
 #, fuzzy
 msgid "page.search.results.metadata_info_more"
 msgstr "ವಿಶ್ವದಾದ್ಯಂತ ಬರಹಿತ ಕೃತಿಗಳ ಮೆಟಾಡೇಟಾದ ಅನೇಕ, ಅನೇಕ ಮೂಲಗಳಿವೆ. <a %(a_wikipedia)s>ಈ ವಿಕಿಪೀಡಿಯ ಪುಟ</a> ಒಳ್ಳೆಯ ಪ್ರಾರಂಭವಾಗಿದೆ, ಆದರೆ ನೀವು ಇತರ ಉತ್ತಮ ಪಟ್ಟಿಗಳನ್ನು ತಿಳಿದಿದ್ದರೆ, ದಯವಿಟ್ಟು ನಮಗೆ ತಿಳಿಸಿ."
 
-#: allthethings/page/templates/page/search.html:407
+#: allthethings/page/templates/page/search.html:411
 #, fuzzy
 msgid "page.search.results.search_generic"
 msgstr "ಬಾಕ್ಸ್‌ನಲ್ಲಿ ಟೈಪ್ ಮಾಡಿ ಹುಡುಕಿ."
 
-#: allthethings/page/templates/page/search.html:426
+#: allthethings/page/templates/page/search.html:430
 #, fuzzy
 msgid "page.search.results.these_are_records"
 msgstr "ಇವು ಮೆಟಾಡೇಟಾ ದಾಖಲೆಗಳು, <span %(classname)s>ಡೌನ್‌ಲೋಡ್ ಮಾಡಬಹುದಾದ ಫೈಲ್‌ಗಳು ಅಲ್ಲ</span>."
 
-#: allthethings/page/templates/page/search.html:442
+#: allthethings/page/templates/page/search.html:446
 #, fuzzy
 msgid "page.search.results.error.header"
 msgstr "ಹುಡುಕುವಾಗ ದೋಷ."
 
-#: allthethings/page/templates/page/search.html:444
+#: allthethings/page/templates/page/search.html:448
 #, fuzzy
 msgid "page.search.results.error.unknown"
 msgstr "<a %(a_reload)s>ಪುಟವನ್ನು ಮರುಲೋಡ್</a> ಮಾಡಿ. ಸಮಸ್ಯೆ ಮುಂದುವರಿದರೆ, ದಯವಿಟ್ಟು ನಮಗೆ %(email)s ಗೆ ಇಮೇಲ್ ಮಾಡಿ."
 
-#: allthethings/page/templates/page/search.html:457
+#: allthethings/page/templates/page/search.html:461
 #, fuzzy
 msgid "page.search.results.none"
 msgstr "<span class=\"font-bold\">ಯಾವುದೇ ಫೈಲ್‌ಗಳು ಕಂಡುಬಂದಿಲ್ಲ.</span> ಕಡಿಮೆ ಅಥವಾ ವಿಭಿನ್ನ ಹುಡುಕಾಟ ಪದಗಳು ಮತ್ತು ಫಿಲ್ಟರ್‌ಗಳನ್ನು ಪ್ರಯತ್ನಿಸಿ."
 
-#: allthethings/page/templates/page/search.html:460
+#: allthethings/page/templates/page/search.html:464
 #, fuzzy
 msgid "page.search.results.incorrectly_slow"
 msgstr "➡️ ಕೆಲವೊಮ್ಮೆ ಹುಡುಕಾಟ ಸರ್ವರ್ ನಿಧಾನವಾಗಿರುವಾಗ ಇದು ತಪ್ಪಾಗಿ ಸಂಭವಿಸುತ್ತದೆ. ಅಂತಹ ಸಂದರ್ಭಗಳಲ್ಲಿ, <a %(a_attrs)s>ಮರುಲೋಡ್</a> ಸಹಾಯ ಮಾಡಬಹುದು."
 
-#: allthethings/page/templates/page/search.html:467
+#: allthethings/page/templates/page/search.html:471
 #, fuzzy
 msgid "page.search.found_matches.main"
 msgstr "ನಾವು %(in)s ನಲ್ಲಿ ಹೊಂದಾಣಿಕೆಗಳನ್ನು ಕಂಡಿದ್ದೇವೆ. <a %(a_request)s>ಫೈಲ್ ಅನ್ನು ವಿನಂತಿಸುವಾಗ</a> ನೀವು ಅಲ್ಲಿ ಕಂಡ URL ಅನ್ನು ಉಲ್ಲೇಖಿಸಬಹುದು."
 
-#: allthethings/page/templates/page/search.html:467
+#: allthethings/page/templates/page/search.html:471
 #, fuzzy
 msgid "page.search.found_matches.journals"
 msgstr "ಜರ್ನಲ್ ಲೇಖನಗಳು (%(count)s)"
 
-#: allthethings/page/templates/page/search.html:467
+#: allthethings/page/templates/page/search.html:471
 #, fuzzy
 msgid "page.search.found_matches.digital_lending"
 msgstr "ಡಿಜಿಟಲ್ ಸಾಲ (%(count)s)"
 
-#: allthethings/page/templates/page/search.html:467
+#: allthethings/page/templates/page/search.html:471
 #, fuzzy
 msgid "page.search.found_matches.metadata"
 msgstr "ಮೆಟಾಡೇಟಾ (%(count)s)"
 
-#: allthethings/page/templates/page/search.html:474
+#: allthethings/page/templates/page/search.html:478
 #, fuzzy
 msgid "page.search.results.numbers_pages"
 msgstr "ಫಲಿತಾಂಶಗಳು %(from)s-%(to)s (%(total)s ಒಟ್ಟು)"
 
-#: allthethings/page/templates/page/search.html:485
+#: allthethings/page/templates/page/search.html:490
 #, fuzzy
 msgid "page.search.results.partial_more"
 msgstr "%(num)d+ ಭಾಗಶಃ ಹೊಂದಾಣಿಕೆಗಳು"
 
-#: allthethings/page/templates/page/search.html:485
+#: allthethings/page/templates/page/search.html:490
 #, fuzzy
 msgid "page.search.results.partial"
 msgstr "%(num)d ಭಾಗಶಃ ಹೊಂದಾಣಿಕೆಗಳು"
@@ -6589,47 +6636,47 @@ msgstr "%(links)s ಲಿಂಕುಗಳು ಅಥವಾ ಸ್ಕ್ರೀನ್
 msgid "page.volunteering.table.misc.task"
 msgstr "ನಮ್ಮ <a %(a_telegram)s>Telegram ನಲ್ಲಿ ಸ್ವಯಂಸೇವಕರ ಚಾಟ್</a> ನಲ್ಲಿ ಪೋಸ್ಟ್ ಮಾಡಿದ ಸಣ್ಣ ಕಾರ್ಯಗಳು. ಸಾಮಾನ್ಯವಾಗಿ ಸದಸ್ಯತ್ವಕ್ಕಾಗಿ, ಕೆಲವೊಮ್ಮೆ ಸಣ್ಣ ಬಹುಮಾನಗಳಿಗಾಗಿ."
 
-#: allthethings/page/templates/page/volunteering.html:66
+#: allthethings/page/templates/page/volunteering.html:67
 #, fuzzy
 msgid "page.volunteering.table.misc.milestone"
 msgstr "ಕಾರ್ಯಕ್ಕೆ ಅವಲಂಬಿತವಾಗಿದೆ."
 
-#: allthethings/page/templates/page/volunteering.html:70
+#: allthethings/page/templates/page/volunteering.html:71
 #, fuzzy
 msgid "page.volunteering.section.bounties.heading"
 msgstr "ಬೌಂಟಿಗಳು"
 
-#: allthethings/page/templates/page/volunteering.html:73
+#: allthethings/page/templates/page/volunteering.html:74
 #, fuzzy
 msgid "page.volunteering.section.bounties.text1"
 msgstr "ನಾವು ಸದಾ ಉತ್ತಮ ಪ್ರೋಗ್ರಾಮಿಂಗ್ ಅಥವಾ ಆಕ್ರಮಣಕಾರಿ ಭದ್ರತಾ ಕೌಶಲ್ಯಗಳನ್ನು ಹೊಂದಿರುವ ವ್ಯಕ್ತಿಗಳನ್ನು ಹುಡುಕುತ್ತೇವೆ. ನೀವು ಮಾನವತೆಯ ಪರಂಪರೆಯನ್ನು ಉಳಿಸಲು ಮಹತ್ವದ ಕೊಡುಗೆ ನೀಡಬಹುದು."
 
-#: allthethings/page/templates/page/volunteering.html:77
+#: allthethings/page/templates/page/volunteering.html:78
 #, fuzzy
 msgid "page.volunteering.section.bounties.text2"
 msgstr "ಧನ್ಯವಾದವಾಗಿ, ನಾವು ಉತ್ತಮ ಕೊಡುಗೆಗಳಿಗೆ ಸದಸ್ಯತ್ವವನ್ನು ಉಚಿತವಾಗಿ ನೀಡುತ್ತೇವೆ. ದೊಡ್ಡ ಧನ್ಯವಾದವಾಗಿ, ನಾವು ವಿಶೇಷವಾಗಿ ಮಹತ್ವದ ಮತ್ತು ಕಷ್ಟದ ಕಾರ್ಯಗಳಿಗೆ ಹಣಕಾಸಿನ ಬೌಂಟಿಗಳನ್ನು ನೀಡುತ್ತೇವೆ. ಇದನ್ನು ಉದ್ಯೋಗಕ್ಕೆ ಬದಲಾವಣೆ ಎಂದು ನೋಡಬೇಡಿ, ಆದರೆ ಇದು ಹೆಚ್ಚುವರಿ ಪ್ರೇರಣೆ ಮತ್ತು ಖರ್ಚುಗಳನ್ನು ನಿಭಾಯಿಸಲು ಸಹಾಯ ಮಾಡಬಹುದು."
 
-#: allthethings/page/templates/page/volunteering.html:81
+#: allthethings/page/templates/page/volunteering.html:82
 #, fuzzy
 msgid "page.volunteering.section.bounties.text3"
 msgstr "ನಮ್ಮ ಹೆಚ್ಚಿನ ಕೋಡ್ ಓಪನ್ ಸೋರ್ಸ್ ಆಗಿದೆ, ಮತ್ತು ಬೌಂಟಿ ನೀಡುವಾಗ ನಿಮ್ಮ ಕೋಡ್ ಕೂಡ ಅದೇ ರೀತಿಯದ್ದಾಗಿರಬೇಕು ಎಂದು ನಾವು ಕೇಳುತ್ತೇವೆ. ಕೆಲವು ಅಪವಾದಗಳು ಇವೆ, ಅವುಗಳನ್ನು ನಾವು ವೈಯಕ್ತಿಕವಾಗಿ ಚರ್ಚಿಸಬಹುದು."
 
-#: allthethings/page/templates/page/volunteering.html:85
+#: allthethings/page/templates/page/volunteering.html:86
 #, fuzzy
 msgid "page.volunteering.section.bounties.text4"
 msgstr "ಬೌಂಟಿಗಳು ಕಾರ್ಯವನ್ನು ಪೂರ್ಣಗೊಳಿಸಿದ ಮೊದಲ ವ್ಯಕ್ತಿಗೆ ನೀಡಲಾಗುತ್ತದೆ. ನೀವು ಬೌಂಟಿ ಟಿಕೆಟ್‌ನಲ್ಲಿ ಕಾಮೆಂಟ್ ಮಾಡುವ ಮೂಲಕ ಇತರರಿಗೆ ನೀವು ಏನಾದರೂ ಕೆಲಸ ಮಾಡುತ್ತಿದ್ದೀರಿ ಎಂದು ತಿಳಿಸಲು ಮುಕ್ತವಾಗಿರಿ, ಆದ್ದರಿಂದ ಇತರರು ತಡೆಹಿಡಿಯಬಹುದು ಅಥವಾ ನಿಮ್ಮನ್ನು ಸಂಪರ್ಕಿಸಿ ತಂಡವಾಗಿ ಕೆಲಸ ಮಾಡಬಹುದು. ಆದರೆ ಇತರರು ಅದನ್ನು ಕೆಲಸ ಮಾಡಲು ಮುಕ್ತರಾಗಿದ್ದಾರೆ ಮತ್ತು ನಿಮ್ಮನ್ನು ಮೀರಿಸಲು ಪ್ರಯತ್ನಿಸಬಹುದು ಎಂಬುದನ್ನು ಗಮನದಲ್ಲಿಡಿ. ಆದರೆ, ನಾವು ಅಸಮರ್ಪಕ ಕೆಲಸಕ್ಕೆ ಬೌಂಟಿಗಳನ್ನು ನೀಡುವುದಿಲ್ಲ. ಎರಡು ಉತ್ತಮ ಗುಣಮಟ್ಟದ ಸಲ್ಲಿಕೆಗಳು ಸಮೀಪದಲ್ಲಿ (ಒಂದು ಅಥವಾ ಎರಡು ದಿನಗಳಲ್ಲಿ) ಮಾಡಲ್ಪಟ್ಟರೆ, ನಾವು ನಮ್ಮ ವಿವೇಚನೆಯ ಮೇರೆಗೆ ಎರಡಕ್ಕೂ ಬೌಂಟಿಗಳನ್ನು ನೀಡಲು ಆಯ್ಕೆ ಮಾಡಬಹುದು, ಉದಾಹರಣೆಗೆ ಮೊದಲ ಸಲ್ಲಿಕೆಗೆ 100%% ಮತ್ತು ಎರಡನೇ ಸಲ್ಲಿಕೆಗೆ 50%% (ಒಟ್ಟು 150%%)."
 
-#: allthethings/page/templates/page/volunteering.html:89
+#: allthethings/page/templates/page/volunteering.html:90
 #, fuzzy
 msgid "page.volunteering.section.bounties.text5"
 msgstr "ದೊಡ್ಡ ಬೌಂಟಿಗಳಿಗೆ (ವಿಶೇಷವಾಗಿ ಸ್ಕ್ರಾಪಿಂಗ್ ಬೌಂಟಿಗಳಿಗೆ), ನೀವು ~5%% ಪೂರ್ಣಗೊಳಿಸಿದಾಗ ಮತ್ತು ನಿಮ್ಮ ವಿಧಾನವು ಸಂಪೂರ್ಣ ಮೈಲಿಗಲ್ಲಿಗೆ ತಲುಪಲು ಸ್ಕೇಲ್ ಆಗುತ್ತದೆ ಎಂಬುದರಲ್ಲಿ ವಿಶ್ವಾಸವಿದ್ದಾಗ ದಯವಿಟ್ಟು ನಮ್ಮನ್ನು ಸಂಪರ್ಕಿಸಿ. ನಾವು ಪ್ರತಿಕ್ರಿಯೆ ನೀಡಲು ನಿಮ್ಮ ವಿಧಾನವನ್ನು ನಮ್ಮೊಂದಿಗೆ ಹಂಚಿಕೊಳ್ಳಬೇಕು. ಈ ರೀತಿಯಾಗಿ, ಬೌಂಟಿಗೆ ಸಮೀಪಿಸುತ್ತಿರುವ ಹಲವಾರು ಜನರು ಇದ್ದರೆ ನಾವು ಏನು ಮಾಡಬೇಕೆಂದು ನಿರ್ಧರಿಸಬಹುದು, ಉದಾಹರಣೆಗೆ ಹಲವಾರು ಜನರಿಗೆ ಬೌಂಟಿ ನೀಡುವುದು, ಜನರನ್ನು ತಂಡವಾಗಿ ಕೆಲಸ ಮಾಡಲು ಪ್ರೋತ್ಸಾಹಿಸುವುದು, ಇತ್ಯಾದಿ."
 
-#: allthethings/page/templates/page/volunteering.html:93
+#: allthethings/page/templates/page/volunteering.html:94
 #, fuzzy
 msgid "page.volunteering.section.bounties.text6"
 msgstr "ಎಚ್ಚರಿಕೆ: ಹೆಚ್ಚಿನ ಬೌಂಟಿ ಕಾರ್ಯಗಳು <span %(bold)s>ಕಷ್ಟ</span> — ಸುಲಭವಾದವುಗಳಿಂದ ಪ್ರಾರಂಭಿಸುವುದು ಬುದ್ಧಿಮತ್ತೆಯಾಗಿದೆ."
 
-#: allthethings/page/templates/page/volunteering.html:97
+#: allthethings/page/templates/page/volunteering.html:98
 #, fuzzy
 msgid "page.volunteering.section.bounties.text7"
 msgstr "ನಮ್ಮ <a %(a_gitlab)s>Gitlab ಸಮಸ್ಯೆಗಳ ಪಟ್ಟಿ</a>ಗೆ ಹೋಗಿ \"Label priority\" ಮೂಲಕ ವಿಂಗಡಿಸಿ. ಇದು ನಾವು ಗಮನಿಸುವ ಕಾರ್ಯಗಳ ಕ್ರಮವನ್ನು ತೋರಿಸುತ್ತದೆ. ಸ್ಪಷ್ಟ ಬೌಂಟಿಗಳಿಲ್ಲದ ಕಾರ್ಯಗಳು ಇನ್ನೂ ಸದಸ್ಯತ್ವಕ್ಕೆ ಅರ್ಹವಾಗಿವೆ, ವಿಶೇಷವಾಗಿ \"Accepted\" ಮತ್ತು \"Anna’s favorite\" ಎಂದು ಗುರುತಿಸಲ್ಪಟ್ಟವು. ನೀವು \"Starter project\" ನಿಂದ ಪ್ರಾರಂಭಿಸಲು ಬಯಸಬಹುದು."
@@ -6672,8 +6719,8 @@ msgstr "ಈ ತಿಂಗಳ ಕೊನೆವರೆಗೆ ಮಾನ್ಯ."
 #: allthethings/templates/layouts/index.html:227
 #: allthethings/templates/layouts/index.html:233
 #: allthethings/templates/layouts/index.html:267
-#: allthethings/templates/layouts/index.html:533
-#: allthethings/templates/layouts/index.html:590
+#: allthethings/templates/layouts/index.html:536
+#: allthethings/templates/layouts/index.html:593
 #, fuzzy
 msgid "layout.index.header.nav.donate"
 msgstr "ದಾನ ಮಾಡಿ"
@@ -6714,166 +6761,161 @@ msgid "layout.index.header.recent_downloads"
 msgstr "ಇತ್ತೀಚಿನ ಡೌನ್‌ಲೋಡ್‌ಗಳು:"
 
 #: allthethings/templates/layouts/index.html:492
-#: allthethings/templates/layouts/index.html:505
-#: allthethings/templates/layouts/index.html:520
-#: allthethings/templates/layouts/index.html:587
+#: allthethings/templates/layouts/index.html:506
+#: allthethings/templates/layouts/index.html:522
+#: allthethings/templates/layouts/index.html:590
 #, fuzzy
 msgid "layout.index.header.nav.search"
 msgstr "ಹುಡುಕಿ"
 
 #: allthethings/templates/layouts/index.html:494
-#: allthethings/templates/layouts/index.html:507
-#: allthethings/templates/layouts/index.html:522
-#: allthethings/templates/layouts/index.html:589
-#: allthethings/templates/layouts/index.html:615
+#: allthethings/templates/layouts/index.html:508
+#: allthethings/templates/layouts/index.html:524
+#: allthethings/templates/layouts/index.html:592
+#: allthethings/templates/layouts/index.html:618
 #, fuzzy
 msgid "layout.index.header.nav.faq"
 msgstr "FAQ"
 
 #: allthethings/templates/layouts/index.html:495
-#: allthethings/templates/layouts/index.html:508
-#: allthethings/templates/layouts/index.html:523
-#: allthethings/templates/layouts/index.html:616
+#: allthethings/templates/layouts/index.html:509
+#: allthethings/templates/layouts/index.html:525
+#: allthethings/templates/layouts/index.html:619
 #, fuzzy
 msgid "layout.index.header.nav.improve_metadata"
 msgstr "ಮೆಟಾಡೇಟಾವನ್ನು ಸುಧಾರಿಸಿ"
 
 #: allthethings/templates/layouts/index.html:496
-#: allthethings/templates/layouts/index.html:509
-#: allthethings/templates/layouts/index.html:524
-#: allthethings/templates/layouts/index.html:617
+#: allthethings/templates/layouts/index.html:510
+#: allthethings/templates/layouts/index.html:526
+#: allthethings/templates/layouts/index.html:620
 #, fuzzy
 msgid "layout.index.header.nav.volunteering"
 msgstr "ಸ್ವಯಂಸೇವಾ ಕಾರ್ಯಗಳು & ಬಹುಮಾನಗಳು"
 
 #: allthethings/templates/layouts/index.html:497
-#: allthethings/templates/layouts/index.html:510
-#: allthethings/templates/layouts/index.html:525
-#: allthethings/templates/layouts/index.html:618
+#: allthethings/templates/layouts/index.html:511
+#: allthethings/templates/layouts/index.html:527
+#: allthethings/templates/layouts/index.html:621
 #, fuzzy
 msgid "layout.index.header.nav.datasets"
 msgstr "Datasets"
 
 #: allthethings/templates/layouts/index.html:498
-#: allthethings/templates/layouts/index.html:511
-#: allthethings/templates/layouts/index.html:526
-#: allthethings/templates/layouts/index.html:619
+#: allthethings/templates/layouts/index.html:512
+#: allthethings/templates/layouts/index.html:528
+#: allthethings/templates/layouts/index.html:622
 #, fuzzy
 msgid "layout.index.header.nav.torrents"
 msgstr "ಟೊರೆಂಟ್ಸ್"
 
-#: allthethings/templates/layouts/index.html:499
-#: allthethings/templates/layouts/index.html:512
-#: allthethings/templates/layouts/index.html:527
-#: allthethings/templates/layouts/index.html:620
+#: allthethings/templates/layouts/index.html:500
+#: allthethings/templates/layouts/index.html:514
+#: allthethings/templates/layouts/index.html:530
+#: allthethings/templates/layouts/index.html:624
 #, fuzzy
 msgid "layout.index.header.nav.codes"
 msgstr "ಕೋಡ್ಸ್ ಎಕ್ಸ್‌ಪ್ಲೋರರ್"
 
-#: allthethings/templates/layouts/index.html:500
-#: allthethings/templates/layouts/index.html:513
-#: allthethings/templates/layouts/index.html:528
-#: allthethings/templates/layouts/index.html:621
+#: allthethings/templates/layouts/index.html:501
+#: allthethings/templates/layouts/index.html:515
+#: allthethings/templates/layouts/index.html:531
+#: allthethings/templates/layouts/index.html:625
 #, fuzzy
 msgid "layout.index.header.nav.llm_data"
 msgstr "ಎಲ್‌ಎಲ್‌ಎಂ ಡೇಟಾ"
 
-#: allthethings/templates/layouts/index.html:501
-#: allthethings/templates/layouts/index.html:514
-#: allthethings/templates/layouts/index.html:519
-#: allthethings/templates/layouts/index.html:586
+#: allthethings/templates/layouts/index.html:502
+#: allthethings/templates/layouts/index.html:516
+#: allthethings/templates/layouts/index.html:521
+#: allthethings/templates/layouts/index.html:589
 #, fuzzy
 msgid "layout.index.header.nav.home"
 msgstr "ಮುಖಪುಟ"
 
-#: allthethings/templates/layouts/index.html:530
-#: allthethings/templates/layouts/index.html:609
+#: allthethings/templates/layouts/index.html:533
+#: allthethings/templates/layouts/index.html:612
 #, fuzzy
 msgid "layout.index.header.nav.annassoftware"
 msgstr "ಅನ್ನಾ’ಸ್ ಸಾಫ್ಟ್‌ವೇರ್ ↗"
 
-#: allthethings/templates/layouts/index.html:531
-#: allthethings/templates/layouts/index.html:610
+#: allthethings/templates/layouts/index.html:534
+#: allthethings/templates/layouts/index.html:613
 #, fuzzy
 msgid "layout.index.header.nav.translate"
 msgstr "ಅನುವಾದಿಸಿ ↗"
 
-#: allthethings/templates/layouts/index.html:544
-#: allthethings/templates/layouts/index.html:548
-#: allthethings/templates/layouts/index.html:553
+#: allthethings/templates/layouts/index.html:547
+#: allthethings/templates/layouts/index.html:551
+#: allthethings/templates/layouts/index.html:556
 #, fuzzy
 msgid "layout.index.header.nav.login_register"
 msgstr "ಲಾಗ್ ಇನ್ / ನೋಂದಣಿ"
 
-#: allthethings/templates/layouts/index.html:560
-#: allthethings/templates/layouts/index.html:567
-#: allthethings/templates/layouts/index.html:572
+#: allthethings/templates/layouts/index.html:563
+#: allthethings/templates/layouts/index.html:570
+#: allthethings/templates/layouts/index.html:575
 #, fuzzy
 msgid "layout.index.header.nav.account"
 msgstr "ಖಾತೆ"
 
-#: allthethings/templates/layouts/index.html:585
+#: allthethings/templates/layouts/index.html:588
 #, fuzzy
 msgid "layout.index.footer.list1.header"
 msgstr "ಅನ್ನಾ’ಸ್ ಆರ್ಕೈವ್"
 
-#: allthethings/templates/layouts/index.html:604
+#: allthethings/templates/layouts/index.html:607
 #, fuzzy
 msgid "layout.index.footer.list2.header"
 msgstr "ಸಂಪರ್ಕದಲ್ಲಿರಿ"
 
-#: allthethings/templates/layouts/index.html:606
+#: allthethings/templates/layouts/index.html:609
 #, fuzzy
 msgid "layout.index.footer.list2.dmca_copyright"
 msgstr "DMCA / ಕಾಪಿರೈಟ್ ದಾವೆಗಳು"
 
-#: allthethings/templates/layouts/index.html:607
+#: allthethings/templates/layouts/index.html:610
 #, fuzzy
 msgid "layout.index.footer.list2.reddit"
 msgstr "ರೆಡ್ಡಿಟ್"
 
-#: allthethings/templates/layouts/index.html:607
+#: allthethings/templates/layouts/index.html:610
 #, fuzzy
 msgid "layout.index.footer.list2.telegram"
 msgstr "Telegram"
 
-#: allthethings/templates/layouts/index.html:614
+#: allthethings/templates/layouts/index.html:617
 #, fuzzy
 msgid "layout.index.header.nav.advanced"
 msgstr "ಮುನ್ನಡೆ"
 
-#: allthethings/templates/layouts/index.html:622
+#: allthethings/templates/layouts/index.html:626
 #, fuzzy
 msgid "layout.index.header.nav.security"
 msgstr "ಭದ್ರತೆ"
 
-#: allthethings/templates/layouts/index.html:626
+#: allthethings/templates/layouts/index.html:630
 #, fuzzy
 msgid "layout.index.footer.list3.header"
 msgstr "ಪರ್ಯಾಯಗಳು"
 
-#: allthethings/templates/layouts/index.html:630
+#: allthethings/templates/layouts/index.html:634
 #, fuzzy
 msgid "layout.index.footer.list3.link.slum"
 msgstr "SLUM (%(unaffiliated)s)"
 
-#: allthethings/templates/layouts/index.html:630
+#: allthethings/templates/layouts/index.html:634
 #, fuzzy
 msgid "layout.index.footer.list3.link.unaffiliated"
 msgstr "ಸಂಬಂಧವಿಲ್ಲದ"
 
-#: allthethings/templates/macros/aarecord_list.html:90
-#: allthethings/templates/macros/aarecord_list.html:125
+#: allthethings/templates/macros/aarecord_list.html:92
+#: allthethings/templates/macros/aarecord_list.html:127
 #, fuzzy
 msgid "page.search.results.issues"
 msgstr "❌ ಈ ಫೈಲ್‌ನಲ್ಲಿ ಸಮಸ್ಯೆಗಳು ಇರಬಹುದು."
 
-#: allthethings/templates/macros/aarecord_list.html:116
-#, fuzzy
-msgid "page.search.results.download_time"
-msgstr "ಡೌನ್‌ಲೋಡ್ ಸಮಯ"
-
-#: allthethings/templates/macros/aarecord_list.html:116
+#: allthethings/templates/macros/aarecord_list.html:118
 #, fuzzy
 msgid "page.search.results.fast_download"
 msgstr "ವೇಗದ ಡೌನ್‌ಲೋಡ್"
@@ -7057,4 +7099,7 @@ msgstr "ಮುಂದೆ"
 
 #~ msgid "common.md5.servers.fast_partner.recommended"
 #~ msgstr "(%(recommended)s)"
+
+#~ msgid "page.datasets.upload.source.alexandrina"
+#~ msgstr "ಅಲೆಕ್ಸಾಂಡ್ರಿಯಾ ಗ್ರಂಥಾಲಯದ ಸಂಗ್ರಹದಿಂದ <a %(a_href)s><q>ಅಲೆಕ್ಸಾಂಡ್ರಿಯಾ ಗ್ರಂಥಾಲಯ,</q></a> ನಿಖರವಾದ ಮೂಲ ಸ್ಪಷ್ಟವಿಲ್ಲ. ಭಾಗಶಃ the-eye.eu ನಿಂದ, ಭಾಗಶಃ ಇತರ ಮೂಲಗಳಿಂದ."
 
