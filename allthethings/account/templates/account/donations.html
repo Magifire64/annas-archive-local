@@ -13,7 +13,9 @@
     <p class="mb-4"><a href="/donate">{{ gettext('page.my_donations.make_another') }}</a></p>
 
     {% for donation_dict in donation_dicts %}
-      <div class="mb-2"><a href="/account/donations/{{ donation_dict.donation_id }}">{{ donation_dict.created | dateformat(format='long') }}</a> {{ donation_dict.formatted_native_currency.cost_cents_native_currency_str_donation_page_formal }} <span class="italic">{{ order_processing_status_labels[donation_dict.processing_status] }}</span></div>
+      <div class="mb-2"><a href="/account/donations/{{ donation_dict.donation_id }}">{{ donation_dict.created | dateformat(format='long') }}</a> {{ donation_dict.formatted_native_currency.cost_cents_native_currency_str_donation_page_formal }} <span class="italic">{{ order_processing_status_labels[donation_dict.processing_status] }}</span>
+        <div class="text-xs text-gray-500">+{{ donation_dict.receipt_id }}</div>
+      </div>
     {% endfor %}
   {% endif %}
 {% endblock %}
