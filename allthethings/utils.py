@@ -570,10 +570,10 @@ MEMBERSHIP_METHOD_MAXIMUM_CENTS_NATIVE = {
     "payment1d_alipay": 100000,
     "payment1d_alipay_cc": round(100000/MEMBERSHIP_EXCHANGE_RATE_RMB), # Actual number in USD!
     "payment1d_wechat": 100000,
-    # "payment3a": 500000,
-    # "payment3a_cc": 500000,
-    "payment3a": 70000,
-    "payment3a_cc": round(70000/MEMBERSHIP_EXCHANGE_RATE_RMB), # Actual number in USD!
+    "payment3a": 500000,
+    "payment3a_cc": round(500000/MEMBERSHIP_EXCHANGE_RATE_RMB), # Actual number in USD!
+    # "payment3a": 70000,
+    # "payment3a_cc": round(70000/MEMBERSHIP_EXCHANGE_RATE_RMB), # Actual number in USD!
     "payment3b": 500000,
     "amazon": 35000,
     "amazon_co_uk": 5000,
