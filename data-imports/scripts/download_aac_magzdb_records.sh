@@ -32,7 +32,7 @@ else
         --sftp-port="${AAC_SFTP_PORT}" \
         --sftp-user="${AAC_SFTP_USERNAME}" \
         --sftp-pass="${SFTP_PASS_OBSCURED}" \
-        --progress \
+        --vv \
         --multi-thread-streams=60 \
         --transfers=60 \
         --checksum \
