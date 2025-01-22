@@ -25,6 +25,7 @@ import traceback
 import time
 import email
 import email.policy
+from sqlalchemy.orm import Session
 
 from flask_babel import gettext, get_babel, force_locale
 
@@ -445,6 +446,15 @@ def usd_currency_rates_cached():
     #     print("RatesNotAvailableError -- using fallback!")
     #     # 2023-05-04 fallback
     return {'EUR': 0.9161704076958315, 'JPY': 131.46129180027486, 'BGN': 1.7918460833715073, 'CZK': 21.44663307375172, 'DKK': 6.8263857077416406, 'GBP': 0.8016032982134678, 'HUF': 344.57169033440226, 'PLN': 4.293449381584975, 'RON': 4.52304168575355, 'SEK': 10.432890517636281, 'CHF': 0.9049931287219424, 'ISK': 137.15071003206597, 'NOK': 10.43105817682089, 'TRY': 19.25744388456253, 'AUD': 1.4944571690334403, 'BRL': 5.047732478240953, 'CAD': 1.3471369674759506, 'CNY': 6.8725606962895105, 'HKD': 7.849931287219422, 'IDR': 14924.993128721942, 'INR': 81.87402656894183, 'KRW': 1318.1951442968393, 'MXN': 18.288960146587264, 'MYR': 4.398992212551534, 'NZD': 1.592945487860742, 'PHP': 54.56894182317912, 'SGD': 1.3290884104443428, 'THB': 34.054970224461755, 'ZAR': 18.225286303252407}
+
+def check_is_member(cookies, mariapersist_engine):
+    account_id = get_account_id(cookies)
+    if account_id is not None:
+        with Session(mariapersist_engine) as mariapersist_session:
+            account_fast_download_info = get_account_fast_download_info(mariapersist_session, account_id)
+            if account_fast_download_info is not None:
+                return True
+    return False
 
 @functools.cache
 def membership_tier_names(locale):
@@ -1083,7 +1093,7 @@ def make_anon_download_uri(limit_multiple, speed_kbps, path, filename, domain):
     md5 = base64.urlsafe_b64encode(hashlib.md5(secure_str.encode('utf-8')).digest()).decode('utf-8').rstrip('=')
     return f"d3/{limit_multiple_field}/{expiry}/{speed_kbps}/{urllib.parse.quote(path)}~/{md5}/{filename}"
 
-DICT_COMMENTS_NO_API_DISCLAIMER = "This page is *not* intended as an API. If you need programmatic access to this JSON, please set up your own instance. For more information, see: https://annas-archive.li/datasets and https://software.annas-archive.li/AnnaArchivist/annas-archive/-/tree/main/data-imports"
+DICT_COMMENTS_NO_API_DISCLAIMER = "This page is *not* intended as an API. If you need programmatic access to this JSON, please mirror our [code](https://software.annas-archive.li/) and [data](https://annas-archive.li/torrents#aa_derived_mirror_metadata) locally. For more resources, check out https://annas-archive.li/datasets and https://software.annas-archive.li/AnnaArchivist/annas-archive/-/tree/main/data-imports"
 
 COMMON_DICT_COMMENTS = {
     "identifier": ("after", ["Typically ISBN-10 or ISBN-13."]),

@@ -7333,13 +7333,9 @@ def scidb_page(doi_input):
     # verified = False
     # if str(request.args.get("scidb_verified") or "") == "1":
     #     verified = True
-    account_id = allthethings.utils.get_account_id(request.cookies)
-    if account_id is not None:
-        with Session(mariapersist_engine) as mariapersist_session:
-            account_fast_download_info = allthethings.utils.get_account_fast_download_info(mariapersist_session, account_id)
-            if account_fast_download_info is not None:
-                fast_scidb = True
-            # verified = True
+    if allthethings.utils.check_is_member(request.cookies, mariapersist_engine):
+        fast_scidb = True
+        # verified = True
     # if not verified:
     #     return redirect(f"/scidb/{doi_input}?scidb_verified=1", code=302)
 
@@ -7401,14 +7397,22 @@ def scidb_page(doi_input):
         }
         return render_template("page/scidb.html", **render_fields)
 
+def protect_db_page(request):
+    if not allthethings.utils.check_is_member(request.cookies, mariapersist_engine):
+        return '{"error":"Not a member. To view this page without being a member, mirror our [code](https://software.annas-archive.li/) and [data](https://annas-archive.li/torrents#aa_derived_mirror_metadata) locally. For more resources, check out https://annas-archive.li/datasets and https://software.annas-archive.li/AnnaArchivist/annas-archive/-/tree/main/data-imports"}', 403, {'Content-Type': 'text/json; charset=utf-8'}
+    return None
+
 @page.get("/db/aarecord/<path:aarecord_id>.json")
 @allthethings.utils.public_cache(minutes=5, cloudflare_minutes=60)
 def md5_json(aarecord_id):
+    if protect_return_val := protect_db_page(request):
+        return protect_return_val
+
     aarecords = get_aarecords_elasticsearch([aarecord_id])
     if aarecords is None:
-        return '"Page loading issue"', 500
+        return '{"error":"Page loading issue"}', 500, {'Content-Type': 'text/json; charset=utf-8'}
     if len(aarecords) == 0:
-        return "{}", 404
+        return '{"error":"Record not found"}', 404, {'Content-Type': 'text/json; charset=utf-8'}
 
     aarecord_comments = {
         "id": ("before", ["File from the combined collections of Anna's Archive.",
@@ -7455,6 +7459,9 @@ def md5_json(aarecord_id):
 @page.get("/db/raw/<path:raw_path>.json")
 @allthethings.utils.public_cache(minutes=5, cloudflare_minutes=60*3)
 def db_raw_json(raw_path):
+    if protect_return_val := protect_db_page(request):
+        return protect_return_val
+
     with Session(engine) as session:
         raw_path_split = raw_path.split('/', 1)
 
@@ -7515,11 +7522,11 @@ def db_raw_json(raw_path):
         elif raw_path_split[0] == 'aac_trantor':
             result_dicts = get_aac_trantor_book_dicts(session, "trantor_id", [raw_path_split[1]])
         else:
-            return '{"error":"Unknown path"}', 404
+            return '{"error":"Unknown path"}', 404, {'Content-Type': 'text/json; charset=utf-8'}
 
         if len(result_dicts) == 0:
-            return "{}", 404
-        return allthethings.utils.nice_json(result_dicts[0]), {'Content-Type': 'text/json; charset=utf-8'}
+            return '{"error":"Record not found"}', 404, {'Content-Type': 'text/json; charset=utf-8'}
+        return allthethings.utils.nice_json(result_dicts), {'Content-Type': 'text/json; charset=utf-8'}
 
 # IMPORTANT: Keep in sync with api_md5_fast_download.
 @page.get("/fast_download/<string:md5_input>/<int:path_index>/<int:domain_index>")
