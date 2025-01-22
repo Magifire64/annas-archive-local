@@ -13158,13 +13158,13 @@ INSERT INTO `aarecords_codes_duxiu` VALUES("aacid:aacid__duxiu_records__20240130
 ,("cadal_ssno:06838887","cadal_ssno:06838887")
 ,("cadal_ssno:06838888","cadal_ssno:06838888")
 ,("cadal_ssno:06838889","cadal_ssno:06838889")
-,("cadal_ssno:06838890","cadal_ssno:06838890")
+;
+INSERT INTO `aarecords_codes_duxiu` VALUES("cadal_ssno:06838890","cadal_ssno:06838890")
 ,("cadal_ssno:06838891","cadal_ssno:06838891")
 ,("cadal_ssno:06838892","cadal_ssno:06838892")
 ,("cadal_ssno:06838893","cadal_ssno:06838893")
 ,("cadal_ssno:06838894","cadal_ssno:06838894")
-;
-INSERT INTO `aarecords_codes_duxiu` VALUES("cadal_ssno:06838895","cadal_ssno:06838895")
+,("cadal_ssno:06838895","cadal_ssno:06838895")
 ,("cadal_ssno:06838896","cadal_ssno:06838896")
 ,("cadal_ssno:06838897","cadal_ssno:06838897")
 ,("cadal_ssno:06838898","cadal_ssno:06838898")
@@ -32818,12 +32818,12 @@ INSERT INTO `aarecords_codes_duxiu` VALUES("cadal_ssno:06838895","cadal_ssno:068
 ,("date_duxiu_meta_scrape:2024-02-05","duxiu_ssid:10000526")
 ,("date_duxiu_meta_scrape:2024-02-05","duxiu_ssid:10000528")
 ,("date_duxiu_meta_scrape:2024-02-05","duxiu_ssid:10000529")
-,("date_duxiu_meta_scrape:2024-02-05","duxiu_ssid:10000530")
+;
+INSERT INTO `aarecords_codes_duxiu` VALUES("date_duxiu_meta_scrape:2024-02-05","duxiu_ssid:10000530")
 ,("date_duxiu_meta_scrape:2024-02-05","duxiu_ssid:10000531")
 ,("date_duxiu_meta_scrape:2024-02-05","duxiu_ssid:10000532")
 ,("date_duxiu_meta_scrape:2024-02-05","duxiu_ssid:10000533")
-;
-INSERT INTO `aarecords_codes_duxiu` VALUES("date_duxiu_meta_scrape:2024-02-05","duxiu_ssid:10000534")
+,("date_duxiu_meta_scrape:2024-02-05","duxiu_ssid:10000534")
 ,("date_duxiu_meta_scrape:2024-02-05","duxiu_ssid:10000535")
 ,("date_duxiu_meta_scrape:2024-02-05","duxiu_ssid:10000536")
 ,("date_duxiu_meta_scrape:2024-02-05","duxiu_ssid:10000537")
