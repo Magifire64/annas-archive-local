@@ -1,0 +1,9 @@
+{% extends "layouts/index.html" %}
+
+{% block title %}{{ request.path }}{% endblock %}
+
+{% block main %}
+  <div id="editor" class="height: 100vh;"></div>
+  <script type="application/json" id="json-data">{{ nice_json | safe }}</script>
+  <script src="{{ url_for('static', filename='js/codemirror-json.js') }}"></script>
+{% endblock %}

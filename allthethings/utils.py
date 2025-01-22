@@ -432,6 +432,71 @@ def nice_json(some_dict):
     # Triple-slashes means it shouldn't be put on the previous line.
     return re.sub(r'[ \n]*"//(?!/)', ' "//', json_str, flags=re.MULTILINE)
 
+def convert_to_jsonc_str(item, indent_level=0):
+    indent = '  ' * indent_level
+    inner_indent = '  ' * (indent_level+1)
+    if isinstance(item, dict):
+        if len(item) == 0:
+            return '{}'
+        output = []
+        keys = list(item.keys())
+        index = 0
+        block_comments = []
+        inline_comments = {}
+        while index < len(keys):
+            key = keys[index]
+            value = item[key]
+            if key.startswith('///'):
+                # Block comment for the next key
+                if isinstance(value, list):
+                    block_comments.extend(value)
+                else:
+                    block_comments.append(value)
+                index += 1
+                continue
+            elif key.startswith('//'):
+                # Inline comment for the key without slashes
+                actual_key = key.lstrip('/')
+                inline_comments[actual_key] = value
+                index += 1
+                continue
+            else:
+                # Output block comments if any
+                if block_comments:
+                    for comment_line in block_comments:
+                        output.append(f'{inner_indent}// {comment_line}')
+                    block_comments = []
+                # Process the value
+                if isinstance(value, dict) or isinstance(value, list):
+                    # Recursively process nested structures
+                    value_str = convert_to_jsonc_str(value, indent_level+1)
+                    line = f'{inner_indent}"{key}": {value_str}'
+                else:
+                    # Simple value
+                    json_value = orjson.dumps(value, option=orjson.OPT_NON_STR_KEYS, default=str).decode('utf-8')
+                    line = f'{inner_indent}"{key}": {json_value}'
+                # Append inline comment if any
+                if key in inline_comments:
+                    line += f' // {inline_comments[key]}'
+                output.append(f'{line},')
+                index += 1
+        return '{\n' + '\n'.join(output) + f'\n{indent}}}'
+    elif isinstance(item, list):
+        if len(item) == 0:
+            return '[]'
+        elif len(item) == 1:
+            return '[' + convert_to_jsonc_str(item[0], indent_level) + ']'
+        else:
+            output = []
+            for elem in item:
+                value_str = convert_to_jsonc_str(elem, indent_level + 1)
+                output.append(f'{inner_indent}{value_str}')
+            return '[\n' + ',\n'.join(output) + f',\n{indent}]'
+    else:
+        # Leaf node
+        json_value = orjson.dumps(item, option=orjson.OPT_NON_STR_KEYS, default=str).decode('utf-8')
+        return json_value
+
 def donation_id_to_receipt_id(donation_id):
     return shortuuid.ShortUUID(alphabet="23456789abcdefghijkmnopqrstuvwxyz").encode(shortuuid.decode(donation_id))
 
@@ -1093,7 +1158,7 @@ def make_anon_download_uri(limit_multiple, speed_kbps, path, filename, domain):
     md5 = base64.urlsafe_b64encode(hashlib.md5(secure_str.encode('utf-8')).digest()).decode('utf-8').rstrip('=')
     return f"d3/{limit_multiple_field}/{expiry}/{speed_kbps}/{urllib.parse.quote(path)}~/{md5}/{filename}"
 
-DICT_COMMENTS_NO_API_DISCLAIMER = "This page is *not* intended as an API. If you need programmatic access to this JSON, please mirror our [code](https://software.annas-archive.li/) and [data](https://annas-archive.li/torrents#aa_derived_mirror_metadata) locally. For more resources, check out https://annas-archive.li/datasets and https://software.annas-archive.li/AnnaArchivist/annas-archive/-/tree/main/data-imports"
+DICT_COMMENTS_NO_API_DISCLAIMER = "This page is *not* intended as an API. If you need programmatic access to this JSON, please mirror our code ( https://software.annas-archive.li/ ) and data ( https://annas-archive.li/torrents#aa_derived_mirror_metadata ) locally. For more resources, check out https://annas-archive.li/datasets and https://software.annas-archive.li/AnnaArchivist/annas-archive/-/tree/main/data-imports"
 
 COMMON_DICT_COMMENTS = {
     "identifier": ("after", ["Typically ISBN-10 or ISBN-13."]),

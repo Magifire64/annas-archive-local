@@ -109,7 +109,8 @@ RUN sed -i -e '/if (fileOrigin !== viewerOrigin) {/,+2d' /public/pdfjs/web/viewe
 RUN git clone --depth 1 https://github.com/johnfactotum/foliate-js /public/foliatejs \
     && cd /public/foliatejs \
     && git fetch origin 34b9079a1b7a325febfb3728f632e636d402a372 --depth 1 \
-    && git checkout 34b9079a1b7a325febfb3728f632e636d402a372
+    && git checkout 34b9079a1b7a325febfb3728f632e636d402a372 \
+    && rm -rf /public/foliatejs/.git
 # Monkey patch fetchFile (needed, as important metadata is lost when calling createObjectURL)
 RUN sed -i 's/await fetchFile(file)/await window.parent.fetchFile(file)/g' /public/foliatejs/view.js
 # Monkey patch onLoad to automatically refocus the iframe

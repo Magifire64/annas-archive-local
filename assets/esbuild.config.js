@@ -37,3 +37,13 @@ esbuild.build({
   watch: watch,
   plugins: [copyStaticFiles()],
 })
+
+esbuild.build({
+  entryPoints: ['./js/codemirror-json.js'],
+  outfile: '../public/js/codemirror-json.js',
+  bundle: true,
+  minify: minify,
+  sourcemap: sourcemap,
+  watch: watch,
+  plugins: [copyStaticFiles()],
+})

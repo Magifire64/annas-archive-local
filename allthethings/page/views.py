@@ -7399,11 +7399,12 @@ def scidb_page(doi_input):
 
 def protect_db_page(request):
     if not allthethings.utils.check_is_member(request.cookies, mariapersist_engine):
-        return '{"error":"Not a member. To view this page without being a member, mirror our [code](https://software.annas-archive.li/) and [data](https://annas-archive.li/torrents#aa_derived_mirror_metadata) locally. For more resources, check out https://annas-archive.li/datasets and https://software.annas-archive.li/AnnaArchivist/annas-archive/-/tree/main/data-imports"}', 403, {'Content-Type': 'text/json; charset=utf-8'}
+        return '{"error":"Not a member. To view this page without being a member, mirror our code ( https://software.annas-archive.li/ ) and data ( https://annas-archive.li/torrents#aa_derived_mirror_metadata ) locally. For more resources, check out https://annas-archive.li/datasets and https://software.annas-archive.li/AnnaArchivist/annas-archive/-/tree/main/data-imports"}', 403, {'Content-Type': 'text/json; charset=utf-8'}
     return None
 
 @page.get("/db/aarecord/<path:aarecord_id>.json")
-@allthethings.utils.public_cache(minutes=5, cloudflare_minutes=60)
+@page.get("/db/aarecord/<path:aarecord_id>.json.html")
+@allthethings.utils.no_cache()
 def md5_json(aarecord_id):
     if protect_return_val := protect_db_page(request):
         return protect_return_val
@@ -7454,10 +7455,14 @@ def md5_json(aarecord_id):
     aarecord['additional'].pop('fast_partner_urls')
     aarecord['additional'].pop('slow_partner_urls')
 
-    return allthethings.utils.nice_json(aarecord), {'Content-Type': 'text/json; charset=utf-8'}
+    if request.path.endswith('.html'):
+        return render_template("page/json.html", nice_json=allthethings.utils.convert_to_jsonc_str(aarecord))
+    else:
+        return allthethings.utils.nice_json(aarecord), {'Content-Type': 'text/json; charset=utf-8'}
 
 @page.get("/db/raw/<path:raw_path>.json")
-@allthethings.utils.public_cache(minutes=5, cloudflare_minutes=60*3)
+@page.get("/db/raw/<path:raw_path>.json.html")
+@allthethings.utils.no_cache()
 def db_raw_json(raw_path):
     if protect_return_val := protect_db_page(request):
         return protect_return_val
@@ -7526,7 +7531,11 @@ def db_raw_json(raw_path):
 
         if len(result_dicts) == 0:
             return '{"error":"Record not found"}', 404, {'Content-Type': 'text/json; charset=utf-8'}
-        return allthethings.utils.nice_json(result_dicts), {'Content-Type': 'text/json; charset=utf-8'}
+
+        if request.path.endswith('.html'):
+            return render_template("page/json.html", nice_json=allthethings.utils.convert_to_jsonc_str(result_dicts))
+        else:
+            return allthethings.utils.nice_json(result_dicts), {'Content-Type': 'text/json; charset=utf-8'}
 
 # IMPORTANT: Keep in sync with api_md5_fast_download.
 @page.get("/fast_download/<string:md5_input>/<int:path_index>/<int:domain_index>")
