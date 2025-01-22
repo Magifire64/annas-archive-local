@@ -73,6 +73,31 @@ SEARCH_FILTERED_BAD_AARECORD_IDS = [
     "md5:ca10d6b2ee5c758955ff468591ad67d9",
 ]
 
+DB_EXAMPLE_PAGES = [
+    "/db/aarecord/md5:8336332bf5877e3adbfb60ac70720cd5.json",
+    "/db/raw/aac_cerlalc/cerlalc_bolivia__titulos__1.json",
+    "/db/raw/aac_czech_oo42hcks/cccc_csv_1.json",
+    "/db/raw/aac_edsebk/1509715.json",
+    "/db/raw/aac_gbooks/dNC07lyONssC.json",
+    "/db/raw/aac_goodreads/1115623.json",
+    "/db/raw/aac_isbngrp/613c6db6bfe2375c452b2fe7ae380658.json",
+    "/db/raw/aac_libby/10371786.json",
+    "/db/raw/aac_magzdb/3810648.json",
+    "/db/raw/aac_nexusstc/1aq6gcl3bo1yxavod8lpw1t7h.json",
+    "/db/raw/aac_rgb/000000012.json",
+    "/db/raw/aac_trantor/mw1J0sHU4nPYlVkS.json",
+    "/db/raw/aac_upload/b6b884b30179add94c388e72d077cdb0.json",
+    "/db/raw/aac_zlib3/27250246.json",
+    "/db/raw/duxiu_md5/79cb6eb3f10a9e0ce886d85a592b5462.json",
+    "/db/raw/ia/100insightslesso0000maie.json",
+    "/db/raw/isbndb/9780060512804.json",
+    "/db/raw/lgli/4663167.json",
+    "/db/raw/lgrsfic/617509.json",
+    "/db/raw/oclc/1.json",
+    "/db/raw/scihub_doi/10.5822/978-1-61091-843-5_15.json",
+    "/db/raw/zlib/1837947.json",
+]
+
 def validate_canonical_md5s(canonical_md5s):
     return all([bool(re.match(r"^[a-f\d]{32}$", canonical_md5)) for canonical_md5 in canonical_md5s])
 
