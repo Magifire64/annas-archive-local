@@ -6474,7 +6474,7 @@ def get_aarecords_internal_mysql(session, aarecord_ids):
             for partner_url_path in additional['partner_url_paths']:
                 allthethings.utils.add_identifier_unified(aarecord['file_unified_data'], 'server_path', partner_url_path['path'])
             if SLOW_DATA_IMPORTS:
-                aarecord['additional_SLOW_DATA_IMPORTS'] = additional
+                aarecord['additional_SLOW_DATA_IMPORTS_FOR_DUMPS'] = additional
 
         record_sources = aarecord_sources(aarecord)
         for source_name in record_sources:
