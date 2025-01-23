@@ -79,26 +79,26 @@ for language in ol_languages_json:
 # * http://localhost:8000/ol/OL2862972M
 # * http://localhost:8000/ol/OL24764643M
 # * http://localhost:8000/ol/OL7002375M
-# * http://localhost:8000/db/source_record/get_lgrsnf_book_dicts/ID/288054.json.html
-# * http://localhost:8000/db/source_record/get_lgrsnf_book_dicts/ID/3175616.json.html
-# * http://localhost:8000/db/source_record/get_lgrsnf_book_dicts/ID/2933905.json.html
-# * http://localhost:8000/db/source_record/get_lgrsnf_book_dicts/ID/1125703.json.html
-# * http://localhost:8000/db/source_record/get_lgrsnf_book_dicts/ID/59.json.html
-# * http://localhost:8000/db/source_record/get_lgrsnf_book_dicts/ID/1195487.json.html
-# * http://localhost:8000/db/source_record/get_lgrsnf_book_dicts/ID/1360257.json.html
-# * http://localhost:8000/db/source_record/get_lgrsnf_book_dicts/ID/357571.json.html
-# * http://localhost:8000/db/source_record/get_lgrsnf_book_dicts/ID/2425562.json.html
-# * http://localhost:8000/db/source_record/get_lgrsnf_book_dicts/ID/3354081.json.html
-# * http://localhost:8000/db/source_record/get_lgrsnf_book_dicts/ID/3357578.json.html
-# * http://localhost:8000/db/source_record/get_lgrsnf_book_dicts/ID/3357145.json.html
-# * http://localhost:8000/db/source_record/get_lgrsnf_book_dicts/ID/2040423.json.html
-# * http://localhost:8000/db/source_record/get_lgrsfic_book_dicts/ID/1314135.json.html
-# * http://localhost:8000/db/source_record/get_lgrsfic_book_dicts/ID/25761.json.html
-# * http://localhost:8000/db/source_record/get_lgrsfic_book_dicts/ID/2443846.json.html
-# * http://localhost:8000/db/source_record/get_lgrsfic_book_dicts/ID/2473252.json.html
-# * http://localhost:8000/db/source_record/get_lgrsfic_book_dicts/ID/2340232.json.html
-# * http://localhost:8000/db/source_record/get_lgrsfic_book_dicts/ID/1122239.json.html
-# * http://localhost:8000/db/source_record/get_lgrsfic_book_dicts/ID/6862.json.html
+# * http://localhost:8000/db/source_record/get_lgrsnf_book_dicts/id/288054.json.html
+# * http://localhost:8000/db/source_record/get_lgrsnf_book_dicts/id/3175616.json.html
+# * http://localhost:8000/db/source_record/get_lgrsnf_book_dicts/id/2933905.json.html
+# * http://localhost:8000/db/source_record/get_lgrsnf_book_dicts/id/1125703.json.html
+# * http://localhost:8000/db/source_record/get_lgrsnf_book_dicts/id/59.json.html
+# * http://localhost:8000/db/source_record/get_lgrsnf_book_dicts/id/1195487.json.html
+# * http://localhost:8000/db/source_record/get_lgrsnf_book_dicts/id/1360257.json.html
+# * http://localhost:8000/db/source_record/get_lgrsnf_book_dicts/id/357571.json.html
+# * http://localhost:8000/db/source_record/get_lgrsnf_book_dicts/id/2425562.json.html
+# * http://localhost:8000/db/source_record/get_lgrsnf_book_dicts/id/3354081.json.html
+# * http://localhost:8000/db/source_record/get_lgrsnf_book_dicts/id/3357578.json.html
+# * http://localhost:8000/db/source_record/get_lgrsnf_book_dicts/id/3357145.json.html
+# * http://localhost:8000/db/source_record/get_lgrsnf_book_dicts/id/2040423.json.html
+# * http://localhost:8000/db/source_record/get_lgrsfic_book_dicts/id/1314135.json.html
+# * http://localhost:8000/db/source_record/get_lgrsfic_book_dicts/id/25761.json.html
+# * http://localhost:8000/db/source_record/get_lgrsfic_book_dicts/id/2443846.json.html
+# * http://localhost:8000/db/source_record/get_lgrsfic_book_dicts/id/2473252.json.html
+# * http://localhost:8000/db/source_record/get_lgrsfic_book_dicts/id/2340232.json.html
+# * http://localhost:8000/db/source_record/get_lgrsfic_book_dicts/id/1122239.json.html
+# * http://localhost:8000/db/source_record/get_lgrsfic_book_dicts/id/6862.json.html
 # * http://localhost:8000/db/source_record/get_lgli_file_dicts/f_id/100.json.html
 # * http://localhost:8000/db/source_record/get_lgli_file_dicts/f_id/1635550.json.html
 # * http://localhost:8000/db/source_record/get_lgli_file_dicts/f_id/94069002.json.html
@@ -1179,7 +1179,7 @@ def codes_page():
 
 zlib_book_dict_comments = {
     **allthethings.utils.COMMON_DICT_COMMENTS,
-    "zlibrary_id": ("before", ["This is a file from the Z-Library collection of Anna's Archive.",
+    "requested_func": ("before", ["This is a file from the Z-Library collection of Anna's Archive.",
                       "More details at https://annas-archive.li/datasets/zlib",
                       "The source URL is http://bookszlibb74ugqojhzhg2a63w5i2atv5bqarulgczawnbmsb6s6qead.onion/md5/<md5_reported>",
                       allthethings.utils.DICT_COMMENTS_NO_API_DISCLAIMER]),
@@ -1210,6 +1210,9 @@ def zlib_add_edition_varia_normalized(zlib_book_dict):
     zlib_book_dict['file_unified_data']['edition_varia_best'] = ', '.join(edition_varia_normalized)
 
 def get_zlib_book_dicts(session, key, values):
+    if key not in ['zlibrary_id', 'md5', 'md5_reported']:
+        raise Exception(f"Unexpected 'key' in get_zlib_book_dicts: '{key}'")
+
     if len(values) == 0:
         return []
 
@@ -1242,7 +1245,13 @@ def get_zlib_book_dicts(session, key, values):
 
     zlib_book_dicts = []
     for zlib_book in zlib_books:
-        zlib_book_dict = zlib_book
+        zlib_book_dict = {
+            "requested_func": "get_zlib_book_dicts",
+            "requested_key": key,
+            "requested_value": zlib_book[key],
+            "debug_url": f"/db/source_record/get_zlib_book_dicts/{key}/{zlib_book[key]}.json.html",
+            **zlib_book,
+        }
         zlib_book_dict['file_unified_data'] = allthethings.utils.make_file_unified_data()
         zlib_book_dict['file_unified_data']['added_date_unified']["date_zlib_source"] = zlib_book_dict['date_added'].split('T', 1)[0]
         allthethings.utils.add_identifier_unified(zlib_book_dict['file_unified_data'], 'zlib', zlib_book_dict['zlibrary_id'])
@@ -1267,7 +1276,7 @@ def get_aac_zlib3_book_dicts(session, key, values):
     aac_zlib3_books = []
     try:
         cursor = allthethings.utils.get_cursor_ping(session)
-        cursor.execute(f'SELECT annas_archive_meta__aacid__zlib3_records.byte_offset AS record_byte_offset, annas_archive_meta__aacid__zlib3_records.byte_length AS record_byte_length, annas_archive_meta__aacid__zlib3_files.byte_offset AS file_byte_offset, annas_archive_meta__aacid__zlib3_files.byte_length AS file_byte_length, annas_archive_meta__aacid__zlib3_records.primary_id AS primary_id FROM annas_archive_meta__aacid__zlib3_records LEFT JOIN annas_archive_meta__aacid__zlib3_files USING (primary_id) WHERE {aac_key} IN %(values)s', { "values": [str(value) for value in values] })
+        cursor.execute(f'SELECT annas_archive_meta__aacid__zlib3_records.byte_offset AS record_byte_offset, annas_archive_meta__aacid__zlib3_records.byte_length AS record_byte_length, annas_archive_meta__aacid__zlib3_files.byte_offset AS file_byte_offset, annas_archive_meta__aacid__zlib3_files.byte_length AS file_byte_length, annas_archive_meta__aacid__zlib3_records.primary_id AS primary_id, {aac_key} AS requested_value FROM annas_archive_meta__aacid__zlib3_records LEFT JOIN annas_archive_meta__aacid__zlib3_files USING (primary_id) WHERE {aac_key} IN %(values)s', { "values": [str(value) for value in values] })
 
         zlib3_rows = []
         zlib3_records_indexes = []
@@ -1280,7 +1289,7 @@ def get_aac_zlib3_book_dicts(session, key, values):
             if row.get('file_byte_offset') is not None:
                 zlib3_files_indexes.append(row_index)
                 zlib3_files_offsets_and_lengths.append((row['file_byte_offset'], row['file_byte_length']))
-            zlib3_rows.append({ "primary_id": row['primary_id'] })
+            zlib3_rows.append({ "requested_func": "get_aac_zlib3_book_dicts", "requested_key": key, "requested_value": row['requested_value'], "primary_id": row['primary_id'] })
         for index, line_bytes in enumerate(allthethings.utils.get_lines_from_aac_file(cursor, 'zlib3_records', zlib3_records_offsets_and_lengths)):
             zlib3_rows[zlib3_records_indexes[index]]['record'] = orjson.loads(line_bytes)
         for index, line_bytes in enumerate(allthethings.utils.get_lines_from_aac_file(cursor, 'zlib3_files', zlib3_files_offsets_and_lengths)):
@@ -1313,7 +1322,19 @@ def get_aac_zlib3_book_dicts(session, key, values):
 
     aac_zlib3_book_dicts = []
     for zlib_book in aac_zlib3_books:
-        aac_zlib3_book_dict = { **zlib_book['record']['metadata'] }
+        raw_aac = raw_aac_zlib3_books_by_primary_id[str(zlib_book['record']['metadata']['zlibrary_id'])]
+
+        requested_values = list(set([raw_aac_record['requested_value'] for raw_aac_record in raw_aac]))
+        if len(requested_values) != 1:
+            raise Exception(f"Unexpected len({requested_values=}) != 1")
+
+        aac_zlib3_book_dict = { 
+            "requested_func": "get_aac_zlib3_book_dicts",
+            "requested_key": key,
+            "requested_value": requested_values[0],
+            "debug_url": f"/db/source_record/get_aac_zlib3_book_dicts/{key}/{requested_values[0]}.json.html",
+            **zlib_book['record']['metadata'],
+        }
         if 'file' in zlib_book:
             aac_zlib3_book_dict['md5'] = zlib_book['file']['metadata']['md5']
             if 'filesize' in zlib_book['file']['metadata']:
@@ -1380,7 +1401,7 @@ def get_aac_zlib3_book_dicts(session, key, values):
         if (aac_zlib3_book_dict.get('ipfs_cid_blake2b') or '') != '':
             aac_zlib3_book_dict['file_unified_data']['ipfs_infos'].append({ 'ipfs_cid': aac_zlib3_book_dict['ipfs_cid_blake2b'], 'from': 'zlib_ipfs_cid_blake2b' })
 
-        aac_zlib3_book_dict['raw_aac'] = raw_aac_zlib3_books_by_primary_id[str(aac_zlib3_book_dict['zlibrary_id'])]
+        aac_zlib3_book_dict['raw_aac'] = raw_aac
 
         aac_zlib3_book_dicts.append(add_comments_to_dict(aac_zlib3_book_dict, zlib_book_dict_comments))
     return aac_zlib3_book_dicts
@@ -1400,14 +1421,16 @@ def get_ia_record_dicts(session, key, values):
     ia_entries2 = []
     cursor = allthethings.utils.get_cursor_ping(session)
     try:
-        base_query = ('SELECT m.*, f.*, ia2f.* FROM aa_ia_2023_06_metadata m '
+        base_query1a = 'SELECT m.*, f.*, ia2f.*'
+        base_query1b = ('FROM aa_ia_2023_06_metadata m '
                           'LEFT JOIN aa_ia_2023_06_files f USING(ia_id) '
                           'LEFT JOIN annas_archive_meta__aacid__ia2_acsmpdf_files ia2f ON m.ia_id = ia2f.primary_id ')
-        base_query2 = ('SELECT ia2r.*, f.*, ia2f.* FROM annas_archive_meta__aacid__ia2_records ia2r '
+        base_query2a = 'SELECT ia2r.*, f.*, ia2f.*'
+        base_query2b = ('FROM annas_archive_meta__aacid__ia2_records ia2r '
                            'LEFT JOIN aa_ia_2023_06_files f ON f.ia_id = ia2r.primary_id '
                            'LEFT JOIN annas_archive_meta__aacid__ia2_acsmpdf_files ia2f USING (primary_id) ')
-        column_count_query1 = [4, 4, 5] # aa_ia_2023_06_metadata, aa_ia_2023_06_files, annas_archive_meta__aacid__ia2_acsmpdf_files
-        column_count_query2 = [5, 4, 5] # annas_archive_meta__aacid__ia2_records, aa_ia_2023_06_files, annas_archive_meta__aacid__ia2_acsmpdf_files
+        column_count_query1 = [4, 4, 5, 1] # aa_ia_2023_06_metadata, aa_ia_2023_06_files, annas_archive_meta__aacid__ia2_acsmpdf_files, requested_value
+        column_count_query2 = [5, 4, 5, 1] # annas_archive_meta__aacid__ia2_records, aa_ia_2023_06_files, annas_archive_meta__aacid__ia2_acsmpdf_files, requested_value
 
         if key == 'md5':
             # TODO: we should also consider matching on libgen_md5, but we used to do that before and it had bad SQL performance,
@@ -1415,26 +1438,26 @@ def get_ia_record_dicts(session, key, values):
             # TODO: We get extra records this way, because we might include files from both AaIa202306Files and
             # Ia2AcsmpdfFiles if they both exist. It might be better to split this up here so we don't have to filter later.
 
-            cursor.execute(base_query + 'WHERE f.md5 IN %(values)s', { 'values': values })
+            cursor.execute(base_query1a + ', f.md5 AS requested_value ' + base_query1b + 'WHERE f.md5 IN %(values)s', { 'values': values })
             ia_entries = list(cursor.fetchall())
 
-            cursor.execute(base_query + 'WHERE ia2f.md5 IN %(values)s', { 'values': values })
+            cursor.execute(base_query1a + ', ia2f.md5 AS requested_value ' + base_query1b + 'WHERE ia2f.md5 IN %(values)s', { 'values': values })
             ia_entries += list(cursor.fetchall())
 
-            cursor.execute(base_query2 + 'WHERE f.md5 IN %(values)s', { 'values': values })
+            cursor.execute(base_query2a + ', f.md5 AS requested_value ' + base_query2b + 'WHERE f.md5 IN %(values)s', { 'values': values })
             ia_entries2 = list(cursor.fetchall())
 
-            cursor.execute(base_query2 + 'WHERE ia2f.md5 IN %(values)s', { 'values': values })
+            cursor.execute(base_query2a + ', ia2f.md5 AS requested_value ' + base_query2b + 'WHERE ia2f.md5 IN %(values)s', { 'values': values })
             ia_entries2 += list(cursor.fetchall())
 
             ia_entries = allthethings.utils.split_columns(ia_entries, column_count_query1)
             ia_entries2 = allthethings.utils.split_columns(ia_entries2, column_count_query2)
         elif key == 'ia_id':
-            cursor.execute(base_query + f'WHERE m.`{key}` IN %(values)s', { 'values': values })
+            cursor.execute(base_query1a + f', m.`{key}` AS requested_value ' + base_query1b + f'WHERE m.`{key}` IN %(values)s', { 'values': values })
             ia_entries = allthethings.utils.split_columns(list(cursor.fetchall()), column_count_query1)
 
             ia2r_key_column = key.replace('ia_id', 'primary_id')
-            cursor.execute(base_query2 + f'WHERE ia2r.`{ia2r_key_column}` IN %(values)s', { 'values': values })
+            cursor.execute(base_query2a + f', ia2r.`{ia2r_key_column}` AS requested_value ' + base_query2b + f'WHERE ia2r.`{ia2r_key_column}` IN %(values)s', { 'values': values })
             ia_entries2 = allthethings.utils.split_columns(list(cursor.fetchall()), column_count_query2)
         else:
             raise Exception(f"Unexpected 'key' in get_ia_record_dicts: '{key}'")
@@ -1451,7 +1474,7 @@ def get_ia_record_dicts(session, key, values):
     ia2_acsmpdf_files_offsets_and_lengths = []
     # Prioritize ia_entries2 first, because their records are newer. This order matters
     # futher below.
-    for ia_record_dict, ia_file_dict, ia2_acsmpdf_file_dict in ia_entries2 + ia_entries:
+    for ia_record_dict, ia_file_dict, ia2_acsmpdf_file_dict, requested_value_dict in ia_entries2 + ia_entries:
         # There are some rare cases where ia_file AND ia2_acsmpdf_file are set, so make
         # sure we create an entry for each.
         # TODO: We get extra records this way, because we might include files from both AaIa202306Files and
@@ -1460,19 +1483,19 @@ def get_ia_record_dicts(session, key, values):
             if ia_record_dict.get('byte_offset') is not None:
                 ia2_records_indexes.append(len(ia_entries_combined))
                 ia2_records_offsets_and_lengths.append((ia_record_dict['byte_offset'], ia_record_dict['byte_length']))
-            ia_entries_combined.append([ia_record_dict, ia_file_dict, None])
+            ia_entries_combined.append([ia_record_dict, ia_file_dict, None, requested_value_dict['requested_value']])
         if ia2_acsmpdf_file_dict is not None:
             if ia_record_dict.get('byte_offset') is not None:
                 ia2_records_indexes.append(len(ia_entries_combined))
                 ia2_records_offsets_and_lengths.append((ia_record_dict['byte_offset'], ia_record_dict['byte_length']))
             ia2_acsmpdf_files_indexes.append(len(ia_entries_combined))
             ia2_acsmpdf_files_offsets_and_lengths.append((ia2_acsmpdf_file_dict['byte_offset'], ia2_acsmpdf_file_dict['byte_length']))
-            ia_entries_combined.append([ia_record_dict, None, ia2_acsmpdf_file_dict])
+            ia_entries_combined.append([ia_record_dict, None, ia2_acsmpdf_file_dict, requested_value_dict['requested_value']])
         if ia_file_dict is None and ia2_acsmpdf_file_dict is None:
             if ia_record_dict.get('byte_offset') is not None:
                 ia2_records_indexes.append(len(ia_entries_combined))
                 ia2_records_offsets_and_lengths.append((ia_record_dict['byte_offset'], ia_record_dict['byte_length']))
-            ia_entries_combined.append([ia_record_dict, None, None])
+            ia_entries_combined.append([ia_record_dict, None, None, requested_value_dict['requested_value']])
 
     for index, line_bytes in enumerate(allthethings.utils.get_lines_from_aac_file(cursor, 'ia2_records', ia2_records_offsets_and_lengths)):
         ia_entries_combined[ia2_records_indexes[index]][0] = orjson.loads(line_bytes)
@@ -1483,10 +1506,14 @@ def get_ia_record_dicts(session, key, values):
     # print(orjson.dumps(ia_entries_combined, option=orjson.OPT_INDENT_2 | orjson.OPT_NON_STR_KEYS, default=str).decode('utf-8'))
 
     ia_record_dicts = []
-    for ia_record_dict, ia_file_dict, ia2_acsmpdf_file_dict in ia_entries_combined:
+    for ia_record_dict, ia_file_dict, ia2_acsmpdf_file_dict, requested_value in ia_entries_combined:
         if 'aacid' in ia_record_dict:
             # Convert from AAC.
             ia_record_dict = {
+                "requested_func": "get_ia_record_dicts",
+                "requested_key": key,
+                "requested_value": requested_value,
+                "debug_url": f"/db/source_record/get_ia_record_dicts/{key}/{requested_value}.json.html",
                 "ia_id": ia_record_dict["metadata"]["ia_id"],
                 "aacid": ia_record_dict["aacid"],
                 # "has_thumb" # We'd need to look at both ia_entries2 and ia_entries to get this, but not worth it.
@@ -1499,6 +1526,10 @@ def get_ia_record_dicts(session, key, values):
                     break
         else:
             ia_record_dict = {
+                "requested_func": "get_ia_record_dicts",
+                "requested_key": key,
+                "requested_value": requested_value,
+                "debug_url": f"/db/source_record/get_ia_record_dicts/{key}/{requested_value}.json.html",
                 "ia_id": ia_record_dict["ia_id"],
                 # "has_thumb": ia_record_dict["has_thumb"],
                 "libgen_md5": ia_record_dict["libgen_md5"],
@@ -1651,7 +1682,7 @@ def get_ia_record_dicts(session, key, values):
 
         ia_record_dict_comments = {
             **allthethings.utils.COMMON_DICT_COMMENTS,
-            "ia_id": ("before", ["This is an IA record, augmented by Anna's Archive.",
+            "requested_func": ("before", ["This is an IA record, augmented by Anna's Archive.",
                               "More details at https://annas-archive.li/datasets/ia",
                               "A lot of these fields are explained at https://archive.org/developers/metadata-schema/index.html",
                               allthethings.utils.DICT_COMMENTS_NO_API_DISCLAIMER]),
@@ -1877,8 +1908,13 @@ def get_ol_book_dicts(session, key, values):
 
         ol_book_dicts = []
         for ol_book in ol_books:
+            ol_edition = ol_book['ol_key'].removeprefix('/books/')
             ol_book_dict = {
-                'ol_edition': ol_book['ol_key'].replace('/books/', ''),
+                "requested_func": "get_ol_book_dicts",
+                'requested_key': key,
+                'requested_value': ol_edition,
+                "debug_url": f"/db/source_record/get_ol_book_dicts/{key}/{ol_edition}.json.html",
+                'ol_edition': ol_edition,
                 'edition': dict(ol_book),
             }
             ol_book_dict['edition']['json'] = orjson.loads(ol_book_dict['edition']['json'])
@@ -1991,6 +2027,8 @@ def get_ol_book_dicts(session, key, values):
         return ol_book_dicts
 
 def get_lgrsnf_book_dicts(session, key, values):
+    if key not in ['id', 'md5']:
+        raise Exception(f"Unsupported get_lgrsnf_book_dicts key: {key}")
     if len(values) == 0:
         return []
 
@@ -1999,7 +2037,8 @@ def get_lgrsnf_book_dicts(session, key, values):
         cursor = allthethings.utils.get_cursor_ping(session)
 
         # Hack: we explicitly name all the fields, because otherwise some get overwritten below due to lowercasing the column names.
-        cursor.execute("SELECT lu.*, ld.descr, ld.toc, lh.crc32, lh.edonkey, lh.aich, lh.sha1, lh.tth, lh.torrent, lh.btih, lh.sha256, lh.ipfs_cid, lt.topic_descr "
+        cursor.execute("SELECT lu.*, ld.descr, ld.toc, lh.crc32, lh.edonkey, lh.aich, lh.sha1, lh.tth, lh.torrent, lh.btih, lh.sha256, lh.ipfs_cid, lt.topic_descr, "
+                       f"lu.`{key}` AS requested_value "
                        "FROM libgenrs_updated lu "
                        "LEFT JOIN libgenrs_description ld ON lu.MD5 = ld.md5 "
                        "LEFT JOIN libgenrs_hashes lh ON lu.MD5 = lh.md5 "
@@ -2014,7 +2053,13 @@ def get_lgrsnf_book_dicts(session, key, values):
 
     lgrs_book_dicts = []
     for lgrsnf_book in lgrsnf_books:
-        lgrs_book_dict = dict((k.lower(), v) for k,v in dict(lgrsnf_book).items())
+        lgrs_book_dict = {
+            "requested_func": "get_lgrsnf_book_dicts",
+            "requested_key": key,
+            "requested_value": lgrsnf_book['requested_value'],
+            "debug_url": f"/db/source_record/get_lgrsnf_book_dicts/{key}/{lgrsnf_book['requested_value']}.json.html",
+            **dict((k.lower(), v) for k,v in dict(lgrsnf_book).items()),
+        }
 
         lgrs_book_dict['file_unified_data'] = allthethings.utils.make_file_unified_data()
         lgrs_book_dict['file_unified_data']['original_filename_best'] = allthethings.utils.prefix_filepath('lgrsnf', (lgrs_book_dict['locator'] or '').strip())
@@ -2079,7 +2124,7 @@ def get_lgrsnf_book_dicts(session, key, values):
 
         lgrs_book_dict_comments = {
             **allthethings.utils.COMMON_DICT_COMMENTS,
-            "id": ("before", ["This is a Libgen.rs Non-Fiction record, augmented by Anna's Archive.",
+            "requested_func": ("before", ["This is a Libgen.rs Non-Fiction record, augmented by Anna's Archive.",
                               "More details at https://annas-archive.li/datasets/lgrs",
                               "Most of these fields are explained at https://wiki.mhut.org/content:bibliographic_data",
                               allthethings.utils.DICT_COMMENTS_NO_API_DISCLAIMER]),
@@ -2090,6 +2135,8 @@ def get_lgrsnf_book_dicts(session, key, values):
 
 
 def get_lgrsfic_book_dicts(session, key, values):
+    if key not in ['id', 'md5']:
+        raise Exception(f"Unsupported get_lgrsfic_book_dicts key: {key}")
     if len(values) == 0:
         return []
 
@@ -2098,7 +2145,8 @@ def get_lgrsfic_book_dicts(session, key, values):
         cursor = allthethings.utils.get_cursor_ping(session)
 
         # Hack: we explicitly name all the fields, because otherwise some get overwritten below due to lowercasing the column names.
-        cursor.execute('SELECT lf.*, lfd.Descr, lfh.crc32, lfh.edonkey, lfh.aich, lfh.sha1, lfh.tth, lfh.btih, lfh.sha256, lfh.ipfs_cid '
+        cursor.execute('SELECT lf.*, lfd.Descr, lfh.crc32, lfh.edonkey, lfh.aich, lfh.sha1, lfh.tth, lfh.btih, lfh.sha256, lfh.ipfs_cid, '
+                       f"lf.`{key}` AS requested_value "
                        'FROM libgenrs_fiction lf '
                        'LEFT JOIN libgenrs_fiction_description lfd ON lf.MD5 = lfd.MD5 '
                        'LEFT JOIN libgenrs_fiction_hashes lfh ON lf.MD5 = lfh.md5 '
@@ -2114,7 +2162,13 @@ def get_lgrsfic_book_dicts(session, key, values):
     lgrs_book_dicts = []
 
     for lgrsfic_book in lgrsfic_books:
-        lgrs_book_dict = dict((k.lower(), v) for k,v in dict(lgrsfic_book).items())
+        lgrs_book_dict = {
+            "requested_func": "get_lgrsfic_book_dicts",
+            "requested_key": key,
+            "requested_value": lgrsfic_book['requested_value'],
+            "debug_url": f"/db/source_record/get_lgrsfic_book_dicts/{key}/{lgrsfic_book['requested_value']}.json.html",
+            **dict((k.lower(), v) for k,v in dict(lgrsfic_book).items()),
+        }
 
         lgrs_book_dict['file_unified_data'] = allthethings.utils.make_file_unified_data()
         lgrs_book_dict['file_unified_data']['original_filename_best'] = allthethings.utils.prefix_filepath('lgrsfic', (lgrs_book_dict['locator'] or '').strip())
@@ -2173,7 +2227,7 @@ def get_lgrsfic_book_dicts(session, key, values):
 
         lgrs_book_dict_comments = {
             **allthethings.utils.COMMON_DICT_COMMENTS,
-            "id": ("before", ["This is a Libgen.rs Fiction record, augmented by Anna's Archive.",
+            "requested_func": ("before", ["This is a Libgen.rs Fiction record, augmented by Anna's Archive.",
                               "More details at https://annas-archive.li/datasets/lgrs",
                               "Most of these fields are explained at https://wiki.mhut.org/content:bibliographic_data",
                               allthethings.utils.DICT_COMMENTS_NO_API_DISCLAIMER]),
@@ -2247,8 +2301,11 @@ def get_lgli_file_dicts_fetch_data(session, key, values):
     Fetches all the needed data from the DB and emulates the SQLAlchemy normalized format
     """
 
+    if key not in ['f_id', 'md5']:
+        raise Exception(f"Unsupported get_lgli_file_dicts_fetch_data key: {key}")
+
     cursor = allthethings.utils.get_cursor_ping(session)
-    cursor.execute('SELECT * FROM libgenli_files ls '
+    cursor.execute(f'SELECT *, {key} as requested_value FROM libgenli_files ls '
                    f'WHERE `{key}` IN %(values)s', # key is not controlled by the user, so it's fine to use fstrings here
                    { 'values': values })
     lgli_files_c = cursor.fetchall()
@@ -2389,6 +2446,8 @@ def get_lgli_file_dicts_fetch_data(session, key, values):
 
 # See https://libgen.li/community/app.php/article/new-database-structure-published-o%CF%80y6%D0%BB%D0%B8%C4%B8o%D0%B2a%D0%BDa-%D0%BDo%D0%B2a%D1%8F-c%D1%82py%C4%B8%D1%82ypa-6a%D0%B7%C6%85i-%D0%B4a%D0%BD%D0%BD%C6%85ix
 def get_lgli_file_dicts(session, key, values):
+    if key not in ['f_id', 'md5']:
+        raise Exception(f"Unsupported get_lgli_file_dicts key: {key}")
     if len(values) == 0:
         return []
 
@@ -2397,7 +2456,13 @@ def get_lgli_file_dicts(session, key, values):
 
     lgli_file_dicts = []
     for lgli_file in lgli_files:
-        lgli_file_dict = lgli_file.copy() # originally: **lgli_file.to_dict()
+        lgli_file_dict = {
+            "requested_func": "get_lgli_file_dicts",
+            "requested_key": key,
+            "requested_value": lgli_file['requested_value'],
+            "debug_url": f"/db/source_record/get_lgli_file_dicts/{key}/{lgli_file['requested_value']}.json.html",
+            **lgli_file,
+        }
 
         lgli_file_descriptions_dict = [{**descr, 'meta': description_metadata[descr['key']]} for descr in lgli_file['add_descrs']]
         lgli_file_dict['descriptions_mapped'] = lgli_map_descriptions(lgli_file_descriptions_dict)
@@ -2675,7 +2740,7 @@ def get_lgli_file_dicts(session, key, values):
 
         lgli_file_dict_comments = {
             **allthethings.utils.COMMON_DICT_COMMENTS,
-            "f_id": ("before", ["This is a Libgen.li file record, augmented by Anna's Archive.",
+            "requested_func": ("before", ["This is a Libgen.li file record, augmented by Anna's Archive.",
                      "More details at https://annas-archive.li/datasets/lgli",
                      "Most of these fields are explained at https://libgen.li/community/app.php/article/new-database-structure-published-o%CF%80y6%D0%BB%D0%B8%C4%B8o%D0%B2a%D0%BDa-%D0%BDo%D0%B2a%D1%8F-c%D1%82py%C4%B8%D1%82ypa-6a%D0%B7%C6%85i-%D0%B4a%D0%BD%D0%BD%C6%85ix",
                      "The source URL is https://libgen.li/file.php?id=<f_id>",
@@ -2690,7 +2755,9 @@ def get_lgli_file_dicts(session, key, values):
 
     return lgli_file_dicts
 
-def get_isbndb_dicts(session, canonical_isbn13s):
+def get_isbndb_dicts(session, key, canonical_isbn13s):
+    if key not in ['isbn13']:
+        raise Exception(f"Unsupported get_isbndb_dicts key: {key}")
     if len(canonical_isbn13s) == 0:
         return []
 
@@ -2712,6 +2779,10 @@ def get_isbndb_dicts(session, canonical_isbn13s):
     isbndb_dicts = []
     for canonical_isbn13 in canonical_isbn13s:
         isbndb_dict = {
+            "requested_func": "get_isbndb_dicts",
+            "requested_key": key,
+            "requested_value": canonical_isbn13,
+            "debug_url": f"/db/source_record/get_isbndb_dicts/{key}/{canonical_isbn13}.json.html",
             "ean13": isbnlib.ean13(canonical_isbn13),
             "isbn13": isbnlib.ean13(canonical_isbn13),
             "isbn10": isbnlib.to_isbn10(canonical_isbn13),
@@ -2785,7 +2856,7 @@ def get_isbndb_dicts(session, canonical_isbn13s):
         isbndb_dict['file_unified_data']['added_date_unified'] = { "date_isbndb_scrape": "2022-09-01" }
 
         isbndb_wrapper_comments = {
-            "ean13": ("before", ["Metadata from our ISBNdb collection, augmented by Anna's Archive.",
+            "requested_func": ("before", ["Metadata from our ISBNdb collection, augmented by Anna's Archive.",
                                "More details at https://annas-archive.li/datasets",
                                allthethings.utils.DICT_COMMENTS_NO_API_DISCLAIMER]),
             "isbndb_inner": ("before", ["All matching records from the ISBNdb database."]),
@@ -2795,10 +2866,10 @@ def get_isbndb_dicts(session, canonical_isbn13s):
     return isbndb_dicts
 
 def get_scihub_doi_dicts(session, key, values):
+    if key not in ['doi']:
+        raise Exception(f"Unexpected 'key' in get_scihub_doi_dicts: '{key}'")
     if len(values) == 0:
         return []
-    if key != 'doi':
-        raise Exception(f"Unexpected 'key' in get_scihub_doi_dicts: '{key}'")
 
     scihub_dois = []
     try:
@@ -2815,6 +2886,10 @@ def get_scihub_doi_dicts(session, key, values):
     scihub_doi_dicts = []
     for scihub_doi in scihub_dois:
         scihub_doi_dict = {
+            "requested_func": "get_scihub_doi_dicts",
+            "requested_key": key,
+            "requested_value": scihub_doi['doi'],
+            "debug_url": f"/db/source_record/get_scihub_doi_dicts/{key}/{scihub_doi['doi']}.json.html",
             "doi": scihub_doi["doi"].lower(),
             "file_unified_data": allthethings.utils.make_file_unified_data(),
         }
@@ -2823,7 +2898,7 @@ def get_scihub_doi_dicts(session, key, values):
         allthethings.utils.add_identifier_unified(scihub_doi_dict['file_unified_data'], "doi", scihub_doi_dict["doi"].lower())
         scihub_doi_dict_comments = {
             **allthethings.utils.COMMON_DICT_COMMENTS,
-            "doi": ("before", ["This is a file from Sci-Hub's dois-2022-02-12.7z dataset.",
+            "requested_func": ("before", ["This is a file from Sci-Hub's dois-2022-02-12.7z dataset.",
                               "More details at https://annas-archive.li/datasets/scihub",
                               "The source URL is https://sci-hub.ru/datasets/dois-2022-02-12.7z",
                               allthethings.utils.DICT_COMMENTS_NO_API_DISCLAIMER]),
@@ -2884,7 +2959,12 @@ def get_oclc_dicts(session, key, values):
 
     oclc_dicts = []
     for oclc_id, aac_records in aac_records_by_oclc_id.items():
-        oclc_dict = {}
+        oclc_dict = {
+            "requested_func": "get_oclc_dicts",
+            "requested_key": key,
+            "requested_value": oclc_id,
+            "debug_url": f"/db/source_record/get_oclc_dicts/{key}/{oclc_id}.json.html",
+        }
         oclc_dict["oclc_id"] = oclc_id
         oclc_dict["aa_oclc_derived"] = {}
         oclc_dict["aa_oclc_derived"]["title_additional"] = []
@@ -3248,18 +3328,25 @@ def get_duxiu_dicts(session, key, values, include_deep_transitive_md5s_size_path
     for primary_id, aac_records in aac_records_by_primary_id.items():
         # print(f"{primary_id=}, {aac_records=}")
 
-        duxiu_dict = {}
-
         if key == 'duxiu_ssid':
-            duxiu_dict['duxiu_ssid'] = primary_id.replace('duxiu_ssid_', '')
+            requested_value = primary_id.replace('duxiu_ssid_', '')
         elif key == 'cadal_ssno':
-            duxiu_dict['cadal_ssno'] = primary_id.replace('cadal_ssno_', '')
+            requested_value = primary_id.replace('cadal_ssno_', '')
         elif key == 'md5':
-            duxiu_dict['md5'] = primary_id
+            requested_value = primary_id
         elif key == 'filename_decoded_basename':
-            duxiu_dict['filename_decoded_basename'] = primary_id
+            requested_value = primary_id
         else:
             raise Exception(f"Unexpected 'key' in get_duxiu_dicts: '{key}'")
+
+        duxiu_dict = {
+            "requested_func": "get_duxiu_dicts",
+            "requested_key": key,
+            "requested_value": requested_value,
+            "debug_url": f"/db/source_record/get_duxiu_dicts/{key}/{requested_value}.json.html",
+            key: requested_value,
+        }
+
         duxiu_dict['duxiu_file'] = None
         duxiu_dict['aa_duxiu_derived'] = {}
         duxiu_dict['aa_duxiu_derived']['source_multiple'] = []
@@ -3650,13 +3737,7 @@ def get_duxiu_dicts(session, key, values, include_deep_transitive_md5s_size_path
 
         duxiu_dict_comments = {
             **allthethings.utils.COMMON_DICT_COMMENTS,
-            "duxiu_ssid": ("before", ["This is a DuXiu metadata record.",
-                                "More details at https://annas-archive.li/datasets/duxiu",
-                                allthethings.utils.DICT_COMMENTS_NO_API_DISCLAIMER]),
-            "cadal_ssno": ("before", ["This is a CADAL metadata record.",
-                                "More details at https://annas-archive.li/datasets/duxiu",
-                                allthethings.utils.DICT_COMMENTS_NO_API_DISCLAIMER]),
-            "md5": ("before", ["This is a DuXiu/related metadata record.",
+            "requested_func": ("before", ["This is a DuXiu/related metadata record.",
                                 "More details at https://annas-archive.li/datasets/duxiu",
                                 allthethings.utils.DICT_COMMENTS_NO_API_DISCLAIMER]),
             "duxiu_file": ("before", ["Information on the actual file in our collection (see torrents)."]),
@@ -3738,6 +3819,10 @@ def get_aac_upload_book_dicts(session, key, values):
     aac_upload_book_dicts = []
     for aac_upload_book_dict_raw in aac_upload_book_dicts_raw:
         aac_upload_book_dict = {
+            "requested_func": "get_aac_upload_book_dicts",
+            "requested_key": key,
+            "requested_value": aac_upload_book_dict_raw['md5'],
+            "debug_url": f"/db/source_record/get_aac_upload_book_dicts/{key}/{aac_upload_book_dict_raw['md5']}.json.html",
             "md5": aac_upload_book_dict_raw['md5'],
             "aa_upload_derived": {},
             "file_unified_data": allthethings.utils.make_file_unified_data(),
@@ -3917,7 +4002,8 @@ def get_aac_upload_book_dicts(session, key, values):
 
         aac_upload_dict_comments = {
             **allthethings.utils.COMMON_DICT_COMMENTS,
-            "md5": ("before", ["This is a record of a file uploaded directly to Anna's Archive",
+            "requested_func": ("before", ["This is a record of a file uploaded directly to Anna's Archive",
+                                "Generated in `get_aac_upload_book_dicts`",
                                 "More details at https://annas-archive.li/datasets/upload",
                                 allthethings.utils.DICT_COMMENTS_NO_API_DISCLAIMER]),
             "records": ("before", ["Metadata from inspecting the file."]),
@@ -3980,7 +4066,10 @@ def get_aac_magzdb_book_dicts(session, key, values):
         publication_aac_record = publication_aac_records_by_id[aac_record['metadata']['record']['publicationId']]
 
         aac_magzdb_book_dict = {
+            "requested_func": "get_aac_magzdb_book_dicts",
+            "requested_key": key,
             "requested_value": requested_value,
+            "debug_url": f"/db/source_record/get_aac_magzdb_book_dicts/{key}/{requested_value}.json.html",
             "id": aac_record['metadata']['record']['id'],
             "file_unified_data": allthethings.utils.make_file_unified_data(),
             "aac_record": aac_record,
@@ -4114,7 +4203,10 @@ def get_aac_nexusstc_book_dicts(session, key, values):
     aac_nexusstc_book_dicts = []
     for requested_value, aac_record in aac_records_by_requested_value.items():
         aac_nexusstc_book_dict = {
+            "requested_func": "get_aac_nexusstc_book_dicts",
+            "requested_key": key,
             "requested_value": requested_value,
+            "debug_url": f"/db/source_record/get_aac_nexusstc_book_dicts/{key}/{requested_value}.json.html",
             "id": aac_record['metadata']['nexus_id'],
             "file_unified_data": allthethings.utils.make_file_unified_data(),
             "aa_nexusstc_derived": {
@@ -4422,6 +4514,10 @@ def get_aac_edsebk_book_dicts(session, key, values):
     aac_edsebk_book_dicts = []
     for primary_id, aac_record in aac_records_by_primary_id.items():
         aac_edsebk_book_dict = {
+            "requested_func": "get_aac_edsebk_book_dicts",
+            "requested_key": key,
+            "requested_value": primary_id,
+            "debug_url": f"/db/source_record/get_aac_edsebk_book_dicts/{key}/{primary_id}.json.html",
             "edsebk_id": primary_id,
             "file_unified_data": allthethings.utils.make_file_unified_data(),
             "aac_record": aac_record,
@@ -4515,6 +4611,10 @@ def get_aac_cerlalc_book_dicts(session, key, values):
     aac_cerlalc_book_dicts = []
     for primary_id, aac_record in aac_records_by_primary_id.items():
         aac_cerlalc_book_dict = {
+            "requested_func": "get_aac_cerlalc_book_dicts",
+            "requested_key": key,
+            "requested_value": primary_id,
+            "debug_url": f"/db/source_record/get_aac_cerlalc_book_dicts/{key}/{primary_id}.json.html",
             "cerlalc_id": primary_id,
             "file_unified_data": allthethings.utils.make_file_unified_data(),
             "aac_record": aac_record,
@@ -4638,6 +4738,10 @@ def get_aac_czech_oo42hcks_book_dicts(session, key, values):
     aac_czech_oo42hcks_book_dicts = []
     for primary_id, aac_record in aac_records_by_primary_id.items():
         aac_czech_oo42hcks_book_dict = {
+            "requested_func": "get_aac_czech_oo42hcks_book_dicts",
+            "requested_key": key,
+            "requested_value": primary_id,
+            "debug_url": f"/db/source_record/get_aac_czech_oo42hcks_book_dicts/{key}/{primary_id}.json.html",
             "czech_oo42hcks_id": primary_id,
             "file_unified_data": allthethings.utils.make_file_unified_data(),
             "aac_record": aac_record,
@@ -4800,6 +4904,10 @@ def get_aac_gbooks_book_dicts(session, key, values):
     aac_gbooks_book_dicts = []
     for primary_id, aac_record in aac_records_by_primary_id.items():
         aac_gbooks_book_dict = {
+            "requested_func": "get_aac_gbooks_book_dicts",
+            "requested_key": key,
+            "requested_value": primary_id,
+            "debug_url": f"/db/source_record/get_aac_gbooks_book_dicts/{key}/{primary_id}.json.html",
             "gbooks_id": primary_id,
             "file_unified_data": allthethings.utils.make_file_unified_data(),
             "aac_record": aac_record,
@@ -4892,6 +5000,10 @@ def get_aac_goodreads_book_dicts(session, key, values):
     aac_goodreads_book_dicts = []
     for primary_id, aac_record in aac_records_by_primary_id.items():
         aac_goodreads_book_dict = {
+            "requested_func": "get_aac_goodreads_book_dicts",
+            "requested_key": key,
+            "requested_value": primary_id,
+            "debug_url": f"/db/source_record/get_aac_goodreads_book_dicts/{key}/{primary_id}.json.html",
             "goodreads_id": primary_id,
             "file_unified_data": allthethings.utils.make_file_unified_data(),
             "aac_record": aac_record,
@@ -4983,6 +5095,10 @@ def get_aac_isbngrp_book_dicts(session, key, values):
     aac_isbngrp_book_dicts = []
     for primary_id, aac_record in aac_records_by_primary_id.items():
         aac_isbngrp_book_dict = {
+            "requested_func": "get_aac_isbngrp_book_dicts",
+            "requested_key": key,
+            "requested_value": primary_id,
+            "debug_url": f"/db/source_record/get_aac_isbngrp_book_dicts/{key}/{primary_id}.json.html",
             "isbngrp_id": primary_id,
             "file_unified_data": allthethings.utils.make_file_unified_data(),
             "aac_record": aac_record,
@@ -5048,6 +5164,10 @@ def get_aac_libby_book_dicts(session, key, values):
     aac_libby_book_dicts = []
     for primary_id, aac_record in aac_records_by_primary_id.items():
         aac_libby_book_dict = {
+            "requested_func": "get_aac_libby_book_dicts",
+            "requested_key": key,
+            "requested_value": primary_id,
+            "debug_url": f"/db/source_record/get_aac_libby_book_dicts/{key}/{primary_id}.json.html",
             "libby_id": primary_id,
             "file_unified_data": allthethings.utils.make_file_unified_data(),
             "aac_record": aac_record,
@@ -5209,6 +5329,10 @@ def get_aac_rgb_book_dicts(session, key, values):
     aac_rgb_book_dicts = []
     for primary_id, aac_record in aac_records_by_primary_id.items():
         aac_rgb_book_dict = {
+            "requested_func": "get_aac_rgb_book_dicts",
+            "requested_key": key,
+            "requested_value": primary_id,
+            "debug_url": f"/db/source_record/get_aac_rgb_book_dicts/{key}/{primary_id}.json.html",
             "rgb_id": primary_id,
             "file_unified_data": None,
             "ol_book_dict": None,
@@ -5264,6 +5388,10 @@ def get_aac_trantor_book_dicts(session, key, values):
     aac_trantor_book_dicts = []
     for primary_id, aac_record in aac_records_by_primary_id.items():
         aac_trantor_book_dict = {
+            "requested_func": "get_aac_trantor_book_dicts",
+            "requested_key": key,
+            "requested_value": primary_id,
+            "debug_url": f"/db/source_record/get_aac_trantor_book_dicts/{key}/{primary_id}.json.html",
             "trantor_id": primary_id,
             "file_unified_data": allthethings.utils.make_file_unified_data(),
             "aac_record": aac_record,
@@ -5494,7 +5622,7 @@ def get_aarecords_mysql_debug(aarecord_ids):
     if len(aarecord_ids) == 0:
         return []
     with Session(engine) as session:
-        return [add_additional_to_aarecord({ '_source': aarecord }) for aarecord in get_aarecords_internal_mysql(session, aarecord_ids)]
+        return [add_additional_to_aarecord({ '_source': aarecord }) for aarecord in get_aarecords_internal_mysql(session, aarecord_ids, include_aarecord_mysql_debug=True)]
 
 def aarecord_score_base(aarecord):
     if aarecord['file_unified_data']['has_meaningful_problems'] > 0:
@@ -5727,16 +5855,20 @@ def merge_file_unified_data_strings(source_records_by_type, iterations):
     multiple_str = [s for s in multiple_str if s != best_str]
     return (best_str, multiple_str)
 
-def get_aarecords_internal_mysql(session, aarecord_ids):
+def get_aarecords_internal_mysql(session, aarecord_ids, include_aarecord_mysql_debug=False):
     if not allthethings.utils.validate_aarecord_ids(aarecord_ids):
         raise Exception(f"Invalid aarecord_ids {aarecord_ids=}")
 
     # Filter out bad data
     aarecord_ids = list(dict.fromkeys([val for val in aarecord_ids if val not in allthethings.utils.SEARCH_FILTERED_BAD_AARECORD_IDS]))
 
+    debug_by_id = collections.defaultdict(lambda: {
+        "source_records_debug": []
+    })
+
     split_ids = allthethings.utils.split_aarecord_ids(aarecord_ids)
-    lgrsnf_book_dicts = {('md5:' + item['md5'].lower()): item for item in get_lgrsnf_book_dicts(session, "MD5", split_ids['md5'])}
-    lgrsfic_book_dicts = {('md5:' + item['md5'].lower()): item for item in get_lgrsfic_book_dicts(session, "MD5", split_ids['md5'])}
+    lgrsnf_book_dicts = {('md5:' + item['md5'].lower()): item for item in get_lgrsnf_book_dicts(session, "md5", split_ids['md5'])}
+    lgrsfic_book_dicts = {('md5:' + item['md5'].lower()): item for item in get_lgrsfic_book_dicts(session, "md5", split_ids['md5'])}
     lgli_file_dicts = {('md5:' + item['md5'].lower()): item for item in get_lgli_file_dicts(session, "md5", split_ids['md5'])}
     zlib_book_dicts1 = {('md5:' + item['md5_reported'].lower()): item for item in get_zlib_book_dicts(session, "md5_reported", split_ids['md5'])}
     zlib_book_dicts2 = {('md5:' + item['md5'].lower()): item for item in get_zlib_book_dicts(session, "md5", split_ids['md5'])}
@@ -5744,7 +5876,7 @@ def get_aarecords_internal_mysql(session, aarecord_ids):
     aac_zlib3_book_dicts2 = {('md5:' + item['md5'].lower()): item for item in get_aac_zlib3_book_dicts(session, "md5", split_ids['md5'])}
     ia_record_dicts = {('md5:' + item['aa_ia_file']['md5'].lower()): item for item in get_ia_record_dicts(session, "md5", split_ids['md5']) if item.get('aa_ia_file') is not None}
     ia_record_dicts2 = {('ia:' + item['ia_id']): item for item in get_ia_record_dicts(session, "ia_id", split_ids['ia']) if item.get('aa_ia_file') is None}
-    isbndb_dicts = {('isbndb:' + item['ean13']): [item] for item in get_isbndb_dicts(session, split_ids['isbndb'])}
+    isbndb_dicts = {('isbndb:' + item['ean13']): [item] for item in get_isbndb_dicts(session, 'isbn13', split_ids['isbndb'])}
     ol_book_dicts = {('ol:' + item['ol_edition']): [item] for item in get_ol_book_dicts(session, 'ol_edition', split_ids['ol'])}
     scihub_doi_dicts = {('doi:' + item['doi']): [item] for item in get_scihub_doi_dicts(session, 'doi', split_ids['doi'])}
     oclc_dicts = {('oclc:' + item['oclc_id']): [item] for item in get_oclc_dicts(session, 'oclc', split_ids['oclc'])}
@@ -5776,63 +5908,63 @@ def get_aarecords_internal_mysql(session, aarecord_ids):
         aarecord_id_split = aarecord_id.split(':', 1)
         aarecord = {}
         aarecord['id'] = aarecord_id
-        source_records = []
+        first_pass_source_records = []
 
         if source_record := lgrsnf_book_dicts.get(aarecord_id):
-            source_records.append({'source_type': 'lgrsnf_book', 'source_record': source_record})
+            first_pass_source_records.append({'source_type': 'lgrsnf_book', 'source_record': source_record})
         if source_record := lgrsfic_book_dicts.get(aarecord_id):
-            source_records.append({'source_type': 'lgrsfic_book', 'source_record': source_record})
+            first_pass_source_records.append({'source_type': 'lgrsfic_book', 'source_record': source_record})
         if source_record := lgli_file_dicts.get(aarecord_id):
-            source_records.append({'source_type': 'lgli_file', 'source_record': source_record})
+            first_pass_source_records.append({'source_type': 'lgli_file', 'source_record': source_record})
         if source_record := (zlib_book_dicts1.get(aarecord_id) or zlib_book_dicts2.get(aarecord_id)):
-            source_records.append({'source_type': 'zlib_book', 'source_record': source_record})
+            first_pass_source_records.append({'source_type': 'zlib_book', 'source_record': source_record})
         if source_record := (aac_zlib3_book_dicts1.get(aarecord_id) or aac_zlib3_book_dicts2.get(aarecord_id)):
-            source_records.append({'source_type': 'aac_zlib3_book', 'source_record': source_record})
+            first_pass_source_records.append({'source_type': 'aac_zlib3_book', 'source_record': source_record})
         if source_record := (ia_record_dicts.get(aarecord_id) or ia_record_dicts2.get(aarecord_id)):
-            source_records.append({'source_type': 'ia_record', 'source_record': source_record})
+            first_pass_source_records.append({'source_type': 'ia_record', 'source_record': source_record})
         for source_record in list(isbndb_dicts.get(aarecord_id) or []):
-            source_records.append({'source_type': 'isbndb', 'source_record': source_record})
+            first_pass_source_records.append({'source_type': 'isbndb', 'source_record': source_record})
         for source_record in list(ol_book_dicts.get(aarecord_id) or []):
-            source_records.append({'source_type': 'ol', 'source_record': source_record})
+            first_pass_source_records.append({'source_type': 'ol', 'source_record': source_record})
         for source_record in list(scihub_doi_dicts.get(aarecord_id) or []):
-            source_records.append({'source_type': 'scihub_doi', 'source_record': source_record})
+            first_pass_source_records.append({'source_type': 'scihub_doi', 'source_record': source_record})
         for source_record in list(oclc_dicts.get(aarecord_id) or []):
-            source_records.append({'source_type': 'oclc', 'source_record': source_record})
+            first_pass_source_records.append({'source_type': 'oclc', 'source_record': source_record})
         if source_record := (duxiu_dicts.get(aarecord_id) or duxiu_dicts2.get(aarecord_id) or duxiu_dicts3.get(aarecord_id)):
-            source_records.append({'source_type': 'duxiu', 'source_record': source_record})
+            first_pass_source_records.append({'source_type': 'duxiu', 'source_record': source_record})
         if source_record := aac_upload_md5_dicts.get(aarecord_id):
-            source_records.append({'source_type': 'aac_upload', 'source_record': source_record})
+            first_pass_source_records.append({'source_type': 'aac_upload', 'source_record': source_record})
         if source_record := (aac_magzdb_book_dicts.get(aarecord_id) or aac_magzdb_book_dicts2.get(aarecord_id)):
-            source_records.append({'source_type': 'aac_magzdb', 'source_record': source_record})
+            first_pass_source_records.append({'source_type': 'aac_magzdb', 'source_record': source_record})
         if source_record := (aac_nexusstc_book_dicts.get(aarecord_id) or aac_nexusstc_book_dicts2.get(aarecord_id) or aac_nexusstc_book_dicts3.get(aarecord_id)):
-            source_records.append({'source_type': 'aac_nexusstc', 'source_record': source_record})
+            first_pass_source_records.append({'source_type': 'aac_nexusstc', 'source_record': source_record})
         for source_record in list(ol_book_dicts_primary_linked.get(tuple(aarecord_id_split)) or []):
-            source_records.append({'source_type': 'ol_book_dicts_primary_linked', 'source_record': source_record})
+            first_pass_source_records.append({'source_type': 'ol_book_dicts_primary_linked', 'source_record': source_record})
         if source_record := aac_edsebk_book_dicts.get(aarecord_id):
-            source_records.append({'source_type': 'aac_edsebk', 'source_record': source_record})
+            first_pass_source_records.append({'source_type': 'aac_edsebk', 'source_record': source_record})
         if source_record := aac_cerlalc_book_dicts.get(aarecord_id):
-            source_records.append({'source_type': 'aac_cerlalc', 'source_record': source_record})
+            first_pass_source_records.append({'source_type': 'aac_cerlalc', 'source_record': source_record})
         if source_record := aac_czech_oo42hcks_book_dicts.get(aarecord_id):
-            source_records.append({'source_type': 'aac_czech_oo42hcks', 'source_record': source_record})
+            first_pass_source_records.append({'source_type': 'aac_czech_oo42hcks', 'source_record': source_record})
         if source_record := aac_gbooks_book_dicts.get(aarecord_id):
-            source_records.append({'source_type': 'aac_gbooks', 'source_record': source_record})
+            first_pass_source_records.append({'source_type': 'aac_gbooks', 'source_record': source_record})
         if source_record := aac_goodreads_book_dicts.get(aarecord_id):
-            source_records.append({'source_type': 'aac_goodreads', 'source_record': source_record})
+            first_pass_source_records.append({'source_type': 'aac_goodreads', 'source_record': source_record})
         if source_record := aac_isbngrp_book_dicts.get(aarecord_id):
-            source_records.append({'source_type': 'aac_isbngrp', 'source_record': source_record})
+            first_pass_source_records.append({'source_type': 'aac_isbngrp', 'source_record': source_record})
         if source_record := aac_libby_book_dicts.get(aarecord_id):
-            source_records.append({'source_type': 'aac_libby', 'source_record': source_record})
+            first_pass_source_records.append({'source_type': 'aac_libby', 'source_record': source_record})
         if source_record := aac_rgb_book_dicts.get(aarecord_id):
-            source_records.append({'source_type': 'aac_rgb', 'source_record': source_record})
+            first_pass_source_records.append({'source_type': 'aac_rgb', 'source_record': source_record})
         if source_record := aac_trantor_book_dicts.get(aarecord_id):
-            source_records.append({'source_type': 'aac_trantor', 'source_record': source_record})
+            first_pass_source_records.append({'source_type': 'aac_trantor', 'source_record': source_record})
 
         aarecord['file_unified_data'] = allthethings.utils.make_file_unified_data()
         allthethings.utils.add_identifier_unified(aarecord['file_unified_data'], 'aarecord_id', aarecord_id)
         # Duplicated below, with more fields
         aarecord['file_unified_data']['identifiers_unified'] = allthethings.utils.merge_unified_fields([
             aarecord['file_unified_data']['identifiers_unified'],
-            *[source_record['source_record']['file_unified_data']['identifiers_unified'] for source_record in source_records],
+            *[source_record['source_record']['file_unified_data']['identifiers_unified'] for source_record in first_pass_source_records],
         ])
 
         # TODO: This `if` is not necessary if we make sure that the fields of the primary records get priority.
@@ -5845,10 +5977,10 @@ def get_aarecords_internal_mysql(session, aarecord_ids):
                     for code_value in code_values:
                         transitive_codes[(code_name, code_value)].append(aarecord_id)
 
-        source_records_full_by_aarecord_id[aarecord_id] = source_records
+        source_records_full_by_aarecord_id[aarecord_id] = first_pass_source_records
         aarecords.append(aarecord)
 
-    for isbndb_dict in get_isbndb_dicts(session, [code[1] for code in transitive_codes.keys() if code[0] == 'isbn13']):
+    for isbndb_dict in get_isbndb_dicts(session, 'isbn13', [code[1] for code in transitive_codes.keys() if code[0] == 'isbn13']):
         for aarecord_id in transitive_codes[('isbn13', isbndb_dict['ean13'])]:
             if any([source_record['source_record']['ean13'] == isbndb_dict['ean13'] for source_record in source_records_full_by_aarecord_id[aarecord_id] if source_record['source_type'] == 'isbndb']):
                 continue
@@ -6214,10 +6346,16 @@ def get_aarecords_internal_mysql(session, aarecord_ids):
 
         aarecord['source_records'] = []
         for source_record in source_records_full_by_aarecord_id[aarecord_id]:
+            debug_by_id[aarecord_id]['source_records_debug'].append({
+                "debug_url": source_record['source_record']['debug_url'],
+            })
             if source_record['source_type'] == 'lgrsnf_book':
                 aarecord['source_records'].append({
                     'source_type': 'lgrsnf_book',
                     'source_record': {
+                        "requested_func": source_record['source_record']['requested_func'],
+                        "requested_key": source_record['source_record']['requested_key'],
+                        "requested_value": source_record['source_record']['requested_value'],
                         'id': source_record['source_record']['id'],
                         'md5': source_record['source_record']['md5'],
                     },
@@ -6226,6 +6364,9 @@ def get_aarecords_internal_mysql(session, aarecord_ids):
                 aarecord['source_records'].append({
                     'source_type': 'lgrsfic_book',
                     'source_record': {
+                        "requested_func": source_record['source_record']['requested_func'],
+                        "requested_key": source_record['source_record']['requested_key'],
+                        "requested_value": source_record['source_record']['requested_value'],
                         'id': source_record['source_record']['id'],
                         'md5': source_record['source_record']['md5'],
                     },
@@ -6234,6 +6375,9 @@ def get_aarecords_internal_mysql(session, aarecord_ids):
                 aarecord['source_records'].append({
                     **source_record,
                     'source_record': {
+                        "requested_func": source_record['source_record']['requested_func'],
+                        "requested_key": source_record['source_record']['requested_key'],
+                        "requested_value": source_record['source_record']['requested_value'],
                         'f_id': source_record['source_record']['f_id'],
                         'md5': source_record['source_record']['md5'],
                         'libgen_topic': source_record['source_record']['libgen_topic'],
@@ -6251,6 +6395,9 @@ def get_aarecords_internal_mysql(session, aarecord_ids):
                 aarecord['source_records'].append({
                     **source_record,
                     'source_record': {
+                        "requested_func": source_record['source_record']['requested_func'],
+                        "requested_key": source_record['source_record']['requested_key'],
+                        "requested_value": source_record['source_record']['requested_value'],
                         'zlibrary_id': source_record['source_record']['zlibrary_id'],
                         'md5': source_record['source_record']['md5'],
                         'md5_reported': source_record['source_record']['md5_reported'],
@@ -6264,6 +6411,9 @@ def get_aarecords_internal_mysql(session, aarecord_ids):
                 aarecord['source_records'].append({
                     **source_record,
                     'source_record': {
+                        "requested_func": source_record['source_record']['requested_func'],
+                        "requested_key": source_record['source_record']['requested_key'],
+                        "requested_value": source_record['source_record']['requested_value'],
                         'zlibrary_id': source_record['source_record']['zlibrary_id'],
                         'md5': source_record['source_record']['md5'],
                         'md5_reported': source_record['source_record']['md5_reported'],
@@ -6279,6 +6429,9 @@ def get_aarecords_internal_mysql(session, aarecord_ids):
                 aarecord['source_records'].append({
                     **source_record,
                     'source_record': {
+                        "requested_func": source_record['source_record']['requested_func'],
+                        "requested_key": source_record['source_record']['requested_key'],
+                        "requested_value": source_record['source_record']['requested_value'],
                         'ia_id': source_record['source_record']['ia_id'],
                         # 'has_thumb': source_record['source_record']['has_thumb'],
                         'aa_ia_file': {
@@ -6298,6 +6451,9 @@ def get_aarecords_internal_mysql(session, aarecord_ids):
                 aarecord['source_records'].append({
                     **source_record,
                     'source_record': {
+                        "requested_func": source_record['source_record']['requested_func'],
+                        "requested_key": source_record['source_record']['requested_key'],
+                        "requested_value": source_record['source_record']['requested_value'],
                         'ia_id': source_record['source_record']['ia_id'],
                     },
                 })
@@ -6305,6 +6461,9 @@ def get_aarecords_internal_mysql(session, aarecord_ids):
                 aarecord['source_records'].append({
                     **source_record,
                     'source_record': {
+                        "requested_func": source_record['source_record']['requested_func'],
+                        "requested_key": source_record['source_record']['requested_key'],
+                        "requested_value": source_record['source_record']['requested_value'],
                         'isbn13': source_record['source_record']['isbn13'],
                     },
                 })
@@ -6312,6 +6471,9 @@ def get_aarecords_internal_mysql(session, aarecord_ids):
                 aarecord['source_records'].append({
                     **source_record,
                     'source_record': {
+                        "requested_func": source_record['source_record']['requested_func'],
+                        "requested_key": source_record['source_record']['requested_key'],
+                        "requested_value": source_record['source_record']['requested_value'],
                         'ol_edition': source_record['source_record']['ol_edition'],
                     },
                 })
@@ -6319,6 +6481,9 @@ def get_aarecords_internal_mysql(session, aarecord_ids):
                 aarecord['source_records'].append({
                     **source_record,
                     'source_record': {
+                        "requested_func": source_record['source_record']['requested_func'],
+                        "requested_key": source_record['source_record']['requested_key'],
+                        "requested_value": source_record['source_record']['requested_value'],
                         'ol_edition': source_record['source_record']['ol_edition'],
                     },
                 })
@@ -6326,6 +6491,9 @@ def get_aarecords_internal_mysql(session, aarecord_ids):
                 aarecord['source_records'].append({
                     **source_record,
                     'source_record': {
+                        "requested_func": source_record['source_record']['requested_func'],
+                        "requested_key": source_record['source_record']['requested_key'],
+                        "requested_value": source_record['source_record']['requested_value'],
                         'doi': source_record['source_record']['doi'],
                     },
                 })
@@ -6333,13 +6501,19 @@ def get_aarecords_internal_mysql(session, aarecord_ids):
                 aarecord['source_records'].append({
                     **source_record,
                     'source_record': {
+                        "requested_func": source_record['source_record']['requested_func'],
+                        "requested_key": source_record['source_record']['requested_key'],
+                        "requested_value": source_record['source_record']['requested_value'],
                         'oclc_id': source_record['source_record']['oclc_id'],
                     },
                 })
-            elif source_record['source_type'] == 'duxiu':
+            elif source_record['source_type'] in ['duxiu', 'duxius_nontransitive_meta_only']:
                 new_source_record = {
                     **source_record,
                     'source_record': {
+                        "requested_func": source_record['source_record']['requested_func'],
+                        "requested_key": source_record['source_record']['requested_key'],
+                        "requested_value": source_record['source_record']['requested_value'],
                         'duxiu_ssid': source_record['source_record'].get('duxiu_ssid'),
                         'cadal_ssno': source_record['source_record'].get('cadal_ssno'),
                         'md5': source_record['source_record'].get('md5'),
@@ -6351,19 +6525,13 @@ def get_aarecords_internal_mysql(session, aarecord_ids):
                 if new_source_record['source_record']['cadal_ssno'] is None:
                     del new_source_record['source_record']['cadal_ssno']
                 aarecord['source_records'].append(new_source_record)
-            elif source_record['source_type'] == 'duxius_nontransitive_meta_only':
-                aarecord['source_records'].append({
-                    **source_record,
-                    'source_record': {
-                        'duxiu_ssid': source_record['source_record'].get('duxiu_ssid'),
-                        'cadal_ssno': source_record['source_record'].get('cadal_ssno'),
-                        'md5': source_record['source_record'].get('md5'),
-                    },
-                })
             elif source_record['source_type'] == 'aac_upload':
                 aarecord['source_records'].append({
                     **source_record,
                     'source_record': {
+                        "requested_func": source_record['source_record']['requested_func'],
+                        "requested_key": source_record['source_record']['requested_key'],
+                        "requested_value": source_record['source_record']['requested_value'],
                         'md5': source_record['source_record']['md5'],
                         'files': source_record['source_record']['files'],
                     },
@@ -6372,6 +6540,10 @@ def get_aarecords_internal_mysql(session, aarecord_ids):
                 aarecord['source_records'].append({
                     **source_record,
                     'source_record': {
+                        "requested_func": source_record['source_record']['requested_func'],
+                        "requested_key": source_record['source_record']['requested_key'],
+                        "requested_value": source_record['source_record']['requested_value'],
+                        'requested_key': source_record['source_record']['requested_key'],
                         'requested_value': source_record['source_record']['requested_value'],
                         'id': source_record['source_record']['id'],
                     },
@@ -6380,6 +6552,10 @@ def get_aarecords_internal_mysql(session, aarecord_ids):
                 aarecord['source_records'].append({
                     **source_record,
                     'source_record': {
+                        "requested_func": source_record['source_record']['requested_func'],
+                        "requested_key": source_record['source_record']['requested_key'],
+                        "requested_value": source_record['source_record']['requested_value'],
+                        'requested_key': source_record['source_record']['requested_key'],
                         'requested_value': source_record['source_record']['requested_value'],
                         'id': source_record['source_record']['id'],
                         'aa_nexusstc_derived': {
@@ -6391,6 +6567,9 @@ def get_aarecords_internal_mysql(session, aarecord_ids):
                 aarecord['source_records'].append({
                     **source_record,
                     'source_record': {
+                        "requested_func": source_record['source_record']['requested_func'],
+                        "requested_key": source_record['source_record']['requested_key'],
+                        "requested_value": source_record['source_record']['requested_value'],
                         'edsebk_id': source_record['source_record']['edsebk_id'],
                     },
                 })
@@ -6398,6 +6577,9 @@ def get_aarecords_internal_mysql(session, aarecord_ids):
                 aarecord['source_records'].append({
                     **source_record,
                     'source_record': {
+                        "requested_func": source_record['source_record']['requested_func'],
+                        "requested_key": source_record['source_record']['requested_key'],
+                        "requested_value": source_record['source_record']['requested_value'],
                         'cerlalc_id': source_record['source_record']['cerlalc_id'],
                     },
                 })
@@ -6405,6 +6587,9 @@ def get_aarecords_internal_mysql(session, aarecord_ids):
                 aarecord['source_records'].append({
                     **source_record,
                     'source_record': {
+                        "requested_func": source_record['source_record']['requested_func'],
+                        "requested_key": source_record['source_record']['requested_key'],
+                        "requested_value": source_record['source_record']['requested_value'],
                         'czech_oo42hcks_id': source_record['source_record']['czech_oo42hcks_id'],
                     },
                 })
@@ -6412,6 +6597,9 @@ def get_aarecords_internal_mysql(session, aarecord_ids):
                 aarecord['source_records'].append({
                     **source_record,
                     'source_record': {
+                        "requested_func": source_record['source_record']['requested_func'],
+                        "requested_key": source_record['source_record']['requested_key'],
+                        "requested_value": source_record['source_record']['requested_value'],
                         'gbooks_id': source_record['source_record']['gbooks_id'],
                     },
                 })
@@ -6419,6 +6607,9 @@ def get_aarecords_internal_mysql(session, aarecord_ids):
                 aarecord['source_records'].append({
                     **source_record,
                     'source_record': {
+                        "requested_func": source_record['source_record']['requested_func'],
+                        "requested_key": source_record['source_record']['requested_key'],
+                        "requested_value": source_record['source_record']['requested_value'],
                         'goodreads_id': source_record['source_record']['goodreads_id'],
                     },
                 })
@@ -6426,6 +6617,9 @@ def get_aarecords_internal_mysql(session, aarecord_ids):
                 aarecord['source_records'].append({
                     **source_record,
                     'source_record': {
+                        "requested_func": source_record['source_record']['requested_func'],
+                        "requested_key": source_record['source_record']['requested_key'],
+                        "requested_value": source_record['source_record']['requested_value'],
                         'isbngrp_id': source_record['source_record']['isbngrp_id'],
                     },
                 })
@@ -6433,6 +6627,9 @@ def get_aarecords_internal_mysql(session, aarecord_ids):
                 aarecord['source_records'].append({
                     **source_record,
                     'source_record': {
+                        "requested_func": source_record['source_record']['requested_func'],
+                        "requested_key": source_record['source_record']['requested_key'],
+                        "requested_value": source_record['source_record']['requested_value'],
                         'libby_id': source_record['source_record']['libby_id'],
                     },
                 })
@@ -6440,6 +6637,9 @@ def get_aarecords_internal_mysql(session, aarecord_ids):
                 aarecord['source_records'].append({
                     **source_record,
                     'source_record': {
+                        "requested_func": source_record['source_record']['requested_func'],
+                        "requested_key": source_record['source_record']['requested_key'],
+                        "requested_value": source_record['source_record']['requested_value'],
                         'rgb_id': source_record['source_record']['rgb_id'],
                     },
                 })
@@ -6447,6 +6647,9 @@ def get_aarecords_internal_mysql(session, aarecord_ids):
                 aarecord['source_records'].append({
                     **source_record,
                     'source_record': {
+                        "requested_func": source_record['source_record']['requested_func'],
+                        "requested_key": source_record['source_record']['requested_key'],
+                        "requested_value": source_record['source_record']['requested_value'],
                         'trantor_id': source_record['source_record']['trantor_id'],
                     },
                 })
@@ -6568,7 +6771,10 @@ def get_aarecords_internal_mysql(session, aarecord_ids):
     #     # We can simply cut the embedding for ES because of Matryoshka: https://openai.com/index/new-embedding-models-and-api-updates/
     #     aarecord['search_only_fields']['search_text_embedding_3_small_100_tokens_1024_dims'] = embedding['text_embedding_3_small_100_tokens'][0:1024]
 
-    return aarecords
+    if include_aarecord_mysql_debug:
+        return [{ "id": aarecord['id'], "aarecord_mysql_debug": debug_by_id[aarecord['id']], **aarecord } for aarecord in aarecords]
+    else:
+        return aarecords
 
 def get_md5_problem_type_mapping():
     return {
@@ -7422,12 +7628,24 @@ def protect_db_page(request):
 
 @page.get("/db/aarecord_elasticsearch/<path:aarecord_id>.json")
 @page.get("/db/aarecord_elasticsearch/<path:aarecord_id>.json.html")
+@page.get("/db/aarecord_mysql_debug/<path:aarecord_id>.json")
+@page.get("/db/aarecord_mysql_debug/<path:aarecord_id>.json.html")
 @allthethings.utils.no_cache()
 def db_aarecord_json(aarecord_id):
     if protect_return_val := protect_db_page(request):
         return protect_return_val
 
-    aarecords = get_aarecords_mysql_debug([aarecord_id])
+    if request.path.startswith('/db/aarecord_elasticsearch'):
+        aarecords = get_aarecords_elasticsearch([aarecord_id])
+        top_comments = ["This is the `/db/aarecord_elasticsearch/` version, which contains",
+                        "the cached record from ElasticSearch, as well as the runtime-computed",
+                        "`additional` field. For a live version use `/db/aarecord_mysql_debug/`."]
+    else:
+        aarecords = get_aarecords_mysql_debug([aarecord_id])
+        top_comments = ["This is the `/db/aarecord_mysql_debug/` version, which is runtime-computed",
+                        "from the original data in MySQL/MariaDB. It still contains the `additional`",
+                        "field (which is always runtime-computed), as well as an extra",
+                        "`aarecord_mysql_debug` field."]
     if aarecords is None:
         return '{"error":"Page loading issue"}', 500, {'Content-Type': 'text/json; charset=utf-8'}
     if len(aarecords) == 0:
@@ -7435,6 +7653,8 @@ def db_aarecord_json(aarecord_id):
 
     aarecord_comments = {
         "id": ("before", ["File from the combined collections of Anna's Archive.",
+                           *top_comments,
+                           "",
                            "More details at https://annas-archive.li/datasets",
                            allthethings.utils.DICT_COMMENTS_NO_API_DISCLAIMER]),
         "file_unified_data": ("before", ["Combined data by Anna's Archive from the various source collections, attempting to get pick the best field where possible."]),
@@ -7460,65 +7680,59 @@ def db_source_record_json(raw_path):
         return protect_return_val
 
     with Session(engine) as session:
-        path1, path2, path_id = raw_path.split('/', 2)
-        path_first = f"{path1}/{path2}"
+        path_func, path_key, path_id = raw_path.split('/', 2)
 
-        if path_first == 'get_zlib_book_dicts/zlibrary_id':
-            result_dicts = get_zlib_book_dicts(session, "zlibrary_id", [path_id])
-        elif path_first == 'get_aac_zlib3_book_dicts/zlibrary_id':
-            result_dicts = get_aac_zlib3_book_dicts(session, "zlibrary_id", [path_id])
-        elif path_first == 'get_ia_record_dicts/ia_id':
-            result_dicts = get_ia_record_dicts(session, "ia_id", [path_id])
-        elif path_first == 'get_ol_book_dicts/ol_edition':
-            result_dicts = get_ol_book_dicts(session, "ol_edition", [path_id])
-        elif path_first == 'get_lgrsnf_book_dicts/ID':
-            result_dicts = get_lgrsnf_book_dicts(session, "ID", [path_id])
-        elif path_first == 'get_lgrsfic_book_dicts/ID':
-            result_dicts = get_lgrsfic_book_dicts(session, "ID", [path_id])
-        elif path_first == 'get_lgli_file_dicts/f_id':
-            result_dicts = get_lgli_file_dicts(session, "f_id", [path_id])
-        elif path_first == 'get_isbndb_dicts/isbn13':
-            result_dicts = get_isbndb_dicts(session, [path_id])
-        elif path_first == 'get_scihub_doi_dicts/doi':
-            result_dicts = get_scihub_doi_dicts(session, 'doi', [path_id])
-        elif path_first == 'get_oclc_dicts/oclc':
-            result_dicts = get_oclc_dicts(session, 'oclc', [path_id])
-        elif path_first == 'get_duxiu_dicts/duxiu_ssid':
-            result_dicts = get_duxiu_dicts(session, 'duxiu_ssid', [path_id], include_deep_transitive_md5s_size_path=True)
-        elif path_first == 'get_duxiu_dicts/cadal_ssno':
-            result_dicts = get_duxiu_dicts(session, 'cadal_ssno', [path_id], include_deep_transitive_md5s_size_path=True)
-        elif path_first == 'get_duxiu_dicts/md5':
-            result_dicts = get_duxiu_dicts(session, 'md5', [path_id], include_deep_transitive_md5s_size_path=False)
-        elif path_first == 'get_aac_upload_book_dicts/md5':
-            result_dicts = get_aac_upload_book_dicts(session, "md5", [path_id])
-        elif path_first == 'get_aac_magzdb_book_dicts/magzdb_id':
-            result_dicts = get_aac_magzdb_book_dicts(session, "magzdb_id", [path_id])
-        elif path_first == 'get_aac_magzdb_book_dicts/md5':
-            result_dicts = get_aac_magzdb_book_dicts(session, "md5", [path_id])
-        elif path_first == 'get_aac_nexusstc_book_dicts/nexusstc_id':
-            result_dicts = get_aac_nexusstc_book_dicts(session, "nexusstc_id", [path_id])
-        elif path_first == 'get_aac_nexusstc_book_dicts/nexusstc_download':
-            result_dicts = get_aac_nexusstc_book_dicts(session, "nexusstc_download", [path_id])
-        elif path_first == 'get_aac_nexusstc_book_dicts/md5':
-            result_dicts = get_aac_nexusstc_book_dicts(session, "md5", [path_id])
-        elif path_first == 'get_aac_edsebk_book_dicts/edsebk_id':
-            result_dicts = get_aac_edsebk_book_dicts(session, "edsebk_id", [path_id])
-        elif path_first == 'get_aac_cerlalc_book_dicts/cerlalc_id':
-            result_dicts = get_aac_cerlalc_book_dicts(session, "cerlalc_id", [path_id])
-        elif path_first == 'get_aac_czech_oo42hcks_book_dicts/czech_oo42hcks_id':
-            result_dicts = get_aac_czech_oo42hcks_book_dicts(session, "czech_oo42hcks_id", [path_id])
-        elif path_first == 'get_aac_gbooks_book_dicts/gbooks_id':
-            result_dicts = get_aac_gbooks_book_dicts(session, "gbooks_id", [path_id])
-        elif path_first == 'get_aac_goodreads_book_dicts/goodreads_id':
-            result_dicts = get_aac_goodreads_book_dicts(session, "goodreads_id", [path_id])
-        elif path_first == 'get_aac_isbngrp_book_dicts/isbngrp_id':
-            result_dicts = get_aac_isbngrp_book_dicts(session, "isbngrp_id", [path_id])
-        elif path_first == 'get_aac_libby_book_dicts/libby_id':
-            result_dicts = get_aac_libby_book_dicts(session, "libby_id", [path_id])
-        elif path_first == 'get_aac_rgb_book_dicts/rgb_id':
-            result_dicts = get_aac_rgb_book_dicts(session, "rgb_id", [path_id])
-        elif path_first == 'get_aac_trantor_book_dicts/trantor_id':
-            result_dicts = get_aac_trantor_book_dicts(session, "trantor_id", [path_id])
+        # All functions should have strict checks on this, but just in case, to prevent accidental
+        # SQL injections (since we turned this into user input here only recently).
+        if not re.fullmatch(r'[A-Za-z0-9_]+', path_key):
+            return '{"error":"Invalid path_key"}', 404, {'Content-Type': 'text/json; charset=utf-8'}
+
+        if path_func == 'get_zlib_book_dicts':
+            result_dicts = get_zlib_book_dicts(session, path_key, [path_id])
+        elif path_func == 'get_aac_zlib3_book_dicts':
+            result_dicts = get_aac_zlib3_book_dicts(session, path_key, [path_id])
+        elif path_func == 'get_ia_record_dicts':
+            result_dicts = get_ia_record_dicts(session, path_key, [path_id])
+        elif path_func == 'get_ol_book_dicts':
+            result_dicts = get_ol_book_dicts(session, path_key, [path_id])
+        elif path_func == 'get_lgrsnf_book_dicts':
+            result_dicts = get_lgrsnf_book_dicts(session, path_key, [path_id])
+        elif path_func == 'get_lgrsfic_book_dicts':
+            result_dicts = get_lgrsfic_book_dicts(session, path_key, [path_id])
+        elif path_func == 'get_lgli_file_dicts':
+            result_dicts = get_lgli_file_dicts(session, path_key, [path_id])
+        elif path_func == 'get_isbndb_dicts':
+            result_dicts = get_isbndb_dicts(session, path_key, [path_id])
+        elif path_func == 'get_scihub_doi_dicts':
+            result_dicts = get_scihub_doi_dicts(session, path_key, [path_id])
+        elif path_func == 'get_oclc_dicts':
+            result_dicts = get_oclc_dicts(session, path_key, [path_id])
+        elif path_func == 'get_duxiu_dicts':
+            result_dicts = get_duxiu_dicts(session, path_key, [path_id], include_deep_transitive_md5s_size_path=(path_key in ['duxiu_ssid', 'cadal_ssno']))
+        elif path_func == 'get_aac_upload_book_dicts':
+            result_dicts = get_aac_upload_book_dicts(session, path_key, [path_id])
+        elif path_func == 'get_aac_magzdb_book_dicts':
+            result_dicts = get_aac_magzdb_book_dicts(session, path_key, [path_id])
+        elif path_func == 'get_aac_nexusstc_book_dicts':
+            result_dicts = get_aac_nexusstc_book_dicts(session, path_key, [path_id])
+        elif path_func == 'get_aac_edsebk_book_dicts':
+            result_dicts = get_aac_edsebk_book_dicts(session, path_key, [path_id])
+        elif path_func == 'get_aac_cerlalc_book_dicts':
+            result_dicts = get_aac_cerlalc_book_dicts(session, path_key, [path_id])
+        elif path_func == 'get_aac_czech_oo42hcks_book_dicts':
+            result_dicts = get_aac_czech_oo42hcks_book_dicts(session, path_key, [path_id])
+        elif path_func == 'get_aac_gbooks_book_dicts':
+            result_dicts = get_aac_gbooks_book_dicts(session, path_key, [path_id])
+        elif path_func == 'get_aac_goodreads_book_dicts':
+            result_dicts = get_aac_goodreads_book_dicts(session, path_key, [path_id])
+        elif path_func == 'get_aac_isbngrp_book_dicts':
+            result_dicts = get_aac_isbngrp_book_dicts(session, path_key, [path_id])
+        elif path_func == 'get_aac_libby_book_dicts':
+            result_dicts = get_aac_libby_book_dicts(session, path_key, [path_id])
+        elif path_func == 'get_aac_rgb_book_dicts':
+            result_dicts = get_aac_rgb_book_dicts(session, path_key, [path_id])
+        elif path_func == 'get_aac_trantor_book_dicts':
+            result_dicts = get_aac_trantor_book_dicts(session, path_key, [path_id])
         else:
             return '{"error":"Unknown path"}', 404, {'Content-Type': 'text/json; charset=utf-8'}
 

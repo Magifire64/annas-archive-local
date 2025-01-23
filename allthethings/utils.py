@@ -94,7 +94,7 @@ DB_EXAMPLE_PAGES = [
     "/db/source_record/get_ia_record_dicts/ia_id/100insightslesso0000maie.json",
     "/db/source_record/get_isbndb_dicts/isbn13/9780060512804.json",
     "/db/source_record/get_lgli_file_dicts/f_id/4663167.json",
-    "/db/source_record/get_lgrsfic_book_dicts/ID/617509.json",
+    "/db/source_record/get_lgrsfic_book_dicts/id/617509.json",
     "/db/source_record/get_oclc_dicts/oclc/1.json",
     "/db/source_record/get_ol_book_dicts/ol_edition/OL27280121M.json",
     "/db/source_record/get_scihub_doi_dicts/doi/10.5822/978-1-61091-843-5_15.json",

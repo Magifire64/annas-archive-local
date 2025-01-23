@@ -589,6 +589,8 @@
 
     <p class="mb-4">
       {{ gettext('page.md5.text.file_info.text1', a_href=((' href="/db/aarecord_elasticsearch/' | safe) + aarecord_id + '.json.html"' | safe)) }}
+      <!-- TODO:TRANSLATE -->
+      <a href="/db/aarecord_mysql_debug/{{ aarecord_id }}.json.html">Live/debug JSON version.</a>
     </p>
   </div>
 {% endblock %}
