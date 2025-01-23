@@ -1,10 +1,12 @@
 import { EditorState, RangeSetBuilder } from "@codemirror/state";
-import { EditorView, Decoration, ViewPlugin } from "@codemirror/view";
+import { EditorView, Decoration, ViewPlugin, keymap } from "@codemirror/view";
 import { jsonc } from "@shopify/lang-jsonc";
 import { basicSetup } from "codemirror";
+import { search, searchKeymap } from "@codemirror/search";
+import { defaultKeymap } from "@codemirror/commands";
 
 // Regular expression to match URLs
-const urlRegex = /\bhttps?:\/\/[^\s"]+/g;
+const urlRegex = /((\bhttps?:\/\/[^\s"}]+)|((?<=")\/[^\s"]+(?=")))/g;
 
 // Function to create decorations for URLs
 function urlHighlighter(view) {
@@ -47,6 +49,9 @@ const state = EditorState.create({
     EditorView.editable.of(false), // Read-only
     urlDecorator,
     EditorView.lineWrapping,
+    search(),
+    keymap.of([defaultKeymap, searchKeymap]),
+    EditorView.contentAttributes.of({tabindex: 0}), // https://discuss.codemirror.net/t/search-only-available-in-editable-version-of-the-editorview/8502
   ],
 });
 const view = new EditorView({ state, parent: document.querySelector("#editor") });

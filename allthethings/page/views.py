@@ -79,64 +79,60 @@ for language in ol_languages_json:
 # * http://localhost:8000/ol/OL2862972M
 # * http://localhost:8000/ol/OL24764643M
 # * http://localhost:8000/ol/OL7002375M
-# * http://localhost:8000/db/raw/lgrsnf/288054.json.html
-# * http://localhost:8000/db/raw/lgrsnf/3175616.json.html
-# * http://localhost:8000/db/raw/lgrsnf/2933905.json.html
-# * http://localhost:8000/db/raw/lgrsnf/1125703.json.html
-# * http://localhost:8000/db/raw/lgrsnf/59.json.html
-# * http://localhost:8000/db/raw/lgrsnf/1195487.json.html
-# * http://localhost:8000/db/raw/lgrsnf/1360257.json.html
-# * http://localhost:8000/db/raw/lgrsnf/357571.json.html
-# * http://localhost:8000/db/raw/lgrsnf/2425562.json.html
-# * http://localhost:8000/db/raw/lgrsnf/3354081.json.html
-# * http://localhost:8000/db/raw/lgrsnf/3357578.json.html
-# * http://localhost:8000/db/raw/lgrsnf/3357145.json.html
-# * http://localhost:8000/db/raw/lgrsnf/2040423.json.html
-# * http://localhost:8000/db/raw/lgrsfic/1314135.json.html
-# * http://localhost:8000/db/raw/lgrsfic/25761.json.html
-# * http://localhost:8000/db/raw/lgrsfic/2443846.json.html
-# * http://localhost:8000/db/raw/lgrsfic/2473252.json.html
-# * http://localhost:8000/db/raw/lgrsfic/2340232.json.html
-# * http://localhost:8000/db/raw/lgrsfic/1122239.json.html
-# * http://localhost:8000/db/raw/lgrsfic/6862.json.html
-# * http://localhost:8000/db/raw/lgli/100.json.html
-# * http://localhost:8000/db/raw/lgli/1635550.json.html
-# * http://localhost:8000/db/raw/lgli/94069002.json.html
-# * http://localhost:8000/db/raw/lgli/40122.json.html
-# * http://localhost:8000/db/raw/lgli/21174.json.html
-# * http://localhost:8000/db/raw/lgli/91051161.json.html
-# * http://localhost:8000/db/raw/lgli/733269.json.html
-# * http://localhost:8000/db/raw/lgli/156965.json.html
-# * http://localhost:8000/db/raw/lgli/10000000.json.html
-# * http://localhost:8000/db/raw/lgli/933304.json.html
-# * http://localhost:8000/db/raw/lgli/97559799.json.html
-# * http://localhost:8000/db/raw/lgli/3756440.json.html
-# * http://localhost:8000/db/raw/lgli/91128129.json.html
-# * http://localhost:8000/db/raw/lgli/44109.json.html
-# * http://localhost:8000/db/raw/lgli/2264591.json.html
-# * http://localhost:8000/db/raw/lgli/151611.json.html
-# * http://localhost:8000/db/raw/lgli/1868248.json.html
-# * http://localhost:8000/db/raw/lgli/1761341.json.html
-# * http://localhost:8000/db/raw/lgli/4031847.json.html
-# * http://localhost:8000/db/raw/lgli/2827612.json.html
-# * http://localhost:8000/db/raw/lgli/2096298.json.html
-# * http://localhost:8000/db/raw/lgli/96751802.json.html
-# * http://localhost:8000/db/raw/lgli/5064830.json.html
-# * http://localhost:8000/db/raw/lgli/1747221.json.html
-# * http://localhost:8000/db/raw/lgli/1833886.json.html
-# * http://localhost:8000/db/raw/lgli/3908879.json.html
-# * http://localhost:8000/db/raw/lgli/41752.json.html
-# * http://localhost:8000/db/raw/lgli/97768237.json.html
-# * http://localhost:8000/db/raw/lgli/4031335.json.html
-# * http://localhost:8000/db/raw/lgli/1842179.json.html
-# * http://localhost:8000/db/raw/lgli/97562793.json.html
-# * http://localhost:8000/db/raw/lgli/4029864.json.html
-# * http://localhost:8000/db/raw/lgli/2834701.json.html
-# * http://localhost:8000/db/raw/lgli/97562143.json.html
-# * http://localhost:8000/isbndb/9789514596933
-# * http://localhost:8000/isbndb/9780000000439
-# * http://localhost:8000/isbndb/9780001055506
-# * http://localhost:8000/isbndb/9780316769174
+# * http://localhost:8000/db/source_record/get_lgrsnf_book_dicts/ID/288054.json.html
+# * http://localhost:8000/db/source_record/get_lgrsnf_book_dicts/ID/3175616.json.html
+# * http://localhost:8000/db/source_record/get_lgrsnf_book_dicts/ID/2933905.json.html
+# * http://localhost:8000/db/source_record/get_lgrsnf_book_dicts/ID/1125703.json.html
+# * http://localhost:8000/db/source_record/get_lgrsnf_book_dicts/ID/59.json.html
+# * http://localhost:8000/db/source_record/get_lgrsnf_book_dicts/ID/1195487.json.html
+# * http://localhost:8000/db/source_record/get_lgrsnf_book_dicts/ID/1360257.json.html
+# * http://localhost:8000/db/source_record/get_lgrsnf_book_dicts/ID/357571.json.html
+# * http://localhost:8000/db/source_record/get_lgrsnf_book_dicts/ID/2425562.json.html
+# * http://localhost:8000/db/source_record/get_lgrsnf_book_dicts/ID/3354081.json.html
+# * http://localhost:8000/db/source_record/get_lgrsnf_book_dicts/ID/3357578.json.html
+# * http://localhost:8000/db/source_record/get_lgrsnf_book_dicts/ID/3357145.json.html
+# * http://localhost:8000/db/source_record/get_lgrsnf_book_dicts/ID/2040423.json.html
+# * http://localhost:8000/db/source_record/get_lgrsfic_book_dicts/ID/1314135.json.html
+# * http://localhost:8000/db/source_record/get_lgrsfic_book_dicts/ID/25761.json.html
+# * http://localhost:8000/db/source_record/get_lgrsfic_book_dicts/ID/2443846.json.html
+# * http://localhost:8000/db/source_record/get_lgrsfic_book_dicts/ID/2473252.json.html
+# * http://localhost:8000/db/source_record/get_lgrsfic_book_dicts/ID/2340232.json.html
+# * http://localhost:8000/db/source_record/get_lgrsfic_book_dicts/ID/1122239.json.html
+# * http://localhost:8000/db/source_record/get_lgrsfic_book_dicts/ID/6862.json.html
+# * http://localhost:8000/db/source_record/get_lgli_file_dicts/f_id/100.json.html
+# * http://localhost:8000/db/source_record/get_lgli_file_dicts/f_id/1635550.json.html
+# * http://localhost:8000/db/source_record/get_lgli_file_dicts/f_id/94069002.json.html
+# * http://localhost:8000/db/source_record/get_lgli_file_dicts/f_id/40122.json.html
+# * http://localhost:8000/db/source_record/get_lgli_file_dicts/f_id/21174.json.html
+# * http://localhost:8000/db/source_record/get_lgli_file_dicts/f_id/91051161.json.html
+# * http://localhost:8000/db/source_record/get_lgli_file_dicts/f_id/733269.json.html
+# * http://localhost:8000/db/source_record/get_lgli_file_dicts/f_id/156965.json.html
+# * http://localhost:8000/db/source_record/get_lgli_file_dicts/f_id/10000000.json.html
+# * http://localhost:8000/db/source_record/get_lgli_file_dicts/f_id/933304.json.html
+# * http://localhost:8000/db/source_record/get_lgli_file_dicts/f_id/97559799.json.html
+# * http://localhost:8000/db/source_record/get_lgli_file_dicts/f_id/3756440.json.html
+# * http://localhost:8000/db/source_record/get_lgli_file_dicts/f_id/91128129.json.html
+# * http://localhost:8000/db/source_record/get_lgli_file_dicts/f_id/44109.json.html
+# * http://localhost:8000/db/source_record/get_lgli_file_dicts/f_id/2264591.json.html
+# * http://localhost:8000/db/source_record/get_lgli_file_dicts/f_id/151611.json.html
+# * http://localhost:8000/db/source_record/get_lgli_file_dicts/f_id/1868248.json.html
+# * http://localhost:8000/db/source_record/get_lgli_file_dicts/f_id/1761341.json.html
+# * http://localhost:8000/db/source_record/get_lgli_file_dicts/f_id/4031847.json.html
+# * http://localhost:8000/db/source_record/get_lgli_file_dicts/f_id/2827612.json.html
+# * http://localhost:8000/db/source_record/get_lgli_file_dicts/f_id/2096298.json.html
+# * http://localhost:8000/db/source_record/get_lgli_file_dicts/f_id/96751802.json.html
+# * http://localhost:8000/db/source_record/get_lgli_file_dicts/f_id/5064830.json.html
+# * http://localhost:8000/db/source_record/get_lgli_file_dicts/f_id/1747221.json.html
+# * http://localhost:8000/db/source_record/get_lgli_file_dicts/f_id/1833886.json.html
+# * http://localhost:8000/db/source_record/get_lgli_file_dicts/f_id/3908879.json.html
+# * http://localhost:8000/db/source_record/get_lgli_file_dicts/f_id/41752.json.html
+# * http://localhost:8000/db/source_record/get_lgli_file_dicts/f_id/97768237.json.html
+# * http://localhost:8000/db/source_record/get_lgli_file_dicts/f_id/4031335.json.html
+# * http://localhost:8000/db/source_record/get_lgli_file_dicts/f_id/1842179.json.html
+# * http://localhost:8000/db/source_record/get_lgli_file_dicts/f_id/97562793.json.html
+# * http://localhost:8000/db/source_record/get_lgli_file_dicts/f_id/4029864.json.html
+# * http://localhost:8000/db/source_record/get_lgli_file_dicts/f_id/2834701.json.html
+# * http://localhost:8000/db/source_record/get_lgli_file_dicts/f_id/97562143.json.html
 # * http://localhost:8000/md5/8fcb740b8c13f202e89e05c4937c09ac
 # * http://localhost:8000/md5/a50f2e8f2963888a976899e2c4675d70 (sacrificed for OpenLibrary annas_archive tagging testing)
 
@@ -5449,7 +5445,7 @@ def get_aarecords_elasticsearch(aarecord_ids):
 
     # Uncomment the following lines to use MySQL directly; useful for local development.
     # with Session(engine) as session:
-    #     return [add_additional_to_aarecord({ '_source': aarecord }) for aarecord in get_aarecords_mysql(session, aarecord_ids)]
+    #     return [add_additional_to_aarecord({ '_source': aarecord }) for aarecord in get_aarecords_internal_mysql(session, aarecord_ids)]
 
     docs_by_es_handle = collections.defaultdict(list)
     for aarecord_id in aarecord_ids:
@@ -5479,6 +5475,14 @@ def get_aarecords_elasticsearch(aarecord_ids):
             break
     return [add_additional_to_aarecord(aarecord_raw) for aarecord_raw in search_results_raw if aarecord_raw.get('found') and (aarecord_raw['_id'] not in allthethings.utils.SEARCH_FILTERED_BAD_AARECORD_IDS)]
 
+# No filtering for bad data, since this is for debug purposes only.
+def get_aarecords_mysql_debug(aarecord_ids):
+    if not allthethings.utils.validate_aarecord_ids(aarecord_ids):
+        raise Exception(f"Invalid aarecord_ids {aarecord_ids=}")
+    if len(aarecord_ids) == 0:
+        return []
+    with Session(engine) as session:
+        return [add_additional_to_aarecord({ '_source': aarecord }) for aarecord in get_aarecords_internal_mysql(session, aarecord_ids)]
 
 def aarecord_score_base(aarecord):
     if aarecord['file_unified_data']['has_meaningful_problems'] > 0:
@@ -5711,7 +5715,7 @@ def merge_file_unified_data_strings(source_records_by_type, iterations):
     multiple_str = [s for s in multiple_str if s != best_str]
     return (best_str, multiple_str)
 
-def get_aarecords_mysql(session, aarecord_ids):
+def get_aarecords_internal_mysql(session, aarecord_ids):
     if not allthethings.utils.validate_aarecord_ids(aarecord_ids):
         raise Exception(f"Invalid aarecord_ids {aarecord_ids=}")
 
@@ -6216,7 +6220,7 @@ def get_aarecords_mysql(session, aarecord_ids):
                 })
             elif source_record['source_type'] == 'lgli_file':
                 aarecord['source_records'].append({
-                    'source_type': 'lgli_file',
+                    **source_record,
                     'source_record': {
                         'f_id': source_record['source_record']['f_id'],
                         'md5': source_record['source_record']['md5'],
@@ -6233,7 +6237,7 @@ def get_aarecords_mysql(session, aarecord_ids):
                 })
             elif source_record['source_type'] == 'zlib_book':
                 aarecord['source_records'].append({
-                    'source_type': 'zlib_book',
+                    **source_record,
                     'source_record': {
                         'zlibrary_id': source_record['source_record']['zlibrary_id'],
                         'md5': source_record['source_record']['md5'],
@@ -6246,7 +6250,7 @@ def get_aarecords_mysql(session, aarecord_ids):
                 })
             elif source_record['source_type'] == 'aac_zlib3_book':
                 aarecord['source_records'].append({
-                    'source_type': 'aac_zlib3_book',
+                    **source_record,
                     'source_record': {
                         'zlibrary_id': source_record['source_record']['zlibrary_id'],
                         'md5': source_record['source_record']['md5'],
@@ -6261,7 +6265,7 @@ def get_aarecords_mysql(session, aarecord_ids):
                 })
             elif source_record['source_type'] == 'ia_record':
                 aarecord['source_records'].append({
-                    'source_type': 'ia_record',
+                    **source_record,
                     'source_record': {
                         'ia_id': source_record['source_record']['ia_id'],
                         # 'has_thumb': source_record['source_record']['has_thumb'],
@@ -6280,49 +6284,49 @@ def get_aarecords_mysql(session, aarecord_ids):
                 })
             elif source_record['source_type'] == 'ia_records_meta_only':
                 aarecord['source_records'].append({
-                    'source_type': 'ia_records_meta_only',
+                    **source_record,
                     'source_record': {
                         'ia_id': source_record['source_record']['ia_id'],
                     },
                 })
             elif source_record['source_type'] == 'isbndb':
                 aarecord['source_records'].append({
-                    'source_type': 'isbndb',
+                    **source_record,
                     'source_record': {
                         'isbn13': source_record['source_record']['isbn13'],
                     },
                 })
             elif source_record['source_type'] == 'ol_book_dicts_primary_linked':
                 aarecord['source_records'].append({
-                    'source_type': 'ol_book_dicts_primary_linked',
+                    **source_record,
                     'source_record': {
                         'ol_edition': source_record['source_record']['ol_edition'],
                     },
                 })
             elif source_record['source_type'] == 'ol':
                 aarecord['source_records'].append({
-                    'source_type': 'ol',
+                    **source_record,
                     'source_record': {
                         'ol_edition': source_record['source_record']['ol_edition'],
                     },
                 })
             elif source_record['source_type'] == 'scihub_doi':
                 aarecord['source_records'].append({
-                    'source_type': 'scihub_doi',
+                    **source_record,
                     'source_record': {
                         'doi': source_record['source_record']['doi'],
                     },
                 })
             elif source_record['source_type'] == 'oclc':
                 aarecord['source_records'].append({
-                    'source_type': 'oclc',
+                    **source_record,
                     'source_record': {
                         'oclc_id': source_record['source_record']['oclc_id'],
                     },
                 })
             elif source_record['source_type'] == 'duxiu':
                 new_source_record = {
-                    'source_type': 'duxiu',
+                    **source_record,
                     'source_record': {
                         'duxiu_ssid': source_record['source_record'].get('duxiu_ssid'),
                         'cadal_ssno': source_record['source_record'].get('cadal_ssno'),
@@ -6337,7 +6341,7 @@ def get_aarecords_mysql(session, aarecord_ids):
                 aarecord['source_records'].append(new_source_record)
             elif source_record['source_type'] == 'duxius_nontransitive_meta_only':
                 aarecord['source_records'].append({
-                    'source_type': 'duxius_nontransitive_meta_only',
+                    **source_record,
                     'source_record': {
                         'duxiu_ssid': source_record['source_record'].get('duxiu_ssid'),
                         'cadal_ssno': source_record['source_record'].get('cadal_ssno'),
@@ -6346,7 +6350,7 @@ def get_aarecords_mysql(session, aarecord_ids):
                 })
             elif source_record['source_type'] == 'aac_upload':
                 aarecord['source_records'].append({
-                    'source_type': 'aac_upload',
+                    **source_record,
                     'source_record': {
                         'md5': source_record['source_record']['md5'],
                         'files': source_record['source_record']['files'],
@@ -6354,7 +6358,7 @@ def get_aarecords_mysql(session, aarecord_ids):
                 })
             elif source_record['source_type'] == 'aac_magzdb':
                 aarecord['source_records'].append({
-                    'source_type': 'aac_magzdb',
+                    **source_record,
                     'source_record': {
                         'requested_value': source_record['source_record']['requested_value'],
                         'id': source_record['source_record']['id'],
@@ -6362,7 +6366,7 @@ def get_aarecords_mysql(session, aarecord_ids):
                 })
             elif source_record['source_type'] == 'aac_nexusstc':
                 aarecord['source_records'].append({
-                    'source_type': 'aac_nexusstc',
+                    **source_record,
                     'source_record': {
                         'requested_value': source_record['source_record']['requested_value'],
                         'id': source_record['source_record']['id'],
@@ -6373,63 +6377,63 @@ def get_aarecords_mysql(session, aarecord_ids):
                 })
             elif source_record['source_type'] == 'aac_edsebk':
                 aarecord['source_records'].append({
-                    'source_type': 'aac_edsebk',
+                    **source_record,
                     'source_record': {
                         'edsebk_id': source_record['source_record']['edsebk_id'],
                     },
                 })
             elif source_record['source_type'] == 'aac_cerlalc':
                 aarecord['source_records'].append({
-                    'source_type': 'aac_cerlalc',
+                    **source_record,
                     'source_record': {
                         'cerlalc_id': source_record['source_record']['cerlalc_id'],
                     },
                 })
             elif source_record['source_type'] == 'aac_czech_oo42hcks':
                 aarecord['source_records'].append({
-                    'source_type': 'aac_czech_oo42hcks',
+                    **source_record,
                     'source_record': {
                         'czech_oo42hcks_id': source_record['source_record']['czech_oo42hcks_id'],
                     },
                 })
             elif source_record['source_type'] == 'aac_gbooks':
                 aarecord['source_records'].append({
-                    'source_type': 'aac_gbooks',
+                    **source_record,
                     'source_record': {
                         'gbooks_id': source_record['source_record']['gbooks_id'],
                     },
                 })
             elif source_record['source_type'] == 'aac_goodreads':
                 aarecord['source_records'].append({
-                    'source_type': 'aac_goodreads',
+                    **source_record,
                     'source_record': {
                         'goodreads_id': source_record['source_record']['goodreads_id'],
                     },
                 })
             elif source_record['source_type'] == 'aac_isbngrp':
                 aarecord['source_records'].append({
-                    'source_type': 'aac_isbngrp',
+                    **source_record,
                     'source_record': {
                         'isbngrp_id': source_record['source_record']['isbngrp_id'],
                     },
                 })
             elif source_record['source_type'] == 'aac_libby':
                 aarecord['source_records'].append({
-                    'source_type': 'aac_libby',
+                    **source_record,
                     'source_record': {
                         'libby_id': source_record['source_record']['libby_id'],
                     },
                 })
             elif source_record['source_type'] == 'aac_rgb':
                 aarecord['source_records'].append({
-                    'source_type': 'aac_rgb',
+                    **source_record,
                     'source_record': {
                         'rgb_id': source_record['source_record']['rgb_id'],
                     },
                 })
             elif source_record['source_type'] == 'aac_trantor':
                 aarecord['source_records'].append({
-                    'source_type': 'aac_trantor',
+                    **source_record,
                     'source_record': {
                         'trantor_id': source_record['source_record']['trantor_id'],
                     },
@@ -7407,11 +7411,11 @@ def protect_db_page(request):
 @page.get("/db/aarecord/<path:aarecord_id>.json")
 @page.get("/db/aarecord/<path:aarecord_id>.json.html")
 @allthethings.utils.no_cache()
-def md5_json(aarecord_id):
+def db_aarecord_json(aarecord_id):
     if protect_return_val := protect_db_page(request):
         return protect_return_val
 
-    aarecords = get_aarecords_elasticsearch([aarecord_id])
+    aarecords = get_aarecords_mysql_debug([aarecord_id])
     if aarecords is None:
         return '{"error":"Page loading issue"}', 500, {'Content-Type': 'text/json; charset=utf-8'}
     if len(aarecords) == 0:
@@ -7421,32 +7425,6 @@ def md5_json(aarecord_id):
         "id": ("before", ["File from the combined collections of Anna's Archive.",
                            "More details at https://annas-archive.li/datasets",
                            allthethings.utils.DICT_COMMENTS_NO_API_DISCLAIMER]),
-        "source_records": ("before", [
-            "Find source data at:",
-            "lgrsnf_book: https://annas-archive.li/db/raw/lgrsnf/<id>.json",
-            "lgrsfic_book: https://annas-archive.li/db/raw/lgrsfic/<id>.json",
-            "lgli_file: https://annas-archive.li/db/raw/lgli/<f_id>.json",
-            "zlib_book: https://annas-archive.li/db/raw/zlib/<zlibrary_id>.json",
-            "aac_zlib3_book: https://annas-archive.li/db/raw/aac_zlib3/<zlibrary_id>.json",
-            "ia_record: https://annas-archive.li/db/raw/ia/<ia_id>.json",
-            "isbndb: https://annas-archive.li/db/raw/isbndb/raw/<isbn13>.json",
-            "ol: https://annas-archive.li/db/raw/ol/<ol_edition>.json",
-            "scihub_doi: https://annas-archive.li/db/raw/scihub_doi/<doi>.json",
-            "oclc: https://annas-archive.li/db/raw/oclc/<oclc>.json",
-            "duxiu: https://annas-archive.li/db/raw/duxiu_ssid/<duxiu_ssid>.json or https://annas-archive.li/db/raw/cadal_ssno/<cadal_ssno>.json or https://annas-archive.li/db/raw/duxiu_md5/<md5>.json",
-            "aac_upload: https://annas-archive.li/db/raw/aac_upload/<md5>.json",
-            "aac_magzdb: https://annas-archive.li/db/raw/aac_magzdb/raw/<requested_value>.json or https://annas-archive.li/db/raw/aac_magzdb_md5/<requested_value>.json",
-            "aac_nexusstc: https://annas-archive.li/db/raw/aac_nexusstc/<requested_value>.json or https://annas-archive.li/db/raw/aac_nexusstc_download/<requested_value>.json or https://annas-archive.li/db/raw/aac_nexusstc_md5/<requested_value>.json",
-            "aac_edsebk: https://annas-archive.li/db/raw/aac_edsebk/<edsebk_id>.json",
-            "aac_cerlalc: https://annas-archive.li/db/raw/aac_cerlalc/<cerlalc_id>.json",
-            "aac_czech_oo42hcks: https://annas-archive.li/db/raw/aac_czech_oo42hcks/<czech_oo42hcks_id>.json",
-            "aac_gbooks: https://annas-archive.li/db/raw/aac_gbooks/<gbooks_id>.json",
-            "aac_goodreads: https://annas-archive.li/db/raw/aac_goodreads/<goodreads_id>.json",
-            "aac_isbngrp: https://annas-archive.li/db/raw/aac_isbngrp/<isbngrp_id>.json",
-            "aac_libby: https://annas-archive.li/db/raw/aac_libby/<libby_id>.json",
-            "aac_rgb: https://annas-archive.li/db/raw/aac_rgb/<rgb_id>.json",
-            "aac_trantor: https://annas-archive.li/db/raw/aac_trantor/<trantor_id>.json",
-        ]),
         "file_unified_data": ("before", ["Combined data by Anna's Archive from the various source collections, attempting to get pick the best field where possible."]),
         "ipfs_infos": ("before", ["Data about the IPFS files."]),
         "search_only_fields": ("before", ["Data that is used during searching."]),
@@ -7462,72 +7440,73 @@ def md5_json(aarecord_id):
     else:
         return allthethings.utils.nice_json(aarecord), {'Content-Type': 'text/json; charset=utf-8'}
 
-@page.get("/db/raw/<path:raw_path>.json")
-@page.get("/db/raw/<path:raw_path>.json.html")
+@page.get("/db/source_record/<path:raw_path>.json")
+@page.get("/db/source_record/<path:raw_path>.json.html")
 @allthethings.utils.no_cache()
-def db_raw_json(raw_path):
+def db_source_record_json(raw_path):
     if protect_return_val := protect_db_page(request):
         return protect_return_val
 
     with Session(engine) as session:
-        raw_path_split = raw_path.split('/', 1)
+        path1, path2, path_id = raw_path.split('/', 2)
+        path_first = f"{path1}/{path2}"
 
-        if raw_path_split[0] == 'zlib':
-            result_dicts = get_zlib_book_dicts(session, "zlibrary_id", [raw_path_split[1]])
-        elif raw_path_split[0] == 'aac_zlib3':
-            result_dicts = get_aac_zlib3_book_dicts(session, "zlibrary_id", [raw_path_split[1]])
-        elif raw_path_split[0] == 'ia':
-            result_dicts = get_ia_record_dicts(session, "ia_id", [raw_path_split[1]])
-        elif raw_path_split[0] == 'ol':
-            result_dicts = get_ol_book_dicts(session, "ol_edition", [raw_path_split[1]])
-        elif raw_path_split[0] == 'lgrsnf':
-            result_dicts = get_lgrsnf_book_dicts(session, "ID", [raw_path_split[1]])
-        elif raw_path_split[0] == 'lgrsfic':
-            result_dicts = get_lgrsfic_book_dicts(session, "ID", [raw_path_split[1]])
-        elif raw_path_split[0] == 'lgli':
-            result_dicts = get_lgli_file_dicts(session, "f_id", [raw_path_split[1]])
-        elif raw_path_split[0] == 'isbndb':
-            result_dicts = get_isbndb_dicts(session, [raw_path_split[1]])
-        elif raw_path_split[0] == 'scihub_doi':
-            result_dicts = get_scihub_doi_dicts(session, 'doi', [raw_path_split[1]])
-        elif raw_path_split[0] == 'oclc':
-            result_dicts = get_oclc_dicts(session, 'oclc', [raw_path_split[1]])
-        elif raw_path_split[0] == 'duxiu_ssid':
-            result_dicts = get_duxiu_dicts(session, 'duxiu_ssid', [raw_path_split[1]], include_deep_transitive_md5s_size_path=True)
-        elif raw_path_split[0] == 'cadal_ssno':
-            result_dicts = get_duxiu_dicts(session, 'cadal_ssno', [raw_path_split[1]], include_deep_transitive_md5s_size_path=True)
-        elif raw_path_split[0] == 'duxiu_md5':
-            result_dicts = get_duxiu_dicts(session, 'md5', [raw_path_split[1]], include_deep_transitive_md5s_size_path=False)
-        elif raw_path_split[0] == 'aac_upload':
-            result_dicts = get_aac_upload_book_dicts(session, "md5", [raw_path_split[1]])
-        elif raw_path_split[0] == 'aac_magzdb':
-            result_dicts = get_aac_magzdb_book_dicts(session, "magzdb_id", [raw_path_split[1]])
-        elif raw_path_split[0] == 'aac_magzdb_md5':
-            result_dicts = get_aac_magzdb_book_dicts(session, "md5", [raw_path_split[1]])
-        elif raw_path_split[0] == 'aac_nexusstc':
-            result_dicts = get_aac_nexusstc_book_dicts(session, "nexusstc_id", [raw_path_split[1]])
-        elif raw_path_split[0] == 'aac_nexusstc_download':
-            result_dicts = get_aac_nexusstc_book_dicts(session, "nexusstc_download", [raw_path_split[1]])
-        elif raw_path_split[0] == 'aac_nexusstc_md5':
-            result_dicts = get_aac_nexusstc_book_dicts(session, "md5", [raw_path_split[1]])
-        elif raw_path_split[0] == 'aac_edsebk':
-            result_dicts = get_aac_edsebk_book_dicts(session, "edsebk_id", [raw_path_split[1]])
-        elif raw_path_split[0] == 'aac_cerlalc':
-            result_dicts = get_aac_cerlalc_book_dicts(session, "cerlalc_id", [raw_path_split[1]])
-        elif raw_path_split[0] == 'aac_czech_oo42hcks':
-            result_dicts = get_aac_czech_oo42hcks_book_dicts(session, "czech_oo42hcks_id", [raw_path_split[1]])
-        elif raw_path_split[0] == 'aac_gbooks':
-            result_dicts = get_aac_gbooks_book_dicts(session, "gbooks_id", [raw_path_split[1]])
-        elif raw_path_split[0] == 'aac_goodreads':
-            result_dicts = get_aac_goodreads_book_dicts(session, "goodreads_id", [raw_path_split[1]])
-        elif raw_path_split[0] == 'aac_isbngrp':
-            result_dicts = get_aac_isbngrp_book_dicts(session, "isbngrp_id", [raw_path_split[1]])
-        elif raw_path_split[0] == 'aac_libby':
-            result_dicts = get_aac_libby_book_dicts(session, "libby_id", [raw_path_split[1]])
-        elif raw_path_split[0] == 'aac_rgb':
-            result_dicts = get_aac_rgb_book_dicts(session, "rgb_id", [raw_path_split[1]])
-        elif raw_path_split[0] == 'aac_trantor':
-            result_dicts = get_aac_trantor_book_dicts(session, "trantor_id", [raw_path_split[1]])
+        if path_first == 'get_zlib_book_dicts/zlibrary_id':
+            result_dicts = get_zlib_book_dicts(session, "zlibrary_id", [path_id])
+        elif path_first == 'get_aac_zlib3_book_dicts/zlibrary_id':
+            result_dicts = get_aac_zlib3_book_dicts(session, "zlibrary_id", [path_id])
+        elif path_first == 'get_ia_record_dicts/ia_id':
+            result_dicts = get_ia_record_dicts(session, "ia_id", [path_id])
+        elif path_first == 'get_ol_book_dicts/ol_edition':
+            result_dicts = get_ol_book_dicts(session, "ol_edition", [path_id])
+        elif path_first == 'get_lgrsnf_book_dicts/ID':
+            result_dicts = get_lgrsnf_book_dicts(session, "ID", [path_id])
+        elif path_first == 'get_lgrsfic_book_dicts/ID':
+            result_dicts = get_lgrsfic_book_dicts(session, "ID", [path_id])
+        elif path_first == 'get_lgli_file_dicts/f_id':
+            result_dicts = get_lgli_file_dicts(session, "f_id", [path_id])
+        elif path_first == 'get_isbndb_dicts/isbn13':
+            result_dicts = get_isbndb_dicts(session, [path_id])
+        elif path_first == 'get_scihub_doi_dicts/doi':
+            result_dicts = get_scihub_doi_dicts(session, 'doi', [path_id])
+        elif path_first == 'get_oclc_dicts/oclc':
+            result_dicts = get_oclc_dicts(session, 'oclc', [path_id])
+        elif path_first == 'get_duxiu_dicts/duxiu_ssid':
+            result_dicts = get_duxiu_dicts(session, 'duxiu_ssid', [path_id], include_deep_transitive_md5s_size_path=True)
+        elif path_first == 'get_duxiu_dicts/cadal_ssno':
+            result_dicts = get_duxiu_dicts(session, 'cadal_ssno', [path_id], include_deep_transitive_md5s_size_path=True)
+        elif path_first == 'get_duxiu_dicts/md5':
+            result_dicts = get_duxiu_dicts(session, 'md5', [path_id], include_deep_transitive_md5s_size_path=False)
+        elif path_first == 'get_aac_upload_book_dicts/md5':
+            result_dicts = get_aac_upload_book_dicts(session, "md5", [path_id])
+        elif path_first == 'get_aac_magzdb_book_dicts/magzdb_id':
+            result_dicts = get_aac_magzdb_book_dicts(session, "magzdb_id", [path_id])
+        elif path_first == 'get_aac_magzdb_book_dicts/md5':
+            result_dicts = get_aac_magzdb_book_dicts(session, "md5", [path_id])
+        elif path_first == 'get_aac_nexusstc_book_dicts/nexusstc_id':
+            result_dicts = get_aac_nexusstc_book_dicts(session, "nexusstc_id", [path_id])
+        elif path_first == 'get_aac_nexusstc_book_dicts/nexusstc_download':
+            result_dicts = get_aac_nexusstc_book_dicts(session, "nexusstc_download", [path_id])
+        elif path_first == 'get_aac_nexusstc_book_dicts/md5':
+            result_dicts = get_aac_nexusstc_book_dicts(session, "md5", [path_id])
+        elif path_first == 'get_aac_edsebk_book_dicts/edsebk_id':
+            result_dicts = get_aac_edsebk_book_dicts(session, "edsebk_id", [path_id])
+        elif path_first == 'get_aac_cerlalc_book_dicts/cerlalc_id':
+            result_dicts = get_aac_cerlalc_book_dicts(session, "cerlalc_id", [path_id])
+        elif path_first == 'get_aac_czech_oo42hcks_book_dicts/czech_oo42hcks_id':
+            result_dicts = get_aac_czech_oo42hcks_book_dicts(session, "czech_oo42hcks_id", [path_id])
+        elif path_first == 'get_aac_gbooks_book_dicts/gbooks_id':
+            result_dicts = get_aac_gbooks_book_dicts(session, "gbooks_id", [path_id])
+        elif path_first == 'get_aac_goodreads_book_dicts/goodreads_id':
+            result_dicts = get_aac_goodreads_book_dicts(session, "goodreads_id", [path_id])
+        elif path_first == 'get_aac_isbngrp_book_dicts/isbngrp_id':
+            result_dicts = get_aac_isbngrp_book_dicts(session, "isbngrp_id", [path_id])
+        elif path_first == 'get_aac_libby_book_dicts/libby_id':
+            result_dicts = get_aac_libby_book_dicts(session, "libby_id", [path_id])
+        elif path_first == 'get_aac_rgb_book_dicts/rgb_id':
+            result_dicts = get_aac_rgb_book_dicts(session, "rgb_id", [path_id])
+        elif path_first == 'get_aac_trantor_book_dicts/trantor_id':
+            result_dicts = get_aac_trantor_book_dicts(session, "trantor_id", [path_id])
         else:
             return '{"error":"Unknown path"}', 404, {'Content-Type': 'text/json; charset=utf-8'}
 

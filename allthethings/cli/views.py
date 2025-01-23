@@ -28,7 +28,7 @@ from sqlalchemy.orm import Session
 from pymysql.constants import CLIENT
 from config.settings import SLOW_DATA_IMPORTS
 
-from allthethings.page.views import get_aarecords_mysql, get_isbndb_dicts
+from allthethings.page.views import get_aarecords_internal_mysql, get_isbndb_dicts
 
 cli = Blueprint("cli", __name__, template_folder="templates")
 
@@ -671,7 +671,7 @@ def elastic_build_aarecords_job(aarecord_ids):
                     return False
 
                 # print(f"[{os.getpid()}] elastic_build_aarecords_job set up aa_records_all")
-                aarecords = get_aarecords_mysql(session, aarecord_ids)
+                aarecords = get_aarecords_internal_mysql(session, aarecord_ids)
                 # print(f"[{os.getpid()}] elastic_build_aarecords_job got aarecords {len(aarecords)}")
                 aarecords_all_md5_insert_data = []
                 nexusstc_cid_only_insert_data = []
