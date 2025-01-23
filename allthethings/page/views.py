@@ -7420,8 +7420,8 @@ def protect_db_page(request):
         return '{"error":"Not a member. To view this page without being a member, mirror our code ( https://software.annas-archive.li/ ) and data ( https://annas-archive.li/torrents#aa_derived_mirror_metadata ) locally. For more resources, check out https://annas-archive.li/datasets and https://software.annas-archive.li/AnnaArchivist/annas-archive/-/tree/main/data-imports"}', 403, {'Content-Type': 'text/json; charset=utf-8'}
     return None
 
-@page.get("/db/aarecord/<path:aarecord_id>.json")
-@page.get("/db/aarecord/<path:aarecord_id>.json.html")
+@page.get("/db/aarecord_elasticsearch/<path:aarecord_id>.json")
+@page.get("/db/aarecord_elasticsearch/<path:aarecord_id>.json.html")
 @allthethings.utils.no_cache()
 def db_aarecord_json(aarecord_id):
     if protect_return_val := protect_db_page(request):

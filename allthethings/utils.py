@@ -74,7 +74,7 @@ SEARCH_FILTERED_BAD_AARECORD_IDS = [
 ]
 
 DB_EXAMPLE_PAGES = [
-    "/db/aarecord/md5:8336332bf5877e3adbfb60ac70720cd5.json",
+    "/db/aarecord_elasticsearch/md5:8336332bf5877e3adbfb60ac70720cd5.json",
     "/db/source_record/get_aac_cerlalc/cerlalc_id/cerlalc_bolivia__titulos__1.json",
     "/db/source_record/get_aac_czech_oo42hcks/czech_oo42hcks_id/cccc_csv_1.json",
     "/db/source_record/get_aac_edsebk/edsebk_id/1509715.json",
