@@ -16,6 +16,8 @@ unrar x /temp-dir/libgenli_db/libgen_new.part001.rar
 chown -R 999:999 libgen_new
 
 mysqlcheck -h ${MARIADB_HOST:-aa-data-import--mariadb} -u root -ppassword --auto-repair --check libgen_new
+# Maybe faster, but requires running in the mariadb docker container:
+# myisamchk --parallel-recover --force --force --myisam_sort_buffer_size=10000000000 *.MYI
 
 # Used this to generate this list: SELECT Concat('DROP TRIGGER ', Trigger_Name, ';') FROM  information_schema.TRIGGERS WHERE TRIGGER_SCHEMA = 'libgen_new';
 # (from https://stackoverflow.com/a/30339930)
