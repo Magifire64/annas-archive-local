@@ -1129,6 +1129,11 @@ def codes_page():
             cursor.execute('SELECT code, row_number_order_by_code, dense_rank_order_by_code FROM aarecords_codes WHERE code LIKE CONCAT(REPLACE(REPLACE(REPLACE(%(new_prefix)s, "\\\\", "\\\\\\\\"), "%%", "\\%%"), "_", "\\_"), "%%") ORDER BY code DESC, aarecord_id DESC LIMIT 1', { "new_prefix": new_prefix })
             last_record = cursor.fetchone()
 
+            # TODO:CODE_PREFIXES_BINARY
+            if first_record is None:
+                print(f"WARNING! TODO:CODE_PREFIXES_BINARY -- first_record should not be None! {new_prefix=}")
+                continue
+
             if (first_record['code'] == last_record['code']) and (prefix_bytes != b''):
                 code = first_record["code"]
                 code_b64 = base64.b64encode(code).decode()
