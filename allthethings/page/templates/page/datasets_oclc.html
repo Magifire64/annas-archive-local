@@ -105,17 +105,46 @@
   </p>
 
   <ul class="list-inside mb-4 ml-4">
-    <li class="list-disc"><em>briefrecords_json:</em> Edition scrapes returned records in this format. Like above, you can see in <code class="text-xs break-all text-gray-600">from_filenames</code> which edition scrapes they were from, e.g. <code class="text-xs break-all text-gray-600">"search_editions_response/1"</code>.
+    <li class="list-disc"><em>briefrecords_json:</em> Edition scrapes returned records in this format. Like above, you can see in <code class="text-xs break-all text-gray-600">from_filenames</code> which edition scrapes they were from, e.g. <code class="text-xs break-all text-gray-600">"search_editions_response/1"</code> (which corresponds to the <em>search_editions_response</em> records below).
     </li>
-    <li class="list-disc"><em>search_holdings_all_editions_response:</em> The actual list of libraries that hold a certain OCLC ID. Example: <code class="text-xs break-all text-gray-600">{"oclc_number":"0000000000001","type":"search_holdings_all_editions_response","from_filenames":["search_holdings_all_editions_response/1"],"record":{"totalHoldingCount":4,"holdings":[760,104020,87542,4688],"numPublicLibraries":1}}</code>.</li>
-    <li class="list-disc"><em>search_holdings_summary_all_editions:</em> “Summary response” for a certain OCLC ID, containing the number of holdings and editions (easier to scrape than full holding information). Example: <code class="text-xs break-all text-gray-600">{"oclc_number":"0000000000069","type":"search_holdings_summary_all_editions","from_filenames":["search_holdings_summary_all_editions/69"],"record":{"oclc_number":69,"total_holding_count":448,"total_editions":15}}</code>.</li>
+    <li class="list-disc"><em>search_holdings_all_editions_response:</em> The actual list of libraries that hold a certain OCLC ID. Example: <code class="text-xs break-all text-gray-600">{"oclc_number":"0000000000001","type":"search_holdings_all_editions_response","from_filenames":["search_holdings_all_editions_response/1"],"record":{"totalHoldingCount":4,"holdings":[760,104020,87542,4688],"numPublicLibraries":1}}</code>. This corresponds to <code class="text-xs break-all text-gray-600">https://search.worldcat.org/api/search-holdings?oclcNumber=&lt;ID&gt;&amp;allEditions=true&amp;&lt;VARIOUS-OTHER-FIELDS&gt;</code> as found on the individual record page (<code class="text-xs break-all text-gray-600">https://search.worldcat.org/title/&lt;ID&gt;</code>).</li>
+    <li class="list-disc"><em>search_holdings_summary_all_editions:</em> “Summary response” for a certain OCLC ID, containing the number of holdings and editions (easier to scrape than full holding information). Example: <code class="text-xs break-all text-gray-600">{"oclc_number":"0000000000069","type":"search_holdings_summary_all_editions","from_filenames":["search_holdings_summary_all_editions/69"],"record":{"oclc_number":69,"total_holding_count":448,"total_editions":15}}</code>. This corresponds to <code class="text-xs break-all text-gray-600">https://search.worldcat.org/api/search-holdings-summary?oclcNumber=&lt;ID&gt;&amp;allEditions=true</code> as found on the individual record page (<code class="text-xs break-all text-gray-600">https://search.worldcat.org/title/&lt;ID&gt;</code>).</li>
     <li class="list-disc"><em>other_metadata_type:</em> (like above)
       <ul class="list-inside mb-4 ml-4">
-        <li class="list-disc"><em>search_editions_response:</em> Example: <code class="text-xs break-all text-gray-600">{"other_meta_type":"search_editions_response","query":"0005830191291","number_of_records":1,"len_brief_records":1}</code>.</li>
+        <li class="list-disc"><em>search_editions_response:</em> Example: <code class="text-xs break-all text-gray-600">{"other_meta_type":"search_editions_response","query":"0005830191291","number_of_records":1,"len_brief_records":1}</code>. This corresponds to <code class="text-xs break-all text-gray-600">https://search.worldcat.org/api/search-editions/&lt;ID&gt;</code> as found on the “View all formats and editions” page (<code class="text-xs break-all text-gray-600">https://search.worldcat.org/formats-editions/&lt;ID&gt;</code>).</li>
         <li class="list-disc"><em>library:</em> Deduplicated library records as encountered in holding endpoints (therefore probably not complete). Example: <code class="text-xs break-all text-gray-600">{"other_meta_type":"library","registry_id":"0000000000004","record":{"oclcSymbol":"MWT","registryId":4,"institutionName":"Alabama A&amp;M University","institutionType":"ACADEMIC","alsoCalled":"J. F. Drake Memorial Learning Resources Center","street1":"4900 Meridian Street North","city":"Normal","state":"US-AL","postalCode":"35762","country":"US","latitude":34.78361,"longitude":-86.57018,"distance":413.2236760232868,"distanceUnit":"M"}}</code>.</li>
       </ul>
     </li>
   </ul>
+
+  <p class="mb-4">
+    <strong>January 2024, edition clusters confusion:</strong> in our last scrape, we scraped “edition clusters” (the <em>search_editions_response</em> records, which are represented part as <em>briefrecords_json</em> with “search_editions_response/&lt;ID&gt;” as the filename), and part as standalone <em>search_editions_response</em> records (with the full counts).
+  </p>
+
+  <p class="mb-4">
+    We then only scraped one <em>search_holdings_summary_all_editions</em> record for each “edition cluster”, since we thought this would indeed cover exactly all the OCLC IDs in that cluster.
+  </p>
+
+  <p class="mb-4">
+    However, it now seems that those two records don’t operate on the same set of OCLC IDs. For example, <a href="https://search.worldcat.org/formats-editions/1305021518">this page</a> (which corresponds to our <em>search_editions_response</em>) has many different languages merged into one. When looking at two books on that page, such as <a href="https://search.worldcat.org/title/37975719">this</a> and <a href="https://search.worldcat.org/title/46728744">this</a>, you can see that it shows different counts for “X editions in Y libraries” (when scrolling down a bit). Those counts correspond to our <em>search_holdings_summary_all_editions</em>. If our assumption was correct (both records operate on the same set of OCLC IDs), then those numbers should always be the same.
+  </p>
+
+  <p class="">
+    We’ve tried to untangle this using OCLC documentation, without too much success:
+  </p>
+
+  <ul class="list-inside mb-4 ml-1">
+    <li class="list-disc"><a href="https://developer.api.oclc.org/worldcat-discovery#/Member%20General%20Holdings/find-bib-summary-holdings">This API</a> has two parameters, <code class="text-xs text-gray-600">holdingsAllEditions</code> and <code class="text-xs text-gray-600">holdingsAllVariantRecords</code>. What are “variant records”?</li>
+    <li class="list-disc"><a href="https://help.oclc.org/Discovery_and_Reference/WorldCat_Discovery/Search_results/Representative_record_and_availability_display_on_grouped_search_results">“Variant records group records for the same edition which may have different languages of cataloging or may be duplicate records which have not yet been resolved.”</a> This sounds like variant records are nested under edition. But that would not make much sense. Maybe they just wrote it down in an awkward way?</li>
+    <li class="list-disc">Also, “different languages of cataloging” might not mean different language of the BOOK, but of the metadata record itself?</li>
+    <li class="list-disc">“Default Grouping” under <a href="https://help.oclc.org/Librarian_Toolbox/OCLC_Service_Configuration/WorldCat_Discovery_and_WorldCat_Local/005Search_Settings">Search Settings</a> is slightly clearer, but still confusing.</li>
+    <li class="list-disc"><a href="https://help.oclc.org/Library_Management/WorldShare_Circulation/Holds_management/Work_with_holds/050View_holds">“If the Fulfill using variant records setting is enabled in Holds and Schedules, Settings, the system will store all OCLC numbers held by the library (or its circulation group) in the same edition cluster as the bibliographic record selected by the user. The list of OCLC numbers will be visible to library staff in WorldShare Circulation. Any item cataloged for the requested edition will be available to fulfil title-level hold requests.”</a> Here it sounds like a “variant record” is just an “edition cluster member”…</li>
+    <li class="list-disc">We could investigate how often this happens. 1. is it limited to cases with multiple languages? 2. is it limited to cases with popular books and many editions? Our hypothesis is that for the rare books, none of this matters too much. Rare books won't be translated in many languages.</li>
+  </ul>
+
+  <p class="mb-4">
+    Can someone clear up our understanding, and help determine if we need to expand our scrape of holdings?
+  </p>
 
   <p class="font-bold">{{ gettext('page.datasets.common.resources') }}</p>
   <ul class="list-inside mb-4 ml-1">
