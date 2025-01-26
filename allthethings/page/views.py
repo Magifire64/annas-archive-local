@@ -5892,7 +5892,11 @@ def get_aarecords_internal_mysql(session, aarecord_ids, include_aarecord_mysql_d
     aarecord_ids = list(dict.fromkeys([val for val in aarecord_ids if val not in allthethings.utils.SEARCH_FILTERED_BAD_AARECORD_IDS]))
 
     debug_by_id = collections.defaultdict(lambda: {
-        "source_records_debug": []
+        "source_records_debug": [],
+        "first_pass_debugs_url_by_identifiers_codes": None,
+        "first_pass_debugs_url_by_classifications_codes": None,
+        "second_pass_debugs_url_by_identifiers_codes": None,
+        "second_pass_debugs_url_by_classifications_codes": None,
     })
 
     split_ids = allthethings.utils.split_aarecord_ids(aarecord_ids)
@@ -5940,65 +5944,86 @@ def get_aarecords_internal_mysql(session, aarecord_ids, include_aarecord_mysql_d
         first_pass_source_records = []
 
         if source_record := lgrsnf_book_dicts.get(aarecord_id):
-            first_pass_source_records.append({'source_type': 'lgrsnf_book', 'source_record': source_record})
+            first_pass_source_records.append({'source_type': 'lgrsnf_book', 'source_record': source_record, 'source_why': 'lgrsnf_book_dicts'})
         if source_record := lgrsfic_book_dicts.get(aarecord_id):
-            first_pass_source_records.append({'source_type': 'lgrsfic_book', 'source_record': source_record})
+            first_pass_source_records.append({'source_type': 'lgrsfic_book', 'source_record': source_record, 'source_why': 'lgrsfic_book_dicts'})
         if source_record := lgli_file_dicts.get(aarecord_id):
-            first_pass_source_records.append({'source_type': 'lgli_file', 'source_record': source_record})
-        if source_record := (zlib_book_dicts1.get(aarecord_id) or zlib_book_dicts2.get(aarecord_id)):
-            first_pass_source_records.append({'source_type': 'zlib_book', 'source_record': source_record})
-        if source_record := (aac_zlib3_book_dicts1.get(aarecord_id) or aac_zlib3_book_dicts2.get(aarecord_id)):
-            first_pass_source_records.append({'source_type': 'aac_zlib3_book', 'source_record': source_record})
-        if source_record := (ia_record_dicts.get(aarecord_id) or ia_record_dicts2.get(aarecord_id)):
-            first_pass_source_records.append({'source_type': 'ia_record', 'source_record': source_record})
+            first_pass_source_records.append({'source_type': 'lgli_file', 'source_record': source_record, 'source_why': 'lgli_file_dicts'})
+
+        if source_record := zlib_book_dicts1.get(aarecord_id):
+            first_pass_source_records.append({'source_type': 'zlib_book', 'source_record': source_record, 'source_why': 'zlib_book_dicts1'})
+        elif source_record := zlib_book_dicts2.get(aarecord_id):
+            first_pass_source_records.append({'source_type': 'zlib_book', 'source_record': source_record, 'source_why': 'zlib_book_dicts2'})
+
+        if source_record := aac_zlib3_book_dicts1.get(aarecord_id):
+            first_pass_source_records.append({'source_type': 'aac_zlib3_book', 'source_record': source_record, 'source_why': 'aac_zlib3_book_dicts1'})
+        elif source_record := aac_zlib3_book_dicts2.get(aarecord_id):
+            first_pass_source_records.append({'source_type': 'aac_zlib3_book', 'source_record': source_record, 'source_why': 'aac_zlib3_book_dicts2'})
+
+        if source_record := ia_record_dicts.get(aarecord_id):
+            first_pass_source_records.append({'source_type': 'ia_record', 'source_record': source_record, 'source_why': 'ia_record_dicts'})
+        elif source_record := ia_record_dicts2.get(aarecord_id):
+            first_pass_source_records.append({'source_type': 'ia_record', 'source_record': source_record, 'source_why': 'ia_record_dicts2'})
+
         for source_record in list(isbndb_dicts.get(aarecord_id) or []):
-            first_pass_source_records.append({'source_type': 'isbndb', 'source_record': source_record})
+            first_pass_source_records.append({'source_type': 'isbndb', 'source_record': source_record, 'source_why': 'isbndb_dicts'})
         for source_record in list(ol_book_dicts.get(aarecord_id) or []):
-            first_pass_source_records.append({'source_type': 'ol', 'source_record': source_record})
+            first_pass_source_records.append({'source_type': 'ol', 'source_record': source_record, 'source_why': 'ol_book_dicts'})
         for source_record in list(scihub_doi_dicts.get(aarecord_id) or []):
-            first_pass_source_records.append({'source_type': 'scihub_doi', 'source_record': source_record})
+            first_pass_source_records.append({'source_type': 'scihub_doi', 'source_record': source_record, 'source_why': 'scihub_doi_dicts'})
         for source_record in list(oclc_dicts.get(aarecord_id) or []):
-            first_pass_source_records.append({'source_type': 'oclc', 'source_record': source_record})
-        if source_record := (duxiu_dicts.get(aarecord_id) or duxiu_dicts2.get(aarecord_id) or duxiu_dicts3.get(aarecord_id)):
-            first_pass_source_records.append({'source_type': 'duxiu', 'source_record': source_record})
+            first_pass_source_records.append({'source_type': 'oclc', 'source_record': source_record, 'source_why': 'oclc_dicts'})
+        
+        if source_record := duxiu_dicts.get(aarecord_id):
+            first_pass_source_records.append({'source_type': 'duxiu', 'source_record': source_record, 'source_why': 'duxiu_dicts'})
+        elif source_record := duxiu_dicts2.get(aarecord_id):
+            first_pass_source_records.append({'source_type': 'duxiu', 'source_record': source_record, 'source_why': 'duxiu_dicts2'})
+        elif source_record := duxiu_dicts3.get(aarecord_id):
+            first_pass_source_records.append({'source_type': 'duxiu', 'source_record': source_record, 'source_why': 'duxiu_dicts3'})
+
         if source_record := aac_upload_md5_dicts.get(aarecord_id):
-            first_pass_source_records.append({'source_type': 'aac_upload', 'source_record': source_record})
-        if source_record := (aac_magzdb_book_dicts.get(aarecord_id) or aac_magzdb_book_dicts2.get(aarecord_id)):
-            first_pass_source_records.append({'source_type': 'aac_magzdb', 'source_record': source_record})
+            first_pass_source_records.append({'source_type': 'aac_upload', 'source_record': source_record, 'source_why': 'aac_upload_md5_dicts'})
+        
+        if source_record := aac_magzdb_book_dicts.get(aarecord_id):
+            first_pass_source_records.append({'source_type': 'aac_magzdb', 'source_record': source_record, 'source_why': 'aac_magzdb_book_dicts'})
+        elif source_record := aac_magzdb_book_dicts2.get(aarecord_id):
+            first_pass_source_records.append({'source_type': 'aac_magzdb', 'source_record': source_record, 'source_why': 'aac_magzdb_book_dicts2'})
+        
         if source_record := (aac_nexusstc_book_dicts.get(aarecord_id) or aac_nexusstc_book_dicts2.get(aarecord_id) or aac_nexusstc_book_dicts3.get(aarecord_id)):
-            first_pass_source_records.append({'source_type': 'aac_nexusstc', 'source_record': source_record})
+            first_pass_source_records.append({'source_type': 'aac_nexusstc', 'source_record': source_record, 'source_why': ''})
         for source_record in list(ol_book_dicts_primary_linked.get(tuple(aarecord_id_split)) or []):
-            first_pass_source_records.append({'source_type': 'ol_book_dicts_primary_linked', 'source_record': source_record})
+            first_pass_source_records.append({'source_type': 'ol_book_dicts_primary_linked', 'source_record': source_record, 'source_why': ''})
         if source_record := aac_edsebk_book_dicts.get(aarecord_id):
-            first_pass_source_records.append({'source_type': 'aac_edsebk', 'source_record': source_record})
+            first_pass_source_records.append({'source_type': 'aac_edsebk', 'source_record': source_record, 'source_why': 'aac_edsebk_book_dicts'})
         if source_record := aac_cerlalc_book_dicts.get(aarecord_id):
-            first_pass_source_records.append({'source_type': 'aac_cerlalc', 'source_record': source_record})
+            first_pass_source_records.append({'source_type': 'aac_cerlalc', 'source_record': source_record, 'source_why': 'aac_cerlalc_book_dicts'})
         if source_record := aac_czech_oo42hcks_book_dicts.get(aarecord_id):
-            first_pass_source_records.append({'source_type': 'aac_czech_oo42hcks', 'source_record': source_record})
+            first_pass_source_records.append({'source_type': 'aac_czech_oo42hcks', 'source_record': source_record, 'source_why': 'aac_czech_oo42hcks_book_dicts'})
         if source_record := aac_gbooks_book_dicts.get(aarecord_id):
-            first_pass_source_records.append({'source_type': 'aac_gbooks', 'source_record': source_record})
+            first_pass_source_records.append({'source_type': 'aac_gbooks', 'source_record': source_record, 'source_why': 'aac_gbooks_book_dicts'})
         if source_record := aac_goodreads_book_dicts.get(aarecord_id):
-            first_pass_source_records.append({'source_type': 'aac_goodreads', 'source_record': source_record})
+            first_pass_source_records.append({'source_type': 'aac_goodreads', 'source_record': source_record, 'source_why': 'aac_goodreads_book_dicts'})
         if source_record := aac_isbngrp_book_dicts.get(aarecord_id):
-            first_pass_source_records.append({'source_type': 'aac_isbngrp', 'source_record': source_record})
+            first_pass_source_records.append({'source_type': 'aac_isbngrp', 'source_record': source_record, 'source_why': 'aac_isbngrp_book_dicts'})
         if source_record := aac_libby_book_dicts.get(aarecord_id):
-            first_pass_source_records.append({'source_type': 'aac_libby', 'source_record': source_record})
+            first_pass_source_records.append({'source_type': 'aac_libby', 'source_record': source_record, 'source_why': 'aac_libby_book_dicts'})
         if source_record := aac_rgb_book_dicts.get(aarecord_id):
-            first_pass_source_records.append({'source_type': 'aac_rgb', 'source_record': source_record})
+            first_pass_source_records.append({'source_type': 'aac_rgb', 'source_record': source_record, 'source_why': 'aac_rgb_book_dicts'})
         if source_record := aac_trantor_book_dicts.get(aarecord_id):
-            first_pass_source_records.append({'source_type': 'aac_trantor', 'source_record': source_record})
+            first_pass_source_records.append({'source_type': 'aac_trantor', 'source_record': source_record, 'source_why': 'aac_trantor_book_dicts'})
 
         aarecord['file_unified_data'] = allthethings.utils.make_file_unified_data()
         allthethings.utils.add_identifier_unified(aarecord['file_unified_data'], 'aarecord_id', aarecord_id)
         # Duplicated below, with more fields
-        aarecord['file_unified_data']['identifiers_unified'] = allthethings.utils.merge_unified_fields([
-            aarecord['file_unified_data']['identifiers_unified'],
-            *[source_record['source_record']['file_unified_data']['identifiers_unified'] for source_record in first_pass_source_records],
-        ])
+        first_pass_identifiers_unified, first_pass_debug_urls_by_identifiers_code_tuple = allthethings.utils.merge_unified_fields_with_provenance([(source_record['source_record']['debug_url'], source_record['source_record']['file_unified_data']['identifiers_unified']) for source_record in first_pass_source_records])
+        debug_by_id[aarecord_id]['first_pass_debugs_url_by_identifiers_codes'] = { (':'.join(code_tuple)): debug_urls for code_tuple, debug_urls in first_pass_debug_urls_by_identifiers_code_tuple.items() }
+        # Classifications here purely for `first_pass_debugs_url_by_classifications_codes`, we won't use it otherwise yet.
+        _first_pass_classifications_unified, first_pass_debug_urls_by_classifications_code_tuple = allthethings.utils.merge_unified_fields_with_provenance([(source_record['source_record']['debug_url'], source_record['source_record']['file_unified_data']['classifications_unified']) for source_record in first_pass_source_records])
+        debug_by_id[aarecord_id]['first_pass_debugs_url_by_classifications_codes'] = { (':'.join(code_tuple)): debug_urls for code_tuple, debug_urls in first_pass_debug_urls_by_classifications_code_tuple.items() }
 
         # TODO: This `if` is not necessary if we make sure that the fields of the primary records get priority.
         if not allthethings.utils.get_aarecord_id_prefix_is_metadata(aarecord_id_split[0]):
-            for code_name, code_values in aarecord['file_unified_data']['identifiers_unified'].items():
+            for code_name, code_values in first_pass_identifiers_unified.items():
                 # Filter out obscenely long ISBN lists, e.g. https://archive.org/details/240524-CL-aa
                 if len(code_values) >= 10:
                     continue
@@ -6013,29 +6038,33 @@ def get_aarecords_internal_mysql(session, aarecord_ids, include_aarecord_mysql_d
         for aarecord_id in transitive_codes[('isbn13', isbndb_dict['ean13'])]:
             if any([source_record['source_record']['ean13'] == isbndb_dict['ean13'] for source_record in source_records_full_by_aarecord_id[aarecord_id] if source_record['source_type'] == 'isbndb']):
                 continue
-            source_records_full_by_aarecord_id[aarecord_id].append({'source_type': 'isbndb', 'source_record': isbndb_dict})
+            source_records_full_by_aarecord_id[aarecord_id].append({'source_type': 'isbndb', 'source_record': isbndb_dict, 'source_why': f"get_isbndb_dicts('isbn13') -- transitive_codes[{('isbn13', isbndb_dict['ean13'])}] -- from {' AND '.join(debug_by_id[aarecord_id]['first_pass_debugs_url_by_identifiers_codes'][':'.join(('isbn13', isbndb_dict['ean13']))])}"})
     for ol_book_dict in get_ol_book_dicts(session, 'ol_edition', [code[1] for code in transitive_codes.keys() if code[0] == 'ol' and allthethings.utils.validate_ol_editions([code[1]])]):
         for aarecord_id in transitive_codes[('ol', ol_book_dict['ol_edition'])]:
             if any([source_record['source_record']['ol_edition'] == ol_book_dict['ol_edition'] for source_record in source_records_full_by_aarecord_id[aarecord_id] if source_record['source_type'] == 'ol']):
                 continue
-            source_records_full_by_aarecord_id[aarecord_id].append({'source_type': 'ol', 'source_record': ol_book_dict})
+            try:
+                source_records_full_by_aarecord_id[aarecord_id].append({'source_type': 'ol', 'source_record': ol_book_dict, 'source_why': f"get_ol_book_dicts('ol_edition') -- transitive_codes[{('ol', ol_book_dict['ol_edition'])}] -- from {' AND '.join(debug_by_id[aarecord_id]['first_pass_debugs_url_by_identifiers_codes'][':'.join(('ol', ol_book_dict['ol_edition']))])}"})
+            except:
+                # print(f"{aarecord_id=}\n\n{ol_book_dict=}\n\n{debug_by_id[aarecord_id]['first_pass_debugs_url_by_identifiers_codes']=':'.join(}\n\n{transitive_cod)es=}")
+                raise
     for code_full, ol_book_dicts in get_transitive_lookup_dicts(session, "aarecords_codes_ol_for_lookup", [code for code in transitive_codes.keys() if code[0] in ['isbn13', 'ocaid']]).items():
         for aarecord_id in transitive_codes[code_full]:
             for ol_book_dict in ol_book_dicts[0:3]: # Common enough to limit it.
                 if any([source_record['source_record']['ol_edition'] == ol_book_dict['ol_edition'] for source_record in source_records_full_by_aarecord_id[aarecord_id] if source_record['source_type'] == 'ol']):
                     continue
-                source_records_full_by_aarecord_id[aarecord_id].append({'source_type': 'ol', 'source_record': ol_book_dict})
+                source_records_full_by_aarecord_id[aarecord_id].append({'source_type': 'ol', 'source_record': ol_book_dict, 'source_why': f"get_transitive_lookup_dicts('aarecords_codes_ol_for_lookup') -- transitive_codes[{code_full}] -- from {' AND '.join(debug_by_id[aarecord_id]['first_pass_debugs_url_by_identifiers_codes'][':'.join(code_full)])}"})
     for oclc_dict in get_oclc_dicts(session, 'oclc', [code[1] for code in transitive_codes.keys() if code[0] == 'oclc']):
         for aarecord_id in transitive_codes[('oclc', oclc_dict['oclc_id'])]:
             if any([source_record['source_record']['oclc_id'] == oclc_dict['oclc_id'] for source_record in source_records_full_by_aarecord_id[aarecord_id] if source_record['source_type'] == 'oclc']):
                 continue
-            source_records_full_by_aarecord_id[aarecord_id].append({'source_type': 'oclc', 'source_record': oclc_dict})
+            source_records_full_by_aarecord_id[aarecord_id].append({'source_type': 'oclc', 'source_record': oclc_dict, 'source_why': f"get_oclc_dicts('oclc') -- transitive_codes[{('oclc', oclc_dict['oclc_id'])}] -- from {' AND '.join(debug_by_id[aarecord_id]['first_pass_debugs_url_by_identifiers_codes'][':'.join(('oclc', oclc_dict['oclc_id']))])}"})
     for code_full, oclc_dicts in get_transitive_lookup_dicts(session, "aarecords_codes_oclc_for_lookup", [code for code in transitive_codes.keys() if code[0] in ['isbn13']]).items():
         for aarecord_id in transitive_codes[code_full]:
             for oclc_dict in oclc_dicts[0:3]: # It's very common for many OCLC records to match..
                 if any([source_record['source_record']['oclc_id'] == oclc_dict['oclc_id'] for source_record in source_records_full_by_aarecord_id[aarecord_id] if source_record['source_type'] == 'oclc']):
                     continue
-                source_records_full_by_aarecord_id[aarecord_id].append({'source_type': 'oclc', 'source_record': oclc_dict})
+                source_records_full_by_aarecord_id[aarecord_id].append({'source_type': 'oclc', 'source_record': oclc_dict, 'source_why': f"get_transitive_lookup_dicts('aarecords_codes_oclc_for_lookup') -- transitive_codes[{code_full}] -- from {' AND '.join(debug_by_id[aarecord_id]['first_pass_debugs_url_by_identifiers_codes'][':'.join(code_full)])}"})
     for code_full, edsebk_dicts in get_transitive_lookup_dicts(session, "aarecords_codes_edsebk_for_lookup", [code for code in transitive_codes.keys() if code[0] in ['isbn13']]).items():
         for aarecord_id in transitive_codes[code_full]:
             if len(edsebk_dicts) > 10:
@@ -6043,27 +6072,27 @@ def get_aarecords_internal_mysql(session, aarecord_ids, include_aarecord_mysql_d
             for edsebk_dict in edsebk_dicts[0:10]: # Just a precaution.
                 if any([source_record['source_record']['edsebk_id'] == edsebk_dict['edsebk_id'] for source_record in source_records_full_by_aarecord_id[aarecord_id] if source_record['source_type'] == 'aac_edsebk']):
                     continue
-                source_records_full_by_aarecord_id[aarecord_id].append({'source_type': 'aac_edsebk', 'source_record': edsebk_dict})
+                source_records_full_by_aarecord_id[aarecord_id].append({'source_type': 'aac_edsebk', 'source_record': edsebk_dict, 'source_why': f"get_transitive_lookup_dicts('aarecords_codes_edsebk_for_lookup') -- transitive_codes[{code_full}] -- from {' AND '.join(debug_by_id[aarecord_id]['first_pass_debugs_url_by_identifiers_codes'][':'.join(code_full)])}"})
     for ia_record_dict in get_ia_record_dicts(session, 'ia_id', [code[1] for code, aarecords in transitive_codes.items() if code[0] == 'ocaid']):
         for aarecord_id in transitive_codes[('ocaid', ia_record_dict['ia_id'])]:
             if any([((source_record['source_record']['ia_id'] == ia_record_dict['ia_id']) or (source_record['source_record']['aa_ia_file'] is not None)) for source_record in source_records_full_by_aarecord_id[aarecord_id] if source_record['source_type'] in ['ia_record', 'ia_records_meta_only']]):
                     continue
-            source_records_full_by_aarecord_id[aarecord_id].append({'source_type': 'ia_records_meta_only', 'source_record': ia_record_dict})
+            source_records_full_by_aarecord_id[aarecord_id].append({'source_type': 'ia_records_meta_only', 'source_record': ia_record_dict, 'source_why': f"get_ia_record_dicts('ia_id') -- transitive_codes[{('ocaid', ia_record_dict['ia_id'])}] -- from {' AND '.join(debug_by_id[aarecord_id]['first_pass_debugs_url_by_identifiers_codes'][':'.join(('ocaid', ia_record_dict['ia_id']))])}"})
     for scihub_doi_dict in get_scihub_doi_dicts(session, 'doi', [code[1] for code in transitive_codes.keys() if code[0] == 'doi']):
         for aarecord_id in transitive_codes[('doi', scihub_doi_dict['doi'])]:
             if any([source_record['source_record']['doi'] == scihub_doi_dict['doi'] for source_record in source_records_full_by_aarecord_id[aarecord_id] if source_record['source_type'] == 'scihub_doi']):
                 continue
-            source_records_full_by_aarecord_id[aarecord_id].append({'source_type': 'scihub_doi', 'source_record': scihub_doi_dict})
+            source_records_full_by_aarecord_id[aarecord_id].append({'source_type': 'scihub_doi', 'source_record': scihub_doi_dict, 'source_why': f"get_scihub_doi_dicts('doi') -- transitive_codes[{('doi', scihub_doi_dict['doi'])}] -- from {' AND '.join(debug_by_id[aarecord_id]['first_pass_debugs_url_by_identifiers_codes'][':'.join(('doi', scihub_doi_dict['doi']))])}"})
     for duxiu_dict in get_duxiu_dicts(session, 'duxiu_ssid', [code[1] for code in transitive_codes.keys() if code[0] == 'duxiu_ssid'], include_deep_transitive_md5s_size_path=False):
         for aarecord_id in transitive_codes[('duxiu_ssid', duxiu_dict['duxiu_ssid'])]:
             if any([duxiu_dict['duxiu_ssid'] == duxiu_ssid for source_record in source_records_full_by_aarecord_id[aarecord_id] if source_record['source_type'] in ['duxiu', 'duxius_nontransitive_meta_only'] for duxiu_ssid in (source_record['source_record']['file_unified_data']['identifiers_unified'].get('duxiu_ssid') or [])]):
                     continue
-            source_records_full_by_aarecord_id[aarecord_id].append({'source_type': 'duxius_nontransitive_meta_only', 'source_record': duxiu_dict})
+            source_records_full_by_aarecord_id[aarecord_id].append({'source_type': 'duxius_nontransitive_meta_only', 'source_record': duxiu_dict, 'source_why': f"get_duxiu_dicts('duxiu_ssid') -- transitive_codes[{('duxiu_ssid', duxiu_dict['duxiu_ssid'])}] -- from {' AND '.join(debug_by_id[aarecord_id]['first_pass_debugs_url_by_identifiers_codes'][':'.join(('duxiu_ssid', duxiu_dict['duxiu_ssid']))])}"})
     for duxiu_dict in get_duxiu_dicts(session, 'cadal_ssno', [code[1] for code in transitive_codes.keys() if code[0] == 'cadal_ssno'], include_deep_transitive_md5s_size_path=False):
         for aarecord_id in transitive_codes[('cadal_ssno', duxiu_dict['cadal_ssno'])]:
             if any([duxiu_dict['cadal_ssno'] == cadal_ssno for source_record in source_records_full_by_aarecord_id[aarecord_id] if source_record['source_type'] in ['duxiu', 'duxius_nontransitive_meta_only'] for cadal_ssno in (source_record['source_record']['file_unified_data']['identifiers_unified'].get('cadal_ssno') or [])]):
                     continue
-            source_records_full_by_aarecord_id[aarecord_id].append({'source_type': 'duxius_nontransitive_meta_only', 'source_record': duxiu_dict})
+            source_records_full_by_aarecord_id[aarecord_id].append({'source_type': 'duxius_nontransitive_meta_only', 'source_record': duxiu_dict, 'source_why': f"get_duxiu_dicts('cadal_ssno') -- transitive_codes[{('cadal_ssno', duxiu_dict['cadal_ssno'])}] -- from {' AND '.join(debug_by_id[aarecord_id]['first_pass_debugs_url_by_identifiers_codes'][':'.join(('cadal_ssno', duxiu_dict['cadal_ssno']))])}"})
     for code_full, trantor_book_dicts in get_transitive_lookup_dicts(session, "aarecords_codes_trantor_for_lookup", [code for code in transitive_codes.keys() if code[0] in ['sha256']]).items():
         for aarecord_id in transitive_codes[code_full]:
             if len(trantor_book_dicts) > 10:
@@ -6071,25 +6100,25 @@ def get_aarecords_internal_mysql(session, aarecord_ids, include_aarecord_mysql_d
             for trantor_book_dict in trantor_book_dicts[0:10]: # Just a precaution.
                 if any([source_record['source_record']['trantor_id'] == trantor_book_dict['trantor_id'] for source_record in source_records_full_by_aarecord_id[aarecord_id] if source_record['source_type'] == 'aac_trantor']):
                     continue
-                source_records_full_by_aarecord_id[aarecord_id].append({'source_type': 'aac_trantor', 'source_record': trantor_book_dict})
+                source_records_full_by_aarecord_id[aarecord_id].append({'source_type': 'aac_trantor', 'source_record': trantor_book_dict, 'source_why': f"get_transitive_lookup_dicts('aarecords_codes_trantor_for_lookup') -- transitive_codes[{code_full}] -- from {' AND '.join(debug_by_id[aarecord_id]['first_pass_debugs_url_by_identifiers_codes'][':'.join(code_full)])}"})
     for code_full, gbooks_book_dicts in get_transitive_lookup_dicts(session, "aarecords_codes_gbooks_for_lookup", [code for code in transitive_codes.keys() if code[0] in ['isbn13', 'oclc']]).items():
         for aarecord_id in transitive_codes[code_full]:
             for gbooks_book_dict in gbooks_book_dicts[0:3]: # It's quite common for many gbooks to match (due to OCLC records scrapes maybe?)
                 if any([source_record['source_record']['gbooks_id'] == gbooks_book_dict['gbooks_id'] for source_record in source_records_full_by_aarecord_id[aarecord_id] if source_record['source_type'] == 'aac_gbooks']):
                     continue
-                source_records_full_by_aarecord_id[aarecord_id].append({'source_type': 'aac_gbooks', 'source_record': gbooks_book_dict})
+                source_records_full_by_aarecord_id[aarecord_id].append({'source_type': 'aac_gbooks', 'source_record': gbooks_book_dict, 'source_why': f"get_transitive_lookup_dicts('aarecords_codes_gbooks_for_lookup') -- transitive_codes[{code_full}] -- from {' AND '.join(debug_by_id[aarecord_id]['first_pass_debugs_url_by_identifiers_codes'][':'.join(code_full)])}"})
     for code_full, goodreads_book_dicts in get_transitive_lookup_dicts(session, "aarecords_codes_goodreads_for_lookup", [code for code in transitive_codes.keys() if code[0] in ['isbn13']]).items():
         for aarecord_id in transitive_codes[code_full]:
             for goodreads_book_dict in goodreads_book_dicts[0:3]: # Common enough to limit it.
                 if any([source_record['source_record']['goodreads_id'] == goodreads_book_dict['goodreads_id'] for source_record in source_records_full_by_aarecord_id[aarecord_id] if source_record['source_type'] == 'aac_goodreads']):
                     continue
-                source_records_full_by_aarecord_id[aarecord_id].append({'source_type': 'aac_goodreads', 'source_record': goodreads_book_dict})
+                source_records_full_by_aarecord_id[aarecord_id].append({'source_type': 'aac_goodreads', 'source_record': goodreads_book_dict, 'source_why': f"get_transitive_lookup_dicts('aarecords_codes_goodreads_for_lookup') -- transitive_codes[{code_full}] -- from {' AND '.join(debug_by_id[aarecord_id]['first_pass_debugs_url_by_identifiers_codes'][':'.join(code_full)])}"})
     for code_full, libby_book_dicts in get_transitive_lookup_dicts(session, "aarecords_codes_libby_for_lookup", [code for code in transitive_codes.keys() if code[0] in ['isbn13']]).items():
         for aarecord_id in transitive_codes[code_full]:
             for libby_book_dict in libby_book_dicts[0:3]: # Common enough to limit it.
                 if any([source_record['source_record']['libby_id'] == libby_book_dict['libby_id'] for source_record in source_records_full_by_aarecord_id[aarecord_id] if source_record['source_type'] == 'aac_libby']):
                     continue
-                source_records_full_by_aarecord_id[aarecord_id].append({'source_type': 'aac_libby', 'source_record': libby_book_dict})
+                source_records_full_by_aarecord_id[aarecord_id].append({'source_type': 'aac_libby', 'source_record': libby_book_dict, 'source_why': f"get_transitive_lookup_dicts('aarecords_codes_libby_for_lookup') -- transitive_codes[{code_full}] -- from {' AND '.join(debug_by_id[aarecord_id]['first_pass_debugs_url_by_identifiers_codes'][':'.join(code_full)])}"})
     for code_full, czech_oo42hcks_book_dicts in get_transitive_lookup_dicts(session, "aarecords_codes_czech_oo42hcks_for_lookup", [code for code in transitive_codes.keys() if code[0] in ['czech_oo42hcks_filename']]).items():
         for aarecord_id in transitive_codes[code_full]:
             if len(czech_oo42hcks_book_dicts) > 10:
@@ -6097,7 +6126,7 @@ def get_aarecords_internal_mysql(session, aarecord_ids, include_aarecord_mysql_d
             for czech_oo42hcks_book_dict in czech_oo42hcks_book_dicts[0:10]: # Just a precaution.
                 if any([source_record['source_record']['czech_oo42hcks_id'] == czech_oo42hcks_book_dict['czech_oo42hcks_id'] for source_record in source_records_full_by_aarecord_id[aarecord_id] if source_record['source_type'] == 'aac_czech_oo42hcks']):
                     continue
-                source_records_full_by_aarecord_id[aarecord_id].append({'source_type': 'aac_czech_oo42hcks', 'source_record': czech_oo42hcks_book_dict})
+                source_records_full_by_aarecord_id[aarecord_id].append({'source_type': 'aac_czech_oo42hcks', 'source_record': czech_oo42hcks_book_dict, 'source_why': f"get_transitive_lookup_dicts('aarecords_codes_czech_oo42hcks_for_lookup') -- transitive_codes[{code_full}] -- from {' AND '.join(debug_by_id[aarecord_id]['first_pass_debugs_url_by_identifiers_codes'][':'.join(code_full)])}"})
     for code_full, cerlalc_book_dicts in get_transitive_lookup_dicts(session, "aarecords_codes_cerlalc_for_lookup", [code for code in transitive_codes.keys() if code[0] in ['isbn13']]).items():
         for aarecord_id in transitive_codes[code_full]:
             if len(cerlalc_book_dicts) > 10:
@@ -6105,19 +6134,19 @@ def get_aarecords_internal_mysql(session, aarecord_ids, include_aarecord_mysql_d
             for cerlalc_book_dict in cerlalc_book_dicts[0:10]: # Just a precaution.
                 if any([source_record['source_record']['cerlalc_id'] == cerlalc_book_dict['cerlalc_id'] for source_record in source_records_full_by_aarecord_id[aarecord_id] if source_record['source_type'] == 'aac_cerlalc']):
                     continue
-                source_records_full_by_aarecord_id[aarecord_id].append({'source_type': 'aac_cerlalc', 'source_record': cerlalc_book_dict})
+                source_records_full_by_aarecord_id[aarecord_id].append({'source_type': 'aac_cerlalc', 'source_record': cerlalc_book_dict, 'source_why': f"get_transitive_lookup_dicts('aarecords_codes_cerlalc_for_lookup') -- transitive_codes[{code_full}] -- from {' AND '.join(debug_by_id[aarecord_id]['first_pass_debugs_url_by_identifiers_codes'][':'.join(code_full)])}"})
     for code_full, isbngrp_book_dicts in get_transitive_lookup_dicts(session, "aarecords_codes_isbngrp_for_lookup", [code for code in transitive_codes.keys() if code[0] in ['isbn13']]).items():
         for aarecord_id in transitive_codes[code_full]:
             for isbngrp_book_dict in isbngrp_book_dicts[0:3]: # Limit to 3 because there are some prefixes (like 978000) which have a crazy number of publishers.
                 if any([source_record['source_record']['isbngrp_id'] == isbngrp_book_dict['isbngrp_id'] for source_record in source_records_full_by_aarecord_id[aarecord_id] if source_record['source_type'] == 'aac_isbngrp']):
                     continue
-                source_records_full_by_aarecord_id[aarecord_id].append({'source_type': 'aac_isbngrp', 'source_record': isbngrp_book_dict})
+                source_records_full_by_aarecord_id[aarecord_id].append({'source_type': 'aac_isbngrp', 'source_record': isbngrp_book_dict, 'source_why': f"get_transitive_lookup_dicts('aarecords_codes_isbngrp_for_lookup') -- transitive_codes[{code_full}] -- from {' AND '.join(debug_by_id[aarecord_id]['first_pass_debugs_url_by_identifiers_codes'][':'.join(code_full)])}"})
     for code_full, rgb_book_dicts in get_transitive_lookup_dicts(session, "aarecords_codes_rgb_for_lookup", [code for code in transitive_codes.keys() if code[0] in ['isbn13']]).items():
         for aarecord_id in transitive_codes[code_full]:
             for rgb_book_dict in rgb_book_dicts[0:3]: # Common enough to limit it.
                 if any([source_record['source_record']['rgb_id'] == rgb_book_dict['rgb_id'] for source_record in source_records_full_by_aarecord_id[aarecord_id] if source_record['source_type'] == 'aac_rgb']):
                     continue
-                source_records_full_by_aarecord_id[aarecord_id].append({'source_type': 'aac_rgb', 'source_record': rgb_book_dict})
+                source_records_full_by_aarecord_id[aarecord_id].append({'source_type': 'aac_rgb', 'source_record': rgb_book_dict, 'source_why': f"get_transitive_lookup_dicts('aarecords_codes_rgb_for_lookup') -- transitive_codes[{code_full}] -- from {' AND '.join(debug_by_id[aarecord_id]['first_pass_debugs_url_by_identifiers_codes'][':'.join(code_full)])}"})
 
     # Second pass
     for aarecord in aarecords:
@@ -6249,14 +6278,11 @@ def get_aarecords_internal_mysql(session, aarecord_ids, include_aarecord_mysql_d
             allthethings.utils.add_classification_unified(aarecord['file_unified_data'], prefix, date)
 
         # Duplicated from above, but with more fields now.
-        aarecord['file_unified_data']['identifiers_unified'] = allthethings.utils.merge_unified_fields([
-            aarecord['file_unified_data']['identifiers_unified'],
-            *[source_record['source_record']['file_unified_data']['identifiers_unified'] for source_record in source_records],
-        ])
-        aarecord['file_unified_data']['classifications_unified'] = allthethings.utils.merge_unified_fields([
-            aarecord['file_unified_data']['classifications_unified'],
-            *[source_record['source_record']['file_unified_data']['classifications_unified'] for source_record in source_records],
-        ])
+        aarecord['file_unified_data']['identifiers_unified'], second_pass_debug_urls_by_identifiers_code_tuple = allthethings.utils.merge_unified_fields_with_provenance([('direct in get_aarecords_internal_mysql', aarecord['file_unified_data']['identifiers_unified']), *[(source_record['source_record']['debug_url'], source_record['source_record']['file_unified_data']['identifiers_unified']) for source_record in source_records]])
+        debug_by_id[aarecord_id]['second_pass_debugs_url_by_identifiers_codes'] = { (':'.join(code_tuple)): debug_urls for code_tuple, debug_urls in second_pass_debug_urls_by_identifiers_code_tuple.items() }
+        aarecord['file_unified_data']['classifications_unified'], second_pass_debug_urls_by_classifications_code_tuple = allthethings.utils.merge_unified_fields_with_provenance([('direct in get_aarecords_internal_mysql', aarecord['file_unified_data']['classifications_unified']), *[(source_record['source_record']['debug_url'], source_record['source_record']['file_unified_data']['classifications_unified']) for source_record in source_records]])
+        debug_by_id[aarecord_id]['second_pass_debugs_url_by_classifications_codes'] = { (':'.join(code_tuple)): debug_urls for code_tuple, debug_urls in second_pass_debug_urls_by_classifications_code_tuple.items() }
+
 
         aarecord['file_unified_data']['added_date_best'] = ''
         if aarecord_id_split[0] == 'md5':
@@ -6376,8 +6402,9 @@ def get_aarecords_internal_mysql(session, aarecord_ids, include_aarecord_mysql_d
         aarecord['source_records'] = []
         for source_record in source_records_full_by_aarecord_id[aarecord_id]:
             debug_by_id[aarecord_id]['source_records_debug'].append({
-                "canonical_record_url": source_record['source_record']['canonical_record_url'],
                 "debug_url": source_record['source_record']['debug_url'],
+                "canonical_record_url": source_record['source_record']['canonical_record_url'],
+                "source_why": source_record['source_why'],
             })
             if source_record['source_type'] == 'lgrsnf_book':
                 aarecord['source_records'].append({

@@ -1721,6 +1721,21 @@ def merge_unified_fields(list_of_fields_unified):
                 merged_sets[unified_name].add(value)
     return { unified_name: list(merged_set) for unified_name, merged_set in merged_sets.items() }
 
+def merge_unified_fields_with_provenance(list_of_fields_unified_and_provenance_info):
+    merged_sets = {}
+    provenance_by_code_tuple = {}
+    for provenance_info, fields_unified in list_of_fields_unified_and_provenance_info:
+        for unified_name, values in fields_unified.items():
+            if unified_name not in merged_sets:
+                merged_sets[unified_name] = set()
+            for value in values:
+                merged_sets[unified_name].add(value)
+                if (unified_name, value) not in provenance_by_code_tuple:
+                    provenance_by_code_tuple[(unified_name, value)] = []
+                provenance_by_code_tuple[(unified_name, value)].append(provenance_info)
+    return ({ unified_name: list(merged_set) for unified_name, merged_set in merged_sets.items() }, provenance_by_code_tuple)
+
+
 CODES_HIGHLIGHT = ['isbn13', 'isbn10', 'csbn', 'doi', 'issn', 'duxiu_ssid', 'cadal_ssno', 'oclc']
 def make_code_for_display(code_from_additional):
     return {
