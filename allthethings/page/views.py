@@ -6408,7 +6408,7 @@ def get_aarecords_internal_mysql(session, aarecord_ids, include_aarecord_mysql_d
             })
             if source_record['source_type'] == 'lgrsnf_book':
                 aarecord['source_records'].append({
-                    'source_type': 'lgrsnf_book',
+                    **source_record,
                     'source_record': {
                         "requested_func": source_record['source_record']['requested_func'],
                         "requested_key": source_record['source_record']['requested_key'],
@@ -6419,7 +6419,7 @@ def get_aarecords_internal_mysql(session, aarecord_ids, include_aarecord_mysql_d
                 })
             elif source_record['source_type'] == 'lgrsfic_book':
                 aarecord['source_records'].append({
-                    'source_type': 'lgrsfic_book',
+                    **source_record,
                     'source_record': {
                         "requested_func": source_record['source_record']['requested_func'],
                         "requested_key": source_record['source_record']['requested_key'],
