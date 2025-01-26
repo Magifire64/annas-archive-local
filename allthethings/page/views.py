@@ -7498,7 +7498,15 @@ def render_aarecord(record_id):
         if not allthethings.utils.validate_aarecord_ids(ids):
             return render_template("page/aarecord_not_found.html", header_active="search", not_found_field=record_id), 404
 
-        aarecords = get_aarecords_elasticsearch(ids)
+        live_debug = False
+        if request.args.get('livedebug') in [1, '1']:
+            if not allthethings.utils.check_is_member(request.cookies, mariapersist_engine):
+                return "?livedebug=1 is only available for members.", 403
+            aarecords = get_aarecords_mysql_debug(ids)
+            live_debug = True
+        else:
+            aarecords = get_aarecords_elasticsearch(ids)
+
         if aarecords is None:
             return render_template("page/aarecord_issue.html", header_active="search"), 500
         if len(aarecords) == 0:
@@ -7516,9 +7524,14 @@ def render_aarecord(record_id):
             "md5_problem_type_mapping": get_md5_problem_type_mapping(),
             "md5_report_type_mapping": allthethings.utils.get_md5_report_type_mapping(),
             "viewer_supported_extensions": VIEWER_SUPPORTED_EXTENSIONS,
-            "signed_in": account_id is not None
+            "signed_in": account_id is not None,
+            "live_debug": live_debug,
         }
-        return render_template("page/aarecord.html", **render_fields)
+
+        r = make_response(render_template("page/aarecord.html", **render_fields))
+        if live_debug:
+            r.headers.add('Cache-Control', 'no-cache')
+        return r
     
 @page.get("/view")
 @allthethings.utils.no_cache()

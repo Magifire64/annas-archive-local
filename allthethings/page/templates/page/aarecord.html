@@ -10,6 +10,10 @@
 {% block body %}
   {% from 'macros/copy_button.html' import copy_button %}
 
+  {% if live_debug %}
+    <div class="bg-red-100 p-2 inline-block mb-4 text-xs font-bold rounded">⚙️ LIVE/DEBUG version of this page. 🔨</div>
+  {% endif %}
+
   {% if aarecord_id_split[0] == 'doi' %}
     <div class="text-xl mb-1 font-bold mb-4">
       {{ gettext('page.md5.header.scihub', id=aarecord_id_split[1]) }}
@@ -591,6 +595,7 @@
       {{ gettext('page.md5.text.file_info.text1', a_href=((' href="/db/aarecord_elasticsearch/' | safe) + aarecord_id + '.json.html"' | safe)) }}
       <!-- TODO:TRANSLATE -->
       <a href="/db/aarecord_mysql_debug/{{ aarecord_id }}.json.html">Live/debug JSON version.</a>
+      <a href="?livedebug=1">Live/debug page.</a>
     </p>
   </div>
 {% endblock %}
