@@ -7079,6 +7079,8 @@ def get_additional_for_aarecord(aarecord):
                 server = 'g1'
             elif data_folder >= 'annas_archive_data__aacid__duxiu_files__20240613T205835Z--20240613T205836Z' and data_folder <= 'annas_archive_data__aacid__duxiu_files__20240613T223234Z--20240613T223235Z':
                 server = 'g1'
+            elif data_folder >= 'annas_archive_data__aacid__duxiu_files__20250127T131853Z--20250127T131854Z' and data_folder <= 'annas_archive_data__aacid__duxiu_files__20250127T144745Z--20250127T144746Z':
+                server = 'g5'
             else:
                 if AACID_SMALL_DATA_IMPORTS:
                     server = 'g1'
