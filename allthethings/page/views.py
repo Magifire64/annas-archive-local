@@ -5851,7 +5851,8 @@ def UNIFIED_DATA_MERGE_EXCEPT(excluded):
 def merge_file_unified_data_strings(source_records_by_type, iterations):
     best_str = ''
     multiple_str = []
-    for iteration in iterations:
+    provenance_info = []
+    for iteration_index, iteration in enumerate(iterations):
         expanded_iteration = []
         for source_type, field_name in iteration:
             if source_type == UNIFIED_DATA_MERGE_ALL:
@@ -5877,12 +5878,18 @@ def merge_file_unified_data_strings(source_records_by_type, iterations):
                 else:
                     raise Exception(f"Unsupported field_name in merge_file_unified_data_strings: {field_name}")
                 for string_to_add in strings_to_add:
-                    multiple_str.append(string_to_add.strip())
+                    string = string_to_add.strip()
+                    multiple_str.append(string)
+                    provenance_info.append({ "iteration_index": iteration_index, "string": string, "debug_url": source_record['debug_url'], "iteration": iteration })
         multiple_str = sort_by_length_and_filter_subsequences_with_longest_string_and_normalize_unicode(multiple_str) # Before selecting best, since the best might otherwise get filtered.
         if best_str == '':
             best_str = max(multiple_str + [''], key=len)
     multiple_str = [s for s in multiple_str if s != best_str]
-    return (best_str, multiple_str)
+    return (best_str, multiple_str, {
+        "best_str": best_str,
+        "multiple_str": multiple_str,
+        "provenance_info": provenance_info,
+    })
 
 def get_aarecords_internal_mysql(session, aarecord_ids, include_aarecord_mysql_debug=False):
     if not allthethings.utils.validate_aarecord_ids(aarecord_ids):
@@ -5897,6 +5904,14 @@ def get_aarecords_internal_mysql(session, aarecord_ids, include_aarecord_mysql_d
         "first_pass_debugs_url_by_classifications_codes": None,
         "second_pass_debugs_url_by_identifiers_codes": None,
         "second_pass_debugs_url_by_classifications_codes": None,
+        "original_filename_provenance": None,
+        "cover_url_provenance": None,
+        "title_provenance": None,
+        "author_provenance": None,
+        "publisher_provenance": None,
+        "edition_varia_provenance": None,
+        "stripped_description_provenance": None,
+        "content_type_provenance": None,
     })
 
     split_ids = allthethings.utils.split_aarecord_ids(aarecord_ids)
@@ -6160,13 +6175,19 @@ def get_aarecords_internal_mysql(session, aarecord_ids, include_aarecord_mysql_d
             allthethings.utils.add_identifier_unified(aarecord['file_unified_data'], 'ipfs_cid', ipfs_info['ipfs_cid'])
 
         # Prioritize aac_upload, since we usually have meaningful directory structure there.
-        aarecord['file_unified_data']['original_filename_best'], aarecord['file_unified_data']['original_filename_additional'] = merge_file_unified_data_strings(source_records_by_type, [[('ol_book_dicts_primary_linked', 'original_filename_best')], [('aac_upload', 'original_filename_best')], [(['lgrsnf_book','lgrsfic_book','lgli_file','aac_zlib3_book','ia_record','duxiu','aac_magzdb','aac_nexusstc'], 'original_filename_best')], [(UNIFIED_DATA_MERGE_ALL, 'original_filename_best')], [(UNIFIED_DATA_MERGE_ALL, 'original_filename_additional')]])
+        aarecord['file_unified_data']['original_filename_best'], aarecord['file_unified_data']['original_filename_additional'], debug_by_id[aarecord_id]['original_filename_provenance'] = merge_file_unified_data_strings(source_records_by_type, [
+            [('ol_book_dicts_primary_linked', 'original_filename_best')], 
+            [('aac_upload', 'original_filename_best')], 
+            [(['lgrsnf_book','lgrsfic_book','lgli_file','aac_zlib3_book','ia_record','duxiu','aac_magzdb','aac_nexusstc'], 'original_filename_best')], 
+            [(UNIFIED_DATA_MERGE_ALL, 'original_filename_best')], 
+            [(UNIFIED_DATA_MERGE_ALL, 'original_filename_additional')],
+        ])
         for filepath in ([aarecord['file_unified_data']['original_filename_best']] + aarecord['file_unified_data']['original_filename_additional']):
             allthethings.utils.add_identifier_unified(aarecord['file_unified_data'], 'filepath', filepath.encode()[0:allthethings.utils.AARECORDS_CODES_CODE_LENGTH-len('filepath:')-5].decode(errors='replace'))
 
         # Select the cover_url_normalized in order of what is likely to be the best one.
         # For now, keep out cover urls from zlib entirely, and only add them ad-hoc from aac_zlib3_book.cover_path.
-        aarecord['file_unified_data']['cover_url_best'], aarecord['file_unified_data']['cover_url_additional'] = merge_file_unified_data_strings(source_records_by_type, [
+        aarecord['file_unified_data']['cover_url_best'], aarecord['file_unified_data']['cover_url_additional'], debug_by_id[aarecord_id]['cover_url_provenance'] = merge_file_unified_data_strings(source_records_by_type, [
             [('ol_book_dicts_primary_linked', 'cover_url_best')],
             [('ia_record', 'cover_url_best')],
             [('ia_records_meta_only', 'cover_url_best')],
@@ -6177,7 +6198,7 @@ def get_aarecords_internal_mysql(session, aarecord_ids, include_aarecord_mysql_d
             [('isbndb', 'cover_url_best')],
             [('libby', 'cover_url_best')],
             [(UNIFIED_DATA_MERGE_ALL, 'cover_url_best')],
-            [(UNIFIED_DATA_MERGE_ALL, 'cover_url_additional')]
+            [(UNIFIED_DATA_MERGE_ALL, 'cover_url_additional')],
         ])
 
         extension_multiple = [(source_record['source_record']['file_unified_data']['extension_best']) for source_record in source_records]
@@ -6198,12 +6219,52 @@ def get_aarecords_internal_mysql(session, aarecord_ids, include_aarecord_mysql_d
             aarecord['file_unified_data']['filesize_best'] = max(filesize_multiple + [0])
         aarecord['file_unified_data']['filesize_additional'] = [s for s in dict.fromkeys(filter(lambda fz: fz > 0, filesize_multiple)) if s != aarecord['file_unified_data']['filesize_best']]
 
-        aarecord['file_unified_data']['title_best'], aarecord['file_unified_data']['title_additional'] = merge_file_unified_data_strings(source_records_by_type, [[('ol_book_dicts_primary_linked', 'title_best')], [(['lgrsnf_book','lgrsfic_book','lgli_file','aac_zlib3_book','aac_magzdb','aac_nexusstc'], 'title_best')], [(['duxiu', 'aac_edsebk'], 'title_best')], [(UNIFIED_DATA_MERGE_EXCEPT(['aac_upload', 'ia_record']), 'title_best')], [(UNIFIED_DATA_MERGE_EXCEPT(['aac_upload', 'ia_record']), 'title_additional')], [(UNIFIED_DATA_MERGE_ALL, 'title_best')], [(UNIFIED_DATA_MERGE_ALL, 'title_additional')]])
-        aarecord['file_unified_data']['author_best'], aarecord['file_unified_data']['author_additional'] = merge_file_unified_data_strings(source_records_by_type, [[('ol_book_dicts_primary_linked', 'author_best')], [(['lgrsnf_book','lgrsfic_book','lgli_file','aac_zlib3_book','aac_magzdb','aac_nexusstc'], 'author_best')], [(['duxiu', 'aac_edsebk'], 'author_best')], [(UNIFIED_DATA_MERGE_EXCEPT(['aac_upload', 'ia_record']), 'author_best')], [(UNIFIED_DATA_MERGE_EXCEPT(['aac_upload', 'ia_record']), 'author_additional')], [(UNIFIED_DATA_MERGE_ALL, 'author_best')], [(UNIFIED_DATA_MERGE_ALL, 'author_additional')]])
-        aarecord['file_unified_data']['publisher_best'], aarecord['file_unified_data']['publisher_additional'] = merge_file_unified_data_strings(source_records_by_type, [[('ol_book_dicts_primary_linked', 'publisher_best')], [(['lgrsnf_book','lgrsfic_book','lgli_file','aac_zlib3_book','aac_magzdb','aac_nexusstc'], 'publisher_best')], [(['duxiu', 'aac_edsebk'], 'publisher_best')], [(UNIFIED_DATA_MERGE_EXCEPT(['aac_upload', 'ia_record']), 'publisher_best')], [(UNIFIED_DATA_MERGE_EXCEPT(['aac_upload', 'ia_record']), 'publisher_additional')], [(UNIFIED_DATA_MERGE_ALL, 'publisher_best')], [(UNIFIED_DATA_MERGE_ALL, 'publisher_additional')]])
-        aarecord['file_unified_data']['edition_varia_best'], aarecord['file_unified_data']['edition_varia_additional'] = merge_file_unified_data_strings(source_records_by_type, [[('ol_book_dicts_primary_linked', 'edition_varia_best')], [(['lgrsnf_book','lgrsfic_book','lgli_file','aac_zlib3_book','aac_magzdb','aac_nexusstc'], 'edition_varia_best')], [(['duxiu', 'aac_edsebk'], 'edition_varia_best')], [(UNIFIED_DATA_MERGE_EXCEPT(['aac_upload', 'ia_record']), 'edition_varia_best')], [(UNIFIED_DATA_MERGE_EXCEPT(['aac_upload', 'ia_record']), 'edition_varia_additional')], [(UNIFIED_DATA_MERGE_ALL, 'edition_varia_best')], [(UNIFIED_DATA_MERGE_ALL, 'edition_varia_additional')]])
+        aarecord['file_unified_data']['title_best'], aarecord['file_unified_data']['title_additional'], debug_by_id[aarecord_id]['title_provenance'] = merge_file_unified_data_strings(source_records_by_type, [
+            [('ol_book_dicts_primary_linked', 'title_best')],
+            [(['lgrsnf_book','lgrsfic_book','lgli_file','aac_zlib3_book','aac_magzdb','aac_nexusstc'], 'title_best')],
+            [(['duxiu', 'aac_edsebk'], 'title_best')],
+            [(UNIFIED_DATA_MERGE_EXCEPT(['aac_upload', 'ia_record']), 'title_best')],
+            [(UNIFIED_DATA_MERGE_EXCEPT(['aac_upload', 'ia_record']), 'title_additional')],
+            [(UNIFIED_DATA_MERGE_ALL, 'title_best')],
+            [(UNIFIED_DATA_MERGE_ALL, 'title_additional')],
+        ])
+        aarecord['file_unified_data']['author_best'], aarecord['file_unified_data']['author_additional'], debug_by_id[aarecord_id]['author_provenance'] = merge_file_unified_data_strings(source_records_by_type, [
+            [('ol_book_dicts_primary_linked', 'author_best')],
+            [(['lgrsnf_book','lgrsfic_book','lgli_file','aac_zlib3_book','aac_magzdb','aac_nexusstc'], 'author_best')],
+            [(['duxiu', 'aac_edsebk'], 'author_best')],
+            [(UNIFIED_DATA_MERGE_EXCEPT(['aac_upload', 'ia_record']), 'author_best')],
+            [(UNIFIED_DATA_MERGE_EXCEPT(['aac_upload', 'ia_record']), 'author_additional')],
+            [(UNIFIED_DATA_MERGE_ALL, 'author_best')],
+            [(UNIFIED_DATA_MERGE_ALL, 'author_additional')],
+        ])
+        aarecord['file_unified_data']['publisher_best'], aarecord['file_unified_data']['publisher_additional'], debug_by_id[aarecord_id]['publisher_provenance'] = merge_file_unified_data_strings(source_records_by_type, [
+            [('ol_book_dicts_primary_linked', 'publisher_best')],
+            [(['lgrsnf_book','lgrsfic_book','lgli_file','aac_zlib3_book','aac_magzdb','aac_nexusstc'], 'publisher_best')],
+            [(['duxiu', 'aac_edsebk'], 'publisher_best')],
+            [(UNIFIED_DATA_MERGE_EXCEPT(['aac_upload', 'ia_record']), 'publisher_best')],
+            [(UNIFIED_DATA_MERGE_EXCEPT(['aac_upload', 'ia_record']), 'publisher_additional')],
+            [(UNIFIED_DATA_MERGE_ALL, 'publisher_best')],
+            [(UNIFIED_DATA_MERGE_ALL, 'publisher_additional')],
+        ])
+        aarecord['file_unified_data']['edition_varia_best'], aarecord['file_unified_data']['edition_varia_additional'], debug_by_id[aarecord_id]['edition_varia_provenance'] = merge_file_unified_data_strings(source_records_by_type, [
+            [('ol_book_dicts_primary_linked', 'edition_varia_best')],
+            [(['lgrsnf_book','lgrsfic_book','lgli_file','aac_zlib3_book','aac_magzdb','aac_nexusstc'], 'edition_varia_best')],
+            [(['duxiu', 'aac_edsebk'], 'edition_varia_best')],
+            [(UNIFIED_DATA_MERGE_EXCEPT(['aac_upload', 'ia_record']), 'edition_varia_best')],
+            [(UNIFIED_DATA_MERGE_EXCEPT(['aac_upload', 'ia_record']), 'edition_varia_additional')],
+            [(UNIFIED_DATA_MERGE_ALL, 'edition_varia_best')],
+            [(UNIFIED_DATA_MERGE_ALL, 'edition_varia_additional')],
+        ])
 
-        year_best, year_additional = merge_file_unified_data_strings(source_records_by_type, [[('ol_book_dicts_primary_linked', 'year_best')], [(['lgrsnf_book','lgrsfic_book','lgli_file','aac_zlib3_book','aac_magzdb','aac_nexusstc'], 'year_best')], [(['duxiu', 'aac_edsebk'], 'year_best')], [(UNIFIED_DATA_MERGE_EXCEPT(['aac_upload', 'ia_record']), 'year_best')], [(UNIFIED_DATA_MERGE_EXCEPT(['aac_upload', 'ia_record']), 'year_additional')], [(UNIFIED_DATA_MERGE_ALL, 'year_best')], [(UNIFIED_DATA_MERGE_ALL, 'year_additional')]])
+        year_best, year_additional, _year_provenance = merge_file_unified_data_strings(source_records_by_type, [
+            [('ol_book_dicts_primary_linked', 'year_best')],
+            [(['lgrsnf_book','lgrsfic_book','lgli_file','aac_zlib3_book','aac_magzdb','aac_nexusstc'], 'year_best')],
+            [(['duxiu', 'aac_edsebk'], 'year_best')],
+            [(UNIFIED_DATA_MERGE_EXCEPT(['aac_upload', 'ia_record']), 'year_best')],
+            [(UNIFIED_DATA_MERGE_EXCEPT(['aac_upload', 'ia_record']), 'year_additional')],
+            [(UNIFIED_DATA_MERGE_ALL, 'year_best')],
+            [(UNIFIED_DATA_MERGE_ALL, 'year_additional')]
+        ])
         # Filter out years in for which we surely don't have books (famous last words..)
         year_multiple = [year for year in ([year_best] + year_additional) if allthethings.utils.validate_year(year)]
         if len(year_multiple) == 0:
@@ -6223,7 +6284,14 @@ def get_aarecords_internal_mysql(session, aarecord_ids, include_aarecord_mysql_d
         aarecord['file_unified_data']['comments_multiple'] = sort_by_length_and_filter_subsequences_with_longest_string_and_normalize_unicode([comment for source_record in source_records for comment in source_record['source_record']['file_unified_data']['comments_multiple']])
 
         # Make ia_record's description a very last resort here, since it's usually not very good.
-        aarecord['file_unified_data']['stripped_description_best'], aarecord['file_unified_data']['stripped_description_additional'] = merge_file_unified_data_strings(source_records_by_type, [[('ol_book_dicts_primary_linked', 'stripped_description_best')], [(['lgrsnf_book','lgrsfic_book','lgli_file','aac_zlib3_book','aac_magzdb','aac_nexusstc'], 'stripped_description_best')], [(['duxiu', 'aac_edsebk'], 'stripped_description_best')], [(UNIFIED_DATA_MERGE_EXCEPT(['aac_upload', 'ia_record']), 'stripped_description_best')], [(UNIFIED_DATA_MERGE_EXCEPT(['aac_upload', 'ia_record']), 'stripped_description_additional')], [(UNIFIED_DATA_MERGE_ALL, 'stripped_description_best'), (UNIFIED_DATA_MERGE_ALL, 'stripped_description_additional')]])
+        aarecord['file_unified_data']['stripped_description_best'], aarecord['file_unified_data']['stripped_description_additional'], debug_by_id[aarecord_id]['stripped_description_provenance'] = merge_file_unified_data_strings(source_records_by_type, [
+            [('ol_book_dicts_primary_linked', 'stripped_description_best')],
+            [(['lgrsnf_book','lgrsfic_book','lgli_file','aac_zlib3_book','aac_magzdb','aac_nexusstc'], 'stripped_description_best')],
+            [(['duxiu', 'aac_edsebk'], 'stripped_description_best')],
+            [(UNIFIED_DATA_MERGE_EXCEPT(['aac_upload', 'ia_record']), 'stripped_description_best')],
+            [(UNIFIED_DATA_MERGE_EXCEPT(['aac_upload', 'ia_record']), 'stripped_description_additional')],
+            [(UNIFIED_DATA_MERGE_ALL, 'stripped_description_best'), (UNIFIED_DATA_MERGE_ALL, 'stripped_description_additional')],
+        ])
 
         all_langcodes_most_common_codes = []
         all_langcodes_counter = collections.Counter([langcode for source_record in source_records for langcode in source_record['source_record']['file_unified_data']['language_codes']])
@@ -6366,7 +6434,7 @@ def get_aarecords_internal_mysql(session, aarecord_ids, include_aarecord_mysql_d
         if (aarecord['file_unified_data']['content_type_best'] == '') and (len(source_records_by_type['lgrsfic_book']) > 0) and (len(source_records_by_type['lgrsnf_book']) == 0):
             aarecord['file_unified_data']['content_type_best'] = source_records_by_type['lgrsfic_book'][0]['file_unified_data']['content_type_best']
         if aarecord['file_unified_data']['content_type_best'] == '':
-            aarecord['file_unified_data']['content_type_best'], content_type_additional = merge_file_unified_data_strings(source_records_by_type, [
+            aarecord['file_unified_data']['content_type_best'], _content_type_additional, debug_by_id[aarecord_id]['content_type_provenance'] = merge_file_unified_data_strings(source_records_by_type, [
                 [('lgli_file', 'content_type_best')],
                 [('aac_magzdb', 'content_type_best')],
                 [('aac_nexusstc', 'content_type_best')],
