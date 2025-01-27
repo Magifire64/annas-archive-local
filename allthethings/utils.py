@@ -1721,10 +1721,10 @@ def merge_unified_fields(list_of_fields_unified):
                 merged_sets[unified_name].add(value)
     return { unified_name: list(merged_set) for unified_name, merged_set in merged_sets.items() }
 
-def merge_unified_fields_with_provenance(list_of_fields_unified_and_provenance_info):
+def merge_unified_fields_with_provenance(provenance_info_and_list_of_fields_unified):
     merged_sets = {}
     provenance_by_code_tuple = {}
-    for provenance_info, fields_unified in list_of_fields_unified_and_provenance_info:
+    for provenance_info, fields_unified in provenance_info_and_list_of_fields_unified:
         for unified_name, values in fields_unified.items():
             if unified_name not in merged_sets:
                 merged_sets[unified_name] = set()
