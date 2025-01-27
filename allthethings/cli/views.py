@@ -1206,6 +1206,12 @@ def mysql_build_aarecords_codes_numbers_internal():
             if acc[0] > CODE_PREFIX_PARTITION_SIZE or code_prefix == prefix_counts_in_idx_order[-1][0]:
                 partition_defs.append({"aprox_count": acc[0], "n": acc[2], "bounds": (acc[3], code_prefix + ";"), "prefix_list": acc[1]})
                 acc = [0, [], len(partition_defs), code_prefix + ";"] 
+
+        print(f"Deleting old aarecords_codes table if it exists (not ideal, but it takes up too much space otherwise)...")
+        with engine.connect() as connection:
+            connection.connection.ping(reconnect=True)
+            cursor = connection.connection.cursor(pymysql.cursors.SSDictCursor)
+            cursor.execute('DROP TABLE IF EXISTS aarecords_codes')
         
         print(f"Will build {len(partition_defs)} partitions of aprox {sum([x['aprox_count'] for x in partition_defs])} records")
 
