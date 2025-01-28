@@ -2855,7 +2855,7 @@ def get_isbndb_dicts(session, key, canonical_isbn13s):
         allthethings.utils.add_isbns_unified(isbndb_dict['file_unified_data'], [canonical_isbn13])
         isbndb_dict['file_unified_data']['cover_url_best'] = ''
         for isbndb_inner_dict in isbndb_dict['isbndb_inner']:
-            cover_url = (isbndb_inner_dict['json'].get('image') or '').strip()
+            cover_url = (isbndb_inner_dict['json'].get('image') or '').strip().lower()
             if cover_url != '':
                 isbndb_dict['file_unified_data']['cover_url_best'] = cover_url
                 break
@@ -2868,6 +2868,15 @@ def get_isbndb_dicts(session, key, canonical_isbn13s):
         isbndb_dict['file_unified_data']['stripped_description_additional'] = [(isbndb_inner_dict['json'].get('synopsis') or '').strip() for isbndb_inner_dict in isbndb_dict['isbndb_inner']] + [(isbndb_inner_dict['json'].get('overview') or '').strip() for isbndb_inner_dict in isbndb_dict['isbndb_inner']]
         isbndb_dict['file_unified_data']['language_codes'] = combine_bcp47_lang_codes([isbndb_inner_dict['language_codes'] for isbndb_inner_dict in isbndb_dict['isbndb_inner']])
         isbndb_dict['file_unified_data']['added_date_unified'] = { "date_isbndb_scrape": "2022-09-01" }
+
+        if isbndb_dict['file_unified_data']['cover_url_best'] == '':
+            isbndb_dict['file_unified_data']['cover_url_best'] = max(isbndb_dict['file_unified_data']['cover_url_additional'] + [''], key=len)
+        isbndb_dict['file_unified_data']['title_best'] = max(isbndb_dict['file_unified_data']['title_additional'] + [''], key=len)
+        isbndb_dict['file_unified_data']['author_best'] = max(isbndb_dict['file_unified_data']['author_additional'] + [''], key=len)
+        isbndb_dict['file_unified_data']['publisher_best'] = max(isbndb_dict['file_unified_data']['publisher_additional'] + [''], key=len)
+        isbndb_dict['file_unified_data']['edition_varia_best'] = max(isbndb_dict['file_unified_data']['edition_varia_additional'] + [''], key=len)
+        isbndb_dict['file_unified_data']['year_best'] = max(isbndb_dict['file_unified_data']['year_additional'] + [''], key=len)
+        isbndb_dict['file_unified_data']['stripped_description_best'] = max(isbndb_dict['file_unified_data']['stripped_description_additional'] + [''], key=len)
 
         isbndb_wrapper_comments = {
             "requested_func": ("before", ["Metadata from our ISBNdb collection, augmented by Anna's Archive.",
@@ -5136,7 +5145,7 @@ def get_aac_isbngrp_book_dicts(session, key, values):
 
         # Use _additional for lower priority, since this isn't very complete.
         if registrant_name := (aac_record['metadata']['record']['registrant_name'] or '').strip():
-            aac_isbngrp_book_dict['file_unified_data']['publisher_additional'].append(registrant_name)
+            aac_isbngrp_book_dict['file_unified_data']['publisher_best'] = registrant_name
 
         edition_varia_normalized = []
         if agency_name := (aac_record['metadata']['record']['agency_name'] or '').strip():
@@ -5144,7 +5153,7 @@ def get_aac_isbngrp_book_dicts(session, key, values):
         if country_name := (aac_record['metadata']['record']['country_name'] or '').strip():
             edition_varia_normalized.append(country_name)
         if len(edition_varia_normalized) > 0:
-            aac_isbngrp_book_dict['file_unified_data']['edition_varia_additional'].append(', '.join(edition_varia_normalized))
+            aac_isbngrp_book_dict['file_unified_data']['edition_varia_best'] = ', '.join(edition_varia_normalized)
 
         for isbn_entry in aac_record['metadata']['record']['isbns']:
             if isbn_entry['isbn_type'] == 'prefix':
@@ -5883,6 +5892,7 @@ def merge_file_unified_data_strings(source_records_by_type, iterations):
                     provenance_info.append({
                         "iteration_index": iteration_index,
                         "string": string,
+                        "source_type": source_type,
                         "debug_url": source_record['debug_url'],
                         "canonical_record_url": source_record['canonical_record_url'],
                         "iteration": iteration,
@@ -6184,7 +6194,7 @@ def get_aarecords_internal_mysql(session, aarecord_ids, include_aarecord_mysql_d
         aarecord['file_unified_data']['original_filename_best'], aarecord['file_unified_data']['original_filename_additional'], debug_by_id[aarecord_id]['original_filename_provenance'] = merge_file_unified_data_strings(source_records_by_type, [
             [('ol_book_dicts_primary_linked', 'original_filename_best')], 
             [('aac_upload', 'original_filename_best')], 
-            [(['lgrsnf_book','lgrsfic_book','lgli_file','aac_zlib3_book','ia_record','duxiu','aac_magzdb','aac_nexusstc'], 'original_filename_best')], 
+            [(['lgrsnf_book','lgrsfic_book','lgli_file','aac_zlib3_book','ia_record','duxiu','aac_magzdb','aac_nexusstc'], 'original_filename_best')],
             [(UNIFIED_DATA_MERGE_ALL, 'original_filename_best')], 
             [(UNIFIED_DATA_MERGE_ALL, 'original_filename_additional')],
         ])
@@ -6229,8 +6239,8 @@ def get_aarecords_internal_mysql(session, aarecord_ids, include_aarecord_mysql_d
             [('ol_book_dicts_primary_linked', 'title_best')],
             [(['lgrsnf_book','lgrsfic_book','lgli_file','aac_zlib3_book','aac_magzdb','aac_nexusstc'], 'title_best')],
             [(['duxiu', 'aac_edsebk'], 'title_best')],
-            [(UNIFIED_DATA_MERGE_EXCEPT(['aac_upload', 'ia_record']), 'title_best')],
-            [(UNIFIED_DATA_MERGE_EXCEPT(['aac_upload', 'ia_record']), 'title_additional')],
+            [(UNIFIED_DATA_MERGE_EXCEPT(['aac_upload', 'ia_record', 'aac_isbngrp']), 'title_best')],
+            [(UNIFIED_DATA_MERGE_EXCEPT(['aac_upload', 'ia_record', 'aac_isbngrp']), 'title_additional')],
             [(UNIFIED_DATA_MERGE_ALL, 'title_best')],
             [(UNIFIED_DATA_MERGE_ALL, 'title_additional')],
         ])
@@ -6238,8 +6248,8 @@ def get_aarecords_internal_mysql(session, aarecord_ids, include_aarecord_mysql_d
             [('ol_book_dicts_primary_linked', 'author_best')],
             [(['lgrsnf_book','lgrsfic_book','lgli_file','aac_zlib3_book','aac_magzdb','aac_nexusstc'], 'author_best')],
             [(['duxiu', 'aac_edsebk'], 'author_best')],
-            [(UNIFIED_DATA_MERGE_EXCEPT(['aac_upload', 'ia_record']), 'author_best')],
-            [(UNIFIED_DATA_MERGE_EXCEPT(['aac_upload', 'ia_record']), 'author_additional')],
+            [(UNIFIED_DATA_MERGE_EXCEPT(['aac_upload', 'ia_record', 'aac_isbngrp']), 'author_best')],
+            [(UNIFIED_DATA_MERGE_EXCEPT(['aac_upload', 'ia_record', 'aac_isbngrp']), 'author_additional')],
             [(UNIFIED_DATA_MERGE_ALL, 'author_best')],
             [(UNIFIED_DATA_MERGE_ALL, 'author_additional')],
         ])
@@ -6247,8 +6257,8 @@ def get_aarecords_internal_mysql(session, aarecord_ids, include_aarecord_mysql_d
             [('ol_book_dicts_primary_linked', 'publisher_best')],
             [(['lgrsnf_book','lgrsfic_book','lgli_file','aac_zlib3_book','aac_magzdb','aac_nexusstc'], 'publisher_best')],
             [(['duxiu', 'aac_edsebk'], 'publisher_best')],
-            [(UNIFIED_DATA_MERGE_EXCEPT(['aac_upload', 'ia_record']), 'publisher_best')],
-            [(UNIFIED_DATA_MERGE_EXCEPT(['aac_upload', 'ia_record']), 'publisher_additional')],
+            [(UNIFIED_DATA_MERGE_EXCEPT(['aac_upload', 'ia_record', 'aac_isbngrp']), 'publisher_best')],
+            [(UNIFIED_DATA_MERGE_EXCEPT(['aac_upload', 'ia_record', 'aac_isbngrp']), 'publisher_additional')],
             [(UNIFIED_DATA_MERGE_ALL, 'publisher_best')],
             [(UNIFIED_DATA_MERGE_ALL, 'publisher_additional')],
         ])
@@ -6256,8 +6266,8 @@ def get_aarecords_internal_mysql(session, aarecord_ids, include_aarecord_mysql_d
             [('ol_book_dicts_primary_linked', 'edition_varia_best')],
             [(['lgrsnf_book','lgrsfic_book','lgli_file','aac_zlib3_book','aac_magzdb','aac_nexusstc'], 'edition_varia_best')],
             [(['duxiu', 'aac_edsebk'], 'edition_varia_best')],
-            [(UNIFIED_DATA_MERGE_EXCEPT(['aac_upload', 'ia_record']), 'edition_varia_best')],
-            [(UNIFIED_DATA_MERGE_EXCEPT(['aac_upload', 'ia_record']), 'edition_varia_additional')],
+            [(UNIFIED_DATA_MERGE_EXCEPT(['aac_upload', 'ia_record', 'aac_isbngrp']), 'edition_varia_best')],
+            [(UNIFIED_DATA_MERGE_EXCEPT(['aac_upload', 'ia_record', 'aac_isbngrp']), 'edition_varia_additional')],
             [(UNIFIED_DATA_MERGE_ALL, 'edition_varia_best')],
             [(UNIFIED_DATA_MERGE_ALL, 'edition_varia_additional')],
         ])
@@ -6266,8 +6276,8 @@ def get_aarecords_internal_mysql(session, aarecord_ids, include_aarecord_mysql_d
             [('ol_book_dicts_primary_linked', 'year_best')],
             [(['lgrsnf_book','lgrsfic_book','lgli_file','aac_zlib3_book','aac_magzdb','aac_nexusstc'], 'year_best')],
             [(['duxiu', 'aac_edsebk'], 'year_best')],
-            [(UNIFIED_DATA_MERGE_EXCEPT(['aac_upload', 'ia_record']), 'year_best')],
-            [(UNIFIED_DATA_MERGE_EXCEPT(['aac_upload', 'ia_record']), 'year_additional')],
+            [(UNIFIED_DATA_MERGE_EXCEPT(['aac_upload', 'ia_record', 'aac_isbngrp']), 'year_best')],
+            [(UNIFIED_DATA_MERGE_EXCEPT(['aac_upload', 'ia_record', 'aac_isbngrp']), 'year_additional')],
             [(UNIFIED_DATA_MERGE_ALL, 'year_best')],
             [(UNIFIED_DATA_MERGE_ALL, 'year_additional')]
         ])
@@ -6294,8 +6304,8 @@ def get_aarecords_internal_mysql(session, aarecord_ids, include_aarecord_mysql_d
             [('ol_book_dicts_primary_linked', 'stripped_description_best')],
             [(['lgrsnf_book','lgrsfic_book','lgli_file','aac_zlib3_book','aac_magzdb','aac_nexusstc'], 'stripped_description_best')],
             [(['duxiu', 'aac_edsebk'], 'stripped_description_best')],
-            [(UNIFIED_DATA_MERGE_EXCEPT(['aac_upload', 'ia_record']), 'stripped_description_best')],
-            [(UNIFIED_DATA_MERGE_EXCEPT(['aac_upload', 'ia_record']), 'stripped_description_additional')],
+            [(UNIFIED_DATA_MERGE_EXCEPT(['aac_upload', 'ia_record', 'aac_isbngrp']), 'stripped_description_best')],
+            [(UNIFIED_DATA_MERGE_EXCEPT(['aac_upload', 'ia_record', 'aac_isbngrp']), 'stripped_description_additional')],
             [(UNIFIED_DATA_MERGE_ALL, 'stripped_description_best'), (UNIFIED_DATA_MERGE_ALL, 'stripped_description_additional')],
         ])
 
