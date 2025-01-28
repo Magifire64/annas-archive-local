@@ -5884,7 +5884,7 @@ def merge_file_unified_data_strings(source_records_by_type, iterations):
                         "iteration_index": iteration_index,
                         "string": string,
                         "debug_url": source_record['debug_url'],
-                        "canonical_url": source_record['canonical_url'],
+                        "canonical_record_url": source_record['canonical_record_url'],
                         "iteration": iteration,
                     })
         multiple_str = sort_by_length_and_filter_subsequences_with_longest_string_and_normalize_unicode(multiple_str) # Before selecting best, since the best might otherwise get filtered.
