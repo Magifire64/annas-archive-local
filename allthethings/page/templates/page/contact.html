@@ -23,6 +23,6 @@
     <div><label><input class="js-email-checkbox align-[-1px]" type="checkbox"> {{ gettext('page.donate.small_team') }}</label></div>
     <button class="px-4 py-1 bg-[#0195ff] text-white rounded hover:bg-blue-600 mb-4" onclick="if (Array.from(document.querySelectorAll('.js-email-checkbox')).every((el) => el.checked)) { document.querySelector('.js-email-field').classList.remove('hidden') }">{{ gettext('page.contact.checkboxes.show_email_button') }}</button>
     <!-- NOTE: HIDDEN -->
-    <div><span class="hidden">{{ gettext('layout.index.header.banner.issues.partners_closed') }} <span class="ml-4 font-bold underline">{{ gettext('layout.index.header.banner.issues.memberships_extended') }}</span></span> <a href="mailto:{{ AA_EMAIL }}">{{ AA_EMAIL }}</a></div>
+    <div class="hidden js-email-field"><span class="hidden">{{ gettext('layout.index.header.banner.issues.partners_closed') }} <span class="ml-4 font-bold underline">{{ gettext('layout.index.header.banner.issues.memberships_extended') }}</span></span> <a href="mailto:{{ AA_EMAIL }}">{{ AA_EMAIL }}</a></div>
   </p>
 {% endblock %}
