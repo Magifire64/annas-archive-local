@@ -6322,7 +6322,8 @@ def get_aarecords_internal_mysql(session, aarecord_ids, include_aarecord_mysql_d
         for year in year_multiple:
             allthethings.utils.add_classification_unified(aarecord['file_unified_data'], 'year', year)
 
-        aarecord['file_unified_data']['comments_multiple'] = sort_by_length_and_filter_subsequences_with_longest_string_and_normalize_unicode([comment for source_record in source_records for comment in source_record['source_record']['file_unified_data']['comments_multiple']])
+        # Don't deduplicate these beyond just basic deduplication, since there might be duplicate information but presented in very different ways (e.g. raw MARC).
+        aarecord['file_unified_data']['comments_multiple'] = list(dict.fromkeys([comment for source_record in source_records for comment in source_record['source_record']['file_unified_data']['comments_multiple']]))
 
         # Make ia_record's description a very last resort here, since it's usually not very good.
         aarecord['file_unified_data']['stripped_description_best'], aarecord['file_unified_data']['stripped_description_additional'], debug_by_id[aarecord_id]['stripped_description_provenance'] = merge_file_unified_data_strings(source_records_by_type, [
