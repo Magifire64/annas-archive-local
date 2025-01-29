@@ -1319,14 +1319,16 @@ def mysql_build_aarecords_codes_numbers_internal():
 #################################################################################################
 # Add a better primary key to the aarecords_codes_* tables so we get better diffs in bin/check-dumps.
 #
-# ./run flask cli mysql_change_aarecords_codes_tables_for_check_dumps
-@cli.cli.command('mysql_change_aarecords_codes_tables_for_check_dumps')
-def mysql_change_aarecords_codes_tables_for_check_dumps():
+# ./run flask cli mysql_make_aarecords_codes_tables_without_id_for_check_dumps
+@cli.cli.command('mysql_make_aarecords_codes_tables_without_id_for_check_dumps')
+def mysql_make_aarecords_codes_tables_without_id_for_check_dumps():
     with engine.connect() as connection:
         connection.connection.ping(reconnect=True)
         cursor = connection.connection.cursor(pymysql.cursors.SSDictCursor)
         for table_name in list(dict.fromkeys(AARECORD_ID_PREFIX_TO_CODES_TABLE_NAME.values())):
-            cursor.execute(f"ALTER TABLE {table_name} DROP PRIMARY KEY, DROP COLUMN id, ADD PRIMARY KEY(code, aarecord_id);")
+            cursor.execute(f'DROP TABLE IF EXISTS {table_name}_without_id')
+            cursor.execute(f'CREATE TABLE {table_name}_without_id (code VARBINARY({allthethings.utils.AARECORDS_CODES_CODE_LENGTH}) NOT NULL, aarecord_id VARBINARY({allthethings.utils.AARECORDS_CODES_AARECORD_ID_LENGTH}) NOT NULL, PRIMARY KEY (code, aarecord_id)) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin SELECT code, aarecord_id FROM {table_name};')
+        
 
     print("Done!")
 

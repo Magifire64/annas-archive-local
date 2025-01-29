@@ -108,6 +108,7 @@ check-mariadb() {
         --long-query-guard 999999 \
         --no-locks \
         --order-by-primary \
+        --omit-from-file /app/data-imports/scripts/dump_mariadb_omit_tables.txt \
         --outputdir /data-dumps/mariadb
 
     # Remove first and last lines
@@ -117,7 +118,7 @@ check-mariadb() {
 }
 
 flask cli dbreset
-flask cli mysql_change_aarecords_codes_tables_for_check_dumps
+flask cli mysql_make_aarecords_codes_tables_without_id_for_check_dumps
 
 echo "elasticsearch: start"
 time check-elasticsearch
