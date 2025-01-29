@@ -10,10 +10,6 @@
 {% block body %}
   {% from 'macros/copy_button.html' import copy_button %}
 
-  {% if live_debug %}
-    <div class="bg-red-100 p-2 inline-block mb-4 text-xs font-bold rounded">⚙️ LIVE/DEBUG version of this page. 🔨</div>
-  {% endif %}
-
   {% if aarecord_id_split[0] == 'doi' %}
     <div class="text-xl mb-1 font-bold mb-4">
       {{ gettext('page.md5.header.scihub', id=aarecord_id_split[1]) }}

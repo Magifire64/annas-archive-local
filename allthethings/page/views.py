@@ -7648,12 +7648,12 @@ def render_aarecord(record_id):
         if not allthethings.utils.validate_aarecord_ids(ids):
             return render_template("page/aarecord_not_found.html", header_active="search", not_found_field=record_id), 404
 
-        live_debug = False
+        g.live_debug = False
         if request.args.get('livedebug') in [1, '1']:
             if not allthethings.utils.check_is_member(request.cookies, mariapersist_engine):
                 return "?livedebug=1 is only available for members.", 403
             aarecords = get_aarecords_mysql_debug(ids)
-            live_debug = True
+            g.live_debug = True
         else:
             aarecords = get_aarecords_elasticsearch(ids)
 
@@ -7675,11 +7675,10 @@ def render_aarecord(record_id):
             "md5_report_type_mapping": allthethings.utils.get_md5_report_type_mapping(),
             "viewer_supported_extensions": VIEWER_SUPPORTED_EXTENSIONS,
             "signed_in": account_id is not None,
-            "live_debug": live_debug,
         }
 
         r = make_response(render_template("page/aarecord.html", **render_fields))
-        if live_debug:
+        if g.live_debug:
             r.headers.add('Cache-Control', 'no-cache')
         return r
     
@@ -8221,10 +8220,11 @@ def all_search_aggs(display_lang, search_index_long):
     # Similarly to the "unknown language" issue above, we have to filter for empty-string extensions, since it gives too much trouble.
     all_aggregations['search_extension'] = []
     for bucket in search_results_raw['aggregations']['search_extension']['buckets']:
-        if bucket['key'] == '':
-            all_aggregations['search_extension'].append({ 'key': '_empty', 'label': 'unknown', 'doc_count': bucket['doc_count'] })
-        elif bucket['doc_count'] >= 1000 or FLASK_DEBUG:
-            all_aggregations['search_extension'].append({ 'key': bucket['key'], 'label': bucket['key'], 'doc_count': bucket['doc_count'] })
+        if bucket['doc_count'] >= 1000 or FLASK_DEBUG:
+            if bucket['key'] == '':
+                all_aggregations['search_extension'].append({ 'key': '_empty', 'label': 'unknown', 'doc_count': bucket['doc_count'] })
+            else:
+                all_aggregations['search_extension'].append({ 'key': bucket['key'], 'label': bucket['key'], 'doc_count': bucket['doc_count'] })
 
     access_types_buckets = list(search_results_raw['aggregations']['search_access_types']['buckets'])
     access_types_mapping = get_access_types_mapping(display_lang)
@@ -8630,6 +8630,14 @@ def search_page():
     search_dict['specific_search_fields'] = specific_search_fields
     search_dict['specific_search_fields_mapping'] = specific_search_fields_mapping
 
+    g.live_debug = False
+    if request.args.get('livedebug') in [1, '1']:
+        if not allthethings.utils.check_is_member(request.cookies, mariapersist_engine):
+            return "?livedebug=1 is only available for members.", 403
+        g.live_debug = True
+        search_dict['search_aarecords'] = get_aarecords_mysql_debug([aarecord['id'] for aarecord in search_dict['search_aarecords']])
+        search_dict['additional_search_aarecords'] = get_aarecords_mysql_debug([aarecord['id'] for aarecord in search_dict['additional_search_aarecords']])
+
     g.hide_search_bar = True
 
     search_hashes = [record["id"].split("md5:")[1] for record in search_dict["search_aarecords"] if "md5:" in record["id"]]
@@ -8640,6 +8648,6 @@ def search_page():
             search_dict=search_dict,
             search_hashes=search_hashes
         ), 200))
-    if had_es_timeout or (len(search_aarecords) == 0) or (custom_search_sorting in ["___aa_random_sorting"]):
+    if had_es_timeout or (len(search_aarecords) == 0) or (custom_search_sorting in ["___aa_random_sorting"]) or g.live_debug:
         r.headers.add('Cache-Control', 'no-cache')
     return r

@@ -584,7 +584,7 @@
           </div>
         </div>
       </div>
-      <main class="main">{% block body %}{% endblock %}</main>
+      <main class="main">{% if g.live_debug %}<div class="bg-red-100 p-2 inline-block mb-4 text-xs font-bold rounded">⚙️ LIVE/DEBUG version of this page. 🔨</div>{% endif %}{% block body %}{% endblock %}</main>
       <footer class="bg-black/5 text-[#777]" style="box-shadow: 0px 0px 7px rgb(0 0 0 / 30%)">
         <div class="max-w-[1050px] mx-auto p-[12px] leading-relaxed flex flex-wrap">
           <div class="mr-4 mb-4 grow">
