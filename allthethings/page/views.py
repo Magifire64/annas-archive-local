@@ -7947,6 +7947,10 @@ def db_aac_record_json(aacid):
 
     # WARNING: this contributes to preventing SQL injection below.
     collection = re.sub(r'[^a-z0-9_]', '', aacid.split('__')[1])
+    if collection.startswith('upload_records_'):
+        collection = 'upload_records'
+    elif collection.startswith('upload_files_'):
+        collection = 'upload_files'
 
     with engine.connect() as connection:
         cursor = allthethings.utils.get_cursor_ping_conn(connection)
