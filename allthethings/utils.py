@@ -1396,7 +1396,7 @@ UNIFIED_IDENTIFIERS = {
     "lgli_magz_id": { "label": "Libgen.li magz_id", "description": "Repository ID for the 'magz' repository in Libgen.li. Directly taken from the 'magz_id' field in the 'files' table. Corresponds to the 'thousands folder' torrents.", "website": "/datasets/lgli" },
     "filepath": { "label": "Filepath", "description": "Original filepath in source library." },
     "server_path": { "label": "Server Path", "description": "Path on Anna’s Archive partner servers." },
-    "aacid": { "shortenvalue": True, "label": "AacId", "website": "/blog/annas-archive-containers.html", "description": "Anna’s Archive Container identifier." },
+    "aacid": { "shortenvalue": True, "label": "AacId", "url": "/db/aac_record/%s.json.html", "website": "/blog/annas-archive-containers.html", "description": "Anna’s Archive Container identifier." },
     "magzdb": { "label": "MagzDB Edition ID", "url": "http://magzdb.org/num/%s", "description": "ID of an individual edition of a magazine in MagzDB.", "website": "/datasets/magzdb" },
     "nexusstc": { "shortenvalue": True, "label": "Nexus/STC", "url": "https://libstc.cc/#/stc/nid:%s", "description": "ID of an individual edition of a file in Nexus/STC.", "website": "/datasets/nexusstc" },
     "ipfs_cid": { "shortenvalue": True, "label": "IPFS CID", "url": "ipfs://%s", "description": "Content Identifier (CID) of the InterPlanetary File System (IPFS).", "website": "https://ipfs.tech/" },

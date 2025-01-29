@@ -5325,7 +5325,7 @@ def marc_parse_into_file_unified_data(json):
         file_unified_data['content_type_best'] = 'other'
 
     # Based on pymarc but with more whitespace.
-    marc_lines = ['MARC:']
+    marc_lines = ['Russian State Library [rgb] MARC:']
     for field in json['fields']:
         for tag, field_contents in field.items():
             if type(field_contents) is str:
