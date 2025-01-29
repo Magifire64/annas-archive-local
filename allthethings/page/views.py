@@ -7902,6 +7902,41 @@ def db_source_record_json(raw_path):
             return render_db_page(request, '{"error":"Record not found"}', 404)
         return render_db_page(request, result_dicts, 200)
 
+@page.get("/db/aac_record/<string:aacid>.json")
+@page.get("/db/aac_record/<string:aacid>.json.html")
+@page.get("/db/aac_record/<string:aacid>.json.flat")
+@allthethings.utils.no_cache()
+def db_aac_record_json(aacid):
+    if protect_return_val := protect_db_page(request):
+        return protect_return_val
+
+    # WARNING: this contributes to preventing SQL injection below.
+    if not re.match(r'^aacid__[a-z0-9_]+__', aacid):
+        return render_db_page(request, '{"error":"Invalid aacid"}', 404)
+
+    # WARNING: this contributes to preventing SQL injection below.
+    collection = re.sub(r'[^a-z0-9_]', '', aacid.split('__')[1])
+
+    with engine.connect() as connection:
+        cursor = allthethings.utils.get_cursor_ping_conn(connection)
+        cursor.execute('SELECT filename FROM annas_archive_meta_aac_filenames WHERE collection = %(collection)s LIMIT 1', { "collection": collection })
+        aac_filename = allthethings.utils.fetch_one_field(cursor)
+        # WARNING: this contributes to preventing SQL injection below (by checking 'collection' exists).
+        if aac_filename is None:
+            return render_db_page(request, '{"error":"Collection not found"}', 404)
+
+        # WARNING: prone to SQL injection, but we do sufficient checks above.
+        cursor.execute(f'SELECT byte_offset, byte_length FROM annas_archive_meta__aacid__{collection} WHERE aacid = %(aacid)s LIMIT 1', { "aacid": aacid })
+        row = cursor.fetchone()
+        if row is None:
+            return render_db_page(request, '{"error":"Record not found"}', 404)
+
+        aac_lines = allthethings.utils.get_lines_from_aac_file(cursor, collection, [(row['byte_offset'], row['byte_length'])])
+        if len(aac_lines) == 0:
+            raise Exception(f"Unexpected {len(aac_lines)=} in db_aac_record_json")
+        
+        return render_db_page(request, { "requested_aacid": aacid, "collection": collection, "read_from_filename": aac_filename, "aac_record": orjson.loads(aac_lines[0]) }, 200)
+
 # IMPORTANT: Keep in sync with api_md5_fast_download.
 @page.get("/fast_download/<string:md5_input>/<int:path_index>/<int:domain_index>")
 @allthethings.utils.no_cache()
