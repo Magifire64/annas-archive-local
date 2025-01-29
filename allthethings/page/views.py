@@ -7775,11 +7775,19 @@ def scidb_page(doi_input):
         }
         return render_template("page/scidb.html", **render_fields)
 
+def render_db_page(request, output, status_code):
+    if request.path.endswith('.html'):
+        return render_template("page/json.html", nice_json=allthethings.utils.convert_to_jsonc_str(output)), status_code
+    elif request.path.endswith('.flat'):
+        return orjson.dumps(output, option=orjson.OPT_NON_STR_KEYS, default=str).decode('utf-8'), status_code, {'Content-Type': 'text/json; charset=utf-8'}
+    else:
+        return allthethings.utils.nice_json(output), status_code, {'Content-Type': 'text/json; charset=utf-8'}
+
 def protect_db_page(request):
     if request.path.removesuffix('.html') in allthethings.utils.DB_EXAMPLE_PAGES:
         return None
     if not allthethings.utils.check_is_member(request.cookies, mariapersist_engine):
-        return '{"error":"Not a member. To view this page without being a member, mirror our code ( https://software.annas-archive.li/ ) and data ( https://annas-archive.li/torrents#aa_derived_mirror_metadata ) locally. For more resources, check out https://annas-archive.li/datasets and https://software.annas-archive.li/AnnaArchivist/annas-archive/-/tree/main/data-imports"}', 403, {'Content-Type': 'text/json; charset=utf-8'}
+        return render_db_page(request, '{"error":"Not a member. To view this page without being a member, mirror our code ( https://software.annas-archive.li/ ) and data ( https://annas-archive.li/torrents#aa_derived_mirror_metadata ) locally. For more resources, check out https://annas-archive.li/datasets and https://software.annas-archive.li/AnnaArchivist/annas-archive/-/tree/main/data-imports"}', 403)
     return None
 
 @page.get("/db/aarecord_elasticsearch/<path:aarecord_id>.json")
@@ -7805,9 +7813,9 @@ def db_aarecord_json(aarecord_id):
                         "field (which is always runtime-computed), as well as an extra",
                         "`aarecord_mysql_debug` field."]
     if aarecords is None:
-        return '{"error":"Page loading issue"}', 500, {'Content-Type': 'text/json; charset=utf-8'}
+        return render_db_page(request, '{"error":"Page loading issue"}', 500)
     if len(aarecords) == 0:
-        return '{"error":"Record not found"}', 404, {'Content-Type': 'text/json; charset=utf-8'}
+        return render_db_page(request, '{"error":"Record not found"}', 404)
 
     aarecord_comments = {
         "id": ("before", ["File from the combined collections of Anna's Archive.",
@@ -7824,13 +7832,7 @@ def db_aarecord_json(aarecord_id):
 
     aarecord['additional'].pop('fast_partner_urls')
     aarecord['additional'].pop('slow_partner_urls')
-
-    if request.path.endswith('.html'):
-        return render_template("page/json.html", nice_json=allthethings.utils.convert_to_jsonc_str(aarecord))
-    elif request.path.endswith('.flat'):
-        return orjson.dumps(aarecord, option=orjson.OPT_NON_STR_KEYS, default=str).decode('utf-8'), {'Content-Type': 'text/json; charset=utf-8'}
-    else:
-        return allthethings.utils.nice_json(aarecord), {'Content-Type': 'text/json; charset=utf-8'}
+    return render_db_page(request, aarecord, 200)
 
 @page.get("/db/source_record/<path:raw_path>.json")
 @page.get("/db/source_record/<path:raw_path>.json.html")
@@ -7846,7 +7848,7 @@ def db_source_record_json(raw_path):
         # All functions should have strict checks on this, but just in case, to prevent accidental
         # SQL injections (since we turned this into user input here only recently).
         if not re.fullmatch(r'[A-Za-z0-9_]+', path_key):
-            return '{"error":"Invalid path_key"}', 404, {'Content-Type': 'text/json; charset=utf-8'}
+            return render_db_page(request, '{"error":"Invalid path_key"}', 404)
 
         if path_func == 'get_zlib_book_dicts':
             result_dicts = get_zlib_book_dicts(session, path_key, [path_id])
@@ -7895,17 +7897,10 @@ def db_source_record_json(raw_path):
         elif path_func == 'get_aac_trantor_book_dicts':
             result_dicts = get_aac_trantor_book_dicts(session, path_key, [path_id])
         else:
-            return '{"error":"Unknown path"}', 404, {'Content-Type': 'text/json; charset=utf-8'}
-
+            return render_db_page(request, '{"error":"Unknown path"}', 404)
         if len(result_dicts) == 0:
-            return '{"error":"Record not found"}', 404, {'Content-Type': 'text/json; charset=utf-8'}
-
-        if request.path.endswith('.html'):
-            return render_template("page/json.html", nice_json=allthethings.utils.convert_to_jsonc_str(result_dicts))
-        elif request.path.endswith('.flat'):
-            return orjson.dumps(result_dicts, option=orjson.OPT_NON_STR_KEYS, default=str).decode('utf-8'), {'Content-Type': 'text/json; charset=utf-8'}
-        else:
-            return allthethings.utils.nice_json(result_dicts), {'Content-Type': 'text/json; charset=utf-8'}
+            return render_db_page(request, '{"error":"Record not found"}', 404)
+        return render_db_page(request, result_dicts, 200)
 
 # IMPORTANT: Keep in sync with api_md5_fast_download.
 @page.get("/fast_download/<string:md5_input>/<int:path_index>/<int:domain_index>")
