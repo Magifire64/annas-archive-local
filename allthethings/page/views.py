@@ -7784,8 +7784,10 @@ def protect_db_page(request):
 
 @page.get("/db/aarecord_elasticsearch/<path:aarecord_id>.json")
 @page.get("/db/aarecord_elasticsearch/<path:aarecord_id>.json.html")
+@page.get("/db/aarecord_elasticsearch/<path:aarecord_id>.json.flat")
 @page.get("/db/aarecord_mysql_debug/<path:aarecord_id>.json")
 @page.get("/db/aarecord_mysql_debug/<path:aarecord_id>.json.html")
+@page.get("/db/aarecord_mysql_debug/<path:aarecord_id>.json.flat")
 @allthethings.utils.no_cache()
 def db_aarecord_json(aarecord_id):
     if protect_return_val := protect_db_page(request):
@@ -7825,11 +7827,14 @@ def db_aarecord_json(aarecord_id):
 
     if request.path.endswith('.html'):
         return render_template("page/json.html", nice_json=allthethings.utils.convert_to_jsonc_str(aarecord))
+    elif request.path.endswith('.flat'):
+        return orjson.dumps(aarecord, option=orjson.OPT_NON_STR_KEYS, default=str).decode('utf-8'), {'Content-Type': 'text/json; charset=utf-8'}
     else:
         return allthethings.utils.nice_json(aarecord), {'Content-Type': 'text/json; charset=utf-8'}
 
 @page.get("/db/source_record/<path:raw_path>.json")
 @page.get("/db/source_record/<path:raw_path>.json.html")
+@page.get("/db/source_record/<path:raw_path>.json.flat")
 @allthethings.utils.no_cache()
 def db_source_record_json(raw_path):
     if protect_return_val := protect_db_page(request):
@@ -7897,6 +7902,8 @@ def db_source_record_json(raw_path):
 
         if request.path.endswith('.html'):
             return render_template("page/json.html", nice_json=allthethings.utils.convert_to_jsonc_str(result_dicts))
+        elif request.path.endswith('.flat'):
+            return orjson.dumps(result_dicts, option=orjson.OPT_NON_STR_KEYS, default=str).decode('utf-8'), {'Content-Type': 'text/json; charset=utf-8'}
         else:
             return allthethings.utils.nice_json(result_dicts), {'Content-Type': 'text/json; charset=utf-8'}
 
