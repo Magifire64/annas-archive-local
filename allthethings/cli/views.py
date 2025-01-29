@@ -1179,7 +1179,7 @@ def mysql_build_aarecords_codes_numbers_internal():
                                         IF(
                                             SUBSTRING_INDEX(code, ":", 1) = @prev, 
                                             @cnt := @cnt + 1, 
-                                            LAST_VALUE(@cnt := NVL(COLUMN_GET(@code_prefix := COLUMN_ADD(@code_prefix, @prev, @cnt), SUBSTRING_INDEX(code, ":", 1) as int), 0) + 1, @prev := SUBSTRING_INDEX(code, ":", 1)) 
+                                            LAST_VALUE(@cnt := NVL(COLUMN_GET(@code_prefix := COLUMN_ADD(@code_prefix, @prev, @cnt), SUBSTRING_INDEX(code, ":", 1) as int), 0) + 1, @prev := CONVERT(SUBSTRING_INDEX(code, ":", 1) USING utf8mb4)) 
                                         ), NULL
                                     ), 0) as p
                                 FROM {tablename}""")
