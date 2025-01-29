@@ -215,7 +215,7 @@
             {% endfor %}
           </div>
           {% if search_dict.search_index_short == '' %}
-            <div class="font-bold mb-1">{{ gettext('page.search.filters.filetype.header') }}</div>
+            <div class="font-bold mb-1">{{ gettext('page.search.filters.filetype.header') }} <a href="/view" target="_blank" class="font-normal text-xs">open our viewer</a></div>
             <div class="mb-4">
               {% for bucket in search_dict.aggregations.search_extension %}
                 <input type="checkbox" class="hidden js-tristate-yes--ext--{{bucket.key}}" name="ext" value="{{bucket.key}}" {% if bucket.selected %}checked{% endif %}>
@@ -224,7 +224,7 @@
                 <script>window.makeTristateCheckbox('ext--' + {{ bucket.key | tojson }});</script>
               {% endfor %}
               {% if search_dict.aggregations.search_extension | length > 5 %}
-                <a href="#" onclick="event.preventDefault(); event.stopPropagation(); for(var el of document.querySelectorAll('.js-extension-hidden')) { el.classList.remove('hidden') }; event.currentTarget.classList.add('hidden')">{{ gettext('page.search.more') }}</a>
+                <a href="#" class="text-xs mt-[-2px] block" onclick="event.preventDefault(); event.stopPropagation(); for(var el of document.querySelectorAll('.js-extension-hidden')) { el.classList.remove('hidden') }; event.currentTarget.classList.add('hidden')">{{ gettext('page.search.more') }}</a>
               {% endif %}
             </div>
           {% endif %}
@@ -256,7 +256,7 @@
                 <script>window.makeTristateCheckbox('lang--' + {{ bucket.key | tojson }});</script>
               {% endfor %}
               {% if search_dict.aggregations.search_most_likely_language_code | length > 10 %}
-                <a href="#" onclick="event.preventDefault(); event.stopPropagation(); for(var el of document.querySelectorAll('.js-language-hidden')) { el.classList.remove('hidden') }; event.currentTarget.classList.add('hidden')">{{ gettext('page.search.more') }}</a>
+                <a href="#" class="text-xs mt-[-2px] block" onclick="event.preventDefault(); event.stopPropagation(); for(var el of document.querySelectorAll('.js-language-hidden')) { el.classList.remove('hidden') }; event.currentTarget.classList.add('hidden')">{{ gettext('page.search.more') }}</a>
               {% endif %}
             </div>
           {% endif %}

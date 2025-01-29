@@ -8183,11 +8183,11 @@ def ipfs_downloads(aarecord_id):
 
 def search_query_aggs(search_index_long):
     return {
-        "search_content_type": { "terms": { "field": "search_only_fields.search_content_type", "size": 200 } },
-        "search_extension": { "terms": { "field": "search_only_fields.search_extension", "size": 20 } },
+        "search_content_type": { "terms": { "field": "search_only_fields.search_content_type", "size": 100 } },
+        "search_extension": { "terms": { "field": "search_only_fields.search_extension", "size": 100 } },
         "search_access_types": { "terms": { "field": "search_only_fields.search_access_types", "size": 100 } },
         "search_record_sources": { "terms": { "field": "search_only_fields.search_record_sources", "size": 100 } },
-        "search_most_likely_language_code": { "terms": { "field": "search_only_fields.search_most_likely_language_code", "size": 70 } },
+        "search_most_likely_language_code": { "terms": { "field": "search_only_fields.search_most_likely_language_code", "size": 100 } },
     }
 
 @cachetools.cached(cache=cachetools.TTLCache(maxsize=30000, ttl=60*60), lock=threading.Lock())
@@ -8265,11 +8265,11 @@ def search_page():
 
     search_input = request.args.get("q", "").strip()
     filter_values = {
-        'search_most_likely_language_code': [val.strip()[0:20] for val in request.args.getlist("lang")],
-        'search_content_type': [val.strip()[0:30] for val in request.args.getlist("content")],
-        'search_extension': [val.strip()[0:15] for val in request.args.getlist("ext")],
-        'search_access_types': [val.strip()[0:55] for val in request.args.getlist("acc")],
-        'search_record_sources': [val.strip()[0:25] for val in request.args.getlist("src")],
+        'search_most_likely_language_code': [val.strip()[0:100] for val in request.args.getlist("lang")],
+        'search_content_type': [val.strip()[0:100] for val in request.args.getlist("content")],
+        'search_extension': [val.strip()[0:100] for val in request.args.getlist("ext")],
+        'search_access_types': [val.strip()[0:100] for val in request.args.getlist("acc")],
+        'search_record_sources': [val.strip()[0:100] for val in request.args.getlist("src")],
     }
     search_desc = (request.args.get("desc", "").strip() == "1")
     page_value_str = request.args.get("page", "").strip()

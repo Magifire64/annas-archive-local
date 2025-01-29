@@ -319,7 +319,7 @@
           {% endfor %}
           {% if (aarecord.file_unified_data.extension_best | lower) in viewer_supported_extensions.values() | sum(start=[]) %}
             <!-- TODO:TRANSLATE -->
-            <li class="list-disc">After downloading: <a href="/view">Open in our viewer</a></li>
+            <li class="list-disc">After downloading: <a href="/view" target="_blank">Open in our viewer</a></li>
           {% endif %}
         </ul>
       </div>
