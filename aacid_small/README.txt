@@ -41,4 +41,9 @@ docker exec -it web bash -c 'for f in /app/aacid_small/*.jsonl; do echo "Process
 - aacid__ia2_records__20240126T070531Z__cT7Di2ntyu3QYKZCi8xKEH => isbn13:9789990500110 => aacid__cerlalc_records__20240918T044206Z__969UNYjPsEH4iMUC6NwPrc
 - aacid__zlib3_records__20240809T200924Z__21891758__6JKGg7ar5ccWPjfSbU8mW8 => isbn13:9780586211281 => isbn13_prefix:9780586 => aacid__isbngrp_records__20240920T194930Z__A5mavEDkDnenRFaCXbGEZY
 - aacid__zlib3_records__20240809T215546Z__27250306__oFf82h43Ta6EuVERvbVjp9 => isbn13:9785020171077 => aacid__rgb_records__20240919T161201Z__eVx9gaYSR4L5oiXpzXZ8Rr
+
+# OCLC
 - Testing handling of Pinyin in OCLC: aacid__ia2_records__20240701T024712Z__Sh6hUwpSdhnw93HTc5JvXC / aacid__ia2_acsmpdf_files__20240701T023706Z__WTmNK44PWWfrf5rvF8SFaU (/md5/529566fb502ee2ea3f949d8b2b3158a1) => isbn13:9787513717076 => aacid__worldcat__20241230T203056Z__3r25T8BKvPVgHDTAzxUYi3 / aacid__worldcat__20241230T203056Z__Guo45SEnRjJoDyBcz9oSKM
+
+# Upload
+- .lit files shouldn't be marked as having a problem due to exiftool failing: aacid__upload_records_duxiu_main2__20250115T164002Z__2161813__Hz7FmJgpsNbFkf6WTysAma / aacid__upload_files_duxiu_main2__20250114T221524Z__UzKP3QAnBfjBhoPrg26GsM

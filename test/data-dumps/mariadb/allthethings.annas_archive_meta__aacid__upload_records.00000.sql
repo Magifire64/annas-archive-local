@@ -20,6 +20,7 @@ INSERT INTO `annas_archive_meta__aacid__upload_records` VALUES("aacid__upload_re
 ,("aacid__upload_records_docer__20240627T205927Z__432975__9SmmtDCRLixtjHEodyvkdQ","432975","43bd76d2a5970d4a0490bae56097379b",71688,1908)
 ,("aacid__upload_records_docer__20240627T205927Z__433108__UWgtDDMkYYwpXoi6Vf2Pik","433108","a5d023d1b4ea493d62cb96dacd49d8eb",51761,19927)
 ,("aacid__upload_records_duxiu_epub__20240627T211617Z__5639315__4wi3AWvjU6SPR2hMR4EMzx","5639315","6216894c6c0396a5d260b9e9bf473647",73596,1670)
+,("aacid__upload_records_duxiu_main2__20250115T164002Z__2161813__Hz7FmJgpsNbFkf6WTysAma","2161813","a50f5cfc33e9394c85b7d970f3446094",258706,1495)
 ,("aacid__upload_records_duxiu_main__20240627T214141Z__6367245__nsmJFqUywLFZ6KJn3SbM3w"," 6367245","3b773f5cfb586c9edbcebdf05568d078",140271,1276)
 ,("aacid__upload_records_duxiu_main__20240627T214141Z__6367248__64Qp3DyW93XcJFvMJQZC9H"," 6367248","aeb1aa6872e503eecc1d4aa756839e1b",141547,1668)
 ,("aacid__upload_records_duxiu_main__20240627T214141Z__6367253__izTrUkyyGKeSpQE6RAtiJv"," 6367253","620a2def451a252c916b7e2747680db5",143215,1276)

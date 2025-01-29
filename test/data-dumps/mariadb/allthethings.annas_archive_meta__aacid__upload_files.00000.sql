@@ -17,6 +17,7 @@ INSERT INTO `annas_archive_meta__aacid__upload_files` VALUES("aacid__upload_file
 ,("aacid__upload_files_docer__20240510T033736Z__bp4vZMHXSwDijyxdaiMiLN","43bd76d2a5970d4a0490bae56097379b",NULL,4268,275)
 ,("aacid__upload_files_docer__20240510T033736Z__GcHbvsoso7GDcL4ifRzZrE","a5d023d1b4ea493d62cb96dacd49d8eb",NULL,3992,276)
 ,("aacid__upload_files_duxiu_epub__20240510T044938Z__FjHXnCrWD3eMv4Akcivs92","6216894c6c0396a5d260b9e9bf473647",NULL,4543,310)
+,("aacid__upload_files_duxiu_main2__20250114T221524Z__UzKP3QAnBfjBhoPrg26GsM","a50f5cfc33e9394c85b7d970f3446094",NULL,9934,973)
 ,("aacid__upload_files_duxiu_main__20240526T014752Z__aBuXKHpU8c22g8tv6fCNP5","aeb1aa6872e503eecc1d4aa756839e1b",NULL,5497,394)
 ,("aacid__upload_files_duxiu_main__20240526T014752Z__FX8vGCW3g9vgrM8sCQejif","620a2def451a252c916b7e2747680db5",NULL,4853,322)
 ,("aacid__upload_files_duxiu_main__20240526T014752Z__SQLfA6TZRBviLS8SXeTDCN","3b773f5cfb586c9edbcebdf05568d078",NULL,5175,322)
