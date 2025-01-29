@@ -5605,13 +5605,14 @@ def get_aac_trantor_book_dicts(session, key, values):
 
 
 def is_string_subsequence(needle, haystack):
-    i_needle = 0
-    i_haystack = 0
-    while i_needle < len(needle) and i_haystack < len(haystack):
-        if needle[i_needle].lower() == haystack[i_haystack].lower():
-            i_needle += 1
-        i_haystack += 1
-    return i_needle == len(needle)
+    normalized_needle = needle.lower()
+    normalized_haystack = haystack.lower()
+    current_pos = 0
+    for c in normalized_needle:
+        current_pos = normalized_haystack.find(c, current_pos) + 1
+        if current_pos == 0:
+            return False
+    return True
 
 def sort_by_length_and_filter_subsequences_with_longest_string_and_normalize_unicode(strings):
     # WARNING: we depend on this being stable sorted, e.g. when calling max(.., key=len).
