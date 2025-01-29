@@ -82,7 +82,6 @@ INSERT INTO `aarecords_codes_magzdb_without_id` VALUES("aacid:aacid__magzdb_reco
 ,("filepath:magzdb/Библиотека «Огонёк»/1925/5/767aa2cfd486b9835687cd548202f34c.pdf","magzdb:3537954")
 ,("filepath:magzdb/Искатель/1961/4/2d7b0f6e604bf1fcb053640cb464cc94.pdf","magzdb:1609")
 ,("filepath:magzdb/Искатель/1961/4/cc64d07de13dce3b0a1ea723ed2385ce.djvu","magzdb:1609")
-,("filepath:magzdb/Искатель/1962/6/","magzdb:1623")
 ,("filepath:magzdb/Искатель/1962/6/089f4c242f933787311546740a2b42ac.pdf","magzdb:1623")
 ,("filepath:magzdb/Искатель/1962/6/2ee33ba573e0f8995116073f34f47fea.djvu","magzdb:1623")
 ,("filepath:magzdb/Искатель/1962/6/e7d2e1ac04c6b89731a9be617a296b94.fb2","magzdb:1623")

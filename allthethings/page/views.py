@@ -5896,6 +5896,7 @@ def merge_file_unified_data_strings(source_records_by_type, iterations):
                 expanded_iteration.append((source_type, field_name))
             else:
                 raise Exception(f"Unexpected {source_type=} in merge_file_unified_data_strings")
+        new_strings_this_iteration = []
         for source_type, field_name in expanded_iteration:
             for source_record in source_records_by_type[source_type]:
                 if field_name.endswith('_best'):
@@ -5907,6 +5908,7 @@ def merge_file_unified_data_strings(source_records_by_type, iterations):
                 for string_to_add in strings_to_add:
                     string = string_to_add.strip()
                     multiple_str.append(string)
+                    new_strings_this_iteration.append(string)
                     provenance_info.append({
                         "iteration_index": iteration_index,
                         "string": string,
@@ -5918,6 +5920,12 @@ def merge_file_unified_data_strings(source_records_by_type, iterations):
         multiple_str = sort_by_length_and_filter_subsequences_with_longest_string_and_normalize_unicode(multiple_str) # Before selecting best, since the best might otherwise get filtered.
         if best_str == '':
             best_str = max(multiple_str + [''], key=len)
+        else:
+            # Find the longest new string of which best_str is a subsequence, and use that instead.
+            for other_str in sorted([s for s in new_strings_this_iteration if len(s) > len(best_str)], key=lambda s: -len(s)):
+                if is_string_subsequence(best_str, other_str):
+                    best_str = other_str
+                    break
     multiple_str = [s for s in multiple_str if s != best_str]
     return (best_str, multiple_str, {
         "best_str": best_str,
