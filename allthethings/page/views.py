@@ -7319,7 +7319,7 @@ def get_additional_for_aarecord(aarecord):
         if source_record['file_aacid'] is not None:
             server = 'g3'
             date = source_record['file_data_folder'].split('__')[3][0:8]
-            if date in ['20241105', '20241217']:
+            if date >= '20241105':
                 server = 'g6'
             zlib_path = make_temp_anon_aac_path(f"{server}/zlib3_files", source_record['file_aacid'], source_record['file_data_folder'])
             add_partner_servers(zlib_path, 'aa_exclusive' if (len(additional['fast_partner_urls']) == 0) else '', aarecord, additional)
