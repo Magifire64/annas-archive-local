@@ -5604,8 +5604,8 @@ def get_aac_trantor_book_dicts(session, key, values):
 
 
 def is_string_subsequence(needle, haystack):
-    normalized_needle = needle.lower()
-    normalized_haystack = haystack.lower()
+    normalized_needle = re.sub(r'\s+', ' ', re.sub(r'[^\w\s]', '', needle.lower()))
+    normalized_haystack = re.sub(r'\s+', ' ', re.sub(r'[^\w\s]', '', haystack.lower()))
     current_pos = 0
     for c in normalized_needle:
         current_pos = normalized_haystack.find(c, current_pos) + 1
