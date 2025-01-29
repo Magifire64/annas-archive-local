@@ -2961,6 +2961,13 @@ def oclc_get_authors_from_authors(authors):
         })
     return oclc_get_authors_from_contributors(contributors)
 
+def oclc_string_good_enough_for_best(string, language_codes):
+    if len(string) < 6:
+        return False
+    if ('zh' in language_codes) and allthethings.utils.looks_like_pinyin(string):
+        return False
+    return True
+
 def get_oclc_dicts(session, key, values):
     if len(values) == 0:
         return []
@@ -3137,6 +3144,8 @@ def get_oclc_dicts(session, key, values):
             potential_year = re.search(r"(\d\d\d\d)", s)
             if potential_year is not None:
                 oclc_dict["file_unified_data"]["year_additional"].append(potential_year[0])
+                if oclc_dict["file_unified_data"]["year_best"] == '':
+                    oclc_dict["file_unified_data"]["year_best"] = potential_year[0]
 
         oclc_dict["file_unified_data"]["content_type_best"] = 'other'
         if "thsis" in oclc_dict["aa_oclc_derived"]["specific_format_multiple"]:
@@ -3156,16 +3165,19 @@ def get_oclc_dicts(session, key, values):
         elif "msscr" in oclc_dict["aa_oclc_derived"]["general_format_multiple"]:
             oclc_dict["file_unified_data"]["content_type_best"] = 'musical_score'
 
-        oclc_dict["file_unified_data"]['edition_varia_best'] = ', '.join(list(dict.fromkeys(filter(len, [
+        edition_varia_normalized = ', '.join(list(dict.fromkeys(filter(len, [
             max(['', *oclc_dict["aa_oclc_derived"]["series_multiple"]], key=len),
             max(['', *oclc_dict["aa_oclc_derived"]["volume_multiple"]], key=len),
             max(['', *oclc_dict["aa_oclc_derived"]["edition_multiple"]], key=len),
             max(['', *oclc_dict["aa_oclc_derived"]["place_multiple"]], key=len),
             max(['', *oclc_dict["aa_oclc_derived"]["date_multiple"]], key=len),
         ]))))
+        if edition_varia_normalized != '':
+            oclc_dict["file_unified_data"]['edition_varia_additional'] = [edition_varia_normalized]
 
         oclc_dict['file_unified_data']['stripped_description_additional'] = [strip_description(description) for description in oclc_dict['aa_oclc_derived']['description_multiple']]
-        oclc_dict['file_unified_data']['language_codes'] = combine_bcp47_lang_codes([get_bcp47_lang_codes(language) for language in oclc_dict['aa_oclc_derived']['languages_multiple']])
+        language_codes = combine_bcp47_lang_codes([get_bcp47_lang_codes(language) for language in oclc_dict['aa_oclc_derived']['languages_multiple']])
+        oclc_dict['file_unified_data']['language_codes'] = language_codes
 
         allthethings.utils.add_identifier_unified(oclc_dict['file_unified_data'], 'oclc', oclc_id)
         allthethings.utils.add_isbns_unified(oclc_dict['file_unified_data'], oclc_dict['aa_oclc_derived']['isbn_multiple'])
@@ -3175,6 +3187,11 @@ def get_oclc_dicts(session, key, values):
             allthethings.utils.add_identifier_unified(oclc_dict['file_unified_data'], 'doi', doi.lower())
         for aac_record in aac_records:
             allthethings.utils.add_identifier_unified(oclc_dict['file_unified_data'], 'aacid', aac_record['aacid'])
+
+        oclc_dict["file_unified_data"]["title_best"] = max([string for string in oclc_dict["file_unified_data"]["title_additional"] if oclc_string_good_enough_for_best(string, language_codes)] + [''], key=len)
+        oclc_dict["file_unified_data"]["author_best"] = max([string for string in oclc_dict["file_unified_data"]["author_additional"] if oclc_string_good_enough_for_best(string, language_codes)] + [''], key=len)
+        oclc_dict["file_unified_data"]["publisher_best"] = max([string for string in oclc_dict["file_unified_data"]["publisher_additional"] if oclc_string_good_enough_for_best(string, language_codes)] + [''], key=len)
+        oclc_dict["file_unified_data"]["edition_varia_best"] = max([string for string in oclc_dict["file_unified_data"]["edition_varia_additional"] if oclc_string_good_enough_for_best(string, language_codes)] + [''], key=len)
 
         total_holding_count = max([len(oclc_dict["aa_oclc_derived"]["library_ids_multiple"])] + oclc_dict["aa_oclc_derived"]["total_holding_count_multiple"], default=0)
         total_edition_count = max(oclc_dict["aa_oclc_derived"]["total_edition_count_multiple"], default=0)

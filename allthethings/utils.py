@@ -25,6 +25,7 @@ import traceback
 import time
 import email
 import email.policy
+import py_pinyin_split
 from sqlalchemy.orm import Session
 
 from flask_babel import gettext, get_babel, force_locale
@@ -2412,3 +2413,14 @@ def groupby(dicts, index_field, unpack_field=None):
         unpack_field_value = unpack_field_func(row)
         output[index_field_value].append(unpack_field_value)
     return output
+
+def looks_like_pinyin(string):
+    tokenizer = py_pinyin_split.PinyinTokenizer(include_nonstandard=True)
+    string_with_only_letters = re.sub(r'[^a-zA-Z]', '', string)
+    if len(string_with_only_letters) == 0:
+        return False
+    try:
+        tokenizer.tokenize(string_with_only_letters)
+        return True
+    except:
+        return False
