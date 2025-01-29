@@ -85,6 +85,7 @@ INSERT INTO `annas_archive_meta__aacid__worldcat__edition_cluster_pairs` VALUES(
 ,(278,278)
 ,(280,280)
 ,(7653973,178)
+,(13625160,1243244995)
 ,(18734432,217)
 ,(31365269,222)
 ,(48139492,164)
@@ -128,6 +129,7 @@ INSERT INTO `annas_archive_meta__aacid__worldcat__edition_cluster_pairs` VALUES(
 ,(979629464,249)
 ,(980010280,248)
 ,(980553627,208)
+,(994301970,1243244995)
 ,(1051304711,204)
 ,(1340117770,260)
 ;

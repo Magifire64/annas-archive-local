@@ -9,4 +9,5 @@ INSERT INTO `annas_archive_meta__aacid__ia2_records` VALUES("aacid__ia2_records_
 ,("aacid__ia2_records__20240126T070451Z__NvMQ2fj3EjR2pzmFn77hyJ","tankkillingantit0000hogg",NULL,6852,4109)
 ,("aacid__ia2_records__20240126T070531Z__cT7Di2ntyu3QYKZCi8xKEH","vocabularioaymar0000arno",NULL,23091,4661)
 ,("aacid__ia2_records__20240701T024508Z__fXwMUwGaE2u4Qi3vLi6hXe","humanvaluessocia0000unse_g5g1",NULL,4348,2504)
+,("aacid__ia2_records__20240701T024712Z__Sh6hUwpSdhnw93HTc5JvXC","isbn_9787513717076",NULL,27752,3774)
 ;
