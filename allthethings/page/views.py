@@ -1834,8 +1834,8 @@ def process_ol_book_dict(ol_book_dict):
             title_stripped += ": " + extract_ol_str_field(ol_book_dict['edition']['json']['subtitle'])
         file_unified_data['title_additional'].append(title_stripped)
         file_unified_data['title_best'] = title_stripped
-    file_unified_data['title_best'] = file_unified_data['title_best'].replace(' : ', ': ')
-    file_unified_data['title_additional'] = [title.replace(' : ', ': ') for title in file_unified_data['title_additional']]
+    file_unified_data['title_best'] = file_unified_data['title_best'].replace(' : ', ': ').removesuffix('.')
+    file_unified_data['title_additional'] = [title.replace(' : ', ': ').removesuffix('.') for title in file_unified_data['title_additional']]
 
     if (authors_list := ", ".join([extract_ol_str_field(author['json']['name']) for author in ol_book_dict['authors'] if 'name' in author['json']])) != '':
         file_unified_data['author_best'] = authors_list
@@ -1844,13 +1844,12 @@ def process_ol_book_dict(ol_book_dict):
         file_unified_data['author_best'] = by_statement
         file_unified_data['author_additional'].append(by_statement)
 
-    file_unified_data['author_best'] = file_unified_data['author_best'].replace(' ; ', '; ').replace(' , ', ', ')
-    if file_unified_data['author_best'].endswith('.'):
-        file_unified_data['author_best'] = file_unified_data['author_best'][0:-1]
+    file_unified_data['author_best'] = file_unified_data['author_best'].replace(' ; ', '; ').replace(' , ', ', ').removesuffix('.')
+    file_unified_data['author_additional'] = [author.replace(' ; ', '; ').replace(' , ', ', ').removesuffix('.') for author in file_unified_data['author_additional']]
 
-    file_unified_data['publisher_best'] = (", ".join([extract_ol_str_field(field) for field in ol_book_dict['edition']['json'].get('publishers') or []])).strip()
+    file_unified_data['publisher_best'] = ("; ".join([extract_ol_str_field(field) for field in ol_book_dict['edition']['json'].get('publishers') or []])).strip()
     if len(file_unified_data['publisher_best']) == 0:
-        file_unified_data['publisher_best'] = (", ".join([extract_ol_str_field(field) for field in ol_book_dict['edition']['json'].get('distributors') or []])).strip()
+        file_unified_data['publisher_best'] = ("; ".join([extract_ol_str_field(field) for field in ol_book_dict['edition']['json'].get('distributors') or []])).strip()
 
     ol_book_dict['aa_ol_derived']['all_dates'] = [item.strip() for item in [
         extract_ol_str_field(ol_book_dict['edition']['json'].get('publish_date')),
