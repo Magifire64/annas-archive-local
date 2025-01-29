@@ -3936,7 +3936,7 @@ def get_aac_upload_book_dicts(session, key, values):
 
             upload_book_exiftool_append(aac_upload_book_dict['aa_upload_derived']['producer_multiple'], record, 'Producer')
 
-            if (record['metadata'].get('exiftool_failed') or False) and ('Wide character in print' not in ((record['metadata'].get('exiftool_output') or {}).get('error') or '')):
+            if (record['metadata'].get('exiftool_failed') or False) and ('Wide character in print' not in ((record['metadata'].get('exiftool_output') or {}).get('error') or '')) and ('lit' not in aac_upload_book_dict['file_unified_data']['extension_additional']) and ('txt' not in aac_upload_book_dict['file_unified_data']['extension_additional']) and ('updb' not in aac_upload_book_dict['file_unified_data']['extension_additional']):
                 aac_upload_book_dict['file_unified_data']['problems'].append({ 'type': 'upload_exiftool_failed', 'descr': '', 'only_if_no_partner_server': False, 'better_aarecord_id': '' })
 
             potential_languages = []

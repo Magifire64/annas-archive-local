@@ -2389,7 +2389,6 @@ INSERT INTO `aarecords_codes_main_without_id` VALUES("aacid:aacid__czech_oo42hck
 ,("file_problem:lgli_visible","md5:ed3cb6a0fa48e2f366832656431d9d5f")
 ,("file_problem:lgrsnf_visible","md5:bd5eae4da074a643f9963bdb3a90c6d1")
 ,("file_problem:lgrsnf_visible","md5:d14ecd07f143687de5ea4f04eeb88d37")
-,("file_problem:upload_exiftool_failed","md5:a50f5cfc33e9394c85b7d970f3446094")
 ,("file_problem:upload_exiftool_failed","md5:fe1eb0e1ffae824cb844c85710b143ed")
 ,("file_problem:zlib_missing","md5:3e9d433759c86c1725413458019eecd4")
 ,("file_problem:zlib_missing","md5:515345d5562e55aef518b5fa5e199ce4")
