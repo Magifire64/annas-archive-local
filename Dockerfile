@@ -120,6 +120,21 @@ RUN sed -i '/#onLoad({ detail: { doc } }) {/!b;n;a\\t\twindow.top.postMessage("r
 RUN curl -L https://github.com/RussCoder/djvujs/releases/download/L.0.5.4_V.0.10.1/djvu.js --create-dirs -o /public/djvujs/djvu.js 
 RUN curl -L https://github.com/RussCoder/djvujs/releases/download/L.0.5.4_V.0.10.1/djvu_viewer.js --create-dirs -o /public/djvujs/djvu_viewer.js 
 
+# Get kthoom
+RUN git clone --depth 1 https://github.com/codedread/kthoom /public/kthoom \
+    && cd /public/kthoom \
+    && git fetch origin 6ec1a413f26c42957c527879e75d03a705a3a8df --depth 1 \
+    && git checkout 6ec1a413f26c42957c527879e75d03a705a3a8df
+
+# Get villain.js 
+RUN curl -L https://raw.githubusercontent.com/btzr-io/Villain/refs/heads/master/packages/villain-react/dist/villain.js --create-dirs -o /public/villainjs/villain.js
+RUN curl -L https://raw.githubusercontent.com/btzr-io/Villain/refs/heads/master/packages/villain-react/dist/style.css --create-dirs -o /public/villainjs/style.css
+# Get libarchive.js (villain.js dependancy)
+RUN wget https://github.com/nika-begiashvili/libarchivejs/archive/refs/tags/v1.3.0.zip -O /public/libarchive-v1.3.0.zip
+RUN rm -rf /public/libarchivejs
+RUN mkdir /public/libarchivejs
+RUN unzip /public/libarchive-v1.3.0.zip -d /public/libarchivejs
+
 COPY --from=assets /app/public /public
 
 COPY . .

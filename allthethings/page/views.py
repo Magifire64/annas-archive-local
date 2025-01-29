@@ -7631,7 +7631,13 @@ def trantor_page(trantor_id):
     return render_aarecord(f"trantor:{trantor_id}")
 
 
-VIEWER_SUPPORTED_EXTENSIONS = {"pdfjs": ["pdf"], "foliatejs": ["epub", "fb2", "mobi", "cbz", "azw3"], "djvujs": ["djvu"]}
+VIEWER_SUPPORTED_EXTENSIONS = {
+    "pdfjs": ["pdf"], 
+    "foliatejs": ["epub", "fb2", "mobi", "azw3"], 
+    "djvujs": ["djvu"],
+    "kthoom": ["cbz", "cbr"],
+    "villainjs": ["rar", "zip"]
+}
 
 def render_aarecord(record_id):
     if allthethings.utils.DOWN_FOR_MAINTENANCE:

@@ -2,15 +2,21 @@
 
 {% block title %}{{"Viewer"}}{% endblock %}
 
+{% block stylesheets %}<link rel="stylesheet" href="/villainjs/style.css">{% endblock %}
+
 {% block meta_tags %}
   <!-- TODO:TRANSLATE (entire page) -->
   <meta name="description" content="View Files" />
 {% endblock %}
 
 {% block main %}
+  <script src="/react/react.production.min.js"></script>
+  <script src="/react/react-dom.production.min.js"></script>
+  <script src="/react/reakit.min.js"></script>
   <script src="/djvujs/djvu.js"></script>
   <script src="/djvujs/djvu_viewer.js"></script>
-
+  <script>window.reakit = window.Reakit;</script>
+  <script src="/villainjs/villain.js"></script>
   <script>
     const supportedExtensions = {{ viewer_supported_extensions | tojson }};
 
@@ -26,17 +32,33 @@
 
     function loadViewerByUrl(fileUrl, fileType) {
       if (!fileType) {
-        const parsedUrl = parseUrl(fileUrl);
+        const parsedUrl = parseUrl(encodeURI(fileUrl));
         fileType = parsedUrl.split(".").pop();
       }
       if (supportedExtensions["pdfjs"].includes(fileType)) {
-        document.body.innerHTML = `<iframe src="/pdfjs/web/viewer.html?file=${encodeURIComponent(fileUrl)}" title="webviewer" frameborder="0" class="w-full h-full"></iframe>`;
+        document.body.innerHTML = `<iframe src="/pdfjs/web/viewer.html?file=${encodeURI(fileUrl)}" title="webviewer" frameborder="0" class="w-full h-full"></iframe>`;
       } else if (supportedExtensions["djvujs"].includes(fileType)) {
         const viewer = new DjVu.Viewer();
         viewer.render(document.body);
         viewer.loadDocumentByUrl(fileUrl);
       } else if (supportedExtensions["foliatejs"].includes(fileType)) {
-        document.body.innerHTML = `<iframe id="foliate-iframe" src="/foliatejs/reader.html?url=${encodeURIComponent(fileUrl)}" title="webviewer" frameborder="0" class="w-full h-full"></iframe>`;
+        document.body.innerHTML = `<iframe id="foliate-iframe" src="/foliatejs/reader.html?url=${encodeURI(fileUrl)}" title="webviewer" frameborder="0" class="w-full h-full"></iframe>`;
+      } else if (supportedExtensions["kthoom"].includes(fileType)) {
+        document.body.innerHTML = `<iframe src="/kthoom/index.html?bookUri=${encodeURI(fileUrl)}" title="webviewer" frameborder="0" class="w-full h-full"></iframe>`;
+      } else if (supportedExtensions["villainjs"]) {
+        const Villain = window.villain;
+        const props = {
+          source: fileUrl,
+          style: { width: "100%", height: "100%" },
+          options: {
+            allowFullScreen: true,
+            autoHideControls: false,
+          },
+          workerUrl: "/libarchivejs/libarchivejs-1.3.0/dist/worker-bundle.js"
+        };
+
+        const root = ReactDOM.createRoot(document.body);
+        root.render(React.createElement(Villain, props));
       } else {
         alert("File type not supported");
       }

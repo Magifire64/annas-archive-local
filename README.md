@@ -191,7 +191,10 @@ There are also some experimental tests in `test-e2e`. You can run them inside th
 [mobi](http://localtest.me:8000/view?url=/test-files/sample.mobi)\
 [djvu](http://localtest.me:8000/view?url=/test-files/sample.djvu)\
 [cbz](http://localtest.me:8000/view?url=/test-files/sample.cbz)\
-[azw3](http://localtest.me:8000/view?url=/test-files/sample.azw3)
+[azw3](http://localtest.me:8000/view?url=/test-files/sample.azw3)\
+[cbr](http://localtest.me:8000/view?url=/test-files/sample.cbr)\
+[zip](http://localtest.me:8000/view?url=/test-files/sample.zip)\
+[rar](http://localtest.me:8000/view?url=/test-files/sample.rar)
 
 
 ## License

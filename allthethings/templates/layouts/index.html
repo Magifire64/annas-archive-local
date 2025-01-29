@@ -5,6 +5,9 @@
     <title>{% if self.title() %}{% block title %}{% endblock %} - {% endif %}{{ gettext('layout.index.title') }}</title>
     <script type="text/javascript">{{ g.darkreader_code | safe }}</script>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}">
+    {% if self.stylesheets() %}
+      {% block stylesheets %}{% endblock %}
+    {% endif %}
     {% if g.domain_lang_code in ['ar', 'fa', 'he', 'ur'] %}
       <!-- <style>body { direction: rtl; } </style> -->
     {% endif %}
