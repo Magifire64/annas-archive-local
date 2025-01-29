@@ -1580,7 +1580,7 @@ def get_ia_record_dicts(session, key, values):
         ia_record_dict['aa_ia_derived'] = {}
         ia_record_dict['file_unified_data'] = allthethings.utils.make_file_unified_data()
         ia_record_dict['aa_ia_derived']['printdisabled_only'] = 'inlibrary' not in ia_collections
-        ia_record_dict['file_unified_data']['extension_best'] = (ia_record_dict['aa_ia_file']['extension'] or '') if ia_record_dict['aa_ia_file'] is not None else ''
+        ia_record_dict['file_unified_data']['extension_best'] = (ia_record_dict['aa_ia_file']['extension'] or '').lower() if ia_record_dict['aa_ia_file'] is not None else ''
         ia_record_dict['file_unified_data']['filesize_best'] = (ia_record_dict['aa_ia_file']['filesize'] or 0) if ia_record_dict['aa_ia_file'] is not None else 0
         ia_record_dict['file_unified_data']['original_filename_best'] = allthethings.utils.prefix_filepath('ia', ia_record_dict['ia_id'] + '.pdf') if ia_record_dict['aa_ia_file'] is not None else ''
         ia_record_dict['file_unified_data']['cover_url_best'] = f"https://archive.org/download/{ia_record_dict['ia_id']}/__ia_thumb.jpg"
@@ -3675,7 +3675,7 @@ def get_duxiu_dicts(session, key, values, include_deep_transitive_md5s_size_path
                 raise Exception(f"Unknown type of duxiu metadata type {aac_record['metadata']['type']=}")
 
         duxiu_dict['file_unified_data'] = allthethings.utils.make_file_unified_data()
-        duxiu_dict['file_unified_data']['extension_best'] = (duxiu_dict['duxiu_file']['extension'] or '') if duxiu_dict.get('duxiu_file') is not None else ''
+        duxiu_dict['file_unified_data']['extension_best'] = (duxiu_dict['duxiu_file']['extension'] or '').lower() if duxiu_dict.get('duxiu_file') is not None else ''
         duxiu_dict['file_unified_data']['title_additional'] = duxiu_dict['aa_duxiu_derived']['title_additional']
         duxiu_dict['file_unified_data']['author_additional'] = duxiu_dict['aa_duxiu_derived']['author_additional']
         duxiu_dict['file_unified_data']['publisher_additional'] = duxiu_dict['aa_duxiu_derived']['publisher_additional']
@@ -3797,20 +3797,20 @@ def get_duxiu_dicts(session, key, values, include_deep_transitive_md5s_size_path
 
     return duxiu_dicts
 
-def upload_book_exiftool_append(newlist, record, fieldname):
+def upload_book_exiftool_append(newlist, record, fieldname, transformation=lambda s: s):
     field = (record['metadata'].get('exiftool_output') or {}).get(fieldname)
     if field is None:
         pass
     elif isinstance(field, str):
         field = field.strip()
         if len(field) > 0:
-            newlist.append(field)
+            newlist.append(transformation(field))
     elif isinstance(field, int) or isinstance(field, float):
-        newlist.append(str(field))
+        newlist.append(transformation(str(field)))
     elif isinstance(field, list):
         field = ",".join([str(item).strip() for item in field])
         if len(field) > 0:
-            newlist.append(field)
+            newlist.append(transformation(field))
     else:
         raise Exception(f"Unexpected field in upload_book_exiftool_append: {record=} {fieldname=} {field=}")
 
@@ -3901,11 +3901,11 @@ def get_aac_upload_book_dicts(session, key, values):
                 allthethings.utils.add_identifier_unified(aac_upload_book_dict['file_unified_data'], 'sha256', sha256)
 
             if '.' in record['metadata']['filepath']:
-                extension = record['metadata']['filepath'].rsplit('.', 1)[-1]
+                extension = record['metadata']['filepath'].rsplit('.', 1)[-1].lower()
                 if (len(extension) <= 4) and (extension not in ['bin']):
                     aac_upload_book_dict['file_unified_data']['extension_additional'].append(extension)
             # Note that exiftool detects comic books as zip, so actual filename extension is still preferable in most cases.
-            upload_book_exiftool_append(aac_upload_book_dict['file_unified_data']['extension_additional'], record, 'FileTypeExtension')
+            upload_book_exiftool_append(aac_upload_book_dict['file_unified_data']['extension_additional'], record, 'FileTypeExtension', transformation=lambda s: s.lower())
 
             upload_book_exiftool_append(aac_upload_book_dict['file_unified_data']['title_additional'], record, 'Title')
             if len(((record['metadata'].get('pikepdf_docinfo') or {}).get('/Title') or '').strip()) > 0:
@@ -4172,7 +4172,7 @@ def get_aac_magzdb_book_dicts(session, key, values):
             if key == 'md5':
                 if (upload['md5'] or '').lower() != requested_value:
                     continue
-                aac_magzdb_book_dict['file_unified_data']['extension_best'] = extension
+                aac_magzdb_book_dict['file_unified_data']['extension_best'] = extension.lower()
                 aac_magzdb_book_dict['file_unified_data']['filesize_best'] = upload['sizeB'] or 0
                 content_type_stripped = (upload['contentType'] or '').strip()
                 if content_type_stripped != '':
@@ -4496,18 +4496,18 @@ def get_aac_nexusstc_book_dicts(session, key, values):
                     continue
                 if (link.get('cid') or '') != '':
                     aac_nexusstc_book_dict['file_unified_data']['ipfs_infos'].append({ 'ipfs_cid': link['cid'], 'from': f"nexusstc{len(aac_nexusstc_book_dict['file_unified_data']['ipfs_infos'])+1}" })
-                aac_nexusstc_book_dict['file_unified_data']['extension_best'] = link.get('extension') or ''
+                aac_nexusstc_book_dict['file_unified_data']['extension_best'] = (link.get('extension') or '').lower()
                 aac_nexusstc_book_dict['file_unified_data']['filesize_best'] = link.get('filesize') or 0
             elif key == 'nexusstc_download':
                 if (link.get('cid') or '') != '':
                     aac_nexusstc_book_dict['file_unified_data']['ipfs_infos'].append({ 'ipfs_cid': link['cid'], 'from': f"nexusstc{len(aac_nexusstc_book_dict['file_unified_data']['ipfs_infos'])+1}" })
                 # This will overwrite/combine different link records if they exist, but that's okay.
-                aac_nexusstc_book_dict['file_unified_data']['extension_best'] = link.get('extension') or ''
+                aac_nexusstc_book_dict['file_unified_data']['extension_best'] = (link.get('extension') or '').lower()
                 aac_nexusstc_book_dict['file_unified_data']['filesize_best'] = link.get('filesize') or 0
 
             if (link.get('md5') or '') != '':
                 allthethings.utils.add_identifier_unified(aac_nexusstc_book_dict['file_unified_data'], 'md5', link['md5'].lower())
-                extension_with_dot = f".{link['extension']}" if (link.get('extension') or '') != '' else ''
+                extension_with_dot = f".{link['extension'].lower()}" if (link.get('extension') or '') != '' else ''
                 aac_nexusstc_book_dict['file_unified_data']['original_filename_additional'].append(allthethings.utils.prefix_filepath('nexusstc', f"{title_stripped + '/' if title_stripped != '' else ''}{link['md5'].lower()}{extension_with_dot}"))
             if (link.get('cid') or '') != '':
                 allthethings.utils.add_identifier_unified(aac_nexusstc_book_dict['file_unified_data'], 'ipfs_cid', link['cid'])
@@ -5472,7 +5472,7 @@ def get_aac_trantor_book_dicts(session, key, values):
 
         if (local_file_path_stripped := (aac_record['metadata'].get('LocalFilePath') or '').strip()) != '':
             aac_trantor_book_dict['file_unified_data']['original_filename_best'] = allthethings.utils.prefix_filepath('trantor', local_file_path_stripped.replace('\\', '/'))
-            aac_trantor_book_dict['file_unified_data']['extension_best'] = local_file_path_stripped.rsplit('.', 1)[-1] if ('.' in local_file_path_stripped) else ''
+            aac_trantor_book_dict['file_unified_data']['extension_best'] = local_file_path_stripped.rsplit('.', 1)[-1].lower() if ('.' in local_file_path_stripped) else ''
 
         if (size_stripped := ((aac_record['metadata'].get('Size') or {}).get('$numberLong') or '').strip()) != '':
             aac_trantor_book_dict['file_unified_data']['filesize_best'] = int(size_stripped)
@@ -6242,7 +6242,7 @@ def get_aarecords_internal_mysql(session, aarecord_ids, include_aarecord_mysql_d
             [(UNIFIED_DATA_MERGE_ALL, 'cover_url_additional')],
         ])
 
-        extension_multiple = [(source_record['source_record']['file_unified_data']['extension_best']) for source_record in source_records]
+        extension_multiple = [(source_record['source_record']['file_unified_data']['extension_best'].lower()) for source_record in source_records]
         extension_multiple += ['pdf'] if aarecord_id_split[0] == 'doi' else []
         aarecord['file_unified_data']['extension_best'] = max(extension_multiple + [''], key=len)
         for preferred_extension in ['epub', 'pdf']:
@@ -8223,7 +8223,7 @@ def all_search_aggs(display_lang, search_index_long):
     for bucket in search_results_raw['aggregations']['search_extension']['buckets']:
         if bucket['key'] == '':
             all_aggregations['search_extension'].append({ 'key': '_empty', 'label': 'unknown', 'doc_count': bucket['doc_count'] })
-        else:
+        elif bucket['doc_count'] >= 1000 or FLASK_DEBUG:
             all_aggregations['search_extension'].append({ 'key': bucket['key'], 'label': bucket['key'], 'doc_count': bucket['doc_count'] })
 
     access_types_buckets = list(search_results_raw['aggregations']['search_access_types']['buckets'])
