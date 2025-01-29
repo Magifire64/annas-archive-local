@@ -159,18 +159,18 @@
   <h3 class="group mt-4 mb-1 text-xl font-bold" id="upload">{{ gettext('page.faq.upload.title') }} <a href="#upload" class="custom-a invisible group-hover:visible text-gray-400 hover:text-gray-500 font-normal text-sm align-[2px]">§</a></h3>
 
   <p class="mb-4 hidden"> <!-- NOTE: HIDDEN! -->
-    {{ gettext('page.upload.text1', a_guide=(' href="https://wiki.mhut.org/content:how_to_upload" rel="noopener noreferrer" target="_blank"' | safe)) }}
-    {{ gettext('common.libgen.email', a_mail=(' href="https://proton.me/" rel="noopener noreferrer" target="_blank"' | safe), a_manual=(' href="https://forum.mhut.org/viewtopic.php?f=6&t=29" rel="noopener noreferrer" target="_blank"' | safe)) }}
-    {{ gettext('page.faq.mhut_upload') }}
-  </p>
-
-  <p class="mb-4 hidden"> <!-- NOTE: HIDDEN! -->
     {{ gettext('page.upload.zlib.text1', a_upload=(' href="https://z-lib.gs/book-add.php" rel="noopener noreferrer" target="_blank"' | safe)) }}
   </p>
 
   <p class="mb-4">
     <!-- TODO:TRANSLATE -->
-    For small uploads (up to 10,000 files) please <a href="https://z-lib.gs/book-add.php" rel="noopener noreferrer" target="_blank">upload them to Z-Library</a>.
+    For small uploads (up to 10,000 files) please upload them to both <a href="https://z-lib.gs/book-add.php" rel="noopener noreferrer" target="_blank">Z-Library</a> and <a href="https://wiki.mhut.org/content:how_to_upload" rel="noopener noreferrer" target="_blank">Library Genesis</a>.
+    <!-- {{ gettext('page.upload.text1', a_guide=(' href="https://wiki.mhut.org/content:how_to_upload" rel="noopener noreferrer" target="_blank"' | safe)) }} -->
+  </p>
+
+  <p class="mb-4">
+    {{ gettext('common.libgen.email', a_mail=(' href="https://proton.me/" rel="noopener noreferrer" target="_blank"' | safe), a_manual=(' href="https://forum.mhut.org/viewtopic.php?f=6&t=29" rel="noopener noreferrer" target="_blank"' | safe)) }}
+    {{ gettext('page.faq.mhut_upload') }}
   </p>
 
   <p class="mb-4">
