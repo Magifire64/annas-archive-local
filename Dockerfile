@@ -115,6 +115,7 @@ RUN git clone --depth 1 https://github.com/johnfactotum/foliate-js /public/folia
 RUN sed -i 's/await fetchFile(file)/await window.parent.fetchFile(file)/g' /public/foliatejs/view.js
 # Monkey patch onLoad to automatically refocus the iframe
 RUN sed -i '/#onLoad({ detail: { doc } }) {/!b;n;a\\t\twindow.top.postMessage("refocus-iframe");' /public/foliatejs/reader.js
+RUN sed -i 's/\.catch(e => console.error(e))//g' /public/foliatejs/reader.js
 
 # Get djvu.js
 RUN curl -L https://github.com/RussCoder/djvujs/releases/download/L.0.5.4_V.0.10.1/djvu.js --create-dirs -o /public/djvujs/djvu.js 
@@ -126,6 +127,9 @@ RUN git clone --depth 1 https://github.com/codedread/kthoom /public/kthoom \
     && git fetch origin 6ec1a413f26c42957c527879e75d03a705a3a8df --depth 1 \
     && git checkout 6ec1a413f26c42957c527879e75d03a705a3a8df \
     && rm -rf /public/kthoom/.git
+# Monkey patch so that 404s are properly caught and propagated upwards 
+RUN sed -i '/response = await fetch(this.#request);/a\
+    if (!response.ok) throw new Error(`Fetch error: ${response.statusText}`);' /public/kthoom/code/book.js
 
 # Get villain.js 
 RUN curl -L https://raw.githubusercontent.com/btzr-io/Villain/refs/heads/master/packages/villain-react/dist/villain.js --create-dirs -o /public/villainjs/villain.js

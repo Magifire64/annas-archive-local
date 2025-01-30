@@ -195,6 +195,12 @@ There are also some experimental tests in `test-e2e`. You can run them inside th
 [cbr](http://localtest.me:8000/view?url=/test-files/sample.cbr)\
 [zip](http://localtest.me:8000/view?url=/test-files/sample.zip)\
 [rar](http://localtest.me:8000/view?url=/test-files/sample.rar)
+#### Testing Error Handling
+[pdf.js](http://localtest.me:8000/view?url=/test-files/corrupt.pdf)\
+[foliate.js](http://localtest.me:8000/view?url=/test-files/corrupt.epub)\
+[djvu.js](http://localtest.me:8000/view?url=/test-files/corrupt.djvu)\
+[kthoom](http://localtest.me:8000/view?url=/test-files/corrupt.cbr)\
+[villain.js](http://localtest.me:8000/view?url=/test-files/corrupt.zip)
 
 
 ## License
