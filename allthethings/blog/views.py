@@ -11,6 +11,11 @@ blog = Blueprint("blog", __name__, template_folder="templates", url_prefix="/blo
 def index():
     return render_template("blog/index.html")
 
+
+@blog.get("/ai-copyright.html")
+@allthethings.utils.public_cache(minutes=5, cloudflare_minutes=60*3)
+def ai_copyright():
+    return render_template("blog/ai-copyright.html")
 @blog.get("/all-isbns.html")
 @allthethings.utils.public_cache(minutes=5, cloudflare_minutes=60*3)
 def all_isbns():
@@ -185,6 +190,13 @@ def rss_xml():
             description = "This picture represents the largest fully open “list of books” ever assembled in the history of humanity.",
             author = "Anna and the team",
             pubDate = datetime.datetime(2024,12,15),
+        ),
+        Item(
+            title = "Copyright reform is necessary for national security",
+            link = "https://annas-archive.li/blog/ai-copyright.html",
+            description = "Chinese LLMs are trained on my illegal archive of books and papers — the largest in the world. The West needs to overhaul copyright law as a matter of national security.",
+            author = "Anna and the team",
+            pubDate = datetime.datetime(2025,1,31),
         ),
     ]
 

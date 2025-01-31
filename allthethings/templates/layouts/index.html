@@ -200,7 +200,7 @@
         <div>
           <!-- TODO:Temporary extra -->
           <!-- blue -->
-          <div class="bg-[#0195ff] hidden js-top-banner">
+          <!-- <div class="bg-[#0195ff] hidden js-top-banner">
             <div class="max-w-[1050px] mx-auto px-4 py-2 text-[#fff] flex justify-between">
               <div>
                 📄 New blog post: <a class="custom-a text-[#fff] hover:text-[#ddd] underline" href="/blog/all-isbns.html">Visualizing All ISBNs — $10k by 2025-01-31</a>
@@ -209,7 +209,7 @@
                 <a href="#" class="custom-a ml-2 text-[#fff] hover:text-[#ddd] js-top-banner-close">✕</a>
               </div>
             </div>
-          </div>
+          </div> -->
           {% if g.is_membership_double %}
             <div class="bg-[#ff005b] hidden js-fundraiser-banner">
               <div class="max-w-[1050px] mx-auto px-4 py-2 text-[#fff] flex justify-center">
@@ -278,8 +278,12 @@
                   <!-- <div>
                     {{ gettext('layout.index.header.banner.valentine_gift') }} {{ gettext('layout.index.header.banner.refer', percentage=50) }} <a class="custom-a text-[#fff] hover:text-[#ddd] underline text-xs" href="/refer">{{ gettext('layout.index.header.learn_more') }}</a>
                   </div> -->
-                  <div>
+                  <!-- <div>
                     📄 New blog post: <a class="custom-a text-[#fff] hover:text-[#ddd] underline" href="/blog/critical-window.html">The critical window of shadow libraries</a> — <a class="custom-a text-[#fff] hover:text-[#ddd] underline" href="https://torrentfreak.com/annas-archive-loses-gs-domain-name-but-remains-resilient-240718/">TorrentFreak coverage</a>
+                  </div> -->
+                  <div>
+                    <!-- TODO:TRANSLATE -->
+                    📄 New blog post: <a class="custom-a text-[#fff] hover:text-[#ddd] underline" href="/blog/ai-copyright.html">Copyright reform is necessary for national security</a>
                   </div>
                   <div>
                     <a href="#" class="custom-a ml-2 text-[#fff] hover:text-[#ddd] js-top-banner-close">✕</a>
@@ -335,7 +339,7 @@
           <script>
             (function() {
               if (document.querySelector('.js-top-banner')) {
-                var latestTopBannerType = '16';
+                var latestTopBannerType = '17';
                 var topBannerMatch = document.cookie.match(/top_banner_hidden=([^$ ;}]+)/);
                 var topBannerType = '';
                 if (topBannerMatch) {
