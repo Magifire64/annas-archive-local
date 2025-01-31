@@ -124,7 +124,8 @@ RUN curl -L https://github.com/RussCoder/djvujs/releases/download/L.0.5.4_V.0.10
 RUN git clone --depth 1 https://github.com/codedread/kthoom /public/kthoom \
     && cd /public/kthoom \
     && git fetch origin 6ec1a413f26c42957c527879e75d03a705a3a8df --depth 1 \
-    && git checkout 6ec1a413f26c42957c527879e75d03a705a3a8df
+    && git checkout 6ec1a413f26c42957c527879e75d03a705a3a8df \
+    && rm -rf /public/kthoom/.git
 
 # Get villain.js 
 RUN curl -L https://raw.githubusercontent.com/btzr-io/Villain/refs/heads/master/packages/villain-react/dist/villain.js --create-dirs -o /public/villainjs/villain.js
