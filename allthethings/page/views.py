@@ -27,7 +27,7 @@ import xmltodict
 import html
 import string
 
-from flask import g, Blueprint, render_template, make_response, redirect, request
+from flask import g, Blueprint, render_template, make_response, redirect, request, url_for
 from allthethings.extensions import engine, es, es_aux, mariapersist_engine
 from sqlalchemy import text
 from sqlalchemy.orm import Session
@@ -1051,17 +1051,24 @@ def member_codes_page():
         account_fast_download_info = allthethings.utils.get_account_fast_download_info(mariapersist_session, account_id)
         if account_fast_download_info is None:
             prefix_b64 = request.args.get('prefix_b64') or ''
-            return redirect(f"/codes?prefix_b64={prefix_b64}", code=302)
+            return redirect(url_for('page.codes_page', **request.args), code=302)
     return codes_page()
 
 def code_make_label(bytestr):
     label = bytestr.decode(errors='replace')
     return "".join(['�' if ((not char.isprintable()) or (char.isspace() and char != ' ')) else char for char in label])
 
+def codes_prefix_matcher(s):
+    return s.replace(b"\\", b"\\\\").replace(b"%", b"\\%").replace(b"_", b"\\_") + b"%" 
+
 @page.get("/codes")
 @page.post("/codes")
 @allthethings.utils.no_cache()
 def codes_page():
+    DIR_LIST_LIMIT = 5000
+    PREFIX_EXPANSION_LIMIT = 500
+    FILEPATH_PREFIXES = [b'filepath', b'server_path', b'link', b'czech_oo42hcks_filename', b'openlib_source_record', b'lgrsnf_topic']
+    
     account_id = allthethings.utils.get_account_id(request.cookies)
     if account_id is None:
         return render_template("page/login_to_view.html", header_active="")
@@ -1078,22 +1085,21 @@ def codes_page():
         except Exception:
             return "Invalid prefix_b64", 404
 
+        raw = request.args.get('raw') or False
+
         cursor = allthethings.utils.get_cursor_ping_conn(connection)
 
-        # TODO: Since 'code' and 'aarecord_id' are binary, this might not work with multi-byte UTF-8 chars. Test (and fix) that!
-
-        cursor.execute("DROP FUNCTION IF EXISTS fn_get_next_codepoint")
         cursor.execute("""
-            CREATE FUNCTION fn_get_next_codepoint(initial INT, prefix VARBINARY(2000)) RETURNS INT
+            CREATE OR REPLACE FUNCTION fn_get_next_code(prefix VARBINARY(2000), _from VARBINARY(2000)) RETURNS VARBINARY(2000)
             NOT DETERMINISTIC
             READS SQL DATA
             BEGIN
                     DECLARE _next VARBINARY(2000);
-                    DECLARE EXIT HANDLER FOR NOT FOUND RETURN 0;
-                    SELECT  ORD(SUBSTRING(code, LENGTH(prefix)+1, 1))
+                    DECLARE EXIT HANDLER FOR NOT FOUND RETURN "0";
+                    SELECT  CONCAT(lpad(hex(row_number_order_by_code), 16), lpad(hex(dense_rank_order_by_code), 16), code)
                     INTO    _next
                     FROM    aarecords_codes
-                    WHERE   code LIKE CONCAT(REPLACE(REPLACE(REPLACE(prefix, "\\\\", "\\\\\\\\"), "%%", "\\%%"), "_", "\\_"), "%%") AND code >= CONCAT(prefix, CHAR(initial + 1))
+                    WHERE   code LIKE prefix AND code >= _from
                     ORDER BY
                             code
                     LIMIT 1;
@@ -1104,10 +1110,15 @@ def codes_page():
         exact_matches_aarecord_ids = []
         new_prefixes = []
         hit_max_exact_matches = False
+        hit_max_dirs = False
+
+        code_prefix = prefix_bytes.split(b':')[0]
+        is_filepath = not raw and code_prefix in FILEPATH_PREFIXES
+        prefix_is_dir = is_filepath and (code_prefix == prefix_bytes[:-1] or prefix_bytes[-1] in [ord('/'), ord('\\')])
 
         if prefix_bytes == b'':
             cursor.execute('SELECT code_prefix FROM aarecords_codes_prefixes')
-            new_prefixes = [row['code_prefix'] + b':' for row in list(cursor.fetchall())]
+            new_prefixes = [{"new_prefix": row['code_prefix'] + b':'} for row in list(cursor.fetchall())]
         else:
             max_exact_matches = 100
             cursor.execute('SELECT aarecord_id FROM aarecords_codes WHERE code = %(prefix)s ORDER BY code, aarecord_id LIMIT %(max_exact_matches)s', { "prefix": prefix_bytes, "max_exact_matches": max_exact_matches })
@@ -1115,45 +1126,99 @@ def codes_page():
             if len(exact_matches_aarecord_ids) == max_exact_matches:
                 hit_max_exact_matches = True
 
-            # cursor.execute('SELECT CONCAT(%(prefix)s, IF(@r > 0, CHAR(@r USING utf8), "")) AS new_prefix, @r := fn_get_next_codepoint(IF(@r > 0, @r, ORD(" ")), %(prefix)s) AS next_letter FROM (SELECT @r := ORD(SUBSTRING(code, LENGTH(%(prefix)s)+1, 1)) FROM aarecords_codes WHERE code >= %(prefix)s ORDER BY code LIMIT 1) vars, (SELECT 1 FROM aarecords_codes LIMIT 1000) iterator WHERE @r IS NOT NULL', { "prefix": prefix })
-            cursor.execute('SELECT CONCAT(%(prefix)s, CHAR(@r USING binary)) AS new_prefix, @r := fn_get_next_codepoint(@r, %(prefix)s) AS next_letter FROM (SELECT @r := ORD(SUBSTRING(code, LENGTH(%(prefix)s)+1, 1)) FROM aarecords_codes WHERE code > %(prefix)s AND code LIKE CONCAT(REPLACE(REPLACE(REPLACE(%(prefix)s, "\\\\", "\\\\\\\\"), "%%", "\\%%"), "_", "\\_"), "%%") ORDER BY code LIMIT 1) vars, (SELECT 1 FROM aarecords_codes LIMIT 10000) iterator WHERE @r != 0', { "prefix": prefix_bytes })
-            new_prefixes_raw = list(cursor.fetchall())
-            new_prefixes = [row['new_prefix'] for row in new_prefixes_raw]
-            # print(f"{new_prefixes_raw=}")
+            if prefix_is_dir:
+                forward_slash_depth = prefix_bytes.count(b'/') + 1
+                back_slash_depth = prefix_bytes.count(b'\\') + 1
+                cursor.execute('SET @d = "", @r := "", @l = ""', { "prefix": prefix_bytes })
+                cursor.execute(f'SELECT @r := fn_get_next_code(%(like)s, CONCAT(@d, IF(@d = @l, "0", "]")) ) AS code, @d := SUBSTRING_INDEX(@l := SUBSTRING_INDEX(SUBSTR(@r, 33), "/", %(depth)s), "\\\\", %(depth2)s) as new_prefix FROM seq_1_to_{DIR_LIST_LIMIT} WHERE @r <> "0"', {  "depth": forward_slash_depth, "depth2": back_slash_depth, "like": codes_prefix_matcher(prefix_bytes) })
+                new_prefixes_raw = list(cursor.fetchall())[:-1]
+                if len(new_prefixes_raw) == DIR_LIST_LIMIT-1:
+                     # better ideas for fallback?
+                    hit_max_dirs = True
+                if len(new_prefixes_raw) and new_prefixes_raw[0]["new_prefix"] == prefix_bytes:
+                    new_prefixes_raw = new_prefixes_raw[1:]
+                new_prefixes = [{
+                                    "code": row["code"][32:],
+                                    "new_prefix": row["code"][32:len(row["new_prefix"])+33],
+                                    "row_number_order_by_code": int(row["code"][:16], 16),
+                                    "dense_rank_order_by_code": int(row["code"][16:32], 16),
+                                }
+                                for row in new_prefixes_raw]
+            else: # `not prefix_is_dir`
+                prefix_len = len(prefix_bytes)
+                cursor.execute('SET @d = CONCAT(%(prefix)s, UNHEX("00")), @r = ""', { "prefix": prefix_bytes })                
+                # TODO: Since 'code' and 'aarecord_id' are binary, this might not work with multi-byte UTF-8 chars. Test (and fix) that!
+                # Ideally we should pivot to binary but there's some weirdness with mariadb trying to parse utf8mb4 in intermidiate operations
+                cursor.execute('SELECT @r := fn_get_next_code(%(like)s, CONCAT(LEFT(@d, %(len)s), CHAR(ORD(RIGHT(CONVERT(@d USING binary), 1))+1))) AS code, @d := CONVERT(SUBSTR(CONVERT(@r using binary), 33, %(len)s + 1) USING binary) as new_prefix FROM seq_1_to_10000 where @r <> "0"', { "like": codes_prefix_matcher(prefix_bytes), "len": prefix_len })
+                new_prefixes_raw = list(cursor.fetchall())[:-1]
+                new_prefixes = [{
+                                    "code": row["code"][32:],
+                                    "new_prefix": row["new_prefix"],
+                                    "row_number_order_by_code": int(row["code"][:16], 16),
+                                    "dense_rank_order_by_code": int(row["code"][16:32], 16),
+                                }
+                                for row in new_prefixes_raw]
 
         prefix_rows = []
-        for new_prefix in new_prefixes:
-            # TODO: more efficient? Though this is not that bad because we don't typically iterate through that many values.
-            cursor.execute('SELECT code, row_number_order_by_code, dense_rank_order_by_code FROM aarecords_codes WHERE code LIKE CONCAT(REPLACE(REPLACE(REPLACE(%(new_prefix)s, "\\\\", "\\\\\\\\"), "%%", "\\%%"), "_", "\\_"), "%%") ORDER BY code, aarecord_id LIMIT 1', { "new_prefix": new_prefix })
-            first_record = cursor.fetchone()
-            cursor.execute('SELECT code, row_number_order_by_code, dense_rank_order_by_code FROM aarecords_codes WHERE code LIKE CONCAT(REPLACE(REPLACE(REPLACE(%(new_prefix)s, "\\\\", "\\\\\\\\"), "%%", "\\%%"), "_", "\\_"), "%%") ORDER BY code DESC, aarecord_id DESC LIMIT 1', { "new_prefix": new_prefix })
-            last_record = cursor.fetchone()
+        for i, new_prefix_g in enumerate(new_prefixes):
+            disable_prefix_expansion = i > PREFIX_EXPANSION_LIMIT
+            new_prefix = new_prefix_g["new_prefix"]
+            first_record = new_prefix_g
+            last_record = None
+            if "row_number_order_by_code" not in first_record:
+                cursor.execute('SELECT code, row_number_order_by_code, dense_rank_order_by_code FROM aarecords_codes WHERE code LIKE %(like)s ORDER BY code, aarecord_id LIMIT 1', { "like": codes_prefix_matcher(new_prefix) })
+                first_record = cursor.fetchone()
 
-            # TODO:CODE_PREFIXES_BINARY
-            if first_record is None:
-                print(f"WARNING! TODO:CODE_PREFIXES_BINARY -- first_record should not be None! {new_prefix=}")
-                continue
+                # TODO: Fix case of depósito_legal.
+                if first_record is None:
+                    print(f"WARNING: first_record is None for {i=} {new_prefix_g=}")
+                    continue
+            if (disable_prefix_expansion or first_record["code"] == new_prefix) and i+1 < len(new_prefixes) and "row_number_order_by_code" in new_prefixes[i+1]:
+                last_record = {
+                    "code": new_prefix,
+                    "row_number_order_by_code": new_prefixes[i+1]["row_number_order_by_code"] - 1,
+                    "dense_rank_order_by_code": new_prefixes[i+1]["dense_rank_order_by_code"] - 1,
+                }
+            else:
+                cursor.execute('SELECT code, row_number_order_by_code, dense_rank_order_by_code FROM aarecords_codes WHERE code LIKE %(like)s ORDER BY code DESC, aarecord_id DESC LIMIT 1', { "like": codes_prefix_matcher(new_prefix) })
+                last_record = cursor.fetchone()
 
             if (first_record['code'] == last_record['code']) and (prefix_bytes != b''):
                 code = first_record["code"]
                 code_b64 = base64.b64encode(code).decode()
+                label = code_make_label(code)
+                highlight = None
+                if prefix_is_dir:
+                    label = code_make_label(code[len(prefix_bytes):])
+                    highlight = re.search("[/\\\\]", label)
+                    highlight = highlight.end() if highlight is not None else None
+
                 prefix_rows.append({
-                    "label": code_make_label(code),
+                    "label": label,
                     "records": last_record["row_number_order_by_code"]-first_record["row_number_order_by_code"]+1,
                     "link": f'/member_codes?prefix_b64={code_b64}',
+                    "highlight": highlight,
                 })
             else:
                 longest_prefix = new_prefix
                 if prefix_bytes != b'':
                     longest_prefix = os.path.commonprefix([first_record["code"], last_record["code"]])
-                longest_prefix_label = code_make_label(longest_prefix)
+                label = code_make_label(longest_prefix)
+                highlight = None
+                if prefix_is_dir:
+                    longest_prefix = longest_prefix[:(max(longest_prefix.rfind(b'/'),longest_prefix.rfind(b'\\')))+1]
+                    label = code_make_label(longest_prefix[len(prefix_bytes):])
+                    highlight = re.search("[/\\\\]", label)
+                    highlight = highlight.end() if highlight is not None else None
+                    highlight = None if highlight == len(label) else highlight
                 longest_prefix_b64 = base64.b64encode(longest_prefix).decode()
                 prefix_rows.append({
-                    "label": (f'{longest_prefix_label}⋯'),
+                    "label": label if prefix_is_dir else (f'{label}⋯'),
                     "codes": last_record["dense_rank_order_by_code"]-first_record["dense_rank_order_by_code"]+1,
                     "records": last_record["row_number_order_by_code"]-first_record["row_number_order_by_code"]+1,
                     "link": f'/member_codes?prefix_b64={longest_prefix_b64}',
-                    "code_item": allthethings.utils.make_code_for_display({'key': longest_prefix_label[:-1], 'value': ''}) if prefix_bytes == b'' else None,
+                    "highlight": highlight,
+                    "code_item": allthethings.utils.make_code_for_display({'key': label[:-1], 'value': ''}) if prefix_bytes == b'' else None,
                 })
 
         bad_unicode = False
@@ -1171,6 +1236,21 @@ def codes_page():
             key, value = prefix_label.split(':', 1)
             code_item = allthethings.utils.make_code_for_display({'key': key, 'value': value})
 
+        dir_path = None
+        if prefix_is_dir:
+            dir_path = [{
+                "label": code_make_label(code_prefix + b":"),
+                "link": f'/member_codes?prefix_b64={base64.b64encode(code_prefix + b":").decode()}'
+            }]
+            next_from = len(code_prefix) + 1
+            for i, char in enumerate(prefix_bytes):
+                if char in [ord('/'), ord('\\')]:
+                    dir_path.append({
+                        "label": code_make_label(prefix_bytes[next_from:i+1]),
+                        "link": f'/member_codes?prefix_b64={base64.b64encode(prefix_bytes[:i+1]).decode()}',
+                    })
+                    next_from = i+1
+
         return render_template(
             "page/codes.html",
             header_active="home/codes",
@@ -1180,6 +1260,8 @@ def codes_page():
             hit_max_exact_matches=hit_max_exact_matches,
             bad_unicode=bad_unicode,
             code_item=code_item,
+            dir_path=dir_path,
+            hit_max_dirs=hit_max_dirs
         )
 
 zlib_book_dict_comments = {

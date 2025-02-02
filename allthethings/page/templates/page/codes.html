@@ -89,22 +89,39 @@
   {% endif %}
 
   {% if (prefix_rows | length) > 0 %}
-    {% if prefix_label != '' %}
+    {% if prefix_label != '' and dir_path == None %}
       <div class="font-bold mt-4">
         {{ gettext('page.codes.codes_starting_with', prefix_label=prefix_label) }}
       </div>
     {% endif %}
 
+    {% if dir_path != None %}
+    <div class="font-bold leading-none my-4">
+      Index of<br>
+      {% for path_segment in dir_path[:-1] %}<a class="!no-underline" href="{{ path_segment.link }}">{{ path_segment.label }}</a>{% endfor %}{{ dir_path[-1].label }}
+    </div>
+    {% endif %}
+
     <table>
       <tr>
-        <td></td>
+        <td>
+          {% if dir_path != None and dir_path|length > 1 %}
+            <a class="!no-underline" href="{{ dir_path[-2].link }}">../</a>
+          {% endif %}
+        </td>
         <td></td>
         <td class="text-sm text-gray-500 px-4">{{ gettext('page.codes.records_prefix') }}</td>
         <td class="text-sm text-gray-500 px-4">{{ gettext('page.codes.records_codes') }}</td>
       </tr>
       {% macro prefix_row_render(prefix_row) %}
         <tr>
-          <td class="break-all"><a href="{{ prefix_row.link }}">{{ prefix_row.label }}</a></td>
+          <td class="break-all"><a href="{{ prefix_row.link }}">
+            {% if prefix_row.highlight %}
+            {{ prefix_row.label[:prefix_row.highlight] }}<span class="opacity-50 hover:opacity-70">{{ prefix_row.label[prefix_row.highlight:] }}</span>
+            {% else %}
+            {{ prefix_row.label }}
+            {% endif %}
+          </a></td>
           <td class="text-sm text-gray-500 pl-4">
             {% if prefix_row.code_item %}{{ prefix_row.code_item.info.label }}{% endif %}
           </td>
@@ -130,6 +147,11 @@
         {% for prefix_row in prefix_rows %}
           {{ prefix_row_render(prefix_row) }}
         {% endfor %}
+        {% if hit_max_dirs %}
+          <tr><td colspan="100" class="pt-4">
+            <a href="{{ dir_path[-1].link }}&raw=1">More…</a>
+          </td></tr>
+        {% endif %}
       {% endif %}
     </table>
   {% endif %}
