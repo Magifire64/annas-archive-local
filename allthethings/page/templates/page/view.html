@@ -126,6 +126,8 @@
 
       const popupMsg = document.getElementById("error-message");
       popupMsg.innerText = error;
+
+      console.log("displayError full error object:", error);
     }
 
     window.addEventListener("error", e => {
@@ -139,8 +141,14 @@
 
   <div id="error-popup" class="fixed inset-0 flex items-center justify-center backdrop-blur-md hidden">
     <div class="bg-gray-50 border border-gray-300 p-6 rounded-lg shadow-lg w-96">
-      <span class="text-lg font-semibold">Error</span>
-      <p id="error-message" class="text-sm mt-2 font-mono overflow-auto"></p>
+      <div class="text-lg font-semibold mb-4">Error opening this file</div>
+      <div class="leading-tight mb-4">
+        <!-- TODO:TRANSLATE -- separate language strings for each sentence. -->
+        It’s possible there is something wrong with this file.
+        Try opening it in a different application.
+        If you still have issues, please report it on the file’s page on Anna’s Archive.
+      </div>
+      <p id="error-message" class="text-xs text-gray-500 mt-2 font-mono overflow-auto"></p>
     </div>
   </div>
 
