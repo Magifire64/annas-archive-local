@@ -1475,6 +1475,8 @@ def get_aac_zlib3_book_dicts(session, key, values):
         allthethings.utils.add_isbns_unified(aac_zlib3_book_dict['file_unified_data'], aac_zlib3_book_dict['isbns'])
         allthethings.utils.add_isbns_unified(aac_zlib3_book_dict['file_unified_data'], allthethings.utils.get_isbnlike(aac_zlib3_book_dict['description']))
 
+        # WARNING! If we ever use "removed" or "removalReason", make sure to check for anomalies in the data, e.g. "storage":"scimag" seems to always(?) have this set. Example: aacid__zlib3_records__20250120T080203Z__99999998__mXeZmJSgXsu5m9ADXQaNFQ
+
         if zlib_deleted_comment == '':
             pass
         elif zlib_deleted_comment == 'dmca':
