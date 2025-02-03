@@ -3720,8 +3720,11 @@ def get_duxiu_dicts(session, key, values, include_deep_transitive_md5s_size_path
                 aa_derived_ini_values = aac_record['metadata']['record']['aa_derived_ini_values']
                 for aa_derived_ini_values_list in aa_derived_ini_values.values():
                     duxiu_dict['aa_duxiu_derived']['ini_values_multiple'] += aa_derived_ini_values_list
+                for ini_value in (aa_derived_ini_values.get('SS号') or []): # NOTE:TITLE_SSID Important that this is above Title below, because we use it there.
+                    duxiu_dict['aa_duxiu_derived']['duxiu_ssid_multiple'].append(ini_value['value'])
                 for ini_value in ((aa_derived_ini_values.get('Title') or []) + (aa_derived_ini_values.get('书名') or [])):
-                    duxiu_dict['aa_duxiu_derived']['title_additional'].append(ini_value['value'])
+                    if ini_value['value'] not in duxiu_dict['aa_duxiu_derived']['duxiu_ssid_multiple']: # NOTE:TITLE_SSID: Here.
+                        duxiu_dict['aa_duxiu_derived']['title_additional'].append(ini_value['value'])
                 for ini_value in ((aa_derived_ini_values.get('Author') or []) + (aa_derived_ini_values.get('作者') or [])):
                     duxiu_dict['aa_duxiu_derived']['author_additional'].append(ini_value['value'])
                 for ini_value in (aa_derived_ini_values.get('出版社') or []):
@@ -3738,8 +3741,6 @@ def get_duxiu_dicts(session, key, values, include_deep_transitive_md5s_size_path
                     duxiu_dict['aa_duxiu_derived']['isbn_multiple'].append(ini_value['value'])
                 for ini_value in (aa_derived_ini_values.get('DX号') or []):
                     duxiu_dict['aa_duxiu_derived']['dxid_multiple'].append(ini_value['value'])
-                for ini_value in (aa_derived_ini_values.get('SS号') or []):
-                    duxiu_dict['aa_duxiu_derived']['duxiu_ssid_multiple'].append(ini_value['value'])
 
                 for ini_value in (aa_derived_ini_values.get('参考文献格式') or []): # Reference format
                     duxiu_dict['aa_duxiu_derived']['comments_cumulative'].append(ini_value['value'])
