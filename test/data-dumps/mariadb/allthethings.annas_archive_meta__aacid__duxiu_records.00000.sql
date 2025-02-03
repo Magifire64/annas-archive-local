@@ -8372,6 +8372,7 @@ INSERT INTO `annas_archive_meta__aacid__duxiu_records` VALUES("aacid__duxiu_reco
 ,("aacid__duxiu_records__20240205T000000Z__WgT6EDgytMMEYie9sLUxh9","duxiu_ssid_10001236",NULL,12652355,423,NULL)
 ,("aacid__duxiu_records__20240205T000000Z__WhPjFxNdPkprryMYCjM6JQ","duxiu_ssid_10001531",NULL,12652778,366,NULL)
 ,("aacid__duxiu_records__20240205T000000Z__WHTXnKcoM6m8o8oH8rp9ug","duxiu_ssid_10001498",NULL,12645934,353,NULL)
+,("aacid__duxiu_records__20240205T000000Z__Wi3Bz3CWe79fq2wdPqL2Uh","duxiu_ssid_13155367",NULL,13091485,331,NULL)
 ,("aacid__duxiu_records__20240205T000000Z__WJEJcnikvZHKGpxYCKKLP9","duxiu_ssid_10002302",NULL,12646287,377,NULL)
 ,("aacid__duxiu_records__20240205T000000Z__WjX8kcGBueAScn8habsQqr","duxiu_ssid_10001759",NULL,12653144,394,NULL)
 ,("aacid__duxiu_records__20240205T000000Z__WkrSMvMpyTiVYEmPFBpacH","duxiu_ssid_10001529",NULL,12653538,384,NULL)
@@ -8538,5 +8539,6 @@ INSERT INTO `annas_archive_meta__aacid__duxiu_records` VALUES("aacid__duxiu_reco
 ,("aacid__duxiu_records__20240305T000000Z__8ScD4n3RjBeknQuqUEDdDA","md5_e8c5566b37dc3d85a41dda05bd32e787",NULL,12970314,37618,"《生物学各专业期刊学术论文资料目录索引 （一九八二年-至三季度）》_11454502")
 ,("aacid__duxiu_records__20240305T000000Z__Cag4gQ7Br3b2b8B2FNYTwG","md5_e8c5566b37dc3d85a41dda05bd32e787",NULL,13007932,37297,"11454502")
 ,("aacid__duxiu_records__20240305T000000Z__ghUNpbL4svLE22t4LeKyMc","md5_c3114314d59ce884384b21ecaa08e350",NULL,12935889,34425,"开明文库第一辑看云集_10000431")
+,("aacid__duxiu_records__20240305T000000Z__Moo2RJtqdVf6egw9ENaS98","md5_a1de3912210ce87d28f06e97ba513d10",NULL,13085178,6307,"近百年来之东北_13155367")
 ,("aacid__duxiu_records__20240305T000000Z__R4zHGnMnbJXLgUYGTtSMs6","md5_00000323c76cb3700d35a9bd5598ab1e",NULL,13045229,38270,"13468429")
 ;
