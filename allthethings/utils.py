@@ -1474,7 +1474,7 @@ OPENLIB_TO_UNIFIED_IDENTIFIERS_MAPPING = {
     'amazon.co.uk_asin': 'asin',
     'amazon.de_asin': 'asin',
     'amazon.it_asin': 'asin',
-    'annas_archive': 'md5', # TODO: Do reverse lookup based on this.
+    'annas_archive': 'md5',
     'bibliothèque_nationale_de_france_(bnf)': 'bibliothèque_nationale_de_france',
     'british_library': 'bl',
     'british_national_bibliography': 'bnb',

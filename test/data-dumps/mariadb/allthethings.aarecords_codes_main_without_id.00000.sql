@@ -6620,7 +6620,6 @@ INSERT INTO `aarecords_codes_main_without_id` VALUES("aacid:aacid__czech_oo42hck
 ,("year:2004","md5:4744f45ed5aa3956eaa1fc6540666ce3")
 ,("year:2004","md5:5ab775846b9ff03152bd791754da499d")
 ,("year:2004","md5:94143ade065d7fa7c0dec717a7015e13")
-,("year:2004","md5:a50f2e8f2963888a976899e2c4675d70")
 ,("year:2004","md5:e35f327fb10ea963a32db60884469682")
 ,("year:2005","md5:02b4e17622941606379bf55548420a39")
 ,("year:2005","md5:0a0007a8a2ae3b15e271211c6be872fe")
