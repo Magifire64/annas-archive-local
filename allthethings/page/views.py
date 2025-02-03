@@ -196,6 +196,7 @@ country_lang_mapping = { "Albania": "Albanian", "Algeria": "Arabic", "Andorra": 
 
 @functools.cache
 def get_bcp47_lang_codes_parse_substr(substr):
+    WRITING_POPULATION_MIN = 500000
     lang = ''
     debug_from = []
     if substr.lower() in ['china', 'chinese', 'han', 'hant', 'hans', 'mandarin']:
@@ -218,7 +219,7 @@ def get_bcp47_lang_codes_parse_substr(substr):
         return 'la'
     try:
         langcode = langcodes.get(substr)
-        if langcode.writing_population() < 1000000:
+        if langcode.writing_population() < WRITING_POPULATION_MIN:
             raise langcodes.tag_parser.LanguageTagError()
         lang = str(langcodes.standardize_tag(langcode, macro=True))
         debug_from.append('langcodes.get')
@@ -228,7 +229,7 @@ def get_bcp47_lang_codes_parse_substr(substr):
             if country_name.lower() == substr.lower():
                 try:
                     langcode = langcodes.find(language_name)
-                    if langcode.writing_population() < 1000000:
+                    if langcode.writing_population() < WRITING_POPULATION_MIN:
                         raise LookupError()
                     lang = str(langcodes.standardize_tag(langcode, macro=True))
                     debug_from.append(f"langcodes.find with country_lang_mapping {country_name.lower()=} == {substr.lower()=}")
@@ -238,7 +239,7 @@ def get_bcp47_lang_codes_parse_substr(substr):
         if lang == '':
             try:
                 langcode = langcodes.find(substr)
-                if langcode.writing_population() < 1000000:
+                if langcode.writing_population() < WRITING_POPULATION_MIN:
                     raise LookupError()
                 lang = str(langcodes.standardize_tag(langcode, macro=True))
                 debug_from.append('langcodes.find WITHOUT country_lang_mapping')
@@ -246,7 +247,7 @@ def get_bcp47_lang_codes_parse_substr(substr):
                 # In rare cases, disambiguate by saying that `substr` is written in English
                 try:
                     langcode = langcodes.find(substr, language='en')
-                    if langcode.writing_population() < 1000000:
+                    if langcode.writing_population() < WRITING_POPULATION_MIN:
                         raise LookupError()
                     lang = str(langcodes.standardize_tag(langcode, macro=True))
                     debug_from.append('langcodes.find with language=en')

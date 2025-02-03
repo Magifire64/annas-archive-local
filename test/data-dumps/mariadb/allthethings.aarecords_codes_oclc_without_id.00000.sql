@@ -2321,6 +2321,7 @@ INSERT INTO `aarecords_codes_oclc_without_id` VALUES("aacid:aacid__worldcat__202
 ,("isbn13:9787513717076","oclc:1250624836")
 ,("isbn13:9787539190235","oclc:909713202")
 ,("isbn13:9788460059363","oclc:5")
+,("lang:cy","oclc:1311139322")
 ,("lang:de","oclc:10237383")
 ,("lang:de","oclc:11347032")
 ,("lang:de","oclc:1473798")
