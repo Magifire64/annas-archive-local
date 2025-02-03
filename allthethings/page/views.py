@@ -3046,6 +3046,7 @@ def oclc_get_authors_from_authors(authors):
     return oclc_get_authors_from_contributors(contributors)
 
 def oclc_string_good_enough_for_best(string, language_codes):
+    string = string.strip()
     if len(string) < 6:
         return False
     if (('zh' in language_codes) or len(string) >= 20) and allthethings.utils.looks_like_pinyin(string):
@@ -5957,6 +5958,11 @@ def get_transitive_lookup_dicts(session, lookup_table_name, codes):
             retval[key].sort(key=lambda item: -len(orjson.dumps(item)))
         return dict(retval)
 
+def global_string_good_enough_for_best(string):
+    if string.isdigit() and not allthethings.utils.validate_year(string):
+        return False
+    return True
+
 UNIFIED_DATA_MERGE_ALL = '___all'
 def UNIFIED_DATA_MERGE_EXCEPT(excluded):
     return { "___excluded": excluded }
@@ -5997,6 +6003,7 @@ def merge_file_unified_data_strings(source_records_by_type, iterations):
                     provenance_info.append({
                         "iteration_index": iteration_index,
                         "string": string,
+                        "global_string_good_enough_for_best": global_string_good_enough_for_best(string),
                         "source_type": source_type,
                         "debug_url": source_record['debug_url'],
                         "canonical_record_url": source_record['canonical_record_url'],
@@ -6004,13 +6011,16 @@ def merge_file_unified_data_strings(source_records_by_type, iterations):
                     })
         multiple_str = sort_by_length_and_filter_subsequences_with_longest_string_and_normalize_unicode(multiple_str) # Before selecting best, since the best might otherwise get filtered.
         if best_str == '':
-            best_str = max(multiple_str + [''], key=len)
+            best_str = max([s for s in multiple_str if global_string_good_enough_for_best(s)] + [''], key=len)
         else:
             # Find the longest new string of which best_str is a subsequence, and use that instead.
-            for other_str in sorted([s for s in new_strings_this_iteration if len(s) > len(best_str)], key=lambda s: -len(s)):
-                if is_string_subsequence(best_str, other_str):
+            for other_str in sorted([s for s in new_strings_this_iteration if (len(s) > len(best_str))], key=lambda s: -len(s)):
+                if global_string_good_enough_for_best(other_str) and is_string_subsequence(best_str, other_str):
                     best_str = other_str
                     break
+    # If still we haven't found a best_str, then proceed without checking for global_string_good_enough_for_best.
+    if best_str == '':
+        best_str = max(multiple_str + [''], key=len)
     multiple_str = [s for s in multiple_str if s != best_str]
     return (best_str, multiple_str, {
         "best_str": best_str,
