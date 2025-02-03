@@ -3045,7 +3045,7 @@ def oclc_get_authors_from_authors(authors):
 def oclc_string_good_enough_for_best(string, language_codes):
     if len(string) < 6:
         return False
-    if ('zh' in language_codes) and allthethings.utils.looks_like_pinyin(string):
+    if (('zh' in language_codes) or len(string) >= 20) and allthethings.utils.looks_like_pinyin(string):
         return False
     return True
 
