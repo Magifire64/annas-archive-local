@@ -791,31 +791,39 @@ def membership_costs_data(locale):
         discounts = MEMBERSHIP_METHOD_DISCOUNTS[method] + MEMBERSHIP_DURATION_DISCOUNTS[duration]
         monthly_cents = round(MEMBERSHIP_TIER_COSTS[tier]*(100-discounts))
         cost_cents_usd = monthly_cents * int(duration)
+        monthly_cents_no_discounts = round(MEMBERSHIP_TIER_COSTS[tier]*100)
+        cost_cents_usd_no_discounts = monthly_cents_no_discounts * int(duration)
 
         native_currency_code = 'USD'
         cost_cents_native_currency = cost_cents_usd
+        cost_cents_native_currency_no_discounts = cost_cents_usd_no_discounts
         if method in ['alipay', 'payment1b_alipay', 'payment1b_wechat', 'payment1c_alipay', 'payment1c_wechat', 'payment1d_alipay', 'payment1d_wechat', 'payment3a', 'payment3b']:
             native_currency_code = 'CNY'
             cost_cents_native_currency = math.floor(cost_cents_usd * MEMBERSHIP_EXCHANGE_RATE_RMB / 100) * 100
+            cost_cents_native_currency_no_discounts = math.floor(cost_cents_usd_no_discounts * MEMBERSHIP_EXCHANGE_RATE_RMB / 100) * 100
         # elif method == 'bmc':
         #     native_currency_code = 'COFFEE'
         #     cost_cents_native_currency = round(cost_cents_usd / 500)
         elif method in ['amazon', 'amazon_co_uk', 'amazon_fr', 'amazon_it', 'amazon_ca', 'amazon_de', 'amazon_es']:
             if method in ['amazon_co_uk']:
                 cost_cents_native_currency = math.ceil(cost_cents_usd * 0.8)
+                cost_cents_native_currency_no_discounts = math.ceil(cost_cents_usd_no_discounts * 0.8)
                 if cost_cents_usd > 2300 and cost_cents_usd < 3000:
                     cost_cents_native_currency = 2000
                 native_currency_code = 'GBP'
             elif method in ['amazon_ca']:
                 cost_cents_native_currency = math.ceil(cost_cents_usd * 1.4)
+                cost_cents_native_currency_no_discounts = math.ceil(cost_cents_usd_no_discounts * 1.4)
                 if cost_cents_usd > 1800 and cost_cents_usd < 2300:
                     cost_cents_native_currency = 3000
                 native_currency_code = 'CAD'
             elif method in ['amazon_fr', 'amazon_it', 'amazon_de', 'amazon_es']:
                 cost_cents_native_currency = cost_cents_usd
+                cost_cents_native_currency_no_discounts = cost_cents_usd_no_discounts
                 native_currency_code = 'EUR'
             else:    
                 cost_cents_native_currency = cost_cents_usd
+                cost_cents_native_currency_no_discounts = cost_cents_usd_no_discounts
             if cost_cents_native_currency <= 500:
                 cost_cents_native_currency = 500
             elif cost_cents_native_currency <= 700:
@@ -845,14 +853,17 @@ def membership_costs_data(locale):
         elif method == 'pix':
             native_currency_code = 'BRL'
             cost_cents_native_currency = round(cost_cents_usd * usd_currency_rates['BRL'] / 100) * 100
+            cost_cents_native_currency_no_discounts = round(cost_cents_usd_no_discounts * usd_currency_rates['BRL'] / 100) * 100
 
         formatted_native_currency = membership_format_native_currency(locale, native_currency_code, cost_cents_native_currency, cost_cents_usd)
+        formatted_native_currency_no_discounts = membership_format_native_currency(locale, native_currency_code, cost_cents_native_currency_no_discounts, cost_cents_usd_no_discounts)
 
         return {
             'cost_cents_usd': cost_cents_usd,
             'cost_cents_usd_str': babel.numbers.format_currency(cost_cents_usd / 100.0, 'USD', locale=locale),
             'cost_cents_native_currency': cost_cents_native_currency,
             'cost_cents_native_currency_str_calculator': formatted_native_currency['cost_cents_native_currency_str_calculator'],
+            'cost_cents_native_currency_str_calculator_no_discounts': formatted_native_currency_no_discounts['cost_cents_native_currency_str_calculator'] if (cost_cents_native_currency_no_discounts > cost_cents_native_currency) else '',
             'cost_cents_native_currency_str_button': formatted_native_currency['cost_cents_native_currency_str_button'],
             'native_currency_code': native_currency_code,
             'monthly_cents': monthly_cents,

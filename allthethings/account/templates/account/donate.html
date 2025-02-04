@@ -520,7 +520,7 @@
         {{ membership_duration_button('96', gettext('page.donate.duration.96_mo'), discounted=True) }}
       </div>
       <div class="flex flex-col justify-center w-full max-w-[350px] text-center">
-        {{ gettext('page.donate.duration.summary', div_monthly_cost=(' class="text-2xl font-bold js-membership-monthly-cost"' | safe), div_after=(' class="text-sm text-gray-500 font-light mb-4"' | safe), span_discount=(' class="font-extrabold js-membership-discount-percentage"' | safe), div_total=(' class="text-2xl font-bold js-membership-total-cost"' | safe), div_duration=(' class="text-sm text-gray-500 font-light js-membership-total-duration"' | safe)) }}
+        {{ gettext('page.donate.duration.summary', div_monthly_cost=(' class="text-2xl font-bold js-membership-monthly-cost"' | safe), div_after=(' class="text-sm text-gray-500 font-light mb-4"' | safe), span_discount=(' class="font-extrabold js-membership-discount-percentage"' | safe), div_total=(' class="text-sm  text-gray-500 line-through js-membership-total-cost-no-discounts"></div><div class="text-2xl font-bold js-membership-total-cost" ' | safe), div_duration=(' class="text-sm text-gray-500 font-light js-membership-total-duration"' | safe)) }}
       </div>
     </div>
 
@@ -655,6 +655,7 @@
         if (costsData) {
           document.querySelector('.js-membership-discount-percentage').innerText = `{{ gettext('page.donate.duration.summary.discount', percentage=('${costsData.discounts}' | safe)) }}`;
           document.querySelector('.js-membership-monthly-cost').innerText = `{{ gettext('page.donate.duration.summary.monthly_cost', monthly_cost=('${costsData.monthly_cents_str}' | safe)) }}`;
+          document.querySelector('.js-membership-total-cost-no-discounts').innerText = costsData.cost_cents_native_currency_str_calculator_no_discounts;
           document.querySelector('.js-membership-total-cost').innerText = costsData.cost_cents_native_currency_str_calculator;
           document.querySelector('.js-membership-total-duration').innerText = {
             '1': `{{ gettext('page.donate.duration.summary.duration.1_mo') }}`,
