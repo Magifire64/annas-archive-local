@@ -6056,7 +6056,7 @@ def merge_file_unified_data_strings(source_records_by_type, iterations):
     # If still we haven't found a best_str, then proceed without checking for global_string_good_enough_for_best.
     if best_str == '':
         best_str = max(multiple_str + [''], key=len)
-    multiple_str = [s for s in multiple_str if s != best_str]
+    multiple_str = [s for s in multiple_str if (s != best_str) and (not is_string_subsequence(s, best_str))]
     return (best_str, multiple_str, {
         "best_str": best_str,
         "multiple_str": multiple_str,
