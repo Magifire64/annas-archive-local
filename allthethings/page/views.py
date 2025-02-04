@@ -6585,22 +6585,19 @@ def get_aarecords_internal_mysql(session, aarecord_ids, include_aarecord_mysql_d
             if problem['better_aarecord_id'] != '':
                 allthethings.utils.add_classification_unified(aarecord['file_unified_data'], 'better_aarecord_id', problem['better_aarecord_id'])
 
-        if (aarecord['file_unified_data']['content_type_best'] == '') and (len(source_records_presented_metadata_and_first_pass_by_type['lgrsnf_book']) > 0) and (len(source_records_presented_metadata_and_first_pass_by_type['lgrsfic_book']) == 0):
-            aarecord['file_unified_data']['content_type_best'] = source_records_presented_metadata_and_first_pass_by_type['lgrsnf_book'][0]['file_unified_data']['content_type_best']
-        if (aarecord['file_unified_data']['content_type_best'] == '') and (len(source_records_presented_metadata_and_first_pass_by_type['lgrsfic_book']) > 0) and (len(source_records_presented_metadata_and_first_pass_by_type['lgrsnf_book']) == 0):
-            aarecord['file_unified_data']['content_type_best'] = source_records_presented_metadata_and_first_pass_by_type['lgrsfic_book'][0]['file_unified_data']['content_type_best']
-        if aarecord['file_unified_data']['content_type_best'] == '':
-            aarecord['file_unified_data']['content_type_best'], _content_type_additional, debug_by_id[aarecord_id]['content_type_provenance'] = merge_file_unified_data_strings(source_records_presented_metadata_and_first_pass_by_type, [
-                [('lgli_file', 'content_type_best')],
-                [('aac_magzdb', 'content_type_best')],
-                [('aac_nexusstc', 'content_type_best')],
-                [('ia_record', 'content_type_best')],
-                [('ia_records_meta_only', 'content_type_best')],
-                [('ol_book_dicts_primary_linked', 'content_type_best')],
-                [('scihub_doi', 'content_type_best')],
-                [('aac_upload', 'content_type_best')], # Here aac_upload is actually high quality since it's all hardcoded.
-                [(UNIFIED_DATA_MERGE_EXCEPT(['oclc', 'aac_libby', 'aac_isbngrp']), 'content_type_best')],
-            ])
+        aarecord['file_unified_data']['content_type_best'], _content_type_additional, debug_by_id[aarecord_id]['content_type_provenance'] = merge_file_unified_data_strings(source_records_presented_metadata_and_first_pass_by_type, [
+            [('lgrsnf_book', 'content_type_best')],
+            [('lgrsfic_book', 'content_type_best')],
+            [('lgli_file', 'content_type_best')],
+            [('aac_magzdb', 'content_type_best')],
+            [('aac_nexusstc', 'content_type_best')],
+            [('ia_record', 'content_type_best')],
+            [('ia_records_meta_only', 'content_type_best')],
+            [('ol_book_dicts_primary_linked', 'content_type_best')],
+            [('scihub_doi', 'content_type_best')],
+            [('aac_upload', 'content_type_best')], # Here aac_upload is actually high quality since it's all hardcoded.
+            [(UNIFIED_DATA_MERGE_EXCEPT(['oclc', 'aac_libby', 'aac_isbngrp']), 'content_type_best')],
+        ])
         if aarecord['file_unified_data']['content_type_best'] == '':
             for libby in source_records_presented_metadata_and_first_pass_by_type['aac_libby']:
                 # Only tag Libby as audiobook or other when it's a Libby metadata record
