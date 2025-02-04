@@ -1681,7 +1681,9 @@ def add_classification_unified(output_dict, name, value):
 def normalize_isbn(string):
     canonical_isbn13 = isbnlib.get_canonical_isbn(string, output='isbn13')
     try:
-        if len(canonical_isbn13) != 13 or len(isbnlib.info(canonical_isbn13)) == 0:
+        # Consider isbns in "reserved" regions as valid. The get_canonical_isbn above checks for valid check digit already.
+        # if len(canonical_isbn13) != 13 or len(isbnlib.info(canonical_isbn13)) == 0:
+        if len(canonical_isbn13) != 13:
             return ''
     except Exception:
         return ''
