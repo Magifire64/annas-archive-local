@@ -1198,6 +1198,12 @@ def make_anon_download_uri(limit_multiple, speed_kbps, path, filename, domain):
     md5 = base64.urlsafe_b64encode(hashlib.md5(secure_str.encode('utf-8')).digest()).decode('utf-8').rstrip('=')
     return f"d3/{limit_multiple_field}/{expiry}/{speed_kbps}/{urllib.parse.quote(path)}~/{md5}/{filename}"
 
+# From running this on https://z-lib.gs/categories:
+# copy(JSON.stringify([...document.querySelectorAll('.subcategories-container')].map(div=>{const cat=div.querySelector('.category-name');return{category:cat.querySelector('a').textContent.trim(),id:cat.dataset.id,subcategories:[...div.querySelectorAll('.subcategory-name')].map(s=>{const link=s.querySelector('a');return{name:link.childNodes[0].textContent.trim(),id:link.getAttribute('href').match(/\/category\/(\d+)\//)?.[1],type:s.dataset.type,count:s.querySelector('.books-count')?.textContent.match(/\d+/)?.[0]}})}}),null,2));
+ZLIB_CATEGORIES_JSON = orjson.loads(open(os.path.dirname(os.path.realpath(__file__)) + '/page/zlib_categories.json').read())
+ZLIB_CATEGORIES_NAME_BY_ID = {sub["id"]: f"{cat['category']}/{sub['name']}" for cat in ZLIB_CATEGORIES_JSON for sub in cat["subcategories"]}
+ZLIB_CATEGORIES_TYPE_BY_ID = {sub["id"]: sub['type'] for cat in ZLIB_CATEGORIES_JSON for sub in cat["subcategories"]}
+
 DICT_COMMENTS_NO_API_DISCLAIMER = "This page is *not* intended as an API. If you need programmatic access to this JSON, please mirror our code ( https://software.annas-archive.li/ ) and data ( https://annas-archive.li/torrents#aa_derived_mirror_metadata ) locally. For more resources, check out https://annas-archive.li/datasets and https://software.annas-archive.li/AnnaArchivist/annas-archive/-/tree/main/data-imports"
 
 COMMON_DICT_COMMENTS = {
@@ -1473,6 +1479,8 @@ UNIFIED_CLASSIFICATIONS = {
     "oclc_holdings": { "label": "OCLC Holdings", "url": "", "description": "Number of library holdings (for all editions) reported by OCLC/WorldCat metadata. 'many' means 20 or more.", "website": "/datasets/oclc" },
     "oclc_editions": { "label": "OCLC Editions", "url": "", "description": "Number of editions (unique OCLC IDs) reported by OCLC/WorldCat metadata. 'many' means 20 or more.", "website": "/datasets/oclc" },
     "oclc_holdings_editions": { "label": "OCLC Holdings+Editions", "url": "", "description": "Combined code for oclc_holdings and oclc_editions.", "website": "/datasets/oclc" },
+    "zlib_category_id": { "label": "Zlib Category ID", "url": "https://z-lib.gs/category/%s", "description": "Category ID on the Z-Library website.", "website": "https://z-lib.gs/categories" },
+    "zlib_category_name": { "label": "Zlib Category Name", "url": "", "description": "Name for the zlib_category_id (category ID on the Z-Library website).", "website": "https://z-lib.gs/categories" },
     **{LGLI_CLASSIFICATIONS_MAPPING.get(key, key): value for key, value in LGLI_CLASSIFICATIONS.items()},
     # Plus more added below!
 }

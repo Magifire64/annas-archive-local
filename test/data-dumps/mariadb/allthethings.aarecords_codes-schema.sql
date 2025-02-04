@@ -15,4 +15,4 @@ CREATE TABLE `aarecords_codes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin
  PARTITION BY RANGE  COLUMNS(`code`)
 (PARTITION `discard` VALUES LESS THAN ('') ENGINE = InnoDB,
- PARTITION `p0` VALUES LESS THAN ('zlib;') ENGINE = InnoDB);
+ PARTITION `p0` VALUES LESS THAN ('zlib_category_name;') ENGINE = InnoDB);

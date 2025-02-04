@@ -1068,7 +1068,15 @@ def codes_prefix_matcher(s):
 def codes_page():
     DIR_LIST_LIMIT = 5000
     PREFIX_EXPANSION_LIMIT = 500
-    FILEPATH_PREFIXES = [b'filepath', b'server_path', b'link', b'czech_oo42hcks_filename', b'openlib_source_record', b'lgrsnf_topic']
+    FILEPATH_PREFIXES = [
+        b'czech_oo42hcks_filename', 
+        b'filepath', 
+        b'lgrsnf_topic', 
+        b'link', 
+        b'openlib_source_record', 
+        b'server_path', 
+        b'zlib_category_name',
+    ]
     
     account_id = allthethings.utils.get_account_id(request.cookies)
     if account_id is None:
@@ -1492,6 +1500,22 @@ def get_aac_zlib3_book_dicts(session, key, values):
             aac_zlib3_book_dict['file_unified_data']['ipfs_infos'].append({ 'ipfs_cid': aac_zlib3_book_dict['ipfs_cid'], 'from': 'zlib_ipfs_cid' })
         if (aac_zlib3_book_dict.get('ipfs_cid_blake2b') or '') != '':
             aac_zlib3_book_dict['file_unified_data']['ipfs_infos'].append({ 'ipfs_cid': aac_zlib3_book_dict['ipfs_cid_blake2b'], 'from': 'zlib_ipfs_cid_blake2b' })
+
+        if aac_zlib3_book_dict['category_id'] != '':
+            if aac_zlib3_book_dict['category_id'] not in allthethings.utils.ZLIB_CATEGORIES_NAME_BY_ID:
+                print(f"Warning: {aac_zlib3_book_dict['category_id']=} not in ZLIB_CATEGORIES_NAME_BY_ID for {aac_zlib3_book_dict=}")
+            else:
+                allthethings.utils.add_classification_unified(aac_zlib3_book_dict['file_unified_data'], 'zlib_category_id', aac_zlib3_book_dict['category_id'])
+                category_name = allthethings.utils.ZLIB_CATEGORIES_NAME_BY_ID[aac_zlib3_book_dict['category_id']]
+                allthethings.utils.add_classification_unified(aac_zlib3_book_dict['file_unified_data'], 'zlib_category_name', category_name)
+
+                category_type = allthethings.utils.ZLIB_CATEGORIES_TYPE_BY_ID[aac_zlib3_book_dict['category_id']]
+                if category_type not in ['non-fiction', 'fiction']:
+                    raise Exception(f"Unexpected {category_type=} for {aac_zlib3_book_dict=}")
+                if category_type == 'non-fiction':
+                    aac_zlib3_book_dict['file_unified_data']['content_type_best'] = 'book_nonfiction'
+                else:
+                    aac_zlib3_book_dict['file_unified_data']['content_type_best'] = 'book_fiction'
 
         aac_zlib3_book_dict['raw_aac'] = raw_aac
 
@@ -6631,6 +6655,7 @@ def get_aarecords_internal_mysql(session, aarecord_ids, include_aarecord_mysql_d
             [('lgrsnf_book', 'content_type_best')],
             [('lgrsfic_book', 'content_type_best')],
             [('lgli_file', 'content_type_best')],
+            [('aac_zlib3_book', 'content_type_best')],
             [('aac_magzdb', 'content_type_best')],
             [('aac_nexusstc', 'content_type_best')],
             [('ia_record', 'content_type_best')],

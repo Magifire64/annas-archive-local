@@ -99,4 +99,6 @@ INSERT INTO `aarecords_codes_prefixes` VALUES("aacid")
 ,("trantor")
 ,("year")
 ,("zlib")
+,("zlib_category_id")
+,("zlib_category_name")
 ;
