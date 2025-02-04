@@ -5968,7 +5968,7 @@ def global_string_good_enough_for_best(string):
     string = string.strip().lower()
     if string.isdigit() and not allthethings.utils.validate_year(string):
         return False
-    if string in ['uuuu', 'undefined', 'djvutoy', 'user', 'word', 'excel']:
+    if string in ['uuuu', 'undefined', 'djvutoy', 'user', 'word', 'excel', 'untitled']:
         return False
     if 'adobe acrobat' in string:
         return False
@@ -6368,13 +6368,17 @@ def get_aarecords_internal_mysql(session, aarecord_ids, include_aarecord_mysql_d
             allthethings.utils.add_identifier_unified(aarecord['file_unified_data'], 'ipfs_cid', ipfs_info['ipfs_cid'])
 
         # Prioritize aac_upload, since we usually have meaningful directory structure there.
-        aarecord['file_unified_data']['original_filename_best'], aarecord['file_unified_data']['original_filename_additional'], debug_by_id[aarecord_id]['original_filename_provenance'] = merge_file_unified_data_strings(source_records_presented_metadata_and_first_pass_by_type, [
+        aarecord['file_unified_data']['original_filename_best'], _filename_additional, debug_by_id[aarecord_id]['original_filename_provenance'] = merge_file_unified_data_strings(source_records_presented_metadata_and_first_pass_by_type, [
             [('ol_book_dicts_primary_linked', 'original_filename_best')], 
             [('aac_upload', 'original_filename_best')], 
             [(['lgrsnf_book','lgrsfic_book','lgli_file','aac_zlib3_book','ia_record','duxiu','aac_magzdb','aac_nexusstc'], 'original_filename_best')],
             [(UNIFIED_DATA_MERGE_ALL, 'original_filename_best')], 
             [(UNIFIED_DATA_MERGE_ALL, 'original_filename_additional')],
         ])
+        # Keep all original filenames.
+        aarecord['file_unified_data']['original_filename_additional'] = list(dict.fromkeys([filename for filename in [
+                    filename for source_record in source_records_presented_metadata_and_first_pass for filename in ([source_record['source_record']['file_unified_data']['original_filename_best']] + source_record['source_record']['file_unified_data']['original_filename_additional'])
+                ] if (filename != '') and (filename != aarecord['file_unified_data']['original_filename_best'])]))
         for filepath in ([aarecord['file_unified_data']['original_filename_best']] + aarecord['file_unified_data']['original_filename_additional']):
             allthethings.utils.add_identifier_unified(aarecord['file_unified_data'], 'filepath', filepath.encode()[0:allthethings.utils.AARECORDS_CODES_CODE_LENGTH-len('filepath:')-5].decode(errors='replace'))
 
