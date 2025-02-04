@@ -3168,6 +3168,8 @@ def get_oclc_dicts(session, key, values):
                 oclc_dict["aa_oclc_derived"]["specific_format_multiple"] += [orjson.loads(dat)['stdrt2'] for dat in (rft.get('rft_dat') or [])]
                 oclc_dict["aa_oclc_derived"]["isbn_multiple"] += (aac_metadata['record'].get('isbns') or [])
                 oclc_dict["aa_oclc_derived"]["isbn_multiple"] += (rft.get('rft.isbn') or [])
+                oclc_dict["aa_oclc_derived"]["issn_multiple"] += (rft.get('rft.issn') or [])
+                oclc_dict["aa_oclc_derived"]["issn_multiple"] += (rft.get('rft.eissn') or [])
 
                 # TODO: series/volume?
                 # lcNumber, masterCallNumber
@@ -3179,6 +3181,8 @@ def get_oclc_dicts(session, key, values):
                 oclc_dict["aa_oclc_derived"]["rft_multiple"].append(rft)
 
                 oclc_dict["aa_oclc_derived"]["title_additional"] += (rft.get('rft.title') or [])
+                if (len(rft.get('rft.jtitle') or []) > 0) or (len(rft.get('rft.atitle') or []) > 0) or (len(rft.get('rft.btitle') or []) > 0):
+                    oclc_dict["aa_oclc_derived"]["title_additional"].append(' -- '.join((rft.get('rft.jtitle') or []) + (rft.get('rft.atitle') or []) + (rft.get('rft.btitle') or [])))
                 legacy_author_match = re.search('<div class="author">([^<]+)</div>', aac_metadata['html'])
                 if legacy_author_match:
                     legacy_authors = legacy_author_match.group(1)
@@ -3196,6 +3200,8 @@ def get_oclc_dicts(session, key, values):
                 oclc_dict["aa_oclc_derived"]["general_format_multiple"] += [orjson.loads(dat)['stdrt1'] for dat in (rft.get('rft_dat') or [])]
                 oclc_dict["aa_oclc_derived"]["specific_format_multiple"] += [orjson.loads(dat)['stdrt2'] for dat in (rft.get('rft_dat') or [])]
                 oclc_dict["aa_oclc_derived"]["isbn_multiple"] += (rft.get('rft.isbn') or [])
+                oclc_dict["aa_oclc_derived"]["issn_multiple"] += (rft.get('rft.issn') or [])
+                oclc_dict["aa_oclc_derived"]["issn_multiple"] += (rft.get('rft.eissn') or [])
                 # TODO: series/volume?
             elif aac_metadata['type'] == 'search_holdings_all_editions_response':
                 oclc_dict["aa_oclc_derived"]["total_holding_count_multiple"].append(aac_metadata['record']['totalHoldingCount'])
@@ -5959,7 +5965,36 @@ def get_transitive_lookup_dicts(session, lookup_table_name, codes):
         return dict(retval)
 
 def global_string_good_enough_for_best(string):
+    string = string.strip().lower()
     if string.isdigit() and not allthethings.utils.validate_year(string):
+        return False
+    if string in ['uuuu', 'undefined', 'djvutoy', 'user', 'word', 'excel']:
+        return False
+    if 'adobe acrobat' in string:
+        return False
+    if 'acrobat pro' in string:
+        return False
+    if 'adobe indesign' in string:
+        return False
+    if 'adobe pagemaker' in string:
+        return False
+    if 'adobe photoshop' in string:
+        return False
+    if 'pdg2pic' in string:
+        return False
+    if 'pdftk' in string:
+        return False
+    if 'pdfsam' in string:
+        return False
+    if 'pic2pdf' in string:
+        return False
+    if 'html2pdf' in string:
+        return False
+    if 'administrator' in string:
+        return False
+    if 'abbyy' in string:
+        return False
+    if 'musescore' in string:
         return False
     return True
 
