@@ -6317,11 +6317,14 @@ def get_aarecords_internal_mysql(session, aarecord_ids, include_aarecord_mysql_d
         source_records_first_pass_by_type = allthethings.utils.groupby(source_records_first_pass, 'source_type', 'source_record')
         source_records_primary_linked_meta = source_records_primary_linked_meta_by_aarecord_id[aarecord_id]
         source_records_primary_linked_meta_by_type = allthethings.utils.groupby(source_records_primary_linked_meta, 'source_type', 'source_record')
+        source_records_primary_linked_meta_and_first_pass = source_records_primary_linked_meta+source_records_first_pass
+        source_records_primary_linked_meta_and_first_pass_by_type = allthethings.utils.groupby(source_records_primary_linked_meta_and_first_pass, 'source_type', 'source_record')
         if len(source_records_primary_linked_meta) > 0:
-            source_records_presented_metadata = source_records_primary_linked_meta
+            source_records_presented_metadata                = source_records_primary_linked_meta
             source_records_presented_metadata_and_first_pass = source_records_primary_linked_meta+source_records_first_pass
         else:
-            source_records_presented_metadata = source_records_presented_metadata_and_first_pass = source_records_transitive
+            source_records_presented_metadata                = source_records_transitive
+            source_records_presented_metadata_and_first_pass = source_records_transitive
         source_records_presented_metadata_by_type = allthethings.utils.groupby(source_records_presented_metadata, 'source_type', 'source_record')
         source_records_presented_metadata_and_first_pass_by_type = allthethings.utils.groupby(source_records_presented_metadata_and_first_pass, 'source_type', 'source_record')
 
@@ -6458,8 +6461,7 @@ def get_aarecords_internal_mysql(session, aarecord_ids, include_aarecord_mysql_d
         # Bump most common langcodes to the front. We use the fact that combine_bcp47_lang_codes is stable (preserves order).
         aarecord['file_unified_data']['most_likely_language_codes'] = aarecord['file_unified_data']['language_codes'] = combine_bcp47_lang_codes([
             all_langcodes_most_common_codes,
-            *[source_record['source_record']['file_unified_data']['language_codes'] for source_record in source_records_primary_linked_meta],
-            *[source_record['source_record']['file_unified_data']['language_codes'] for source_record in source_records_first_pass],
+            *[source_record['source_record']['file_unified_data']['language_codes'] for source_record in source_records_primary_linked_meta_and_first_pass],
         ])
         if len(aarecord['file_unified_data']['most_likely_language_codes']) == 0:
             # For the case where there is no primary linked meta, and first pass has no lang codes -- then we use transitive records.
@@ -6585,7 +6587,8 @@ def get_aarecords_internal_mysql(session, aarecord_ids, include_aarecord_mysql_d
             if problem['better_aarecord_id'] != '':
                 allthethings.utils.add_classification_unified(aarecord['file_unified_data'], 'better_aarecord_id', problem['better_aarecord_id'])
 
-        aarecord['file_unified_data']['content_type_best'], _content_type_additional, debug_by_id[aarecord_id]['content_type_provenance'] = merge_file_unified_data_strings(source_records_presented_metadata_and_first_pass_by_type, [
+        aarecord['file_unified_data']['content_type_best'], _content_type_additional, debug_by_id[aarecord_id]['content_type_provenance'] = merge_file_unified_data_strings(source_records_primary_linked_meta_and_first_pass_by_type, [
+            [('aac_upload', 'content_type_best')], # Here aac_upload is actually high quality since it's all hardcoded.
             [('lgrsnf_book', 'content_type_best')],
             [('lgrsfic_book', 'content_type_best')],
             [('lgli_file', 'content_type_best')],
@@ -6595,27 +6598,9 @@ def get_aarecords_internal_mysql(session, aarecord_ids, include_aarecord_mysql_d
             [('ia_records_meta_only', 'content_type_best')],
             [('ol_book_dicts_primary_linked', 'content_type_best')],
             [('scihub_doi', 'content_type_best')],
-            [('aac_upload', 'content_type_best')], # Here aac_upload is actually high quality since it's all hardcoded.
             [(UNIFIED_DATA_MERGE_EXCEPT(['oclc', 'aac_libby', 'aac_isbngrp']), 'content_type_best')],
+            [(UNIFIED_DATA_MERGE_ALL, 'content_type_best')],
         ])
-        if aarecord['file_unified_data']['content_type_best'] == '':
-            for libby in source_records_presented_metadata_and_first_pass_by_type['aac_libby']:
-                # Only tag Libby as audiobook or other when it's a Libby metadata record
-                if (aarecord_id_split[0] == 'libby') or (libby['file_unified_data']['content_type_best'] not in ['other', 'audiobook']):
-                    aarecord['file_unified_data']['content_type_best'] = libby['file_unified_data']['content_type_best']
-                    break
-        if aarecord['file_unified_data']['content_type_best'] == '':
-            for oclc in source_records_presented_metadata_and_first_pass_by_type['oclc']:
-                # OCLC has a lot of books mis-tagged as journal article.
-                if (aarecord_id_split[0] == 'oclc') or (oclc['file_unified_data']['content_type_best'] not in ['other', 'journal_article']):
-                    aarecord['file_unified_data']['content_type_best'] = oclc['file_unified_data']['content_type_best']
-                    break
-        if aarecord['file_unified_data']['content_type_best'] == '':
-            for isbngrp in source_records_presented_metadata_and_first_pass_by_type['aac_isbngrp']:
-                # Only use ISBNGRP content type if it's that metadata
-                if aarecord_id_split[0] == 'isbngrp':
-                    aarecord['file_unified_data']['content_type_best'] = isbngrp['file_unified_data']['content_type_best']
-                    break
         if aarecord['file_unified_data']['content_type_best'] == '':
             aarecord['file_unified_data']['content_type_best'] = 'book_unknown'
         allthethings.utils.add_classification_unified(aarecord['file_unified_data'], 'content_type', aarecord['file_unified_data']['content_type_best'])
