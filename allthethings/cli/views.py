@@ -268,9 +268,11 @@ def mysql_build_aac_tables_internal():
                     json = orjson.loads(line)
                     if ('filepath_raw_base64' in json['metadata']) or ('full_filepath_raw_base64' in json['metadata']):
                         filepath_raw_base64 = json['metadata'].get('filepath_raw_base64') or json['metadata']['full_filepath_raw_base64']
-                        return_data['filepath_raw_md5'] = hashlib.md5(base64.b64decode(filepath_raw_base64.encode())).hexdigest()
+                        filepath_raw_suffix = base64.b64decode(filepath_raw_base64.encode())
                     else:
-                        return_data['filepath_raw_md5'] = hashlib.md5(json['metadata']['filepath'].encode()).hexdigest()
+                        filepath_raw_suffix = json['metadata']['filepath'].encode()
+                    subcollection = json['aacid'].split('__')[1].removeprefix('upload_records_')
+                    return_data['filepath_raw_md5'] = hashlib.md5(subcollection.encode() + b'/' + filepath_raw_suffix).hexdigest()
                 return return_data
 
             CHUNK_SIZE = 100000
