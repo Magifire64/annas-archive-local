@@ -48,6 +48,7 @@ docker exec -it web bash -c 'for f in /app/aacid_small/*.jsonl; do echo "Process
 
 # Upload
 - .lit files shouldn't be marked as having a problem due to exiftool failing: aacid__upload_records_duxiu_main2__20250115T164002Z__2161813__Hz7FmJgpsNbFkf6WTysAma / aacid__upload_files_duxiu_main2__20250114T221524Z__UzKP3QAnBfjBhoPrg26GsM
+- calibre .opf file matching: aacid__upload_records_misc__20241216T123335Z__63469__HcsA5RCMhhkukE7gvX4pK5 / aacid__upload_records_misc__20241216T123335Z__63459__2TVKKSqzS8YCwmaG7ZJRec / aacid__upload_files_misc__20241215T124604Z__FRVJ7ievvVKCjSy2RqrbLk / aacid__upload_files_misc__20241215T124604Z__iVvn8Jh3PZwZ3JJ4AoWDnr
 
 # DuXiu
 - Record in which "书名" ("title") in the INI data is the SSID: aacid__duxiu_records__20240305T000000Z__Moo2RJtqdVf6egw9ENaS98 / aacid__duxiu_records__20240205T000000Z__Wi3Bz3CWe79fq2wdPqL2Uh / aacid__duxiu_files__20240613T190635Z__cTFx8Lq38ktE9Saq6j58ZQ

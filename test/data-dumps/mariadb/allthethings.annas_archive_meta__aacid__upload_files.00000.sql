@@ -29,6 +29,8 @@ INSERT INTO `annas_archive_meta__aacid__upload_files` VALUES("aacid__upload_file
 ,("aacid__upload_files_misc__20240510T071833Z__dPRWcRoeyyNcRmVVAzmVfw","ee0bc3f412a8a782c9c15f1076481814",NULL,9633,301)
 ,("aacid__upload_files_misc__20240510T071833Z__PnJMKdn44FgmbstxhgGqtc","8b25072e0863f953ea46719328751c7d",NULL,9009,301)
 ,("aacid__upload_files_misc__20240510T071833Z__QEaTipFnfmYZWseTKeyKQj","d8eaf03d3b09d171a70d8b9caec70646",NULL,9310,323)
+,("aacid__upload_files_misc__20241215T124604Z__FRVJ7ievvVKCjSy2RqrbLk","443307a85ad9188227d23d036d42ca5a",NULL,10907,487)
+,("aacid__upload_files_misc__20241215T124604Z__iVvn8Jh3PZwZ3JJ4AoWDnr","7984cda523714635fe627db160d92df3",NULL,11394,552)
 ,("aacid__upload_files_shuge__20240510T045836Z__hXJst6oJyVaE7TVFhwAgPs","2f405d352eff293ba60bd96ca3fff473",NULL,7936,413)
 ,("aacid__upload_files_shuge__20240510T045836Z__JscdLBT3KdP4Lx9YdXTizy","66eb7a96e476713cc147febd57ab9e27",NULL,7483,453)
 ,("aacid__upload_files_trantor__20240510T042954Z__GYB4qEnnKrWD48hRKRhJsE","9929aa8c28c49b22f3ffa3e0d4d15133",NULL,8349,322)
