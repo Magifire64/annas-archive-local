@@ -1509,13 +1509,15 @@ def get_aac_zlib3_book_dicts(session, key, values):
                 category_name = allthethings.utils.ZLIB_CATEGORIES_NAME_BY_ID[aac_zlib3_book_dict['category_id']]
                 allthethings.utils.add_classification_unified(aac_zlib3_book_dict['file_unified_data'], 'zlib_category_name', category_name)
 
-                category_type = allthethings.utils.ZLIB_CATEGORIES_TYPE_BY_ID[aac_zlib3_book_dict['category_id']]
-                if category_type not in ['non-fiction', 'fiction']:
-                    raise Exception(f"Unexpected {category_type=} for {aac_zlib3_book_dict=}")
-                if category_type == 'non-fiction':
-                    aac_zlib3_book_dict['file_unified_data']['content_type_best'] = 'book_nonfiction'
-                else:
-                    aac_zlib3_book_dict['file_unified_data']['content_type_best'] = 'book_fiction'
+                # Top-level categories don't have a type, so it's possible for this to be false.
+                if aac_zlib3_book_dict['category_id'] in allthethings.utils.ZLIB_CATEGORIES_TYPE_BY_ID:
+                    category_type = allthethings.utils.ZLIB_CATEGORIES_TYPE_BY_ID[aac_zlib3_book_dict['category_id']]
+                    if category_type not in ['non-fiction', 'fiction']:
+                        raise Exception(f"Unexpected {category_type=} for {aac_zlib3_book_dict=}")
+                    if category_type == 'non-fiction':
+                        aac_zlib3_book_dict['file_unified_data']['content_type_best'] = 'book_nonfiction'
+                    else:
+                        aac_zlib3_book_dict['file_unified_data']['content_type_best'] = 'book_fiction'
 
         aac_zlib3_book_dict['raw_aac'] = raw_aac
 

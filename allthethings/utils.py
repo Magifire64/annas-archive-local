@@ -1201,8 +1201,12 @@ def make_anon_download_uri(limit_multiple, speed_kbps, path, filename, domain):
 # From running this on https://z-lib.gs/categories:
 # copy(JSON.stringify([...document.querySelectorAll('.subcategories-container')].map(div=>{const cat=div.querySelector('.category-name');return{category:cat.querySelector('a').textContent.trim(),id:cat.dataset.id,subcategories:[...div.querySelectorAll('.subcategory-name')].map(s=>{const link=s.querySelector('a');return{name:link.childNodes[0].textContent.trim(),id:link.getAttribute('href').match(/\/category\/(\d+)\//)?.[1],type:s.dataset.type,count:s.querySelector('.books-count')?.textContent.match(/\d+/)?.[0]}})}}),null,2));
 ZLIB_CATEGORIES_JSON = orjson.loads(open(os.path.dirname(os.path.realpath(__file__)) + '/page/zlib_categories.json').read())
-ZLIB_CATEGORIES_NAME_BY_ID = {sub["id"]: f"{cat['category']}/{sub['name']}" for cat in ZLIB_CATEGORIES_JSON for sub in cat["subcategories"]}
+ZLIB_CATEGORIES_NAME_BY_ID = {**{cat["id"]: cat['category'] for cat in ZLIB_CATEGORIES_JSON}, **{sub["id"]: f"{cat['category']}/{sub['name']}" for cat in ZLIB_CATEGORIES_JSON for sub in cat["subcategories"]}}
 ZLIB_CATEGORIES_TYPE_BY_ID = {sub["id"]: sub['type'] for cat in ZLIB_CATEGORIES_JSON for sub in cat["subcategories"]}
+# If all the subcategories have the same type, assume the parent has that type too.
+for category in ZLIB_CATEGORIES_JSON:
+    if (len(category['subcategories']) > 0) and all(subcategory['type'] == category['subcategories'][0]['type'] for subcategory in category['subcategories']):
+        ZLIB_CATEGORIES_TYPE_BY_ID[category['id']] = category['subcategories'][0]['type']
 
 DICT_COMMENTS_NO_API_DISCLAIMER = "This page is *not* intended as an API. If you need programmatic access to this JSON, please mirror our code ( https://software.annas-archive.li/ ) and data ( https://annas-archive.li/torrents#aa_derived_mirror_metadata ) locally. For more resources, check out https://annas-archive.li/datasets and https://software.annas-archive.li/AnnaArchivist/annas-archive/-/tree/main/data-imports"
 
