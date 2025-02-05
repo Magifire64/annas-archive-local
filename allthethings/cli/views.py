@@ -18,6 +18,7 @@ import hashlib
 import zstandard
 import datetime
 import io
+import base64
 
 import allthethings.utils
 
@@ -174,6 +175,8 @@ def mysql_build_aac_tables_internal():
             extra_index_fields = {}
             if collection == 'duxiu_records':
                 extra_index_fields['filename_decoded_basename'] = 'VARCHAR(250) NULL'
+            if collection == 'upload_records':
+                extra_index_fields['filepath_raw_md5'] = 'CHAR(32) CHARACTER SET ascii NOT NULL'
 
             def build_insert_data(line, byte_offset):
                 if SLOW_DATA_IMPORTS:
@@ -261,6 +264,13 @@ def mysql_build_aac_tables_internal():
                         json = orjson.loads(line)
                         filename_decoded = json['metadata']['record']['filename_decoded']
                         return_data['filename_decoded_basename'] = filename_decoded.rsplit('.', 1)[0]
+                if collection == 'upload_records':
+                    json = orjson.loads(line)
+                    if ('filepath_raw_base64' in json['metadata']) or ('full_filepath_raw_base64' in json['metadata']):
+                        filepath_raw_base64 = json['metadata'].get('filepath_raw_base64') or json['metadata']['full_filepath_raw_base64']
+                        return_data['filepath_raw_md5'] = hashlib.md5(base64.b64decode(filepath_raw_base64.encode())).hexdigest()
+                    else:
+                        return_data['filepath_raw_md5'] = hashlib.md5(json['metadata']['filepath'].encode()).hexdigest()
                 return return_data
 
             CHUNK_SIZE = 100000

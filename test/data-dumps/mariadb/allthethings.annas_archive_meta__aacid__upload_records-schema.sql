@@ -8,7 +8,9 @@ CREATE TABLE `annas_archive_meta__aacid__upload_records` (
   `md5` char(32) CHARACTER SET ascii COLLATE ascii_general_ci DEFAULT NULL,
   `byte_offset` bigint(20) NOT NULL,
   `byte_length` bigint(20) NOT NULL,
+  `filepath_raw_md5` char(32) CHARACTER SET ascii COLLATE ascii_general_ci NOT NULL,
   PRIMARY KEY (`aacid`),
   KEY `primary_id` (`primary_id`),
-  KEY `md5` (`md5`)
+  KEY `md5` (`md5`),
+  KEY `filepath_raw_md5` (`filepath_raw_md5`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
