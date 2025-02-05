@@ -177,6 +177,7 @@ def mysql_build_aac_tables_internal():
                 extra_index_fields['filename_decoded_basename'] = 'VARCHAR(250) NULL'
             if collection == 'upload_records':
                 extra_index_fields['filepath_raw_md5'] = 'CHAR(32) CHARACTER SET ascii NOT NULL'
+                extra_index_fields['dont_index_file'] = 'TINYINT NOT NULL'
 
             def build_insert_data(line, byte_offset):
                 if SLOW_DATA_IMPORTS:
@@ -266,13 +267,13 @@ def mysql_build_aac_tables_internal():
                         return_data['filename_decoded_basename'] = filename_decoded.rsplit('.', 1)[0]
                 if collection == 'upload_records':
                     json = orjson.loads(line)
-                    if ('filepath_raw_base64' in json['metadata']) or ('full_filepath_raw_base64' in json['metadata']):
-                        filepath_raw_base64 = json['metadata'].get('filepath_raw_base64') or json['metadata']['full_filepath_raw_base64']
-                        filepath_raw_suffix = base64.b64decode(filepath_raw_base64.encode())
-                    else:
-                        filepath_raw_suffix = json['metadata']['filepath'].encode()
+                    filepath_raw_suffix = allthethings.utils.get_filepath_raw_from_upload_aac_metadata(json['metadata'])
                     subcollection = json['aacid'].split('__')[1].removeprefix('upload_records_')
                     return_data['filepath_raw_md5'] = hashlib.md5(subcollection.encode() + b'/' + filepath_raw_suffix).hexdigest()
+                    filepath_raw_suffix_lower = filepath_raw_suffix.lower()
+                    return_data['dont_index_file'] = 0
+                    if filepath_raw_suffix_lower.endswith(b'metadata.opf') or filepath_raw_suffix_lower.endswith(b'cover.jpg'):
+                        return_data['dont_index_file'] = 1
                 return return_data
 
             CHUNK_SIZE = 100000
@@ -426,7 +427,7 @@ def mysql_build_computed_all_md5s_internal():
     print("Load indexes of annas_archive_meta__aacid__upload_records and annas_archive_meta__aacid__upload_files")
     cursor.execute('LOAD INDEX INTO CACHE annas_archive_meta__aacid__upload_records, annas_archive_meta__aacid__upload_files')
     print("Inserting from 'annas_archive_meta__aacid__upload_files'")
-    cursor.execute('INSERT IGNORE INTO computed_all_md5s (md5, first_source) SELECT UNHEX(annas_archive_meta__aacid__upload_files.primary_id), 12 FROM annas_archive_meta__aacid__upload_files JOIN annas_archive_meta__aacid__upload_records ON (annas_archive_meta__aacid__upload_records.md5 = annas_archive_meta__aacid__upload_files.primary_id) WHERE annas_archive_meta__aacid__upload_files.primary_id IS NOT NULL')
+    cursor.execute('INSERT IGNORE INTO computed_all_md5s (md5, first_source) SELECT UNHEX(annas_archive_meta__aacid__upload_files.primary_id), 12 FROM annas_archive_meta__aacid__upload_files JOIN annas_archive_meta__aacid__upload_records ON (annas_archive_meta__aacid__upload_records.md5 = annas_archive_meta__aacid__upload_files.primary_id) WHERE annas_archive_meta__aacid__upload_files.primary_id IS NOT NULL AND annas_archive_meta__aacid__upload_records.dont_index_file = 0')
     print("Load indexes of annas_archive_meta__aacid__upload_records and annas_archive_meta__aacid__magzdb_records__multiple_md5")
     cursor.execute('LOAD INDEX INTO CACHE annas_archive_meta__aacid__upload_records, annas_archive_meta__aacid__magzdb_records__multiple_md5')
     print("Inserting from 'annas_archive_meta__aacid__magzdb_records__multiple_md5'")

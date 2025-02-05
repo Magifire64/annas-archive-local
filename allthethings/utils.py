@@ -1198,6 +1198,14 @@ def make_anon_download_uri(limit_multiple, speed_kbps, path, filename, domain):
     md5 = base64.urlsafe_b64encode(hashlib.md5(secure_str.encode('utf-8')).digest()).decode('utf-8').rstrip('=')
     return f"d3/{limit_multiple_field}/{expiry}/{speed_kbps}/{urllib.parse.quote(path)}~/{md5}/{filename}"
 
+def get_filepath_raw_from_upload_aac_metadata(upload_aac_metadata):
+    if ('filepath_raw_base64' in upload_aac_metadata) or ('full_filepath_raw_base64' in upload_aac_metadata):
+        filepath_raw_base64 = upload_aac_metadata.get('filepath_raw_base64') or upload_aac_metadata['full_filepath_raw_base64']
+        return base64.b64decode(filepath_raw_base64.encode())
+    else:
+        return upload_aac_metadata['filepath'].encode()
+
+
 # From running this on https://z-lib.gs/categories:
 # copy(JSON.stringify([...document.querySelectorAll('.subcategories-container')].map(div=>{const cat=div.querySelector('.category-name');return{category:cat.querySelector('a').textContent.trim(),id:cat.dataset.id,subcategories:[...div.querySelectorAll('.subcategory-name')].map(s=>{const link=s.querySelector('a');return{name:link.childNodes[0].textContent.trim(),id:link.getAttribute('href').match(/\/category\/(\d+)\//)?.[1],type:s.dataset.type,count:s.querySelector('.books-count')?.textContent.match(/\d+/)?.[0]}})}}),null,2));
 ZLIB_CATEGORIES_JSON = orjson.loads(open(os.path.dirname(os.path.realpath(__file__)) + '/page/zlib_categories.json').read())
