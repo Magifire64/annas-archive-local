@@ -3933,6 +3933,19 @@ def upload_book_exiftool_append(newlist, record, fieldname, transformation=lambd
     else:
         raise Exception(f"Unexpected field in upload_book_exiftool_append: {record=} {fieldname=} {field=}")
 
+def opf_extract_text(field):
+    if type(field) is str:
+        return [field]
+    elif type(field) is dict:
+        return [field['#text']]
+    elif type(field) is list:
+        output = []
+        for item in field:
+            output += opf_extract_text(item)
+        return output
+    else:
+        raise Exception(f"Unexpected field in opf_extract_text: {field=}")
+
 def get_aac_upload_book_dicts(session, key, values):
     if len(values) == 0:
         return []
@@ -3977,6 +3990,35 @@ def get_aac_upload_book_dicts(session, key, values):
         traceback.print_tb(err.__traceback__)
         return []
 
+    metadata_opf_path_md5s_to_book_md5 = {}
+    for aac_upload_book_dict_raw in aac_upload_book_dicts_raw:
+        for record in aac_upload_book_dict_raw['records']:
+            filepath_raw = allthethings.utils.get_filepath_raw_from_upload_aac_metadata(record['metadata'])
+            subcollection = record['aacid'].split('__')[1].removeprefix('upload_records_')
+            filepath_raw_base = subcollection.encode() + b'/' + filepath_raw.rsplit(b'/', 1)[0]
+            opf_path = filepath_raw_base + b'/metadata.opf'
+            opf_path_md5 = hashlib.md5(opf_path).hexdigest()
+            print(f"{opf_path=} {opf_path_md5=} {filepath_raw_base=} {subcollection=} {filepath_raw=}")
+            metadata_opf_path_md5s_to_book_md5[opf_path_md5] = aac_upload_book_dict_raw['md5']
+
+    metadata_opf_path_md5s = list(metadata_opf_path_md5s_to_book_md5.keys())
+    metadata_opf_upload_records_by_book_md5 = collections.defaultdict(list)
+    if len(metadata_opf_path_md5s) > 0:
+        session.connection().connection.ping(reconnect=True)
+        cursor = session.connection().connection.cursor(pymysql.cursors.DictCursor)
+        cursor.execute(f'SELECT byte_offset, byte_length, filepath_raw_md5 FROM annas_archive_meta__aacid__upload_records WHERE filepath_raw_md5 IN %(metadata_opf_path_md5s)s', { "metadata_opf_path_md5s": metadata_opf_path_md5s })
+
+        metadata_upload_records_path_md5s = []
+        metadata_upload_records_offsets_and_lengths = []
+        for row in list(cursor.fetchall()):
+            metadata_upload_records_path_md5s.append(row['filepath_raw_md5'])
+            metadata_upload_records_offsets_and_lengths.append((row['byte_offset'], row['byte_length']))
+        for index, line_bytes in enumerate(allthethings.utils.get_lines_from_aac_file(cursor, 'upload_records', metadata_upload_records_offsets_and_lengths)):
+            record = orjson.loads(line_bytes)
+            filepath_raw_md5 = metadata_upload_records_path_md5s[index]
+            book_md5 = metadata_opf_path_md5s_to_book_md5[filepath_raw_md5]
+            metadata_opf_upload_records_by_book_md5[book_md5].append(record)
+
     aac_upload_book_dicts = []
     for aac_upload_book_dict_raw in aac_upload_book_dicts_raw:
         aac_upload_book_dict = {
@@ -3990,6 +4032,7 @@ def get_aac_upload_book_dicts(session, key, values):
             "file_unified_data": allthethings.utils.make_file_unified_data(),
             "records": aac_upload_book_dict_raw['records'],
             "files": aac_upload_book_dict_raw['files'],
+            "metadata_opf_upload_records": metadata_opf_upload_records_by_book_md5[aac_upload_book_dict_raw['md5']],
         }
         aac_upload_book_dict['aa_upload_derived']['subcollection_multiple'] = []
         aac_upload_book_dict['aa_upload_derived']['pages_multiple'] = []
@@ -3999,6 +4042,27 @@ def get_aac_upload_book_dicts(session, key, values):
         aac_upload_book_dict['aa_upload_derived']['comments_cumulative'] = []
 
         allthethings.utils.add_identifier_unified(aac_upload_book_dict['file_unified_data'], 'md5', aac_upload_book_dict_raw['md5'])
+
+        # Add metadata.opf fields first, so they take precedence.
+        for metadata_opf_upload_record in aac_upload_book_dict['metadata_opf_upload_records']:
+            allthethings.utils.add_identifier_unified(aac_upload_book_dict['file_unified_data'], 'aacid', metadata_opf_upload_record['aacid'])
+            for serialized_file in metadata_opf_upload_record['metadata']['serialized_files']:
+                if not serialized_file['filename'].lower().endswith('metadata.opf'):
+                    continue
+                opf_xml = base64.b64decode(serialized_file['data_base64'].encode()).decode()
+                allthethings.utils.add_isbns_unified(aac_upload_book_dict['file_unified_data'], allthethings.utils.get_isbnlike(opf_xml))
+
+                opf_xml_dict = xmltodict.parse(opf_xml)
+                opf_xml_dict_meta = opf_xml_dict['package']['metadata']
+
+                if 'dc:title' in opf_xml_dict_meta:
+                    aac_upload_book_dict['file_unified_data']['title_additional'] += opf_extract_text(opf_xml_dict_meta['dc:title'])
+                if 'dc:creator' in opf_xml_dict_meta:
+                    aac_upload_book_dict['file_unified_data']['author_additional'] += opf_extract_text(opf_xml_dict_meta['dc:creator'])
+                if 'dc:publisher' in opf_xml_dict_meta:
+                    aac_upload_book_dict['file_unified_data']['publisher_additional'] += opf_extract_text(opf_xml_dict_meta['dc:publisher'])
+                if 'dc:description' in opf_xml_dict_meta:
+                    aac_upload_book_dict['file_unified_data']['description_cumulative'] += opf_extract_text(opf_xml_dict_meta['dc:description'])
 
         for record in aac_upload_book_dict['records']:
             if 'filesize' not in record['metadata']:
@@ -4068,7 +4132,7 @@ def get_aac_upload_book_dicts(session, key, values):
             #     potential_languages.append(record['metadata']['pikepdf_docinfo']['/Languages'] or '')
             if 'japanese_manga' in subcollection:
                 potential_languages.append('Japanese')
-            if 'polish' in subcollection:
+            elif 'polish' in subcollection:
                 potential_languages.append('Polish')
             if len(potential_languages) > 0:
                 aac_upload_book_dict['file_unified_data']['language_codes'] = combine_bcp47_lang_codes([get_bcp47_lang_codes(language) for language in potential_languages])
