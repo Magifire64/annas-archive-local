@@ -745,7 +745,7 @@ def elastic_build_aarecords_job(aarecord_ids):
                 except Exception as err:
                     if hasattr(err, 'errors'):
                         print(err.errors)
-                    print(repr(err))
+                    print(f"{repr(err)} ///// {traceback.format_exc()}")
                     print("Got the above error; retrying..")
                     try:
                         for es_handle, operations in operations_by_es_handle.items():

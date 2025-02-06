@@ -4048,8 +4048,9 @@ def get_aac_upload_book_dicts(session, key, values):
         for metadata_opf_upload_record in aac_upload_book_dict['metadata_opf_upload_records']:
             allthethings.utils.add_identifier_unified(aac_upload_book_dict['file_unified_data'], 'aacid', metadata_opf_upload_record['aacid'])
             if 'serialized_files' not in metadata_opf_upload_record['metadata']:
-                print(f"Warning: missing 'serialized_file' for metadata.opf: {metadata_opf_upload_record['aacid']=}")
-                continue
+                subcollection = record['aacid'].split('__')[1].removeprefix('upload_records_')
+                if subcollection != 'polish':
+                    raise Exception(f"Warning: missing 'serialized_file' for metadata.opf: {metadata_opf_upload_record['aacid']=}")
             for serialized_file in metadata_opf_upload_record['metadata']['serialized_files']:
                 if not serialized_file['filename'].lower().endswith('metadata.opf'):
                     continue
