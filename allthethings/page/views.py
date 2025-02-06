@@ -4051,6 +4051,8 @@ def get_aac_upload_book_dicts(session, key, values):
                 subcollection = metadata_opf_upload_record['aacid'].split('__')[1].removeprefix('upload_records_')
                 if subcollection != 'polish':
                     raise Exception(f"Warning: missing 'serialized_file' for metadata.opf: {metadata_opf_upload_record['aacid']=} {subcollection=}")
+                else:
+                    continue
             for serialized_file in metadata_opf_upload_record['metadata']['serialized_files']:
                 if not serialized_file['filename'].lower().endswith('metadata.opf'):
                     continue
