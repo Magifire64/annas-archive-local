@@ -4080,7 +4080,9 @@ def get_aac_upload_book_dicts(session, key, values):
 
             subcollection = record['aacid'].split('__')[1].removeprefix('upload_records_')
             aac_upload_book_dict['aa_upload_derived']['subcollection_multiple'].append(subcollection)
-            aac_upload_book_dict['file_unified_data']['original_filename_additional'].append(allthethings.utils.prefix_filepath('upload', f"{subcollection}/{record['metadata']['filepath']}"))
+
+            filepath_raw_str = allthethings.utils.get_filepath_raw_from_upload_aac_metadata(record['metadata']).decode()
+            aac_upload_book_dict['file_unified_data']['original_filename_additional'].append(allthethings.utils.prefix_filepath('upload', f"{subcollection}/{filepath_raw_str}"))
             aac_upload_book_dict['file_unified_data']['filesize_additional'].append(int(record['metadata']['filesize']))
 
             if (sha1 := (record['metadata']['sha1'] or '').strip().lower()) != '':
@@ -4088,8 +4090,8 @@ def get_aac_upload_book_dicts(session, key, values):
             if (sha256 := (record['metadata']['sha256'] or '').strip().lower()) != '':
                 allthethings.utils.add_identifier_unified(aac_upload_book_dict['file_unified_data'], 'sha256', sha256)
 
-            if '.' in record['metadata']['filepath']:
-                extension = record['metadata']['filepath'].rsplit('.', 1)[-1].lower()
+            if '.' in filepath_raw_str:
+                extension = filepath_raw_str.rsplit('.', 1)[-1].lower()
                 if (len(extension) <= 4) and (extension not in ['bin']):
                     aac_upload_book_dict['file_unified_data']['extension_additional'].append(extension)
             # Note that exiftool detects comic books as zip, so actual filename extension is still preferable in most cases.
@@ -4144,25 +4146,25 @@ def get_aac_upload_book_dicts(session, key, values):
 
             if len(str((record['metadata'].get('exiftool_output') or {}).get('Identifier') or '').strip()) > 0:
                 allthethings.utils.add_isbns_unified(aac_upload_book_dict['file_unified_data'], allthethings.utils.get_isbnlike(str(record['metadata']['exiftool_output']['Identifier'] or '')))
-            allthethings.utils.add_isbns_unified(aac_upload_book_dict['file_unified_data'], allthethings.utils.get_isbnlike('\n'.join([record['metadata']['filepath']] + aac_upload_book_dict['file_unified_data']['title_additional'] + aac_upload_book_dict['aa_upload_derived']['description_cumulative'])))
+            allthethings.utils.add_isbns_unified(aac_upload_book_dict['file_unified_data'], allthethings.utils.get_isbnlike('\n'.join([filepath_raw_str] + aac_upload_book_dict['file_unified_data']['title_additional'] + aac_upload_book_dict['aa_upload_derived']['description_cumulative'])))
 
-            doi_from_filepath = allthethings.utils.extract_doi_from_filepath(record['metadata']['filepath'])
+            doi_from_filepath = allthethings.utils.extract_doi_from_filepath(filepath_raw_str)
             if doi_from_filepath is not None:
                 allthethings.utils.add_identifier_unified(aac_upload_book_dict['file_unified_data'], 'doi', doi_from_filepath)
-            doi_from_text = allthethings.utils.find_doi_in_text('\n'.join([record['metadata']['filepath']] + aac_upload_book_dict['file_unified_data']['title_additional'] + aac_upload_book_dict['aa_upload_derived']['description_cumulative']))
+            doi_from_text = allthethings.utils.find_doi_in_text('\n'.join([filepath_raw_str] + aac_upload_book_dict['file_unified_data']['title_additional'] + aac_upload_book_dict['aa_upload_derived']['description_cumulative']))
             if doi_from_text is not None:
                 allthethings.utils.add_identifier_unified(aac_upload_book_dict['file_unified_data'], 'doi', doi_from_text)
 
             if 'bpb9v_cadal' in subcollection:
-                cadal_ssno_filename = allthethings.utils.extract_ssid_or_ssno_from_filepath(record['metadata']['filepath'])
+                cadal_ssno_filename = allthethings.utils.extract_ssid_or_ssno_from_filepath(filepath_raw_str)
                 if cadal_ssno_filename is not None:
                     allthethings.utils.add_identifier_unified(aac_upload_book_dict['file_unified_data'], 'cadal_ssno', cadal_ssno_filename)
             if ('duxiu' in subcollection) or ('chinese' in subcollection):
-                duxiu_ssid_filename = allthethings.utils.extract_ssid_or_ssno_from_filepath(record['metadata']['filepath'])
+                duxiu_ssid_filename = allthethings.utils.extract_ssid_or_ssno_from_filepath(filepath_raw_str)
                 if duxiu_ssid_filename is not None:
                     allthethings.utils.add_identifier_unified(aac_upload_book_dict['file_unified_data'], 'duxiu_ssid', duxiu_ssid_filename)
-            if subcollection == 'misc' and (record['metadata']['filepath'].startswith('oo42hcksBxZYAOjqwGWu/SolenPapers/') or record['metadata']['filepath'].startswith('oo42hcksBxZYAOjqwGWu/CCCC/')):
-                normalized_filename = record['metadata']['filepath'][len('oo42hcksBxZYAOjqwGWu/'):].replace(' (1)', '').replace(' (2)', '').replace(' (3)', '')
+            if subcollection == 'misc' and (filepath_raw_str.startswith('oo42hcksBxZYAOjqwGWu/SolenPapers/') or filepath_raw_str.startswith('oo42hcksBxZYAOjqwGWu/CCCC/')):
+                normalized_filename = filepath_raw_str[len('oo42hcksBxZYAOjqwGWu/'):].replace(' (1)', '').replace(' (2)', '').replace(' (3)', '')
                 allthethings.utils.add_identifier_unified(aac_upload_book_dict['file_unified_data'], 'czech_oo42hcks_filename', normalized_filename)
 
             upload_record_date = datetime.datetime.strptime(record['aacid'].split('__')[2], "%Y%m%dT%H%M%SZ").isoformat().split('T', 1)[0]
