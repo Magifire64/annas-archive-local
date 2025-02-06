@@ -1503,7 +1503,9 @@ def get_aac_zlib3_book_dicts(session, key, values):
 
         if aac_zlib3_book_dict['category_id'] != '':
             if aac_zlib3_book_dict['category_id'] not in allthethings.utils.ZLIB_CATEGORIES_NAME_BY_ID:
-                print(f"Warning: {aac_zlib3_book_dict['category_id']=} not in ZLIB_CATEGORIES_NAME_BY_ID for {aac_zlib3_book_dict=}")
+                # There are quite a few "hidden categories", so don't print this for now.
+                # print(f"Warning: {aac_zlib3_book_dict['category_id']=} not in ZLIB_CATEGORIES_NAME_BY_ID for {aac_zlib3_book_dict=}")
+                pass
             else:
                 allthethings.utils.add_classification_unified(aac_zlib3_book_dict['file_unified_data'], 'zlib_category_id', aac_zlib3_book_dict['category_id'])
                 category_name = allthethings.utils.ZLIB_CATEGORIES_NAME_BY_ID[aac_zlib3_book_dict['category_id']]
@@ -3998,7 +4000,6 @@ def get_aac_upload_book_dicts(session, key, values):
             filepath_raw_base = subcollection.encode() + b'/' + filepath_raw.rsplit(b'/', 1)[0]
             opf_path = filepath_raw_base + b'/metadata.opf'
             opf_path_md5 = hashlib.md5(opf_path).hexdigest()
-            print(f"{opf_path=} {opf_path_md5=} {filepath_raw_base=} {subcollection=} {filepath_raw=}")
             metadata_opf_path_md5s_to_book_md5[opf_path_md5] = aac_upload_book_dict_raw['md5']
 
     metadata_opf_path_md5s = list(metadata_opf_path_md5s_to_book_md5.keys())
@@ -4046,6 +4047,9 @@ def get_aac_upload_book_dicts(session, key, values):
         # Add metadata.opf fields first, so they take precedence.
         for metadata_opf_upload_record in aac_upload_book_dict['metadata_opf_upload_records']:
             allthethings.utils.add_identifier_unified(aac_upload_book_dict['file_unified_data'], 'aacid', metadata_opf_upload_record['aacid'])
+            if 'serialized_files' not in metadata_opf_upload_record['metadata']:
+                print(f"Warning: missing 'serialized_file' for metadata.opf: {metadata_opf_upload_record['aacid']=}")
+                continue
             for serialized_file in metadata_opf_upload_record['metadata']['serialized_files']:
                 if not serialized_file['filename'].lower().endswith('metadata.opf'):
                     continue
@@ -4062,7 +4066,7 @@ def get_aac_upload_book_dicts(session, key, values):
                 if 'dc:publisher' in opf_xml_dict_meta:
                     aac_upload_book_dict['file_unified_data']['publisher_additional'] += opf_extract_text(opf_xml_dict_meta['dc:publisher'])
                 if 'dc:description' in opf_xml_dict_meta:
-                    aac_upload_book_dict['file_unified_data']['description_cumulative'] += opf_extract_text(opf_xml_dict_meta['dc:description'])
+                    aac_upload_book_dict['aa_upload_derived']['description_cumulative'] += opf_extract_text(opf_xml_dict_meta['dc:description'])
 
         for record in aac_upload_book_dict['records']:
             if 'filesize' not in record['metadata']:
