@@ -4083,7 +4083,8 @@ def get_aac_upload_book_dicts(session, key, values):
             subcollection = record['aacid'].split('__')[1].removeprefix('upload_records_')
             aac_upload_book_dict['aa_upload_derived']['subcollection_multiple'].append(subcollection)
 
-            filepath_raw_str = allthethings.utils.get_filepath_raw_from_upload_aac_metadata(record['metadata']).decode()
+            filepath_raw_bytes = allthethings.utils.get_filepath_raw_from_upload_aac_metadata(record['metadata'])
+            filepath_raw_str = filepath_raw_bytes.decode(errors='backslashreplace')
             aac_upload_book_dict['file_unified_data']['original_filename_additional'].append(allthethings.utils.prefix_filepath('upload', f"{subcollection}/{filepath_raw_str}"))
             aac_upload_book_dict['file_unified_data']['filesize_additional'].append(int(record['metadata']['filesize']))
 
