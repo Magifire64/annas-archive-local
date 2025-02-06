@@ -1199,8 +1199,8 @@ def make_anon_download_uri(limit_multiple, speed_kbps, path, filename, domain):
     return f"d3/{limit_multiple_field}/{expiry}/{speed_kbps}/{urllib.parse.quote(path)}~/{md5}/{filename}"
 
 def get_filepath_raw_from_upload_aac_metadata(upload_aac_metadata):
-    if ('filepath_raw_base64' in upload_aac_metadata) or ('full_filepath_raw_base64' in upload_aac_metadata):
-        filepath_raw_base64 = upload_aac_metadata.get('filepath_raw_base64') or upload_aac_metadata['full_filepath_raw_base64']
+    if 'filepath_raw_base64' in upload_aac_metadata:
+        filepath_raw_base64 = upload_aac_metadata['filepath_raw_base64']
         return base64.b64decode(filepath_raw_base64.encode())
     else:
         return upload_aac_metadata['filepath'].encode()
