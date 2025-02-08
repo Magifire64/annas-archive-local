@@ -6643,9 +6643,17 @@ def get_aarecords_internal_mysql(session, aarecord_ids, include_aarecord_mysql_d
             allthethings.utils.add_classification_unified(aarecord['file_unified_data'], prefix, date)
 
         # Duplicated from above, but with more fields now.
-        aarecord['file_unified_data']['identifiers_unified'], second_pass_debug_urls_by_identifiers_code_tuple = allthethings.utils.merge_unified_fields_with_provenance([('direct in get_aarecords_internal_mysql', aarecord['file_unified_data']['identifiers_unified']), *[(source_record['source_record']['debug_url'], source_record['source_record']['file_unified_data']['identifiers_unified']) for source_record in source_records_presented_metadata_and_first_pass]])
+        aarecord['file_unified_data']['identifiers_unified'], second_pass_debug_urls_by_identifiers_code_tuple = allthethings.utils.merge_unified_fields_with_provenance([
+                ('direct in get_aarecords_internal_mysql', aarecord['file_unified_data']['identifiers_unified']),
+                *[(source_record['source_record']['debug_url'], source_record['source_record']['file_unified_data']['identifiers_unified']) for source_record in source_records_first_pass],
+                *[(source_record['source_record']['debug_url'], allthethings.utils.get_transitive_codes(source_record['source_record']['file_unified_data']['identifiers_unified'], source_record['source_type'])) for source_record in source_records_presented_metadata],
+            ])
         debug_by_id[aarecord_id]['second_pass_debugs_url_by_identifiers_codes'] = { (':'.join(code_tuple)): debug_urls for code_tuple, debug_urls in second_pass_debug_urls_by_identifiers_code_tuple.items() }
-        aarecord['file_unified_data']['classifications_unified'], second_pass_debug_urls_by_classifications_code_tuple = allthethings.utils.merge_unified_fields_with_provenance([('direct in get_aarecords_internal_mysql', aarecord['file_unified_data']['classifications_unified']), *[(source_record['source_record']['debug_url'], source_record['source_record']['file_unified_data']['classifications_unified']) for source_record in source_records_presented_metadata_and_first_pass]])
+        aarecord['file_unified_data']['classifications_unified'], second_pass_debug_urls_by_classifications_code_tuple = allthethings.utils.merge_unified_fields_with_provenance([
+                ('direct in get_aarecords_internal_mysql', aarecord['file_unified_data']['classifications_unified']),
+                *[(source_record['source_record']['debug_url'], source_record['source_record']['file_unified_data']['classifications_unified']) for source_record in source_records_first_pass],
+                *[(source_record['source_record']['debug_url'], allthethings.utils.get_transitive_codes(source_record['source_record']['file_unified_data']['classifications_unified'], source_record['source_type'])) for source_record in source_records_presented_metadata],
+            ])
         debug_by_id[aarecord_id]['second_pass_debugs_url_by_classifications_codes'] = { (':'.join(code_tuple)): debug_urls for code_tuple, debug_urls in second_pass_debug_urls_by_classifications_code_tuple.items() }
 
 

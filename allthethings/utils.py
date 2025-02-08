@@ -1775,6 +1775,16 @@ def merge_unified_fields_with_provenance(provenance_info_and_list_of_fields_unif
                 provenance_by_code_tuple[(unified_name, value)].append(provenance_info)
     return ({ unified_name: list(merged_set) for unified_name, merged_set in merged_sets.items() }, provenance_by_code_tuple)
 
+def get_transitive_codes(unified_codes, source_type):
+    if source_type == 'aac_isbngrp':
+        ret = {}
+        if 'aacid' in unified_codes:
+            ret['aacid'] = unified_codes['aacid']
+        if 'isbngrp' in unified_codes:
+            ret['isbngrp'] = unified_codes['isbngrp']
+        return ret
+    return unified_codes
+
 
 CODES_HIGHLIGHT = ['isbn13', 'isbn10', 'csbn', 'doi', 'issn', 'duxiu_ssid', 'cadal_ssno', 'oclc']
 def make_code_for_display(code_from_additional):
