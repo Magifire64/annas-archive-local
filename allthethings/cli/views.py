@@ -742,10 +742,12 @@ def elastic_build_aarecords_job(aarecord_ids):
                 try:
                     for es_handle, operations in operations_by_es_handle.items():
                         for operation in operations:
-                            operation_json = orjson.dumps(operation)
-                            if len(operation_json) >= 1000000: # 1MB
-                                print(f"Extremely long operation: {len(operation_json)=} {operation_json[0:10000]}")
-                                return True
+                            # List of known long records, which we have manually vetted.
+                            if operation['id'] not in ['isbngrp:b76feac3cc5a1258aa68f9d6b304dd50']:
+                                operation_json = orjson.dumps(operation)
+                                if len(operation_json) >= 1000000: # 1MB
+                                    print(f"Extremely long operation: {len(operation_json)=} {operation_json[0:10000]}")
+                                    return True
                         elasticsearch.helpers.bulk(es_handle, operations, request_timeout=30)
                 except Exception as err:
                     if hasattr(err, 'errors'):
