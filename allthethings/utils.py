@@ -164,7 +164,13 @@ def path_for_aarecord_id(aarecord_id):
 
 def validate_year(year):
     year_str = str(year)
-    return year_str.isdigit() and int(year_str) >= 1600 and int(year_str) < 2100
+    if year_str.isdigit():
+        try: # There are some weird cases such as "58¹⁰"
+            year_int = int(year_str)
+        except:
+            return False
+        return year_int >= 1600 and year_int < 2100
+    return False
 
 def doi_is_isbn(doi):
     return doi.startswith('10.978.') or doi.startswith('10.979.')
