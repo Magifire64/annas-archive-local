@@ -126,7 +126,8 @@ def extensions(app):
                 mariapersist_session.execute('SELECT 1')
         except Exception:
             if os.getenv("DATA_IMPORTS_MODE", "") == "1":
-                print("Ignoring mariapersist not being online because DATA_IMPORTS_MODE=1")
+                # print("Ignoring mariapersist not being online because DATA_IMPORTS_MODE=1")
+                pass
             else:
                 print("mariapersist not yet online, restarting")
                 time.sleep(3)

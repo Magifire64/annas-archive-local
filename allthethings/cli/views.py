@@ -276,7 +276,7 @@ def mysql_build_aac_tables_internal():
                         return_data['dont_index_file'] = 1
                 return return_data
 
-            CHUNK_SIZE = 100000
+            AAC_CHUNK_SIZE = 100000
 
             filepath = f'{allthethings.utils.aac_path_prefix()}{filename}'
             table_name = f'annas_archive_meta__aacid__{collection}'
@@ -319,7 +319,7 @@ def mysql_build_aac_tables_internal():
             # From https://github.com/indygreg/python-zstandard/issues/13#issuecomment-1544313739
             with tqdm.tqdm(total=uncompressed_size, bar_format='{l_bar}{bar}{r_bar} {eta}', unit='B', unit_scale=True) as pbar:
                 byte_offset = 0
-                for lines in more_itertools.ichunked(file, CHUNK_SIZE):
+                for lines in more_itertools.ichunked(file, AAC_CHUNK_SIZE):
                     bytes_in_batch = 0
                     insert_data = []
                     insert_data_multiple_md5s = []
@@ -597,7 +597,7 @@ def update_aarecords_index_mappings():
 def elastic_build_aarecords_job_init_pool():
     global elastic_build_aarecords_job_app
     global elastic_build_aarecords_compressor
-    print("Initializing pool worker (elastic_build_aarecords_job_init_pool)")
+    # print("Initializing pool worker (elastic_build_aarecords_job_init_pool)")
     from allthethings.app import create_app
     elastic_build_aarecords_job_app = create_app()
 
@@ -746,8 +746,8 @@ def elastic_build_aarecords_job(aarecord_ids):
                             if operation['id'] not in ['isbngrp:b76feac3cc5a1258aa68f9d6b304dd50']:
                                 operation_json = orjson.dumps(operation)
                                 if len(operation_json) >= 1000000: # 1MB
-                                    print(f"Extremely long operation: {len(operation_json)=} {operation_json[0:10000]}")
-                                    return True
+                                    print(f"WARNING! WARNING! Extremely long operation: {len(operation_json)=} {operation_json[0:500]}")
+                                    # return True
                         elasticsearch.helpers.bulk(es_handle, operations, request_timeout=30)
                 except Exception as err:
                     if hasattr(err, 'errors'):
@@ -817,8 +817,8 @@ def elastic_build_aarecords_job(aarecord_ids):
             return True
 
 THREADS = 200
-CHUNK_SIZE = 50
-BATCH_SIZE = 100000
+CHUNK_SIZE = 40
+BATCH_SIZE = 25000
 
 # Locally
 if SLOW_DATA_IMPORTS:
@@ -864,49 +864,75 @@ def build_common(table_name, batch_to_aarecord_ids, primary_id_column='primary_i
             print(f"WARNING! before_first_primary_id set in {table_name} to {before_first_primary_id} (total will be off)!!!!!!!!!!!!")
 
     with engine.connect() as connection:
-        print(f"Processing from {table_name}")
+        # Get cursor and total count
         cursor = allthethings.utils.get_cursor_ping_conn(connection)
-        cursor.execute(f'SELECT COUNT(*) AS count FROM {table_name} {"WHERE" if additional_where else ""} {additional_where} LIMIT 1', { "from": before_first_primary_id })
+        where_clause = f" WHERE {additional_where} " if additional_where else ""
+        sql_count = f"SELECT COUNT(*) AS count FROM {table_name}{where_clause} LIMIT 1"
+        cursor.execute(sql_count, {"from": before_first_primary_id})
         total = list(cursor.fetchall())[0]['count']
+
         with tqdm.tqdm(total=total, bar_format='{l_bar}{bar}{r_bar} {eta}') as pbar:
-            with concurrent.futures.ProcessPoolExecutor(max_workers=THREADS, initializer=elastic_build_aarecords_job_init_pool) as executor:
-                futures = set()
-                count_by_future = {}
-                def process_future():
-                    # print(f"Futures waiting: {len(futures)}")
-                    (done, not_done) = concurrent.futures.wait(futures, return_when=concurrent.futures.FIRST_COMPLETED)
-                    # print(f"Done!")
-                    for future_done in done:
-                        futures.remove(future_done)
-                        pbar.update(count_by_future[future_done])
-                        del count_by_future[future_done]
-                        err = future_done.exception()
-                        if err:
-                            print(f"ERROR IN FUTURE RESOLUTION!!!!! {repr(err)}\n\n/////\n\n{traceback.format_exc()}")
-                            raise err
-                        result = future_done.result()
+            def fetch_batch(current_primary_id):
+                cursor = allthethings.utils.get_cursor_ping_conn(connection)
+                cursor.execute(f'SELECT {primary_id_column} AS primary_id, COUNT(*) AS count {additional_select_AGGREGATES} FROM {table_name} WHERE {additional_where} {"AND" if additional_where else ""} {primary_id_column} > %(from)s GROUP BY {primary_id_column} ORDER BY {primary_id_column} LIMIT %(limit)s', { "from": current_primary_id, "limit": BATCH_SIZE })
+                return list(cursor.fetchall())
+
+            batch = fetch_batch(before_first_primary_id)
+
+            while True:
+                if not batch:
+                    break
+
+                print(
+                    f"Processing with {THREADS=} {len(batch)=} records from {table_name} "
+                    f"(starting primary_id: {batch[0]['primary_id']}, "
+                    f"ending primary_id: {batch[-1]['primary_id']})..."
+                )
+
+                # Create a new executor pool for just this batch
+                with concurrent.futures.ProcessPoolExecutor(
+                    max_workers=THREADS,
+                    initializer=elastic_build_aarecords_job_init_pool
+                ) as executor:
+                    futures = []
+                    debug_info_by_future = {}
+                    batch_count = 0
+                    for subbatch in more_itertools.chunked(batch, CHUNK_SIZE):
+                        aarecord_ids = batch_to_aarecord_ids(subbatch)
+                        future = executor.submit(
+                            elastic_build_aarecords_job,
+                            aarecord_ids
+                        )
+                        # Store the future along with how many rows it represents
+                        batch_count += sum(row['count'] for row in subbatch)
+                        futures.append(future)
+                        debug_info_by_future[future] = { 'subbatch': subbatch, 'aarecord_ids': aarecord_ids }
+
+                    # Preload next batch already
+                    batch = fetch_batch(batch[-1]['primary_id'])
+
+                    # Wait for futures to complete or time out
+                    done, not_done = concurrent.futures.wait(
+                        futures,
+                        timeout=300,
+                        return_when=concurrent.futures.ALL_COMPLETED
+                    )
+                    if not_done:
+                        debug_info_for_not_done = [debug_info_by_future[future] for future in not_done]
+                        raise Exception("Some tasks did not finish before timeout." + f"{debug_info_for_not_done=}"[:3000])
+                    for future in done:
+                        try:
+                            result = future.result()
+                        except Exception as err:
+                            print(f"ERROR in future resolution: {repr(err)}\n\nTraceback:\n{traceback.format_exc()}\n\n" + f"{future=}"[:500])
+                            os._exit(1)
+                        # If the result object signals an internal error:
                         if result:
                             print("Error detected; exiting")
                             os._exit(1)
+                    pbar.update(batch_count)
 
-                current_primary_id = before_first_primary_id
-                while True:
-                    cursor = allthethings.utils.get_cursor_ping_conn(connection)
-                    cursor.execute(f'SELECT {primary_id_column} AS primary_id, COUNT(*) AS count {additional_select_AGGREGATES} FROM {table_name} WHERE {additional_where} {"AND" if additional_where else ""} {primary_id_column} > %(from)s GROUP BY {primary_id_column} ORDER BY {primary_id_column} LIMIT %(limit)s', { "from": current_primary_id, "limit": BATCH_SIZE })
-                    batch = list(cursor.fetchall())
-                    if len(batch) == 0:
-                        break
-                    print(f"Processing (ahead!) with {THREADS=} {len(batch)=} aarecords from {table_name} ( starting primary_id: {batch[0]['primary_id']} , ending primary_id: {batch[-1]['primary_id']} )...")
-                    for subbatch in more_itertools.chunked(batch, CHUNK_SIZE):
-                        future = executor.submit(elastic_build_aarecords_job, batch_to_aarecord_ids(subbatch))
-                        count_by_future[future] = sum([row['count'] for row in subbatch])
-                        futures.add(future)
-                        if len(futures) > THREADS*2:
-                            process_future()
-                    current_primary_id = batch[-1]['primary_id']
-                while len(futures) > 0:
-                    process_future()
-        print(f"Done with {table_name}!")
+    print(f"Done with {table_name}!")
 
 #################################################################################################
 # ./run flask cli elastic_build_aarecords_ia

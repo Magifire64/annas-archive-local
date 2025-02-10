@@ -4059,7 +4059,11 @@ def get_aac_upload_book_dicts(session, key, values):
                 opf_xml = base64.b64decode(serialized_file['data_base64'].encode()).decode()
                 allthethings.utils.add_isbns_unified(aac_upload_book_dict['file_unified_data'], allthethings.utils.get_isbnlike(opf_xml))
 
-                opf_xml_dict = xmltodict.parse(opf_xml)
+                try:
+                    opf_xml_dict = xmltodict.parse(opf_xml)
+                except:
+                    print(f"WARNING: opf_xml_dict couldn't be parsed in get_aac_upload_book_dicts: {metadata_opf_upload_record['aacid']=} {serialized_file['filename']=}")
+                    continue
                 opf_xml_dict_meta = opf_xml_dict['package']['metadata']
 
                 if 'dc:title' in opf_xml_dict_meta:
