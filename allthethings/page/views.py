@@ -982,7 +982,8 @@ def contact_page():
     account_id = allthethings.utils.get_account_id(request.cookies)
     if account_id is None:
         return render_template("page/login_to_view.html", header_active="")
-    return render_template("page/contact.html", header_active="", AA_EMAIL=AA_EMAIL.replace('@', f"+{account_id}@"))
+    is_member_str = '+mb' if allthethings.utils.check_is_member(request.cookies, mariapersist_engine) else '+nt'
+    return render_template("page/contact.html", header_active="", AA_EMAIL=AA_EMAIL.replace('@', f"+{account_id}{is_member_str}@"))
 
 @page.get("/fast_download_no_more")
 @allthethings.utils.public_cache(minutes=5, cloudflare_minutes=60*3)
