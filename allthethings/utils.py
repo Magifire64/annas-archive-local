@@ -2489,11 +2489,11 @@ def groupby(dicts, index_field, unpack_field=None):
 
 def looks_like_pinyin(string):
     tokenizer = py_pinyin_split.PinyinTokenizer(include_nonstandard=True)
-    string_with_only_letters = re.sub(r'[^a-zA-Z]', '', string)
+    string_with_only_letters = re.sub(r'[^a-zA-Z]', ' ', string)
     if len(string_with_only_letters) == 0:
         return False
     try:
-        tokenizer.tokenize(string_with_only_letters)
-        return True
+        tokens = tokenizer.tokenize(string_with_only_letters)
+        return len(tokens) > 0
     except:
         return False

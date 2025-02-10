@@ -45,6 +45,7 @@ docker exec -it web bash -c 'for f in /app/aacid_small/*.jsonl; do echo "Process
 # OCLC
 - Testing handling of Pinyin in OCLC: aacid__ia2_records__20240701T024712Z__Sh6hUwpSdhnw93HTc5JvXC / aacid__ia2_acsmpdf_files__20240701T023706Z__WTmNK44PWWfrf5rvF8SFaU (/md5/529566fb502ee2ea3f949d8b2b3158a1) => isbn13:9787513717076 => aacid__worldcat__20241230T203056Z__3r25T8BKvPVgHDTAzxUYi3 / aacid__worldcat__20241230T203056Z__Guo45SEnRjJoDyBcz9oSKM
 - Correct handling of Welsh language (800k written_population(), so edge case): aacid__worldcat__20241230T203056Z__dMGceY3zmXkGqFfexJzXLY
+- pinyin edge case (timeout in our old case when we removed all spaces): aacid__worldcat__20241230T203056Z__NeCXeRfuDohL5uYnwZTKd8
 
 # Upload
 - .lit files shouldn't be marked as having a problem due to exiftool failing: aacid__upload_records_duxiu_main2__20250115T164002Z__2161813__Hz7FmJgpsNbFkf6WTysAma / aacid__upload_files_duxiu_main2__20250114T221524Z__UzKP3QAnBfjBhoPrg26GsM
