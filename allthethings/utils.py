@@ -2487,13 +2487,17 @@ def groupby(dicts, index_field, unpack_field=None):
         output[index_field_value].append(unpack_field_value)
     return output
 
+pinyin_tokenizer_thread_local = threading.local()
 def looks_like_pinyin(string):
-    tokenizer = py_pinyin_split.PinyinTokenizer(include_nonstandard=True)
+    pinyin_tokenizer = getattr(pinyin_tokenizer_thread_local, 'pinyin_tokenizer', None)
+    if pinyin_tokenizer is None:
+        pinyin_tokenizer = pinyin_tokenizer_thread_local.pinyin_tokenizer = py_pinyin_split.PinyinTokenizer(include_nonstandard=True)
+
     string_with_only_letters = re.sub(r'[^a-zA-Z]', ' ', string)
     if len(string_with_only_letters) == 0:
         return False
     try:
-        tokens = tokenizer.tokenize(string_with_only_letters)
+        tokens = pinyin_tokenizer.tokenize(string_with_only_letters)
         return len(tokens) > 0
     except:
         return False
