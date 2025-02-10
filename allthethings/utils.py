@@ -54,6 +54,28 @@ SEARCH_FILTERED_BAD_AARECORD_IDS = [
     "md5:d41d8cd98f00b204e9800998ecf8427e", # md5("")
     "md5:5058f1af8388633f609cadb75a75dc9d", # md5(".")
 
+    "md5:04d2f05ddc229e1134f360248306e679", # DuXiu pdown.htm (nothing in it, but huge aarecord data)
+    "md5:059de0e42971756d21194417ae43a3d6", # DuXiu down.htm
+    "md5:b019f4a7aa9f65b7ba835bb02affbea9", # DuXiu title.htm
+    "md5:069059c849fe2d702c773e926dbb2e8f", # DuXiu pright.htm
+    "md5:1bcaed70c5bd6be8d55757d0759fab5b", # DuXiu page.htm
+    "md5:862173bc197ea6b0f8dd6be8a991ecd8", # DuXiu note.htm
+    "md5:c7750c1e03cd7e81e46b95b46e06f6d5", # DuXiu media.htm
+    "md5:1fb2be5d75cb6922aacd830a7a581db3", # DuXiu log.htm
+    "md5:c84149ff3e818c2b99861c304a106e7f", # DuXiu left.htm
+    "md5:d1b79bbedba139796c52c3b6f2ea38f8", # DuXiu jsq.htm
+    "md5:8f6594696afe4d5e1cdeec2a0d348e7e", # DuXiu help.htm
+    "md5:48e65b117cf7ee5e35c63380589b229e", # DuXiu down.htm
+    "md5:8e3beff85bf9239ce0ff9fb73c95f471", # DuXiu content.htm
+    "md5:f78a6df1bd03c3cbf6b9d850bbf77083", # DuXiu preload.htm
+    "md5:c118085067fef07ffcdb4e16e6e6daad", # DuXiu right2.htm
+    "md5:f25beda1b913835967e439569e7ca957", # DuXiu top.htm
+    "md5:be0b48c69b41a40df335d9b4d816ef4d", # DuXiu frame.htm
+    "md5:ab467b234901a7a1cb496eefadfa8601", # DuXiu bz.htm
+    "md5:aac2367aa5c95f5d28241f5312626304", # DuXiu dh.htm
+    "md5:287fa081689c664c56edc78d88b90485", # DuXiu index.htm
+    "md5:0828f07dae4d9cadb501379312ef4f1e", # DuXiu source seller .txt file
+
     "md5:b0647953a182171074873b61200c71dd",
     "md5:820a4f8961ae0a76ad265f1678b7dfa5",
 
@@ -644,13 +666,13 @@ MEMBERSHIP_METHOD_MINIMUM_CENTS_USD = {
     "payment2revolut": 2500,
     "payment2cc": 0,
     "paypalreg": 0,
-    "amazon": 1000,
-    "amazon_co_uk": 1000,
-    "amazon_fr": 1000,
-    "amazon_it": 1000,
-    "amazon_ca": 1000,
-    "amazon_de": 1000,
-    "amazon_es": 1000,
+    "amazon": 500,
+    "amazon_co_uk": 500,
+    "amazon_fr": 500,
+    "amazon_it": 500,
+    "amazon_ca": 500,
+    "amazon_de": 500,
+    "amazon_es": 500,
     # "bmc":    0,
     # "alipay": 0,
     # "pix":    0,
@@ -685,8 +707,8 @@ MEMBERSHIP_METHOD_MAXIMUM_CENTS_NATIVE = {
     "payment3a": 70000,
     "payment3a_cc": round(70000/MEMBERSHIP_EXCHANGE_RATE_RMB), # Actual number in USD!
     "payment3b": 500000,
-    "amazon": 35000,
-    "amazon_co_uk": 5000,
+    "amazon": 50000,
+    "amazon_co_uk": 10000,
     "amazon_fr": 5000,
     "amazon_it": 5000,
     "amazon_ca": 20000,
@@ -2347,6 +2369,8 @@ TORRENT_PATHS_PARTIALLY_BROKEN = [
     'torrents/external/libgen_li_fic/f_3453000.torrent',
     'torrents/external/libgen_li_comics/c_1137000.torrent',
     'torrents/external/libgen_li_comics/c_2086000.torrent',
+    'torrents/managed_by_aa/annas_archive_data__aacid/annas_archive_data__aacid__duxiu_files__20240613T212153Z--20240613T212154Z.torrent',
+    'torrents/managed_by_aa/annas_archive_data__aacid/annas_archive_data__aacid__ia2_acsmpdf_files__20240823T234348Z--20240823T234349Z.torrent',
 ]
 
 def build_pagination_pages_with_dots(primary_hits_pages, page_value, large):
