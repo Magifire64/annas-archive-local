@@ -2371,6 +2371,7 @@ TORRENT_PATHS_PARTIALLY_BROKEN = [
     'torrents/external/libgen_li_comics/c_2086000.torrent',
     'torrents/managed_by_aa/annas_archive_data__aacid/annas_archive_data__aacid__duxiu_files__20240613T212153Z--20240613T212154Z.torrent',
     'torrents/managed_by_aa/annas_archive_data__aacid/annas_archive_data__aacid__ia2_acsmpdf_files__20240823T234348Z--20240823T234349Z.torrent',
+    'torrents/managed_by_aa/annas_archive_data__aacid/annas_archive_data__aacid__ia2_acsmpdf_files__20240823T234438Z--20240823T234439Z.torrent',
 ]
 
 def build_pagination_pages_with_dots(primary_hits_pages, page_value, large):
