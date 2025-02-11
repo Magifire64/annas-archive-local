@@ -30,16 +30,28 @@
       }
     }
 
+    
     function attachFrameListener() {
       const iframe = document.querySelector(".viewer-frame");
-      iframe.contentWindow.addEventListener("unhandledrejection", e => {
+      const contentWindow = iframe.contentWindow;
+
+      contentWindow.addEventListener("unhandledrejection", e => {
         displayError(e.reason.message);
       });
-      iframe.contentWindow.addEventListener("error", e => {
+      contentWindow.addEventListener("error", e => {
         if (e.error) {
           displayError(e.error.message);
         } else {
           displayError(e.message);
+        }
+      });
+      // in reality, only kthoom + pdf.js support re-drag and drop, but better to disable for all iframes
+      contentWindow.EventTarget.prototype.addEventListener = new Proxy(contentWindow.EventTarget.prototype.addEventListener, {
+        apply(target, that, args) {          
+          if (args[0] === "drop") {
+            return;
+          }
+          return Reflect.apply(...arguments);
         }
       });
     }
