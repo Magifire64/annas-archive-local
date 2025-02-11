@@ -8282,7 +8282,7 @@ def md5_fast_download(md5_input, path_index, domain_index):
 def compute_download_speed(targeted_seconds, filesize, minimum, maximum):
     return min(maximum, max(minimum, int(filesize/1000/targeted_seconds)))
 
-@cachetools.cached(cache=cachetools.TTLCache(maxsize=50000, ttl=30*60), lock=threading.Lock())
+@cachetools.cached(cache=cachetools.TTLCache(maxsize=50000, ttl=3*60), lock=threading.Lock())
 def get_daily_download_count_from_ip(data_pseudo_ipv4):
     with Session(mariapersist_engine) as mariapersist_session:
         data_hour_since_epoch = int(time.time() / 3600)
@@ -8350,13 +8350,13 @@ def md5_slow_download(md5_input, path_index, domain_index):
     # # Also WAITLIST_DOWNLOAD_WINDOW_SECONDS gets subtracted from it.
     waitlist_max_wait_time_seconds = 10*60
     domain = domain_slow
-    if daily_download_count_from_ip >= 10:
+    if daily_download_count_from_ip >= 30:
         domain = domain_slowest
-    #     # waitlist_max_wait_time_seconds *= 2
+        warning = True
+        waitlist_max_wait_time_seconds *= 2
     #     # targeted_seconds_multiplier = 2.0
     #     # minimum = 20
     #     # maximum = 100
-    #     # warning = True
     # elif daily_download_count_from_ip >= 20:
     #     domain = domain_slowest
 
