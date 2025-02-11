@@ -26,6 +26,7 @@ import unicodedata
 import xmltodict
 import html
 import string
+import more_itertools
 
 from flask import g, Blueprint, render_template, make_response, redirect, request, url_for
 from allthethings.extensions import engine, es, es_aux, mariapersist_engine
@@ -3088,13 +3089,16 @@ def get_oclc_dicts(session, key, values):
     if key != 'oclc':
         raise Exception(f"Unexpected 'key' in get_oclc_dicts: '{key}'")
 
-    session.connection().connection.ping(reconnect=True)
-    cursor = session.connection().connection.cursor(pymysql.cursors.DictCursor)
-    cursor.execute('SELECT primary_id, byte_offset, byte_length FROM annas_archive_meta__aacid__worldcat WHERE primary_id IN %(values)s ORDER BY byte_offset', { "values": [str(val).zfill(13) for val in values] })
+    rows = []
+    for values_chunk in more_itertools.chunked(values, 40):
+        session.connection().connection.ping(reconnect=True)
+        cursor = session.connection().connection.cursor(pymysql.cursors.DictCursor)
+        cursor.execute('SELECT primary_id, byte_offset, byte_length FROM annas_archive_meta__aacid__worldcat WHERE primary_id IN %(values)s', { "values": [str(val).zfill(13) for val in values_chunk] })
+        rows += list(cursor.fetchall())
 
     worldcat_oclc_ids = []
     worldcat_offsets_and_lengths = []
-    for row in list(cursor.fetchall()):
+    for row in sorted(rows, key=lambda r: r['byte_offset']):
         worldcat_oclc_ids.append(str(int(row['primary_id'])))
         worldcat_offsets_and_lengths.append((row['byte_offset'], row['byte_length']))
 
