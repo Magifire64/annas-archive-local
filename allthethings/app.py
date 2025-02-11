@@ -25,7 +25,7 @@ from allthethings.blog.views import blog
 from allthethings.page.views import page, all_search_aggs
 from allthethings.dyn.views import dyn
 from allthethings.cli.views import cli
-from allthethings.extensions import engine, mariapersist_engine, babel, debug_toolbar, flask_static_digest, mail
+from allthethings.extensions import engine, mariapersist_engine, babel, debug_toolbar, flask_static_digest, mail, compress
 from config.settings import SECRET_KEY, DOWNLOADS_SECRET_KEY, X_AA_SECRET, VALID_OTHER_DOMAINS
 
 import allthethings.utils
@@ -118,6 +118,7 @@ def extensions(app):
     :param app: Flask application instance
     :return: None
     """
+    compress.init_app(app)
     debug_toolbar.init_app(app)
     flask_static_digest.init_app(app)
     with app.app_context():

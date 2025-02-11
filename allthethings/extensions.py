@@ -3,6 +3,7 @@ import os
 from flask_babel import Babel
 from flask_debugtoolbar import DebugToolbarExtension
 from flask_static_digest import FlaskStaticDigest
+from flask_compress import Compress
 from sqlalchemy import create_engine
 from sqlalchemy.orm import declarative_base
 from elasticsearch import Elasticsearch
@@ -17,6 +18,7 @@ babel = Babel()
 mail = Mail()
 es = Elasticsearch(hosts=[ELASTICSEARCH_HOST])
 es_aux = Elasticsearch(hosts=[ELASTICSEARCHAUX_HOST])
+compress = Compress()
 
 mariadb_user = "allthethings"
 mariadb_password = "password"
