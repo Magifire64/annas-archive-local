@@ -576,7 +576,7 @@ def new_tables_internal(codes_table_name, codes_for_lookup_table_name=None):
         cursor = session.connection().connection.cursor(pymysql.cursors.DictCursor)
         print(f"Creating fresh table {codes_table_name}")
         cursor.execute(f'DROP TABLE IF EXISTS {codes_table_name}')
-        cursor.execute(f'CREATE TABLE {codes_table_name} (id BIGINT NOT NULL AUTO_INCREMENT, code VARBINARY({allthethings.utils.AARECORDS_CODES_CODE_LENGTH}) NOT NULL, aarecord_id VARBINARY({allthethings.utils.AARECORDS_CODES_AARECORD_ID_LENGTH}) NOT NULL, PRIMARY KEY (id)) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin')
+        cursor.execute(f'CREATE TABLE {codes_table_name} (code VARBINARY({allthethings.utils.AARECORDS_CODES_CODE_LENGTH}) NOT NULL, aarecord_id VARBINARY({allthethings.utils.AARECORDS_CODES_AARECORD_ID_LENGTH}) NOT NULL) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin')
         cursor.execute('COMMIT')
         if codes_for_lookup_table_name is not None:
             print(f"Creating fresh table {codes_for_lookup_table_name}")
@@ -817,14 +817,17 @@ def elastic_build_aarecords_job(aarecord_ids):
             return True
 
 THREADS = 200
-CHUNK_SIZE = 40
-BATCH_SIZE = 25000
+CHUNK_SIZE = 25
+BATCH_SIZE = 50000
 
 # Locally
 if SLOW_DATA_IMPORTS:
     THREADS = 1
     CHUNK_SIZE = 10
     BATCH_SIZE = 1000
+
+# Uncomment to isolate timeouts
+# CHUNK_SIZE = 1
 
 # Uncomment to do them one by one
 # THREADS = 1
@@ -857,8 +860,8 @@ def elastic_build_aarecords_all_internal():
     elastic_build_aarecords_main_internal() # Main depends on tables generated above, so we do it last.
     elastic_build_aarecords_forcemerge_internal()
 
-def build_common(table_name, batch_to_aarecord_ids, primary_id_column='primary_id', additional_where='', additional_select_AGGREGATES='', before_first_primary_id_WARNING_WARNING=''):
-    before_first_primary_id=before_first_primary_id_WARNING_WARNING
+def build_common(table_name, batch_to_aarecord_ids, primary_id_column='primary_id', additional_where='', additional_select_AGGREGATES='', before_first_primary_id_WARNING_WARNING_THERE_ARE_OTHER_TABLES_THAT_GET_REBUILT=''):
+    before_first_primary_id=before_first_primary_id_WARNING_WARNING_THERE_ARE_OTHER_TABLES_THAT_GET_REBUILT
     if before_first_primary_id != '':
         for i in range(5):
             print(f"WARNING! before_first_primary_id set in {table_name} to {before_first_primary_id} (total will be off)!!!!!!!!!!!!")
@@ -1166,13 +1169,26 @@ def elastic_build_aarecords_main_internal():
         connection.connection.ping(reconnect=True)
         cursor = connection.connection.cursor(pymysql.cursors.SSDictCursor)
         cursor.execute('DROP TABLE IF EXISTS aarecords_all_md5')
-        cursor.execute('CREATE TABLE aarecords_all_md5 (md5 BINARY(16) NOT NULL, json_compressed LONGBLOB NOT NULL, PRIMARY KEY (md5)) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin')
+        cursor.execute('CREATE TABLE aarecords_all_md5 (md5 BINARY(16) NOT NULL, json_compressed LONGBLOB NOT NULL) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin')
         cursor.execute('DROP TABLE IF EXISTS temp_md5_with_doi_seen')
-        cursor.execute('CREATE TABLE temp_md5_with_doi_seen (id BIGINT NOT NULL AUTO_INCREMENT, doi VARBINARY(1000), PRIMARY KEY (id), INDEX(doi)) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin')
+        cursor.execute('CREATE TABLE temp_md5_with_doi_seen (doi VARBINARY(1000)) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin')
 
     build_common('computed_all_md5s', lambda batch: [f"md5:{row['primary_id'].hex()}" for row in batch], primary_id_column='md5')
+
+    print("Adding index to temp_md5_with_doi_seen")
+    with engine.connect() as connection:
+        connection.connection.ping(reconnect=True)
+        cursor = connection.connection.cursor(pymysql.cursors.SSDictCursor)
+        cursor.execute('ALTER TABLE temp_md5_with_doi_seen ADD INDEX (doi)')
+
     build_common('scihub_dois', lambda batch: [f"doi:{row['primary_id'].lower()}" for row in batch], primary_id_column='doi')
     build_common('nexusstc_cid_only', lambda batch: [f"nexusstc_download:{row['primary_id']}" for row in batch], primary_id_column='nexusstc_id')
+
+    print("Adding index to aarecords_all_md5")
+    with engine.connect() as connection:
+        connection.connection.ping(reconnect=True)
+        cursor = connection.connection.cursor(pymysql.cursors.SSDictCursor)
+        cursor.execute('ALTER TABLE aarecords_all_md5 ADD PRIMARY KEY (md5)')
 
     with Session(engine) as session:
         session.connection().connection.ping(reconnect=True)
