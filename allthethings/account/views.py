@@ -441,7 +441,7 @@ def donation_page(donation_id):
                 'amazon': 'https://www.amazon.com/gp/product/B0BRSDM1XK',
                 'amazon_co_uk': 'https://www.amazon.co.uk/gp/product/B07S6C1DZ6',
                 'amazon_fr': 'https://www.amazon.fr/gp/product/B004MYH1YI',
-                'amazon_it': 'https://www.amazon.it/gp/product/B00H7G1B3A',
+                'amazon_it': 'https://www.amazon.it/gp/product/B07SP4WQVJ',
                 'amazon_ca': 'https://www.amazon.ca/gp/product/B004M5HIQI',
                 'amazon_de': 'https://www.amazon.de/gp/product/B0B2Q4ZRDW',
                 'amazon_es': 'https://www.amazon.es/gp/product/BT00EWOU4C',
