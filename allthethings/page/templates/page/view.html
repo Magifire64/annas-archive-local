@@ -17,6 +17,7 @@
   <script src="/djvujs/djvu_viewer.js"></script>
   <script>window.reakit = window.Reakit;</script>
   <script src="/villainjs/villain.js"></script>
+  <script src="/zipjs/dist/zip.min.js"></script>
   <script>
     const supportedExtensions = {{ viewer_supported_extensions | tojson }};
 
@@ -56,7 +57,72 @@
       });
     }
 
-    function loadViewerByUrl(fileUrl, fileType) {
+    function loadWithVillain(file) {
+      const Villain = window.villain;
+      const props = { 
+        source: file, // url or blob
+        style: { width: "100%", height: "100%" },
+        options: {
+          allowFullScreen: true,
+          autoHideControls: false,
+        },
+        workerUrl: "/libarchivejs/libarchivejs-1.3.0/dist/worker-bundle.js"
+      };
+
+      const root = ReactDOM.createRoot(document.body);
+      root.render(React.createElement(Villain, props));
+    }
+
+    async function loadZip(fileUrl) {
+      const blob = await (await fetch(fileUrl)).blob()
+      const reader = new zip.ZipReader(new zip.BlobReader(blob));
+
+      let entries = await reader.getEntries();
+      entries.sort((a, b) => a.filename.localeCompare(b.filename));
+      if (entries.length === 0) {
+        displayError("Zip file is empty");
+        return;
+      }
+      if (entries.some(e => !e.filename.endsWith(".txt"))) {
+        loadWithVillain(blob);
+        return;
+      }
+
+      document.getElementById("viewer-container").innerHTML = "";
+
+      const loadingContainer = document.createElement("div");
+      loadingContainer.className = "fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 rounded border";
+      const loadingBar = document.createElement("div");
+      loadingBar.className = "h-2 bg-gray-600 w-0 transition-all";
+      loadingContainer.appendChild(loadingBar);
+      document.body.appendChild(loadingContainer);
+
+      const outputDiv = document.createElement("div");
+      outputDiv.className = "font-mono whitespace-pre-wrap text-gray-300 p-4 w-full max-w-full mx-auto overflow-auto rounded-md break-words flex justify-center";
+      document.body.appendChild(outputDiv);
+      const innerContainer = document.createElement("div");
+      innerContainer.className = "w-full max-w-3xl";
+      outputDiv.appendChild(innerContainer);
+
+      let innerHTML = "";
+      for (const [idx, entry] of entries.entries()) {
+        const text = await entry.getData(new zip.TextWriter());
+        if (!text.trim()) {
+          continue;
+        }
+        innerHTML += text;
+        innerHTML += `<hr class="my-2"></hr>`;
+        loadingBar.style.width = `${((idx + 1) / entries.length) * 100}%`;
+      }
+      
+      // buffer time so user sees loading bar full
+      setTimeout(() => {
+        innerContainer.innerHTML = innerHTML;
+        loadingContainer.remove();
+      }, 250);
+    }
+
+    async function loadViewerByUrl(fileUrl, fileType) {
       if (!fileType) {
         const parsedUrl = parseUrl(encodeURI(fileUrl));
         fileType = parsedUrl.split(".").pop();
@@ -77,19 +143,11 @@
         viewerContainer.innerHTML = `<iframe src="/kthoom/index.html?bookUri=${encodeURI(fileUrl)}" title="webviewer" frameborder="0" class="viewer-frame w-full h-full"></iframe>`;
         attachFrameListener()
       } else if (supportedExtensions["villainjs"].includes(fileType)) {
-        const Villain = window.villain;
-        const props = {
-          source: fileUrl,
-          style: { width: "100%", height: "100%" },
-          options: {
-            allowFullScreen: true,
-            autoHideControls: false,
-          },
-          workerUrl: "/libarchivejs/libarchivejs-1.3.0/dist/worker-bundle.js"
-        };
-
-        const root = ReactDOM.createRoot(document.body);
-        root.render(React.createElement(Villain, props));
+        if (fileType == "zip") {
+          await loadZip(fileUrl);
+          return;
+        }
+        loadWithVillain(fileUrl);
       } else {
         displayError("File type not supported");
       }
@@ -166,7 +224,7 @@
 
   <div id="viewer-container" class="flex flex-row w-full h-full items-center justify-center">
     {% if url %}
-      <script>loadViewerByUrl("{{ url }}")</script>
+      <script>(async () => {await loadViewerByUrl("{{ url }}")})()</script>
     {% else %} 
       <div id="drop-area" class="p-16 cursor-pointer border-2 border-dashed border-gray-300 rounded-lg text-center bg-gray-50 hover:bg-gray-100">
         <div class="mb-4">Drop file here to open (or click)</div>
@@ -219,7 +277,7 @@
                 name: file.name,
                 type: file.type
               };
-              loadViewerByUrl(fileUrl, fileType);
+              await loadViewerByUrl(fileUrl, fileType);
             }
           }
         });

@@ -194,6 +194,7 @@ There are also some experimental tests in `test-e2e`. You can run them inside th
 [azw3](http://localtest.me:8000/view?url=/test-files/sample.azw3)\
 [cbr](http://localtest.me:8000/view?url=/test-files/sample.cbr)\
 [zip](http://localtest.me:8000/view?url=/test-files/sample.zip)\
+[zip (txts)](http://localtest.me:8000/view?url=/test-files/sample-txt.zip)\
 [rar](http://localtest.me:8000/view?url=/test-files/sample.rar)
 #### Testing Error Handling
 [pdf.js](http://localtest.me:8000/view?url=/test-files/corrupt.pdf)\

@@ -140,6 +140,15 @@ RUN rm -rf /public/libarchivejs
 RUN mkdir /public/libarchivejs
 RUN unzip /public/libarchive-v1.3.0.zip -d /public/libarchivejs
 
+# Get zip.js
+# RUN curl -L https://raw.githubusercontent.com/gildas-lormeau/zip.js/refs/heads/master/dist/zip.min.js --create-dirs -o /public/zipjs/zip.min.js
+RUN wget https://github.com/gildas-lormeau/zip.js/archive/refs/tags/v2.7.57.zip -O /public/zipjs-v2.7.57.zip
+RUN rm -rf /public/zipjs
+RUN mkdir /public/zipjs
+RUN unzip /public/zipjs-v2.7.57.zip -d /public/temp-zip 
+RUN mv /public/temp-zip/zip.js-2.7.57/* /public/zipjs
+RUN rm -rf /public/temp-zip
+
 COPY --from=assets /app/public /public
 
 COPY . .
