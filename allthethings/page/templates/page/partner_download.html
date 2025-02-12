@@ -74,7 +74,7 @@
 
   {% if warning %}
     <p class="mb-4 font-bold">
-      ⛔️ {{ gettext('page.partner_download.warning_many_downloads') }}
+      {{ gettext('page.partner_download.warning_many_downloads') }}
       <!-- {% if daily_download_count_from_ip %} {{ gettext('page.partner_download.downloads_last_24_hours', count=daily_download_count_from_ip) }}{% endif %} -->
       {{ gettext('page.partner_download.warning_many_downloads2') }}
     </p>
