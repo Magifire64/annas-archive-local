@@ -185,6 +185,7 @@
         {% endif %}
         {{ donate_button('amazon_co_uk', 'Amazon.co.uk', discount_percent=0) }}
         {{ donate_button('amazon_ca', 'Amazon.ca', discount_percent=0) }}
+        {{ donate_button('amazon_au', 'Amazon.com.au', discount_percent=0) }}
         {% if g.domain_lang_code not in ['de'] %}
           {{ donate_button('amazon_de', 'Amazon.de', discount_percent=0) }}
         {% endif %}
@@ -370,6 +371,18 @@
       <p class="mb-4">
         <!-- {{ gettext('page.donate.payment.desc.amazon_com') }} -->
         {{ gettext('page.donate.payment.desc.amazon_cc', amazon='Amazon.ca') }}
+      </p>
+    </div>
+
+        <div class="js-membership-descr js-membership-descr-amazon_au">
+      <p class="mb-4">
+        {{ gettext('page.donate.payment.desc.amazon') }}
+        {{ gettext('page.donate.payment.desc.amazon_round', minimum='AUS$15') }}
+      </p>
+
+      <p class="mb-4">
+        <!-- {{ gettext('page.donate.payment.desc.amazon_com') }} -->
+        {{ gettext('page.donate.payment.desc.amazon_cc', amazon='Amazon.com.au') }}
       </p>
     </div>
 
