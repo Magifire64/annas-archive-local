@@ -98,7 +98,7 @@
       document.body.appendChild(loadingContainer);
 
       const outputDiv = document.createElement("div");
-      outputDiv.className = "font-mono whitespace-pre-wrap text-gray-300 p-4 w-full max-w-full mx-auto overflow-auto rounded-md break-words flex justify-center";
+      outputDiv.className = "font-mono whitespace-pre-wrap text-black p-4 w-full max-w-full mx-auto overflow-auto rounded-md break-words flex justify-center text-base";
       document.body.appendChild(outputDiv);
       const innerContainer = document.createElement("div");
       innerContainer.className = "w-full max-w-3xl";
@@ -111,7 +111,7 @@
           continue;
         }
         innerHTML += text;
-        innerHTML += `<hr class="my-2"></hr>`;
+        innerHTML += `<hr class="my-4"></hr>`;
         loadingBar.style.width = `${((idx + 1) / entries.length) * 100}%`;
       }
       
@@ -226,7 +226,7 @@
     {% if url %}
       <script>(async () => {await loadViewerByUrl("{{ url }}")})()</script>
     {% else %} 
-      <div id="drop-area" class="p-16 cursor-pointer border-2 border-dashed border-gray-300 rounded-lg text-center bg-gray-50 hover:bg-gray-100">
+      <div id="drop-area" class="p-16 m-4 cursor-pointer border-2 border-dashed border-gray-300 rounded-lg text-center bg-gray-50 hover:bg-gray-100">
         <div class="mb-4">Drop file here to open (or click)</div>
         <div class="text-gray-500 text-sm">Supported files: {{ viewer_supported_extensions.values() | sum(start=[]) | join(', ') }}</div>
         <input type="file" id="file-upload" class="hidden" accept="{% for ext in viewer_supported_extensions.values() | sum(start=[]) %}.{{ ext }}{% if not loop.last %},{% endif %}{% endfor %}"/>
