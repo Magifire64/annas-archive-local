@@ -666,13 +666,13 @@ MEMBERSHIP_METHOD_MINIMUM_CENTS_USD = {
     "payment2revolut": 2500,
     "payment2cc": 0,
     "paypalreg": 0,
-    "amazon": 500,
-    "amazon_co_uk": 500,
-    "amazon_fr": 500,
-    "amazon_it": 500,
-    "amazon_ca": 500,
-    "amazon_de": 500,
-    "amazon_es": 500,
+    "amazon": 1000,
+    "amazon_co_uk": 1000,
+    "amazon_fr": 1000,
+    "amazon_it": 1000,
+    "amazon_ca": 1000,
+    "amazon_de": 1000,
+    "amazon_es": 1000,
     # "bmc":    0,
     # "alipay": 0,
     # "pix":    0,
@@ -707,13 +707,13 @@ MEMBERSHIP_METHOD_MAXIMUM_CENTS_NATIVE = {
     "payment3a": 70000,
     "payment3a_cc": round(70000/MEMBERSHIP_EXCHANGE_RATE_RMB), # Actual number in USD!
     "payment3b": 500000,
-    "amazon": 50000,
-    "amazon_co_uk": 10000,
-    "amazon_fr": 5000,
-    "amazon_it": 5000,
-    "amazon_ca": 20000,
-    "amazon_de": 20000,
-    "amazon_es": 5000,
+    "amazon": 60000,
+    "amazon_co_uk": 30000,
+    "amazon_fr": 30000,
+    "amazon_it": 30000,
+    "amazon_ca": 60000,
+    "amazon_de": 30000,
+    "amazon_es": 30000,
 }
 MEMBERSHIP_MAX_BONUS_DOWNLOADS = 10000
 
@@ -2371,6 +2371,7 @@ TORRENT_PATHS_PARTIALLY_BROKEN = [
     'torrents/external/libgen_li_comics/c_2086000.torrent',
     'torrents/managed_by_aa/annas_archive_data__aacid/annas_archive_data__aacid__duxiu_files__20240613T212153Z--20240613T212154Z.torrent',
     'torrents/managed_by_aa/annas_archive_data__aacid/annas_archive_data__aacid__ia2_acsmpdf_files__20240823T234348Z--20240823T234349Z.torrent',
+    'torrents/managed_by_aa/annas_archive_data__aacid/annas_archive_data__aacid__ia2_acsmpdf_files__20240823T234438Z--20240823T234439Z.torrent',
 ]
 
 def build_pagination_pages_with_dots(primary_hits_pages, page_value, large):

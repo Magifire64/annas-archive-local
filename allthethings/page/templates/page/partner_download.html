@@ -72,6 +72,14 @@
     </p>
   {% endif %}
 
+  {% if warning %}
+    <p class="mb-4 font-bold">
+      {{ gettext('page.partner_download.warning_many_downloads') }}
+      <!-- {% if daily_download_count_from_ip %} {{ gettext('page.partner_download.downloads_last_24_hours', count=daily_download_count_from_ip) }}{% endif %} -->
+      {{ gettext('page.partner_download.warning_many_downloads2') }}
+    </p>
+  {% endif %}
+
   {% if wait_seconds %}
     <div class="bg-[#f2f2f2] p-4 pb-3 rounded-lg mb-4">
       <ul class="pl-4">
@@ -113,14 +121,6 @@
         partnerCountdown = setInterval(countDown, 200);
       })();
     </script>
-  {% endif %}
-
-  {% if warning %}
-    <p class="mb-4 font-bold">
-      ⛔️ {{ gettext('page.partner_download.warning_many_downloads') }}
-      <!-- {% if daily_download_count_from_ip %} {{ gettext('page.partner_download.downloads_last_24_hours', count=daily_download_count_from_ip) }}{% endif %} -->
-      {{ gettext('page.partner_download.warning_many_downloads2') }}
-    </p>
   {% endif %}
 
   <!-- daily_download_count_from_ip: {{ daily_download_count_from_ip }} -->

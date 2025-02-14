@@ -8352,7 +8352,7 @@ def md5_slow_download(md5_input, path_index, domain_index):
     domain = domain_slow
     if daily_download_count_from_ip >= 30:
         domain = domain_slowest
-        warning = True
+        # warning = True
         waitlist_max_wait_time_seconds *= 2
     #     # targeted_seconds_multiplier = 2.0
     #     # minimum = 20
