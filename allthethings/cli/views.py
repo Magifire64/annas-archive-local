@@ -671,15 +671,7 @@ def elastic_build_aarecords_job(aarecord_ids):
                     bad_isbn13_aarecord_ids += set([aarecord_id.decode() for aarecord_id in allthethings.utils.fetch_scalars(cursor)])
                 bad_isbn13_aarecord_ids = set(bad_isbn13_aarecord_ids)
 
-                # Filter out "doi:" records that already have an md5. We don't need standalone records for those.
-                dois_from_ids = [aarecord_id[4:].lower().encode() for aarecord_id in aarecord_ids if aarecord_id.startswith('doi:')]
-                doi_codes_with_md5 = set()
-                if len(dois_from_ids) > 0:
-                    cursor = allthethings.utils.get_cursor_ping(session)
-                    cursor.execute('SELECT doi FROM temp_md5_with_doi_seen WHERE doi IN %(dois_from_ids)s', { "dois_from_ids": dois_from_ids })
-                    doi_codes_with_md5 = set([f"doi:{row['doi'].decode(errors='replace').lower()}" for row in cursor.fetchall()])
-
-                aarecord_ids = [aarecord_id for aarecord_id in aarecord_ids if (aarecord_id not in bad_isbn13_aarecord_ids) and (aarecord_id not in doi_codes_with_md5) and (aarecord_id not in allthethings.utils.SEARCH_FILTERED_BAD_AARECORD_IDS)]
+                aarecord_ids = [aarecord_id for aarecord_id in aarecord_ids if (aarecord_id not in bad_isbn13_aarecord_ids) and (aarecord_id not in allthethings.utils.SEARCH_FILTERED_BAD_AARECORD_IDS)]
                 if len(aarecord_ids) == 0:
                     return False
 
@@ -1175,13 +1167,19 @@ def elastic_build_aarecords_main_internal():
 
     build_common('computed_all_md5s', lambda batch: [f"md5:{row['primary_id'].hex()}" for row in batch], primary_id_column='md5')
 
-    print("Adding index to temp_md5_with_doi_seen")
     with engine.connect() as connection:
+        print("Adding index to temp_md5_with_doi_seen")
         connection.connection.ping(reconnect=True)
         cursor = connection.connection.cursor(pymysql.cursors.SSDictCursor)
         cursor.execute('ALTER TABLE temp_md5_with_doi_seen ADD INDEX (doi)')
 
-    build_common('scihub_dois', lambda batch: [f"doi:{row['primary_id'].lower()}" for row in batch], primary_id_column='doi')
+        print("Creating scihub_dois_not_yet_seen: Filter out 'doi:' records that already have an md5. We don't need standalone records for those.")
+        connection.connection.ping(reconnect=True)
+        cursor = connection.connection.cursor(pymysql.cursors.SSDictCursor)
+        cursor.execute('DROP TABLE IF EXISTS scihub_dois_not_yet_seen')
+        cursor.execute('CREATE TABLE scihub_dois_not_yet_seen (doi varchar(250) NOT NULL, PRIMARY KEY(doi)) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin SELECT scihub_dois.doi FROM scihub_dois LEFT JOIN temp_md5_with_doi_seen ON (CONVERT(LOWER(scihub_dois.doi) USING BINARY) = temp_md5_with_doi_seen.doi) WHERE temp_md5_with_doi_seen.doi IS NULL')
+
+    build_common('scihub_dois_not_yet_seen', lambda batch: [f"doi:{row['primary_id'].lower()}" for row in batch], primary_id_column='doi')
     build_common('nexusstc_cid_only', lambda batch: [f"nexusstc_download:{row['primary_id']}" for row in batch], primary_id_column='nexusstc_id')
 
     print("Adding index to aarecords_all_md5")
@@ -1190,10 +1188,12 @@ def elastic_build_aarecords_main_internal():
         cursor = connection.connection.cursor(pymysql.cursors.SSDictCursor)
         cursor.execute('ALTER TABLE aarecords_all_md5 ADD PRIMARY KEY (md5)')
 
+    print("Cleanup")
     with Session(engine) as session:
         session.connection().connection.ping(reconnect=True)
         cursor = session.connection().connection.cursor(pymysql.cursors.DictCursor)
         cursor.execute('DROP TABLE temp_md5_with_doi_seen')
+        cursor.execute('DROP TABLE scihub_dois_not_yet_seen')
 
     print("Done with main!")
 
@@ -1284,7 +1284,7 @@ def mysql_build_aarecords_codes_numbers_internal():
 
                 # If a table doesn't have anything from the code range, skip it
                 needed_tables = list(filter(lambda x: any([prefix in opts["prefix_list"] for prefix in prefix_counts_by_table[x]]), tables))
-                cursor.execute(f'CREATE OR REPLACE TEMPORARY TABLE aarecords_codes_union (id BIGINT NOT NULL AUTO_INCREMENT, code VARBINARY(680) NOT NULL, aarecord_id VARBINARY(300) NOT NULL, PRIMARY KEY (id)) ENGINE=MERGE UNION=({", ".join(needed_tables)}) INSERT_METHOD=NO;')
+                cursor.execute(f'CREATE OR REPLACE TEMPORARY TABLE aarecords_codes_union (code VARBINARY(680) NOT NULL, aarecord_id VARBINARY(300) NOT NULL) ENGINE=MERGE UNION=({", ".join(needed_tables)}) INSERT_METHOD=NO;')
 
                 start = time.perf_counter()
                 # This temptable would be created by the query below anyway (except with udfs), just making it more obvious, 
