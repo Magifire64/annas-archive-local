@@ -39,17 +39,17 @@ VALID_OTHER_DOMAINS = os.getenv("VALID_OTHER_DOMAINS", "annas-archive.org,annas-
 ELASTICSEARCH_HOST = os.getenv("ELASTICSEARCH_HOST", "http://elasticsearch:9200")
 ELASTICSEARCHAUX_HOST = os.getenv("ELASTICSEARCHAUX_HOST", "http://elasticsearchaux:9201")
 
-MAIL_USERNAME = 'anna@annas-archive.li'
-MAIL_DEFAULT_SENDER = ('Anna’s Archive', 'anna@annas-archive.li')
-MAIL_PASSWORD = os.getenv("MAIL_PASSWORD", "")
-if len(MAIL_PASSWORD) == 0:
-    MAIL_SERVER = 'mailpit'
-    MAIL_PORT = 1025
-    MAIL_DEBUG = True
-else:
-    MAIL_SERVER = 'mail.annas-archive.li'
-    MAIL_PORT = 587
-    MAIL_USE_TLS = True
+# MAIL_USERNAME = 'anna@annas-archive.org'
+# MAIL_DEFAULT_SENDER = ('Anna’s Archive', 'anna@annas-archive.org')
+# MAIL_PASSWORD = os.getenv("MAIL_PASSWORD", "")
+# if len(MAIL_PASSWORD) == 0:
+#     MAIL_SERVER = 'mailpit'
+#     MAIL_PORT = 1025
+#     MAIL_DEBUG = True
+# else:
+#     MAIL_SERVER = 'mail.annas-archive.org'
+#     MAIL_PORT = 587
+#     MAIL_USE_TLS = True
 
 SLOW_DATA_IMPORTS = str(os.getenv("SLOW_DATA_IMPORTS", "")).lower() in ["1","true"]
 AACID_SMALL_DATA_IMPORTS = str(os.getenv("AACID_SMALL_DATA_IMPORTS", "")).lower() in ["1","true"]
