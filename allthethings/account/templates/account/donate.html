@@ -201,7 +201,7 @@
       </div>
 
       <div class="flex flex-wrap w-full {% if g.domain_lang_code in ['zh','tw','ko','ja','th','ms'] %}-order-1{% endif %}">
-        {{ donate_button('payment3b', gettext('page.donate.payment.buttons.wechat') + ' <span class="whitespace-nowrap text-xs">变体K</span>' | safe, discount_percent=0, large=True) }}
+        <!-- {{ donate_button('payment3b', gettext('page.donate.payment.buttons.wechat') + ' <span class="whitespace-nowrap text-xs">变体K</span>' | safe, discount_percent=0, large=True) }} -->
         {{ donate_button('payment3a', gettext('page.donate.payment.buttons.alipay') + ' <span class="whitespace-nowrap text-xs">变体K</span>' | safe, discount_percent=0, large=True) }}
         {{
           shuffle_stable_day([

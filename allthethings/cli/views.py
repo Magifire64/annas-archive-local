@@ -1289,7 +1289,7 @@ def mysql_build_aarecords_codes_numbers_internal():
                 start = time.perf_counter()
                 # This temptable would be created by the query below anyway (except with udfs), just making it more obvious, 
                 # also there's a good chance it's faster this way
-                cursor.execute('CREATE OR REPLACE TEMPORARY TABLE aarecords_codes_new_internal (code VARBINARY(680) NOT NULL, aarecord_id VARBINARY(300) NOT NULL, prefix VARBINARY(20) NOT NULL) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin SELECT code, aarecord_id, SUBSTRING_INDEX(aarecord_id, ":", 1) as prefix FROM aarecords_codes_union WHERE code < %(upper_bound)s AND code >=  %(lower_bound)s ORDER BY code, aarecord_id', {"lower_bound": opts["bounds"][0], "upper_bound": opts["bounds"][1]})
+                cursor.execute('CREATE OR REPLACE TEMPORARY TABLE aarecords_codes_new_internal (code VARBINARY(680) NOT NULL, aarecord_id VARBINARY(300) NOT NULL, prefix VARBINARY(20) NOT NULL) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin SELECT code, aarecord_id, SUBSTRING_INDEX(aarecord_id, ":", 1) as prefix FROM aarecords_codes_union WHERE code < %(upper_bound)s AND code >=  %(lower_bound)s GROUP BY code, aarecord_id ORDER BY code, aarecord_id', {"lower_bound": opts["bounds"][0], "upper_bound": opts["bounds"][1]})
                 sort_time = time.perf_counter() - start
 
                 # Substitute for ROW_NUMBER and DENSE_RANK window functions (proven too slow)
