@@ -1047,20 +1047,20 @@ def gc_notify(cursor, request_data, dont_store_errors=False):
     if (re.search(r'<gc-orders@gc\.email\.amazon\.(com|co\.uk|fr|it|ca|de|es|com\.au)>$', message['From'].strip()) is None) and (re.search(r'<do-not-reply@(gift-cards\.)?amazon\.(com|co\.uk|fr|it|ca|de|es|com\.au)>$', message['From'].strip()) is None):
         return exec_err(f"Warning: gc_notify message '{message['X-Original-To']}' with wrong From: {message['From']}")
 
-    suffixes = [
-        'sent you an Amazon Gift Card!',
+    partial_subjects = [
+        'sent you',
         'is waiting',
-        'une carte cadeau Amazon !',
+        'une carte cadeau',
         'vous attend',
-        'un buono regalo Amazon!',
+        'un buono regalo',
         'ti aspetta',
-        'Amazon Geschenkgutschein geschickt!',
-        'wartet auf Sie.',
-        'Tarjeta regalo de Amazon.',
+        'Geschenkgutschein',
+        'wartet auf',
+        'Tarjeta regalo',
         'esperando',
     ]
     subject_stripped = message['Subject'].strip()
-    if not any([subject_stripped.endswith(suffix) for suffix in suffixes]):
+    if not any([(partial_subject.lower() in subject_stripped.lower()) for partial_subject in partial_subjects]):
         return exec_err(f"Warning: gc_notify message '{message['X-Original-To']}' with wrong Subject: {message['Subject']}")
 
     potential_money = re.findall(r"\n[$€£][ ]?([0123456789]+[.,][0123456789]{2})", message_body)
