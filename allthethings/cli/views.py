@@ -1289,26 +1289,26 @@ def mysql_build_aarecords_codes_numbers_internal():
                 start = time.perf_counter()
                 # This temptable would be created by the query below anyway (except with udfs), just making it more obvious, 
                 # also there's a good chance it's faster this way
-                cursor.execute('CREATE OR REPLACE TEMPORARY TABLE aarecords_codes_new_internal (code VARBINARY(680) NOT NULL, aarecord_id VARBINARY(300) NOT NULL, prefix VARBINARY(20) NOT NULL) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin SELECT code, aarecord_id, SUBSTRING_INDEX(aarecord_id, ":", 1) as prefix FROM aarecords_codes_union WHERE code < %(upper_bound)s AND code >=  %(lower_bound)s GROUP BY code, aarecord_id ORDER BY code, aarecord_id', {"lower_bound": opts["bounds"][0], "upper_bound": opts["bounds"][1]})
+                cursor.execute('CREATE OR REPLACE TEMPORARY TABLE aarecords_codes_new_internal (code VARBINARY(680) NOT NULL, aarecord_id VARBINARY(300) NOT NULL, prefix VARBINARY(20) NOT NULL) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin SELECT code, aarecord_id, SUBSTRING_INDEX(aarecord_id, ":", 1) as prefix FROM aarecords_codes_union WHERE code < %(upper_bound)s AND code >=  %(lower_bound)s ORDER BY code, aarecord_id', {"lower_bound": opts["bounds"][0], "upper_bound": opts["bounds"][1]})
                 sort_time = time.perf_counter() - start
 
                 # Substitute for ROW_NUMBER and DENSE_RANK window functions (proven too slow)
                 # --------------------------------------------------------------
                 start = time.perf_counter()
-                cursor.execute(f'SET @drank := 0, @prev_code := "", @prn := "", @pdr := "", @prn_val := 0, @pdr_val := 0, @prev_prefix := "", @code_same := 0, @prefix_same := 0')
+                cursor.execute(f'SET @rownum := 0, @drank := 0, @prev_code := "", @prev_aarecord_id := "", @prn := "", @pdr := "", @prn_val := 0, @pdr_val := 0, @prev_prefix := "", @code_same := 0, @prefix_same := 0, @code_and_id_same := 0')
                 cursor.execute(f"""CREATE OR REPLACE TABLE aarecords_codes_new_p{opts["n"]} (code VARBINARY({allthethings.utils.AARECORDS_CODES_CODE_LENGTH}) NOT NULL, aarecord_id VARBINARY({allthethings.utils.AARECORDS_CODES_AARECORD_ID_LENGTH}) NOT NULL, aarecord_id_prefix VARBINARY({allthethings.utils.AARECORDS_CODES_AARECORD_ID_PREFIX_LENGTH}) NOT NULL, row_number_order_by_code BIGINT NOT NULL DEFAULT 0, dense_rank_order_by_code BIGINT NOT NULL DEFAULT 0, row_number_partition_by_aarecord_id_prefix_order_by_code BIGINT NOT NULL DEFAULT 0, dense_rank_partition_by_aarecord_id_prefix_order_by_code BIGINT NOT NULL DEFAULT 0, PRIMARY KEY (code, aarecord_id)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin
-                                SELECT LAST_VALUE(@code_same := y.code = @prev_code, @prefix_same := prefix = @prev_prefix, ROWNUM()) AS row_number_order_by_code,
+                                IGNORE SELECT LAST_VALUE(@code_and_id_same := (y.code = @prev_code AND y.aarecord_id = @prev_aarecord_id), @code_same := y.code = @prev_code, @prefix_same := prefix = @prev_prefix, IF(@code_and_id_same, @rownum, @rownum := @rownum + 1)) AS row_number_order_by_code,
                                 IF(@code_same, @drank, @drank := @drank + 1) AS dense_rank_order_by_code,
-                                IF(@prefix_same, 
+                                IF(@code_and_id_same, @prn_val, IF(@prefix_same, 
                                   @prn_val := @prn_val + 1, 
-                                  @prn_val := NVL(COLUMN_GET(@prn := COLUMN_ADD(@prn, @prev_prefix, @prn_val), prefix as int), 0) + 1
-                                ) as row_number_partition_by_aarecord_id_prefix_order_by_code,
-                                IF(@prefix_same, 
+                                  @prn_val := IFNULL(COLUMN_GET(@prn := COLUMN_ADD(@prn, @prev_prefix, @prn_val), prefix as int), 0) + 1
+                                )) as row_number_partition_by_aarecord_id_prefix_order_by_code,
+                                IF(@code_and_id_same, @pdr_val, IF(@prefix_same, 
                                   IF(@code_same, @pdr_val, @pdr_val := @pdr_val + 1), 
-                                  @pdr_val := NVL(COLUMN_GET(@pdr := COLUMN_ADD(@pdr, @prev_prefix, @pdr_val), prefix as int), 0) + 1
-                                ) as dense_rank_partition_by_aarecord_id_prefix_order_by_code,
+                                  @pdr_val := IFNULL(COLUMN_GET(@pdr := COLUMN_ADD(@pdr, @prev_prefix, @pdr_val), prefix as int), 0) + 1
+                                )) as dense_rank_partition_by_aarecord_id_prefix_order_by_code,
                                 IF(@code_same, @prev_code, @prev_code := code) as code,
-                                aarecord_id,
+                                (@prev_aarecord_id := aarecord_id) as aarecord_id,
                                 IF(@prefix_same, prefix, @prev_prefix := prefix) AS aarecord_id_prefix
                                 FROM aarecords_codes_new_internal y 
                                 ;""") # No order by, expecting the table to be sorted
