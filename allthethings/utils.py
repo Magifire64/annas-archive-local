@@ -1081,7 +1081,7 @@ def gc_notify(cursor, request_data, dont_store_errors=False):
             main_link = potential_link
             break
     if main_link is not None:
-        domain = re.findall(r'amazon.(com|co\.uk|fr|it|ca|de|es|com\.au)', main_link)[0]
+        domain = re.findall(r'amazon.(com/|co\.uk/|fr/|it/|ca/|de/|es/|com\.au/)gp', main_link)[0].removesuffix('/')
         main_link = main_link.split('%2Fg%2F', 1)[1]
         main_link = main_link.split('%3F', 1)[0]
         main_link = f"https://www.amazon.{domain}/g/{main_link}"
