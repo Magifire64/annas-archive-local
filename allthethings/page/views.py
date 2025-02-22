@@ -1180,10 +1180,6 @@ def codes_page():
                 cursor.execute('SELECT code, row_number_order_by_code, dense_rank_order_by_code FROM aarecords_codes WHERE code LIKE %(like)s ORDER BY code, aarecord_id LIMIT 1', { "like": codes_prefix_matcher(new_prefix) })
                 first_record = cursor.fetchone()
 
-                # TODO: Fix case of depósito_legal.
-                if first_record is None:
-                    print(f"WARNING: first_record is None for {i=} {new_prefix_g=}")
-                    continue
             if (disable_prefix_expansion or first_record["code"] == new_prefix) and i+1 < len(new_prefixes) and "row_number_order_by_code" in new_prefixes[i+1]:
                 last_record = {
                     "code": new_prefix,
