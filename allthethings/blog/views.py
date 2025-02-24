@@ -11,7 +11,10 @@ blog = Blueprint("blog", __name__, template_folder="templates", url_prefix="/blo
 def index():
     return render_template("blog/index.html")
 
-
+@blog.get("/all-isbns-winners.html")
+@allthethings.utils.public_cache(minutes=5, cloudflare_minutes=60*3)
+def all_isbns_winners():
+    return render_template("blog/all-isbns-winners.html")
 @blog.get("/ai-copyright.html")
 @allthethings.utils.public_cache(minutes=5, cloudflare_minutes=60*3)
 def ai_copyright():
@@ -20,10 +23,6 @@ def ai_copyright():
 @allthethings.utils.public_cache(minutes=5, cloudflare_minutes=60*3)
 def all_isbns():
     return render_template("blog/all-isbns.html")
-@blog.get("/all-isbns-chinese.html")
-@allthethings.utils.public_cache(minutes=5, cloudflare_minutes=60*3)
-def all_isbns_chinese():
-    return render_template("blog/all-isbns-chinese.html")
 @blog.get("/critical-window.html")
 @allthethings.utils.public_cache(minutes=5, cloudflare_minutes=60*3)
 def critical_window():
@@ -197,6 +196,13 @@ def rss_xml():
             description = "Chinese LLMs are trained on my illegal archive of books and papers — the largest in the world. The West needs to overhaul copyright law as a matter of national security.",
             author = "Anna and the team",
             pubDate = datetime.datetime(2025,1,31),
+        ),
+        Item(
+            title = "Winners of the $10,000 ISBN visualization bounty",
+            link = "https://annas-archive.li/blog/all-isbns-winners.html",
+            description = "We got some incredible submissions to the $10,000 ISBN visualization bounty.",
+            author = "Anna and the team",
+            pubDate = datetime.datetime(2025,2,24),
         ),
     ]
 
