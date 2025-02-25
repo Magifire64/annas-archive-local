@@ -1,0 +1,465 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  font-family: system-ui, sans-serif;
+}
+* {
+  box-sizing: border-box;
+}
+#root {
+  width: 100%;
+  height: 100%;
+  --group-width: 252px;
+  --group-height: calc(var(--group-width) / sqrt(10));
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.no-cursor {
+  pointer-events: none;
+}
+
+.controls {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: #ffffff;
+  padding: 1.5rem;
+  z-index: 100;
+  width: 400px;
+  max-width: calc(100vw - 2rem);
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+  max-height: calc(100vh - 2rem);
+  border: 1px solid rgba(229, 231, 235, 0.5);
+}
+
+.controls:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.controls .head {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.controls .head b {
+  font-weight: 600;
+  color: #111827;
+  line-height: 1.1;
+  margin-right: 0.5rem;
+}
+
+button {
+  padding: 0.375rem 0.75rem;
+  border-radius: 6px;
+  border: 1px solid #e5e7eb;
+  background: #f9fafb;
+  color: #374151;
+  font-size: 0.875rem;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+.controls button.preset {
+  display: block;
+  width: 100%;
+}
+
+.controls button:hover {
+  background: #f3f4f6;
+  border-color: #d1d5db;
+}
+
+.controls button:active {
+  background: #e5e7eb;
+  transform: translateY(1px);
+}
+
+.controls.advanced {
+  background: #f8fafc;
+}
+
+@media (max-width: 640px) {
+  .controls {
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 0.75rem;
+    max-width: 100vw;
+    border-radius: 0;
+    max-height: 70vh;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+  }
+
+  .controls .head {
+    padding-bottom: 0.5rem;
+    margin-bottom: 0.5rem;
+    gap: 0.375rem;
+  }
+
+  .controls .head b {
+    margin-right: 0.375rem;
+  }
+
+  .controls button {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.813rem;
+  }
+
+  .controls p {
+    margin: 0.5rem 0;
+    font-size: 0.875rem;
+    line-height: 1.25;
+  }
+
+  .controls label {
+    font-size: 0.875rem;
+  }
+}
+
+.controls.advanced {
+  max-height: 100vh;
+  overflow-y: auto;
+}
+
+.controls .form-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.controls .form-row > div:first-child {
+  flex: 1;
+}
+.stats-table {
+  td:first-child {
+    text-align: right;
+  }
+}
+.group-name {
+  color: white;
+  /*text-shadow: rgb(0, 0, 0) 2px 0px 0px, rgb(0, 0, 0) 1.75517px 0.958851px 0px,
+    rgb(0, 0, 0) 1.0806px 1.68294px 0px, rgb(0, 0, 0) 0.141474px 1.99499px 0px,
+    rgb(0, 0, 0) -0.832294px 1.81859px 0px,
+    rgb(0, 0, 0) -1.60229px 1.19694px 0px, rgb(0, 0, 0) -1.97999px 0.28224px 0px,
+    rgb(0, 0, 0) -1.87291px -0.701566px 0px,
+    rgb(0, 0, 0) -1.30729px -1.51361px 0px,
+    rgb(0, 0, 0) -0.421592px -1.95506px 0px,
+    rgb(0, 0, 0) 0.567324px -1.91785px 0px,
+    rgb(0, 0, 0) 1.41734px -1.41108px 0px,
+    rgb(0, 0, 0) 1.92034px -0.558831px 0px, rgb(0, 0, 0) 0 0 8px,
+    rgb(0, 0, 0) 0 0 8px, rgb(0, 0, 0) 0 0 8px, rgb(0, 0, 0) 0 0 8px,
+    rgb(0, 0, 0) 0 0 8px, rgb(0, 0, 0) 0 0 8px;*/
+  /* border: 1px solid black; */
+  text-align: center;
+  align-content: center;
+  overflow: hidden;
+  width: var(--group-width);
+  font-size: 1.2rem;
+  height: var(--group-height);
+  -webkit-text-stroke: 7px black;
+  text-stroke: 7px black;
+  paint-order: stroke fill;
+}
+.group-name.vertical {
+  float: left;
+  width: var(--group-height);
+  height: var(--group-width);
+  font-size: 0.9rem;
+}
+.group-name-wrap.vertical {
+  width: calc(var(--group-width) * sqrt(10));
+}
+.group-name span {
+  /* background: black; */
+}
+.group-name small {
+  font-size: 75%;
+  color: #ddd;
+}
+
+.lds-dual-ring {
+  /* change color here */
+  color: #1c4c5b;
+}
+.lds-dual-ring,
+.lds-dual-ring:after {
+  box-sizing: border-box;
+}
+.lds-dual-ring {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+}
+.lds-dual-ring:after {
+  content: " ";
+  display: block;
+  width: 16px;
+  height: 16px;
+  margin: 2px;
+  border-radius: 50%;
+  border: 6.4px solid currentColor;
+  border-color: currentColor transparent currentColor transparent;
+  animation: lds-dual-ring 1.2s linear infinite;
+}
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@font-face {
+  font-family: "Libre Barcode EAN13 Text";
+  src: url(./LibreBarcodeEAN13Text-Regular.ttf) format("truetype");
+}
+.ean13 {
+  font-family: "Libre Barcode EAN13 Text", "Adobe NotDef";
+  /* Setting this explicitly was necessary for IOS, version 13.7, Safari and Chrome.*/
+  font-size: 3rem;
+  font-feature-settings: "calt" 1;
+  overflow: auto;
+}
+
+.single-book-wrap {
+  width: var(--group-width);
+  height: var(--group-height);
+  overflow: hidden;
+}
+.single-book {
+  color: black;
+  width: 100%;
+  height: 100%;
+  /* border-right: 5px solid green; */
+  display: flex;
+  padding-left: 3%; /** shader bookshelf height 0.03 */
+  flex-direction: row;
+  align-items: center;
+}
+.single-book .titleinfo {
+  flex-grow: 1;
+  text-align: center;
+}
+.single-book .titleinfo .author {
+  font-size: 0.8rem;
+}
+.single-book .titleinfo.muchtext {
+  font-size: 0.7rem;
+}
+.single-book .titleinfo.muchtext .author {
+  font-size: 0.6rem;
+}
+.single-book .unknown {
+  opacity: 0.5;
+}
+.single-book .isbn {
+  font-size: 0.3rem;
+}
+.single-book .isbn-and-barcode > div {
+  display: block;
+  transform: rotate(90deg);
+  text-align: center;
+}
+.single-book .ean13 {
+  display: block;
+  font-size: 2.8rem;
+}
+
+.dataset-chooser-wrap {
+  background: rgba(0, 0, 0, 0.6);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.dataset-chooser {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  min-width: 300px;
+  max-width: 400px;
+  max-height: 70vh;
+  overflow: auto;
+  padding: 1em;
+  box-shadow: 0 0 4px 4px black;
+  border-radius: 12px;
+}
+.dataset-chooser button {
+  display: inline-block;
+}
+
+.dataset-chooser button.choose-dataset {
+  margin-bottom: 1em;
+  width: 100%;
+}
+
+.isbn-highlight,
+.stats-highlight {
+  background: white;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 8px 24px;
+  border-radius: 8px;
+  padding: 1rem;
+  min-width: 350px;
+  max-width: 450px;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  max-height: 400px;
+  overflow-y: auto;
+}
+.isbn-highlight {
+  transform: translateX(-50%) translateY(10px);
+}
+
+.isbn-highlight h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem 0;
+  color: #111827;
+}
+
+.isbn-highlight .isbn-title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.isbn-highlight .group-info {
+  margin: 0.75rem 0;
+  padding: 0.75rem 0;
+  border-top: 1px solid #e5e7eb;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.isbn-highlight .stats-section {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.5rem 1rem;
+  margin: 0.75rem 0;
+}
+
+.isbn-highlight .stats-label {
+  font-weight: 500;
+  color: #4b5563;
+}
+
+.isbn-highlight .stats-value {
+  color: #111827;
+}
+
+.isbn-highlight .instructions {
+  margin-top: 0.75rem;
+  font-weight: 500;
+  color: #4b5563;
+}
+
+.isbn-highlight small {
+  display: block;
+  margin-top: 0.25rem;
+  color: #6b7280;
+}
+
+.isbn-highlight button {
+  padding: 0.375rem 0.75rem;
+  border-radius: 6px;
+  border: 1px solid #e5e7eb;
+  background: #f9fafb;
+  color: #374151;
+  font-size: 0.875rem;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.isbn-highlight button:hover {
+  background: #f3f4f6;
+  border-color: #d1d5db;
+}
+
+.isbn-highlight img {
+  margin-right: 0.5rem;
+  max-height: 85px;
+  border: 1px solid #e5e7eb;
+  border-radius: 4px;
+}
+
+.isbn-highlight details {
+  margin-top: 0.75rem;
+}
+
+.isbn-highlight summary {
+  color: #4b5563;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.isbn-highlight ul {
+  margin: 0.5rem 0;
+  padding-left: 1.5rem;
+}
+
+.isbn-highlight li {
+  margin: 0.25rem 0;
+}
+
+.isbn-highlight a {
+  color: #2563eb;
+  text-decoration: none;
+}
+
+.isbn-highlight a:hover {
+  text-decoration: underline;
+}
+
+.float-button {
+  float: right;
+  margin-left: 1ex;
+}
+
+.minimap {
+  position: absolute;
+  right: 0;
+  background: white;
+  top: 0;
+  margin: 1rem;
+  width: 300px;
+  height: calc(300px * 2 / sqrt(10));
+  z-index: 100;
+  border-radius: 1em;
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  border: 2px solid black;
+  background: black;
+}
+
+@media (max-width: 640px) {
+  .minimap {
+    top: auto;
+    bottom: 0;
+    margin: 0;
+    width: 180px;
+    height: calc(180px * 2 / sqrt(10));
+  }
+  .minimap button {
+    padding: 0.1rem;
+  }
+}
