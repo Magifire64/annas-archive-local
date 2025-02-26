@@ -1176,7 +1176,7 @@ def confirm_membership(cursor, donation_id, data_key, data_value):
     return True
 
 
-def payment2_check(cursor, payment_id):
+def payment2_check(get_cursor, payment_id):
     payment2_status = None
     for attempt in [1,2,3,4,5]:
         try:
@@ -1189,12 +1189,12 @@ def payment2_check(cursor, payment_id):
                 raise
             time.sleep(1)
     if payment2_status['payment_status'] in ['confirmed', 'sending', 'finished']:
-        if confirm_membership(cursor, payment2_status['order_id'], 'payment2_status', payment2_status):
+        if confirm_membership(get_cursor(), payment2_status['order_id'], 'payment2_status', payment2_status):
             return (payment2_status, True, True)
         else:
             return (payment2_status, False, False)
     for extra_id in (payment2_status.get('payment_extra_ids') or []):
-        new_payment2_status, new_success, new_confirmed = payment2_check(cursor, extra_id)
+        new_payment2_status, new_success, new_confirmed = payment2_check(get_cursor, extra_id)
         if new_confirmed:
             return (new_payment2_status, new_success, new_confirmed)
     return (payment2_status, True, False)

@@ -1467,7 +1467,7 @@ def payment2_check_recent_days(since_days, sleep_seconds):
         donations = list(cursor.fetchall())
         for donation in tqdm.tqdm(donations, bar_format='{l_bar}{bar}{r_bar} {eta}'):
             donation_json = orjson.loads(donation['json'])
-            payment2_status, payment2_request_success, payment2_confirmed = allthethings.utils.payment2_check(cursor, donation_json['payment2_request']['payment_id'])
+            payment2_status, payment2_request_success, payment2_confirmed = allthethings.utils.payment2_check(lambda: allthethings.utils.get_cursor_ping(mariapersist_session), donation_json['payment2_request']['payment_id'])
             if not payment2_request_success:
                 raise Exception("Not payment2_request_success in donation_page")
             if payment2_confirmed:
