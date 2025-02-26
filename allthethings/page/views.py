@@ -8259,7 +8259,7 @@ def md5_fast_download(md5_input, path_index, domain_index):
                 return redirect("/fast_download_no_more", code=302)
             data_md5 = bytes.fromhex(canonical_md5)
             data_ip = allthethings.utils.canonical_ip_bytes(request.remote_addr)
-            mariapersist_session.connection().execute(text('INSERT INTO mariapersist_fast_download_access (md5, ip, account_id) VALUES (:md5, :ip, :account_id)').bindparams(md5=data_md5, ip=data_ip, account_id=account_id))
+            mariapersist_session.connection().execute(text('INSERT IGNORE INTO mariapersist_fast_download_access (md5, ip, account_id) VALUES (:md5, :ip, :account_id)').bindparams(md5=data_md5, ip=data_ip, account_id=account_id))
             mariapersist_session.commit()
         if request.args.get('no_redirect') == '1':
             return render_template(

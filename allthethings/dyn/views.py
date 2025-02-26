@@ -135,7 +135,7 @@ def api_md5_fast_download():
 
             data_md5 = bytes.fromhex(canonical_md5)
             data_ip = allthethings.utils.canonical_ip_bytes(request.remote_addr)
-            mariapersist_session.connection().execute(text('INSERT INTO mariapersist_fast_download_access (md5, ip, account_id) VALUES (:md5, :ip, :account_id)').bindparams(md5=data_md5, ip=data_ip, account_id=account_id))
+            mariapersist_session.connection().execute(text('INSERT IGNORE INTO mariapersist_fast_download_access (md5, ip, account_id) VALUES (:md5, :ip, :account_id)').bindparams(md5=data_md5, ip=data_ip, account_id=account_id))
             mariapersist_session.commit()
     return api_md5_fast_download_get_json(url, {
         "account_fast_download_info": {
