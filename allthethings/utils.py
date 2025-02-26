@@ -1190,14 +1190,14 @@ def payment2_check(cursor, payment_id):
             time.sleep(1)
     if payment2_status['payment_status'] in ['confirmed', 'sending', 'finished']:
         if confirm_membership(cursor, payment2_status['order_id'], 'payment2_status', payment2_status):
-            return (payment2_status, True)
+            return (payment2_status, True, True)
         else:
-            return (payment2_status, False)
-    new_success = True
+            return (payment2_status, False, False)
     for extra_id in (payment2_status.get('payment_extra_ids') or []):
-        # We return the last of these, since we only use the payment2_status for showing "confirming" status anyway, and there should usually only be a single extra one.
-        payment2_status, new_success = payment2_check(cursor, extra_id)
-    return (payment2_status, new_success)
+        new_payment2_status, new_success, new_confirmed = payment2_check(cursor, extra_id)
+        if new_confirmed:
+            return (new_payment2_status, new_success, new_confirmed)
+    return (payment2_status, True, False)
 
 def payment3_check(cursor, donation_id):
     payment3_status = None

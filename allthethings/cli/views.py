@@ -1437,7 +1437,7 @@ def send_test_email(email_addr):
     mail.send(email_msg)
 
 #################################################################################################
-# Send test email
+# Reprocess gift cards from "email_data" for the last few days.
 # ./run flask cli reprocess_gift_cards <since_days>
 @cli.cli.command('reprocess_gift_cards')
 @click.argument("since_days")
@@ -1451,6 +1451,30 @@ def reprocess_gift_cards(since_days):
             for debug_data in orjson.loads(donation['json'])['gc_notify_debug']:
                 if 'email_data' in debug_data:
                     allthethings.utils.gc_notify(cursor, debug_data['email_data'].encode(), dont_store_errors=True)
+
+#################################################################################################
+# Check payment2 API for all payments in the last few days.
+# ./run flask cli payment2_check_recent_days <since_days> <sleep_seconds>
+@cli.cli.command('payment2_check_recent_days')
+@click.argument("since_days")
+@click.argument("sleep_seconds")
+def payment2_check_recent_days(since_days, sleep_seconds):
+    with Session(mariapersist_engine) as mariapersist_session:
+        cursor = allthethings.utils.get_cursor_ping(mariapersist_session)
+        datetime_from = datetime.datetime.now(tz=datetime.timezone.utc) - datetime.timedelta(days=int(since_days))
+        # Don't close "payment2" quote, so we also catch strings like "payment2cashapp".
+        cursor.execute('SELECT * FROM mariapersist_donations WHERE created >= %(datetime_from)s AND processing_status IN (0,2,3,4) AND json LIKE \'%%"method":"payment2%%\'', { "datetime_from": datetime_from })
+        donations = list(cursor.fetchall())
+        for donation in tqdm.tqdm(donations, bar_format='{l_bar}{bar}{r_bar} {eta}'):
+            donation_json = orjson.loads(donation['json'])
+            payment2_status, payment2_request_success, payment2_confirmed = allthethings.utils.payment2_check(cursor, donation_json['payment2_request']['payment_id'])
+            if not payment2_request_success:
+                raise Exception("Not payment2_request_success in donation_page")
+            if payment2_confirmed:
+                print(f"CONFIRMED: {donation['donation_id']=}")
+            time.sleep(int(sleep_seconds))
+    print("Done")
+
 
 #################################################################################################
 # Dump `isbn13:` codes to a file.
