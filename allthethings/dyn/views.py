@@ -1331,7 +1331,7 @@ def payment2_notify():
     with mariapersist_engine.connect() as connection:
         connection.connection.ping(reconnect=True)
         cursor = connection.connection.cursor(pymysql.cursors.DictCursor)
-        payment2_status, payment2_request_success = allthethings.utils.payment2_check(cursor, request.json['payment_id'])
+        _payment2_status, payment2_request_success = allthethings.utils.payment2_check(cursor, request.json['payment_id'])
         if not payment2_request_success:
             return "Error happened", 404
     return ""

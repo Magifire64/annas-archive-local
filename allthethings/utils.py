@@ -1193,7 +1193,11 @@ def payment2_check(cursor, payment_id):
             return (payment2_status, True)
         else:
             return (payment2_status, False)
-    return (payment2_status, True)
+    new_success = True
+    for extra_id in (payment2_status.get('payment_extra_ids') or []):
+        # We return the last of these, since we only use the payment2_status for showing "confirming" status anyway, and there should usually only be a single extra one.
+        payment2_status, new_success = payment2_check(cursor, extra_id)
+    return (payment2_status, new_success)
 
 def payment3_check(cursor, donation_id):
     payment3_status = None
