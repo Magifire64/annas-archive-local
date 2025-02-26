@@ -1473,6 +1473,8 @@ def payment2_check_recent_days(since_days, sleep_seconds):
             if payment2_confirmed:
                 print(f"CONFIRMED: {donation['donation_id']=}")
             time.sleep(int(sleep_seconds))
+        # Ping before closing, otherwise it might error at the very end!
+        allthethings.utils.get_cursor_ping(mariapersist_session)
     print("Done")
 
 
