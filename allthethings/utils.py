@@ -35,17 +35,22 @@ from config.settings import SECRET_KEY, DOWNLOADS_SECRET_KEY, MEMBERS_TELEGRAM_U
 
 FEATURE_FLAGS = {}
 
-FAST_DOWNLOAD_DOMAINS = [x for x in [FAST_PARTNER_SERVER1, 'nrzr.li', 'wbsg8v.xyz', 'momot.rs'] if x is not None]
-# SLOW_DOWNLOAD_DOMAINS = ['momot.rs', 'ktxr.rs', 'nrzr.li']
-# SLOW_DOWNLOAD_DOMAINS_SLIGHTLY_FASTER = [True, True, False] # KEEP SAME LENGTH
-# SLOW_DOWNLOAD_DOMAINS = ['momot.rs', 'wbsg8v.xyz', 'nrzr.li'] # KEEP SAME LENGTH
-# SLOWEST_DOWNLOAD_DOMAINS = ['nrzr.li', 'nrzr.li', 'nrzr.li'] # KEEP SAME LENGTH
-SLOW_DOWNLOAD_DOMAINS_SLIGHTLY_FASTER = [True, True] # KEEP SAME LENGTH
-SLOW_DOWNLOAD_DOMAINS = ['momot.rs', 'wbsg8v.xyz'] # KEEP SAME LENGTH
-SLOWEST_DOWNLOAD_DOMAINS = ['momot.rs', 'momot.rs'] # KEEP SAME LENGTH
+FAST_DOWNLOAD_DOMAINS = [x for x in [FAST_PARTNER_SERVER1, 'b4mcx2ml.net', 'wbsg8v.xyz', 'momot.rs'] if x is not None]
+SLOW_DOWNLOAD_DOMAINS_SLIGHTLY_FASTER = [True, True, False] # KEEP SAME LENGTH
+def download_variant(data_ip):
+    return ((datetime.datetime.now(tz=datetime.timezone.utc).minute // 10) + int.from_bytes(data_ip, byteorder='big', signed=False)) % 2
+def get_slow_download_domains(data_ip, domain_index):
+    if download_variant(data_ip) == 0:
+        return ['momot.rs', 'wbsg8v.xyz', 'asuycdg5.org'][domain_index] # KEEP SAME LENGTH
+    else:
+        return ['momot.rs', 'wbsg8v.xyz', 'asuycdg6.org'][domain_index] # KEEP SAME LENGTH
+def get_slowest_download_domains(data_ip, domain_index):
+    if download_variant(data_ip) == 0:
+        return ['asuycdg5.org', 'asuycdg5.org', 'asuycdg5.org'][domain_index] # KEEP SAME LENGTH
+    else:
+        return ['asuycdg6.org', 'asuycdg6.org', 'asuycdg6.org'][domain_index] # KEEP SAME LENGTH
 SCIDB_SLOW_DOWNLOAD_DOMAINS = ['wbsg8v.xyz']
-# SCIDB_FAST_DOWNLOAD_DOMAINS = [FAST_PARTNER_SERVER1 if FAST_PARTNER_SERVER1 is not None else 'nrzr.li']
-SCIDB_FAST_DOWNLOAD_DOMAINS = [FAST_PARTNER_SERVER1 if FAST_PARTNER_SERVER1 is not None else 'momot.rs']
+SCIDB_FAST_DOWNLOAD_DOMAINS = [FAST_PARTNER_SERVER1 if FAST_PARTNER_SERVER1 is not None else 'asuycdg5.org']
 
 DOWN_FOR_MAINTENANCE = False
 
