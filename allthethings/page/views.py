@@ -581,6 +581,8 @@ def torrent_group_data_from_file_path(file_path):
         group = 'magzdb'
     if 'nexusstc' in file_path:
         group = 'nexusstc'
+    if 'hathitrust' in file_path:
+        group = 'hathitrust'
     if 'ebscohost_records' in file_path:
         group = 'other_metadata'
     if 'gbooks_records' in file_path:
