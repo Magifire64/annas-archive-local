@@ -720,7 +720,7 @@ def get_torrents_data():
 
         # TODO: exclude obsolete
         group_size_strings = { group: format_filesize(total) for group, total in group_sizes.items() }
-        group_avg_size_strings = { group: format_filesize(group_num_files[group] // total) for group, total in group_sizes.items() if group in group_num_files }
+        group_avg_size_strings = { group: format_filesize(total // group_num_files[group]) for group, total in group_sizes.items() if group in group_num_files }
         seeder_size_strings = { index: format_filesize(seeder_sizes[index]) for index in [0,1,2] }
 
         return {
