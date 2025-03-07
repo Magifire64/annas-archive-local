@@ -18,7 +18,7 @@
 {% macro comment_base(comment_dict) %}
   {% if (comment_dict.abuse_total.count >= 2) or ((comment_dict.thumbs_up.count - comment_dict.thumbs_down.count) <= -2) %}
   <div>
-    <a href="#" class="mb-2 text-sm" onclick="event.preventDefault(); this.parentNode.querySelector('.js-comments-comment-inner').classList.toggle('hidden')">hidden comment</a>
+    <a href="#" class="mb-2 text-sm" onclick="event.preventDefault(); this.parentNode.querySelector('.js-comments-comment-inner').classList.toggle('hidden')">{{ gettext('page.comments.hidden_comment') }}</a>
     <div class="mb-4 hidden js-comments-comment-inner">
   {% else %}
   <div>
@@ -30,8 +30,8 @@
       </div>
 
       {% if comment_dict.report_dict %}
-        {% if md5_report_type_mapping %}<div><span class='text-[18px] align-text-bottom inline-block icon-[uil--exclamation-triangle]'></span> <span class="italic">File issue: {{ md5_report_type_mapping[comment_dict.report_dict.type] }}</span></div>{% endif %}
-        {% if comment_dict.report_dict.better_md5 %}<div><a href="/md5/{{ comment_dict.report_dict.better_md5 }}">Better version</a></div>{% endif %}
+        {% if md5_report_type_mapping %}<div><span class='text-[18px] align-text-bottom inline-block icon-[uil--exclamation-triangle]'></span> <span class="italic">{{ gettext('page.comments.file_issue', file_issue=md5_report_type_mapping[comment_dict.report_dict.type]) }}</span></div>{% endif %}
+        {% if comment_dict.report_dict.better_md5 %}<div><a href="/md5/{{ comment_dict.report_dict.better_md5 }}">{{ gettext('page.comments.better_version') }}</a></div>{% endif %}
       {% endif %}
 
       <div class="whitespace-pre-line mb-1">{{ comment_dict.content }}</div>
@@ -45,15 +45,13 @@
         <span class="relative">
           <div class="absolute left-0 top-full bg-[#f2f2f2] mt-1 px-3 py-1 shadow w-[70vw] max-w-[400px] hidden js-comments-menu">
             {% if current_account_id and (comment_dict.account_id != current_account_id) and comment_dict.user_reaction != 1 %}
-              <!-- TODO:TRANSLATE -->
-              <a href="#" class="custom-a block text-black/64 hover:text-black" onclick='event.preventDefault(); if (confirm("Do you want to report this user for abusive or inappropriate behavior?")) { fetch("/dyn/reactions/1/comment:{{ comment_dict.comment_id }}", { method: "PUT" }).then(() => window.reloadCommentsListFor[{{ reload_url | tojson }}]()); }'>
-                <!-- TODO:TRANSLATE -->
-                Report abuse
+              <a href="#" class="custom-a block text-black/64 hover:text-black" onclick='event.preventDefault(); if (confirm({{ gettext('page.comments.do_you_want_to_report_abuse') | to_json }})) { fetch("/dyn/reactions/1/comment:{{ comment_dict.comment_id }}", { method: "PUT" }).then(() => window.reloadCommentsListFor[{{ reload_url | tojson }}]()); }'>
+                {{ gettext('page.comments.report_abuse') }}
               </a>
               {% endif %}
               {% if comment_dict.abuse_total.count %}
                 <div class="leading-none">
-                  Abuse reported:
+                  {{ gettext('page.comments.abuse_reported') }}
                   {{ comment_dict.abuse_total.count }}
                   <span class="text-xs ml-2 align-text-bottom">
                     {% for reaction_account in comment_dict.abuse_total.accounts %}
@@ -90,11 +88,11 @@
       </div>
 
       {% if comment_dict.user_reaction == 1 %}
-        <div class="italic text-sm text-[#555]">You reported this user for abuse.</div>
+        <div class="italic text-sm text-[#555]">{{ gettext('page.comments.reported_abuse_this_user') }}</div>
       {% endif %}
 
       {% if comment_dict.can_have_replies and ((comment_dict.reply_dicts | length) == 0) %}
-        <div><button class="ml-2 text-[#777] hover:text-black" onclick='event.preventDefault(); document.querySelector(".js-comments-reply-" + {{ comment_dict.comment_id | tojson }}).classList.toggle("hidden")'>Reply</button></div>
+        <div><button class="ml-2 text-[#777] hover:text-black" onclick='event.preventDefault(); document.querySelector(".js-comments-reply-" + {{ comment_dict.comment_id | tojson }}).classList.toggle("hidden")'>{{ gettext('page.comments.reply_button') }}</button></div>
       {% endif %}
 
       {% if comment_dict.can_have_replies %}
@@ -105,24 +103,22 @@
 
           {% if comment_dict.can_have_replies and ((comment_dict.reply_dicts | length) > 0) %}
             <div class="mt-[-8px] mb-4">
-              <a href="#" onclick='event.preventDefault(); this.classList.toggle("hidden"); document.querySelector(".js-comments-reply-" + {{ comment_dict.comment_id | tojson }}).classList.toggle("hidden")'>Reply<!-- TODO:TRANSLATE --></a>
+              <a href="#" onclick='event.preventDefault(); this.classList.toggle("hidden"); document.querySelector(".js-comments-reply-" + {{ comment_dict.comment_id | tojson }}).classList.toggle("hidden")'>{{ gettext('page.comments.reply_button') }}</a>
             </div>
           {% endif %}
 
           <div class="hidden js-comments-reply-{{ comment_dict.comment_id }}">
-            <!-- TODO:TRANSLATE -->
-            <div class="[html.aa-logged-in_&]:hidden">Please <a href="/login">log in</a> to reply.</div>
+            <div class="[html.aa-logged-in_&]:hidden">{{ gettext('page.md5.quality.logged_out_login', a_login=(' href="/login"' | safe)) }}</div>
             <form class="[html:not(.aa-logged-in)_&]:hidden" onsubmit='window.submitForm(event, "/dyn/comments/comment:" + {{ comment_dict.comment_id | tojson }})'>
               <fieldset>
                 <textarea required name="content" class="grow bg-black/6.7 px-2 py-1 mb-1 rounded w-full h-[50px] max-w-[500px]" placeholder=""></textarea>
                 <div class="">
-                  <button type="submit" class="mr-2 bg-[#777] hover:bg-[#999] text-white font-bold py-1 px-3 rounded shadow">Reply</button>
+                  <button type="submit" class="mr-2 bg-[#777] hover:bg-[#999] text-white font-bold py-1 px-3 rounded shadow">{{ gettext('page.comments.reply_button') }}</button>
                   <span class="js-spinner invisible mb-[-3px] text-xl text-[#555] inline-block icon-[svg-spinners--ring-resize]"></span>
                 </div>
               </fieldset>
-              <!-- TODO:TRANSLATE -->
-              <div class="hidden js-success">✅ You left a comment. It might take a minute for it to show up.</div>
-              <div class="hidden js-failure mb-4">❌ Something went wrong. Please reload the page and try again.</div>
+              <div class="hidden js-success">✅ {{ gettext('page.md5.quality.comment_thanks') }}</div>
+              <div class="hidden js-failure mb-4">❌ {{ gettext('page.md5.quality.comment_error') }}</div>
             </form>
           </div>
         </div>

@@ -179,7 +179,7 @@
   <div class="flex flex-wrap mb-1 text-black/64" role="tablist" aria-label="file tabs">
     <button class="mr-4 mb-1 border-b-[3px] border-transparent aria-selected:border-[#0095ff] aria-selected:text-black aria-selected:font-bold js-md5-tab-downloads" aria-selected="true" id="md5-tab-downloads" aria-controls="md5-panel-downloads" tabindex="0">{% if aarecord_id_split[0] in ['md5','doi','nexusstc_download'] %}{{ gettext('page.md5.tabs.downloads', count=((aarecord.additional.fast_partner_urls | length) + (aarecord.additional.slow_partner_urls | length) + (aarecord.additional.download_urls | length))) }}{% elif aarecord_id_split[0] == 'ia' %}{{ gettext('page.md5.tabs.borrow', count=((aarecord.additional.fast_partner_urls | length) + (aarecord.additional.slow_partner_urls | length) + (aarecord.additional.download_urls | length))) }}{% elif aarecord_id_split[0] in ['isbn', 'ol', 'oclc', 'duxiu_ssid', 'cadal_ssno', 'magzdb', 'nexusstc', 'edsebk'] %}{{ gettext('page.md5.tabs.explore_metadata', count=((aarecord.additional.fast_partner_urls | length) + (aarecord.additional.slow_partner_urls | length) + (aarecord.additional.download_urls | length))) }}{% endif %}</button>
     {% if aarecord_id_split[0] == 'md5' %}
-      <button class="mr-4 mb-1 border-b-[3px] border-transparent aria-selected:border-[#0095ff] aria-selected:text-black aria-selected:font-bold" aria-selected="false" id="md5-tab-discussion" aria-controls="md5-panel-discussion" tabindex="0">Comments (<span class="js-md5-tab-discussion">–</span>) <!--TODO:TRANSLATE--></button>
+      <button class="mr-4 mb-1 border-b-[3px] border-transparent aria-selected:border-[#0095ff] aria-selected:text-black aria-selected:font-bold" aria-selected="false" id="md5-tab-discussion" aria-controls="md5-panel-discussion" tabindex="0">{{ gettext('page.md5.tabs.comments', count=('<span class="js-md5-tab-discussion">–</span>' | safe)) }}</button>
       <button class="mr-4 mb-1 border-b-[3px] border-transparent aria-selected:border-[#0095ff] aria-selected:text-black aria-selected:font-bold" aria-selected="false" id="md5-tab-lists" aria-controls="md5-panel-lists" tabindex="0">{{ gettext('page.md5.tabs.lists', count=('<span class="js-md5-tab-lists">–</span>' | safe)) }}</button>
       <button class="mr-4 mb-1 border-b-[3px] border-transparent aria-selected:border-[#0095ff] aria-selected:text-black aria-selected:font-bold" aria-selected="false" id="md5-tab-stats" aria-controls="md5-panel-stats" tabindex="0">{{ gettext('page.md5.tabs.stats', count=('<span class="js-md5-tab-stats">–</span>' | safe)) }}</button>
     {% endif %}
@@ -291,7 +291,7 @@
             {% if label %}
               <!-- <li class="list-disc">{{ gettext('page.md5.box.download.option', num=loop.index, link=(("<a href='" + url + "'" + 'rel="noopener noreferrer nofollow" class="js-download-link">' + label + '</a>') | safe), extra=((((('<a class="text-xs" href="' | safe) + url + ('?no_redirect=1">' | safe) + gettext('page.md5.box.download.no_redirect') + ('</a> ') | safe) | safe) + (extra | safe)) | safe )) }}</li> -->
               <li class="list-disc">{{ gettext('page.md5.box.download.option', num=loop.index, link=(("<a href='" + url + "'" + 'rel="noopener noreferrer nofollow" class="js-download-link">' + label + '</a>') | safe), extra=(((
-                ((('<a class="text-xs" href="' | safe) + url + ('?viewer=1"><!-- TODO:TRANSLATE -->(open in viewer)</a> ') | safe) if (aarecord.file_unified_data.extension_best | lower) in viewer_supported_extensions.values() | sum(start=[]) else '') + ('<a class="text-xs" href="' | safe) + url + ('?no_redirect=1">' | safe) + gettext('page.md5.box.download.no_redirect') + ('</a> ') | safe)) + (extra | safe)) | safe ) }}</li>
+                ((('<a class="text-xs" href="' | safe) + url + ('?viewer=1">' | safe) + gettext('page.md5.box.download.open_in_viewer') + ('</a> ') | safe) if (aarecord.file_unified_data.extension_best | lower) in viewer_supported_extensions.values() | sum(start=[]) else '') + ('<a class="text-xs" href="' | safe) + url + ('?no_redirect=1">' | safe) + gettext('page.md5.box.download.no_redirect') + ('</a> ') | safe)) + (extra | safe)) | safe ) }}</li>
               {% else %}
               <li class="list-disc">{{ extra | safe }}</li>
             {% endif %}
@@ -314,8 +314,7 @@
             {% endif %}
           {% endfor %}
           {% if (aarecord.file_unified_data.extension_best | lower) in viewer_supported_extensions.values() | sum(start=[]) %}
-            <!-- TODO:TRANSLATE -->
-            <li class="list-disc">After downloading: <a href="/view" target="_blank">Open in our viewer</a></li>
+            <li class="list-disc">{{ gettext('page.md5.box.download.after_downloading') }} <a href="/view" target="_blank">{{ gettext('page.md5.box.download.open_in_our_viewer') }}</a></li>
           {% endif %}
         </ul>
       </div>
@@ -371,11 +370,10 @@
           </li>
           <li class="list-disc mb-2">
             {{ gettext('page.md5.box.download.readers') }}<br>
-            <!-- TODO:TRANSLATE ("Anna’s Archive online viewer") -->
             {{ gettext(
                 'page.md5.box.download.readers.links',
                 links=(format_list([
-                  (a.html_a('Anna’s Archive online viewer', href="/view") | safe),
+                  (a.html_a(gettext('page.md5.box.download.aa_viewer'), href="/view") | safe),
                   (a.html_a('ReadEra', href="https://readera.org/", **a.external_link) | safe),
                   (a.html_a('Calibre', href="https://calibre-ebook.com/", **a.external_link) | safe),
                 ], style='standard') | safe),

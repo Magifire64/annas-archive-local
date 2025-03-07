@@ -163,14 +163,12 @@
   </p>
 
   <p class="mb-4">
-    <!-- TODO:TRANSLATE -->
-    For small uploads (up to 10,000 files) please upload them to both <a href="https://z-lib.gs/book-add.php" rel="noopener noreferrer" target="_blank">Z-Library</a> and <a href="https://libgen.li/librarian.php" rel="noopener noreferrer" target="_blank">Libgen.li</a>.
+    {{ gettext('page.upload.upload_to_both', first=('<a href="https://z-lib.gs/book-add.php" rel="noopener noreferrer" target="_blank">Z-Library</a>' | safe), second=('<a href="https://libgen.li/librarian.php" rel="noopener noreferrer" target="_blank">Libgen.li</a>' | safe)) }}
     <!-- {{ gettext('page.upload.text1', a_guide=(' href="https://wiki.mhut.org/content:how_to_upload" rel="noopener noreferrer" target="_blank"' | safe)) }} -->
   </p>
 
   <p class="mb-4">
-    <!-- TODO:TRANSLATE -->
-    For Libgen.li, make sure to first login on <a href="https://libgen.li/community/ucp.php?mode=login" rel="noopener noreferrer" target="_blank">their forum</a> with username <strong>genesis</strong> and password <strong>upload</strong>, and then return to their <a href="https://libgen.li/librarian.php" rel="noopener noreferrer" target="_blank">upload page</a>.
+    {{ gettext('page.upload.libgenli_login_instructions', a_forum=(' href="https://libgen.li/community/ucp.php?mode=login" rel="noopener noreferrer" target="_blank" ' | safe), username=('<strong>username</strong>' | safe), password=('<strong>password</strong>' | safe), a_upload_page=(' href="https://libgen.li/librarian.php" rel="noopener noreferrer" target="_blank" ' | safe)) }}
   </p>
 
   <p class="mb-4 hidden"> <!-- NOTE: HIDDEN! -->
@@ -255,13 +253,14 @@
   <p class="mb-4">
     <strong>{{ gettext('page.faq.torrents.q3') }}</strong>
     <br>
-    <!-- TODO:TRANSLATE -->
-    Short answer: not easily.
+    {{ gettext('page.faq.torrents.a3_short_answer') }}
   </p>
 
   <p class="mb-4">
-    <!-- TODO:TRANSLATE -->
-    Long answer: {{ gettext('page.faq.torrents.a3', a_generate=(' href="https://software.annas-archive.li/AnnaArchivist/annas-archive/-/blob/main/data-imports/README.md"' | safe), a_download=(' href="/torrents#aa_derived_mirror_metadata"' | safe)) }} (We do have <a href="https://software.annas-archive.li/AnnaArchivist/annas-archive/-/issues/219">some ideas</a> for the latter case though.) No easy to use tools for filtering down torrents are available yet, but we welcome contributions.
+    {{ gettext('page.faq.torrents.a3_long_answer_start') }}
+    {{ gettext('page.faq.torrents.a3', a_generate=(' href="https://software.annas-archive.li/AnnaArchivist/annas-archive/-/blob/main/data-imports/README.md"' | safe), a_download=(' href="/torrents#aa_derived_mirror_metadata"' | safe)) }}
+    {{ gettext('page.faq.torrents.a3_long_answer_ideas', a_ideas=(' href="https://software.annas-archive.li/AnnaArchivist/annas-archive/-/issues/219" ' | safe)) }}
+    {{ gettext('page.faq.torrents.a3_long_answer_contributions') }}
   </p>
 
   <p class="mb-4">
@@ -287,10 +286,9 @@
   </p>
 
   <p class="mb-4">
-    <!-- TODO:TRANSLATE -->
-    <strong>Why can't my torrent client open some of your torrent files / magnet links?</strong>
+    <strong>{{ gettext('page.faq.torrents.q7') }}</strong>
     <br>
-    Some torrent clients don't support large piece sizes, which a lot of our torrents have (for newer ones we don't do this anymore — even though it’s valid per specs!). So try a different client if you run into this, or complain to the makers of your torrent client.
+    {{ gettext('page.faq.torrents.a7') }}
   </p>
 
   <h3 class="group mt-4 mb-1 text-xl font-bold" id="security">{{ gettext('page.faq.security.title') }} <a href="#security" class="custom-a invisible group-hover:visible text-gray-400 hover:text-gray-500 font-normal text-sm align-[2px]">§</a></h3>
