@@ -19,4 +19,4 @@ export NODE_OPTIONS="--max-old-space-size=16384"
 multielasticdump --quiet --input=${ELASTICSEARCHAUX_HOST:-http://elasticsearchaux:9201} --output=/exports/elasticsearchaux --match='aarecords.*' --parallel=20 --limit=3000 --fsCompress --compressionLevel=9 --includeType=data,mapping,analyzer,alias,settings,template
 # WARNING: multielasticdump doesn't properly handle children getting out of memory errors.
 # Check valid gzips as a workaround. Still somewhat fragile though!
-time parallel --jobs 20 --halt now,fail=1 'bash -o pipefail -c "echo {}: $(zcat {} | wc -l)"' ::: *.gz
+time parallel --jobs 20 --halt now,fail=1 'bash -o pipefail -c "echo -n {}: ; zcat {} | wc -l"' ::: *.gz

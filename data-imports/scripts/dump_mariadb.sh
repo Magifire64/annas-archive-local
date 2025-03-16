@@ -33,4 +33,4 @@ mydumper \
   --build-empty-files --outputdir /exports/mariadb
 
 # Not as acutely necessary to verify gzip integrity here (compared to elasticdump scripts), but might as well.
-time parallel --jobs 16 --halt now,fail=1 'bash -o pipefail -c "echo {}: $(zcat {} | wc -l)"' ::: *.gz
+time parallel --jobs 20 --halt now,fail=1 'bash -o pipefail -c "echo -n {}: ; zcat {} | wc -l"' ::: *.gz

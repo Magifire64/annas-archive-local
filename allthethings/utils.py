@@ -40,17 +40,17 @@ SLOW_DOWNLOAD_DOMAINS_SLIGHTLY_FASTER = [True, True, False] # KEEP SAME LENGTH
 def download_variant(data_ip):
     return ((datetime.datetime.now(tz=datetime.timezone.utc).minute // 10) + int.from_bytes(data_ip, byteorder='big', signed=False)) % 2
 def get_slow_download_domains(data_ip, domain_index):
-    if download_variant(data_ip) == 0:
-        return ['momot.rs', 'wbsg8v.xyz', 'asuycdg5.org'][domain_index] # KEEP SAME LENGTH
-    else:
-        return ['momot.rs', 'wbsg8v.xyz', 'asuycdg6.org'][domain_index] # KEEP SAME LENGTH
+    # if download_variant(data_ip) == 0:
+    return ['momot.rs', 'wbsg8v.xyz', 'nrzr.li'][domain_index] # KEEP SAME LENGTH
+    # else:
+    #     return ['momot.rs', 'wbsg8v.xyz', 'asuycdg6.org'][domain_index] # KEEP SAME LENGTH
 def get_slowest_download_domains(data_ip, domain_index):
-    if download_variant(data_ip) == 0:
-        return ['asuycdg5.org', 'asuycdg5.org', 'asuycdg5.org'][domain_index] # KEEP SAME LENGTH
-    else:
-        return ['asuycdg6.org', 'asuycdg6.org', 'asuycdg6.org'][domain_index] # KEEP SAME LENGTH
+    # if download_variant(data_ip) == 0:
+    return ['nrzr.li', 'nrzr.li', 'nrzr.li'][domain_index] # KEEP SAME LENGTH
+    # else:
+    #     return ['asuycdg6.org', 'asuycdg6.org', 'asuycdg6.org'][domain_index] # KEEP SAME LENGTH
 SCIDB_SLOW_DOWNLOAD_DOMAINS = ['wbsg8v.xyz']
-SCIDB_FAST_DOWNLOAD_DOMAINS = [FAST_PARTNER_SERVER1 if FAST_PARTNER_SERVER1 is not None else 'asuycdg5.org']
+SCIDB_FAST_DOWNLOAD_DOMAINS = [FAST_PARTNER_SERVER1 if FAST_PARTNER_SERVER1 is not None else 'momot.rs']
 
 DOWN_FOR_MAINTENANCE = False
 
