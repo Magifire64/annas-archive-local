@@ -45,7 +45,7 @@
         <span class="relative">
           <div class="absolute left-0 top-full bg-[#f2f2f2] mt-1 px-3 py-1 shadow w-[70vw] max-w-[400px] hidden js-comments-menu">
             {% if current_account_id and (comment_dict.account_id != current_account_id) and comment_dict.user_reaction != 1 %}
-              <a href="#" class="custom-a block text-black/64 hover:text-black" onclick='event.preventDefault(); if (confirm({{ gettext('page.comments.do_you_want_to_report_abuse') | to_json }})) { fetch("/dyn/reactions/1/comment:{{ comment_dict.comment_id }}", { method: "PUT" }).then(() => window.reloadCommentsListFor[{{ reload_url | tojson }}]()); }'>
+              <a href="#" class="custom-a block text-black/64 hover:text-black" onclick='event.preventDefault(); if (confirm({{ gettext('page.comments.do_you_want_to_report_abuse') | tojson }})) { fetch("/dyn/reactions/1/comment:{{ comment_dict.comment_id }}", { method: "PUT" }).then(() => window.reloadCommentsListFor[{{ reload_url | tojson }}]()); }'>
                 {{ gettext('page.comments.report_abuse') }}
               </a>
               {% endif %}
