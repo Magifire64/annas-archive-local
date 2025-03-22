@@ -35,20 +35,20 @@ from config.settings import SECRET_KEY, DOWNLOADS_SECRET_KEY, MEMBERS_TELEGRAM_U
 
 FEATURE_FLAGS = {}
 
-FAST_DOWNLOAD_DOMAINS = [x for x in [FAST_PARTNER_SERVER1, 'b4mcx2ml.net', 'wbsg8v.xyz', 'momot.rs'] if x is not None]
+FAST_DOWNLOAD_DOMAINS = [x for x in [FAST_PARTNER_SERVER1, 'b4mcx2ml.net', 'wbsg8v.xyz', 'momot.rs', 'nrzr.li', 'asuycdg5.org'] if x is not None]
 SLOW_DOWNLOAD_DOMAINS_SLIGHTLY_FASTER = [True, True, False] # KEEP SAME LENGTH
 def download_variant(data_ip):
     return ((datetime.datetime.now(tz=datetime.timezone.utc).minute // 10) + int.from_bytes(data_ip, byteorder='big', signed=False)) % 2
 def get_slow_download_domains(data_ip, domain_index):
-    # if download_variant(data_ip) == 0:
-    return ['momot.rs', 'wbsg8v.xyz', 'nrzr.li'][domain_index] # KEEP SAME LENGTH
-    # else:
-    #     return ['momot.rs', 'wbsg8v.xyz', 'asuycdg6.org'][domain_index] # KEEP SAME LENGTH
+    if download_variant(data_ip) == 0:
+        return ['momot.rs', 'wbsg8v.xyz', 'nrzr.li'][domain_index] # KEEP SAME LENGTH
+    else:
+        return ['momot.rs', 'wbsg8v.xyz', 'asuycdg5.org'][domain_index] # KEEP SAME LENGTH
 def get_slowest_download_domains(data_ip, domain_index):
-    # if download_variant(data_ip) == 0:
-    return ['nrzr.li', 'nrzr.li', 'nrzr.li'][domain_index] # KEEP SAME LENGTH
-    # else:
-    #     return ['asuycdg6.org', 'asuycdg6.org', 'asuycdg6.org'][domain_index] # KEEP SAME LENGTH
+    if download_variant(data_ip) == 0:
+        return ['nrzr.li', 'nrzr.li', 'nrzr.li'][domain_index] # KEEP SAME LENGTH
+    else:
+        return ['asuycdg5.org', 'asuycdg5.org', 'asuycdg5.org'][domain_index] # KEEP SAME LENGTH
 SCIDB_SLOW_DOWNLOAD_DOMAINS = ['wbsg8v.xyz']
 SCIDB_FAST_DOWNLOAD_DOMAINS = [FAST_PARTNER_SERVER1 if FAST_PARTNER_SERVER1 is not None else 'momot.rs']
 
@@ -2395,6 +2395,7 @@ TORRENT_PATHS_PARTIALLY_BROKEN = [
     'torrents/managed_by_aa/annas_archive_data__aacid/annas_archive_data__aacid__duxiu_files__20240613T212153Z--20240613T212154Z.torrent',
     'torrents/managed_by_aa/annas_archive_data__aacid/annas_archive_data__aacid__ia2_acsmpdf_files__20240823T234348Z--20240823T234349Z.torrent',
     'torrents/managed_by_aa/annas_archive_data__aacid/annas_archive_data__aacid__ia2_acsmpdf_files__20240823T234438Z--20240823T234439Z.torrent',
+    'torrents/external/libgen_li_magazines/m_1727000.torrent',
 ]
 
 def build_pagination_pages_with_dots(primary_hits_pages, page_value, large):

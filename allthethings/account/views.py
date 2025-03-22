@@ -76,6 +76,7 @@ def account_index_page():
         )
 
 @account.get("/account/secret_key")
+@account.get("/account/secret_key/")
 @allthethings.utils.no_cache()
 def account_secret_key_page():
     account_id = allthethings.utils.get_account_id(request.cookies)
@@ -91,6 +92,7 @@ def account_secret_key_page():
     return allthethings.utils.secret_key_from_account_id(account_id)
 
 @account.get("/account/downloaded")
+@account.get("/account/downloaded/")
 @allthethings.utils.no_cache()
 def account_downloaded_page():
     account_id = allthethings.utils.get_account_id(request.cookies)
@@ -119,8 +121,8 @@ def account_downloaded_page():
 
         return render_template("account/downloaded.html", header_active="account/downloaded", aarecords_downloaded_last_18h=aarecords_downloaded_last_18h, aarecords_downloaded_later=aarecords_downloaded_later)
 
-@account.post("/account/")
 @account.post("/account")
+@account.post("/account/")
 @allthethings.utils.no_cache()
 def account_index_post_page():
     account_id = allthethings.utils.account_id_from_secret_key(request.form['key'].strip())
@@ -165,6 +167,7 @@ def account_index_post_page():
 
 
 @account.post("/account/register")
+@account.post("/account/register/")
 @allthethings.utils.no_cache()
 def account_register_page():
     with Session(mariapersist_engine) as mariapersist_session:
@@ -186,17 +189,20 @@ def account_register_page():
 
 
 @account.get("/account/request")
+@account.get("/account/request/")
 @allthethings.utils.no_cache()
 def request_page():
     return redirect("/faq#request", code=301)
 
 
 @account.get("/account/upload")
+@account.get("/account/upload/")
 @allthethings.utils.no_cache()
 def upload_page():
     return redirect("/faq#upload", code=301)
 
 @account.get("/list/<string:list_id>")
+@account.get("/list/<string:list_id>/")
 @allthethings.utils.no_cache()
 def list_page(list_id):
     current_account_id = allthethings.utils.get_account_id(request.cookies)
@@ -231,6 +237,7 @@ def list_page(list_id):
 
 
 @account.get("/profile/<string:account_id>")
+@account.get("/profile/<string:account_id>/")
 @allthethings.utils.no_cache()
 def profile_page(account_id):
     current_account_id = allthethings.utils.get_account_id(request.cookies)
@@ -258,6 +265,7 @@ def profile_page(account_id):
 
 
 @account.get("/account/profile")
+@account.get("/account/profile/")
 @allthethings.utils.no_cache()
 def account_profile_page():
     account_id = allthethings.utils.get_account_id(request.cookies)
@@ -267,6 +275,7 @@ def account_profile_page():
 
 
 @account.get("/donate")
+@account.get("/donate/")
 @allthethings.utils.no_cache()
 def donate_page():
     with Session(mariapersist_engine) as mariapersist_session:
@@ -310,6 +319,7 @@ def donate_page():
 
 
 @account.get("/donation_faq")
+@account.get("/donation_faq/")
 @allthethings.utils.no_cache()
 def donation_faq_page():
     return redirect("/faq#donate", code=301)
@@ -343,6 +353,7 @@ def make_donation_dict(donation):
 
 
 @account.get("/account/donations/<string:donation_id>")
+@account.get("/account/donations/<string:donation_id>/")
 @allthethings.utils.no_cache()
 def donation_page(donation_id):
     account_id = allthethings.utils.get_account_id(request.cookies)

@@ -2,6 +2,8 @@
 
 set -Eeuxo pipefail
 
+sleep 120 # Wait a bit so we can run this in parallel with the other dump scripts without getting too much of a CPU spike.
+
 # Run this script by running: docker exec -it aa-data-import--web /scripts/dump_elasticsearch.sh
 # Feel free to comment out steps in order to retry failed parts of this script, when necessary.
 # Dump scripts are idempotent, and can be rerun without losing too much work.
@@ -13,7 +15,7 @@ rm -rf /exports/mariadb
 mkdir /exports/mariadb
 cd /exports/mariadb
 mydumper \
-  --threads 16 \
+  --threads 12 \
   --omit-from-file /app/data-imports/scripts/dump_mariadb_omit_tables.txt \
   --exit-if-broken-table-found \
   --tz-utc \
@@ -33,4 +35,4 @@ mydumper \
   --build-empty-files --outputdir /exports/mariadb
 
 # Not as acutely necessary to verify gzip integrity here (compared to elasticdump scripts), but might as well.
-time parallel --jobs 20 --halt now,fail=1 'bash -o pipefail -c "echo -n {}: ; zcat {} | wc -l"' ::: *.gz
+time parallel --jobs 12 --halt now,fail=1 'bash -o pipefail -c "echo -n {}: ; zcat {} | wc -l"' ::: *.gz
