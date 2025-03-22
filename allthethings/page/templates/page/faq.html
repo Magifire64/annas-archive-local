@@ -145,6 +145,14 @@
   </div>
 
   <div class="mb-4">
+    <!-- TODO:TRANSLATE -->
+    <div {{ h.bold | xmlattr }}>When does the fast downloads counter reset?</div>
+    {{ gettext('page.downloaded.fast_download_time') | replace('24', '18') }}
+    <!-- TODO:TRANSLATE -->
+    Check the <a href="/account/downloaded">Downloaded files page</a> to see which files you downloaded.
+  </div>
+
+  <div class="mb-4">
     {{ gettext('page.donate.faq.spend', div_question=(h.bold | xmlattr)) }}
   </div>
 
