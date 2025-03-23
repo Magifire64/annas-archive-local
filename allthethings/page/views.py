@@ -657,6 +657,9 @@ def get_torrents_data():
             if torrent_group_data['aac_meta_group'] is not None:
                 aac_meta_file_paths_grouped[torrent_group_data['aac_meta_group']].append(small_file['file_path'])
 
+            if group == 'hathitrust':
+                toplevel = 'managed_by_aa' # For torrents/other_aa/aa_misc_data/hathitrust_ht_text_pd_2025_03_06_non_zip_files_only.tar.zst.torrent
+
             scrape_row = scrapes_by_file_path.get(small_file['file_path'])
             scrape_metadata = {"scrape":{}}
             scrape_created = datetime.datetime.utcnow()
@@ -1132,6 +1135,7 @@ def codes_page():
         b'openlib_source_record', 
         b'server_path', 
         b'zlib_category_name',
+        b'torrent',
     ]
     
     account_id = allthethings.utils.get_account_id(request.cookies)
@@ -7510,7 +7514,6 @@ def get_additional_for_aarecord(aarecord):
             add_partner_servers(partner_path, 'aa_exclusive', aarecord, additional)
     for source_record in source_records_by_type['lgrsnf_book']:
         lgrsnf_thousands_dir = (source_record['id'] // 1000) * 1000
-        lgrsnf_torrent_path = f"external/libgen_rs_non_fic/r_{lgrsnf_thousands_dir:03}.torrent"
         lgrsnf_filename = source_record['md5'].lower()
         if lgrsnf_filename == 'c34722c6cc99b5267399f6acfd25948a':
             # Weird one-off: the only file in lgrsnf we could find that has an extension!
@@ -7522,6 +7525,7 @@ def get_additional_for_aarecord(aarecord):
             lgrsnf_path = f"ga/lgrsnf/{lgrsnf_thousands_dir}/{lgrsnf_filename}"
             add_partner_servers(lgrsnf_path, '', aarecord, additional)
 
+        lgrsnf_torrent_path = f"external/libgen_rs_non_fic/r_{lgrsnf_thousands_dir:03}.torrent"
         if lgrsnf_torrent_path in torrents_json_aa_currently_seeding_by_torrent_path:
             additional['torrent_paths'].append({ "collection": "libgen_rs_non_fic", "torrent_path": lgrsnf_torrent_path, "file_level1": lgrsnf_filename, "file_level2": "" })
 
@@ -7529,7 +7533,6 @@ def get_additional_for_aarecord(aarecord):
         # shown_click_get = True
     for source_record in source_records_by_type['lgrsfic_book']:
         lgrsfic_thousands_dir = (source_record['id'] // 1000) * 1000
-        lgrsfic_torrent_path = f"external/libgen_rs_fic/f_{lgrsfic_thousands_dir}.torrent" # Note: no leading zeroes
         lgrsfic_filename = f"{source_record['md5'].lower()}.{aarecord['file_unified_data']['extension_best']}"
         if lgrsfic_thousands_dir <= 3039000:
             lgrsfic_path = f"g3/libgenrs_fiction/libgenrs_fiction/{lgrsfic_thousands_dir}/{lgrsfic_filename}"
@@ -7538,6 +7541,7 @@ def get_additional_for_aarecord(aarecord):
             lgrsfic_path = f"ga/lgrsfic/{lgrsfic_thousands_dir}/{lgrsfic_filename}"
             add_partner_servers(lgrsfic_path, '', aarecord, additional)
 
+        lgrsfic_torrent_path = f"external/libgen_rs_fic/f_{lgrsfic_thousands_dir}.torrent" # Note: no leading zeroes
         if lgrsfic_torrent_path in torrents_json_aa_currently_seeding_by_torrent_path:
             additional['torrent_paths'].append({ "collection": "libgen_rs_fic", "torrent_path": lgrsfic_torrent_path, "file_level1": lgrsfic_filename, "file_level2": "" })
 
@@ -7566,7 +7570,8 @@ def get_additional_for_aarecord(aarecord):
             scimag_filename = urllib.parse.quote(source_record['scimag_archive_path'].replace('\\', '/'))
 
             scimag_torrent_path = f"external/scihub/sm_{scimag_hundredthousand_dir:03}00000-{scimag_hundredthousand_dir:03}99999.torrent"
-            additional['torrent_paths'].append({ "collection": "scihub", "torrent_path": scimag_torrent_path, "file_level1": f"libgen.scimag{scimag_thousand_dir:05}000-{scimag_thousand_dir:05}999.zip", "file_level2": scimag_filename })
+            if scimag_torrent_path in torrents_json_aa_currently_seeding_by_torrent_path:
+                additional['torrent_paths'].append({ "collection": "scihub", "torrent_path": scimag_torrent_path, "file_level1": f"libgen.scimag{scimag_thousand_dir:05}000-{scimag_thousand_dir:05}999.zip", "file_level2": scimag_filename })
 
             scimag_path = f"g4/scimag/{scimag_hundredthousand_dir:03}00000/{scimag_thousand_dir:05}000/{scimag_filename}"
             add_partner_servers(scimag_path, 'scimag', aarecord, additional)
@@ -7580,24 +7585,22 @@ def get_additional_for_aarecord(aarecord):
             else:
                 add_partner_servers(f"gi/lglihard/comics/{lglicomics_thousands_dir}/{lglicomics_filename}", '', aarecord, additional)
 
-            if lglicomics_id < 2791000:
-                additional['torrent_paths'].append({ "collection": "libgen_li_comics", "torrent_path": f"external/libgen_li_comics/c_{lglicomics_thousands_dir}.torrent", "file_level1": lglicomics_filename, "file_level2": "" }) # Note: no leading zero
+            lglicomics_torrent_path = f"external/libgen_li_comics/c_{lglicomics_thousands_dir}.torrent"
+            if lglicomics_torrent_path in torrents_json_aa_currently_seeding_by_torrent_path:
+                additional['torrent_paths'].append({ "collection": "libgen_li_comics", "torrent_path": lglicomics_torrent_path, "file_level1": lglicomics_filename, "file_level2": "" }) # Note: no leading zero
 
         lglimagz_id = source_record['magz_id']
         if lglimagz_id > 0 and lglimagz_id < 1748000: # 004_lgli_upload_hardlink.sh
+            lglimagz_thousands_dir = (lglimagz_id // 1000) * 1000
+            lglimagz_filename = f"{source_record['md5'].lower()}.{aarecord['file_unified_data']['extension_best']}"
             if lglimagz_id < 1363000:
-                lglimagz_thousands_dir = (lglimagz_id // 1000) * 1000
-                lglimagz_filename = f"{source_record['md5'].lower()}.{aarecord['file_unified_data']['extension_best']}"
-                lglimagz_path = f"g4/magz/magz/{lglimagz_thousands_dir}/{lglimagz_filename}"
-                add_partner_servers(lglimagz_path, '', aarecord, additional)
+                add_partner_servers(f"g4/magz/magz/{lglimagz_thousands_dir}/{lglimagz_filename}", '', aarecord, additional)
             else:
-                lglimagz_thousands_dir = (lglimagz_id // 1000) * 1000
-                lglimagz_filename = f"{source_record['md5'].lower()}.{aarecord['file_unified_data']['extension_best']}"
-                lglimagz_path = f"ga/lglihard/magz/{lglimagz_thousands_dir}/{lglimagz_filename}"
-                add_partner_servers(lglimagz_path, '', aarecord, additional)
+                add_partner_servers(f"ga/lglihard/magz/{lglimagz_thousands_dir}/{lglimagz_filename}", '', aarecord, additional)
             
-            if lglimagz_id < 1746000:
-                additional['torrent_paths'].append({ "collection": "libgen_li_magazines", "torrent_path": f"external/libgen_li_magazines/m_{lglimagz_thousands_dir}.torrent", "file_level1": lglimagz_filename, "file_level2": "" }) # Note: no leading zero
+            lglimagz_torrent_path = f"external/libgen_li_magazines/m_{lglimagz_thousands_dir}.torrent"
+            if lglimagz_torrent_path in torrents_json_aa_currently_seeding_by_torrent_path:
+                additional['torrent_paths'].append({ "collection": "libgen_li_magazines", "torrent_path": lglimagz_torrent_path, "file_level1": lglimagz_filename, "file_level2": "" }) # Note: no leading zero
 
         lglifiction_rus_id = source_record['fiction_rus_id']
         if lglifiction_rus_id > 0 and lglifiction_rus_id < 1716000: # 004_lgli_upload_hardlink.sh
@@ -7610,7 +7613,10 @@ def get_additional_for_aarecord(aarecord):
             lglistandarts_thousands_dir = (lglistandarts_id // 1000) * 1000
             lglistandarts_filename = source_record['md5'].lower()
             add_partner_servers(f"gi/lglihard/standarts/repository/{lglistandarts_thousands_dir}/{lglistandarts_filename}", '', aarecord, additional)
-            additional['torrent_paths'].append({ "collection": "libgen_li_standarts", "torrent_path": f"external/libgen_li_standarts/s_{lglistandarts_thousands_dir}.torrent", "file_level1": lglistandarts_filename, "file_level2": "" }) # Note: no leading zero
+
+            lglistandarts_torrent_path = f"external/libgen_li_standarts/s_{lglistandarts_thousands_dir}.torrent"
+            if lglistandarts_torrent_path in torrents_json_aa_currently_seeding_by_torrent_path:
+                additional['torrent_paths'].append({ "collection": "libgen_li_standarts", "torrent_path": lglistandarts_torrent_path, "file_level1": lglistandarts_filename, "file_level2": "" }) # Note: no leading zero
 
         additional['download_urls'].append((gettext('page.md5.box.download.lgli'), f"https://libgen.li/ads.php?md5={source_record['md5'].lower()}", (gettext('page.md5.box.download.extra_also_click_get') if shown_click_get else gettext('page.md5.box.download.extra_click_get')) + ' <div style="margin-left: 24px" class="text-sm text-gray-500">' + gettext('page.md5.box.download.libgen_ads') + '</div>'))
         shown_click_get = True
