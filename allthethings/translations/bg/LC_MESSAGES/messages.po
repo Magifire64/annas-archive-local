@@ -1,18 +1,17 @@
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-11 18:23+0000\n"
-"PO-Revision-Date: 2025-03-11 18:23+0000\n"
+"PO-Revision-Date: 2025-03-29 11:23+0000\n"
 "Last-Translator: Мария Рангелова <rangelova1186@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: ENCODING\n"
+"Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.10.2\n"
+"X-Generator: Weblate 5.10.4\n"
 
 #: allthethings/app.py:200
 msgid "layout.index.invalid_request"
@@ -4895,120 +4894,97 @@ msgid "page.metadata.background.body4"
 msgstr "Също така извличаме <em>кодове</em> като идентификатори и класификатори от библиотеката. <em>Идентификаторите</em> уникално представят конкретно издание на книга; примери са ISBN, DOI, Open Library ID, Google Books ID или Amazon ID. <em>Класификаторите</em> групират заедно няколко подобни книги; примери са Dewey Decimal (DCC), UDC, LCC, RVK или GOST. Понякога тези кодове са изрично свързани в библиотеките, а понякога можем да ги извлечем от името на файла или описанието (главно ISBN и DOI)."
 
 #: allthethings/page/templates/page/metadata.html:34
-#, fuzzy
 msgid "page.metadata.background.body5"
-msgstr "Можем да използваме идентификаторите, за да намерим записи в <em>колекции само с метаданни</em>, като OpenLibrary, ISBNdb или WorldCat/OCLC. Има специфичен <em>метаданни таб</em> в нашата търсачка, ако искате да разгледате тези колекции. Използваме съвпадащи записи, за да запълним липсващи полета за метаданни (например ако липсва заглавие) или например като „алтернативно заглавие“ (ако вече има съществуващо заглавие)."
+msgstr "Можем да използваме идентификаторите, за да намерим записи в <em>колекции само с метаданни</em>, като OpenLibrary, ISBNdb или WorldCat/OCLC. Има специален <em>раздел с метаданни</em> в нашата търсачка, ако искате да разгледате тези колекции. Използваме съвпадащи записи, за да запълним липсващите полета за метаданни (например ако липсва заглавие) или например като “алтернативно заглавие” (ако вече има съществуващо заглавие)."
 
 #: allthethings/page/templates/page/metadata.html:39
-#, fuzzy
 msgid "page.metadata.background.body6"
-msgstr "За да видите точно откъде са дошли метаданните на книга, вижте <em>„Технически детайли“ таб</em> на страницата на книгата. Той има връзка към суровия JSON за тази книга, с указатели към суровия JSON на оригиналните записи."
+msgstr "За да видите точно откъде са дошли метаданните на книгата, вижте <em>“Технически детайли” таб</em> на страницата на книгата. Има връзка към необработения JSON за тази книга, с указатели към необработения JSON на оригиналните записи."
 
 #: allthethings/page/templates/page/metadata.html:44
-#, fuzzy
 msgid "page.metadata.background.body7"
-msgstr "За повече информация, вижте следните страници: <a %(a_datasets)s>Datasets</a>, <a %(a_search_metadata)s>Търсене (метаданни таб)</a>, <a %(a_codes)s>Кодове Експлорър</a> и <a %(a_example)s>Примерен метаданни JSON</a>. Накрая, всички наши метаданни могат да бъдат <a %(a_generated)s>генерирани</a> или <a %(a_downloaded)s>изтеглени</a> като ElasticSearch и MariaDB бази данни."
+msgstr "За повече информация, вижте следните страници: <a %(a_datasets)s>Набори от данни</a>, <a %(a_search_metadata)s>Търсене (раздел метаданни)</a>, <a %(a_codes)s>Изследовател на кодове</a> и <a %(a_example)s>Примерен JSON с метаданни </a>. Накрая, всички наши метаданни могат да бъдат <a %(a_generated)s>генерирани</a> или <a %(a_downloaded)s>изтеглени</a> като ElasticSearch и MariaDB бази данни."
 
 #: allthethings/page/templates/page/metadata.html:56
-#, fuzzy
 msgid "page.metadata.openlib.title"
 msgstr "Свързване с Open Library"
 
 #: allthethings/page/templates/page/metadata.html:59
-#, fuzzy
 msgid "page.metadata.openlib.body1"
-msgstr "И така, ако срещнете файл с лоши метаданни, как трябва да го поправите? Можете да отидете в източниковата библиотека и да следвате нейните процедури за поправка на метаданни, но какво да правите, ако файлът присъства в няколко източникови библиотеки?"
+msgstr "И така, ако срещнете файл с лоши метаданни, как трябва да го поправите? Можете да отидете в библиотеката му и да следвате нейните процедури за поправка на метаданни, но какво да правите, ако файлът присъства в няколко библиотеки?"
 
 #: allthethings/page/templates/page/metadata.html:63
-#, fuzzy
 msgid "page.metadata.openlib.body2"
 msgstr "Има един идентификатор, който се третира специално в Архива на Анна. <strong>Полето annas_archive md5 в Open Library винаги замества всички други метаданни!</strong> Нека първо се върнем малко назад и да научим за Open Library."
 
 #: allthethings/page/templates/page/metadata.html:67
-#, fuzzy
 msgid "page.metadata.openlib.body3"
-msgstr "Open Library е основана през 2006 г. от Аарон Суорц с целта „една уеб страница за всяка книга, която е била публикувана някога“. Това е нещо като Wikipedia за метаданни на книги: всеки може да я редактира, тя е свободно лицензирана и може да бъде изтеглена в насипно състояние. Това е база данни за книги, която най-много съответства на нашата мисия — всъщност, Архивът на Анна е вдъхновен от визията и живота на Аарон Суорц."
+msgstr "Open Library е основана през 2006 г. от Аарон Суорц с целта “една уеб страница за всяка книга, която е била публикувана някога”. Това е нещо като Wikipedia за метаданни на книги: всеки може да я редактира, тя е с безплатен лиценз и може да бъде изтеглена на части. Това е база данни за книги, която най-много съответства на нашата мисия — всъщност, Архивът на Анна е вдъхновен от визията и живота на Аарон Суорц."
 
 #: allthethings/page/templates/page/metadata.html:71
-#, fuzzy
 msgid "page.metadata.openlib.body4"
 msgstr "Вместо да преоткриваме колелото, решихме да насочим нашите доброволци към Open Library. Ако видите книга с неправилни метаданни, можете да помогнете по следния начин:"
 
 #: allthethings/page/templates/page/metadata.html:75
-#, fuzzy
 msgid "page.metadata.openlib.howto.item.1"
-msgstr " Отидете на <a %(a_openlib)s>уебсайта на Open Library</a>."
+msgstr " Отидете на <a %(a_openlib)s>сайта на Open Library</a>."
 
 #: allthethings/page/templates/page/metadata.html:76
-#, fuzzy
 msgid "page.metadata.openlib.howto.item.2"
-msgstr "Намерете правилния запис на книгата. <strong>ВНИМАНИЕ:</strong> бъдете сигурни, че сте избрали правилното <strong>издание</strong>. В Open Library има „произведения“ и „издания“."
+msgstr "Намерете правилния запис на книгата. <strong>ВНИМАНИЕ:</strong> бъдете сигурни, че сте избрали правилното <strong>издание</strong>. В Open Library има “произведения” и “издания”."
 
 #: allthethings/page/templates/page/metadata.html:78
-#, fuzzy
 msgid "page.metadata.openlib.howto.item.2.1"
-msgstr "„Произведение“ може да бъде „Хари Потър и философският камък“."
+msgstr "“Произведение” може да бъде “Хари Потър и философският камък”."
 
 #: allthethings/page/templates/page/metadata.html:79
-#, fuzzy
 msgid "page.metadata.openlib.howto.item.2.2"
-msgstr "„Издание“ може да бъде:"
+msgstr "“Издание” може да бъде:"
 
 #: allthethings/page/templates/page/metadata.html:81
-#, fuzzy
 msgid "page.metadata.openlib.howto.item.2.2.1"
 msgstr "Първото издание от 1997 г., публикувано от Bloomsbery с 256 страници."
 
 #: allthethings/page/templates/page/metadata.html:82
-#, fuzzy
 msgid "page.metadata.openlib.howto.item.2.2.2"
 msgstr "Изданието с меки корици от 2003 г., публикувано от Raincoast Books с 223 страници."
 
 #: allthethings/page/templates/page/metadata.html:83
-#, fuzzy
 msgid "page.metadata.openlib.howto.item.2.2.3"
-msgstr "Полският превод от 2000 г. „Harry Potter I Kamie Filozoficzn“ от Media Rodzina с 328 страници."
+msgstr "Полският превод от 2000 г. “Harry Potter I Kamie Filozoficzn” от Media Rodzina с 328 страници."
 
 #: allthethings/page/templates/page/metadata.html:86
-#, fuzzy
 msgid "page.metadata.openlib.howto.item.2.3"
 msgstr "Всички тези издания имат различни ISBN и различно съдържание, така че бъдете сигурни, че избирате правилното!"
 
 #: allthethings/page/templates/page/metadata.html:89
-#, fuzzy
 msgid "page.metadata.openlib.howto.item.3"
 msgstr "Редактирайте записа (или го създайте, ако не съществува), и добавете колкото се може повече полезна информация! Вече сте тук, така че направете записа наистина невероятен."
 
 #: allthethings/page/templates/page/metadata.html:90
-#, fuzzy
 msgid "page.metadata.openlib.howto.item.4"
-msgstr "Под „ID Numbers“ изберете „Архивът на Анна“ и добавете MD5 на книгата от Архивът на Анна. Това е дългият низ от букви и цифри след „/md5/“ в URL адреса."
+msgstr "Под “ID Numbers” изберете “Архивът на Анна” и добавете MD5 на книгата от Архивът на Анна. Това е дългият низ от букви и цифри след “/md5/” в адреса."
 
 #: allthethings/page/templates/page/metadata.html:92
-#, fuzzy
 msgid "page.metadata.openlib.howto.item.4.1"
 msgstr "Опитайте се да намерите други файлове в Архивът на Анна, които също съответстват на този запис, и ги добавете също. В бъдеще можем да ги групираме като дубликати на страницата за търсене в Архивът на Анна."
 
 #: allthethings/page/templates/page/metadata.html:95
-#, fuzzy
 msgid "page.metadata.openlib.howto.item.5"
-msgstr "Когато сте готови, запишете URL адреса, който току-що актуализирахте. След като актуализирате поне 30 записа с MD5 от Архивът на Анна, изпратете ни <a %(a_contact)s>имейл</a> и ни изпратете списъка. Ще ви дадем безплатно членство за Архивът на Анна, за да можете по-лесно да вършите тази работа (и като благодарност за вашата помощ). Тези редакции трябва да бъдат с високо качество и да добавят значителни количества информация, в противен случай вашата заявка ще бъде отхвърлена. Вашата заявка също ще бъде отхвърлена, ако някоя от редакциите бъде отменена или коригирана от модераторите на Open Library."
+msgstr "Когато сте готови, запишете адреса, който току-що обновихте. След като обновихте поне 30 записа с MD5 от Архивът на Анна, изпратете ни <a %(a_contact)s>имейл</a> със списъка. Ще ви дадем безплатно членство за Архивът на Анна, за да можете по-лесно да вършите тази работа (и като благодарност за вашата помощ). Тези редакции трябва да бъдат с високо качество и да добавят значителни количества информация, в противен случай вашата заявка ще бъде отхвърлена. Вашата заявка също ще бъде отхвърлена, ако някоя от редакциите бъде отменена или коригирана от модераторите на Open Library."
 
 #: allthethings/page/templates/page/metadata.html:99
-#, fuzzy
 msgid "page.metadata.openlib.body5"
-msgstr "Имайте предвид, че това работи само за книги, а не за академични статии или други видове файлове. За други видове файлове все още препоръчваме да намерите източника библиотека. Може да отнеме няколко седмици, за да бъдат включени промените в Архивът на Анна, тъй като трябва да изтеглим последния Open Library data dump и да регенерираме нашия индекс за търсене."
+msgstr "Имайте предвид, че това работи само за книги, а не за академични статии или други видове файлове. За други видове файлове все още препоръчваме да намерите библиотеката им. Може да отнеме няколко седмици, за да бъдат включени промените в Архивът на Анна, тъй като трябва да изтеглим последния Open Library архив и да обновим нашия индекс за търсене."
 
 #: allthethings/page/templates/page/mirrors.html:3
 #: allthethings/page/templates/page/mirrors.html:6
-#, fuzzy
 msgid "page.mirrors.title"
 msgstr "Огледала: призив за доброволци"
 
 #: allthethings/page/templates/page/mirrors.html:9
-#, fuzzy
 msgid "page.mirrors.intro"
-msgstr "За да увеличим устойчивостта на Архива на Анна, търсим доброволци за управление на огледала."
+msgstr "За да увеличим устойчивостта на Архива на Анна, търсим доброволци за управление на огледалата."
 
 #: allthethings/page/templates/page/mirrors.html:13
 #, fuzzy
@@ -5016,79 +4992,64 @@ msgid "page.mirrors.text1"
 msgstr "Търсим това:"
 
 #: allthethings/page/templates/page/mirrors.html:17
-#, fuzzy
 msgid "page.mirrors.list.run_anna"
-msgstr "Вие управлявате отворения код на Архива на Анна и редовно актуализирате както кода, така и данните."
+msgstr "Вие управлявате отворения код на Архивът на Анна и редовно обновявате както кода, така и данните."
 
 #: allthethings/page/templates/page/mirrors.html:18
-#, fuzzy
 msgid "page.mirrors.list.clearly_a_mirror"
-msgstr "Вашата версия е ясно разграничена като огледало, напр. “Архивът на Боб, огледало на Архива на Анна”."
+msgstr "Вашата версия е ясно разграничена като огледало, напр. “Архивът на Боб, огледало на Архивът на Анна”."
 
 #: allthethings/page/templates/page/mirrors.html:19
-#, fuzzy
 msgid "page.mirrors.list.know_the_risks"
 msgstr "Вие сте готови да поемете рисковете, свързани с тази работа, които са значителни. Имате дълбоко разбиране за необходимата оперативна сигурност. Съдържанието на <a %(a_shadow)s>тези</a> <a %(a_pirate)s>публикации</a> е очевидно за вас."
 
 #: allthethings/page/templates/page/mirrors.html:20
-#, fuzzy
 msgid "page.mirrors.list.willing_to_contribute"
 msgstr "Вие сте готови да допринесете за нашия <a %(a_codebase)s>код</a> — в сътрудничество с нашия екип — за да направите това възможно."
 
 #: allthethings/page/templates/page/mirrors.html:21
-#, fuzzy
 msgid "page.mirrors.list.maybe_partner"
 msgstr "Първоначално няма да ви дадем достъп до изтеглянията от нашия партньорски сървър, но ако нещата вървят добре, можем да споделим това с вас."
 
 #: allthethings/page/templates/page/mirrors.html:24
-#, fuzzy
 msgid "page.mirrors.expenses.title"
 msgstr "Разходи за хостинг"
 
 #: allthethings/page/templates/page/mirrors.html:27
-#, fuzzy
 msgid "page.mirrors.expenses.text1"
-msgstr "Сме готови да покрием разходите за хостинг и VPN, първоначално до $200 на месец. Това е достатъчно за основен сървър за търсене и прокси, защитен от DMCA."
+msgstr "Ние сме готови да покрием разходите за хостинг и VPN, първоначално до $200 на месец. Това е достатъчно за основен сървър за търсене и прокси, защитен от DMCA."
 
 #: allthethings/page/templates/page/mirrors.html:31
-#, fuzzy
 msgid "page.mirrors.expenses.must_demonstrate_ability"
-msgstr "Ще плащаме за хостинг само след като всичко е настроено и сте демонстрирали, че можете да поддържате архива актуализиран с актуализации. Това означава, че ще трябва да платите за първите 1-2 месеца от джоба си."
+msgstr "Ще плащаме за хостинг само след като всичко е настроено и сте демонстрирали, че можете да поддържате архива с обновени данни. Това означава, че ще трябва да платите за първите 1-2 месеца от джоба си."
 
 #: allthethings/page/templates/page/mirrors.html:32
-#, fuzzy
 msgid "page.mirrors.expenses.no_compensation_for_time"
 msgstr "Вашето време няма да бъде компенсирано (и нашето също), тъй като това е чисто доброволческа работа."
 
 #: allthethings/page/templates/page/mirrors.html:33
-#, fuzzy
 msgid "page.mirrors.expenses.maybe_donation"
 msgstr "Ако се включите значително в разработката и операциите на нашата работа, можем да обсъдим споделянето на повече от приходите от дарения с вас, за да ги използвате при необходимост."
 
 #: allthethings/page/templates/page/mirrors.html:36
-#, fuzzy
 msgid "page.mirrors.getting_started.title"
-msgstr "Започнете тук"
+msgstr "Първи стъпки"
 
 #: allthethings/page/templates/page/mirrors.html:39
-#, fuzzy
 msgid "page.mirrors.getting_started.text1"
 msgstr "Моля, <strong>не се свързвайте с нас</strong> за разрешение или за основни въпроси. Действията говорят по-силно от думите! Цялата информация е налична, така че просто продължете с настройването на вашето огледало."
 
 #: allthethings/page/templates/page/mirrors.html:43
-#, fuzzy
 msgid "page.mirrors.getting_started.text2"
-msgstr "Чувствайте се свободни да публикувате билети или заявки за сливане в нашия Gitlab, когато срещнете проблеми. Може да се наложи да изградим някои специфични за огледалото функции с вас, като например ребрандиране от „Архивът на Анна“ към името на вашия уебсайт, (първоначално) деактивиране на потребителски акаунти или свързване обратно към нашия основен сайт от страниците на книгите."
+msgstr "Чувствайте се свободни да публикувате билети или заявки за сливане в нашия Gitlab, когато срещнете проблеми. Може да се наложи да изградим някои специфични за огледалото функции с вас, като например ребрандиране от “Архивът на Анна” към името на вашия сайт, (първоначално) деактивиране на потребителски акаунти или свързване обратно към нашия основен сайт от страниците на книгите."
 
 #: allthethings/page/templates/page/mirrors.html:47
-#, fuzzy
 msgid "page.mirrors.getting_started.text3"
 msgstr "След като вашето огледало работи, моля, свържете се с нас. Ще се радваме да прегледаме вашата OpSec, и след като това е стабилно, ще свържем към вашето огледало и ще започнем да работим по-близо с вас."
 
 #: allthethings/page/templates/page/mirrors.html:51
-#, fuzzy
 msgid "page.mirrors.getting_started.text4"
-msgstr "Предварително благодарим на всеки, който е готов да допринесе по този начин! Това не е за слабите сърца, но ще затвърди дълголетието на най-голямата наистина отворена библиотека в човешката история."
+msgstr "Предварително благодарим на всеки, който е готов да допринесе по този начин! Това не е за слабите сърца, но ще затвърди дълголетието на най-голямата ,наистина, отворена библиотека в историята."
 
 #: allthethings/page/templates/page/partner_download.html:4
 #: allthethings/page/templates/page/partner_download.html:11
@@ -5100,7 +5061,6 @@ msgid "page.partner_download.slow_downloads_official"
 msgstr "❌ Бавните изтегляния са достъпни само през официалния уебсайт. Посетете %(websites)s."
 
 #: allthethings/page/templates/page/partner_download.html:21
-#, fuzzy
 msgid "page.partner_download.slow_downloads_cloudflare"
 msgstr "❌ Бавните изтегляния не са налични чрез Cloudflare VPN или от IP адреси на Cloudflare."
 
@@ -5113,21 +5073,18 @@ msgid "page.partner_download.url"
 msgstr "<a %(a_download)s>📚 Изтеглете сега</a>"
 
 #: allthethings/page/templates/page/partner_download.html:63
-#, fuzzy
 msgid "page.partner_download.li4"
-msgstr "Благодарим ви за търпението, това поддържа уебсайта безплатен за всички! 😊"
+msgstr "Благодарим ви за търпението, това поддържа сайта безплатен за всички! 😊"
 
 #: allthethings/page/templates/page/partner_download.html:77
 msgid "page.partner_download.warning_many_downloads"
 msgstr "Внимание: имаше много изтегляния от вашия IP адрес през последните 24 часа. Изтеглянията може да са по-бавни от обикновено."
 
 #: allthethings/page/templates/page/partner_download.html:78
-#, fuzzy
 msgid "page.partner_download.downloads_last_24_hours"
 msgstr "Изтегляния от вашия IP адрес през последните 24 часа: %(count)s."
 
 #: allthethings/page/templates/page/partner_download.html:79
-#, fuzzy
 msgid "page.partner_download.warning_many_downloads2"
 msgstr "Ако използвате VPN, споделена интернет връзка или вашият интернет доставчик споделя IP адреси, това предупреждение може да се дължи на това."
 
@@ -5136,19 +5093,16 @@ msgid "page.partner_download.wait"
 msgstr "За да дадете възможност на всички да изтеглят файловете безплатно, трябва да изчакате, преди да можете да изтеглите този файл."
 
 #: allthethings/page/templates/page/partner_download.html:87
-#, fuzzy
 msgid "page.partner_download.li1"
-msgstr "Чувствайте се свободни да продължите да разглеждате Архива на Анна в друг раздел, докато чакате (ако вашият браузър поддържа опресняване на фоновите раздели)."
+msgstr "Чувствайте се свободни да продължите да разглеждате Архивът на Анна в друг раздел, докато чакате (ако вашият браузър поддържа опресняване на фоновите раздели)."
 
 #: allthethings/page/templates/page/partner_download.html:88
-#, fuzzy
 msgid "page.partner_download.li2"
 msgstr "Чувствайте се свободни да изчакате зареждането на няколко страници за изтегляне едновременно (но моля, изтегляйте само един файл едновременно на сървър)."
 
 #: allthethings/page/templates/page/partner_download.html:89
-#, fuzzy
 msgid "page.partner_download.li3"
-msgstr "След като получите линк за изтегляне, той е валиден за няколко часа."
+msgstr "След като получите връзка за изтегляне, той е валиден за няколко часа."
 
 #: allthethings/page/templates/page/scidb.html:14
 #: allthethings/page/templates/page/scidb.html:51
@@ -5178,17 +5132,14 @@ msgid "page.scidb.scihub"
 msgstr "Sci-Hub библиотека за научни статии"
 
 #: allthethings/page/templates/page/scidb.html:33
-#, fuzzy
 msgid "page.scidb.nexusstc"
 msgstr "Nexus/STC"
 
 #: allthethings/page/templates/page/scidb.html:40
-#, fuzzy
 msgid "page.scidb.please_donate"
-msgstr "За да подкрепите достъпността и дългосрочното съхранение на човешкото знание, станете <a %(a_donate)s>член</a>."
+msgstr "За да подкрепите достъпността и дългосрочното съхранение на това знание, станете <a %(a_donate)s>член</a>."
 
 #: allthethings/page/templates/page/scidb.html:43
-#, fuzzy
 msgid "page.scidb.please_donate_bonus"
 msgstr "Като бонус, 🧬&nbsp;SciDB се зарежда по-бързо за членовете, без никакви ограничения."
 
@@ -5197,12 +5148,10 @@ msgid "page.scidb.refresh"
 msgstr "Не работи? Опитай <a %(a_refresh)s>обновяване на браузъра си</a>."
 
 #: allthethings/page/templates/page/scidb.html:79
-#, fuzzy
 msgid "page.scidb.no_preview_new"
 msgstr "Все още няма наличен преглед. Изтеглете файла от <a %(a_path)s>Архивът на Анна</a>."
 
 #: allthethings/page/templates/page/scidb_home.html:13
-#, fuzzy
 msgid "page.home.scidb.text2"
 msgstr "🧬&nbsp;SciDB е продължение на Sci-Hub, с познатия интерфейс и директно преглеждане на PDF файлове. Въведете вашия DOI, за да прегледате."
 
