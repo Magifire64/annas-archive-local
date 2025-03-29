@@ -47,6 +47,8 @@ docker exec -it aa-data-import--web /scripts/download_pilimi_zlib.sh # Can be sk
 docker exec -it aa-data-import--web /scripts/download_aa_various.sh # Can be skipped when using aa_derived_mirror_metadata.
 docker exec -it aa-data-import--web /scripts/download_aac_duxiu_files.sh # CANNOT BE SKIPPED
 docker exec -it aa-data-import--web /scripts/download_aac_duxiu_records.sh # CANNOT BE SKIPPED
+docker exec -it aa-data-import--web /scripts/download_aac_hathitrust_files.sh # CANNOT BE SKIPPED
+docker exec -it aa-data-import--web /scripts/download_aac_hathitrust_records.sh # CANNOT BE SKIPPED -- Note that this isn't an an AAC file like the others, but from the HT website, which we then convert to AAC.
 docker exec -it aa-data-import--web /scripts/download_aac_ia2_acsmpdf_files.sh # CANNOT BE SKIPPED
 docker exec -it aa-data-import--web /scripts/download_aac_ia2_records.sh # CANNOT BE SKIPPED
 docker exec -it aa-data-import--web /scripts/download_aac_magzdb_records.sh # CANNOT BE SKIPPED
@@ -67,6 +69,8 @@ docker exec -it aa-data-import--web /scripts/load_pilimi_zlib.sh # Can be skippe
 docker exec -it aa-data-import--web /scripts/load_aa_various.sh # Can be skipped when using aa_derived_mirror_metadata.
 docker exec -it aa-data-import--web /scripts/load_aac_duxiu_files.sh # CANNOT BE SKIPPED
 docker exec -it aa-data-import--web /scripts/load_aac_duxiu_records.sh # CANNOT BE SKIPPED
+docker exec -it aa-data-import--web /scripts/load_aac_hathitrust_files.sh # CANNOT BE SKIPPED
+docker exec -it aa-data-import--web /scripts/load_aac_hathitrust_records.sh # CANNOT BE SKIPPED -- Note that this isn't an an AAC file like the others, but from the HT website, which we then convert to AAC.
 docker exec -it aa-data-import--web /scripts/load_aac_ia2_acsmpdf_files.sh # CANNOT BE SKIPPED
 docker exec -it aa-data-import--web /scripts/load_aac_ia2_records.sh # CANNOT BE SKIPPED
 docker exec -it aa-data-import--web /scripts/load_aac_magzdb_records.sh # CANNOT BE SKIPPED

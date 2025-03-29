@@ -175,9 +175,11 @@ def mysql_build_aac_tables_internal():
             extra_index_fields = {}
             if collection == 'duxiu_records':
                 extra_index_fields['filename_decoded_basename'] = 'VARCHAR(250) NULL'
-            if collection == 'upload_records':
+            elif collection == 'upload_records':
                 extra_index_fields['filepath_raw_md5'] = 'CHAR(32) CHARACTER SET ascii NOT NULL'
                 extra_index_fields['dont_index_file'] = 'TINYINT NOT NULL'
+            elif collection in ['hathitrust_records', 'hathitrust_files']:
+                extra_index_fields['pairtree_filename'] = 'VARCHAR(250) NOT NULL'
 
             def build_insert_data(line, byte_offset):
                 if SLOW_DATA_IMPORTS:
@@ -265,7 +267,7 @@ def mysql_build_aac_tables_internal():
                         json = orjson.loads(line)
                         filename_decoded = json['metadata']['record']['filename_decoded']
                         return_data['filename_decoded_basename'] = filename_decoded.rsplit('.', 1)[0]
-                if collection == 'upload_records':
+                elif collection == 'upload_records':
                     json = orjson.loads(line)
                     filepath_raw_suffix = allthethings.utils.get_filepath_raw_from_upload_aac_metadata(json['metadata'])
                     subcollection = json['aacid'].split('__')[1].removeprefix('upload_records_')
@@ -274,6 +276,12 @@ def mysql_build_aac_tables_internal():
                     return_data['dont_index_file'] = 0
                     if filepath_raw_suffix_lower.endswith(b'metadata.opf') or filepath_raw_suffix_lower.endswith(b'cover.jpg'):
                         return_data['dont_index_file'] = 1
+                elif collection == 'hathitrust_records':
+                    json = orjson.loads(line)
+                    return_data['pairtree_filename'] = json['metadata']['pairtree_filename']
+                elif collection == 'hathitrust_files':
+                    json = orjson.loads(line)
+                    return_data['pairtree_filename'] = json['metadata']['filepath']
                 return return_data
 
             AAC_CHUNK_SIZE = 100000
@@ -1133,6 +1141,14 @@ def elastic_build_aarecords_nexusstc_internal():
         cursor.execute('DROP TABLE IF EXISTS nexusstc_cid_only')
         cursor.execute('CREATE TABLE nexusstc_cid_only (nexusstc_id VARCHAR(200) NOT NULL, PRIMARY KEY (nexusstc_id)) ENGINE=MyISAM DEFAULT CHARSET=ascii COLLATE=ascii_bin ROW_FORMAT=FIXED')
     build_common('annas_archive_meta__aacid__nexusstc_records', lambda batch: [f"nexusstc:{row['primary_id']}" for row in batch])
+
+#################################################################################################
+# ./run flask cli elastic_build_aarecords_hathitrust
+@cli.cli.command('elastic_build_aarecords_hathitrust')
+def elastic_build_aarecords_hathitrust():
+    elastic_build_aarecords_hathitrust_internal()
+def elastic_build_aarecords_hathitrust_internal():
+    print("TODO: Implement elastic_build_aarecords_hathitrust_internal")
 
 #################################################################################################
 # ./run flask cli elastic_build_aarecords_main

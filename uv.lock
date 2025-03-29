@@ -37,12 +37,14 @@ dependencies = [
     { name = "natsort" },
     { name = "orjson" },
     { name = "orjsonl" },
+    { name = "pairtree" },
     { name = "py-pinyin-split" },
     { name = "py-spy" },
     { name = "pyjwt" },
     { name = "pymarc" },
     { name = "pymysql" },
     { name = "python-barcode" },
+    { name = "python-dateutil" },
     { name = "python-slugify" },
     { name = "rdflib" },
     { name = "redis" },
@@ -96,12 +98,14 @@ requires-dist = [
     { name = "natsort", specifier = "==8.4.0" },
     { name = "orjson", specifier = "==3.9.7" },
     { name = "orjsonl", specifier = "==0.2.2" },
+    { name = "pairtree", specifier = "==0.8.1" },
     { name = "py-pinyin-split", specifier = "==5.0.0" },
     { name = "py-spy", specifier = "==0.4.0" },
     { name = "pyjwt", specifier = "==2.6.0" },
     { name = "pymarc", specifier = ">=5.2.2" },
     { name = "pymysql", specifier = "==1.0.2" },
     { name = "python-barcode", specifier = "==0.14.0" },
+    { name = "python-dateutil", specifier = "==2.9.0.post0" },
     { name = "python-slugify", specifier = "==7.0.0" },
     { name = "rdflib", specifier = "==7.0.0" },
     { name = "redis", specifier = "==4.3.4" },
@@ -143,7 +147,7 @@ name = "anyio"
 version = "3.7.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "exceptiongroup", marker = "python_full_version < '3.11'" },
+    { name = "exceptiongroup", marker = "python_full_version < '3.11' and python_full_version >= '3.10'" },
     { name = "idna" },
     { name = "sniffio" },
 ]
@@ -592,7 +596,7 @@ wheels = [
 
 [package.optional-dependencies]
 toml = [
-    { name = "tomli", marker = "python_full_version <= '3.11'" },
+    { name = "tomli", marker = "python_full_version <= '3.11' and python_full_version >= '3.10'" },
 ]
 
 [[package]]
@@ -1126,7 +1130,7 @@ version = "5.4.2"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "amqp" },
-    { name = "tzdata" },
+    { name = "tzdata", marker = "python_full_version >= '3.10'" },
     { name = "vine" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/38/4d/b93fcb353d279839cc35d0012bee805ed0cf61c07587916bfc35dbfddaf1/kombu-5.4.2.tar.gz", hash = "sha256:eef572dd2fd9fc614b37580e3caeafdd5af46c1eff31e7fba89138cdb406f2cf", size = 442858 }
@@ -1398,6 +1402,12 @@ wheels = [
 ]
 
 [[package]]
+name = "pairtree"
+version = "0.8.1"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/39/20/2016f34a3082f94211bdb62d59866db7d03dd1a12b41a19b6ea9cc78cc4a/Pairtree-0.8.1.tar.gz", hash = "sha256:78c7a36deb3dcaa57256d8e4bb2cb9d7c245ed2632fd5f164a5ad3df075af03d", size = 22624 }
+
+[[package]]
 name = "playwright"
 version = "1.49.0"
 source = { registry = "https://pypi.org/simple" }
@@ -1605,6 +1615,18 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/3d/0e/a5371743f19178af4758526172002abe712d03d8fc87c3e06b5c95a7ec38/python-barcode-0.14.0.tar.gz", hash = "sha256:241b34aa5c5cb6a9889882f9409b0182903a2c5d19b4218be3609cdbbd5ffdf9", size = 228128 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/55/58/0485fd0dc719c600476c3f2e757ced78f77c71dc0c9b6a95748828a85e7e/python_barcode-0.14.0-py3-none-any.whl", hash = "sha256:eefbb2583ba7bdb09baba6f8663129883109c61df7e23c9b9b473087521c926f", size = 212876 },
+]
+
+[[package]]
+name = "python-dateutil"
+version = "2.9.0.post0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "six" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/66/c0/0c8b6ad9f17a802ee498c46e004a0eb49bc148f2fd230864601a86dcf6db/python-dateutil-2.9.0.post0.tar.gz", hash = "sha256:37dd54208da7e1cd875388217d5e00ebd4179249f90fb72437e91a35459a0ad3", size = 342432 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/ec/57/56b9bcc3c9c6a792fcbaf139543cee77261f3651ca9da0c93f5c1221264b/python_dateutil-2.9.0.post0-py2.py3-none-any.whl", hash = "sha256:a8b2bc7bffae282281c8140a97d3aa9c14da0b136dfe83f850eea9a5f7470427", size = 229892 },
 ]
 
 [[package]]
@@ -1922,7 +1944,7 @@ name = "sqlalchemy"
 version = "1.4.41"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "greenlet", marker = "platform_machine == 'AMD64' or platform_machine == 'WIN32' or platform_machine == 'aarch64' or platform_machine == 'amd64' or platform_machine == 'ppc64le' or platform_machine == 'win32' or platform_machine == 'x86_64'" },
+    { name = "greenlet", marker = "(platform_machine == 'AMD64' and python_full_version >= '3.10') or (platform_machine == 'WIN32' and python_full_version >= '3.10') or (platform_machine == 'aarch64' and python_full_version >= '3.10') or (platform_machine == 'amd64' and python_full_version >= '3.10') or (platform_machine == 'ppc64le' and python_full_version >= '3.10') or (platform_machine == 'win32' and python_full_version >= '3.10') or (platform_machine == 'x86_64' and python_full_version >= '3.10')" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/67/a0/97da2cb07e013fd6c37fd896a86b374aa726e4161cafd57185e8418d59aa/SQLAlchemy-1.4.41.tar.gz", hash = "sha256:0292f70d1797e3c54e862e6f30ae474014648bc9c723e14a2fda730adb0a9791", size = 8281227 }
 wheels = [
