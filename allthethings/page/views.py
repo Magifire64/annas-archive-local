@@ -7669,11 +7669,11 @@ def get_additional_for_aarecord(aarecord):
             zlib_path = make_temp_anon_aac_path(f"{server}/zlib3_files", source_record['file_aacid'], source_record['file_data_folder'])
             add_partner_servers(zlib_path, 'aa_exclusive' if (len(additional['fast_partner_urls']) == 0) else '', aarecord, additional)
             additional['torrent_paths'].append({ "collection": "zlib", "torrent_path": f"managed_by_aa/annas_archive_data__aacid/{source_record['file_data_folder']}.torrent", "file_level1": source_record['file_aacid'], "file_level2": "" })
-        additional['download_urls'].append((gettext('page.md5.box.download.zlib'), f"https://z-lib.gs/md5/{source_record['md5_reported'].lower()}", ""))
+        additional['download_urls'].append((gettext('page.md5.box.download.zlib'), f"https://z-lib.fm/md5/{source_record['md5_reported'].lower()}", ""))
         additional['download_urls'].append((gettext('page.md5.box.download.zlib_tor'), f"http://bookszlibb74ugqojhzhg2a63w5i2atv5bqarulgczawnbmsb6s6qead.onion/md5/{source_record['md5_reported'].lower()}", gettext('page.md5.box.download.zlib_tor_extra')))
 
     for source_record in source_records_by_type['zlib_book']:
-        additional['download_urls'].append((gettext('page.md5.box.download.zlib'), f"https://z-lib.gs/md5/{source_record['md5_reported'].lower()}", ""))
+        additional['download_urls'].append((gettext('page.md5.box.download.zlib'), f"https://z-lib.fm/md5/{source_record['md5_reported'].lower()}", ""))
         additional['download_urls'].append((gettext('page.md5.box.download.zlib_tor'), f"http://bookszlibb74ugqojhzhg2a63w5i2atv5bqarulgczawnbmsb6s6qead.onion/md5/{source_record['md5_reported'].lower()}", gettext('page.md5.box.download.zlib_tor_extra')))
 
     for source_record in source_records_by_type['aac_magzdb']:
