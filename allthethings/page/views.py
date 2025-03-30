@@ -1136,6 +1136,9 @@ def codes_page():
         b'server_path', 
         b'zlib_category_name',
         b'torrent',
+        b'collection',
+        b'edsebk_subject',
+        b'magzdb_keyword',
     ]
     
     account_id = allthethings.utils.get_account_id(request.cookies)

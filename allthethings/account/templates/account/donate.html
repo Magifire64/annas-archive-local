@@ -209,14 +209,16 @@
             donate_button('payment1d_wechat', gettext('page.donate.payment.buttons.wechat') + ' <span class="whitespace-nowrap text-xs">变体T</span>' | safe, discount_percent=0),
           ]) | join('')
         }}
-            <!-- donate_button('payment1c_wechat', gettext('page.donate.payment.buttons.wechat') + ' <span class="whitespace-nowrap text-xs">变体S</span>' | safe, discount_percent=0), -->
+        <!-- {{ donate_button('payment3b', gettext('page.donate.payment.buttons.wechat') + ' <span class="whitespace-nowrap text-xs">变体K</span>' | safe, discount_percent=0) }} -->
+        <!-- donate_button('payment1c_wechat', gettext('page.donate.payment.buttons.wechat') + ' <span class="whitespace-nowrap text-xs">变体S</span>' | safe, discount_percent=0), -->
         {{
           shuffle_stable_day([
             donate_button('payment1b_alipay', gettext('page.donate.payment.buttons.alipay') + ' <span class="whitespace-nowrap text-xs">变体R</span>' | safe, discount_percent=0),
             donate_button('payment1d_alipay', gettext('page.donate.payment.buttons.alipay') + ' <span class="whitespace-nowrap text-xs">变体T</span>' | safe, discount_percent=0),
           ]) | join('')
         }}
-            <!-- donate_button('payment1c_alipay', gettext('page.donate.payment.buttons.alipay') + ' <span class="whitespace-nowrap text-xs">变体S</span>' | safe, discount_percent=0), -->
+        <!-- {{ donate_button('payment3a', gettext('page.donate.payment.buttons.alipay') + ' <span class="whitespace-nowrap text-xs">变体K</span>' | safe, discount_percent=0) }} -->
+        <!-- donate_button('payment1c_alipay', gettext('page.donate.payment.buttons.alipay') + ' <span class="whitespace-nowrap text-xs">变体S</span>' | safe, discount_percent=0), -->
 
         <!-- {{ donate_button('payment1b', gettext('page.donate.payment.buttons.alipay_wechat') + ' <span class="whitespace-nowrap text-xs">(变体R)</span>' | safe, discount_percent=0) }} -->
         <!-- {{ donate_button('payment1c', gettext('page.donate.payment.buttons.alipay_wechat') + ' <span class="whitespace-nowrap text-xs">(变体S)</span>' | safe, discount_percent=0) }} -->
