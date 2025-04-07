@@ -1461,7 +1461,7 @@ UNIFIED_IDENTIFIERS = {
     "lgrsnf": { "label": "Libgen.rs Non-Fiction", "url": "https://libgen.is/json.php?fields=*&ids=%s", "description": "Repository ID for the non-fiction ('libgen') repository in Libgen.rs. Directly taken from the 'id' field in the 'updated' table. Corresponds to the 'thousands folder' torrents.", "website": "/datasets/lgrs" },
     "lgrsfic": { "label": "Libgen.rs Fiction", "url": "https://libgen.is/fiction/", "description": "Repository ID for the fiction repository in Libgen.rs. Directly taken from the 'id' field in the 'fiction' table. Corresponds to the 'thousands folder' torrents.", "website": "/datasets/lgrs" },
     "lgli": { "label": "Libgen.li File", "url": "https://libgen.li/file.php?id=%s", "description": "Global file ID in Libgen.li. Directly taken from the 'f_id' field in the 'files' table.", "website": "/datasets/lgli" },
-    "zlib": { "label": "Z-Library", "url": "https://z-lib.gs/", "description": "ID in Z-Library.", "website": "/datasets/zlib" },
+    "zlib": { "label": "Z-Library", "url": "https://z-lib.fm/", "description": "ID in Z-Library.", "website": "/datasets/zlib" },
     "csbn": { "label": "CSBN", "url": "", "description": "China Standard Book Number, predecessor of ISBN in China", "website": "https://zh.wikipedia.org/zh-cn/%E7%BB%9F%E4%B8%80%E4%B9%A6%E5%8F%B7" },
     "ean13": { "label": "EAN-13", "url": "", "description": "", "website": "https://en.wikipedia.org/wiki/International_Article_Number" },
     "duxiu_ssid": { "label": "DuXiu SSID", "url": "", "description": "", "website": "/datasets/duxiu" },
@@ -1542,7 +1542,7 @@ UNIFIED_CLASSIFICATIONS = {
     "oclc_holdings": { "label": "OCLC Holdings", "url": "", "description": "Number of library holdings (for all editions) reported by OCLC/WorldCat metadata. 'many' means 20 or more.", "website": "/datasets/oclc" },
     "oclc_editions": { "label": "OCLC Editions", "url": "", "description": "Number of editions (unique OCLC IDs) reported by OCLC/WorldCat metadata. 'many' means 20 or more.", "website": "/datasets/oclc" },
     "oclc_holdings_editions": { "label": "OCLC Holdings+Editions", "url": "", "description": "Combined code for oclc_holdings and oclc_editions.", "website": "/datasets/oclc" },
-    "zlib_category_id": { "label": "Zlib Category ID", "url": "https://z-lib.gs/category/%s", "description": "Category ID on the Z-Library website.", "website": "https://z-lib.gs/categories" },
+    "zlib_category_id": { "label": "Zlib Category ID", "url": "https://z-lib.fm/category/%s", "description": "Category ID on the Z-Library website.", "website": "https://z-lib.gs/categories" },
     "zlib_category_name": { "label": "Zlib Category Name", "url": "", "description": "Name for the zlib_category_id (category ID on the Z-Library website).", "website": "https://z-lib.gs/categories" },
     **{LGLI_CLASSIFICATIONS_MAPPING.get(key, key): value for key, value in LGLI_CLASSIFICATIONS.items()},
     # Plus more added below!
