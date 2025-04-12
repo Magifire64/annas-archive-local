@@ -168,6 +168,10 @@ To contribute code, also file an [issue](https://software.annas-archive.li/AnnaA
 
 For larger projects, please contact Anna first on [Reddit](https://www.reddit.com/r/Annas_Archive/).
 
+## Data analysis
+
+See [this repo](https://github.com/RArtutos/Data-science-starter-kit-Enhance/) to get started.
+
 ## Testing
 
 Please run `./run check` before committing to ensure that your changes pass the automated checks. You can also run `./run check:fix` to apply some automatic fixes to common lint issues.

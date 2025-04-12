@@ -7,7 +7,7 @@ Roughly the steps are:
 - Generate derived data (mostly ElasticSearch).
 - Swap out the new data in production.
 
-Many steps can be skipped by downloading our [precalculated data](https://annas-archive.li/torrents#aa_derived_mirror_metadata). For more details on that, see below.
+Many steps can be skipped by downloading our [precalculated data](https://annas-archive.li/torrents#aa_derived_mirror_metadata). If you simply want to do analysis, please see [this repo](https://github.com/RArtutos/Data-science-starter-kit-Enhance/). For more details on that, see below.
 
 ```bash
 # First navigate to this data-imports directory.
