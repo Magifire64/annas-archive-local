@@ -9,6 +9,8 @@ INSERT INTO `annas_archive_meta_aac_filenames` VALUES("cerlalc_records","annas_a
 ,("ebscohost_records","annas_archive_meta__aacid__ebscohost_records__20240823T161729Z--Wk44RExtNXgJ3346eBgRk9.jsonl.seekable.zst")
 ,("gbooks_records","annas_archive_meta__aacid__gbooks_records__20240920T051416Z--20240920T051416Z.jsonl.seekable.zst")
 ,("goodreads_records","annas_archive_meta__aacid__goodreads_records__20240913T115838Z--20240913T115838Z.jsonl.seekable.zst")
+,("hathitrust_files","annas_archive_meta__aacid__hathitrust_files__20250227T120812Z--20250308T100711Z.jsonl.seekable.zst")
+,("hathitrust_records","annas_archive_meta__aacid__hathitrust_records__20060710T152310Z--20250301T052542Z.jsonl.seekable.zst")
 ,("ia2_acsmpdf_files","annas_archive_meta__aacid__ia2_acsmpdf_files__20231008T203648Z--20240126T083250Z.jsonl.seekable.zst")
 ,("ia2_records","annas_archive_meta__aacid__ia2_records__20240126T065114Z--20240126T070601Z.jsonl.seekable.zst")
 ,("isbngrp_records","annas_archive_meta__aacid__isbngrp_records__20240920T194930Z--20240920T194930Z.jsonl.seekable.zst")
