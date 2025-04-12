@@ -430,6 +430,11 @@ def get_stats_data():
         except Exception:
             pass
 
+        cursor.execute('SELECT aacid FROM annas_archive_meta__aacid__hathitrust_files ORDER BY aacid DESC LIMIT 1')
+        hathitrust_file_aacid = cursor.fetchone()['aacid']
+        hathitrust_file_date_raw = hathitrust_file_aacid.split('__')[2][0:8]
+        hathitrust_file_date = f"{hathitrust_file_date_raw[0:4]}-{hathitrust_file_date_raw[4:6]}-{hathitrust_file_date_raw[6:8]}"
+
         stats_data_es = dict(es.msearch(
             request_timeout=30,
             max_concurrent_searches=10,
@@ -566,6 +571,7 @@ def get_stats_data():
         'oclc_date': '2023-10-01',
         'magzdb_date': '2024-07-29',
         'nexusstc_date': nexusstc_date,
+        'hathitrust_file_date': hathitrust_file_date,
     }
 
 def torrent_group_data_from_file_path(file_path):
@@ -993,6 +999,18 @@ def datasets_trantor_page():
 @allthethings.utils.public_cache(minutes=5, cloudflare_minutes=60*3)
 def datasets_isbndb_page():
     return redirect("/datasets/other_metadata", code=302)
+
+@page.get("/datasets/hathi")
+@page.get("/datasets/hathi/")
+@allthethings.utils.public_cache(minutes=5, cloudflare_minutes=60*3)
+def datasets_hathi_page():
+    try:
+        stats_data = get_stats_data()
+        return render_template("page/datasets_hathi.html", header_active="home/datasets", stats_data=stats_data)
+    except Exception as e:
+        if 'timed out' in str(e):
+            return "Error with datasets page, please try again.", 503
+        raise
 
 # @page.get("/datasets/isbn_ranges")
 # @page.get("/datasets/isbn_ranges/")

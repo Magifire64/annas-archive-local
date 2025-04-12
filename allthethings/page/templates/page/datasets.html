@@ -209,6 +209,22 @@
       </td>
     </tr>
 
+    <!-- TODO:TRANSLATE -->
+    <tr class="even:bg-[#f2f2f2]">
+      <td class="p-2 align-top">
+        <a class="custom-a underline hover:opacity-60" href="/datasets/hathi">HathiTrust [hathi]</a>
+      </td>
+      <td class="p-2 align-top">
+        <div class="text-sm text-gray-500 whitespace-normal font-normal">(todo)</div>
+      </td>
+      <td class="p-2 align-top whitespace-nowrap">
+        <div class="text-sm text-gray-500 whitespace-normal font-normal">(todo)</div>
+      </td>
+      <td class="p-2 align-top whitespace-nowrap">
+        {{ stats_data.hathitrust_file_date }}
+      </td>
+    </tr>
+
     <tr class="even:bg-[#f2f2f2] font-bold">
       <td class="p-2 align-top">
         {{ gettext('page.datasets.overview.total') }}
@@ -492,6 +508,27 @@
         </div>
         <div class="my-2 first:mt-0 last:mb-0">
           ❌ No mirroring by Anna’s Archive or partner servers yet.
+        </div>
+      </td>
+    </tr>
+
+    <tr class="even:bg-[#f2f2f2]">
+      <td class="p-2 align-top">
+        <a class="custom-a underline hover:opacity-60" href="/datasets/hathi">
+          HathiTrust [hathi]
+        </a>
+      </td>
+      <td class="p-2 align-top">
+        <div class="my-2 first:mt-0 last:mb-0">
+          ✅ Daily <a href="https://www.hathitrust.org/member-libraries/resources-for-librarians/data-resources/hathifiles/">database dumps</a>.
+        </div>
+      </td>
+      <td class="p-2 align-top">
+        <div class="my-2 first:mt-0 last:mb-0">
+          👩‍💻 Anna’s Archive has the <a href="/torrents#hathitrust">ht_text_pd research dataset</a>, acquired March 2025. While this is a public-domain dataset, it’s still closely guarded.
+        </div>
+        <div class="my-2 first:mt-0 last:mb-0">
+          ❌ Most files are closely guarded. We will award a <a href="https://software.annas-archive.li/AnnaArchivist/annas-archive/-/issues/234">massive bounty</a> if you can get it.
         </div>
       </td>
     </tr>

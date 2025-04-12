@@ -1,0 +1,55 @@
+{% extends "layouts/index.html" %}
+{% import 'macros/shared_links.j2' as a %}
+
+{% block title %}{{ gettext('page.datasets.title') }} ▶ HathiTrust{% endblock %}
+
+{% block body %}
+  <div class="mb-4"><a href="/datasets">{{ gettext('page.datasets.title') }}</a> ▶ HathiTrust</div>
+
+  <div class="mb-4 p-2 overflow-hidden bg-black/5 break-words">
+    {{ gettext('page.datasets.common.intro', a_archival=(a.faqs_what | xmlattr), a_llm=(a.llm | xmlattr)) }}
+  </div>
+
+  <div class="mb-4 p-2 overflow-hidden bg-black/5 break-words">
+    <div class="text-xs mb-2">Overview from <a href="/datasets">datasets page</a>.</div>
+    <table class="w-full mx-[-8px]">
+      <tr class="even:bg-[#f2f2f2]">
+        <th class="p-2 align-bottom text-left">{{ gettext('page.datasets.sources.source.header') }}</th>
+        <th class="p-2 align-bottom text-left">{{ gettext('page.datasets.sources.metadata.header') }}</th>
+        <th class="p-2 align-bottom text-left">{{ gettext('page.datasets.sources.last_updated.header') }}</th>
+      </tr>
+
+      <tr class="even:bg-[#f2f2f2]">
+        <td class="p-2 align-top">
+          <a class="custom-a underline hover:opacity-60" href="/datasets/hathi">
+            HathiTrust [hathi]
+          </a>
+        </td>
+        <td class="p-2 align-top">
+          <div class="my-2 first:mt-0 last:mb-0">
+            ✅ Daily <a href="https://www.hathitrust.org/member-libraries/resources-for-librarians/data-resources/hathifiles/">database dumps</a>.
+          </div>
+        </td>
+        <td class="p-2 align-top">
+          <div class="my-2 first:mt-0 last:mb-0">
+            👩‍💻 Anna’s Archive has the <a href="/torrents#hathitrust">ht_text_pd research dataset</a>, acquired March 2025. While this is a public-domain dataset, it’s still closely guarded.
+          </div>
+          <div class="my-2 first:mt-0 last:mb-0">
+            ❌ Most files are closely guarded. We will award a <a href="https://software.annas-archive.li/AnnaArchivist/annas-archive/-/issues/234">massive bounty</a> if you can get it.
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <p class="font-bold">{{ gettext('page.datasets.common.resources') }}</p>
+  <ul class="list-inside mb-4 ml-1">
+    <li class="list-disc"><a href="/torrents#hathitrust">Torrents by Anna’s Archive</a></li>
+    <li class="list-disc"><a href="https://www.hathitrust.org/member-libraries/resources-for-librarians/data-resources/hathifiles/">Daily database dumps</a></li>
+    <li class="list-disc"><a href="https://www.hathitrust.org/member-libraries/resources-for-librarians/data-resources/research-datasets/#available-research-datasets">ht_text_pd research dataset</a></li>
+    <li class="list-disc"><a href="/db/aac_record/aacid__hathitrust_records__20230505T141431Z__WB2SiCfx5q4DJETuByMSd4.json.html">{{ gettext('page.datasets.common.aa_example_record') }}</a></li>
+    <li class="list-disc"><a href="/db/aac_record/aacid__hathitrust_files__20250227T120812Z__22GT7yrb3SpiFbNagtGGv8.json.html">{{ gettext('page.datasets.common.aa_example_record') }}</a></li>
+    <li class="list-disc"><a href="https://software.annas-archive.li/AnnaArchivist/annas-archive/-/tree/main/data-imports">{{ gettext('page.datasets.common.import_scripts') }}</a></li>
+    <li class="list-disc"><a href="/blog/annas-archive-containers.html">{{ gettext('page.datasets.common.aac') }}</a></li>
+  </ul>
+{% endblock %}
