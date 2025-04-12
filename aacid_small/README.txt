@@ -53,3 +53,6 @@ docker exec -it web bash -c 'for f in /app/aacid_small/*.jsonl; do echo "Process
 
 # DuXiu
 - Record in which "书名" ("title") in the INI data is the SSID: aacid__duxiu_records__20240305T000000Z__Moo2RJtqdVf6egw9ENaS98 / aacid__duxiu_records__20240205T000000Z__Wi3Bz3CWe79fq2wdPqL2Uh / aacid__duxiu_files__20240613T190635Z__cTFx8Lq38ktE9Saq6j58ZQ
+
+# HathiTrust
+- aacid__hathitrust_records__20230505T141431Z__WB2SiCfx5q4DJETuByMSd4 => pairtree filename "aeu/pairtree_root/ar/k+/=1/39/60/=t/3t/t5/cr/6j/ark+=13960=t3tt5cr6j/ark+=13960=t3tt5cr6j.zip" => aacid__hathitrust_files__20250227T120812Z__22GT7yrb3SpiFbNagtGGv8 (found using `select * from annas_archive_meta__aacid__hathitrust_files join annas_archive_meta__aacid__hathitrust_records using (pairtree_filename) limit 1;`)
