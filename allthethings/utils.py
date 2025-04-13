@@ -194,6 +194,8 @@ def path_for_aarecord_id(aarecord_id):
     return '/' + aarecord_id_split[0] + '/' + aarecord_id_split[1]
 
 def validate_year(year):
+    if year is None:
+        return False
     year_str = str(year)
     if year_str.isdigit():
         try: # There are some weird cases such as "58¹⁰"
@@ -1445,6 +1447,36 @@ LGRS_TO_UNIFIED_CLASSIFICATIONS_MAPPING = {
     'lbc': 'lbc',
     'lcc': 'lcc',
 }
+HATHITRUST_TO_UNIFIED_CLASSIFICATIONS_MAPPING = {
+    # "An access code that describes whether or not users can view the item. The access code is derived from the rights attribute. Permitted values include: allow - end users can view the item deny - end users cannot view the item Notes: Items with a copyright status of “public domain in the United States” (i.e., only users within the United States can view the item) have the value of “allow”. Items with a copyright status of “in-copyright in the United Status” (i.e., only users outside the United States can view the item) have the value of “allow”. Also see “Rights” and “Access Profile” data elements below."
+    'access': 'hathi_access',
+    # "A code (also referred to as “rights attribute”) that describes the copyright status, license or access. See the full list of codes: https://www.hathitrust.org/the-collection/preservation/rights-database/#attributes"
+    'rights': 'hathi_rights',
+    # "HathiTrust's record number for the associated bibliographic record. HathiTrust record numbers are not permanent and can change over time. URLs to HathiTrust catalog records can be constructed as follows: https://catalog.hathitrust.org/Record/record_number For example: https://catalog.hathitrust.org/Record/001285647"
+    'ht_bib_key': 'hathi_ht_bib_key',
+    # "Code identifying the source of the bibliographic record. Currently, the NUC code of the originating library is used for the code."
+    'source': 'hathi_source',
+    # "Local bibliographic record number used in the catalog of the library that contributed the item."
+    'source_bib_num': 'hathi_source_bib_num',
+    # "This code describes how the “Rights” code was set. See the full list of Reason Codes."
+    'rights_reason_code': 'hathi_rights_reason_code',
+    # "United States federal government document indicator. Permitted values include: 1- the item is a US federal government document 0 - the item is not a US federal government document"
+    'us_gov_doc_flag': 'hathi_us_gov_doc_flag',
+    # "The place of publication for the work. The codes included in this data element were originally provided in bytes 15-17 of the 008 MARC field. See the full list of country codes in the “MARC Code List for Countries.”"
+    'pub_place': 'hathi_pub_place',
+    # "Bibliographic format of the work. Definitions of format values can be found on the Library of Congress website Permitted values include: BK - monographic book SE - serial, continuing resources (e.g., journals, newspapers, periodicals) CF - computer files and electronic resources MP - maps, including atlases and sheet maps MU - music, including sheet music VM - visual material MX - mixed materials"
+    'bib_fmt': 'hathi_bib_fmt',
+    # "An administrative code used to share information between Zephir and HathiTrust repository.*"
+    'collection_code': 'hathi_collection_code',
+    # "The institution that originally contributed the content. Codes used are listed at https://www.hathitrust.org/institution_identifiers.*"
+    'content_provider_code': 'hathi_content_provider_code',
+    # "The institution that took responsibility for accessioning the content into HathiTrust, in cases where the content provider was not a member of HathiTrust. Codes used are listed at https://www.hathitrust.org/institution_identifiers.*"
+    'responsible_entity_code': 'hathi_responsible_entity_code',
+    # "The organization that digitized the content. Codes used are listed at https://www.hathitrust.org/rights_database#Sources.*"
+    'digitization_agent_code': 'hathi_digitization_agent_code',
+    # "Access profiles indicate whether an item has view or download restrictions. They work in combination with the rights codes (included in the hathifiles in data element “rights”) to determine user access. Permitted values include: open - Items with this value do not have any download restrictions. google - Items with this value have some download restrictions. Any user anywhere can download one page at a time. Member-affiliated users can download the full pdf. page - Items with this value can be viewed on the HathiTrust website. Users can download individual pages but cannot download the full pdf, regardless of member affiliation. page+lowres - Users can download the item in a lower resolution with a watermark only."
+    'access_profile_code': 'hathi_access_profile_code',
+}
 
 UNIFIED_IDENTIFIERS = {
     "md5": { "shortenvalue": True, "label": "MD5", "website": "https://en.wikipedia.org/wiki/MD5", "description": "" },
@@ -1490,7 +1522,7 @@ UNIFIED_IDENTIFIERS = {
     "libby": { "label": "Libby ID", "url": "", "description": "Libby ID.", "website": "/datasets/libby" },
     "rgb": { "label": "Russian State Library ID", "url": "", "description": "Russian State Library ID.", "website": "/datasets/rgb" },
     "trantor": { "label": "Trantor ID", "url": "", "description": "Trantor ID.", "website": "/datasets/trantor" },
-    "hathi": { "label": "HathiTrust ID", "url": "", "description": "HathiTrust ID, or 'htid' in their metadata files.", "website": "/datasets/hathitrust" },
+    "hathi": { "label": "HathiTrust ID", "url": "/hathi_meta/%s", "description": "HathiTrust ID, or 'htid' in their metadata files.", "website": "/datasets/hathitrust" },
     "czech_oo42hcks_filename": { "label": "Czech Metadata Filename", "url": "", "description": "Czech metadata canonical filename.", "website": "/datasets/czech_oo42hcks" },
     "oclc_library": { "label": "OCLC Library ID", "url": "https://worldcat.org/libraries/%s", "description": "OCLC/WorldCat partner library, from which they ingest metadata. Only added for records with less than 10 total holdings.", "website": "/datasets/oclc" },
     **{LGLI_IDENTIFIERS_MAPPING.get(key, key): value for key, value in LGLI_IDENTIFIERS.items()},
@@ -1546,6 +1578,20 @@ UNIFIED_CLASSIFICATIONS = {
     "oclc_holdings_editions": { "label": "OCLC Holdings+Editions", "url": "", "description": "Combined code for oclc_holdings and oclc_editions.", "website": "/datasets/oclc" },
     "zlib_category_id": { "label": "Zlib Category ID", "url": "https://z-lib.fm/category/%s", "description": "Category ID on the Z-Library website.", "website": "https://z-lib.gs/categories" },
     "zlib_category_name": { "label": "Zlib Category Name", "url": "", "description": "Name for the zlib_category_id (category ID on the Z-Library website).", "website": "https://z-lib.gs/categories" },
+    "hathi_access": { "label": "HathiTrust 'access'", "website": "/datasets/hathi", "description": "The 'access' field from the Hathifile." },
+    "hathi_rights": { "label": "HathiTrust 'rights'", "website": "/datasets/hathi", "description": "The 'rights' field from the Hathifile." },
+    "hathi_ht_bib_key": { "label": "HathiTrust 'ht_bib_key'", "website": "/datasets/hathi", "description": "The 'ht_bib_key' field from the Hathifile.", "url": "https://catalog.hathitrust.org/Record/%s" },
+    "hathi_source": { "label": "HathiTrust 'source'", "website": "/datasets/hathi", "description": "The 'source' field from the Hathifile." },
+    "hathi_source_bib_num": { "label": "HathiTrust 'source_bib_num'", "website": "/datasets/hathi", "description": "The 'source_bib_num' field from the Hathifile." },
+    "hathi_rights_reason_code": { "label": "HathiTrust 'rights_reason_code'", "website": "/datasets/hathi", "description": "The 'rights_reason_code' field from the Hathifile." },
+    "hathi_us_gov_doc_flag": { "label": "HathiTrust 'us_gov_doc_flag'", "website": "/datasets/hathi", "description": "The 'us_gov_doc_flag' field from the Hathifile." },
+    "hathi_pub_place": { "label": "HathiTrust 'pub_place'", "website": "/datasets/hathi", "description": "The 'pub_place' field from the Hathifile." },
+    "hathi_bib_fmt": { "label": "HathiTrust 'bib_fmt'", "website": "/datasets/hathi", "description": "The 'bib_fmt' field from the Hathifile." },
+    "hathi_collection_code": { "label": "HathiTrust 'collection_code'", "website": "/datasets/hathi", "description": "The 'collection_code' field from the Hathifile." },
+    "hathi_content_provider_code": { "label": "HathiTrust 'content_provider_code'", "website": "/datasets/hathi", "description": "The 'content_provider_code' field from the Hathifile." },
+    "hathi_responsible_entity_code": { "label": "HathiTrust 'responsible_entity_code'", "website": "/datasets/hathi", "description": "The 'responsible_entity_code' field from the Hathifile." },
+    "hathi_digitization_agent_code": { "label": "HathiTrust 'digitization_agent_code'", "website": "/datasets/hathi", "description": "The 'digitization_agent_code' field from the Hathifile." },
+    "hathi_access_profile_code": { "label": "HathiTrust 'access_profile_code'", "website": "/datasets/hathi", "description": "The 'access_profile_code' field from the Hathifile." },
     **{LGLI_CLASSIFICATIONS_MAPPING.get(key, key): value for key, value in LGLI_CLASSIFICATIONS.items()},
     # Plus more added below!
 }
@@ -1771,7 +1817,7 @@ def add_isbns_unified(output_dict, potential_isbns):
     isbns_invalid = set()
     isbn13s_invalid = set()
     for potential_isbn in potential_isbns:
-        potential_isbn = potential_isbn.replace('-','').replace(' ', '')
+        potential_isbn = potential_isbn.replace('-','').replace(' ', '').strip()
         if '·' in potential_isbn:
             csbns.add(potential_isbn)
         else:

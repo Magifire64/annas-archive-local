@@ -5792,7 +5792,7 @@ def get_aac_hathi_book_dicts(session, key, values):
             "requested_func": "get_aac_hathi_book_dicts",
             "requested_key": key,
             "requested_value": primary_id,
-            "canonical_record_url": f"/hathi/{primary_id}",
+            "canonical_record_url": f"/hathi_meta/{primary_id}",
             "debug_url": f"/db/source_record/get_aac_hathi_book_dicts/{key}/{primary_id}.json.html",
             "hathitrust_id": primary_id,
             "file_unified_data": allthethings.utils.make_file_unified_data(),
@@ -5803,6 +5803,46 @@ def get_aac_hathi_book_dicts(session, key, values):
 
         allthethings.utils.add_identifier_unified(aac_hathi_book_dict['file_unified_data'], 'aacid', aac_record['aacid'])
         allthethings.utils.add_identifier_unified(aac_hathi_book_dict['file_unified_data'], 'hathi', primary_id)
+
+        # "The title of the work. May include an author if provided in the MARC field 245 $c. Includes all subfields of the 245 MARC field."
+        if (title_stripped := aac_record['metadata']["title"].strip()) != '':
+            aac_hathi_book_dict['file_unified_data']['title_best'] = title_stripped
+        # "The name of the person, company or meeting that created the work. Author names are typically in authorized format, meaning that the name is provided in a standardized form used across multiple catalogs and databases. Includes the following fields from the MARC record: 100 $a $b $c $d - Name of the person who authored the work 110 $a $b $c $d - Name of a corporation or organization that authored the work 111 $a $c $d - Name of a meeting or conference that is responsible for creating the work"
+        if (author_stripped := aac_record['metadata']["author"].strip()) != '':
+            aac_hathi_book_dict['file_unified_data']['author_best'] = author_stripped
+        # "The name of the publisher and the date of publication. Includes subfieds b and c of the 260 MARC field."
+        if (imprint_stripped := aac_record['metadata']["imprint"].strip()) != '': # TODO: Also includes publication date.
+            aac_hathi_book_dict['file_unified_data']['publisher_best'] = imprint_stripped
+        # "Enumeration (e.g., “vol.1”) and chronology (e.g., “1883”, “Jun-Oct 1927”) data for this item."
+        if (description_stripped := aac_record['metadata']["description"].strip()) != '':
+            aac_hathi_book_dict['file_unified_data']['comments_multiple'] = [description_stripped]
+        # "ISBN(s) for the bibliographic record. Multiple values are separated by a comma."
+        allthethings.utils.add_isbns_unified(aac_hathi_book_dict['file_unified_data'], aac_record['metadata']["isbn"].split(','))
+        # "ISSN(s) for the bibliographic record. Multiple values are separated by a comma."
+        for issn in aac_record['metadata']["issn"].split(','):
+            allthethings.utils.add_issn_unified(aac_hathi_book_dict['file_unified_data'], issn)
+        # "LCCN(s) for the bibliographic record. Multiple values are separated by a comma."
+        for lccn in aac_record['metadata']["lccn"].split(','):
+            allthethings.utils.add_identifier_unified(aac_hathi_book_dict['file_unified_data'], 'lccn', lccn)
+        # "OCLC number(s) for the bibliographic record. Multiple values are separated by a comma."
+        for oclc_num in aac_record['metadata']["oclc_num"].split(','):
+            allthethings.utils.add_identifier_unified(aac_hathi_book_dict['file_unified_data'], 'oclc', oclc_num)
+
+        # "Derived publication date of the item. The date is derived from data provided in the 008 field of the MARC record and the enumeration/chronology data for the item. In cases where the date of the item could not be easily determined by HathiTrust processes, the date will be listed in the hathifiles as 9999."
+        potential_year = re.search(r"(\d\d\d\d)", aac_record['metadata']["rights_date_used"])
+        if allthethings.utils.validate_year(potential_year[0]):
+            aac_hathi_book_dict['file_unified_data']['year_best'] = potential_year[0]
+
+        aac_hathi_book_dict['file_unified_data']['edition_varia_best'] = ', '.join([s for s in dict.fromkeys(filter(len, [
+            allthethings.utils.marc_country_code_to_english(aac_record['metadata']['pub_place']),
+            aac_hathi_book_dict['file_unified_data']['year_best'],
+        ]))])
+
+        # "The primary language of the work. The codes included in this data element were originally provided in bytes 35-37 of the 008 MARC field. See the full list of language codes in the “MARC code list for Languages.”"
+        aac_hathi_book_dict['file_unified_data']['language_codes'] = combine_bcp47_lang_codes([get_bcp47_lang_codes(lang) for lang in aac_record['metadata']['lang'].split(',')])
+
+        for name, unified_name in allthethings.utils.HATHITRUST_TO_UNIFIED_CLASSIFICATIONS_MAPPING.items():
+            allthethings.utils.add_classification_unified(aac_hathi_book_dict['file_unified_data'], unified_name, aac_record['metadata'][name])
 
         aac_hathi_book_dicts.append(aac_hathi_book_dict)
     return aac_hathi_book_dicts
