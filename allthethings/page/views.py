@@ -1150,7 +1150,6 @@ def codes_page():
         b'filepath', 
         b'lgrsnf_topic', 
         b'link', 
-        b'openlib_source_record', 
         b'server_path', 
         b'zlib_category_name',
         b'torrent',
