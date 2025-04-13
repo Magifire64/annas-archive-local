@@ -2314,7 +2314,8 @@ def get_lgrsnf_book_dicts(session, key, values):
             allthethings.utils.add_identifier_unified(lgrs_book_dict['file_unified_data'], 'sha256', sha256)
         allthethings.utils.add_isbns_unified(lgrs_book_dict['file_unified_data'], lgrsnf_book['Identifier'].split(",") + lgrsnf_book['IdentifierWODash'].split(","))
         allthethings.utils.add_isbns_unified(lgrs_book_dict['file_unified_data'], allthethings.utils.get_isbnlike('\n'.join([lgrs_book_dict.get('descr') or '', lgrs_book_dict.get('locator') or '', lgrs_book_dict.get('toc') or ''])))
-        allthethings.utils.add_classification_unified(lgrs_book_dict['file_unified_data'], 'lgrsnf_topic', lgrs_book_dict.get('topic_descr') or '')
+        # Lowercase it, because it's not consistent in casing.
+        allthethings.utils.add_classification_unified(lgrs_book_dict['file_unified_data'], 'lgrsnf_topic', (lgrs_book_dict.get('topic_descr') or '').lower())
         for name, unified_name in allthethings.utils.LGRS_TO_UNIFIED_IDENTIFIERS_MAPPING.items():
             if name in lgrs_book_dict:
                 allthethings.utils.add_identifier_unified(lgrs_book_dict['file_unified_data'], unified_name, lgrs_book_dict[name])
