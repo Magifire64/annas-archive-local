@@ -5757,6 +5757,57 @@ def get_aac_trantor_book_dicts(session, key, values):
         aac_trantor_book_dicts.append(aac_trantor_book_dict)
     return aac_trantor_book_dicts
 
+def get_aac_hathi_book_dicts(session, key, values):
+    if len(values) == 0:
+        return []
+    try:
+        session.connection().connection.ping(reconnect=True)
+        cursor = session.connection().connection.cursor(pymysql.cursors.DictCursor)
+        if key == 'hathi_id':
+            cursor.execute('SELECT byte_offset, byte_length, primary_id FROM annas_archive_meta__aacid__hathitrust_records WHERE primary_id IN %(values)s GROUP BY primary_id', { "values": values })
+        else:
+            raise Exception(f"Unexpected 'key' in get_aac_hathi_book_dicts: '{key}'")
+    except Exception as err:
+        print(f"Error in get_aac_hathi_book_dicts when querying {key}; {values}")
+        print(repr(err))
+        traceback.print_tb(err.__traceback__)
+        return []
+
+    record_offsets_and_lengths = []
+    primary_ids = []
+    for row_index, row in enumerate(list(cursor.fetchall())):
+        record_offsets_and_lengths.append((row['byte_offset'], row['byte_length']))
+        primary_ids.append(row['primary_id'])
+    if len(record_offsets_and_lengths) == 0:
+        return []
+
+    aac_records_by_primary_id = {}
+    for index, line_bytes in enumerate(allthethings.utils.get_lines_from_aac_file(cursor, 'hathitrust_records', record_offsets_and_lengths)):
+        aac_record = orjson.loads(line_bytes)
+        aac_records_by_primary_id[primary_ids[index]] = aac_record
+
+    aac_hathi_book_dicts = []
+    for primary_id, aac_record in aac_records_by_primary_id.items():
+        aac_hathi_book_dict = {
+            "requested_func": "get_aac_hathi_book_dicts",
+            "requested_key": key,
+            "requested_value": primary_id,
+            "canonical_record_url": f"/hathi/{primary_id}",
+            "debug_url": f"/db/source_record/get_aac_hathi_book_dicts/{key}/{primary_id}.json.html",
+            "hathitrust_id": primary_id,
+            "file_unified_data": allthethings.utils.make_file_unified_data(),
+            "aac_record": aac_record,
+        }
+        rights_timestamp = datetime.datetime.strptime(aac_record["metadata"]["rights_timestamp"], "%Y-%m-%d %H:%M:%S")
+        aac_hathi_book_dict["file_unified_data"]["added_date_unified"]["date_hathi_source"] = rights_timestamp.isoformat().split('T', 1)[0]
+
+        allthethings.utils.add_identifier_unified(aac_hathi_book_dict['file_unified_data'], 'aacid', aac_record['aacid'])
+        allthethings.utils.add_identifier_unified(aac_hathi_book_dict['file_unified_data'], 'hathi', primary_id)
+
+        aac_hathi_book_dicts.append(aac_hathi_book_dict)
+    return aac_hathi_book_dicts
+
+
 # def get_embeddings_for_aarecords(session, aarecords):
 #     filtered_aarecord_ids = [aarecord['id'] for aarecord in aarecords if aarecord['id'].startswith('md5:')]
 #     if len(filtered_aarecord_ids) == 0:
@@ -8293,6 +8344,8 @@ def db_source_record_json(raw_path):
             result_dicts = get_aac_rgb_book_dicts(session, path_key, [path_id])
         elif path_func == 'get_aac_trantor_book_dicts':
             result_dicts = get_aac_trantor_book_dicts(session, path_key, [path_id])
+        elif path_func == 'get_aac_hathi_book_dicts':
+            result_dicts = get_aac_hathi_book_dicts(session, path_key, [path_id])
         else:
             return render_db_page(request, '{"error":"Unknown path"}', 404)
         if len(result_dicts) == 0:
