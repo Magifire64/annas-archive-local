@@ -131,6 +131,9 @@ DB_EXAMPLE_PAGES = [
     "/db/source_record/get_ol_book_dicts/ol_edition/OL27280121M.json",
     "/db/source_record/get_scihub_doi_dicts/doi/10.5822/978-1-61091-843-5_15.json",
     "/db/source_record/get_zlib_book_dicts/zlibrary_id/1837947.json",
+    "/db/source_record/get_aac_hathi_book_dicts/hathi_id/aeu.ark:/13960/t3tt5cr6j.json.html",
+    "/db/aac_record/aacid__hathitrust_records__20230505T141431Z__WB2SiCfx5q4DJETuByMSd4.json.html",
+    "/db/aac_record/aacid__hathitrust_files__20250227T120812Z__22GT7yrb3SpiFbNagtGGv8.json.html",
 ]
 
 def validate_canonical_md5s(canonical_md5s):
@@ -183,6 +186,7 @@ def split_aarecord_ids(aarecord_ids):
         'libby': [],
         'rgb': [],
         'trantor': [],
+        'hathi': [],
     }
     for aarecord_id in aarecord_ids:
         split_aarecord_id = aarecord_id.split(':', 1)
@@ -1522,7 +1526,7 @@ UNIFIED_IDENTIFIERS = {
     "libby": { "label": "Libby ID", "url": "", "description": "Libby ID.", "website": "/datasets/libby" },
     "rgb": { "label": "Russian State Library ID", "url": "", "description": "Russian State Library ID.", "website": "/datasets/rgb" },
     "trantor": { "label": "Trantor ID", "url": "", "description": "Trantor ID.", "website": "/datasets/trantor" },
-    "hathi": { "label": "HathiTrust ID", "url": "/hathi_meta/%s", "description": "HathiTrust ID, or 'htid' in their metadata files.", "website": "/datasets/hathitrust" },
+    "hathi": { "label": "HathiTrust ID", "url": "/hathi/%s", "description": "HathiTrust ID, or 'htid' in their metadata files.", "website": "/datasets/hathitrust" },
     "czech_oo42hcks_filename": { "label": "Czech Metadata Filename", "url": "", "description": "Czech metadata canonical filename.", "website": "/datasets/czech_oo42hcks" },
     "oclc_library": { "label": "OCLC Library ID", "url": "https://worldcat.org/libraries/%s", "description": "OCLC/WorldCat partner library, from which they ingest metadata. Only added for records with less than 10 total holdings.", "website": "/datasets/oclc" },
     **{LGLI_IDENTIFIERS_MAPPING.get(key, key): value for key, value in LGLI_IDENTIFIERS.items()},
@@ -1910,7 +1914,7 @@ SEARCH_INDEX_SHORT_LONG_MAPPING = {
     'meta': 'aarecords_metadata',
 }
 def get_aarecord_id_prefix_is_metadata(id_prefix):
-    return (id_prefix in ['isbndb', 'ol', 'oclc', 'duxiu_ssid', 'cadal_ssno', 'magzdb', 'nexusstc', 'edsebk', 'cerlalc', 'czech_oo42hcks', 'gbooks', 'goodreads', 'isbngrp', 'libby', 'rgb', 'trantor'])
+    return (id_prefix in ['isbndb', 'ol', 'oclc', 'duxiu_ssid', 'cadal_ssno', 'magzdb', 'nexusstc', 'edsebk', 'cerlalc', 'czech_oo42hcks', 'gbooks', 'goodreads', 'isbngrp', 'libby', 'rgb', 'trantor', 'hathi'])
 
 def get_aarecord_search_indexes_for_id_prefix(id_prefix):
     if get_aarecord_id_prefix_is_metadata(id_prefix):

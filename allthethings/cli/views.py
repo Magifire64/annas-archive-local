@@ -635,6 +635,8 @@ AARECORD_ID_PREFIX_TO_CODES_TABLE_NAME = {
     'libby': 'aarecords_codes_libby',
     'rgb': 'aarecords_codes_rgb',
     'trantor': 'aarecords_codes_trantor',
+
+    'hathi': 'aarecords_codes_hathi',
 }
 
 AARECORD_ID_PREFIX_TO_CODES_FOR_LOOKUP = {
@@ -851,6 +853,7 @@ def elastic_build_aarecords_all_internal():
     elastic_build_aarecords_libby_internal()
     elastic_build_aarecords_rgb_internal()
     elastic_build_aarecords_trantor_internal()
+    elastic_build_aarecords_hathitrust_internal()
     elastic_build_aarecords_magzdb_internal()
     elastic_build_aarecords_nexusstc_internal()
     elastic_build_aarecords_isbndb_internal()
@@ -1148,7 +1151,8 @@ def elastic_build_aarecords_nexusstc_internal():
 def elastic_build_aarecords_hathitrust():
     elastic_build_aarecords_hathitrust_internal()
 def elastic_build_aarecords_hathitrust_internal():
-    print("TODO: Implement elastic_build_aarecords_hathitrust_internal")
+    new_tables_internal('aarecords_codes_hathi') # WARNING! Update the upload excludes, and dump_mariadb_omit_tables.txt.
+    build_common('annas_archive_meta__aacid__hathitrust_records', lambda batch: [f"hathi:{row['primary_id']}" for row in batch])
 
 #################################################################################################
 # ./run flask cli elastic_build_aarecords_main

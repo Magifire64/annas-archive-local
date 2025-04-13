@@ -5792,9 +5792,9 @@ def get_aac_hathi_book_dicts(session, key, values):
             "requested_func": "get_aac_hathi_book_dicts",
             "requested_key": key,
             "requested_value": primary_id,
-            "canonical_record_url": f"/hathi_meta/{primary_id}",
+            "canonical_record_url": f"/hathi/{primary_id}",
             "debug_url": f"/db/source_record/get_aac_hathi_book_dicts/{key}/{primary_id}.json.html",
-            "hathitrust_id": primary_id,
+            "hathi_id": primary_id,
             "file_unified_data": allthethings.utils.make_file_unified_data(),
             "aac_record": aac_record,
         }
@@ -6132,6 +6132,8 @@ def aarecord_sources(aarecord):
         *(['libby']          if (aarecord_id_split[0] == 'libby'          and len(source_records_by_type['aac_libby'])          > 0) else []),
         *(['rgb']            if (aarecord_id_split[0] == 'rgb'            and len(source_records_by_type['aac_rgb'])            > 0) else []),
         *(['trantor']        if (aarecord_id_split[0] == 'trantor'        and len(source_records_by_type['aac_trantor'])        > 0) else []),
+
+        *(['hathi']          if (aarecord_id_split[0] == 'hathi'          and len(source_records_by_type['aac_hathi'])          > 0) else []),
     ]))
 
 # Dummy translation to keep this msgid around. TODO: fix see below.
@@ -6394,6 +6396,7 @@ def get_aarecords_internal_mysql(session, aarecord_ids, include_aarecord_mysql_d
     aac_libby_book_dicts = {('libby:' + item['libby_id']): item for item in get_aac_libby_book_dicts(session, 'libby_id', split_ids['libby'])}
     aac_rgb_book_dicts = {('rgb:' + item['rgb_id']): item for item in get_aac_rgb_book_dicts(session, 'rgb_id', split_ids['rgb'])}
     aac_trantor_book_dicts = {('trantor:' + item['trantor_id']): item for item in get_aac_trantor_book_dicts(session, 'trantor_id', split_ids['trantor'])}
+    aac_hathi_book_dicts = {('hathi:' + item['hathi_id']): item for item in get_aac_hathi_book_dicts(session, 'hathi_id', split_ids['hathi'])}
 
     # First pass, so we can fetch more dependencies.
     aarecords = []
@@ -6475,6 +6478,8 @@ def get_aarecords_internal_mysql(session, aarecord_ids, include_aarecord_mysql_d
             first_pass_source_records.append({'source_type': 'aac_rgb', 'source_record': source_record, 'source_why': 'aac_rgb_book_dicts'})
         if source_record := aac_trantor_book_dicts.get(aarecord_id):
             first_pass_source_records.append({'source_type': 'aac_trantor', 'source_record': source_record, 'source_why': 'aac_trantor_book_dicts'})
+        if source_record := aac_hathi_book_dicts.get(aarecord_id):
+            first_pass_source_records.append({'source_type': 'aac_hathi', 'source_record': source_record, 'source_why': 'aac_hathi_book_dicts'})
 
         aarecord['file_unified_data'] = allthethings.utils.make_file_unified_data()
         allthethings.utils.add_identifier_unified(aarecord['file_unified_data'], 'aarecord_id', aarecord_id)
@@ -6897,6 +6902,9 @@ def get_aarecords_internal_mysql(session, aarecord_ids, include_aarecord_mysql_d
         elif aarecord_id_split[0] == 'trantor':
             if 'date_trantor_meta_scrape' in aarecord['file_unified_data']['added_date_unified']:
                 aarecord['file_unified_data']['added_date_best'] = aarecord['file_unified_data']['added_date_unified']['date_trantor_meta_scrape']
+        elif aarecord_id_split[0] == 'hathi':
+            if 'date_hathi_source' in aarecord['file_unified_data']['added_date_unified']:
+                aarecord['file_unified_data']['added_date_best'] = aarecord['file_unified_data']['added_date_unified']['date_hathi_source']
         elif aarecord_id_split[0] in ['nexusstc', 'nexusstc_download']:
             if 'date_nexusstc_source_update' in aarecord['file_unified_data']['added_date_unified']:
                 aarecord['file_unified_data']['added_date_best'] = aarecord['file_unified_data']['added_date_unified']['date_nexusstc_source_update']
@@ -7239,6 +7247,16 @@ def get_aarecords_internal_mysql(session, aarecord_ids, include_aarecord_mysql_d
                         'trantor_id': source_record['source_record']['trantor_id'],
                     },
                 })
+            elif source_record['source_type'] == 'aac_hathi':
+                aarecord['source_records'].append({
+                    **source_record,
+                    'source_record': {
+                        "requested_func": source_record['source_record']['requested_func'],
+                        "requested_key": source_record['source_record']['requested_key'],
+                        "requested_value": source_record['source_record']['requested_value'],
+                        'hathi_id': source_record['source_record']['hathi_id'],
+                    },
+                })
             else:
                 raise Exception(f"Unknown {source_record['source_type']=}")
 
@@ -7427,6 +7445,7 @@ def get_record_sources_mapping(display_lang):
             "libby": gettext("common.record_sources_mapping.libby"),
             "rgb": gettext("common.record_sources_mapping.rgb"),
             "trantor": gettext("common.record_sources_mapping.trantor"),
+            "hathi": "HathiTrust", # TODO:TRANSLATE
         }
 
 def get_specific_search_fields_mapping(display_lang):
@@ -7892,6 +7911,7 @@ def get_additional_for_aarecord(aarecord):
             gettext('page.md5.top_row.libby', id=aarecord_id_split[1]).replace('}','') if aarecord_id_split[0] == 'libby' else '',
             gettext('page.md5.top_row.rgb', id=aarecord_id_split[1]).replace('}','') if aarecord_id_split[0] == 'rgb' else '',
             gettext('page.md5.top_row.trantor', id=aarecord_id_split[1]).replace('}','') if aarecord_id_split[0] == 'trantor' else '',
+            f"HathiTrust {aarecord_id_split[1]}" if aarecord_id_split[0] == 'hathi' else '', # TODO:TRANSLATE
         ]),
         'filename': aarecord['file_unified_data']['original_filename_best'],
         'original_filename_additional': aarecord['file_unified_data']['original_filename_additional'][0:5],
@@ -8081,6 +8101,12 @@ def rgb_page(rgb_id):
 @allthethings.utils.public_cache(minutes=5, cloudflare_minutes=60*3)
 def trantor_page(trantor_id):
     return render_aarecord(f"trantor:{trantor_id}")
+
+@page.get("/hathi/<path:hathi_id>")
+@page.get("/hathi/<path:hathi_id>/")
+@allthethings.utils.public_cache(minutes=5, cloudflare_minutes=60*3)
+def hathi_page(hathi_id):
+    return render_aarecord(f"hathi:{hathi_id}")
 
 
 VIEWER_SUPPORTED_EXTENSIONS = {

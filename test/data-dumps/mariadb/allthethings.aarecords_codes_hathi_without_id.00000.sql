@@ -1,0 +1,30 @@
+/*!40101 SET NAMES binary*/;
+/*!40014 SET FOREIGN_KEY_CHECKS=0*/;
+/*!40101 SET SQL_MODE='NO_AUTO_VALUE_ON_ZERO,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION'*/;
+/*!40103 SET TIME_ZONE='+00:00' */;
+INSERT INTO `aarecords_codes_hathi_without_id` VALUES("aacid:aacid__hathitrust_records__20230505T141431Z__WB2SiCfx5q4DJETuByMSd4","hathi:aeu.ark:/13960/t3tt5cr6j")
+,("aarecord_id:hathi:aeu.ark:/13960/t3tt5cr6j","hathi:aeu.ark:/13960/t3tt5cr6j")
+,("collection:hathi","hathi:aeu.ark:/13960/t3tt5cr6j")
+,("content_type:book_unknown","hathi:aeu.ark:/13960/t3tt5cr6j")
+,("date_hathi_source:2023-05-05","hathi:aeu.ark:/13960/t3tt5cr6j")
+,("hathi:aeu.ark:/13960/t3tt5cr6j","hathi:aeu.ark:/13960/t3tt5cr6j")
+,("hathi_access:allow","hathi:aeu.ark:/13960/t3tt5cr6j")
+,("hathi_access_profile_code:open","hathi:aeu.ark:/13960/t3tt5cr6j")
+,("hathi_bib_fmt:BK","hathi:aeu.ark:/13960/t3tt5cr6j")
+,("hathi_collection_code:AEU","hathi:aeu.ark:/13960/t3tt5cr6j")
+,("hathi_content_provider_code:ualberta","hathi:aeu.ark:/13960/t3tt5cr6j")
+,("hathi_digitization_agent_code:ia","hathi:aeu.ark:/13960/t3tt5cr6j")
+,("hathi_ht_bib_key:100266536","hathi:aeu.ark:/13960/t3tt5cr6j")
+,("hathi_pub_place:onc","hathi:aeu.ark:/13960/t3tt5cr6j")
+,("hathi_responsible_entity_code:ualberta","hathi:aeu.ark:/13960/t3tt5cr6j")
+,("hathi_rights:pd","hathi:aeu.ark:/13960/t3tt5cr6j")
+,("hathi_rights_reason_code:man","hathi:aeu.ark:/13960/t3tt5cr6j")
+,("hathi_source:AEU","hathi:aeu.ark:/13960/t3tt5cr6j")
+,("hathi_source_bib_num:4964734","hathi:aeu.ark:/13960/t3tt5cr6j")
+,("hathi_us_gov_doc_flag:0","hathi:aeu.ark:/13960/t3tt5cr6j")
+,("isbn10:0665358253","hathi:aeu.ark:/13960/t3tt5cr6j")
+,("isbn13:9780665358258","hathi:aeu.ark:/13960/t3tt5cr6j")
+,("lang:en","hathi:aeu.ark:/13960/t3tt5cr6j")
+,("oclc:719991592","hathi:aeu.ark:/13960/t3tt5cr6j")
+,("year:1898","hathi:aeu.ark:/13960/t3tt5cr6j")
+;
