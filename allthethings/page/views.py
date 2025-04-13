@@ -8802,8 +8802,9 @@ def search_page():
         search_query = { "match_all": {} }
         if custom_search_sorting == ['_score']:
             custom_search_sorting = [{ "search_only_fields.search_added_date": "desc" }, '_score']
-            post_filter.append({ "terms": { f"search_only_fields.search_content_type": ['book_nonfiction', 'book_fiction', 'book_unknown'] } })
-            post_filter.append({ "terms": { f"search_only_fields.search_access_types": ['aa_download'] } })
+            if search_index_short == '':
+                post_filter.append({ "terms": { f"search_only_fields.search_content_type": ['book_nonfiction', 'book_fiction', 'book_unknown'] } })
+                post_filter.append({ "terms": { f"search_only_fields.search_access_types": ['aa_download'] } })
     else:
         search_query = {
             "bool": {
