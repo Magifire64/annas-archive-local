@@ -529,6 +529,7 @@ def get_stats_data():
             'upload': {'count': 0, 'filesize': 0, 'aa_count': 0, 'torrent_count': 0},
             'magzdb': {'count': 0, 'filesize': 0, 'aa_count': 0, 'torrent_count': 0},
             'nexusstc': {'count': 0, 'filesize': 0, 'aa_count': 0, 'torrent_count': 0},
+            'hathi': {'count': 0, 'filesize': 0, 'aa_count': 0, 'torrent_count': 0},
         }
         for bucket in stats_data_es['responses'][2]['aggregations']['search_record_sources']['buckets']:
             stats_by_group[bucket['key']] = {
@@ -5764,7 +5765,9 @@ def get_aac_hathi_book_dicts(session, key, values):
         session.connection().connection.ping(reconnect=True)
         cursor = session.connection().connection.cursor(pymysql.cursors.DictCursor)
         if key == 'hathi_id':
-            cursor.execute('SELECT byte_offset, byte_length, primary_id FROM annas_archive_meta__aacid__hathitrust_records WHERE primary_id IN %(values)s GROUP BY primary_id', { "values": values })
+            cursor.execute('SELECT byte_offset, byte_length, primary_id AS requested_value FROM annas_archive_meta__aacid__hathitrust_records WHERE primary_id IN %(values)s GROUP BY primary_id', { "values": values })
+        elif key == 'md5':
+            cursor.execute('SELECT annas_archive_meta__aacid__hathitrust_records.byte_offset, annas_archive_meta__aacid__hathitrust_records.byte_length, annas_archive_meta__aacid__hathitrust_files.byte_offset AS byte_offset_file, annas_archive_meta__aacid__hathitrust_files.byte_length AS byte_length_file, annas_archive_meta__aacid__hathitrust_files.primary_id AS requested_value FROM annas_archive_meta__aacid__hathitrust_records JOIN annas_archive_meta__aacid__hathitrust_files USING (pairtree_filename) WHERE annas_archive_meta__aacid__hathitrust_files.primary_id IN %(values)s GROUP BY annas_archive_meta__aacid__hathitrust_files.primary_id', { "values": values })
         else:
             raise Exception(f"Unexpected 'key' in get_aac_hathi_book_dicts: '{key}'")
     except Exception as err:
@@ -5774,35 +5777,56 @@ def get_aac_hathi_book_dicts(session, key, values):
         return []
 
     record_offsets_and_lengths = []
-    primary_ids = []
+    file_offsets_and_lengths = []
+    requested_values = []
     for row_index, row in enumerate(list(cursor.fetchall())):
         record_offsets_and_lengths.append((row['byte_offset'], row['byte_length']))
-        primary_ids.append(row['primary_id'])
+        if key == 'md5':
+            file_offsets_and_lengths.append((row['byte_offset_file'], row['byte_length_file']))
+        requested_values.append(row['requested_value'])
     if len(record_offsets_and_lengths) == 0:
         return []
 
-    aac_records_by_primary_id = {}
+    aac_records_by_requested_value = {}
     for index, line_bytes in enumerate(allthethings.utils.get_lines_from_aac_file(cursor, 'hathitrust_records', record_offsets_and_lengths)):
         aac_record = orjson.loads(line_bytes)
-        aac_records_by_primary_id[primary_ids[index]] = aac_record
+        aac_records_by_requested_value[requested_values[index]] = aac_record
+
+    aac_files_by_requested_value = {}
+    if key == 'md5':
+        for index, line_bytes in enumerate(allthethings.utils.get_lines_from_aac_file(cursor, 'hathitrust_files', file_offsets_and_lengths)):
+            aac_file = orjson.loads(line_bytes)
+            aac_files_by_requested_value[requested_values[index]] = aac_file
 
     aac_hathi_book_dicts = []
-    for primary_id, aac_record in aac_records_by_primary_id.items():
+    for requested_value, aac_record in aac_records_by_requested_value.items():
+        aac_file = None
+        if key == 'md5':
+            aac_file = aac_files_by_requested_value[requested_value]
+
         aac_hathi_book_dict = {
             "requested_func": "get_aac_hathi_book_dicts",
             "requested_key": key,
-            "requested_value": primary_id,
-            "canonical_record_url": f"/hathi/{primary_id}",
-            "debug_url": f"/db/source_record/get_aac_hathi_book_dicts/{key}/{primary_id}.json.html",
-            "hathi_id": primary_id,
+            "requested_value": requested_value,
+            "canonical_record_url": f"/hathi/{aac_record['metadata']['htid']}",
+            "debug_url": f"/db/source_record/get_aac_hathi_book_dicts/{key}/{aac_record['metadata']['htid']}.json.html",
+            "hathi_id": aac_record['metadata']['htid'],
             "file_unified_data": allthethings.utils.make_file_unified_data(),
             "aac_record": aac_record,
+            "aac_file": aac_file,
         }
         rights_timestamp = datetime.datetime.strptime(aac_record["metadata"]["rights_timestamp"], "%Y-%m-%d %H:%M:%S")
         aac_hathi_book_dict["file_unified_data"]["added_date_unified"]["date_hathi_source"] = rights_timestamp.isoformat().split('T', 1)[0]
 
         allthethings.utils.add_identifier_unified(aac_hathi_book_dict['file_unified_data'], 'aacid', aac_record['aacid'])
-        allthethings.utils.add_identifier_unified(aac_hathi_book_dict['file_unified_data'], 'hathi', primary_id)
+        allthethings.utils.add_identifier_unified(aac_hathi_book_dict['file_unified_data'], 'hathi', aac_record['metadata']['htid'])
+
+        aac_hathi_book_dict['file_unified_data']['cover_url_best'] = f"https://babel.hathitrust.org/cgi/imgsrv/cover?id={aac_record['metadata']['htid']};width=250"
+
+        if key == 'md5':
+            aac_hathi_book_dict['file_unified_data']['original_filename_best'] = allthethings.utils.prefix_filepath('hathi', aac_file['metadata']['filepath'])
+            aac_hathi_book_dict['file_unified_data']['extension_best'] = 'zip'
+            aac_hathi_book_dict['file_unified_data']['filesize_best'] = aac_file['metadata']['filesize']
 
         # "The title of the work. May include an author if provided in the MARC field 245 $c. Includes all subfields of the 245 MARC field."
         if (title_stripped := aac_record['metadata']["title"].strip()) != '':
@@ -6093,10 +6117,11 @@ def aarecord_score_base(aarecord):
         # People can filter for them directly.
         score -= 70.0
     record_sources = aarecord_sources(aarecord)
-    if (record_sources == ['upload']) or (record_sources == ['zlibzh']) or (record_sources == ['nexusstc']):
+    if (record_sources == ['upload']) or (record_sources == ['zlibzh']) or (record_sources == ['nexusstc']) or (record_sources == ['hathi']):
         # Demote upload-only results below the demotion above, since there's some garbage in there.
         # Similarly demote zlibzh since we don't have direct download for them, and Zlib downloads are annoying because the require login.
         # And Nexus/STC-only results are often missing downloadable files.
+        # HathiTrust because these are some very old files, and therefore usually not what people are looking for. Also they're all inconvenient .zip files.
         score -= 100.0
     if aarecord['file_unified_data']['stripped_description_best'] != '':
         score += 3.0
@@ -6120,6 +6145,7 @@ def aarecord_sources(aarecord):
         *(['ol']        if (aarecord_id_split[0] == 'ol' and len(source_records_by_type['ol']) > 0) else []),
         *(['scihub']    if len(source_records_by_type['scihub_doi']) > 0 else []),
         *(['upload']    if len(source_records_by_type['aac_upload']) > 0 else []),
+        *(['hathi']     if len(source_records_by_type['aac_hathi']) > 0 else []),
         *(['zlib']      if (len(source_records_by_type['aac_zlib3_book']) > 0) and (any((source_record.get('storage') or '') != 'chinese' for source_record in source_records_by_type['aac_zlib3_book'])) else []),
         *(['zlib']      if len(source_records_by_type['zlib_book']) > 0 else []),
         *(['zlibzh']    if (len(source_records_by_type['aac_zlib3_book']) > 0) and (any((source_record.get('storage') or '') == 'chinese' for source_record in source_records_by_type['aac_zlib3_book'])) else []),
@@ -6132,8 +6158,6 @@ def aarecord_sources(aarecord):
         *(['libby']          if (aarecord_id_split[0] == 'libby'          and len(source_records_by_type['aac_libby'])          > 0) else []),
         *(['rgb']            if (aarecord_id_split[0] == 'rgb'            and len(source_records_by_type['aac_rgb'])            > 0) else []),
         *(['trantor']        if (aarecord_id_split[0] == 'trantor'        and len(source_records_by_type['aac_trantor'])        > 0) else []),
-
-        *(['hathi']          if (aarecord_id_split[0] == 'hathi'          and len(source_records_by_type['aac_hathi'])          > 0) else []),
     ]))
 
 # Dummy translation to keep this msgid around. TODO: fix see below.
@@ -6397,6 +6421,7 @@ def get_aarecords_internal_mysql(session, aarecord_ids, include_aarecord_mysql_d
     aac_rgb_book_dicts = {('rgb:' + item['rgb_id']): item for item in get_aac_rgb_book_dicts(session, 'rgb_id', split_ids['rgb'])}
     aac_trantor_book_dicts = {('trantor:' + item['trantor_id']): item for item in get_aac_trantor_book_dicts(session, 'trantor_id', split_ids['trantor'])}
     aac_hathi_book_dicts = {('hathi:' + item['hathi_id']): item for item in get_aac_hathi_book_dicts(session, 'hathi_id', split_ids['hathi'])}
+    aac_hathi_book_dicts2 = {('md5:' + item['requested_value']): item for item in get_aac_hathi_book_dicts(session, 'md5', split_ids['md5'])}
 
     # First pass, so we can fetch more dependencies.
     aarecords = []
@@ -6478,8 +6503,11 @@ def get_aarecords_internal_mysql(session, aarecord_ids, include_aarecord_mysql_d
             first_pass_source_records.append({'source_type': 'aac_rgb', 'source_record': source_record, 'source_why': 'aac_rgb_book_dicts'})
         if source_record := aac_trantor_book_dicts.get(aarecord_id):
             first_pass_source_records.append({'source_type': 'aac_trantor', 'source_record': source_record, 'source_why': 'aac_trantor_book_dicts'})
+
         if source_record := aac_hathi_book_dicts.get(aarecord_id):
             first_pass_source_records.append({'source_type': 'aac_hathi', 'source_record': source_record, 'source_why': 'aac_hathi_book_dicts'})
+        if source_record := aac_hathi_book_dicts2.get(aarecord_id):
+            first_pass_source_records.append({'source_type': 'aac_hathi', 'source_record': source_record, 'source_why': 'aac_hathi_book_dicts2'})
 
         aarecord['file_unified_data'] = allthethings.utils.make_file_unified_data()
         allthethings.utils.add_identifier_unified(aarecord['file_unified_data'], 'aarecord_id', aarecord_id)
@@ -6651,7 +6679,7 @@ def get_aarecords_internal_mysql(session, aarecord_ids, include_aarecord_mysql_d
         aarecord['file_unified_data']['original_filename_best'], _filename_additional, debug_by_id[aarecord_id]['original_filename_provenance'] = merge_file_unified_data_strings(source_records_presented_metadata_and_first_pass_by_type, [
             [('ol_book_dicts_primary_linked', 'original_filename_best')], 
             [('aac_upload', 'original_filename_best')], 
-            [(['lgrsnf_book','lgrsfic_book','lgli_file','aac_zlib3_book','ia_record','duxiu','aac_magzdb','aac_nexusstc'], 'original_filename_best')],
+            [(['lgrsnf_book','lgrsfic_book','lgli_file','aac_zlib3_book','ia_record','duxiu','aac_magzdb','aac_nexusstc','aac_hathi'], 'original_filename_best')],
             [(UNIFIED_DATA_MERGE_ALL, 'original_filename_best')], 
             [(UNIFIED_DATA_MERGE_ALL, 'original_filename_additional')],
         ])
@@ -6674,6 +6702,7 @@ def get_aarecords_internal_mysql(session, aarecord_ids, include_aarecord_mysql_d
             [('ol', 'cover_url_best')],
             [('isbndb', 'cover_url_best')],
             [('libby', 'cover_url_best')],
+            [('aac_hathi', 'cover_url_best')],
             [(UNIFIED_DATA_MERGE_ALL, 'cover_url_best')],
             [(UNIFIED_DATA_MERGE_ALL, 'cover_url_additional')],
         ])
@@ -6698,7 +6727,7 @@ def get_aarecords_internal_mysql(session, aarecord_ids, include_aarecord_mysql_d
 
         aarecord['file_unified_data']['title_best'], aarecord['file_unified_data']['title_additional'], debug_by_id[aarecord_id]['title_provenance'] = merge_file_unified_data_strings(source_records_presented_metadata_by_type, [
             [('ol_book_dicts_primary_linked', 'title_best')],
-            [(['lgrsnf_book','lgrsfic_book','lgli_file','aac_zlib3_book','aac_magzdb','aac_nexusstc'], 'title_best')],
+            [(['lgrsnf_book','lgrsfic_book','lgli_file','aac_zlib3_book','aac_magzdb','aac_nexusstc','aac_hathi'], 'title_best')],
             [(['duxiu', 'aac_edsebk'], 'title_best')],
             [(UNIFIED_DATA_MERGE_EXCEPT(['aac_upload', 'ia_record', 'aac_isbngrp']), 'title_best')],
             [(UNIFIED_DATA_MERGE_EXCEPT(['aac_upload', 'ia_record', 'aac_isbngrp']), 'title_additional')],
@@ -6707,7 +6736,7 @@ def get_aarecords_internal_mysql(session, aarecord_ids, include_aarecord_mysql_d
         ])
         aarecord['file_unified_data']['author_best'], aarecord['file_unified_data']['author_additional'], debug_by_id[aarecord_id]['author_provenance'] = merge_file_unified_data_strings(source_records_presented_metadata_by_type, [
             [('ol_book_dicts_primary_linked', 'author_best')],
-            [(['lgrsnf_book','lgrsfic_book','lgli_file','aac_zlib3_book','aac_magzdb','aac_nexusstc'], 'author_best')],
+            [(['lgrsnf_book','lgrsfic_book','lgli_file','aac_zlib3_book','aac_magzdb','aac_nexusstc','aac_hathi'], 'author_best')],
             [(['duxiu', 'aac_edsebk'], 'author_best')],
             [(UNIFIED_DATA_MERGE_EXCEPT(['aac_upload', 'ia_record', 'aac_isbngrp']), 'author_best')],
             [(UNIFIED_DATA_MERGE_EXCEPT(['aac_upload', 'ia_record', 'aac_isbngrp']), 'author_additional')],
@@ -6716,7 +6745,7 @@ def get_aarecords_internal_mysql(session, aarecord_ids, include_aarecord_mysql_d
         ])
         aarecord['file_unified_data']['publisher_best'], aarecord['file_unified_data']['publisher_additional'], debug_by_id[aarecord_id]['publisher_provenance'] = merge_file_unified_data_strings(source_records_presented_metadata_by_type, [
             [('ol_book_dicts_primary_linked', 'publisher_best')],
-            [(['lgrsnf_book','lgrsfic_book','lgli_file','aac_zlib3_book','aac_magzdb','aac_nexusstc'], 'publisher_best')],
+            [(['lgrsnf_book','lgrsfic_book','lgli_file','aac_zlib3_book','aac_magzdb','aac_nexusstc','aac_hathi'], 'publisher_best')],
             [(['duxiu', 'aac_edsebk'], 'publisher_best')],
             [(UNIFIED_DATA_MERGE_EXCEPT(['aac_upload', 'ia_record', 'aac_isbngrp']), 'publisher_best')],
             [(UNIFIED_DATA_MERGE_EXCEPT(['aac_upload', 'ia_record', 'aac_isbngrp']), 'publisher_additional')],
@@ -6725,7 +6754,7 @@ def get_aarecords_internal_mysql(session, aarecord_ids, include_aarecord_mysql_d
         ])
         aarecord['file_unified_data']['edition_varia_best'], aarecord['file_unified_data']['edition_varia_additional'], debug_by_id[aarecord_id]['edition_varia_provenance'] = merge_file_unified_data_strings(source_records_presented_metadata_by_type, [
             [('ol_book_dicts_primary_linked', 'edition_varia_best')],
-            [(['lgrsnf_book','lgrsfic_book','lgli_file','aac_zlib3_book','aac_magzdb','aac_nexusstc'], 'edition_varia_best')],
+            [(['lgrsnf_book','lgrsfic_book','lgli_file','aac_zlib3_book','aac_magzdb','aac_nexusstc','aac_hathi'], 'edition_varia_best')],
             [(['duxiu', 'aac_edsebk'], 'edition_varia_best')],
             [(UNIFIED_DATA_MERGE_EXCEPT(['aac_upload', 'ia_record', 'aac_isbngrp']), 'edition_varia_best')],
             [(UNIFIED_DATA_MERGE_EXCEPT(['aac_upload', 'ia_record', 'aac_isbngrp']), 'edition_varia_additional')],
@@ -6735,7 +6764,7 @@ def get_aarecords_internal_mysql(session, aarecord_ids, include_aarecord_mysql_d
 
         year_best, year_additional, _year_provenance = merge_file_unified_data_strings(source_records_presented_metadata_by_type, [
             [('ol_book_dicts_primary_linked', 'year_best')],
-            [(['lgrsnf_book','lgrsfic_book','lgli_file','aac_zlib3_book','aac_magzdb','aac_nexusstc'], 'year_best')],
+            [(['lgrsnf_book','lgrsfic_book','lgli_file','aac_zlib3_book','aac_magzdb','aac_nexusstc','aac_hathi'], 'year_best')],
             [(['duxiu', 'aac_edsebk'], 'year_best')],
             [(UNIFIED_DATA_MERGE_EXCEPT(['aac_upload', 'ia_record', 'aac_isbngrp']), 'year_best')],
             [(UNIFIED_DATA_MERGE_EXCEPT(['aac_upload', 'ia_record', 'aac_isbngrp']), 'year_additional')],
@@ -6764,7 +6793,7 @@ def get_aarecords_internal_mysql(session, aarecord_ids, include_aarecord_mysql_d
         # Make ia_record's description a very last resort here, since it's usually not very good.
         aarecord['file_unified_data']['stripped_description_best'], aarecord['file_unified_data']['stripped_description_additional'], debug_by_id[aarecord_id]['stripped_description_provenance'] = merge_file_unified_data_strings(source_records_presented_metadata_by_type, [
             [('ol_book_dicts_primary_linked', 'stripped_description_best')],
-            [(['lgrsnf_book','lgrsfic_book','lgli_file','aac_zlib3_book','aac_magzdb','aac_nexusstc'], 'stripped_description_best')],
+            [(['lgrsnf_book','lgrsfic_book','lgli_file','aac_zlib3_book','aac_magzdb','aac_nexusstc','aac_hathi'], 'stripped_description_best')],
             [(['duxiu', 'aac_edsebk'], 'stripped_description_best')],
             [(UNIFIED_DATA_MERGE_EXCEPT(['aac_upload', 'ia_record', 'aac_isbngrp']), 'stripped_description_best')],
             [(UNIFIED_DATA_MERGE_EXCEPT(['aac_upload', 'ia_record', 'aac_isbngrp']), 'stripped_description_additional')],
@@ -6929,6 +6958,7 @@ def get_aarecords_internal_mysql(session, aarecord_ids, include_aarecord_mysql_d
             [('ia_records_meta_only', 'content_type_best')],
             [('ol_book_dicts_primary_linked', 'content_type_best')],
             [('scihub_doi', 'content_type_best')],
+            # `aac_hathi`: we don't get `content_type_best`.
             [(UNIFIED_DATA_MERGE_EXCEPT(['oclc', 'aac_libby', 'aac_isbngrp']), 'content_type_best')],
             [(UNIFIED_DATA_MERGE_ALL, 'content_type_best')],
         ])
@@ -7255,6 +7285,10 @@ def get_aarecords_internal_mysql(session, aarecord_ids, include_aarecord_mysql_d
                         "requested_key": source_record['source_record']['requested_key'],
                         "requested_value": source_record['source_record']['requested_value'],
                         'hathi_id': source_record['source_record']['hathi_id'],
+                        "aac_file": {
+                            "aacid": source_record['source_record']['aac_file']['aacid'],
+                            "data_folder": source_record['source_record']['aac_file']['data_folder'],
+                        } if source_record['source_record']['aac_file'] else None,
                     },
                 })
             else:
@@ -7342,7 +7376,7 @@ def get_aarecords_internal_mysql(session, aarecord_ids, include_aarecord_mysql_d
             'search_description_comments': ('\n'.join([aarecord['file_unified_data']['stripped_description_best']] + (aarecord['file_unified_data']['comments_multiple'])))[:10000],
             'search_text': search_text,
             'search_access_types': [
-                *(['external_download'] if (not allthethings.utils.get_aarecord_id_prefix_is_metadata(aarecord_id_split[0])) and any([(len(source_records_first_pass_by_type[field]) > 0) for field in ['lgrsnf_book', 'lgrsfic_book', 'lgli_file', 'zlib_book', 'aac_zlib3_book', 'scihub_doi', 'aac_magzdb', 'aac_nexusstc']]) else []),
+                *(['external_download'] if (not allthethings.utils.get_aarecord_id_prefix_is_metadata(aarecord_id_split[0])) and any([(len(source_records_first_pass_by_type[field]) > 0) for field in ['lgrsnf_book', 'lgrsfic_book', 'lgli_file', 'zlib_book', 'aac_zlib3_book', 'scihub_doi', 'aac_magzdb', 'aac_nexusstc', 'aac_hathi']]) else []),
                 *(['external_borrow'] if ((not allthethings.utils.get_aarecord_id_prefix_is_metadata(aarecord_id_split[0])) and (len(source_records_first_pass_by_type['ia_record']) > 0) and (not any(source_record['aa_ia_derived']['printdisabled_only'] for source_record in source_records_first_pass_by_type['ia_record']))) else []),
                 *(['external_borrow_printdisabled'] if ((not allthethings.utils.get_aarecord_id_prefix_is_metadata(aarecord_id_split[0])) and (len(source_records_first_pass_by_type['ia_record']) > 0) and (any(source_record['aa_ia_derived']['printdisabled_only'] for source_record in source_records_first_pass_by_type['ia_record']))) else []),
                 *(['aa_download'] if (not allthethings.utils.get_aarecord_id_prefix_is_metadata(aarecord_id_split[0])) and aarecord['file_unified_data']['has_aa_downloads'] == 1 else []),
@@ -7643,6 +7677,19 @@ def get_additional_for_aarecord(aarecord):
             directory = f"{data_folder_split[2]}_{data_folder_split[3][0:8]}" # Different than make_temp_anon_aac_path!
             partner_path = f"g5/upload_files/{directory}/{aac_upload_file['data_folder']}/{aac_upload_file['aacid']}"
             add_partner_servers(partner_path, 'aa_exclusive', aarecord, additional)
+    for source_record in source_records_by_type['aac_hathi']:
+        hathi_id = source_record['hathi_id']
+        if aarecord_id_split[0] == 'hathi':
+            # TODO:TRANSLATE
+            additional['download_urls'].append(("Search Anna’s Archive for HathiTrust ID", f'/search?q="hathi:{hathi_id}"', ""))
+        # TODO:TRANSLATE
+        additional['download_urls'].append(("View on HathiTrust website", f'http://hdl.handle.net/2027/{hathi_id}', ""))
+        if source_record['aac_file']:
+            additional['torrent_paths'].append({ "collection": "hathitrust", "torrent_path": f"managed_by_aa/annas_archive_data__aacid/{source_record['aac_file']['data_folder']}.torrent", "file_level1": source_record['aac_file']['aacid'], "file_level2": "" })
+            data_folder_split = source_record['aac_file']['data_folder'].split('__')
+            directory = f"{data_folder_split[2]}_{data_folder_split[3][0:8]}" # Different than make_temp_anon_aac_path!
+            partner_path = f"g5/hathitrust_files/{directory}/{source_record['aac_file']['data_folder']}/{source_record['aac_file']['aacid']}"
+            add_partner_servers(partner_path, '', aarecord, additional)
     for source_record in source_records_by_type['lgrsnf_book']:
         lgrsnf_thousands_dir = (source_record['id'] // 1000) * 1000
         lgrsnf_filename = source_record['md5'].lower()
