@@ -1225,7 +1225,7 @@ def codes_page():
                 if len(new_prefixes_raw) == DIR_LIST_LIMIT-1:
                      # better ideas for fallback?
                     hit_max_dirs = True
-                if len(new_prefixes_raw) and new_prefixes_raw[0]["new_prefix"] == prefix_bytes:
+                if len(new_prefixes_raw) and new_prefixes_raw[0]["code"][32:] == prefix_bytes:
                     new_prefixes_raw = new_prefixes_raw[1:]
                 new_prefixes = [{
                                     "code": row["code"][32:],
@@ -1259,7 +1259,7 @@ def codes_page():
                 cursor.execute('SELECT code, row_number_order_by_code, dense_rank_order_by_code FROM aarecords_codes WHERE code LIKE %(like)s ORDER BY code, aarecord_id LIMIT 1', { "like": codes_prefix_matcher(new_prefix) })
                 first_record = cursor.fetchone()
 
-            if (disable_prefix_expansion or first_record["code"] == new_prefix) and i+1 < len(new_prefixes) and "row_number_order_by_code" in new_prefixes[i+1]:
+            if (disable_prefix_expansion or prefix_bytes == b'' or is_filepath and first_record["code"] == new_prefix) and i+1 < len(new_prefixes) and "row_number_order_by_code" in new_prefixes[i+1]:
                 last_record = {
                     "code": new_prefix,
                     "row_number_order_by_code": new_prefixes[i+1]["row_number_order_by_code"] - 1,
