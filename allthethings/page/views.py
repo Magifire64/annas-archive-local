@@ -5866,7 +5866,8 @@ def get_aac_hathi_book_dicts(session, key, values):
         aac_hathi_book_dict['file_unified_data']['language_codes'] = combine_bcp47_lang_codes([get_bcp47_lang_codes(lang) for lang in aac_record['metadata']['lang'].split(',')])
 
         for name, unified_name in allthethings.utils.HATHITRUST_TO_UNIFIED_CLASSIFICATIONS_MAPPING.items():
-            allthethings.utils.add_classification_unified(aac_hathi_book_dict['file_unified_data'], unified_name, aac_record['metadata'][name])
+            for value in aac_record['metadata'][name].split(','):
+                allthethings.utils.add_classification_unified(aac_hathi_book_dict['file_unified_data'], unified_name, value)
 
         aac_hathi_book_dicts.append(aac_hathi_book_dict)
     return aac_hathi_book_dicts
