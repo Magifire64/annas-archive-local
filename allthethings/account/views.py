@@ -455,7 +455,7 @@ def donation_page(donation_id):
                 'amazon_fr': 'https://www.amazon.fr/gp/product/B004MYH1YI',
                 'amazon_it': 'https://www.amazon.it/gp/product/B07SP4WQVJ',
                 'amazon_ca': 'https://www.amazon.ca/gp/product/B004M5HIQI',
-                'amazon_de': 'https://www.amazon.de/gp/product/B0B2Q4ZRDW',
+                'amazon_de': 'https://www.amazon.de/gp/product/B07Q1JNC7R',
                 'amazon_es': 'https://www.amazon.es/gp/product/BT00EWOU4C',
                 'amazon_au': 'https://www.amazon.com.au/gp/product/B07TDR2SLF',
             }[donation_json['method']]
