@@ -52,6 +52,11 @@
       {{ gettext('page.partner_download.url', a_download=((' href="' + url + '"') | safe)) }}
     </p>
 
+    <p class="mb-4 text-xs">
+      <!-- TODO:TRANSLATE -->
+      <a href="{{ url_short_filename }}">Download with short filename</a>
+    </p>
+
     <p class="mb-4 text-xs break-all">
       {% from 'macros/copy_button.html' import copy_button %}
       {{ url }} {{ copy_button(url) }}

@@ -290,8 +290,9 @@
           {% for label, url, extra in aarecord.additional.fast_partner_urls %}
             {% if label %}
               <!-- <li class="list-disc">{{ gettext('page.md5.box.download.option', num=loop.index, link=(("<a href='" + url + "'" + 'rel="noopener noreferrer nofollow" class="js-download-link">' + label + '</a>') | safe), extra=((((('<a class="text-xs" href="' | safe) + url + ('?no_redirect=1">' | safe) + gettext('page.md5.box.download.no_redirect') + ('</a> ') | safe) | safe) + (extra | safe)) | safe )) }}</li> -->
+              <!-- TODO:TRANSLATE "(short filename)" -->
               <li class="list-disc">{{ gettext('page.md5.box.download.option', num=loop.index, link=(("<a href='" + url + "'" + 'rel="noopener noreferrer nofollow" class="js-download-link">' + label + '</a>') | safe), extra=(((
-                ((('<a class="text-xs" href="' | safe) + url + ('?viewer=1">' | safe) + gettext('page.md5.box.download.open_in_viewer') + ('</a> ') | safe) if (aarecord.file_unified_data.extension_best | lower) in viewer_supported_extensions.values() | sum(start=[]) else '') + ('<a class="text-xs" href="' | safe) + url + ('?no_redirect=1">' | safe) + gettext('page.md5.box.download.no_redirect') + ('</a> ') | safe)) + (extra | safe)) | safe ) }}</li>
+                ((('<a class="text-xs" href="' | safe) + url + ('?viewer=1">' | safe) + gettext('page.md5.box.download.open_in_viewer') + ('</a> ') | safe) if (aarecord.file_unified_data.extension_best | lower) in viewer_supported_extensions.values() | sum(start=[]) else '') + ('<a class="text-xs" href="' | safe) + url + ('?no_redirect=1">' | safe) + gettext('page.md5.box.download.no_redirect') + ('</a> ' | safe) + ('<a class="text-xs" href="' | safe) + url + ('?short=1">' | safe) + '(short filename)' + ('</a> ') | safe)) + (extra | safe)) | safe ) }}</li>
               {% else %}
               <li class="list-disc">{{ extra | safe }}</li>
             {% endif %}

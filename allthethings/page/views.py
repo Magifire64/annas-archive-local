@@ -7597,6 +7597,7 @@ def get_additional_for_aarecord(aarecord):
     filename_base = f"{filename_slug}{filename_code} -- {aarecord['id'].split(':', 1)[1]}".replace('.', '_')
     additional['filename_without_annas_archive'] = urllib.parse.quote(f"{filename_base}.{filename_extension}", safe='')
     additional['filename'] = urllib.parse.quote(f"{filename_base} -- Anna’s Archive.{filename_extension}", safe='')
+    additional['filename_short'] = urllib.parse.quote(f"annas-arch-{aarecord['id'].split(':', 1)[1][0:12]}.{filename_extension}", safe='')
 
     additional['download_urls'] = []
     additional['fast_partner_urls'] = []
@@ -8538,6 +8539,7 @@ def md5_fast_download(md5_input, path_index, domain_index):
             except Exception:
                 return redirect(f"/md5/{md5_input}", code=302)
             url = 'https://' + domain + '/' + allthethings.utils.make_anon_download_uri(False, 20000, path_info['path'], aarecord['additional']['filename'], domain)
+            url_short_filename = 'https://' + domain + '/' + allthethings.utils.make_anon_download_uri(False, 20000, path_info['path'], aarecord['additional']['filename_short'], domain)
 
         if canonical_md5 not in account_fast_download_info['recently_downloaded_md5s']:
             if account_fast_download_info['downloads_left'] <= 0:
@@ -8552,13 +8554,17 @@ def md5_fast_download(md5_input, path_index, domain_index):
                 header_active="search",
                 aarecords=[aarecord],
                 url=url,
+                url_short_filename=url_short_filename,
                 canonical_md5=canonical_md5,
                 fast_partner=True,
             )
         elif request.args.get('viewer') == '1':
             return redirect(f"/view?url={urllib.parse.quote(url)}", code=302)
         else:
-            return redirect(url, code=302)
+            if request.args.get('short') == '1':
+                return redirect(url_short_filename, code=302)
+            else:
+                return redirect(url, code=302)
         
 def compute_download_speed(targeted_seconds, filesize, minimum, maximum):
     return min(maximum, max(minimum, int(filesize/1000/targeted_seconds)))
@@ -8668,6 +8674,7 @@ def md5_slow_download(md5_input, path_index, domain_index):
     speed = 10000 # doesn't do anything.
 
     url = 'https://' + domain + '/' + allthethings.utils.make_anon_download_uri(True, speed, path_info['path'], aarecord['additional']['filename'], domain)
+    url_short_filename = 'https://' + domain + '/' + allthethings.utils.make_anon_download_uri(True, speed, path_info['path'], aarecord['additional']['filename_short'], domain)
 
     data_md5 = bytes.fromhex(canonical_md5)
     with Session(mariapersist_engine) as mariapersist_session:
@@ -8683,6 +8690,7 @@ def md5_slow_download(md5_input, path_index, domain_index):
         aarecords=[aarecord],
         slow_server_index=slow_server_index,
         url=url,
+        url_short_filename=url_short_filename,
         warning=warning,
         canonical_md5=canonical_md5,
         daily_download_count_from_ip=daily_download_count_from_ip,
