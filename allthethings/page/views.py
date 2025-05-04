@@ -421,19 +421,20 @@ def get_stats_data():
         upload_file_date_raw = max(upload_file_dates_raw)
         upload_file_date = f"{upload_file_date_raw[0:4]}-{upload_file_date_raw[4:6]}-{upload_file_date_raw[6:8]}"
 
-        nexusstc_date = 'Unknown'
-        try:
-            cursor.execute('SELECT aacid FROM annas_archive_meta__aacid__nexusstc_records ORDER BY aacid DESC LIMIT 1')
-            nexusstc_aacid = cursor.fetchone()['aacid']
-            nexusstc_date_raw = nexusstc_aacid.split('__')[2][0:8]
-            nexusstc_date = f"{nexusstc_date_raw[0:4]}-{nexusstc_date_raw[4:6]}-{nexusstc_date_raw[6:8]}"
-        except Exception:
-            pass
+        cursor.execute('SELECT aacid FROM annas_archive_meta__aacid__nexusstc_records ORDER BY aacid DESC LIMIT 1')
+        nexusstc_aacid = cursor.fetchone()['aacid']
+        nexusstc_date_raw = nexusstc_aacid.split('__')[2][0:8]
+        nexusstc_date = f"{nexusstc_date_raw[0:4]}-{nexusstc_date_raw[4:6]}-{nexusstc_date_raw[6:8]}"
 
         cursor.execute('SELECT aacid FROM annas_archive_meta__aacid__hathitrust_files ORDER BY aacid DESC LIMIT 1')
         hathitrust_file_aacid = cursor.fetchone()['aacid']
         hathitrust_file_date_raw = hathitrust_file_aacid.split('__')[2][0:8]
         hathitrust_file_date = f"{hathitrust_file_date_raw[0:4]}-{hathitrust_file_date_raw[4:6]}-{hathitrust_file_date_raw[6:8]}"
+
+        cursor.execute('SELECT aacid FROM annas_archive_meta__aacid__gbooks_records ORDER BY aacid DESC LIMIT 1')
+        gbooks_record_aacid = cursor.fetchone()['aacid']
+        gbooks_record_date_raw = gbooks_record_aacid.split('__')[2][0:8]
+        gbooks_record_date = f"{gbooks_record_date_raw[0:4]}-{gbooks_record_date_raw[4:6]}-{gbooks_record_date_raw[6:8]}"
 
         stats_data_es = dict(es.msearch(
             request_timeout=30,
@@ -441,7 +442,7 @@ def get_stats_data():
             max_concurrent_shard_requests=10,
             searches=[
                 { "index": allthethings.utils.all_virtshards_for_index("aarecords") },
-                { "track_total_hits": True, "timeout": "20s", "size": 0, "aggs": { "total_filesize": { "sum": { "field": "search_only_fields.search_filesize" } } } },
+                { "track_total_hits": True, "timeout": "20s", "size": 0 },
                 { "index": allthethings.utils.all_virtshards_for_index("aarecords") },
                 {
                     "track_total_hits": True,
@@ -476,7 +477,7 @@ def get_stats_data():
             max_concurrent_shard_requests=10,
             searches=[
                 { "index": allthethings.utils.all_virtshards_for_index("aarecords_journals") },
-                { "track_total_hits": True, "timeout": "20s", "size": 0, "aggs": { "total_filesize": { "sum": { "field": "search_only_fields.search_filesize" } } } },
+                { "track_total_hits": True, "timeout": "20s", "size": 0 },
                 { "index": allthethings.utils.all_virtshards_for_index("aarecords_journals") },
                 {
                     "track_total_hits": True,
@@ -506,6 +507,8 @@ def get_stats_data():
                 },
                 { "index": allthethings.utils.all_virtshards_for_index("aarecords_digital_lending") },
                 { "track_total_hits": True, "timeout": "20s", "size": 0, "aggs": { "total_filesize": { "sum": { "field": "search_only_fields.search_filesize" } } } },
+                { "index": allthethings.utils.all_virtshards_for_index("aarecords_metadata") },
+                { "track_total_hits": True, "timeout": "20s", "size": 0, "query": { "term": { "search_only_fields.search_record_sources": "hathi" } } },
             ],
         ))
         responses_without_timed_out = [response for response in (stats_data_es['responses'] + stats_data_esaux['responses']) if 'timed_out' not in response]
@@ -546,18 +549,20 @@ def get_stats_data():
         }
         stats_by_group['total'] = {
             'count': stats_data_es['responses'][0]['hits']['total']['value']+stats_data_esaux['responses'][0]['hits']['total']['value'],
-            'filesize': stats_data_es['responses'][0]['aggregations']['total_filesize']['value']+stats_data_esaux['responses'][0]['aggregations']['total_filesize']['value'],
             'aa_count': (stats_data_es['responses'][1]['aggregations']['search_access_types']['buckets'][0]['doc_count'] if len(stats_data_es['responses'][1]['aggregations']['search_access_types']['buckets']) > 0 else 0)+(stats_data_esaux['responses'][1]['aggregations']['search_access_types']['buckets'][0]['doc_count'] if len(stats_data_esaux['responses'][1]['aggregations']['search_access_types']['buckets']) > 0 else 0),
             'torrent_count': (stats_data_es['responses'][1]['aggregations']['search_bulk_torrents']['buckets'][0]['doc_count'] if len(stats_data_es['responses'][1]['aggregations']['search_bulk_torrents']['buckets']) > 0 else 0)+(stats_data_esaux['responses'][1]['aggregations']['search_bulk_torrents']['buckets'][0]['doc_count'] if len(stats_data_esaux['responses'][1]['aggregations']['search_bulk_torrents']['buckets']) > 0 else 0),
         }
         stats_by_group['ia']['count'] += stats_data_esaux['responses'][4]['hits']['total']['value']
         stats_by_group['total']['count'] += stats_data_esaux['responses'][4]['hits']['total']['value']
         stats_by_group['ia']['filesize'] += stats_data_esaux['responses'][4]['aggregations']['total_filesize']['value']
-        stats_by_group['total']['filesize'] += stats_data_esaux['responses'][4]['aggregations']['total_filesize']['value']
+
         stats_by_group['total']['count'] -= stats_by_group['zlibzh']['count']
-        stats_by_group['total']['filesize'] -= stats_by_group['zlibzh']['filesize']
         stats_by_group['total']['aa_count'] -= stats_by_group['zlibzh']['aa_count']
         stats_by_group['total']['torrent_count'] -= stats_by_group['zlibzh']['torrent_count']
+
+        hathi_additional = stats_data_esaux['responses'][5]['hits']['total']['value'] - stats_by_group['hathi']['count']
+        stats_by_group['hathi']['count'] += hathi_additional
+        stats_by_group['total']['count'] += hathi_additional
 
     return {
         'stats_by_group': stats_by_group,
@@ -573,6 +578,7 @@ def get_stats_data():
         'magzdb_date': '2024-07-29',
         'nexusstc_date': nexusstc_date,
         'hathitrust_file_date': hathitrust_file_date,
+        'gbooks_record_date': gbooks_record_date,
     }
 
 def torrent_group_data_from_file_path(file_path):
@@ -602,7 +608,7 @@ def torrent_group_data_from_file_path(file_path):
     if 'ebscohost_records' in file_path:
         group = 'other_metadata'
     if 'gbooks_records' in file_path:
-        group = 'other_metadata'
+        group = 'gbooks'
     if 'rgb_records' in file_path:
         group = 'other_metadata'
     if 'trantor_records' in file_path:
@@ -965,11 +971,6 @@ def datasets_cerlalc_page():
 @allthethings.utils.public_cache(minutes=5, cloudflare_minutes=60*3)
 def datasets_czech_oo42hcks_page():
     return redirect("/datasets/other_metadata", code=302)
-@page.get("/datasets/gbooks")
-@page.get("/datasets/gbooks/")
-@allthethings.utils.public_cache(minutes=5, cloudflare_minutes=60*3)
-def datasets_gbooks_page():
-    return redirect("/datasets/other_metadata", code=302)
 @page.get("/datasets/goodreads")
 @page.get("/datasets/goodreads/")
 @allthethings.utils.public_cache(minutes=5, cloudflare_minutes=60*3)
@@ -1012,6 +1013,19 @@ def datasets_hathi_page():
         if 'timed out' in str(e):
             return "Error with datasets page, please try again.", 503
         raise
+
+@page.get("/datasets/gbooks")
+@page.get("/datasets/gbooks/")
+@allthethings.utils.public_cache(minutes=5, cloudflare_minutes=60*3)
+def datasets_gbooks_page():
+    try:
+        stats_data = get_stats_data()
+        return render_template("page/datasets_gbooks.html", header_active="home/datasets", stats_data=stats_data)
+    except Exception as e:
+        if 'timed out' in str(e):
+            return "Error with datasets page, please try again.", 503
+        raise
+
 
 # @page.get("/datasets/isbn_ranges")
 # @page.get("/datasets/isbn_ranges/")

@@ -215,10 +215,11 @@
         <a class="custom-a underline hover:opacity-60" href="/datasets/hathi">HathiTrust [hathi]</a>
       </td>
       <td class="p-2 align-top">
-        <div class="text-sm text-gray-500 whitespace-normal font-normal">(todo)</div>
+        {{ ngettext('page.datasets.file', 'page.datasets.files', stats_data.stats_by_group.hathi.count, count=(stats_data.stats_by_group.hathi.count|numberformat)) }}
       </td>
       <td class="p-2 align-top whitespace-nowrap">
-        <div class="text-sm text-gray-500 whitespace-normal font-normal">(todo)</div>
+        {{ (stats_data.stats_by_group.hathi.aa_count/(stats_data.stats_by_group.hathi.count+1)*100.0) | decimalformat }}% / {{ (stats_data.stats_by_group.hathi.torrent_count/(stats_data.stats_by_group.hathi.count+1)*100.0) | decimalformat }}% / {{ stats_data.stats_by_group.hathi.filesize | filesizeformat }}
+        <div class="text-sm text-gray-500 whitespace-normal font-normal">We will award a <a href="https://software.annas-archive.li/AnnaArchivist/annas-archive/-/issues/234">$100k bounty</a> if you can get the full collection.</div>
       </td>
       <td class="p-2 align-top whitespace-nowrap">
         {{ stats_data.hathitrust_file_date }}
@@ -231,8 +232,7 @@
         <div class="text-sm font-normal text-gray-500">{{ gettext('page.datasets.overview.excluding_duplicates') }}</div>
       </td>
       <td class="p-2 align-top">
-        {{ ngettext('page.datasets.file', 'page.datasets.files', stats_data.stats_by_group.total.count, count=(stats_data.stats_by_group.total.count|numberformat)) }}<br>
-        {{ stats_data.stats_by_group.total.filesize | filesizeformat }}
+        {{ ngettext('page.datasets.file', 'page.datasets.files', stats_data.stats_by_group.total.count, count=(stats_data.stats_by_group.total.count|numberformat)) }}
       </td>
       <td class="p-2 align-top whitespace-nowrap">
         {{ (stats_data.stats_by_group.total.aa_count/(stats_data.stats_by_group.total.count+1)*100.0) | decimalformat }}% / {{ (stats_data.stats_by_group.total.torrent_count/(stats_data.stats_by_group.total.count+1)*100.0) | decimalformat }}%
@@ -528,7 +528,7 @@
           👩‍💻 Anna’s Archive has the <a href="/torrents#hathitrust">ht_text_pd research dataset</a>, acquired March 2025. While this is a public-domain dataset, it’s still closely guarded.
         </div>
         <div class="my-2 first:mt-0 last:mb-0">
-          ❌ Most files are closely guarded. We will award a <a href="https://software.annas-archive.li/AnnaArchivist/annas-archive/-/issues/234">massive bounty</a> if you can get it.
+          ❌ Most files are closely guarded. We will award a <a href="https://software.annas-archive.li/AnnaArchivist/annas-archive/-/issues/234">$100k bounty</a> if you can get the full collection.
         </div>
       </td>
     </tr>
@@ -554,7 +554,7 @@
   <table class="mb-4 w-full">
     <tr class="even:bg-[#f2f2f2]">
       <th class="p-2 align-bottom text-left">{{ gettext('page.datasets.sources.source.header') }}</th>
-      <th class="p-2 align-bottom text-left">{{ gettext('page.datasets.sources.metadata.header') }}</th>
+      <th class="p-2 align-bottom text-left w-[65%]">{{ gettext('page.datasets.sources.metadata.header') }}</th>
       <th class="p-2 align-bottom text-left">{{ gettext('page.datasets.sources.last_updated.header') }}</th>
     </tr>
 
@@ -568,7 +568,7 @@
         <div class="my-2 first:mt-0 last:mb-0">
           {{ gettext('page.datasets.sources.openlib.metadata1', icon='✅',
               dbdumps=(dict(href="https://openlibrary.org/developers/dumps") | xmlattr),
-          ) }}
+          ) }}.
         </div>
       </td>
       <td class="p-2 align-top">{{ stats_data.openlib_date }}</td>
@@ -582,15 +582,35 @@
       </td>
       <td class="p-2 align-top">
         <div class="my-2 first:mt-0 last:mb-0">
-          {{ gettext('page.datasets.sources.worldcat.metadata1', icon='❌') }}
+          {{ gettext('page.datasets.sources.worldcat.metadata1', icon='❌') }}.
         </div>
         <div class="my-2 first:mt-0 last:mb-0">
           {{ gettext('page.datasets.sources.worldcat.metadata2', icon='👩‍💻',
               worldcat=(dict(href="/torrents#worldcat") | xmlattr),
-          ) }}
+          ) }}.
         </div>
       </td>
       <td class="p-2 align-top">{{ stats_data.oclc_date }}</td>
+    </tr>
+
+    <tr class="even:bg-[#f2f2f2]">
+      <td class="p-2 align-top">
+        <a class="custom-a underline hover:opacity-60" href="/datasets/gbooks">
+          Google Books [gbooks]
+        </a>
+      </td>
+      <td class="p-2 align-top">
+        <div class="my-2 first:mt-0 last:mb-0">
+          {{ gettext('page.datasets.sources.worldcat.metadata1', icon='❌') }}.
+        </div>
+        <div class="my-2 first:mt-0 last:mb-0">
+          👩‍💻 Anna’s Archive manages a collection of <a href="/torrents#gbooks">Google Books metadata</a>.
+        </div>
+        <div class="my-2 first:mt-0 last:mb-0">
+          ❌ Most files are closely guarded. We will award a <a href="https://software.annas-archive.li/AnnaArchivist/annas-archive/-/issues/234">$100k bounty</a> if you can get the full collection.
+        </div>
+      </td>
+      <td class="p-2 align-top">{{ stats_data.gbooks_record_date }}</td>
     </tr>
 
     <tr class="even:bg-[#f2f2f2]">

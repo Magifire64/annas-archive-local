@@ -14,9 +14,9 @@
     <div class="text-xs mb-2">Overview from <a href="/datasets">datasets page</a>.</div>
     <table class="w-full mx-[-8px]">
       <tr class="even:bg-[#f2f2f2]">
-        <th class="p-2 align-bottom text-left">{{ gettext('page.datasets.sources.source.header') }}</th>
-        <th class="p-2 align-bottom text-left">{{ gettext('page.datasets.sources.metadata.header') }}</th>
-        <th class="p-2 align-bottom text-left">{{ gettext('page.datasets.sources.last_updated.header') }}</th>
+        <th class="p-2 align-bottom text-left" width="20%">{{ gettext('page.datasets.sources.source.header') }}</th>
+        <th class="p-2 align-bottom text-left" width="40%">{{ gettext('page.datasets.sources.metadata.header') }}</th>
+        <th class="p-2 align-bottom text-left" width="40%">{{ gettext('page.datasets.sources.files.header') }}</th>
       </tr>
 
       <tr class="even:bg-[#f2f2f2]">
@@ -35,15 +35,34 @@
             👩‍💻 Anna’s Archive has the <a href="/torrents#hathitrust">ht_text_pd research dataset</a>, acquired March 2025. While this is a public-domain dataset, it’s still closely guarded.
           </div>
           <div class="my-2 first:mt-0 last:mb-0">
-            ❌ Most files are closely guarded. We will award a <a href="https://software.annas-archive.li/AnnaArchivist/annas-archive/-/issues/234">massive bounty</a> if you can get it.
+            ❌ Most files are closely guarded. We will award a <a href="https://software.annas-archive.li/AnnaArchivist/annas-archive/-/issues/234">$100k bounty</a> if you can get the full collection.
           </div>
         </td>
       </tr>
     </table>
   </div>
 
+  <p class="mb-4">
+    <a href="https://en.wikipedia.org/wiki/HathiTrust">HathiTrust</a> was started in 2008 when Google had started scanning books (which they then made available to the libraries), in order to share these scans between libraries. It is a substantial subset of the <a href="/datasets/gbooks">Google Books scans</a>, though it now also has some scans of its own.
+  </p>
+
+  <p class="mb-4">
+    Their metadata is public (and integrated into Anna’s Archive), showing that as of early 2025 they have about 18 million scans. This is a lot less than the more than 40 million scans that Google <a href="https://blog.google/products/search/15-years-google-books/">claimed</a> in 2019, but still a large number.
+  </p>
+
+  <p class="mb-4">
+    We managed to get the <a href="https://www.hathitrust.org/member-libraries/resources-for-librarians/data-resources/research-datasets/#available-research-datasets" rel="noopener noreferrer nofollow" target="_blank">“ht_text_pd” dataset</a> in March 2025. While this is a public-domain dataset, it’s still closely guarded.
+  </p>
+
+  <p class="mb-4">
+    We will award a <a href="https://software.annas-archive.li/AnnaArchivist/annas-archive/-/issues/234">$100k bounty</a> if you can get the full collection.
+  </p>
+
   <p class="font-bold">{{ gettext('page.datasets.common.resources') }}</p>
   <ul class="list-inside mb-4 ml-1">
+    <li class="list-disc">{{ gettext('page.datasets.common.total_files', count=(stats_data.stats_by_group.hathi.count | numberformat)) }}</li>
+    <li class="list-disc">{{ gettext('page.datasets.common.mirrored_file_count', count=(stats_data.stats_by_group.hathi.aa_count | numberformat), percent=((stats_data.stats_by_group.hathi.aa_count/(stats_data.stats_by_group.hathi.count+1)*100.0) | decimalformat)) }}</li>
+    <li class="list-disc">{{ gettext('page.datasets.common.last_updated', date=stats_data.hathitrust_file_date) }}</li>
     <li class="list-disc"><a href="/torrents#hathitrust">Torrents by Anna’s Archive</a></li>
     <li class="list-disc"><a href="https://www.hathitrust.org/member-libraries/resources-for-librarians/data-resources/hathifiles/">Daily database dumps</a></li>
     <li class="list-disc"><a href="https://www.hathitrust.org/member-libraries/resources-for-librarians/data-resources/research-datasets/#available-research-datasets">ht_text_pd research dataset</a></li>

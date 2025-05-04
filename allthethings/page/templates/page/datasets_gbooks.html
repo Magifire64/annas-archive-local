@@ -1,0 +1,61 @@
+{% extends "layouts/index.html" %}
+{% import 'macros/shared_links.j2' as a %}
+
+{% block title %}{{ gettext('page.datasets.title') }} ▶ Google Books{% endblock %}
+
+{% block body %}
+  <div class="mb-4"><a href="/datasets">{{ gettext('page.datasets.title') }}</a> ▶ Google Books</div>
+
+  <div class="mb-4 p-2 overflow-hidden bg-black/5 break-words">
+    {{ gettext('page.datasets.common.intro', a_archival=(a.faqs_what | xmlattr), a_llm=(a.llm | xmlattr)) }}
+  </div>
+
+  <div class="mb-4 p-2 overflow-hidden bg-black/5 break-words">
+    <div class="text-xs mb-2">Overview from <a href="/datasets">datasets page</a>.</div>
+    <table class="w-full mx-[-8px]">
+      <tr class="even:bg-[#f2f2f2]">
+        <th class="p-2 align-bottom text-left">{{ gettext('page.datasets.sources.source.header') }}</th>
+        <th class="p-2 align-bottom text-left w-[65%]">{{ gettext('page.datasets.sources.metadata.header') }}</th>
+        <th class="p-2 align-bottom text-left">{{ gettext('page.datasets.sources.last_updated.header') }}</th>
+      </tr>
+
+      <tr class="even:bg-[#f2f2f2]">
+        <td class="p-2 align-top">
+          <a class="custom-a underline hover:opacity-60" href="/datasets/gbooks">
+            Google Books [gbooks]
+          </a>
+        </td>
+        <td class="p-2 align-top">
+          <div class="my-2 first:mt-0 last:mb-0">
+            {{ gettext('page.datasets.sources.worldcat.metadata1', icon='❌') }}.
+          </div>
+          <div class="my-2 first:mt-0 last:mb-0">
+            👩‍💻 Anna’s Archive manages a collection of <a href="/torrents#gbooks">Google Books metadata</a>.
+          </div>
+          <div class="my-2 first:mt-0 last:mb-0">
+            ❌ Most files are closely guarded. We will award a <a href="https://software.annas-archive.li/AnnaArchivist/annas-archive/-/issues/234">$100k bounty</a> if you can get the full collection.
+          </div>
+        </td>
+        <td class="p-2 align-top">{{ stats_data.gbooks_record_date }}</td>
+      </tr>
+    </table>
+  </div>
+
+  <p class="mb-4">
+    Volunteer “j” has managed a large scrape of <a href="https://en.wikipedia.org/wiki/Google_Books">Google Books</a> metadata.
+  </p>
+
+  <p class="mb-4">
+    Metadata is good to have, but the real goal is to get their actual scans. In 2019 Google <a href="https://blog.google/products/search/15-years-google-books/">claimed</a> to have scanned 40 million books. Since the AI race heated up in late 2022, it is to be expected that Google has increased their rate of scanning. We will award a <a href="https://software.annas-archive.li/AnnaArchivist/annas-archive/-/issues/234">$100k bounty</a> if you can get the full collection.
+  </p>
+
+  <p class="font-bold">{{ gettext('page.datasets.common.resources') }}</p>
+  <ul class="list-inside mb-4 ml-1">
+    <li class="list-disc">{{ gettext('page.datasets.common.last_updated', date=stats_data.gbooks_record_date) }}</li>
+    <li class="list-disc"><a href="/torrents#gbooks">Torrents by Anna’s Archive</a></li>
+    <li class="list-disc"><a href="/gbooks/dNC07lyONssC">{{ gettext('page.datasets.common.aa_example_record') }}</a></li>
+    <li class="list-disc"><a href="/db/source_record/get_aac_gbooks_book_dicts/gbooks_id/dNC07lyONssC.json.html">{{ gettext('page.datasets.common.aa_example_record') }}</a></li>
+    <li class="list-disc"><a href="https://software.annas-archive.li/AnnaArchivist/annas-archive/-/tree/main/data-imports">{{ gettext('page.datasets.common.import_scripts') }}</a></li>
+    <li class="list-disc"><a href="/blog/annas-archive-containers.html">{{ gettext('page.datasets.common.aac') }}</a></li>
+  </ul>
+{% endblock %}
