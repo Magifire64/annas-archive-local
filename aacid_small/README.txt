@@ -56,3 +56,6 @@ docker exec -it web bash -c 'for f in /app/aacid_small/*.jsonl; do echo "Process
 
 # HathiTrust
 - aacid__hathitrust_records__20230505T141431Z__WB2SiCfx5q4DJETuByMSd4 => pairtree filename "aeu/pairtree_root/ar/k+/=1/39/60/=t/3t/t5/cr/6j/ark+=13960=t3tt5cr6j/ark+=13960=t3tt5cr6j.zip" => aacid__hathitrust_files__20250227T120812Z__22GT7yrb3SpiFbNagtGGv8 (found using `select * from annas_archive_meta__aacid__hathitrust_files join annas_archive_meta__aacid__hathitrust_records using (pairtree_filename) limit 1;`)
+
+# Gbooks
+- aacid__gbooks_records__20240920T051416Z__2XsfjxupUHySFGV4uAj6Hi => just because it has `industryIdentifiers` with "OTHER".

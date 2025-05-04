@@ -2,6 +2,7 @@
 /*!40014 SET FOREIGN_KEY_CHECKS=0*/;
 /*!40101 SET SQL_MODE='NO_AUTO_VALUE_ON_ZERO,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION'*/;
 /*!40103 SET TIME_ZONE='+00:00' */;
-INSERT INTO `annas_archive_meta__aacid__gbooks_records` VALUES("aacid__gbooks_records__20240920T051416Z__GETzR5Zximcxw4kAvBisvM","dNC07lyONssC",NULL,0,447)
+INSERT INTO `annas_archive_meta__aacid__gbooks_records` VALUES("aacid__gbooks_records__20240920T051416Z__2XsfjxupUHySFGV4uAj6Hi","2l0hAAAAMAAJ",NULL,774,493)
+,("aacid__gbooks_records__20240920T051416Z__GETzR5Zximcxw4kAvBisvM","dNC07lyONssC",NULL,0,447)
 ,("aacid__gbooks_records__20240920T051416Z__hZWWDbYMq2FEpiTDTfeLVo","-1d6loyUjA8C",NULL,447,327)
 ;

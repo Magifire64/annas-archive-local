@@ -1529,6 +1529,7 @@ UNIFIED_IDENTIFIERS = {
     "hathi": { "label": "HathiTrust ID", "url": "/hathi/%s", "description": "HathiTrust ID, or 'htid' in their metadata files.", "website": "/datasets/hathitrust" },
     "czech_oo42hcks_filename": { "label": "Czech Metadata Filename", "url": "", "description": "Czech metadata canonical filename.", "website": "/datasets/czech_oo42hcks" },
     "oclc_library": { "label": "OCLC Library ID", "url": "https://worldcat.org/libraries/%s", "description": "OCLC/WorldCat partner library, from which they ingest metadata. Only added for records with less than 10 total holdings.", "website": "/datasets/oclc" },
+    "gbooks_other": { "label": "Google Books 'OTHER' ID", "description": "Google Books 'industryIdentifiers' field with 'OTHER' type.", "website": "/datasets/gbooks" },
     **{LGLI_IDENTIFIERS_MAPPING.get(key, key): value for key, value in LGLI_IDENTIFIERS.items()},
     # Plus more added below!
 }
