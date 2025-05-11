@@ -1086,7 +1086,7 @@ def account_buy_membership():
                 "mchId": 20000007,
                 "mchOrderId": donation_id,
                 "payerName": "Anna",
-                "productId": 8038 if method in ['payment3a', 'payment3a_cc'] else 8071,
+                "productId": 8038 if method in ['payment3a', 'payment3a_cc'] else 8055,
                 "remark": "",
                 "time": int(time.time()),
             }
