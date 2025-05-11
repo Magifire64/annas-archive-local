@@ -417,8 +417,9 @@
             <div class="sm:hidden text-sm">{{ g.header_tagline_short | safe }} <a class="text-xs" href="/faq">{{ gettext('layout.index.header.learn_more') }}</a></div>
           </div>
 
-          <div class="hidden sm:flex text-xs mb-1" aria-hidden="true">
-            <div class="font-bold shrink-0">{{ gettext('layout.index.header.recent_downloads') }}&nbsp;&nbsp;</div>
+          <div class="hidden sm:flex text-xs mb-1 js-recent-downloads-container" aria-hidden="true">
+            <!-- TODO:TRANSLATE ("Hide") -->
+            <div class="font-bold shrink-0"><a href="#" title="Hide" class="js-recent-downloads-hide">✕</a> {{ gettext('layout.index.header.recent_downloads') }}&nbsp;&nbsp;</div>
             <div class="w-full overflow-hidden flex js-recent-downloads-scroll">
               <!-- Make sure tailwind picks up these classes -->
               <div class="shrink-0 min-w-full"></div>
@@ -426,6 +427,20 @@
             </div>
             <script>
               (function() {
+                if (!localStorage || localStorage.hideRecentDownloads) {
+                  const removeEl = document.querySelector('.js-recent-downloads-container');
+                  removeEl.parentNode.removeChild(removeEl);
+                  return;
+                }
+
+                document.querySelector('.js-recent-downloads-hide').addEventListener('click', function(clickEl) {
+                  if (localStorage) {
+                    localStorage.hideRecentDownloads = true;
+                  }
+                  const removeEl = document.querySelector('.js-recent-downloads-container');
+                  removeEl.parentNode.removeChild(removeEl);
+                });
+
                 function showRecentDownloads(items) {
                   // Biased towards initial positions, but whatever.
                   const shuffledItems = [...items].sort(() => Math.random() - 0.5).slice(0, 8);
