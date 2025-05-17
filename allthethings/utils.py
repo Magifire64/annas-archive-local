@@ -35,7 +35,7 @@ from config.settings import SECRET_KEY, DOWNLOADS_SECRET_KEY, MEMBERS_TELEGRAM_U
 
 FEATURE_FLAGS = {}
 
-FAST_DOWNLOAD_DOMAINS = [x for x in [FAST_PARTNER_SERVER1, 'b4mcx2ml.net', 'wbsg8v.xyz', 'momot.rs', 'nrzr.li', 'asuycdg5.org'] if x is not None]
+FAST_DOWNLOAD_DOMAINS = [x for x in [FAST_PARTNER_SERVER1, 'b4mcx2ml.net', 'wbsg8v.xyz', 'momot.rs', 'nrzr.li'] if x is not None]
 SLOW_DOWNLOAD_DOMAINS_SLIGHTLY_FASTER = [True, True, False] # KEEP SAME LENGTH
 def download_variant(data_ip):
     return ((datetime.datetime.now(tz=datetime.timezone.utc).minute // 10) + int.from_bytes(data_ip, byteorder='big', signed=False)) % 2
@@ -43,12 +43,12 @@ def get_slow_download_domains(data_ip, domain_index):
     if download_variant(data_ip) == 0:
         return ['momot.rs', 'wbsg8v.xyz', 'nrzr.li'][domain_index] # KEEP SAME LENGTH
     else:
-        return ['momot.rs', 'wbsg8v.xyz', 'asuycdg5.org'][domain_index] # KEEP SAME LENGTH
+        return ['momot.rs', 'wbsg8v.xyz', 'nrzr.li'][domain_index] # KEEP SAME LENGTH
 def get_slowest_download_domains(data_ip, domain_index):
     if download_variant(data_ip) == 0:
         return ['nrzr.li', 'nrzr.li', 'nrzr.li'][domain_index] # KEEP SAME LENGTH
     else:
-        return ['asuycdg5.org', 'asuycdg5.org', 'asuycdg5.org'][domain_index] # KEEP SAME LENGTH
+        return ['nrzr.li', 'nrzr.li', 'nrzr.li'][domain_index] # KEEP SAME LENGTH
 SCIDB_SLOW_DOWNLOAD_DOMAINS = ['wbsg8v.xyz']
 SCIDB_FAST_DOWNLOAD_DOMAINS = [FAST_PARTNER_SERVER1 if FAST_PARTNER_SERVER1 is not None else 'momot.rs']
 
