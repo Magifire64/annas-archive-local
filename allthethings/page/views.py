@@ -7495,7 +7495,7 @@ def get_record_sources_mapping(display_lang):
             "libby": gettext("common.record_sources_mapping.libby"),
             "rgb": gettext("common.record_sources_mapping.rgb"),
             "trantor": gettext("common.record_sources_mapping.trantor"),
-            "hathi": "HathiTrust", # TODO:TRANSLATE
+            "hathi": gettext("common.record_sources_mapping.hathi"),
         }
 
 def get_specific_search_fields_mapping(display_lang):
@@ -7975,7 +7975,7 @@ def get_additional_for_aarecord(aarecord):
             gettext('page.md5.top_row.libby', id=aarecord_id_split[1]).replace('}','') if aarecord_id_split[0] == 'libby' else '',
             gettext('page.md5.top_row.rgb', id=aarecord_id_split[1]).replace('}','') if aarecord_id_split[0] == 'rgb' else '',
             gettext('page.md5.top_row.trantor', id=aarecord_id_split[1]).replace('}','') if aarecord_id_split[0] == 'trantor' else '',
-            f"HathiTrust {aarecord_id_split[1]}" if aarecord_id_split[0] == 'hathi' else '', # TODO:TRANSLATE
+            gettext('page.md5.top_row.hathi', id=aarecord_id_split[1]).replace('}','') if aarecord_id_split[0] == 'hathi' else '',
         ]),
         'filename': aarecord['file_unified_data']['original_filename_best'],
         'original_filename_additional': aarecord['file_unified_data']['original_filename_additional'][0:5],
