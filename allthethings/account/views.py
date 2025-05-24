@@ -450,7 +450,7 @@ def donation_page(donation_id):
                 'amazon_au': '.com.au',
             }[donation_json['method']]
             donation_amazon_form = {
-                'amazon': 'https://www.amazon.com/gp/product/B0BRSDM1XK',
+                'amazon': 'https://www.amazon.com/gp/product/B07PCMWTSG',
                 'amazon_co_uk': 'https://www.amazon.co.uk/gp/product/B07S6C1DZ6',
                 'amazon_fr': 'https://www.amazon.fr/gp/product/B004MYH1YI',
                 'amazon_it': 'https://www.amazon.it/gp/product/B07SP4WQVJ',

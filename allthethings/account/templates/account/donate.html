@@ -29,7 +29,7 @@
     <!-- <div class="mb-4 p-4 overflow-hidden bg-yellow-200 break-words rounded">
       {% from 'macros/profile_link.html' import profile_link %}
       🤩
-      {{ gettext('page.donate.bonus_downloads.main', percentage=50, profile_link=profile_link(ref_account_dict)) }}
+      {{ gettext('page.donate.bonus_downloads.main', percentage=30, profile_link=profile_link(ref_account_dict)) }}
       {{ gettext('page.donate.bonus_downloads.period') }}
     </div> -->
   {% endif %}
@@ -52,7 +52,7 @@
   {% macro membership_tier(level, size_classes) %}
     <div class="{{ size_classes }} w-[calc(50%-6px)] px-2 py-4 bg-white border border-gray-200 aria-selected:border-[#09008e] rounded-lg shadow mb-3 js-membership-tier js-membership-tier-{{ level }}" aria-selected="false">
       <div class="whitespace-nowrap text-center mb-2">{{ membership_tier_names[level] | replace(' ', '<br>') | safe }}</div>
-      <div class="text-center font-bold text-xl mb-2">{{ gettext('page.donate.membership_per_month', cost=('%0.2f'| format(MEMBERSHIP_TIER_COSTS[level] * (1-(MEMBERSHIP_DURATION_DISCOUNTS['96']+10)/100)) | string | replace('.00', '')) + "-$" + (MEMBERSHIP_TIER_COSTS[level] | string)) }}</div>
+      <div class="text-center font-bold text-xl mb-2">{{ gettext('page.donate.membership_per_month', cost=('%0.2f'| format(MEMBERSHIP_TIER_COSTS[level] * (1-(MEMBERSHIP_DURATION_DISCOUNTS['96']+30)/100)) | string | replace('.00', '')) + "-$" + (MEMBERSHIP_TIER_COSTS[level] | string)) }}</div>
       <button onclick="window.membershipTierToggle('{{level}}')" class="text-center mb-1 block bg-[#0195ff] hover:bg-blue-600 [[aria-selected=true]_&]:bg-[#09008e] px-2 py-1 rounded-md text-white w-full">
         <span class="[[aria-selected=true]_&]:hidden">{{ gettext('page.donate.buttons.join') }}</span>
         <span class="[[aria-selected=false]_&]:hidden"><span class="icon-[ion--checkmark-circle-sharp] text-lg align-text-bottom"></span> {{ gettext('page.donate.buttons.selected') }}</span>
@@ -70,7 +70,7 @@
         <li class="relative mb-1">{{ checkmark_icon | safe }} 🚀 {{ fast_downloads(MEMBERSHIP_DOWNLOADS_PER_DAY['2'], 2.0) | safe }}</li>
         <li class="relative mb-1">{{ checkmark_icon | safe }} 🧬&nbsp;{{ gettext('page.donate.perks.scidb') }}</li>
         <li class="relative mb-1">{{ checkmark_icon | safe }} 👩‍💻 {{ gettext('page.donate.perks.jsonapi', a_api=(a.faqs_api | xmlattr)) }}</li>
-        <!-- <li class="relative mb-1">{{ checkmark_icon | safe }} 💁‍♀️ {{ gettext('page.donate.perks.refer', percentage=50, a_refer=(a.refer | xmlattr)) }}</li> -->
+        <!-- <li class="relative mb-1">{{ checkmark_icon | safe }} 💁‍♀️ {{ gettext('page.donate.perks.refer', percentage=30, a_refer=(a.refer | xmlattr)) }}</li> -->
         <!-- <li class="relative mb-1">{{ checkmark_icon | safe }} {{ gettext('page.donate.perks.credits') }}</li> -->
       {% endcall %}
 
@@ -153,22 +153,23 @@
         <!-- {{ donate_button('payment1c_alipay_cc', gettext('page.donate.payment.buttons.bank_card_app'), discount_percent=0, large=True) }} -->
         {{ donate_button('payment1d_alipay_cc', gettext('page.donate.payment.buttons.bank_card_app'), discount_percent=0, large=True) }}
         <!-- {{ donate_button('payment3a_cc', gettext('page.donate.payment.buttons.bank_card_app'), discount_percent=0, large=True) }} -->
-        {{ donate_button('payment2', gettext('page.donate.payment.buttons.crypto', bitcoin_icon=''), discount_percent=10, large=True) }}
 
-        <!-- {{ donate_button('cc', gettext('page.donate.payment.buttons.credit_debit', bitcoin_icon=''), discount_percent=10) }} -->
-        <!-- {{ donate_button('paypal', gettext('page.donate.payment.buttons.paypal', bitcoin_icon=''), discount_percent=10) }} -->
-        <!-- {{ donate_button('paypalreg', gettext('page.donate.payment.buttons.paypalreg', bitcoin_icon=''), discount_percent=10) }} -->
-        <!-- {{ donate_button('givebutter', gettext('page.donate.payment.buttons.givebutter'), discount_percent=10) }} -->
+        {{ donate_button('payment2', gettext('page.donate.payment.buttons.crypto', bitcoin_icon=''), discount_percent=30, large=True) }}
+        {{ donate_button('payment2cashapp', gettext('page.donate.payment.buttons.cashapp', bitcoin_icon=''), discount_percent=30) }}
+        {{ donate_button('payment2revolut', gettext('page.donate.payment.buttons.revolut', bitcoin_icon=''), discount_percent=30) }}
+
+        <!-- {{ donate_button('cc', gettext('page.donate.payment.buttons.credit_debit', bitcoin_icon=''), discount_percent=30) }} -->
+        <!-- {{ donate_button('paypal', gettext('page.donate.payment.buttons.paypal', bitcoin_icon=''), discount_percent=30) }} -->
+        <!-- {{ donate_button('paypalreg', gettext('page.donate.payment.buttons.paypalreg', bitcoin_icon=''), discount_percent=30) }} -->
+        <!-- {{ donate_button('givebutter', gettext('page.donate.payment.buttons.givebutter'), discount_percent=30) }} -->
 
         <!-- {{ donate_button('bmc', gettext('page.donate.payment.buttons.bmc', bitcoin_icon=''), discount_percent=0) }} -->
         <!-- {{ donate_button('alipay', gettext('page.donate.payment.buttons.alipay', bitcoin_icon=''), discount_percent=0) }} -->
         <!-- {{ donate_button('pix', gettext('page.donate.payment.buttons.pix', bitcoin_icon=''), discount_percent=0) }} -->
-        <!-- {{ donate_button('crypto', gettext('page.donate.payment.buttons.crypto', bitcoin_icon=''), discount_percent=10) }} -->
-        <!-- {{ donate_button('pix', gettext('page.donate.payment.buttons.crypto', bitcoin_icon=''), discount_percent=10) }} -->
+        <!-- {{ donate_button('crypto', gettext('page.donate.payment.buttons.crypto', bitcoin_icon=''), discount_percent=30) }} -->
+        <!-- {{ donate_button('pix', gettext('page.donate.payment.buttons.crypto', bitcoin_icon=''), discount_percent=30) }} -->
 
-        {{ donate_button('payment2cashapp', gettext('page.donate.payment.buttons.cashapp', bitcoin_icon=''), discount_percent=10) }}
-        {{ donate_button('payment2revolut', gettext('page.donate.payment.buttons.revolut', bitcoin_icon=''), discount_percent=10) }}
-        <!-- {{ donate_button('payment2paypal', gettext('page.donate.payment.buttons.paypal_plain', bitcoin_icon=''), discount_percent=10) }} -->
+        <!-- {{ donate_button('payment2paypal', gettext('page.donate.payment.buttons.paypal_plain', bitcoin_icon=''), discount_percent=30) }} -->
         {{ donate_button('ccexp', gettext('page.donate.payment.buttons.bank_card'), discount_percent=0) }}
         <!-- {{ donate_button('hoodpay', gettext('page.donate.payment.buttons.credit_debit_backup', bitcoin_icon=''), discount_percent=0) }} -->
         <!-- {{ donate_button('payment2cc', gettext('page.donate.payment.buttons.credit_debit2', bitcoin_icon=''), discount_percent=0) }} -->

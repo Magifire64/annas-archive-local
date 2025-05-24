@@ -619,14 +619,14 @@ MEMBERSHIP_METHOD_DISCOUNTS = {
     # "payment2cashapp": 20,
 
     "crypto": 0,
-    "payment2": 10,
+    "payment2": 30,
     # "cc":     0,
     "binance": 0,
     "paypal": 0,
     "payment2paypal": 0,
     "payment2cc": 0,
-    "payment2cashapp": 10,
-    "payment2revolut": 10,
+    "payment2cashapp": 30,
+    "payment2revolut": 30,
 
     "paypalreg": 0,
     "amazon": 0,
@@ -658,7 +658,7 @@ MEMBERSHIP_METHOD_DISCOUNTS = {
 }
 MEMBERSHIP_DURATION_DISCOUNTS = {
     # Note: keep manually in sync with HTML.
-    "1": 0, "3": 5, "6": 10, "12": 20, "24": 30, "48": 40, "96": 50,
+    "1": 0, "3": 5, "6": 10, "12": 20, "24": 25, "48": 30, "96": 35,
 }
 MEMBERSHIP_DOWNLOADS_PER_DAY = {
     "1": 0, "2": 25, "3": 50, "4": 200, "5": 1000,
@@ -724,14 +724,14 @@ MEMBERSHIP_METHOD_MAXIMUM_CENTS_NATIVE = {
     "payment3a": 150000,
     "payment3a_cc": round(150000/MEMBERSHIP_EXCHANGE_RATE_RMB), # Actual number in USD!
     "payment3b": 150000,
-    "amazon": 60000,
-    "amazon_co_uk": 30000,
-    "amazon_fr": 30000,
-    "amazon_it": 30000,
-    "amazon_ca": 60000,
-    "amazon_de": 30000,
-    "amazon_es": 30000,
-    "amazon_au": 60000,
+    "amazon": 10000, # 60000,
+    "amazon_co_uk": 10000, # 30000,
+    "amazon_fr": 10000, # 30000,
+    "amazon_it": 10000, # 30000,
+    "amazon_ca": 10000, # 60000,
+    "amazon_de": 10000, # 30000,
+    "amazon_es": 10000, # 30000,
+    "amazon_au": 10000, # 60000,
 }
 MEMBERSHIP_MAX_BONUS_DOWNLOADS = 10000
 
