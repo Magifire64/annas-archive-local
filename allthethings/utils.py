@@ -738,10 +738,10 @@ MEMBERSHIP_MAX_BONUS_DOWNLOADS = 10000
 
 def get_is_membership_double():
     now = datetime.datetime.now(tz=datetime.timezone.utc)
-    return now.strftime("%Y-%m") in ['2024-11', '2024-12'] # Remember to set to ONE MONTH LATER a few lines below
+    return now.strftime("%Y-%m") in ['2025-06'] # Remember to set to ONE MONTH LATER a few lines below
 def get_is_membership_double_with_leeway():
     now = datetime.datetime.now(tz=datetime.timezone.utc)
-    return get_is_membership_double() or (now.strftime("%Y-%m") == '2025-01' and now.day <= 2)
+    return get_is_membership_double() or (now.strftime("%Y-%m") == '2025-07' and now.day <= 2)
 
 def get_account_fast_download_info(mariapersist_session, account_id):
     mariapersist_session.connection().connection.ping(reconnect=True)
@@ -1064,7 +1064,7 @@ def gc_notify(cursor, request_data, dont_store_errors=False):
 
     suffixes = [
        'sent you an Amazon Gift Card!',
-       'sent you an Amazon.com.au Gift Card!',
+       # 'sent you an Amazon.com.au Gift Card!',
        'is waiting',
        'une carte cadeau Amazon !',
        'vous attend',
@@ -1114,8 +1114,9 @@ def gc_notify(cursor, request_data, dont_store_errors=False):
         'USD': ['com', 'co.uk', 'fr', 'it', 'de', 'es'],
         'GBP': ['co.uk'],
         'EUR': ['com', 'co.uk', 'fr', 'it', 'de', 'es'],
-        'CAD': ['ca', 'com.au', 'com', 'co.uk', 'fr', 'it', 'de', 'es'],
-        'AUD': ['ca', 'com.au', 'com', 'co.uk', 'fr', 'it', 'de', 'es'],
+        # 'CAD': ['ca', 'com.au', 'com', 'co.uk', 'fr', 'it', 'de', 'es'],
+        'CAD': ['ca', 'com', 'co.uk', 'fr', 'it', 'de', 'es'],
+        # 'AUD': ['ca', 'com.au', 'com', 'co.uk', 'fr', 'it', 'de', 'es'],
     }[donation['native_currency_code']]
     if domain not in allowed_domains_for_currency:
         return exec_err(f"Warning: gc_notify message '{message['X-Original-To']}' with invalid domain for current currency {domain=} {donation['native_currency_code']=} {allowed_domains_for_currency=}")
