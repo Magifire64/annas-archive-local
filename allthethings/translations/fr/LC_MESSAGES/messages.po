@@ -1,16 +1,15 @@
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-05-25 17:25+0000\n"
-"PO-Revision-Date: 2025-05-25 17:25+0000\n"
-"Last-Translator: OpenAI <noreply-mt-openai@weblate.org>\n"
+"PO-Revision-Date: 2025-05-27 09:25+0000\n"
+"Last-Translator: Sneezless Nothing <admin@sneezless.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: ENCODING\n"
+"Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 5.11.4\n"
 
@@ -3865,21 +3864,18 @@ msgid "page.datasets.isbndb.release1.text2"
 msgstr "Les réponses JSON sont pratiquement brutes de leur serveur. Un problème de qualité des données que nous avons remarqué est que pour les numéros ISBN-13 qui commencent par un préfixe différent de « 978- », ils incluent toujours un champ « isbn » qui est simplement le numéro ISBN-13 avec les trois premiers chiffres supprimés (et le chiffre de contrôle recalculé). C'est évidemment incorrect, mais c'est ainsi qu'ils semblent le faire, donc nous ne l'avons pas modifié."
 
 #: allthethings/page/templates/page/datasets_other_metadata.html:60
-#, fuzzy
 msgid "page.datasets.isbndb.release1.text3"
-msgstr "Un autre problème potentiel que vous pourriez rencontrer est le fait que le champ « isbn13 » a des doublons, donc vous ne pouvez pas l'utiliser comme clé primaire dans une base de données. Les champs combinés « isbn13 »+« isbn » semblent être uniques."
+msgstr "Un autre problème potentiel que vous pourriez rencontrer est que le champ « isbn13 » contient des doublons, ce qui empêche son utilisation comme clé primaire dans une base de données. En revanche, la combinaison des champs « isbn13 » et « isbn » semble être unique."
 
 #: allthethings/page/templates/page/datasets_scihub.html:4
 #: allthethings/page/templates/page/datasets_scihub.html:7
 #: allthethings/page/templates/page/datasets_scihub.html:97
-#, fuzzy
 msgid "page.datasets.scihub.title"
 msgstr "Sci-Hub"
 
 #: allthethings/page/templates/page/datasets_scihub.html:60
-#, fuzzy
 msgid "page.datasets.scihub.description1"
-msgstr "Pour en savoir plus sur Sci-Hub, veuillez vous référer à son <a %(a_scihub)s>site officiel</a>, à sa <a %(a_wikipedia)s>page Wikipedia</a> et à cette <a %(a_radiolab)s>interview en podcast</a>."
+msgstr "Pour en savoir plus sur Sci-Hub, veuillez consulter son <a %(a_scihub)s>site officiel</a>, sa <a %(a_wikipedia)s>page Wikipedia</a> et cette <a %(a_radiolab)s>interview en podcast</a>."
 
 #: allthethings/page/templates/page/datasets_scihub.html:69
 #, fuzzy
