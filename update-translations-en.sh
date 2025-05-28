@@ -2,6 +2,9 @@
 
 set -Eeuxo pipefail
 
+# Convert the source HTML files into the translatable versions
+./bin/translate-html "./allthethings/**/templates/**/*.source.html"
+
 # Some of these change their output when run multiple times..
 pybabel extract --omit-header -F babel.cfg -o messages.pot .
 pybabel update -l en --no-wrap --omit-header -i messages.pot -d allthethings/translations --no-fuzzy-matching

@@ -69,6 +69,165 @@ def get_column_header_text(cell_element: Tag) -> str | None:
     )
 
 
+def process_tag(
+    tag: Tag,
+    text_segments: list[str],
+    params: dict,
+    context: dict,
+    *,
+    prohibit_block_elements: bool = False,
+) -> None:
+    match tag:
+        case NavigableString():
+            # Raw text
+            text_segments.append(str(tag))
+        case Tag(name="a"):
+            # Links, specifically
+            param_name = tag.attrs.get("translate-key")
+            if param_name:
+                del tag.attrs["translate-key"]
+            else:
+                context["a_counter"] += 1
+                param_name = f"a{context['a_counter']}"
+
+            inner_a_html = tag.decode_contents()
+            text_segments.append(f"<a %({param_name})s>{inner_a_html}</a>")
+
+            params[param_name] = {
+                key: " ".join(value) if isinstance(value, list) else value
+                for key, value in tag.attrs.items()
+            }
+        case Tag(name="x-gettext"):
+            # Custom <x-gettext key="k" value="v | safe"></x-gettext> tags, which
+            # turn into %(key)s within the text and are attached as key=(value) params
+            # to the extracted string.
+            key = tag.attrs.get("key")
+            value = tag.attrs.get("value")
+            if not key or not value:
+                raise ValueError(
+                    "<x-gettext> tags must have non-empty key= and value= attributes"
+                )
+
+            text_segments.append(f"%({key})s")
+            params[key] = value
+        case Tag(
+            name="abbr"
+            | "b"
+            | "big"
+            | "cite"
+            | "code"
+            | "del"
+            | "dfn"
+            | "em"
+            | "i"
+            | "ins"
+            | "kbd"
+            | "mark"
+            | "q"
+            | "s"
+            | "samp"
+            | "small"
+            | "span"
+            | "strong"
+            | "sub"
+            | "sup"
+            | "time"
+            | "u"
+            | "var"
+        ):
+            # Inline elements, for which we want to recursively process the anchor tags to extract the parameters
+            inner_soup = BeautifulSoup(
+                f"<span>{tag.decode_contents()}</span>", "html.parser"
+            ).span
+            text_segments.append(f"<{tag.name}>")
+            for inner_tag in inner_soup.contents:
+                process_tag(
+                    inner_tag,
+                    text_segments,
+                    params,
+                    context,
+                    prohibit_block_elements=True,
+                )
+            text_segments.append(f"</{tag.name}>")
+        case Tag(
+            name="address"
+            | "article"
+            | "aside"
+            | "audio"
+            | "blockquote"
+            | "button"
+            | "canvas"
+            | "caption"
+            | "col"
+            | "colgroup"
+            | "dd"
+            | "details"
+            | "dialog"
+            | "div"
+            | "dl"
+            | "dt"
+            | "dd"
+            | "embed"
+            | "fieldset"
+            | "figcaption"
+            | "figure"
+            | "footer"
+            | "form"
+            | "h1"
+            | "h2"
+            | "h3"
+            | "h4"
+            | "h5"
+            | "h6"
+            | "header"
+            | "hr"
+            | "iframe"
+            | "img"
+            | "input"
+            | "label"
+            | "legend"
+            | "li"
+            | "main"
+            | "meter"
+            | "nav"
+            | "noscript"
+            | "object"
+            | "ol"
+            | "option"
+            | "p"
+            | "progress"
+            | "section"
+            | "select"
+            | "summary"
+            | "svg"
+            | "table"
+            | "tbody"
+            | "td"
+            | "template"
+            | "textarea"
+            | "tfoot"
+            | "th"
+            | "thead"
+            | "time"
+            | "tr"
+            | "ul"
+            | "video"
+        ):
+            # Block elements, which we prohibit inside [translate] elements
+            if prohibit_block_elements:
+                raise ValueError(
+                    f"Block element <{tag.name}> found inside a block-level translate element. Elements with 'translate' should not contain block elements."
+                )
+            text_segments.append(str(tag))
+        case Tag():
+            raise ValueError(
+                f"Unsupported tag type: {tag.name}. Please ensure it is a valid HTML tag."
+            )
+        case _:
+            # Comments, etc.
+            text_segments.append(str(tag))
+
+
 def process_html_template(html_content, gettext_prefix: tuple[str, ...]):
     """
     Parses an HTML Jinja template, extracts inline text and tags to gettext calls.
@@ -194,45 +353,7 @@ def process_html_template(html_content, gettext_prefix: tuple[str, ...]):
         a_counter = 0
 
         for child in content_soup.contents:
-            match child:
-                case NavigableString():
-                    # Raw text
-                    text_segments.append(str(child))
-                case Tag(name="a"):
-                    # Links, specifically
-                    param_name = child.attrs.get("translate-key")
-                    if param_name:
-                        del child.attrs["translate-key"]
-                    else:
-                        a_counter += 1
-                        param_name = f"a{a_counter}"
-
-                    inner_a_html = child.decode_contents()
-                    text_segments.append(f"<a %({param_name})s>{inner_a_html}</a>")
-
-                    params[param_name] = {
-                        key: " ".join(value) if isinstance(value, list) else value
-                        for key, value in child.attrs.items()
-                    }
-                case Tag(name="x-gettext"):
-                    # Custom <x-gettext key="k" value="v | safe"></x-gettext> tags, which
-                    # turn into %(key)s within the text and are attached as key=(value) params
-                    # to the extracted string.
-                    key = child.attrs.get("key")
-                    value = child.attrs.get("value")
-                    if not key or not value:
-                        raise ValueError(
-                            "<x-gettext> tags must have non-empty key= and value= attributes"
-                        )
-
-                    text_segments.append(f"%({key})s")
-                    params[key] = value
-                case Tag():
-                    # Other tags (like <br>, <small> inside a <p translate>)
-                    text_segments.append(str(child))
-                case _:
-                    # Comments, etc.
-                    text_segments.append(str(child))
+            process_tag(child, text_segments, params, {"a_counter": a_counter})
 
         text_to_translate = re.sub(r"\s+", " ", "".join(text_segments)).strip()
         gettext_map[gettext_key] = text_to_translate
@@ -243,7 +364,7 @@ def process_html_template(html_content, gettext_prefix: tuple[str, ...]):
                 case dict():
                     # Format attributes like `{'href': '/faq#what'}` - taking advantage of the
                     # fact that Jinja accepts python syntax within the parentheses.
-                    param_strings.append(f"{p_name}=({p_attrs} | xmlattr)")
+                    param_strings.append(f"{p_name}=({p_attrs!r} | xmlattr)")
                 case str():
                     # In the case of x-gettext tags, we're expecting the user to provide a valid
                     # gettext expression.
@@ -275,6 +396,9 @@ def rewrite_gettext(output):
 
     for msgid, msgstr in output.items():
         new_msg = f'msgid "{msgid}"\nmsgstr "{msgstr}"'
+
+        if '"' in msgstr:
+            raise ValueError(f"msgstr cannot contain double quotes {msgstr!r}")
 
         locator = rf"msgid \"{re.escape(msgid)}\"\nmsgstr \"[^\"]*\""
         content = re.sub(locator, new_msg, content)
