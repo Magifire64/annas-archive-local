@@ -8,7 +8,7 @@ set -Eeuxo pipefail
 # Some of these change their output when run multiple times
 for _ in 1 2 3
 do
-	pybabel extract --omit-header --mapping-file="babel.cfg" --output-file="messages.pot" .
+	pybabel extract --no-location --omit-header --mapping-file="babel.cfg" --output-file="messages.pot" .
 	pybabel update --locale="en" --no-wrap --omit-header --input-file="messages.pot" --output-dir="allthethings/translations" --no-fuzzy-matching
 	pybabel compile --locale="en" --use-fuzzy --directory allthethings/translations
 done
