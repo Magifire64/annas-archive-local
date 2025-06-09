@@ -7716,7 +7716,7 @@ def get_additional_for_aarecord(aarecord):
         if lgrsnf_thousands_dir <= 4391000:
             lgrsnf_path = f"g4/libgenrs_nonfiction/libgenrs_nonfiction/{lgrsnf_thousands_dir}/{lgrsnf_filename}"
             add_partner_servers(lgrsnf_path, '', aarecord, additional)
-        elif lgrsnf_thousands_dir <= 4486000:
+        elif lgrsnf_thousands_dir <= 4530000:
             lgrsnf_path = f"ga/lgrsnf/{lgrsnf_thousands_dir}/{lgrsnf_filename}"
             add_partner_servers(lgrsnf_path, '', aarecord, additional)
 
@@ -7732,7 +7732,7 @@ def get_additional_for_aarecord(aarecord):
         if lgrsfic_thousands_dir <= 3039000:
             lgrsfic_path = f"g3/libgenrs_fiction/libgenrs_fiction/{lgrsfic_thousands_dir}/{lgrsfic_filename}"
             add_partner_servers(lgrsfic_path, '', aarecord, additional)
-        elif lgrsfic_thousands_dir <= 3120000:
+        elif lgrsfic_thousands_dir <= 3139000:
             lgrsfic_path = f"ga/lgrsfic/{lgrsfic_thousands_dir}/{lgrsfic_filename}"
             add_partner_servers(lgrsfic_path, '', aarecord, additional)
 
@@ -7791,7 +7791,7 @@ def get_additional_for_aarecord(aarecord):
             if lglimagz_id < 1363000:
                 add_partner_servers(f"g4/magz/magz/{lglimagz_thousands_dir}/{lglimagz_filename}", '', aarecord, additional)
             else:
-                add_partner_servers(f"ga/lglihard/magz/{lglimagz_thousands_dir}/{lglimagz_filename}", '', aarecord, additional)
+                add_partner_servers(f"gi/lglihard/magz/{lglimagz_thousands_dir}/{lglimagz_filename}", '', aarecord, additional)
             
             lglimagz_torrent_path = f"external/libgen_li_magazines/m_{lglimagz_thousands_dir}.torrent"
             if lglimagz_torrent_path in torrents_json_aa_currently_seeding_by_torrent_path:
