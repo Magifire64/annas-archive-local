@@ -9216,6 +9216,7 @@ def search_page():
             search_dict=search_dict,
             search_hashes=search_hashes
         ), 200))
-    if had_es_timeout or (len(search_aarecords) == 0) or (custom_search_sorting in ["___aa_random_sorting"]) or g.live_debug:
-        r.headers.add('Cache-Control', 'no-cache')
+    # if had_es_timeout or (len(search_aarecords) == 0) or (custom_search_sorting in ["___aa_random_sorting"]) or g.live_debug:
+    # Always add no-cache for now, because behavior is too flakey.
+    r.headers.add('Cache-Control', 'no-cache')
     return r

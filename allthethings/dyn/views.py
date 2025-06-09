@@ -995,7 +995,8 @@ def search_counts_page():
         }
 
     multi_searches_by_es_handle = collections.defaultdict(list)
-    indexes = list(allthethings.utils.SEARCH_INDEX_SHORT_LONG_MAPPING.values())
+    all_indexes = list(allthethings.utils.SEARCH_INDEX_SHORT_LONG_MAPPING.values())
+    indexes = [index_name for index_name in all_indexes if index_name != 'aarecords_metadata']
     for search_index in indexes:
         multi_searches = multi_searches_by_es_handle[allthethings.utils.SEARCH_INDEX_TO_ES_MAPPING[search_index]]
         multi_searches.append({ "index": allthethings.utils.all_virtshards_for_index(search_index) })
@@ -1004,7 +1005,7 @@ def search_counts_page():
         else:
             multi_searches.append({ "size": 0, "query": search_query, "track_total_hits": 100, "timeout": ES_TIMEOUT_PRIMARY })
 
-    total_by_index_long = {index: {'value': -1, 'relation': ''} for index in indexes}
+    total_by_index_long = {index: {'value': -1, 'relation': ''} for index in all_indexes}
     any_timeout = False
     try:
         # TODO: do these in parallel?
