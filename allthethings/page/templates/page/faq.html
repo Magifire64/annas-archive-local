@@ -167,16 +167,16 @@
   <h3 class="group mt-4 mb-1 text-xl font-bold" id="upload">{{ gettext('page.faq.upload.title') }} <a href="#upload" class="custom-a invisible group-hover:visible text-gray-400 hover:text-gray-500 font-normal text-sm align-[2px]">§</a></h3>
 
   <p class="mb-4 hidden"> <!-- NOTE: HIDDEN! -->
-    {{ gettext('page.upload.zlib.text1', a_upload=(' href="https://z-lib.fm/book-add.php" rel="noopener noreferrer" target="_blank"' | safe)) }}
+    {{ gettext('page.upload.zlib.text1', a_upload=(' href="https://z-lib.fm/book-add" rel="noopener noreferrer" target="_blank"' | safe)) }}
   </p>
 
   <p class="mb-4">
-    {{ gettext('page.upload.upload_to_both', first=('<a href="https://z-lib.fm/book-add.php" rel="noopener noreferrer" target="_blank">Z-Library</a>' | safe), second=('<a href="https://libgen.li/librarian.php" rel="noopener noreferrer" target="_blank">Libgen.li</a>' | safe)) }}
+    {{ gettext('page.upload.upload_to_both', first=('<a href="https://z-lib.fm/book-add" rel="noopener noreferrer" target="_blank">Z-Library</a>' | safe), second=('<a href="https://libgen.li/librarian.php" rel="noopener noreferrer" target="_blank">Libgen.li</a>' | safe)) }}
     <!-- {{ gettext('page.upload.text1', a_guide=(' href="https://wiki.mhut.org/content:how_to_upload" rel="noopener noreferrer" target="_blank"' | safe)) }} -->
   </p>
 
   <p class="mb-4">
-    {{ gettext('page.upload.libgenli_login_instructions', a_forum=(' href="https://libgen.li/community/ucp.php?mode=login" rel="noopener noreferrer" target="_blank" ' | safe), username=('<strong>username</strong>' | safe), password=('<strong>password</strong>' | safe), a_upload_page=(' href="https://libgen.li/librarian.php" rel="noopener noreferrer" target="_blank" ' | safe)) }}
+    {{ gettext('page.upload.libgenli_login_instructions', a_forum=(' href="https://libgen.li/community/ucp.php?mode=login" rel="noopener noreferrer" target="_blank" ' | safe), username=('' | safe), password=('' | safe), a_upload_page=(' href="https://libgen.li/librarian.php" rel="noopener noreferrer" target="_blank" ' | safe)) }}
   </p>
 
   <p class="mb-4 hidden"> <!-- NOTE: HIDDEN! -->
