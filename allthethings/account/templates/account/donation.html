@@ -263,6 +263,11 @@
         <p class="mb-4">
           <button onclick="window.location.reload()" class="bg-[#0195ff] hover:bg-blue-600 px-4 py-1 rounded-md text-white mb-1">{{ gettext('page.donation.refresh_status') }}</button>
         </p>
+
+        <p class="mb-4">
+          <!-- TODO:TRANSLATE -->
+          If the website asks any information about the recipient, simply make something up. :)
+        </p>
       </div>
     {% elif donation_dict.json.method == 'payment2revolut' %}
       {% if donation_time_expired %}
@@ -317,6 +322,11 @@
 
         <p class="mb-4">
           <button onclick="window.location.reload()" class="bg-[#0195ff] hover:bg-blue-600 px-4 py-1 rounded-md text-white mb-1">{{ gettext('page.donation.refresh_status') }}</button>
+        </p>
+
+        <p class="mb-4">
+          <!-- TODO:TRANSLATE -->
+          If the website asks any information about the recipient, simply make something up. :)
         </p>
       </div>
     {% elif donation_dict.json.method == 'payment2cc' %}
