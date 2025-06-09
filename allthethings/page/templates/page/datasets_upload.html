@@ -4,111 +4,771 @@
 {% block title %}{{ gettext('page.datasets.title') }} ▶ {{ gettext('page.datasets.upload.title') }} [upload]{% endblock %}
 
 {% block body %}
-  <div class="mb-4"><a href="/datasets">{{ gettext('page.datasets.title') }}</a> ▶ {{ gettext('page.datasets.upload.title') }} [upload]</div>
-
-  <div class="mb-4 p-2 overflow-hidden bg-black/5 break-words">
-    {{ gettext('page.datasets.common.intro', a_archival=(a.faqs_what | xmlattr), a_llm=(a.llm | xmlattr)) }}
-  </div>
-
-  <div class="mb-4 p-2 overflow-hidden bg-black/5 break-words">
-    <div class="text-xs mb-2">Overview from <a href="/datasets">datasets page</a>.</div>
-    <table class="w-full mx-[-8px]">
-      <tr class="even:bg-[#f2f2f2]">
-        <th class="p-2 align-bottom text-left" width="20%">{{ gettext('page.datasets.sources.source.header') }}</th>
-        <th class="p-2 align-bottom text-left" width="40%">{{ gettext('page.datasets.sources.metadata.header') }}</th>
-        <th class="p-2 align-bottom text-left" width="40%">{{ gettext('page.datasets.sources.files.header') }}</th>
-      </tr>
-
-      <tr class="even:bg-[#f2f2f2]">
-        <td class="p-2 align-top">
-          <a class="custom-a underline hover:opacity-60" href="/datasets/uploads">
-            {{ gettext('common.record_sources_mapping.uploads') }} [upload]
-          </a>
-        </td>
-        <td class="p-2 align-top" colspan="2">
-          <div class="my-2 first:mt-0 last:mb-0">
-            {{ gettext('page.datasets.sources.uploads.metadata_and_files', icon='') }}
-          </div>
-        </td>
-      </tr>
-    </table>
-  </div>
-
-  <p class="mb-4">
-    {{ gettext('page.datasets.upload.description') }}
-  </p>
-  
-  <p class="mb-4">
-    {{ gettext('page.datasets.upload.subcollections') }}
-  </p>
-  
-  <p class="mb-4">
-    {{ gettext('page.datasets.upload.subsubcollections') }}
-  </p>
-
-  <p class="mb-4">
-    {{ gettext('page.datasets.upload.subs.heading') }}
-  </p>
-
-  <div class="relative overflow-x-auto border sm:rounded-lg mb-4">
-    <table class="w-full text-sm text-left">
-      <thead class="text-xs text-gray-700 uppercase bg-black/5">
-        <tr>
-          <th scope="col" class="px-6 py-3" colspan="3">Subcollection</th>
-          <th scope="col" class="px-6 py-3">Notes</th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <tr class="odd:bg-white even:bg-black/5"><th scope="row" class="px-6 py-4 font-medium whitespace-nowrap">aaaaarg</th><td class="px-6 py-4"><a href="/member_codes?prefix=filepath:upload/aaaaarg/">{{ gettext('page.datasets.upload.action.browse') }}</a></td><td class="px-6 py-4"><a href="/search?termtype_1=original_filename&termval_1=upload/aaaaarg">{{ gettext('page.datasets.upload.action.search') }}</a></td><td class="px-6 py-4">{{ gettext('page.datasets.upload.source.aaaaarg', a_href=(dict(href="http://aaaaarg.fail", **a.external_link) | xmlattr)) }}</td></tr>
-        <tr class="odd:bg-white even:bg-black/5"><th scope="row" class="px-6 py-4 font-medium whitespace-nowrap">acm</th><td class="px-6 py-4"><a href="/member_codes?prefix=filepath:upload/acm/">{{ gettext('page.datasets.upload.action.browse') }}</a></td><td class="px-6 py-4"><a href="/search?termtype_1=original_filename&termval_1=upload/acm">{{ gettext('page.datasets.upload.action.search') }}</a></td><td class="px-6 py-4">{{ gettext('page.datasets.upload.source.acm', a_href=(dict(href="https://1337x.to/torrent/4536161/ACM-Digital-Library-2020/", **a.external_link) | xmlattr)) }}</td></tr>
-        <tr class="odd:bg-white even:bg-black/5"><th scope="row" class="px-6 py-4 font-medium whitespace-nowrap">airitibooks</th><td class="px-6 py-4"><a href="/member_codes?prefix=filepath:upload/airitibooks/">{{ gettext('page.datasets.upload.action.browse') }}</a></td><td class="px-6 py-4"><a href="/search?termtype_1=original_filename&termval_1=upload/airitibooks">{{ gettext('page.datasets.upload.action.search') }}</a></td><td class="px-6 py-4">Scrape of “iRead eBooks” (= phonetically “ai rit i-books”; airitibooks.com), by volunteer “j”. Corresponds to “airitibooks” metadata in <a href="/datasets/other_metadata">“Other metadata scrapes”</a>.</td></tr>
-        <tr class="odd:bg-white even:bg-black/5"><th scope="row" class="px-6 py-4 font-medium whitespace-nowrap">alexandrina</th><td class="px-6 py-4"><a href="/member_codes?prefix=filepath:upload/alexandrina/">{{ gettext('page.datasets.upload.action.browse') }}</a></td><td class="px-6 py-4"><a href="/search?termtype_1=original_filename&termval_1=upload/alexandrina">{{ gettext('page.datasets.upload.action.search') }}</a></td><td class="px-6 py-4"><!--TODO:TRANSLATE-->From a collection <a {{ (dict(href="https://www.reddit.com/r/DataHoarder/comments/zuniqw/bibliotheca_alexandrina_a_600_gb_hoard_of_history/", **a.external_link) | xmlattr) }}><q>Bibliotheca Alexandrina</q></a>. Partly from the original source, partly from the-eye.eu, partly from other mirrors.</td></tr>
-        <tr class="odd:bg-white even:bg-black/5"><th scope="row" class="px-6 py-4 font-medium whitespace-nowrap">bibliotik</th><td class="px-6 py-4"><a href="/member_codes?prefix=filepath:upload/bibliotik/">{{ gettext('page.datasets.upload.action.browse') }}</a></td><td class="px-6 py-4"><a href="/search?termtype_1=original_filename&termval_1=upload/bibliotik">{{ gettext('page.datasets.upload.action.search') }}</a></td><td class="px-6 py-4">{{ gettext('page.datasets.upload.source.bibliotik', a_href=(dict(href="https://bibliotik.me/", **a.external_link) | xmlattr)) }}</td></tr>
-        <tr class="odd:bg-white even:bg-black/5"><th scope="row" class="px-6 py-4 font-medium whitespace-nowrap">bpb9v_cadal</th><td class="px-6 py-4"><a href="/member_codes?prefix=filepath:upload/bpb9v_cadal/">{{ gettext('page.datasets.upload.action.browse') }}</a></td><td class="px-6 py-4"><a href="/search?termtype_1=original_filename&termval_1=upload/bpb9v_cadal">{{ gettext('page.datasets.upload.action.search') }}</a></td><td class="px-6 py-4">{{ gettext('page.datasets.upload.source.bpb9v_cadal', a_href=(dict(href="https://cadal.edu.cn/", **a.external_link) | xmlattr), a_duxiu=(dict(href="/datasets/duxiu") | xmlattr)) }}</td></tr>
-        <tr class="odd:bg-white even:bg-black/5"><th scope="row" class="px-6 py-4 font-medium whitespace-nowrap">bpb9v_direct</th><td class="px-6 py-4"><a href="/member_codes?prefix=filepath:upload/bpb9v_direct/">{{ gettext('page.datasets.upload.action.browse') }}</a></td><td class="px-6 py-4"><a href="/search?termtype_1=original_filename&termval_1=upload/bpb9v_direct">{{ gettext('page.datasets.upload.action.search') }}</a></td><td class="px-6 py-4">{{ gettext('page.datasets.upload.source.bpb9v_direct') }}</td></tr>
-        <tr class="odd:bg-white even:bg-black/5"><th scope="row" class="px-6 py-4 font-medium whitespace-nowrap">cgiym_chinese</th><td class="px-6 py-4"><a href="/member_codes?prefix=filepath:upload/cgiym_chinese/">{{ gettext('page.datasets.upload.action.browse') }}</a></td><td class="px-6 py-4"><a href="/search?termtype_1=original_filename&termval_1=upload/cgiym_chinese">{{ gettext('page.datasets.upload.action.search') }}</a></td><td class="px-6 py-4">{{ gettext('page.datasets.upload.source.cgiym_chinese', a_href=(dict(href="http://cmpedu.com/", **a.external_link) | xmlattr)) }}</td></tr>
-        <tr class="odd:bg-white even:bg-black/5"><th scope="row" class="px-6 py-4 font-medium whitespace-nowrap">cgiym_more</th><td class="px-6 py-4"><a href="/member_codes?prefix=filepath:upload/cgiym_more/">{{ gettext('page.datasets.upload.action.browse') }}</a></td><td class="px-6 py-4"><a href="/search?termtype_1=original_filename&termval_1=upload/cgiym_more">{{ gettext('page.datasets.upload.action.search') }}</a></td><td class="px-6 py-4">{{ gettext('page.datasets.upload.source.cgiym_more') }}</td></tr>
-        <tr class="odd:bg-white even:bg-black/5"><th scope="row" class="px-6 py-4 font-medium whitespace-nowrap">chinese_architecture</th><td class="px-6 py-4"><a href="/member_codes?prefix=filepath:upload/chinese_architecture/">{{ gettext('page.datasets.upload.action.browse') }}</a></td><td class="px-6 py-4"><a href="/search?termtype_1=original_filename&termval_1=upload/chinese_architecture">{{ gettext('page.datasets.upload.action.search') }}</a></td><td class="px-6 py-4"><!--TODO:TRANSLATE-->Scrape of books about Chinese architecture, by volunteer “cm”: “I got it by exploiting a network vulnerability at the publishing house, but that loophole has since been closed”. Corresponds to “chinese_architecture” metadata in <a href="/datasets/other_metadata">“Other metadata scrapes”</a>.</td></tr>
-        <tr class="odd:bg-white even:bg-black/5"><th scope="row" class="px-6 py-4 font-medium whitespace-nowrap">degruyter</th><td class="px-6 py-4"><a href="/member_codes?prefix=filepath:upload/degruyter/">{{ gettext('page.datasets.upload.action.browse') }}</a></td><td class="px-6 py-4"><a href="/search?termtype_1=original_filename&termval_1=upload/degruyter">{{ gettext('page.datasets.upload.action.search') }}</a></td><td class="px-6 py-4">{{ gettext('page.datasets.upload.source.degruyter', a_href=(dict(href="https://www.degruyter.com/", **a.external_link) | xmlattr)) }}</td></tr>
-        <tr class="odd:bg-white even:bg-black/5"><th scope="row" class="px-6 py-4 font-medium whitespace-nowrap">docer</th><td class="px-6 py-4"><a href="/member_codes?prefix=filepath:upload/docer/">{{ gettext('page.datasets.upload.action.browse') }}</a></td><td class="px-6 py-4"><a href="/search?termtype_1=original_filename&termval_1=upload/docer">{{ gettext('page.datasets.upload.action.search') }}</a></td><td class="px-6 py-4">{{ gettext('page.datasets.upload.source.docer', a_href=(dict(href="https://docer.pl/", **a.external_link) | xmlattr)) }}</td></tr>
-        <tr class="odd:bg-white even:bg-black/5"><th scope="row" class="px-6 py-4 font-medium whitespace-nowrap">duxiu_epub</th><td class="px-6 py-4"><a href="/member_codes?prefix=filepath:upload/duxiu_epub/">{{ gettext('page.datasets.upload.action.browse') }}</a></td><td class="px-6 py-4"><a href="/search?termtype_1=original_filename&termval_1=upload/duxiu_epub">{{ gettext('page.datasets.upload.action.search') }}</a></td><td class="px-6 py-4">{{ gettext('page.datasets.upload.source.duxiu_epub') }}</td></tr>
-        <tr class="odd:bg-white even:bg-black/5"><th scope="row" class="px-6 py-4 font-medium whitespace-nowrap">duxiu_main</th><td class="px-6 py-4"><a href="/member_codes?prefix=filepath:upload/duxiu_main/">{{ gettext('page.datasets.upload.action.browse') }}</a></td><td class="px-6 py-4"><a href="/search?termtype_1=original_filename&termval_1=upload/duxiu_main">{{ gettext('page.datasets.upload.action.search') }}</a></td><td class="px-6 py-4">{{ gettext('page.datasets.upload.source.duxiu_main', a_href=(dict(href="/datasets/duxiu", **a.external_link) | xmlattr)) }}</td></tr>
-        <tr class="odd:bg-white even:bg-black/5"><th scope="row" class="px-6 py-4 font-medium whitespace-nowrap">elsevier</th><td class="px-6 py-4"><a href="/member_codes?prefix=filepath:upload/elsevier/">{{ gettext('page.datasets.upload.action.browse') }}</a></td><td class="px-6 py-4"><a href="/search?termtype_1=original_filename&termval_1=upload/elsevier">{{ gettext('page.datasets.upload.action.search') }}</a></td><td class="px-6 py-4"><!--TODO:TRANSLATE--></td></tr>
-        <tr class="odd:bg-white even:bg-black/5"><th scope="row" class="px-6 py-4 font-medium whitespace-nowrap">emo37c</th><td class="px-6 py-4"><a href="/member_codes?prefix=filepath:upload/emo37c/">{{ gettext('page.datasets.upload.action.browse') }}</a></td><td class="px-6 py-4"><a href="/search?termtype_1=original_filename&termval_1=upload/emo37c">{{ gettext('page.datasets.upload.action.search') }}</a></td><td class="px-6 py-4"><!--TODO:TRANSLATE--></td></tr>
-        <tr class="odd:bg-white even:bg-black/5"><th scope="row" class="px-6 py-4 font-medium whitespace-nowrap">french</th><td class="px-6 py-4"><a href="/member_codes?prefix=filepath:upload/french/">{{ gettext('page.datasets.upload.action.browse') }}</a></td><td class="px-6 py-4"><a href="/search?termtype_1=original_filename&termval_1=upload/french">{{ gettext('page.datasets.upload.action.search') }}</a></td><td class="px-6 py-4"><!--TODO:TRANSLATE--></td></tr>
-        <tr class="odd:bg-white even:bg-black/5"><th scope="row" class="px-6 py-4 font-medium whitespace-nowrap">hentai</th><td class="px-6 py-4"><a href="/member_codes?prefix=filepath:upload/hentai/">{{ gettext('page.datasets.upload.action.browse') }}</a></td><td class="px-6 py-4"><a href="/search?termtype_1=original_filename&termval_1=upload/hentai">{{ gettext('page.datasets.upload.action.search') }}</a></td><td class="px-6 py-4"><!--TODO:TRANSLATE-->Scrape of erotic books, by volunteer “do no harm”. Corresponds to “hentai” metadata in <a href="/datasets/other_metadata">“Other metadata scrapes”</a>.</td></tr>
-        <tr class="odd:bg-white even:bg-black/5"><th scope="row" class="px-6 py-4 font-medium whitespace-nowrap">ia_multipart</th><td class="px-6 py-4"><a href="/member_codes?prefix=filepath:upload/ia_multipart/">{{ gettext('page.datasets.upload.action.browse') }}</a></td><td class="px-6 py-4"><a href="/search?termtype_1=original_filename&termval_1=upload/ia_multipart">{{ gettext('page.datasets.upload.action.search') }}</a></td><td class="px-6 py-4"><!--TODO:TRANSLATE--></td></tr>
-        <tr class="odd:bg-white even:bg-black/5"><th scope="row" class="px-6 py-4 font-medium whitespace-nowrap">imslp</th><td class="px-6 py-4"><a href="/member_codes?prefix=filepath:upload/imslp/">{{ gettext('page.datasets.upload.action.browse') }}</a></td><td class="px-6 py-4"><a href="/search?termtype_1=original_filename&termval_1=upload/imslp">{{ gettext('page.datasets.upload.action.search') }}</a></td><td class="px-6 py-4"><!--TODO:TRANSLATE--></td></tr>
-        <tr class="odd:bg-white even:bg-black/5"><th scope="row" class="px-6 py-4 font-medium whitespace-nowrap">japanese_manga</th><td class="px-6 py-4"><a href="/member_codes?prefix=filepath:upload/japanese_manga/">{{ gettext('page.datasets.upload.action.browse') }}</a></td><td class="px-6 py-4"><a href="/search?termtype_1=original_filename&termval_1=upload/japanese_manga">{{ gettext('page.datasets.upload.action.search') }}</a></td><td class="px-6 py-4">{{ gettext('page.datasets.upload.source.japanese_manga') }}</td></tr>
-        <tr class="odd:bg-white even:bg-black/5"><th scope="row" class="px-6 py-4 font-medium whitespace-nowrap">longquan_archives</th><td class="px-6 py-4"><a href="/member_codes?prefix=filepath:upload/longquan_archives/">{{ gettext('page.datasets.upload.action.browse') }}</a></td><td class="px-6 py-4"><a href="/search?termtype_1=original_filename&termval_1=upload/longquan_archives">{{ gettext('page.datasets.upload.action.search') }}</a></td><td class="px-6 py-4">{{ gettext('page.datasets.upload.source.longquan_archives', a_href=(dict(href="http://www.xinhuanet.com/english/2019-11/15/c_138557853.htm", **a.external_link) | xmlattr)) }}</td></tr>
-        <tr class="odd:bg-white even:bg-black/5"><th scope="row" class="px-6 py-4 font-medium whitespace-nowrap">magzdb</th><td class="px-6 py-4"><a href="/member_codes?prefix=filepath:upload/magzdb/">{{ gettext('page.datasets.upload.action.browse') }}</a></td><td class="px-6 py-4"><a href="/search?termtype_1=original_filename&termval_1=upload/magzdb">{{ gettext('page.datasets.upload.action.search') }}</a></td><td class="px-6 py-4">{{ gettext('page.datasets.upload.source.magzdb', a_href=(dict(href="https://magzdb.org/", **a.external_link) | xmlattr)) }}</td></tr>
-        <tr class="odd:bg-white even:bg-black/5"><th scope="row" class="px-6 py-4 font-medium whitespace-nowrap">mangaz_com</th><td class="px-6 py-4"><a href="/member_codes?prefix=filepath:upload/mangaz_com/">{{ gettext('page.datasets.upload.action.browse') }}</a></td><td class="px-6 py-4"><a href="/search?termtype_1=original_filename&termval_1=upload/mangaz_com">{{ gettext('page.datasets.upload.action.search') }}</a></td><td class="px-6 py-4"><!--TODO:TRANSLATE--></td></tr>
-        <tr class="odd:bg-white even:bg-black/5"><th scope="row" class="px-6 py-4 font-medium whitespace-nowrap">misc</th><td class="px-6 py-4"><a href="/member_codes?prefix=filepath:upload/misc/">{{ gettext('page.datasets.upload.action.browse') }}</a></td><td class="px-6 py-4"><a href="/search?termtype_1=original_filename&termval_1=upload/misc">{{ gettext('page.datasets.upload.action.search') }}</a></td><td class="px-6 py-4">{{ gettext('page.datasets.upload.source.misc') }} <!--TODO:TRANSLATE-->The “oo42hcksBxZYAOjqwGWu” directory corresponds to the “czech_oo42hcks” metadata in <a href="/datasets/other_metadata">“Other metadata scrapes”</a>.</td></tr>
-        <tr class="odd:bg-white even:bg-black/5"><th scope="row" class="px-6 py-4 font-medium whitespace-nowrap">newsarch_ebooks</th><td class="px-6 py-4"><a href="/member_codes?prefix=filepath:upload/newsarch_ebooks/">{{ gettext('page.datasets.upload.action.browse') }}</a></td><td class="px-6 py-4"><a href="/search?termtype_1=original_filename&termval_1=upload/newsarch_ebooks">{{ gettext('page.datasets.upload.action.search') }}</a></td><td class="px-6 py-4"><!--TODO:TRANSLATE-->Ebooks from AvaxHome, a Russian file sharing website.</td></tr>
-        <tr class="odd:bg-white even:bg-black/5"><th scope="row" class="px-6 py-4 font-medium whitespace-nowrap">newsarch_magz</th><td class="px-6 py-4"><a href="/member_codes?prefix=filepath:upload/newsarch_magz/">{{ gettext('page.datasets.upload.action.browse') }}</a></td><td class="px-6 py-4"><a href="/search?termtype_1=original_filename&termval_1=upload/newsarch_magz">{{ gettext('page.datasets.upload.action.search') }}</a></td><td class="px-6 py-4"><!--TODO:TRANSLATE-->Archive of newspapers and magazines. Corresponds to “newsarch_magz” metadata in <a href="/datasets/other_metadata">“Other metadata scrapes”</a>.</td></tr>
-        <tr class="odd:bg-white even:bg-black/5"><th scope="row" class="px-6 py-4 font-medium whitespace-nowrap">pdcnet_org</th><td class="px-6 py-4"><a href="/member_codes?prefix=filepath:upload/pdcnet_org/">{{ gettext('page.datasets.upload.action.browse') }}</a></td><td class="px-6 py-4"><a href="/search?termtype_1=original_filename&termval_1=upload/pdcnet_org">{{ gettext('page.datasets.upload.action.search') }}</a></td><td class="px-6 py-4"><!--TODO:TRANSLATE-->Scrape of the <a {{ (dict(href="https://www.pdcnet.org/", **a.external_link) | xmlattr) }}>Philosophy Documentation Center</a>.</td></tr>
-        <tr class="odd:bg-white even:bg-black/5"><th scope="row" class="px-6 py-4 font-medium whitespace-nowrap">polish</th><td class="px-6 py-4"><a href="/member_codes?prefix=filepath:upload/polish/">{{ gettext('page.datasets.upload.action.browse') }}</a></td><td class="px-6 py-4"><a href="/search?termtype_1=original_filename&termval_1=upload/polish">{{ gettext('page.datasets.upload.action.search') }}</a></td><td class="px-6 py-4">{{ gettext('page.datasets.upload.source.polish') }}</td></tr>
-        <tr class="odd:bg-white even:bg-black/5"><th scope="row" class="px-6 py-4 font-medium whitespace-nowrap">shuge</th><td class="px-6 py-4"><a href="/member_codes?prefix=filepath:upload/shuge/">{{ gettext('page.datasets.upload.action.browse') }}</a></td><td class="px-6 py-4"><a href="/search?termtype_1=original_filename&termval_1=upload/shuge">{{ gettext('page.datasets.upload.action.search') }}</a></td><td class="px-6 py-4">{{ gettext('page.datasets.upload.source.shuge', a_href=(dict(href="https://www.shuge.org/", **a.external_link) | xmlattr)) }}</td></tr>
-        <tr class="odd:bg-white even:bg-black/5"><th scope="row" class="px-6 py-4 font-medium whitespace-nowrap">shukui_net_cdl</th><td class="px-6 py-4"><a href="/member_codes?prefix=filepath:upload/shukui_net_cdl/">{{ gettext('page.datasets.upload.action.browse') }}</a></td><td class="px-6 py-4"><a href="/search?termtype_1=original_filename&termval_1=upload/shukui_net_cdl">{{ gettext('page.datasets.upload.action.search') }}</a></td><td class="px-6 py-4"><!--TODO:TRANSLATE--></td></tr>
-        <tr class="odd:bg-white even:bg-black/5"><th scope="row" class="px-6 py-4 font-medium whitespace-nowrap">trantor</th><td class="px-6 py-4"><a href="/member_codes?prefix=filepath:upload/trantor/">{{ gettext('page.datasets.upload.action.browse') }}</a></td><td class="px-6 py-4"><a href="/search?termtype_1=original_filename&termval_1=upload/trantor">{{ gettext('page.datasets.upload.action.search') }}</a></td><td class="px-6 py-4">{{ gettext('page.datasets.upload.source.trantor', a_href=(dict(href="https://github.com/trantor-library/trantor", **a.external_link) | xmlattr)) }} <!--TODO:TRANSLATE-->Corresponds to “trantor” metadata in <a href="/datasets/other_metadata">“Other metadata scrapes”</a>.</td></tr>
-        <tr class="odd:bg-white even:bg-black/5"><th scope="row" class="px-6 py-4 font-medium whitespace-nowrap">turkish_pdfs</th><td class="px-6 py-4"><a href="/member_codes?prefix=filepath:upload/turkish_pdfs/">{{ gettext('page.datasets.upload.action.browse') }}</a></td><td class="px-6 py-4"><a href="/search?termtype_1=original_filename&termval_1=upload/turkish_pdfs">{{ gettext('page.datasets.upload.action.search') }}</a></td><td class="px-6 py-4"><!--TODO:TRANSLATE--></td></tr>
-        <tr class="odd:bg-white even:bg-black/5"><th scope="row" class="px-6 py-4 font-medium whitespace-nowrap">twlibrary</th><td class="px-6 py-4"><a href="/member_codes?prefix=filepath:upload/twlibrary/">{{ gettext('page.datasets.upload.action.browse') }}</a></td><td class="px-6 py-4"><a href="/search?termtype_1=original_filename&termval_1=upload/twlibrary">{{ gettext('page.datasets.upload.action.search') }}</a></td><td class="px-6 py-4"><!--TODO:TRANSLATE--></td></tr>
-        <tr class="odd:bg-white even:bg-black/5"><th scope="row" class="px-6 py-4 font-medium whitespace-nowrap">wll</th><td class="px-6 py-4"><a href="/member_codes?prefix=filepath:upload/wll/">{{ gettext('page.datasets.upload.action.browse') }}</a></td><td class="px-6 py-4"><a href="/search?termtype_1=original_filename&termval_1=upload/wll">{{ gettext('page.datasets.upload.action.search') }}</a></td><td class="px-6 py-4"><!--TODO:TRANSLATE--></td></tr>
-        <tr class="odd:bg-white even:bg-black/5"><th scope="row" class="px-6 py-4 font-medium whitespace-nowrap">woz9ts_direct</th><td class="px-6 py-4"><a href="/member_codes?prefix=filepath:upload/woz9ts_direct/">{{ gettext('page.datasets.upload.action.browse') }}</a></td><td class="px-6 py-4"><a href="/search?termtype_1=original_filename&termval_1=upload/woz9ts_direct">{{ gettext('page.datasets.upload.action.search') }}</a></td><td class="px-6 py-4">{{ gettext( 'page.datasets.upload.source.woz9ts_direct', a_program_think=(dict(href="https://github.com/programthink/books", **a.external_link) | xmlattr), a_haodoo=(dict(href="https://haodoo.net", **a.external_link) | xmlattr), a_skqs=(dict(href="https://en.wikipedia.org/wiki/Siku_Quanshu", **a.external_link) | xmlattr), a_sikuquanshu=(dict(href="http://www.sikuquanshu.com/", **a.external_link) | xmlattr), a_arrested=(dict(href="https://www.thepaper.cn/newsDetail_forward_7943463", **a.external_link) | xmlattr), ) }}</td></tr>
-        <tr class="odd:bg-white even:bg-black/5"><th scope="row" class="px-6 py-4 font-medium whitespace-nowrap">woz9ts_duxiu</th><td class="px-6 py-4"><a href="/member_codes?prefix=filepath:upload/woz9ts_duxiu/">{{ gettext('page.datasets.upload.action.browse') }}</a></td><td class="px-6 py-4"><a href="/search?termtype_1=original_filename&termval_1=upload/woz9ts_duxiu">{{ gettext('page.datasets.upload.action.search') }}</a></td><td class="px-6 py-4">{{ gettext('page.datasets.upload.source.woz9ts_duxiu') }}</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <p class="font-bold">{{ gettext('page.datasets.common.resources') }}</p>
-  <ul class="list-inside mb-4 ml-1">
-    <li class="list-disc">{{ gettext('page.datasets.common.total_files', count=(stats_data.stats_by_group.upload.count | numberformat)) }}</li>
-    <li class="list-disc">{{ gettext('page.datasets.common.total_filesize', size=(stats_data.stats_by_group.upload.filesize | filesizeformat)) }}</li>
-    <li class="list-disc">{{ gettext('page.datasets.common.mirrored_file_count', count=(stats_data.stats_by_group.upload.aa_count | numberformat), percent=((stats_data.stats_by_group.upload.aa_count/(stats_data.stats_by_group.upload.count+1)*100.0) | decimalformat)) }}</li>
-    <li class="list-disc"><a href="/torrents#upload">{{ gettext('page.datasets.upload.aa_torrents') }}</a></li>
-    <li class="list-disc"><a href="/db/source_record/get_aac_upload_book_dicts/md5/b6b884b30179add94c388e72d077cdb0.json.html">{{ gettext('page.datasets.common.aa_example_record') }}</a></li>
-    <li class="list-disc"><a href="https://software.annas-archive.li/AnnaArchivist/annas-archive/-/tree/main/data-imports">{{ gettext('page.datasets.common.import_scripts') }}</a></li>
-    <li class="list-disc"><a href="/blog/annas-archive-containers.html">{{ gettext('page.datasets.common.aac') }}</a></li>
-  </ul>
+<div class="mb-4">
+ <a href="/datasets">
+  {{ gettext('page.datasets.title') }}
+ </a>
+ ▶ {{ gettext('page.datasets.upload.title') }} [upload]
+</div>
+<div class="mb-4 p-2 overflow-hidden bg-black/5 break-words">
+ {{ gettext('page.datasets.common.intro', a_archival=(a.faqs_what | xmlattr), a_llm=(a.llm | xmlattr)) }}
+</div>
+<div class="mb-4 p-2 overflow-hidden bg-black/5 break-words">
+ <div class="text-xs mb-2">
+  {{ gettext('page.datasets.upload.overview', a1=({'href': '/datasets'} | xmlattr)) }}
+ </div>
+ <table class="w-full mx-[-8px]">
+  <tr class="even:bg-[#f2f2f2]">
+   <th class="p-2 align-bottom text-left" width="20%">
+    {{ gettext("page.datasets.sources.source.header") }}
+   </th>
+   <th class="p-2 align-bottom text-left" width="40%">
+    {{ gettext("page.datasets.sources.metadata.header") }}
+   </th>
+   <th class="p-2 align-bottom text-left" width="40%">
+    {{ gettext("page.datasets.sources.files.header") }}
+   </th>
+  </tr>
+  <tr class="even:bg-[#f2f2f2]">
+   <td class="p-2 align-top">
+    <a class="custom-a underline hover:opacity-60" href="/datasets/uploads">
+     {{ gettext('common.record_sources_mapping.uploads') }} [upload]
+    </a>
+   </td>
+   <td class="p-2 align-top" colspan="2">
+    <div class="my-2 first:mt-0 last:mb-0">
+     {{ gettext('page.datasets.sources.uploads.metadata_and_files', icon='') }}
+    </div>
+   </td>
+  </tr>
+ </table>
+</div>
+<p class="mb-4">
+ {{ gettext('page.datasets.upload.description') }}
+</p>
+<p class="mb-4">
+ {{ gettext('page.datasets.upload.subcollections') }}
+</p>
+<p class="mb-4">
+ {{ gettext('page.datasets.upload.subsubcollections') }}
+</p>
+<p class="mb-4">
+ {{ gettext('page.datasets.upload.subs.heading') }}
+</p>
+<div class="relative overflow-x-auto border sm:rounded-lg mb-4">
+ <table class="w-full text-sm text-left">
+  <thead class="text-xs text-gray-700 uppercase bg-black/5">
+   <tr>
+    <th class="px-6 py-3" colspan="3" scope="col">
+     {{ gettext('page.datasets.upload.subs.subcollection') }}
+    </th>
+    <th class="px-6 py-3" scope="col">
+     {{ gettext('page.datasets.upload.subs.notes') }}
+    </th>
+   </tr>
+  </thead>
+  <tbody>
+   <tr class="odd:bg-white even:bg-black/5">
+    <th class="px-6 py-4 font-medium whitespace-nowrap" scope="row">
+     aaaaarg
+    </th>
+    <td class="px-6 py-4">
+     <a href="/member_codes?prefix=filepath:upload/aaaaarg/">
+      {{ gettext('page.datasets.upload.action.browse') }}
+     </a>
+    </td>
+    <td class="px-6 py-4">
+     <a href="/search?termtype_1=original_filename&amp;termval_1=upload/aaaaarg">
+      {{ gettext('page.datasets.upload.action.search') }}
+     </a>
+    </td>
+    <td class="px-6 py-4">
+     {{ gettext('page.datasets.upload.source.aaaaarg', a_href=({'href': 'http://aaaaarg.fail', 'rel': 'noopener noreferrer nofollow', 'target': '_blank'} | xmlattr)) }}
+    </td>
+   </tr>
+   <tr class="odd:bg-white even:bg-black/5">
+    <th class="px-6 py-4 font-medium whitespace-nowrap" scope="row">
+     acm
+    </th>
+    <td class="px-6 py-4">
+     <a href="/member_codes?prefix=filepath:upload/acm/">
+      {{ gettext('page.datasets.upload.action.browse') }}
+     </a>
+    </td>
+    <td class="px-6 py-4">
+     <a href="/search?termtype_1=original_filename&amp;termval_1=upload/acm">
+      {{ gettext('page.datasets.upload.action.search') }}
+     </a>
+    </td>
+    <td class="px-6 py-4">
+     {{ gettext('page.datasets.upload.source.acm', a_href=({'href': 'https://1337x.to/torrent/4536161/ACM-Digital-Library-2020/', 'rel': 'noopener noreferrer nofollow', 'target': '_blank'} | xmlattr)) }}
+    </td>
+   </tr>
+   <tr class="odd:bg-white even:bg-black/5">
+    <th class="px-6 py-4 font-medium whitespace-nowrap" scope="row">
+     airitibooks
+    </th>
+    <td class="px-6 py-4">
+     <a href="/member_codes?prefix=filepath:upload/airitibooks/">
+      {{ gettext('page.datasets.upload.action.browse') }}
+     </a>
+    </td>
+    <td class="px-6 py-4">
+     <a href="/search?termtype_1=original_filename&amp;termval_1=upload/airitibooks">
+      {{ gettext('page.datasets.upload.action.search') }}
+     </a>
+    </td>
+    <td class="px-6 py-4">
+     {{ gettext('page.datasets.upload.source.airitibooks', a1=({'href': '/datasets/other_metadata'} | xmlattr)) }}
+    </td>
+   </tr>
+   <tr class="odd:bg-white even:bg-black/5">
+    <th class="px-6 py-4 font-medium whitespace-nowrap" scope="row">
+     alexandrina
+    </th>
+    <td class="px-6 py-4">
+     <a href="/member_codes?prefix=filepath:upload/alexandrina/">
+      {{ gettext('page.datasets.upload.action.browse') }}
+     </a>
+    </td>
+    <td class="px-6 py-4">
+     <a href="/search?termtype_1=original_filename&amp;termval_1=upload/alexandrina">
+      {{ gettext('page.datasets.upload.action.search') }}
+     </a>
+    </td>
+    <td class="px-6 py-4">
+     {{ gettext('page.datasets.upload.source.alexandrina', a1=({'href': 'https://www.reddit.com/r/DataHoarder/comments/zuniqw/bibliotheca_alexandrina_a_600_gb_hoard_of_history/', 'rel': 'noopener noreferrer nofollow', 'target': '_blank'} | xmlattr)) }}
+    </td>
+   </tr>
+   <tr class="odd:bg-white even:bg-black/5">
+    <th class="px-6 py-4 font-medium whitespace-nowrap" scope="row">
+     bibliotik
+    </th>
+    <td class="px-6 py-4">
+     <a href="/member_codes?prefix=filepath:upload/bibliotik/">
+      {{ gettext('page.datasets.upload.action.browse') }}
+     </a>
+    </td>
+    <td class="px-6 py-4">
+     <a href="/search?termtype_1=original_filename&amp;termval_1=upload/bibliotik">
+      {{ gettext('page.datasets.upload.action.search') }}
+     </a>
+    </td>
+    <td class="px-6 py-4">
+     {{ gettext('page.datasets.upload.source.bibliotik', a_href=({'href': 'https://bibliotik.me/', 'rel': 'noopener noreferrer nofollow', 'target': '_blank'} | xmlattr)) }}
+    </td>
+   </tr>
+   <tr class="odd:bg-white even:bg-black/5">
+    <th class="px-6 py-4 font-medium whitespace-nowrap" scope="row">
+     bpb9v_cadal
+    </th>
+    <td class="px-6 py-4">
+     <a href="/member_codes?prefix=filepath:upload/bpb9v_cadal/">
+      {{ gettext('page.datasets.upload.action.browse') }}
+     </a>
+    </td>
+    <td class="px-6 py-4">
+     <a href="/search?termtype_1=original_filename&amp;termval_1=upload/bpb9v_cadal">
+      {{ gettext('page.datasets.upload.action.search') }}
+     </a>
+    </td>
+    <td class="px-6 py-4">
+     {{ gettext('page.datasets.upload.source.bpb9v_cadal', a_href=({'href': 'https://cadal.edu.cn/', 'rel': 'noopener noreferrer nofollow', 'target': '_blank'} | xmlattr), a_duxiu=({'href': '/datasets/duxiu'} | xmlattr)) }}
+    </td>
+   </tr>
+   <tr class="odd:bg-white even:bg-black/5">
+    <th class="px-6 py-4 font-medium whitespace-nowrap" scope="row">
+     bpb9v_direct
+    </th>
+    <td class="px-6 py-4">
+     <a href="/member_codes?prefix=filepath:upload/bpb9v_direct/">
+      {{ gettext('page.datasets.upload.action.browse') }}
+     </a>
+    </td>
+    <td class="px-6 py-4">
+     <a href="/search?termtype_1=original_filename&amp;termval_1=upload/bpb9v_direct">
+      {{ gettext('page.datasets.upload.action.search') }}
+     </a>
+    </td>
+    <td class="px-6 py-4">
+     {{ gettext('page.datasets.upload.source.bpb9v_direct') }}
+    </td>
+   </tr>
+   <tr class="odd:bg-white even:bg-black/5">
+    <th class="px-6 py-4 font-medium whitespace-nowrap" scope="row">
+     cgiym_chinese
+    </th>
+    <td class="px-6 py-4">
+     <a href="/member_codes?prefix=filepath:upload/cgiym_chinese/">
+      {{ gettext('page.datasets.upload.action.browse') }}
+     </a>
+    </td>
+    <td class="px-6 py-4">
+     <a href="/search?termtype_1=original_filename&amp;termval_1=upload/cgiym_chinese">
+      {{ gettext('page.datasets.upload.action.search') }}
+     </a>
+    </td>
+    <td class="px-6 py-4">
+     {{ gettext('page.datasets.upload.source.cgiym_chinese', a_href=({'href': 'http://cmpedu.com/', 'rel': 'noopener noreferrer nofollow', 'target': '_blank'} | xmlattr)) }}
+    </td>
+   </tr>
+   <tr class="odd:bg-white even:bg-black/5">
+    <th class="px-6 py-4 font-medium whitespace-nowrap" scope="row">
+     cgiym_more
+    </th>
+    <td class="px-6 py-4">
+     <a href="/member_codes?prefix=filepath:upload/cgiym_more/">
+      {{ gettext('page.datasets.upload.action.browse') }}
+     </a>
+    </td>
+    <td class="px-6 py-4">
+     <a href="/search?termtype_1=original_filename&amp;termval_1=upload/cgiym_more">
+      {{ gettext('page.datasets.upload.action.search') }}
+     </a>
+    </td>
+    <td class="px-6 py-4">
+     {{ gettext('page.datasets.upload.source.cgiym_more') }}
+    </td>
+   </tr>
+   <tr class="odd:bg-white even:bg-black/5">
+    <th class="px-6 py-4 font-medium whitespace-nowrap" scope="row">
+     chinese_architecture
+    </th>
+    <td class="px-6 py-4">
+     <a href="/member_codes?prefix=filepath:upload/chinese_architecture/">
+      {{ gettext('page.datasets.upload.action.browse') }}
+     </a>
+    </td>
+    <td class="px-6 py-4">
+     <a href="/search?termtype_1=original_filename&amp;termval_1=upload/chinese_architecture">
+      {{ gettext('page.datasets.upload.action.search') }}
+     </a>
+    </td>
+    <td class="px-6 py-4">
+     {{ gettext('page.datasets.upload.source.chinese_architecture', a1=({'href': '/datasets/other_metadata'} | xmlattr)) }}
+    </td>
+   </tr>
+   <tr class="odd:bg-white even:bg-black/5">
+    <th class="px-6 py-4 font-medium whitespace-nowrap" scope="row">
+     degruyter
+    </th>
+    <td class="px-6 py-4">
+     <a href="/member_codes?prefix=filepath:upload/degruyter/">
+      {{ gettext('page.datasets.upload.action.browse') }}
+     </a>
+    </td>
+    <td class="px-6 py-4">
+     <a href="/search?termtype_1=original_filename&amp;termval_1=upload/degruyter">
+      {{ gettext('page.datasets.upload.action.search') }}
+     </a>
+    </td>
+    <td class="px-6 py-4">
+     {{ gettext('page.datasets.upload.source.degruyter', a_href=({'href': 'https://www.degruyter.com/', 'rel': 'noopener noreferrer nofollow', 'target': '_blank'} | xmlattr)) }}
+    </td>
+   </tr>
+   <tr class="odd:bg-white even:bg-black/5">
+    <th class="px-6 py-4 font-medium whitespace-nowrap" scope="row">
+     docer
+    </th>
+    <td class="px-6 py-4">
+     <a href="/member_codes?prefix=filepath:upload/docer/">
+      {{ gettext('page.datasets.upload.action.browse') }}
+     </a>
+    </td>
+    <td class="px-6 py-4">
+     <a href="/search?termtype_1=original_filename&amp;termval_1=upload/docer">
+      {{ gettext('page.datasets.upload.action.search') }}
+     </a>
+    </td>
+    <td class="px-6 py-4">
+     {{ gettext('page.datasets.upload.source.docer', a_href=({'href': 'https://docer.pl/', 'rel': 'noopener noreferrer nofollow', 'target': '_blank'} | xmlattr)) }}
+    </td>
+   </tr>
+   <tr class="odd:bg-white even:bg-black/5">
+    <th class="px-6 py-4 font-medium whitespace-nowrap" scope="row">
+     duxiu_epub
+    </th>
+    <td class="px-6 py-4">
+     <a href="/member_codes?prefix=filepath:upload/duxiu_epub/">
+      {{ gettext('page.datasets.upload.action.browse') }}
+     </a>
+    </td>
+    <td class="px-6 py-4">
+     <a href="/search?termtype_1=original_filename&amp;termval_1=upload/duxiu_epub">
+      {{ gettext('page.datasets.upload.action.search') }}
+     </a>
+    </td>
+    <td class="px-6 py-4">
+     {{ gettext('page.datasets.upload.source.duxiu_epub') }}
+    </td>
+   </tr>
+   <tr class="odd:bg-white even:bg-black/5">
+    <th class="px-6 py-4 font-medium whitespace-nowrap" scope="row">
+     duxiu_main
+    </th>
+    <td class="px-6 py-4">
+     <a href="/member_codes?prefix=filepath:upload/duxiu_main/">
+      {{ gettext('page.datasets.upload.action.browse') }}
+     </a>
+    </td>
+    <td class="px-6 py-4">
+     <a href="/search?termtype_1=original_filename&amp;termval_1=upload/duxiu_main">
+      {{ gettext('page.datasets.upload.action.search') }}
+     </a>
+    </td>
+    <td class="px-6 py-4">
+     {{ gettext('page.datasets.upload.source.duxiu_main', a_href=({'href': '/datasets/duxiu', 'rel': 'noopener noreferrer nofollow', 'target': '_blank'} | xmlattr)) }}
+    </td>
+   </tr>
+   <tr class="odd:bg-white even:bg-black/5">
+    <th class="px-6 py-4 font-medium whitespace-nowrap" scope="row">
+     elsevier
+    </th>
+    <td class="px-6 py-4">
+     <a href="/member_codes?prefix=filepath:upload/elsevier/">
+      {{ gettext('page.datasets.upload.action.browse') }}
+     </a>
+    </td>
+    <td class="px-6 py-4">
+     <a href="/search?termtype_1=original_filename&amp;termval_1=upload/elsevier">
+      {{ gettext('page.datasets.upload.action.search') }}
+     </a>
+    </td>
+    <td class="px-6 py-4">
+     {{ gettext('page.datasets.upload.source.elsevier') }}
+    </td>
+   </tr>
+   <tr class="odd:bg-white even:bg-black/5">
+    <th class="px-6 py-4 font-medium whitespace-nowrap" scope="row">
+     emo37c
+    </th>
+    <td class="px-6 py-4">
+     <a href="/member_codes?prefix=filepath:upload/emo37c/">
+      {{ gettext('page.datasets.upload.action.browse') }}
+     </a>
+    </td>
+    <td class="px-6 py-4">
+     <a href="/search?termtype_1=original_filename&amp;termval_1=upload/emo37c">
+      {{ gettext('page.datasets.upload.action.search') }}
+     </a>
+    </td>
+    <td class="px-6 py-4">
+     {{ gettext('page.datasets.upload.source.emo37c') }}
+    </td>
+   </tr>
+   <tr class="odd:bg-white even:bg-black/5">
+    <th class="px-6 py-4 font-medium whitespace-nowrap" scope="row">
+     french
+    </th>
+    <td class="px-6 py-4">
+     <a href="/member_codes?prefix=filepath:upload/french/">
+      {{ gettext('page.datasets.upload.action.browse') }}
+     </a>
+    </td>
+    <td class="px-6 py-4">
+     <a href="/search?termtype_1=original_filename&amp;termval_1=upload/french">
+      {{ gettext('page.datasets.upload.action.search') }}
+     </a>
+    </td>
+    <td class="px-6 py-4">
+     {{ gettext('page.datasets.upload.source.french') }}
+    </td>
+   </tr>
+   <tr class="odd:bg-white even:bg-black/5">
+    <th class="px-6 py-4 font-medium whitespace-nowrap" scope="row">
+     hentai
+    </th>
+    <td class="px-6 py-4">
+     <a href="/member_codes?prefix=filepath:upload/hentai/">
+      {{ gettext('page.datasets.upload.action.browse') }}
+     </a>
+    </td>
+    <td class="px-6 py-4">
+     <a href="/search?termtype_1=original_filename&amp;termval_1=upload/hentai">
+      {{ gettext('page.datasets.upload.action.search') }}
+     </a>
+    </td>
+    <td class="px-6 py-4">
+     {{ gettext('page.datasets.upload.source.hentai', a1=({'href': '/datasets/other_metadata'} | xmlattr)) }}
+    </td>
+   </tr>
+   <tr class="odd:bg-white even:bg-black/5">
+    <th class="px-6 py-4 font-medium whitespace-nowrap" scope="row">
+     ia_multipart
+    </th>
+    <td class="px-6 py-4">
+     <a href="/member_codes?prefix=filepath:upload/ia_multipart/">
+      {{ gettext('page.datasets.upload.action.browse') }}
+     </a>
+    </td>
+    <td class="px-6 py-4">
+     <a href="/search?termtype_1=original_filename&amp;termval_1=upload/ia_multipart">
+      {{ gettext('page.datasets.upload.action.search') }}
+     </a>
+    </td>
+    <td class="px-6 py-4">
+     {{ gettext('page.datasets.upload.source.ia_multipart') }}
+    </td>
+   </tr>
+   <tr class="odd:bg-white even:bg-black/5">
+    <th class="px-6 py-4 font-medium whitespace-nowrap" scope="row">
+     imslp
+    </th>
+    <td class="px-6 py-4">
+     <a href="/member_codes?prefix=filepath:upload/imslp/">
+      {{ gettext('page.datasets.upload.action.browse') }}
+     </a>
+    </td>
+    <td class="px-6 py-4">
+     <a href="/search?termtype_1=original_filename&amp;termval_1=upload/imslp">
+      {{ gettext('page.datasets.upload.action.search') }}
+     </a>
+    </td>
+    <td class="px-6 py-4">
+     {{ gettext('page.datasets.upload.source.imslp') }}
+    </td>
+   </tr>
+   <tr class="odd:bg-white even:bg-black/5">
+    <th class="px-6 py-4 font-medium whitespace-nowrap" scope="row">
+     japanese_manga
+    </th>
+    <td class="px-6 py-4">
+     <a href="/member_codes?prefix=filepath:upload/japanese_manga/">
+      {{ gettext('page.datasets.upload.action.browse') }}
+     </a>
+    </td>
+    <td class="px-6 py-4">
+     <a href="/search?termtype_1=original_filename&amp;termval_1=upload/japanese_manga">
+      {{ gettext('page.datasets.upload.action.search') }}
+     </a>
+    </td>
+    <td class="px-6 py-4">
+     {{ gettext('page.datasets.upload.source.japanese_manga') }}
+    </td>
+   </tr>
+   <tr class="odd:bg-white even:bg-black/5">
+    <th class="px-6 py-4 font-medium whitespace-nowrap" scope="row">
+     longquan_archives
+    </th>
+    <td class="px-6 py-4">
+     <a href="/member_codes?prefix=filepath:upload/longquan_archives/">
+      {{ gettext('page.datasets.upload.action.browse') }}
+     </a>
+    </td>
+    <td class="px-6 py-4">
+     <a href="/search?termtype_1=original_filename&amp;termval_1=upload/longquan_archives">
+      {{ gettext('page.datasets.upload.action.search') }}
+     </a>
+    </td>
+    <td class="px-6 py-4">
+     {{ gettext('page.datasets.upload.source.longquan_archives', a_href=({'href': 'http://www.xinhuanet.com/english/2019-11/15/c_138557853.htm', 'rel': 'noopener noreferrer nofollow', 'target': '_blank'} | xmlattr)) }}
+    </td>
+   </tr>
+   <tr class="odd:bg-white even:bg-black/5">
+    <th class="px-6 py-4 font-medium whitespace-nowrap" scope="row">
+     magzdb
+    </th>
+    <td class="px-6 py-4">
+     <a href="/member_codes?prefix=filepath:upload/magzdb/">
+      {{ gettext('page.datasets.upload.action.browse') }}
+     </a>
+    </td>
+    <td class="px-6 py-4">
+     <a href="/search?termtype_1=original_filename&amp;termval_1=upload/magzdb">
+      {{ gettext('page.datasets.upload.action.search') }}
+     </a>
+    </td>
+    <td class="px-6 py-4">
+     {{ gettext('page.datasets.upload.source.magzdb', a_href=({'href': 'https://magzdb.org/', 'rel': 'noopener noreferrer nofollow', 'target': '_blank'} | xmlattr)) }}
+    </td>
+   </tr>
+   <tr class="odd:bg-white even:bg-black/5">
+    <th class="px-6 py-4 font-medium whitespace-nowrap" scope="row">
+     mangaz_com
+    </th>
+    <td class="px-6 py-4">
+     <a href="/member_codes?prefix=filepath:upload/mangaz_com/">
+      {{ gettext('page.datasets.upload.action.browse') }}
+     </a>
+    </td>
+    <td class="px-6 py-4">
+     <a href="/search?termtype_1=original_filename&amp;termval_1=upload/mangaz_com">
+      {{ gettext('page.datasets.upload.action.search') }}
+     </a>
+    </td>
+    <td class="px-6 py-4">
+     {{ gettext('page.datasets.upload.source.mangaz_com') }}
+    </td>
+   </tr>
+   <tr class="odd:bg-white even:bg-black/5">
+    <th class="px-6 py-4 font-medium whitespace-nowrap" scope="row">
+     misc
+    </th>
+    <td class="px-6 py-4">
+     <a href="/member_codes?prefix=filepath:upload/misc/">
+      {{ gettext('page.datasets.upload.action.browse') }}
+     </a>
+    </td>
+    <td class="px-6 py-4">
+     <a href="/search?termtype_1=original_filename&amp;termval_1=upload/misc">
+      {{ gettext('page.datasets.upload.action.search') }}
+     </a>
+    </td>
+    <td class="px-6 py-4">
+     {{ gettext('page.datasets.upload.source.misc', a1=({'href': '/datasets/other_metadata'} | xmlattr)) }}
+    </td>
+   </tr>
+   <tr class="odd:bg-white even:bg-black/5">
+    <th class="px-6 py-4 font-medium whitespace-nowrap" scope="row">
+     newsarch_ebooks
+    </th>
+    <td class="px-6 py-4">
+     <a href="/member_codes?prefix=filepath:upload/newsarch_ebooks/">
+      {{ gettext('page.datasets.upload.action.browse') }}
+     </a>
+    </td>
+    <td class="px-6 py-4">
+     <a href="/search?termtype_1=original_filename&amp;termval_1=upload/newsarch_ebooks">
+      {{ gettext('page.datasets.upload.action.search') }}
+     </a>
+    </td>
+    <td class="px-6 py-4">
+     {{ gettext('page.datasets.upload.source.newsarch_ebooks') }}
+    </td>
+   </tr>
+   <tr class="odd:bg-white even:bg-black/5">
+    <th class="px-6 py-4 font-medium whitespace-nowrap" scope="row">
+     newsarch_magz
+    </th>
+    <td class="px-6 py-4">
+     <a href="/member_codes?prefix=filepath:upload/newsarch_magz/">
+      {{ gettext('page.datasets.upload.action.browse') }}
+     </a>
+    </td>
+    <td class="px-6 py-4">
+     <a href="/search?termtype_1=original_filename&amp;termval_1=upload/newsarch_magz">
+      {{ gettext('page.datasets.upload.action.search') }}
+     </a>
+    </td>
+    <td class="px-6 py-4">
+     {{ gettext('page.datasets.upload.source.newsarch_magz', a1=({'href': '/datasets/other_metadata'} | xmlattr)) }}
+    </td>
+   </tr>
+   <tr class="odd:bg-white even:bg-black/5">
+    <th class="px-6 py-4 font-medium whitespace-nowrap" scope="row">
+     pdcnet_org
+    </th>
+    <td class="px-6 py-4">
+     <a href="/member_codes?prefix=filepath:upload/pdcnet_org/">
+      {{ gettext('page.datasets.upload.action.browse') }}
+     </a>
+    </td>
+    <td class="px-6 py-4">
+     <a href="/search?termtype_1=original_filename&amp;termval_1=upload/pdcnet_org">
+      {{ gettext('page.datasets.upload.action.search') }}
+     </a>
+    </td>
+    <td class="px-6 py-4">
+     {{ gettext('page.datasets.upload.source.pdcnet_org', a1=({'href': 'https://www.pdcnet.org/', 'rel': 'noopener noreferrer nofollow', 'target': '_blank'} | xmlattr)) }}
+    </td>
+   </tr>
+   <tr class="odd:bg-white even:bg-black/5">
+    <th class="px-6 py-4 font-medium whitespace-nowrap" scope="row">
+     polish
+    </th>
+    <td class="px-6 py-4">
+     <a href="/member_codes?prefix=filepath:upload/polish/">
+      {{ gettext('page.datasets.upload.action.browse') }}
+     </a>
+    </td>
+    <td class="px-6 py-4">
+     <a href="/search?termtype_1=original_filename&amp;termval_1=upload/polish">
+      {{ gettext('page.datasets.upload.action.search') }}
+     </a>
+    </td>
+    <td class="px-6 py-4">
+     {{ gettext('page.datasets.upload.source.polish') }}
+    </td>
+   </tr>
+   <tr class="odd:bg-white even:bg-black/5">
+    <th class="px-6 py-4 font-medium whitespace-nowrap" scope="row">
+     shuge
+    </th>
+    <td class="px-6 py-4">
+     <a href="/member_codes?prefix=filepath:upload/shuge/">
+      {{ gettext('page.datasets.upload.action.browse') }}
+     </a>
+    </td>
+    <td class="px-6 py-4">
+     <a href="/search?termtype_1=original_filename&amp;termval_1=upload/shuge">
+      {{ gettext('page.datasets.upload.action.search') }}
+     </a>
+    </td>
+    <td class="px-6 py-4">
+     {{ gettext('page.datasets.upload.source.shuge', a_href=({'href': 'https://www.shuge.org/', 'rel': 'noopener noreferrer nofollow', 'target': '_blank'} | xmlattr)) }}
+    </td>
+   </tr>
+   <tr class="odd:bg-white even:bg-black/5">
+    <th class="px-6 py-4 font-medium whitespace-nowrap" scope="row">
+     shukui_net_cdl
+    </th>
+    <td class="px-6 py-4">
+     <a href="/member_codes?prefix=filepath:upload/shukui_net_cdl/">
+      {{ gettext('page.datasets.upload.action.browse') }}
+     </a>
+    </td>
+    <td class="px-6 py-4">
+     <a href="/search?termtype_1=original_filename&amp;termval_1=upload/shukui_net_cdl">
+      {{ gettext('page.datasets.upload.action.search') }}
+     </a>
+    </td>
+    <td class="px-6 py-4">
+     {{ gettext('page.datasets.upload.source.shukui_net_cdl') }}
+    </td>
+   </tr>
+   <tr class="odd:bg-white even:bg-black/5">
+    <th class="px-6 py-4 font-medium whitespace-nowrap" scope="row">
+     trantor
+    </th>
+    <td class="px-6 py-4">
+     <a href="/member_codes?prefix=filepath:upload/trantor/">
+      {{ gettext('page.datasets.upload.action.browse') }}
+     </a>
+    </td>
+    <td class="px-6 py-4">
+     <a href="/search?termtype_1=original_filename&amp;termval_1=upload/trantor">
+      {{ gettext('page.datasets.upload.action.search') }}
+     </a>
+    </td>
+    <td class="px-6 py-4">
+     {{ gettext('page.datasets.upload.source.trantor', a_href=({'href': 'https://github.com/trantor-library/trantor', 'rel': 'noopener noreferrer nofollow', 'target': '_blank'} | xmlattr), a1=({'href': '/datasets/other_metadata'} | xmlattr)) }}
+    </td>
+   </tr>
+   <tr class="odd:bg-white even:bg-black/5">
+    <th class="px-6 py-4 font-medium whitespace-nowrap" scope="row">
+     turkish_pdfs
+    </th>
+    <td class="px-6 py-4">
+     <a href="/member_codes?prefix=filepath:upload/turkish_pdfs/">
+      {{ gettext('page.datasets.upload.action.browse') }}
+     </a>
+    </td>
+    <td class="px-6 py-4">
+     <a href="/search?termtype_1=original_filename&amp;termval_1=upload/turkish_pdfs">
+      {{ gettext('page.datasets.upload.action.search') }}
+     </a>
+    </td>
+    <td class="px-6 py-4">
+     {{ gettext('page.datasets.upload.source.turkish_pdfs') }}
+    </td>
+   </tr>
+   <tr class="odd:bg-white even:bg-black/5">
+    <th class="px-6 py-4 font-medium whitespace-nowrap" scope="row">
+     twlibrary
+    </th>
+    <td class="px-6 py-4">
+     <a href="/member_codes?prefix=filepath:upload/twlibrary/">
+      {{ gettext('page.datasets.upload.action.browse') }}
+     </a>
+    </td>
+    <td class="px-6 py-4">
+     <a href="/search?termtype_1=original_filename&amp;termval_1=upload/twlibrary">
+      {{ gettext('page.datasets.upload.action.search') }}
+     </a>
+    </td>
+    <td class="px-6 py-4">
+     {{ gettext('page.datasets.upload.source.twlibrary') }}
+    </td>
+   </tr>
+   <tr class="odd:bg-white even:bg-black/5">
+    <th class="px-6 py-4 font-medium whitespace-nowrap" scope="row">
+     wll
+    </th>
+    <td class="px-6 py-4">
+     <a href="/member_codes?prefix=filepath:upload/wll/">
+      {{ gettext('page.datasets.upload.action.browse') }}
+     </a>
+    </td>
+    <td class="px-6 py-4">
+     <a href="/search?termtype_1=original_filename&amp;termval_1=upload/wll">
+      {{ gettext('page.datasets.upload.action.search') }}
+     </a>
+    </td>
+    <td class="px-6 py-4">
+     {{ gettext('page.datasets.upload.source.wll') }}
+    </td>
+   </tr>
+   <tr class="odd:bg-white even:bg-black/5">
+    <th class="px-6 py-4 font-medium whitespace-nowrap" scope="row">
+     woz9ts_direct
+    </th>
+    <td class="px-6 py-4">
+     <a href="/member_codes?prefix=filepath:upload/woz9ts_direct/">
+      {{ gettext('page.datasets.upload.action.browse') }}
+     </a>
+    </td>
+    <td class="px-6 py-4">
+     <a href="/search?termtype_1=original_filename&amp;termval_1=upload/woz9ts_direct">
+      {{ gettext('page.datasets.upload.action.search') }}
+     </a>
+    </td>
+    <td class="px-6 py-4">
+     {{ gettext('page.datasets.upload.source.woz9ts_direct', a_program_think=({'href': 'https://github.com/programthink/books', 'rel': 'noopener noreferrer nofollow', 'target': '_blank'} | xmlattr), a_haodoo=({'href': 'https://haodoo.net', 'rel': 'noopener noreferrer nofollow', 'target': '_blank'} | xmlattr), a_skqs=({'href': 'https://en.wikipedia.org/wiki/Siku_Quanshu', 'rel': 'noopener noreferrer nofollow', 'target': '_blank'} | xmlattr), a_sikuquanshu=({'href': 'http://www.sikuquanshu.com/', 'rel': 'noopener noreferrer nofollow', 'target': '_blank'} | xmlattr), a_arrested=({'href': 'https://www.thepaper.cn/newsDetail_forward_7943463', 'rel': 'noopener noreferrer nofollow', 'target': '_blank'} | xmlattr)) }}
+    </td>
+   </tr>
+   <tr class="odd:bg-white even:bg-black/5">
+    <th class="px-6 py-4 font-medium whitespace-nowrap" scope="row">
+     woz9ts_duxiu
+    </th>
+    <td class="px-6 py-4">
+     <a href="/member_codes?prefix=filepath:upload/woz9ts_duxiu/">
+      {{ gettext('page.datasets.upload.action.browse') }}
+     </a>
+    </td>
+    <td class="px-6 py-4">
+     <a href="/search?termtype_1=original_filename&amp;termval_1=upload/woz9ts_duxiu">
+      {{ gettext('page.datasets.upload.action.search') }}
+     </a>
+    </td>
+    <td class="px-6 py-4">
+     {{ gettext('page.datasets.upload.source.woz9ts_duxiu') }}
+    </td>
+   </tr>
+  </tbody>
+ </table>
+</div>
+<p class="font-bold">
+ {{ gettext('page.datasets.common.resources') }}
+</p>
+<ul class="list-inside mb-4 ml-1">
+ <li class="list-disc">
+  {{ gettext('page.datasets.common.total_files', count=(stats_data.stats_by_group.upload.count | numberformat)) }}
+ </li>
+ <li class="list-disc">
+  {{ gettext('page.datasets.common.total_filesize', size=(stats_data.stats_by_group.upload.filesize | filesizeformat)) }}
+ </li>
+ <li class="list-disc">
+  {{ gettext('page.datasets.common.mirrored_file_count', count=(stats_data.stats_by_group.upload.aa_count | numberformat), percent=((stats_data.stats_by_group.upload.aa_count/(stats_data.stats_by_group.upload.count+1)*100.0) | decimalformat)) }}
+ </li>
+ <li class="list-disc">
+  <a href="/torrents#upload">
+   {{ gettext('page.datasets.upload.aa_torrents') }}
+  </a>
+ </li>
+ <li class="list-disc">
+  <a href="/db/source_record/get_aac_upload_book_dicts/md5/b6b884b30179add94c388e72d077cdb0.json.html">
+   {{ gettext('page.datasets.common.aa_example_record') }}
+  </a>
+ </li>
+ <li class="list-disc">
+  <a href="https://software.annas-archive.li/AnnaArchivist/annas-archive/-/tree/main/data-imports">
+   {{ gettext('page.datasets.common.import_scripts') }}
+  </a>
+ </li>
+ <li class="list-disc">
+  <a href="/blog/annas-archive-containers.html">
+   {{ gettext('page.datasets.common.aac') }}
+  </a>
+ </li>
+</ul>
 {% endblock %}

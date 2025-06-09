@@ -1,0 +1,448 @@
+#!/usr/bin/env python
+import argparse
+import pathlib
+import re
+from collections import defaultdict
+
+from bs4 import BeautifulSoup, NavigableString, Tag
+
+
+def slugify(text):
+    """
+    Simple slugify function.
+    """
+    text = text or ""
+    text = re.sub(r"[^\w\s-]", "", text.lower())
+    return re.sub(r"[-\s]+", "_", text).strip("_")
+
+
+def get_column_header_text(cell_element: Tag) -> str | None:
+    """
+    Finds the text of the column header for a given table cell (<td> or <th>).
+
+    This tries to determine the column index of the given cell and then finds
+    the corresponding header cell in what it determines to be the most
+    appropriate header row (typically the last row in `<thead>` or the first row
+    of the table if it contains `<th>` elements).
+    """
+    parent_row = cell_element.find_parent("tr")
+    assert parent_row.name == "tr", ValueError(
+        "Cell element is not a direct child of a <tr> element."
+    )
+
+    actual_col_index = 0
+
+    for sibling_cell in parent_row.find_all(["td", "th"], recursive=False):
+        if sibling_cell is cell_element or sibling_cell in cell_element.parents:
+            break
+        actual_col_index += int(sibling_cell.get("colspan", 1))
+
+    table = cell_element.find_parent("table")
+    assert table, ValueError("Cell element is not within a <table>.")
+
+    header_row_tag = None
+    thead = table.find("thead")
+    if thead:
+        header_rows_in_thead = thead.find_all("tr", recursive=False)
+        if header_rows_in_thead:
+            header_row_tag = header_rows_in_thead[-1]
+
+    if not header_row_tag:
+        # Fallback: if no <thead>, or <thead> is empty, try the first row of the table
+        # but only if it contains <th> elements.
+        first_table_row = table.find("tr", recursive=False)
+        if first_table_row and first_table_row.find("th", recursive=False):
+            header_row_tag = first_table_row
+
+    assert header_row_tag, ValueError("Could not identify a suitable header row.")
+
+    current_header_col = 0
+    for th_candidate in header_row_tag.find_all(["th", "td"], recursive=False):
+        colspan = int(th_candidate.get("colspan", 1))
+        # Check if the data cell's column index falls within the span of this header cell
+        if current_header_col <= actual_col_index < current_header_col + colspan:
+            return th_candidate.get_text(strip=True)
+        current_header_col += colspan
+
+    assert False, ValueError(
+        f"No header cell found for column index {actual_col_index} in the identified header row (searching for {cell_element}, column {actual_col_index})."
+    )
+
+
+def process_tag(
+    tag: Tag,
+    text_segments: list[str],
+    params: dict,
+    context: dict,
+    *,
+    prohibit_block_elements: bool = False,
+) -> None:
+    match tag:
+        case NavigableString():
+            # Raw text
+            text_segments.append(str(tag))
+        case Tag(name="a"):
+            # Links, specifically
+            param_name = tag.attrs.get("translate-key")
+            if param_name:
+                del tag.attrs["translate-key"]
+            else:
+                context["a_counter"] += 1
+                param_name = f"a{context['a_counter']}"
+
+            inner_a_html = tag.decode_contents()
+            text_segments.append(f"<a %({param_name})s>{inner_a_html}</a>")
+
+            params[param_name] = {
+                key: " ".join(value) if isinstance(value, list) else value
+                for key, value in tag.attrs.items()
+            }
+        case Tag(name="x-gettext"):
+            # Custom <x-gettext key="k" value="v | safe"></x-gettext> tags, which
+            # turn into %(key)s within the text and are attached as key=(value) params
+            # to the extracted string.
+            key = tag.attrs.get("key")
+            value = tag.attrs.get("value")
+            if not key or not value:
+                raise ValueError(
+                    "<x-gettext> tags must have non-empty key= and value= attributes"
+                )
+
+            text_segments.append(f"%({key})s")
+            params[key] = value
+        case Tag(
+            name="abbr"
+            | "b"
+            | "big"
+            | "cite"
+            | "code"
+            | "del"
+            | "dfn"
+            | "em"
+            | "i"
+            | "ins"
+            | "kbd"
+            | "mark"
+            | "q"
+            | "s"
+            | "samp"
+            | "small"
+            | "span"
+            | "strong"
+            | "sub"
+            | "sup"
+            | "time"
+            | "u"
+            | "var"
+        ):
+            # Inline elements, for which we want to recursively process the anchor tags to extract the parameters
+            inner_soup = BeautifulSoup(
+                f"<span>{tag.decode_contents()}</span>", "html.parser"
+            ).span
+            text_segments.append(f"<{tag.name}>")
+            for inner_tag in inner_soup.contents:
+                process_tag(
+                    inner_tag,
+                    text_segments,
+                    params,
+                    context,
+                    prohibit_block_elements=True,
+                )
+            text_segments.append(f"</{tag.name}>")
+        case Tag(
+            name="address"
+            | "article"
+            | "aside"
+            | "audio"
+            | "blockquote"
+            | "button"
+            | "canvas"
+            | "caption"
+            | "col"
+            | "colgroup"
+            | "dd"
+            | "details"
+            | "dialog"
+            | "div"
+            | "dl"
+            | "dt"
+            | "dd"
+            | "embed"
+            | "fieldset"
+            | "figcaption"
+            | "figure"
+            | "footer"
+            | "form"
+            | "h1"
+            | "h2"
+            | "h3"
+            | "h4"
+            | "h5"
+            | "h6"
+            | "header"
+            | "hr"
+            | "iframe"
+            | "img"
+            | "input"
+            | "label"
+            | "legend"
+            | "li"
+            | "main"
+            | "meter"
+            | "nav"
+            | "noscript"
+            | "object"
+            | "ol"
+            | "option"
+            | "p"
+            | "progress"
+            | "section"
+            | "select"
+            | "summary"
+            | "svg"
+            | "table"
+            | "tbody"
+            | "td"
+            | "template"
+            | "textarea"
+            | "tfoot"
+            | "th"
+            | "thead"
+            | "time"
+            | "tr"
+            | "ul"
+            | "video"
+        ):
+            # Block elements, which we prohibit inside [translate] elements
+            if prohibit_block_elements:
+                raise ValueError(
+                    f"Block element <{tag.name}> found inside a block-level translate element. Elements with 'translate' should not contain block elements."
+                )
+            text_segments.append(str(tag))
+        case Tag():
+            raise ValueError(
+                f"Unsupported tag type: {tag.name}. Please ensure it is a valid HTML tag."
+            )
+        case _:
+            # Comments, etc.
+            text_segments.append(str(tag))
+
+
+def process_html_template(html_content, gettext_prefix: tuple[str, ...]):
+    """
+    Parses an HTML Jinja template, extracts inline text and tags to gettext calls.
+    """
+    soup = BeautifulSoup(html_content, "html.parser")
+
+    key_counters: dict[str, int] = defaultdict(int)
+    base_page_prefix_parts = list(gettext_prefix)
+
+    tag_contexts = {}
+    current_h_context_slug = ""
+    temp_table_counters = defaultdict(int)
+    gettext_map = {}
+
+    # Walk all tags to establish context
+    for tag in soup.find_all(True):
+        if tag.name in ["h1", "h2", "h3", "h4", "h5", "h6"]:
+            h_text_content = tag.get_text(separator=" ", strip=True).split("\n")[0]
+            current_h_context_slug = slugify(h_text_content) if h_text_content else ""
+            temp_table_counters.clear()
+
+        if tag.has_attr("translate"):
+            table_id = None
+            column_header_text = None
+
+            if parent_table := tag.find_parent("table"):
+                if current_h_context_slug:
+                    section_key_for_table = current_h_context_slug
+                else:
+                    section_key_for_table = "_global_"
+
+                parent_assigned = parent_table.has_attr("data-table-id-assigned")
+                if tag.name == "th" and not parent_assigned:
+                    temp_table_counters[section_key_for_table] += 1
+                    table_id = temp_table_counters[section_key_for_table]
+                    # only increment counter once per table
+                    parent_table.attrs["data-table-id-assigned"] = "true"
+                elif parent_assigned:
+                    table_id = temp_table_counters[section_key_for_table]
+
+                if tag.name == "th":
+                    column_header_text = tag.get_text(
+                        separator=" ",
+                        strip=True,
+                    ).splitlines()[0]
+                elif tag.find_parent("td"):
+                    column_header_text = get_column_header_text(tag)
+
+            tag_contexts[tag] = {
+                "current_h_slug": current_h_context_slug,
+                "table_id": table_id,
+                "column_header_text": column_header_text,
+            }
+
+    # Clean up temporary attribute
+    for table_tag in soup.find_all(attrs={"data-table-id-assigned": "true"}):
+        del table_tag["data-table-id-assigned"]
+
+    # Now process the tags that had "translate"
+    translatable_tags = soup.find_all(attrs={"translate": True})
+
+    for i, tag in enumerate(translatable_tags):
+        context = tag_contexts.get(tag)
+        assert context, f"No context for tag {tag.name}"
+
+        current_prefix_parts_for_key = list(base_page_prefix_parts)
+
+        if tag.name in ["h1", "h2", "h3", "h4", "h5", "h6"]:
+            h_text_slug = slugify(
+                tag.get_text(separator=" ", strip=True).split("\n")[0]
+            )
+            if h_text_slug and tag.name != "h2":
+                current_prefix_parts_for_key.append(h_text_slug)
+            key_counters[".".join(current_prefix_parts_for_key)] = 0
+
+        elif context["current_h_slug"]:
+            current_prefix_parts_for_key.append(context["current_h_slug"])
+
+        # Increment counter for the current key prefix
+        key_prefix_str = ".".join(current_prefix_parts_for_key)
+        key_counters[key_prefix_str] += 1
+        current_count = key_counters[key_prefix_str]
+
+        gettext_key = ""
+        if tag.find_parent("table"):
+            column_name = slugify(context["column_header_text"])
+            table_num = context.get("table_id", 1)
+
+            gettext_key_list = [key_prefix_str, f"table{table_num}", column_name]
+
+            if tag.name == "th":
+                gettext_key = ".".join([*gettext_key_list, "header"])
+
+            elif tag.find_parent("td"):
+                row_idx = len(tag.find_parent("tr").find_previous_siblings("tr")) + 1
+                cell_idx = len(tag.find_parent("td").find_previous_siblings("td")) + 1
+                gettext_key = ".".join(
+                    [
+                        *gettext_key_list,
+                        f"row{row_idx}",
+                        f"cell{cell_idx}",
+                        f"{current_count}",
+                    ]
+                )
+
+        else:
+            gettext_key = f"{key_prefix_str}.{current_count}"
+
+        if translate_attr := tag.attrs["translate"]:
+            gettext_key = translate_attr
+
+        original_tag_content_html = tag.decode_contents()
+
+        # Use a temporary soup to parse the content again, makes handling mixed content easier
+        # Wrap in a div to ensure it's a valid mini-document.
+        content_soup = BeautifulSoup(
+            f"<div>{original_tag_content_html}</div>",
+            "html.parser",
+        ).div
+
+        text_segments = []
+        params = {}
+        a_counter = 0
+
+        for child in content_soup.contents:
+            process_tag(child, text_segments, params, {"a_counter": a_counter})
+
+        text_to_translate = re.sub(r"\s+", " ", "".join(text_segments)).strip()
+        gettext_map[gettext_key] = text_to_translate
+
+        param_strings = []
+        for p_name, p_attrs in params.items():
+            match p_attrs:
+                case dict():
+                    # Format attributes like `{'href': '/faq#what'}` - taking advantage of the
+                    # fact that Jinja accepts python syntax within the parentheses.
+                    param_strings.append(f"{p_name}=({p_attrs!r} | xmlattr)")
+                case str():
+                    # In the case of x-gettext tags, we're expecting the user to provide a valid
+                    # gettext expression.
+                    param_strings.append(f"{p_name}=({p_attrs})")
+                case _:
+                    raise ValueError(f"unknown gettext parameter type {type(p_attrs)}")
+
+        params_part = ""
+        if param_strings:
+            params_part = ", " + ", ".join(param_strings)
+
+        new_content_string = f"{{{{ gettext('{gettext_key}'{params_part}) }}}}"
+
+        # Replace tag's content
+        tag.clear()
+        tag.append(NavigableString(new_content_string))
+
+        # Remove the translate attribute
+        del tag["translate"]
+
+    return soup.prettify(), gettext_map
+
+
+def rewrite_gettext(output):
+    filename = "./allthethings/translations/en/LC_MESSAGES/messages.po"
+
+    with open(filename, "r", encoding="utf8") as fp:
+        content = fp.read()
+
+    for msgid, msgstr in output.items():
+        new_msg = f'msgid "{msgid}"\nmsgstr "{msgstr}"'
+
+        if '"' in msgstr:
+            raise ValueError(f"msgstr cannot contain double quotes {msgstr!r}")
+
+        locator = rf"msgid \"{re.escape(msgid)}\"\nmsgstr \"[^\"]*\""
+        content = re.sub(locator, new_msg, content)
+
+        # If the replacement didn't find anything, add the new entry to the bottom of the file
+        if new_msg not in content:
+            content += f"\n{new_msg}\n"
+
+    with open(filename, "w", encoding="utf8") as fp:
+        fp.write(content)
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(
+        description="Process HTML template for translation."
+    )
+    parser.add_argument("glob", help="Glob to the input HTML files", type=str)
+    args = parser.parse_args()
+
+    for input_file in pathlib.Path(".").glob(args.glob):
+        assert (
+            [".source", ".html"] == input_file.suffixes
+        ), f"file {input_file!r} must end in .source.html, but ended with {input_file.suffixes}"
+
+        input_file_basename = input_file
+        while input_file_basename.suffix:
+            input_file_basename = input_file_basename.with_suffix("")
+        output_file = input_file_basename.with_suffix(".html")
+
+        print(f"translating {input_file} to {output_file}", end=" ")
+
+        with input_file.open("r") as fp:
+            input_html_content = fp.read()
+
+        gettext_prefix = (str(input_file.parent.stem), input_file_basename.stem)
+        processed_html, gettext_output = process_html_template(
+            input_html_content, gettext_prefix
+        )
+
+        with output_file.open("w") as fp:
+            fp.write(processed_html)
+
+        rewrite_gettext(gettext_output)
+
+        print(
+            f"\rtranslated {input_file} to {output_file}; wrote {len(gettext_output)} gettext messages"
+        )
