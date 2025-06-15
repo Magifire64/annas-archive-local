@@ -12,7 +12,8 @@ echo 'DROP DATABASE IF EXISTS libgen_new;' | mariadb -h ${MARIADB_HOST:-aa-data-
 rm -rf libgen_new
 
 # 7z x /temp-dir/libgenli_db/libgen_new.zip
-unrar x /temp-dir/libgenli_db/libgen_new.part001.rar
+# unrar x /temp-dir/libgenli_db/libgen_new.part001.rar
+unrar x /temp-dir/libgenli_db/libgen_new*.part001.rar
 chown -R 999:999 libgen_new
 
 mysqlcheck -h ${MARIADB_HOST:-aa-data-import--mariadb} -u root -ppassword --auto-repair --check libgen_new
