@@ -400,14 +400,20 @@ def get_stats_data():
         ia_date_raw = ia_aacid.split('__')[2][0:8]
         ia_date = f"{ia_date_raw[0:4]}-{ia_date_raw[4:6]}-{ia_date_raw[6:8]}"
 
-        # WARNING! Sorting by primary ID does a lexical sort, not numerical. Sorting by zlib3_records.aacid gets records from refreshes. zlib3_files.aacid is most reliable.
-        cursor.execute('SELECT annas_archive_meta__aacid__zlib3_records.byte_offset, annas_archive_meta__aacid__zlib3_records.byte_length FROM annas_archive_meta__aacid__zlib3_records JOIN annas_archive_meta__aacid__zlib3_files USING (primary_id) ORDER BY annas_archive_meta__aacid__zlib3_files.aacid DESC LIMIT 1')
-        zlib3_record = cursor.fetchone()
-        zlib_date = ''
-        if zlib3_record is not None:
-            zlib_aac_lines = allthethings.utils.get_lines_from_aac_file(cursor, 'zlib3_records', [(zlib3_record['byte_offset'], zlib3_record['byte_length'])])
-            if len(zlib_aac_lines) > 0:
-                zlib_date = orjson.loads(zlib_aac_lines[0])['metadata']['date_modified']
+        # # WARNING! Sorting by primary ID does a lexical sort, not numerical. Sorting by zlib3_records.aacid gets records from refreshes. zlib3_files.aacid is most reliable.
+        # cursor.execute('SELECT annas_archive_meta__aacid__zlib3_records.byte_offset, annas_archive_meta__aacid__zlib3_records.byte_length FROM annas_archive_meta__aacid__zlib3_records JOIN annas_archive_meta__aacid__zlib3_files USING (primary_id) ORDER BY annas_archive_meta__aacid__zlib3_files.aacid DESC LIMIT 1')
+        # zlib3_record = cursor.fetchone()
+        # zlib_date = ''
+        # if zlib3_record is not None:
+        #     zlib_aac_lines = allthethings.utils.get_lines_from_aac_file(cursor, 'zlib3_records', [(zlib3_record['byte_offset'], zlib3_record['byte_length'])])
+        #     if len(zlib_aac_lines) > 0:
+        #         zlib_date = orjson.loads(zlib_aac_lines[0])['metadata']['date_modified']
+        ########
+        # The above also doesn't get good dates. :( Let's just look at the aacid for an approximation.
+        cursor.execute('SELECT aacid FROM annas_archive_meta__aacid__zlib3_files ORDER BY aacid DESC LIMIT 1')
+        zlib_aacid = cursor.fetchone()['aacid']
+        zlib_date_raw = zlib_aacid.split('__')[2][0:8]
+        zlib_date = f"{zlib_date_raw[0:4]}-{zlib_date_raw[4:6]}-{zlib_date_raw[6:8]}"
 
         cursor.execute('SELECT aacid FROM annas_archive_meta__aacid__duxiu_files ORDER BY aacid DESC LIMIT 1')
         duxiu_file_aacid = cursor.fetchone()['aacid']
