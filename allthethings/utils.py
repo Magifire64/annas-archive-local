@@ -88,6 +88,9 @@ SEARCH_FILTERED_BAD_AARECORD_IDS = [
     "md5:b0647953a182171074873b61200c71dd",
     "md5:820a4f8961ae0a76ad265f1678b7dfa5",
 
+    # Bad/corrupted files
+    "md5:66ae173a13618676eab9d717b9c89bee",
+
     # Likely CSAM
     "md5:d897ffc4e64cbaeae53a6005b6f155cc",
     "md5:8ae28a86719e3a4400145ac18b621efd",

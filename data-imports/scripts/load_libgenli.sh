@@ -13,7 +13,12 @@ rm -rf libgen_new
 
 # 7z x /temp-dir/libgenli_db/libgen_new.zip
 # unrar x /temp-dir/libgenli_db/libgen_new.part001.rar
+
+# ONLY for this new db format:
+mkdir libgen_new
+cd libgen_new
 unrar x /temp-dir/libgenli_db/libgen_new*.part001.rar
+cd ..
 chown -R 999:999 libgen_new
 
 mysqlcheck -h ${MARIADB_HOST:-aa-data-import--mariadb} -u root -ppassword --auto-repair --check libgen_new
