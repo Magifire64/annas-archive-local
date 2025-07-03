@@ -447,8 +447,7 @@ def mysql_build_computed_all_md5s_internal():
     print("Load indexes of annas_archive_meta__aacid__hathitrust_files")
     cursor.execute('LOAD INDEX INTO CACHE annas_archive_meta__aacid__hathitrust_files')
     print("Inserting from 'annas_archive_meta__aacid__hathitrust_files'")
-    # TODO: Remove the JOIN after 2025-07-01, and rerun everything including download_aac_hathitrust_records.sh.
-    cursor.execute('INSERT IGNORE INTO computed_all_md5s (md5, first_source) SELECT UNHEX(annas_archive_meta__aacid__hathitrust_files.primary_id), 15 FROM annas_archive_meta__aacid__hathitrust_files JOIN annas_archive_meta__aacid__hathitrust_records USING (pairtree_filename) WHERE annas_archive_meta__aacid__hathitrust_files.primary_id IS NOT NULL')
+    cursor.execute('INSERT IGNORE INTO computed_all_md5s (md5, first_source) SELECT UNHEX(annas_archive_meta__aacid__hathitrust_files.primary_id), 15 FROM annas_archive_meta__aacid__hathitrust_files WHERE annas_archive_meta__aacid__hathitrust_files.primary_id IS NOT NULL')
     cursor.close()
     print("Done mysql_build_computed_all_md5s_internal!")
     # engine_multi = create_engine(mariadb_url_no_timeout, connect_args={"client_flag": CLIENT.MULTI_STATEMENTS})
