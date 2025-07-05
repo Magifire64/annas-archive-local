@@ -6144,7 +6144,7 @@ def aarecord_score_base(aarecord):
         # For now demote non-books quite a bit, since they can drown out books.
         # People can filter for them directly.
         score -= 70.0
-    record_sources = aarecord_sources(aarecord)
+    record_sources = get_aarecord_sources(aarecord)
     if (record_sources == ['upload']) or (record_sources == ['zlibzh']) or (record_sources == ['nexusstc']) or (record_sources == ['hathi']):
         # Demote upload-only results below the demotion above, since there's some garbage in there.
         # Similarly demote zlibzh since we don't have direct download for them, and Zlib downloads are annoying because the require login.
@@ -6155,7 +6155,7 @@ def aarecord_score_base(aarecord):
         score += 3.0
     return score
 
-def aarecord_sources(aarecord):
+def get_aarecord_sources(aarecord):
     aarecord_id_split = aarecord['id'].split(':', 1)
     source_records_by_type = allthethings.utils.groupby(aarecord['source_records'], 'source_type', 'source_record')
     return list(dict.fromkeys([
@@ -6187,6 +6187,40 @@ def aarecord_sources(aarecord):
         *(['rgb']            if (aarecord_id_split[0] == 'rgb'            and len(source_records_by_type['aac_rgb'])            > 0) else []),
         *(['trantor']        if (aarecord_id_split[0] == 'trantor'        and len(source_records_by_type['aac_trantor'])        > 0) else []),
     ]))
+
+def get_primary_source(aarecord_id_split, sources, added_date_unified):
+    # Only set a primary source for files that are md5s which we actually have.
+    if aarecord_id_split[0] != 'md5':
+        return None
+    if sources in [['nexusstc'], ['magzdb']]:
+        return None
+
+    if 'hathi' in sources:
+        return 'hathi'
+
+    sorted_added_date_unified = [(date, key) for key, date in added_date_unified.items()]
+    sorted_added_date_unified.sort()
+    for date, key in sorted_added_date_unified:
+        if key in ['date_duxiu_meta_scrape','date_file_created','date_ia_record_scrape','date_ia_source','date_isbndb_scrape','date_oclc_scrape','date_ol_source','date_cerlalc_meta_scrape','date_czech_oo42hcks_meta_scrape','date_gbooks_meta_scrape','date_goodreads_meta_scrape','date_isbngrp_meta_scrape','date_libby_meta_scrape','date_rgb_meta_scrape','date_trantor_meta_scrape','date_hathi_source', 'date_edsebk_meta_scrape', 'date_nexusstc_source_issued_at', 'date_nexusstc_source_update']:
+            continue
+        if key == 'date_duxiu_filegen':
+            return 'duxiu'
+        if key == 'date_ia_file_scrape':
+            return 'ia'
+        if key == 'date_lgli_source':
+            return 'lgli'
+        if key == 'date_lgrsfic_source':
+            return 'lgrs'
+        if key == 'date_lgrsnf_source':
+            return 'lgrs'
+        if key == 'date_upload_record':
+            return 'upload'
+        if key == 'date_zlib_source':
+            return 'zlib'
+        if key == 'date_magzdb_meta_scrape':
+            return 'magzdb'
+        raise Exception(f"Unexpected key in get_primary_source: {aarecord_id_split=} {key=} {sources=} {sorted_added_date_unified=}")
+    raise Exception(f"No primary source found in get_primary_source: {aarecord_id_split=} {sources=} {sorted_added_date_unified=}")
 
 # Dummy translation to keep this msgid around. TODO: fix see below.
 dummy_translation_affected_files = gettext('page.md5.box.download.affected_files')
@@ -7345,7 +7379,7 @@ def get_aarecords_internal_mysql(session, aarecord_ids, include_aarecord_mysql_d
             if SLOW_DATA_IMPORTS:
                 aarecord['additional_SLOW_DATA_IMPORTS_FOR_DUMPS'] = additional
 
-        record_sources = aarecord_sources(aarecord)
+        record_sources = get_aarecord_sources(aarecord)
         for source_name in record_sources:
             allthethings.utils.add_classification_unified(aarecord['file_unified_data'], 'collection', source_name)
 
@@ -7413,6 +7447,7 @@ def get_aarecords_internal_mysql(session, aarecord_ids, include_aarecord_mysql_d
                 *(['meta_explore'] if allthethings.utils.get_aarecord_id_prefix_is_metadata(aarecord_id_split[0]) else []),
             ],
             'search_record_sources': record_sources,
+            'search_record_primary_source': get_primary_source(aarecord_id_split, record_sources, aarecord['file_unified_data']['added_date_unified']),
             # Used in external system, check before changing.
             'search_bulk_torrents': 'has_bulk_torrents' if aarecord['file_unified_data']['has_torrent_paths'] else 'no_bulk_torrents',
         }
@@ -7968,7 +8003,7 @@ def get_additional_for_aarecord(aarecord):
         'sources': "/".join(filter(len, [
             "🧬" if additional['has_scidb'] == 1 else "",
             "🚀" if additional['has_aa_downloads'] == 1 else "",
-            *aarecord_sources(aarecord)
+            *get_aarecord_sources(aarecord)
         ])),
         'filesize': format_filesize(aarecord['file_unified_data']['filesize_best']) if aarecord['file_unified_data']['filesize_best'] > 0 else '',
         'content_type': md5_content_type_mapping[aarecord['file_unified_data']['content_type_best']],

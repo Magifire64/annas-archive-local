@@ -517,6 +517,7 @@ es_create_index_body = {
                     "search_text": { "type": "text", "index": True, "index_phrases": True, "analyzer": "custom_icu_analyzer" },
                     "search_score_base_rank": { "type": "rank_feature" },
                     "search_access_types": { "type": "keyword", "index": True, "doc_values": True, "eager_global_ordinals": True },
+                    "search_record_primary_source": { "type": "keyword", "index": True, "doc_values": True, "eager_global_ordinals": True },
                     "search_record_sources": { "type": "keyword", "index": True, "doc_values": True, "eager_global_ordinals": True },
                     "search_bulk_torrents": { "type": "keyword", "index": True, "doc_values": True, "eager_global_ordinals": True },
                     # ES limit https://github.com/langchain-ai/langchain/issues/10218#issuecomment-1706481539
