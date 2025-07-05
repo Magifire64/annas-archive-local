@@ -417,11 +417,13 @@
             <div class="sm:hidden text-sm">{{ g.header_tagline_short | safe }} <a class="text-xs" href="/faq">{{ gettext('layout.index.header.learn_more') }}</a></div>
           </div>
 
-          <div class="hidden sm:flex text-xs mb-1 js-recent-downloads-container" aria-hidden="true">
             <!-- TODO:TRANSLATE ("Hide") -->
+            <!-- Make sure tailwind picks up these classes -->
+              <!-- <div class="shrink-0 min-w-full"></div>
+              <div class="inline-block max-w-[50%] truncate"></div> -->
+          <!-- <div class="hidden sm:flex text-xs mb-1 js-recent-downloads-container" aria-hidden="true">
             <div class="font-bold shrink-0"><a href="#" title="Hide" class="js-recent-downloads-hide">✕</a> {{ gettext('layout.index.header.recent_downloads') }}&nbsp;&nbsp;</div>
             <div class="w-full overflow-hidden flex js-recent-downloads-scroll">
-              <!-- Make sure tailwind picks up these classes -->
               <div class="shrink-0 min-w-full"></div>
               <div class="inline-block max-w-[50%] truncate"></div>
             </div>
@@ -512,6 +514,8 @@
               return false;
             }
           </script>
+          -->
+
           <div class="header-bar" data-testid="header-bar">
             <div class="header-links relative z-20">
               <a href="#" aria-expanded="false" onclick="topMenuToggle(event, 'js-top-menu-home')" class="header-link-first {{ 'header-link-active' if header_active.startswith('home') }}" style="margin-right: 24px;">
