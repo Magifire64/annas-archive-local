@@ -3,7 +3,9 @@
   <head>
     <meta charset="utf-8">
     <title>{% if self.title() %}{% block title %}{% endblock %} - {% endif %}{{ gettext('layout.index.title') }}</title>
-    <script type="text/javascript">{{ g.darkreader_code | safe }}</script>
+    {% block darkreader_code_block %}
+      <script type="text/javascript">{{ g.darkreader_code | safe }}</script>
+    {% endblock %}
     <link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}">
     {% if self.stylesheets() %}
       {% block stylesheets %}{% endblock %}
