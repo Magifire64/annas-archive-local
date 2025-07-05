@@ -1818,7 +1818,7 @@ def get_ia_record_dicts(session, key, values):
             if publicdate[0].encode('ascii', 'ignore').decode() != publicdate[0]:
                 print(f"Warning: {publicdate[0]=} is not ASCII; skipping!")
             else:
-                ia_record_dict['file_unified_data']['added_date_unified'] = { **added_date_unified_file, "date_ia_source": datetime.datetime.strptime(publicdate[0], "%Y-%m-%d %H:%M:%S").isoformat().split('T', 1)[0] }
+                added_date_unified_file["date_ia_source"] = datetime.datetime.strptime(publicdate[0], "%Y-%m-%d %H:%M:%S").isoformat().split('T', 1)[0]
 
         ia_record_dict['file_unified_data']['content_type_best'] = '' # So it defaults to book_unknown
         if ia_record_dict['ia_id'].split('_', 1)[0] in ['sim', 'per'] or extract_list_from_ia_json_field(ia_record_dict, 'pub_type') in ["Government Documents", "Historical Journals", "Law Journals", "Magazine", "Magazines", "Newspaper", "Scholarly Journals", "Trade Journals"]:
@@ -1838,6 +1838,7 @@ def get_ia_record_dicts(session, key, values):
             added_date_unified_file["date_ia_record_scrape"] = datetime.datetime.strptime(ia_record_dict['aacid'].split('__')[2], "%Y%m%dT%H%M%SZ").isoformat().split('T', 1)[0]
         else:
             added_date_unified_file["date_ia_record_scrape"] = '2023-06-28'
+        ia_record_dict['file_unified_data']['added_date_unified'] = added_date_unified_file
 
         allthethings.utils.add_identifier_unified(ia_record_dict['file_unified_data'], 'ocaid', ia_record_dict['ia_id'])
         if ia_record_dict.get('aacid') is not None:
@@ -6197,6 +6198,8 @@ def get_primary_source(aarecord_id_split, sources, added_date_unified):
 
     if 'hathi' in sources:
         return 'hathi'
+    if 'scihub' in sources:
+        return 'scihub'
 
     sorted_added_date_unified = [(date, key) for key, date in added_date_unified.items()]
     sorted_added_date_unified.sort()
