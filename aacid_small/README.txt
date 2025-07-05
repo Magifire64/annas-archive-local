@@ -54,6 +54,12 @@ docker exec -it web bash -c 'for f in /app/aacid_small/*.jsonl; do echo "Process
 # DuXiu
 - Record in which "书名" ("title") in the INI data is the SSID: aacid__duxiu_records__20240305T000000Z__Moo2RJtqdVf6egw9ENaS98 / aacid__duxiu_records__20240205T000000Z__Wi3Bz3CWe79fq2wdPqL2Uh / aacid__duxiu_files__20240613T190635Z__cTFx8Lq38ktE9Saq6j58ZQ
 
+# DuXiu new (from start of 2025)
+- aacid__duxiu_records__20241116T000000Z__dm5WSBTVKGD6nbEJe3kxd3 => aacid__duxiu_files__20241205T044708Z__QXP63NKZK7Ax9Jj22XvKha
+- aacid__duxiu_records__20250623T000000Z__3gSMPWWrFoWa85dw3Gu8Gx => aacid__duxiu_files__20250127T133530Z__XEYUZpM5h7B6XDrmMsXaSx
+- aacid__duxiu_records__20250623T000001Z__AvmgXxksU66KNYuknJMrHL => aacid__duxiu_files__20250127T135216Z__YWYWeRMEfKr7trZ4K29ng2
+- aacid__duxiu_records__20250623T000002Z__cb3jySznuMszR2csuwWULd => aacid__duxiu_files__20250127T141940Z__RSvRNYC86P4XSAjHXavkNQ
+
 # HathiTrust
 - aacid__hathitrust_records__20230505T141431Z__WB2SiCfx5q4DJETuByMSd4 => pairtree filename "aeu/pairtree_root/ar/k+/=1/39/60/=t/3t/t5/cr/6j/ark+=13960=t3tt5cr6j/ark+=13960=t3tt5cr6j.zip" => aacid__hathitrust_files__20250227T120812Z__22GT7yrb3SpiFbNagtGGv8 (found using `select * from annas_archive_meta__aacid__hathitrust_files join annas_archive_meta__aacid__hathitrust_records using (pairtree_filename) limit 1;`)
 

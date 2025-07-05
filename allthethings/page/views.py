@@ -3441,6 +3441,12 @@ def get_oclc_dicts(session, key, values):
         oclc_dicts.append(oclc_dict)
     return oclc_dicts
 
+def duxiu_get_filename_decoded(aac_record):
+    if "filename_decoded" in aac_record["metadata"]["record"]:
+        return aac_record["metadata"]["record"]["filename_decoded"]
+    else:
+        return base64.b64decode(aac_record['metadata']['record']['full_filepath_raw_base64']).decode('utf8','replace')
+
 # Good examples:
 # select primary_id, count(*) as c, group_concat(json_extract(metadata, '$.type')) as type from annas_archive_meta__aacid__duxiu_records group by primary_id order by c desc limit 100;
 # duxiu_ssid_10000431    |        3 | "dx_20240122__books","dx_20240122__remote_files","512w_final_csv"
@@ -3541,7 +3547,7 @@ def get_duxiu_dicts(session, key, values, include_deep_transitive_md5s_size_path
                 if ssid_dir is not None:
                     new_aac_record["metadata"]["record"]["aa_derived_duxiu_ssid"] = ssid_dir
                 else:
-                    ssid_filename = allthethings.utils.extract_ssid_or_ssno_from_filepath(new_aac_record['metadata']['record']['filename_decoded'])
+                    ssid_filename = allthethings.utils.extract_ssid_or_ssno_from_filepath(duxiu_get_filename_decoded(new_aac_record))
                     if ssid_filename is not None:
                         new_aac_record["metadata"]["record"]["aa_derived_duxiu_ssid"] = ssid_filename
 
@@ -3570,7 +3576,7 @@ def get_duxiu_dicts(session, key, values, include_deep_transitive_md5s_size_path
         for primary_id, aac_records in aac_records_by_primary_id.items():
             for aac_record in aac_records.values():
                 if "filename_decoded" in aac_record["metadata"]["record"]:
-                    basename = aac_record["metadata"]["record"]["filename_decoded"].rsplit('.', 1)[0][0:250] # Same logic as in MySQL query.
+                    basename = duxiu_get_filename_decoded(aac_record).rsplit('.', 1)[0][0:250] # Same logic as in MySQL query.
                     if len(basename) >= 5: # Skip very short basenames as they might have too many hits.
                         filename_decoded_basename_to_primary_ids[basename].append(primary_id)
         if len(filename_decoded_basename_to_primary_ids) > 0:
@@ -3830,7 +3836,7 @@ def get_duxiu_dicts(session, key, values, include_deep_transitive_md5s_size_path
                     # for the primary (non-transitive) md5 record.
                     duxiu_dict['aa_duxiu_derived']['md5_multiple'] = [aac_record['generated_file_metadata']['md5'], aac_record['generated_file_metadata']['original_md5']] + duxiu_dict['aa_duxiu_derived']['md5_multiple']
                     duxiu_dict['aa_duxiu_derived']['filesize_additional'] = [int(aac_record['generated_file_metadata']['filesize'])] + duxiu_dict['aa_duxiu_derived']['filesize_additional']
-                    duxiu_dict['aa_duxiu_derived']['original_filename_additional'] = [allthethings.utils.prefix_filepath('duxiu', aac_record['metadata']['record']['filename_decoded'])] + duxiu_dict['aa_duxiu_derived']['original_filename_additional']
+                    duxiu_dict['aa_duxiu_derived']['original_filename_additional'] = [allthethings.utils.prefix_filepath('duxiu', duxiu_get_filename_decoded(aac_record))] + duxiu_dict['aa_duxiu_derived']['original_filename_additional']
 
                     duxiu_dict['aa_duxiu_derived']['added_date_unified']['date_duxiu_filegen'] = datetime.datetime.strptime(aac_record['generated_file_aacid'].split('__')[2], "%Y%m%dT%H%M%SZ").isoformat().split('T', 1)[0]
 
@@ -3843,7 +3849,7 @@ def get_duxiu_dicts(session, key, values, include_deep_transitive_md5s_size_path
                         })
                 else:
                     related_file = {
-                        "filepath": aac_record['metadata']['record']['filename_decoded'],
+                        "filepath": duxiu_get_filename_decoded(aac_record),
                         "md5": aac_record['metadata']['record']['md5'],
                         "filesize": int(aac_record['metadata']['record']['filesize']),
                         "from": "aa_catalog_files",
@@ -7684,6 +7690,8 @@ def get_additional_for_aarecord(aarecord):
                 server = 'g1'
             elif data_folder >= 'annas_archive_data__aacid__duxiu_files__20240613T205835Z--20240613T205836Z' and data_folder <= 'annas_archive_data__aacid__duxiu_files__20240613T223234Z--20240613T223235Z':
                 server = 'g1'
+            elif data_folder >= 'annas_archive_data__aacid__duxiu_files__20241205T043725Z--20241205T043726Z' and data_folder <= 'annas_archive_data__aacid__duxiu_files__20241205T045410Z--20241205T045411Z':
+                server = 'g5'
             elif data_folder >= 'annas_archive_data__aacid__duxiu_files__20250127T131853Z--20250127T131854Z' and data_folder <= 'annas_archive_data__aacid__duxiu_files__20250127T144745Z--20250127T144746Z':
                 server = 'g5'
             else:

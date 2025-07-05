@@ -267,6 +267,10 @@ def mysql_build_aac_tables_internal():
                         json = orjson.loads(line)
                         filename_decoded = json['metadata']['record']['filename_decoded']
                         return_data['filename_decoded_basename'] = filename_decoded.rsplit('.', 1)[0]
+                    elif b'"full_filepath_raw_base64"' in line:
+                        json = orjson.loads(line)
+                        filename_decoded = base64.b64decode(json['metadata']['record']['full_filepath_raw_base64']).decode('utf8','replace')
+                        return_data['filename_decoded_basename'] = filename_decoded.rsplit('.', 1)[0]
                 elif collection == 'upload_records':
                     json = orjson.loads(line)
                     filepath_raw_suffix = allthethings.utils.get_filepath_raw_from_upload_aac_metadata(json['metadata'])

@@ -8541,4 +8541,8 @@ INSERT INTO `annas_archive_meta__aacid__duxiu_records` VALUES("aacid__duxiu_reco
 ,("aacid__duxiu_records__20240305T000000Z__ghUNpbL4svLE22t4LeKyMc","md5_c3114314d59ce884384b21ecaa08e350",NULL,12935889,34425,"开明文库第一辑看云集_10000431")
 ,("aacid__duxiu_records__20240305T000000Z__Moo2RJtqdVf6egw9ENaS98","md5_a1de3912210ce87d28f06e97ba513d10",NULL,13085178,6307,"近百年来之东北_13155367")
 ,("aacid__duxiu_records__20240305T000000Z__R4zHGnMnbJXLgUYGTtSMs6","md5_00000323c76cb3700d35a9bd5598ab1e",NULL,13045229,38270,"13468429")
+,("aacid__duxiu_records__20241116T000000Z__dm5WSBTVKGD6nbEJe3kxd3","md5_2260fd18c3fbf64fc5357477bc42ede6",NULL,13091816,17973,"g/data/duxiu_and_related/DX5.0/zip/14646382")
+,("aacid__duxiu_records__20250623T000000Z__3gSMPWWrFoWa85dw3Gu8Gx","md5_71c09b0cd043db3a964c006f17a20f04",NULL,13109789,39853,"ga/data/dbook-new-partial-2024-08-13/补充库/大学堂新增/BBC人体如何工作_14726250关注读秀更新【微信】zsdxtvip【公众号】星空荐书")
+,("aacid__duxiu_records__20250623T000001Z__AvmgXxksU66KNYuknJMrHL","md5_a56066d42712ae570be5072dd246e82c",NULL,13149642,40537,"g7/data/dbook-glm-data-baidu-pan__new-2024-05-29/【星空藏书馆】/【星空藏书馆】等多个文件/图书五区/2020年新科诺贝尔文学奖/13975683_（美）露易丝·格丽克著 柳向阳译_月光的合金_上海人民出版社2016")
+,("aacid__duxiu_records__20250623T000002Z__cb3jySznuMszR2csuwWULd","md5_db73d081c43ce2c3d8e88fc7eb1ec54b",NULL,13190179,15400,"g7/data/dbook-data-fix_bad_decryption/MTE4MzI0NTdf5YGa6Ieq5bex55qEQ0VPICDmiJDlip/nlJ/mtq/mnIDkvbPop4TliJIuemlw")
 ;
