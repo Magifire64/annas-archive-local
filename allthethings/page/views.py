@@ -667,6 +667,7 @@ def get_torrents_data():
         small_file_dicts_grouped_other_aa = collections.defaultdict(list)
         aac_meta_file_paths_grouped = collections.defaultdict(list)
         seeder_sizes = collections.defaultdict(int)
+        group_seeder_sizes = collections.defaultdict(lambda: [0,0,0])
         for small_file in small_files:
             metadata = orjson.loads(small_file['metadata'])
             toplevel = small_file['file_path'].split('/')[1]
@@ -682,16 +683,21 @@ def get_torrents_data():
             scrape_row = scrapes_by_file_path.get(small_file['file_path'])
             scrape_metadata = {"scrape":{}}
             scrape_created = datetime.datetime.utcnow()
+            # Make sure we actually make these
+            group_seeder_sizes[group][0] += 0
             if scrape_row is not None:
                 scrape_created = scrape_row['created']
                 scrape_metadata = orjson.loads(scrape_row['metadata'])
                 if (metadata.get('embargo') or False) is False:
                     if scrape_metadata['scrape']['seeders'] < 4:
                         seeder_sizes[0] += metadata['data_size']
+                        group_seeder_sizes[group][0] += metadata['data_size']
                     elif scrape_metadata['scrape']['seeders'] < 11:
                         seeder_sizes[1] += metadata['data_size']
+                        group_seeder_sizes[group][1] += metadata['data_size']
                     else:
                         seeder_sizes[2] += metadata['data_size']
+                        group_seeder_sizes[group][2] += metadata['data_size']
 
             group_sizes[group] += metadata['data_size']
             group_num_files[group] += metadata.get('num_files') or 0
@@ -753,6 +759,10 @@ def get_torrents_data():
         group_size_strings = { group: format_filesize(total) for group, total in group_sizes.items() }
         group_avg_size_strings = { group: format_filesize(total // group_num_files[group]) for group, total in group_sizes.items() if group in group_num_files }
         seeder_size_strings = { index: format_filesize(seeder_sizes[index]) for index in [0,1,2] }
+        group_seeder_size_strings = {}
+        for group, inner_seeder_sizes in group_seeder_sizes.items():
+            total = sum(inner_seeder_sizes) + 1
+            group_seeder_size_strings[group] = [(format_filesize(inner_seeder_sizes[index]) if inner_seeder_sizes[index] > 0 else '–') + f" ({round(inner_seeder_sizes[index]*100/total)}%)" for index in [0,1,2]]
 
         return {
             'small_file_dicts_grouped': {
@@ -766,6 +776,7 @@ def get_torrents_data():
             'seeder_size_strings': seeder_size_strings,
             'seeder_sizes': seeder_sizes,
             'seeder_size_total_string': format_filesize(sum(seeder_sizes.values())),
+            'group_seeder_size_strings': group_seeder_size_strings,
         }
 
 @page.get("/datasets")
