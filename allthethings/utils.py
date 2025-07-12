@@ -91,6 +91,9 @@ SEARCH_FILTERED_BAD_AARECORD_IDS = [
     # Bad/corrupted files
     "md5:66ae173a13618676eab9d717b9c89bee",
 
+    # HathiTrust deletions (no matching record)
+    "md5:fbc6ecb25c78bcb62dca6a03ba550ea0",
+
     # Likely CSAM
     "md5:d897ffc4e64cbaeae53a6005b6f155cc",
     "md5:8ae28a86719e3a4400145ac18b621efd",
