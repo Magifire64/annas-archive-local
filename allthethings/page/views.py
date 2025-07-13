@@ -647,6 +647,8 @@ def torrent_group_data_from_file_path(file_path):
         group = 'other_metadata'
     if 'covers-2022-12' in file_path:
         group = 'other_metadata'
+    if 'torrents_byteoffsets_records' in file_path:
+        group = 'other_metadata'
 
     return { 'group': group, 'aac_meta_group': aac_meta_group }
 
