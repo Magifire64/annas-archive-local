@@ -1062,6 +1062,7 @@ def account_buy_membership():
             'duration': duration,
             'monthly_cents': membership_costs['monthly_cents'],
             'discounts': membership_costs['discounts'],
+            'full_domain': g.full_domain,
             # 'ref_account_id': allthethings.utils.get_referral_account_id(mariapersist_session, request.cookies.get('ref_id'), account_id),
         }
 
