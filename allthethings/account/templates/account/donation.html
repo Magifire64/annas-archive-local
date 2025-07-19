@@ -195,7 +195,7 @@
         </p>
 
         <p class="mb-4">
-          {{ gettext('page.donation.transfer_amount_to', amount=((donation_pay_amount + ' ' + (donation_dict.json.payment2_request.pay_currency | upper) + ' ' + copy_button(donation_pay_amount)) | safe), account=((donation_dict.json.payment2_request.pay_address + ' ' + copy_button(donation_dict.json.payment2_request.pay_address)) | safe)) }}
+          {{ gettext('page.donation.transfer_amount_to', amount=((donation_pay_amount + ' ' + (donation_dict.json.payment2_request.pay_currency | upper) + ' ' + copy_button(donation_pay_amount)) | safe), account=(((('<span class="break-all">' + donation_dict.json.payment2_request.pay_address + '</span>') | safe) + ' ' + copy_button(donation_dict.json.payment2_request.pay_address)) | safe)) }}
         </p>
 
         <p class="mb-4">
@@ -244,7 +244,7 @@
         </p>
 
         <p class="mb-4">
-          {{ gettext('page.donation.transfer_amount_to', amount=((donation_pay_amount + ' ' + (donation_dict.json.payment2_request.pay_currency | upper) + ' ' + copy_button(donation_pay_amount)) | safe), account=((donation_dict.json.payment2_request.pay_address + ' ' + copy_button(donation_dict.json.payment2_request.pay_address)) | safe)) }}
+          {{ gettext('page.donation.transfer_amount_to', amount=((donation_pay_amount + ' ' + (donation_dict.json.payment2_request.pay_currency | upper) + ' ' + copy_button(donation_pay_amount)) | safe), account=(((('<span class="break-all">' + donation_dict.json.payment2_request.pay_address + '</span>') | safe) + ' ' + copy_button(donation_dict.json.payment2_request.pay_address)) | safe)) }}
         </p>
 
         <!-- <p class="mb-4">
@@ -304,7 +304,7 @@
         <p class="mb-4 font-bold">{{ gettext('page.donation.revolut.btc_amount_below') }}</p>
 
         <p class="mb-4">
-          {{ gettext('page.donation.transfer_amount_to', amount=((donation_pay_amount + ' ' + (donation_dict.json.payment2_request.pay_currency | upper) + ' ' + copy_button(donation_pay_amount)) | safe), account=((donation_dict.json.payment2_request.pay_address + ' ' + copy_button(donation_dict.json.payment2_request.pay_address)) | safe)) }}
+          {{ gettext('page.donation.transfer_amount_to', amount=((donation_pay_amount + ' ' + (donation_dict.json.payment2_request.pay_currency | upper) + ' ' + copy_button(donation_pay_amount)) | safe), account=(((('<span class="break-all">' + donation_dict.json.payment2_request.pay_address + '</span>') | safe) + ' ' + copy_button(donation_dict.json.payment2_request.pay_address)) | safe)) }}
         </p>
 
         <!-- <p class="mb-4">
@@ -403,7 +403,7 @@
             <div>
           {% endif %}
             <p class="mb-4">
-              {{ gettext('page.donation.transfer_amount_to', amount=((donation_pay_amount + ' ' + (donation_dict.json.payment2_request.pay_currency | upper) + ' ' + copy_button(donation_pay_amount)) | safe), account=((donation_dict.json.payment2_request.pay_address + ' ' + copy_button(donation_dict.json.payment2_request.pay_address)) | safe)) }}
+              {{ gettext('page.donation.transfer_amount_to', amount=((donation_pay_amount + ' ' + (donation_dict.json.payment2_request.pay_currency | upper) + ' ' + copy_button(donation_pay_amount)) | safe), account=(((('<span class="break-all">' + donation_dict.json.payment2_request.pay_address + '</span>') | safe) + ' ' + copy_button(donation_dict.json.payment2_request.pay_address)) | safe)) }}
             </p>
             <p class="mb-4">
               {{ gettext('page.donation.crypto_standard') }}
