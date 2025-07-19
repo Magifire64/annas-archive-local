@@ -383,45 +383,185 @@
         </p>
       </div>
     {% elif donation_dict.json.method == 'payment2' %}
-      <h2 class="mt-4 mb-4 text-xl font-bold">{{ gettext('page.donation.crypto_instructions', coin_name=(donation_dict.json.payment2_request.pay_currency | upper)) }}</h2>
-
-      {% if donation_time_expired %}
-        <p class="mb-4">
-          {{ gettext('page.donation.expired') }}
-        </p>
-
-        <p class="mb-4">
-          <strong>{{ gettext('page.donation.expired_already_paid') }}</strong> {{ gettext('page.donation.confirmation_can_take_a_while') }}
-        </p>
-
-        <div class="mb-4"><a href="#" onclick="document.querySelector('.js-donation-instructions-main').classList.remove('hidden'); this.classList.add('hidden')">{{ gettext('page.donation.old_instructions.show_button') }}</a></div>
-
-        <div class="js-donation-instructions-main hidden">
-      {% else %}
-        <div>
-      {% endif %}
-        <p class="mb-4">
-          {{ gettext('page.donation.transfer_amount_to', amount=((donation_pay_amount + ' ' + (donation_dict.json.payment2_request.pay_currency | upper) + ' ' + copy_button(donation_pay_amount)) | safe), account=((donation_dict.json.payment2_request.pay_address + ' ' + copy_button(donation_dict.json.payment2_request.pay_address)) | safe)) }}
-        </p>
-
-        <p class="mb-4">
-          {{ gettext('page.donation.crypto_standard') }}
-          {{ gettext('page.donation.confirmation_can_take_a_while') }}
-        </p>
-
-        <p class="mb-4">
-          <strong>{{ gettext('page.donation.status_header') }}</strong> {% if donation_confirming %}{{ gettext('page.donation.waiting_for_confirmation_refresh') }}{% else %}{{ gettext('page.donation.waiting_for_transfer_refresh') }}{% endif %}<br>
-          <strong>{{ gettext('page.donation.time_left_header') }}</strong> {{ (donation_time_left | string).split('.')[0] }} {% if donation_time_left_not_much %}{{ gettext('page.donation.might_want_to_cancel') }}{% endif %}
-        </p>
-
-        <p class="mb-4">
-          {{ gettext('page.donation.reset_timer') }}
-        </p>
-
-        <p class="mb-4">
-          <button onclick="window.location.reload()" class="bg-[#0195ff] hover:bg-blue-600 px-4 py-1 rounded-md text-white mb-1">{{ gettext('page.donation.refresh_status') }}</button>
-        </p>
+      <div class="mb-6 flex flex-col lg:flex-row items-start gap-6">
+        <div class="flex-1">
+          <h2 class="mt-4 mb-4 text-xl font-bold">{{ gettext('page.donation.crypto_instructions', coin_name=(donation_dict.json.payment2_request.pay_currency | upper)) }}</h2>
+      
+          {% if donation_time_expired %}
+            <p class="mb-4">
+              {{ gettext('page.donation.expired') }}
+            </p>
+      
+            <p class="mb-4">
+              <strong>{{ gettext('page.donation.expired_already_paid') }}</strong> {{ gettext('page.donation.confirmation_can_take_a_while') }}
+            </p>
+      
+            <div class="mb-4"><a href="#" onclick="document.querySelector('.js-donation-instructions-main').classList.remove('hidden'); this.classList.add('hidden')">{{ gettext('page.donation.old_instructions.show_button') }}</a></div>
+      
+            <div class="js-donation-instructions-main hidden">
+          {% else %}
+            <div>
+          {% endif %}
+            <p class="mb-4">
+              {{ gettext('page.donation.transfer_amount_to', amount=((donation_pay_amount + ' ' + (donation_dict.json.payment2_request.pay_currency | upper) + ' ' + copy_button(donation_pay_amount)) | safe), account=((donation_dict.json.payment2_request.pay_address + ' ' + copy_button(donation_dict.json.payment2_request.pay_address)) | safe)) }}
+            </p>
+            <p class="mb-4">
+              {{ gettext('page.donation.crypto_standard') }}
+              {{ gettext('page.donation.confirmation_can_take_a_while') }}
+            </p>
+            <p class="mb-4">
+              <strong>{{ gettext('page.donation.status_header') }}</strong> {% if donation_confirming %}{{ gettext('page.donation.waiting_for_confirmation_refresh') }}{% else %}{{ gettext('page.donation.waiting_for_transfer_refresh') }}{% endif %}<br>
+              <strong>{{ gettext('page.donation.time_left_header') }}</strong> {{ (donation_time_left | string).split('.')[0] }} {% if donation_time_left_not_much %}{{ gettext('page.donation.might_want_to_cancel') }}{% endif %}
+            </p>
+      
+            <p class="mb-4">
+              {{ gettext('page.donation.reset_timer') }}
+            </p>
+      
+            <p class="mb-4">
+              <button onclick="window.location.reload()" class="bg-[#0195ff] hover:bg-blue-600 px-4 py-1 rounded-md text-white mb-1">{{ gettext('page.donation.refresh_status') }}</button>
+            </p>
+          </div>
+        </div>
+        
+        <div class="flex-shrink-0 w-full lg:w-auto">
+          <div class="text-center">
+            <p class="mb-3 font-medium">{{ gettext('page.donation.crypto_qr_code_title') }}</p>
+            <div class="inline-block p-4 bg-white border border-gray-300 rounded-lg shadow-sm">
+              <div id="qr-code-canvas" class="w-32 h-32 bg-gray-100 flex items-center justify-center">
+                <span class="text-gray-500 text-sm">Loading QR code...</span>
+              </div>
+            </div>
+            <p class="mt-2 text-sm text-gray-600" style="max-width: 160px; margin-left: auto; margin-right: auto;">
+              {{ gettext('page.donation.crypto_qr_code_instructions') }}
+            </p>
+            <p id="qr-text-fallback" class="mt-2 text-sm text-gray-600 sr-only"></p>
+          </div>
+        </div>
       </div>
+
+      <script id="payment-data" type="application/json">
+        {{ {
+          'address':  donation_dict.json.payment2_request.pay_address | default(''),
+          'amount':   donation_pay_amount                               | default(''),
+          'currency': donation_dict.json.payment2_request.pay_currency  | default('')
+        } | tojson }}
+      </script>
+
+      <script src="/qrcode/easy.qrcode.min.js"></script>
+      <script>
+        function parseUnits(amountStr, decimals) {
+          const [whole, frac=''] = String(amountStr).split('.');
+          const fracPadded = (frac + '0'.repeat(decimals)).slice(0, decimals);
+          return BigInt(whole) * 10n**BigInt(decimals) + BigInt(fracPadded);
+        }
+
+        const currencyConfig = {
+          xmr:     { type: 'native', scheme: 'monero',      param: 'tx_amount', decimals: null },
+          btc:     { type: 'native', scheme: 'bitcoin',     param: 'amount',    decimals: null },
+          eth:     { type: 'native', scheme: 'ethereum',    param: 'value',     decimals: 18 },
+          ethbase: { type: 'native', scheme: 'ethereum',    param: 'value',     decimals: 18 },
+          bch:     { type: 'native', scheme: 'bitcoincash', param: 'amount',    decimals: null },
+          ltc:     { type: 'native', scheme: 'litecoin',    param: 'amount',    decimals: null },
+          ada:     { type: 'native', scheme: 'cardano',     param: 'amount',    decimals: null },
+          bnbbsc:  { type: 'native', scheme: 'bsc',         param: 'value',     decimals: 18 },
+          doge:    { type: 'native', scheme: 'dogecoin',    param: 'amount',    decimals: null },
+          dot:     { type: 'native', scheme: 'polkadot',    param: 'amount',    decimals: null },
+          near:    { type: 'native', scheme: 'near',        param: 'amount',    decimals: null },
+          sol:     { type: 'native', scheme: 'solana',      param: 'amount',    decimals: null },
+          ton:     { type: 'native', scheme: 'ton',         param: 'amount',    decimals: null },
+          trx:     { type: 'native', scheme: 'tron',        param: 'amount',    decimals: null },
+          busdbsc:   { type: 'token', chain: 'bsc',      contract: '0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56', decimals: 18 },
+          dai:       { type: 'token', chain: 'ethereum', contract: '0x6B175474E89094C44Da98b954EedeAC495271d0F', decimals: 18 },
+          pax:       { type: 'token', chain: 'ethereum', contract: '0x8E870D67F660D95d5be530380D0eC0bd388289E1', decimals: 18 },
+          pyusd:     { type: 'token', chain: 'ethereum', contract: '0x6c3eA9036406852006290770BEdFcAbA0e23A0e8', decimals: 6 },
+          usdc:      { type: 'token', chain: 'ethereum', contract: '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48', decimals: 6 },
+          usdterc20: { type: 'token', chain: 'ethereum', contract: '0xdAC17F958D2ee523a2206206994597C13D831ec7', decimals: 6 },
+          usdtbsc:   { type: 'token', chain: 'bsc',      contract: '0x55d398326f99059fF775485246999027B3197955', decimals: 18 },
+          usdttrc20: { type: 'token', chain: 'tron',     contract: 'TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t',           decimals: 6 },
+          usdtsol:   { type: 'token', chain: 'solana',   contract: 'Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB', decimals: 6 },
+        };
+
+        function generatePaymentURI(address, amount, currency) {
+          const cfg = currencyConfig[currency.toLowerCase()];
+          if (!cfg) return address;
+
+          const value = cfg.decimals ? parseUnits(amount, cfg.decimals).toString() : amount;
+
+          if (cfg.type === 'native') {
+            const scheme = cfg.scheme === 'bsc' ? 'ethereum' : cfg.scheme;
+            return `${scheme}:${address}?${cfg.param}=${value}`;
+          }
+
+          if (cfg.type === 'token') {
+            switch (cfg.chain) {
+              case 'ethereum':
+              case 'bsc':
+                return `ethereum:${address}?contractAddress=${cfg.contract}&value=${value}`;
+              case 'tron':
+                return `tron:${address}?token=${cfg.contract}&amount=${value}`;
+              case 'solana':
+                return `solana:${address}?amount=${amount}&spl-token=${cfg.contract}`;
+              default:
+                return address;
+            }
+          }
+          return address;
+        }
+
+        function drawQRCode(containerId, text) {
+          const container = document.getElementById(containerId);
+          if (!container) {
+            console.error(`QR Code container #${containerId} not found.`);
+            return;
+          }
+          container.innerHTML = '';
+
+          try {
+            const qrCode = new QRCode(container, {
+              text: text,
+              width: 128,
+              height: 128,
+              colorDark: "#000000",
+              colorLight: "#ffffff",
+              correctLevel: QRCode.CorrectLevel.H,
+              dotScale: 1
+            });
+
+          } catch (error) {
+            console.error('QR Code generation failed:', error);
+            const fallback = document.getElementById('qr-text-fallback');
+            fallback.textContent = text;
+            fallback.classList.remove('sr-only');
+          }
+        }
+
+        function initQR() {
+          const { address, amount, currency } = JSON.parse(
+            document.getElementById('payment-data').textContent
+          );
+          if (!address || isNaN(parseFloat(amount))) return;
+          
+          const uri = generatePaymentURI(address, amount, currency);
+          
+          console.log('Generated URI:', uri);
+          drawQRCode('qr-code-canvas', uri);
+          
+          document.getElementById('copy-uri').addEventListener('click', async () => {
+            try {
+              await navigator.clipboard.writeText(uri);
+            } catch (e) {
+              console.error('Copy failed', e);
+            }
+          });
+        }
+
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', initQR);
+        } else {
+          initQR();
+        }
+      </script>
     {% elif donation_dict.json.method in ['amazon', 'amazon_co_uk', 'amazon_fr', 'amazon_it', 'amazon_ca', 'amazon_de', 'amazon_es', 'amazon_au'] %}
       <p class="mb-4 font-bold">{{ gettext('page.donation.amazon.header') }}</p>
 

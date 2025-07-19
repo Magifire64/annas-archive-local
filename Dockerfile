@@ -149,6 +149,9 @@ RUN unzip /public/zipjs-v2.7.57.zip -d /public/temp-zip
 RUN mv /public/temp-zip/zip.js-2.7.57/* /public/zipjs
 RUN rm -rf /public/temp-zip
 
+# Get easyqrcodejs
+RUN curl -L https://unpkg.com/easyqrcodejs@4.6.2/dist/easy.qrcode.min.js --create-dirs -o /public/qrcode/easy.qrcode.min.js
+
 COPY --from=assets /app/public /public
 
 COPY . .
