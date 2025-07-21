@@ -1,0 +1,387 @@
+#!/usr/bin/env python
+
+import argparse
+import re
+import textwrap
+from collections import defaultdict
+from collections.abc import Callable, Collection
+from dataclasses import dataclass, field
+from pathlib import Path
+
+import polib
+from tqdm import tqdm
+
+LangCode = str
+MsgId = str
+LABEL_RE = re.compile(r"%\((?P<key>[a-zA-Z_]\w*)\)s")
+
+
+@dataclass
+class ScriptArgs(argparse.Namespace):
+    translations_dir: Path
+    func: Callable[[dict[str, Path]], None]
+
+
+@dataclass(kw_only=True, slots=True, frozen=True)
+class Message:
+    labels: frozenset[str] = field(default_factory=frozenset)
+    msgstr: str = ""
+
+
+@dataclass(kw_only=True, slots=True)
+class PerLanguageMsgs:
+    _labels: dict[MsgId, Message] = field(default_factory=dict)
+
+    def message(self, msgid: MsgId) -> Message:
+        if msgid not in self._labels:
+            self._labels[msgid] = Message()
+        return self._labels[msgid]
+
+    def add_message(self, msgid: MsgId, labels: set[str], msgstr: str) -> None:
+        self._labels[msgid] = Message(labels=frozenset(labels), msgstr=msgstr)
+
+    def items(self) -> Collection[tuple[MsgId, Message]]:
+        return self._labels.items()
+
+    def msgids(self) -> Collection[MsgId]:
+        return self._labels.keys()
+
+    def messages(self) -> Collection[Message]:
+        return self._labels.values()
+
+
+@dataclass(kw_only=True, slots=True)
+class AllLabels:
+    _by_lang: dict[LangCode, PerLanguageMsgs] = field(default_factory=dict)
+
+    def language(self, langcode: LangCode) -> PerLanguageMsgs:
+        if langcode not in self._by_lang:
+            self._by_lang[langcode] = PerLanguageMsgs()
+        return self._by_lang[langcode]
+
+    def language_msgid(self, langcode: LangCode, msgid: MsgId) -> Message:
+        return self.language(langcode).message(msgid)
+
+    def english(self) -> PerLanguageMsgs:
+        return self.language("en")
+
+    def non_english(self) -> dict[LangCode, PerLanguageMsgs]:
+        return {lang: msgs for lang, msgs in self._by_lang.items() if lang != "en"}
+
+    def languages(self) -> set[LangCode]:
+        return set(self._by_lang.keys())
+
+    def find_discrepencies_by_msgid(
+        self,
+    ) -> list[tuple[MsgId, dict[frozenset[str], set[LangCode]]]]:
+        # Group languages as dict[LangCode, set[(MsgId, set(labels))]]. We
+        # expect the labels in the msgid in English to be representative.
+        msgs_by_lang = {
+            language: set((msgid, msg.labels) for msgid, msg in messages.items())
+            for language, messages in self._by_lang.items()
+        }
+
+        output: dict[MsgId, dict[frozenset[str], set[LangCode]]] = defaultdict(lambda: defaultdict(set))
+        for lang, msgs in msgs_by_lang.items():
+            for msgid, labels in msgs:
+                output[msgid][labels].add(lang)
+
+        only_inconsistencies = {msgid: labels for msgid, labels in output.items() if len(labels) > 1}
+        return sorted(only_inconsistencies.items())
+
+    def add_msg(self, langcode: LangCode, msgid: MsgId, labels: set[str], msgstr: str) -> None:
+        self.language(langcode).add_message(msgid, labels, msgstr)
+
+    def ingest_po_file(self, path: Path, *, lang: LangCode):
+        entries = self.language(lang)
+        for entry in polib.pofile(path, wrapwidth=0):
+            if not entry.msgid or entry.obsolete:
+                continue
+            entries.add_message(entry.msgid, find_labels(entry.msgstr), entry.msgstr)
+
+
+def truncate_sequence(lst: Collection[str], *, n: int) -> str:
+    result = " ".join(sorted(lst)[:n])
+    if len(lst) > n:
+        result += f" + {len(lst) - n} others"
+    return result
+
+
+def find_labels(s: str) -> set[str]:
+    """Finds all unique labels like %(key)s in a string."""
+    return set(LABEL_RE.findall(s))
+
+
+def get_po_files(base_dir: Path) -> dict[LangCode, Path]:
+    """Finds all messages.po files."""
+    return {po_path.parent.parent.name: po_path for po_path in base_dir.glob("*/LC_MESSAGES/messages.po")}
+
+
+def print_msg_info(
+    lang: LangCode,
+    msgid: MsgId,
+    *,
+    all_labels: AllLabels,
+    labels_to_langs: dict[frozenset[str], set[LangCode]],
+) -> None:
+    """Print the metadata about a message for the file analysis."""
+    english_labels = all_labels.language_msgid("en", msgid)
+    msg = all_labels.language_msgid(lang, msgid)
+    langs = labels_to_langs.pop(msg.labels)
+
+    label = "   langs: "
+    lang_str = " ".join(sorted(langs, key=lambda code: "0" if code == "en" else code))
+    print(textwrap.fill(lang_str, width=100, initial_indent=label, subsequent_indent=" " * len(label)))
+
+    label = "  msgstr: "
+    print(textwrap.fill(msg.msgstr, width=100, initial_indent=label, subsequent_indent=" " * len(label)))
+
+    print(f"  labels: {sorted(msg.labels)}")
+    if lang != "en":
+        english_only_labels = english_labels.labels - msg.labels
+        if english_only_labels:
+            print(f"  missing: {sorted(english_only_labels)}")
+        english_missing_labels = msg.labels - english_labels.labels
+        if english_missing_labels:
+            print(f"  unexpected {sorted(english_missing_labels)})")
+
+
+def validate_files(po_files: dict[str, Path]) -> None:
+    """Check that all translations have consistent placeholders across languages.
+
+    Identify the placeholders in each translated string, then compare the
+    placeholders to the same string in other languages. Any language whose
+    placeholder set doesn't match the English set are grouped together in the
+    output. The English set is shown first, to give context about the placeholders,
+    as they are originally authored in English.
+
+    Each grouping shows the extracted placeholders, the message (in the first
+    language, sorted by the ASCII language code), and the set of languages which
+    share this placeholder set.
+
+    For example:
+
+    === [1/49] msgid='common.libgen.email' ===
+       langs: en af am ar ast az ba be bg bn bs ca ceb ckb cs cy da de el eo es
+              et eu fa fi fil fr fy ga gl gu ha he hi hr hu hy ia id ig is it
+              ja jv ka kk km kmr kn ko ky la lb lo lt lv mai mfe mg mi mk ml mn
+              mr ms nb_NO ne nl nn ny oc om or pa pcm pl ps pt_BR pt_PT ro ru
+              rw scn sd si sk sl sn so sq sr st su sv sw ta te tg th tk tpi tr
+              tt ug uk ur uz vec vi wa xh yi yo yue zh zh_Hant
+      msgstr: If your email address doesn’t work on the Libgen forums, we
+              recommend using <a %%(a_mail)s>Proton Mail</a> (free). You can
+              also <a %%(a_manual)s>manually request</a> for your account to be
+              activated.
+      labels: ['a_mail', 'a_manual']
+
+       langs: nds zu
+      msgstr: Wenn jihr E-Mail-Adress nich op de Libgen-Forums werkt, föhlt wi
+              Proton Mail (free) to bruken. Ji könnt ok <a %%(a_manual)s>manuell
+              anfragen</a>, dat jihr Account aktiviert warrt.
+      labels: ['a_manual']
+      missing: ['a_mail']
+    === [1/49] msgid='common.libgen.email' ===
+
+    In the above example, we can see that 117 languages share the placeholder set
+    {a_mail, a_manual}, while two languages (nds and zu) have only {a_manual}.
+
+    In this case, it looks like we're missing the 'a_mail' placeholder,
+    so we should edit those languages to include <a %%(a_manual)s></a> at the
+    appropriate location.
+
+    We can also see that there are 49 total mismatches in our translation files.
+    The rest of the mismatches have been printed after this one.
+    """
+    all_labels = AllLabels()
+    for lang, path in tqdm(po_files.items()):
+        all_labels.ingest_po_file(path, lang=lang)
+
+    ordered_inconsistencies = sorted(all_labels.find_discrepencies_by_msgid())
+    for i, (msgid, labels_to_langs) in enumerate(ordered_inconsistencies, start=1):
+        print()
+        header = f"=== [{i}/{len(ordered_inconsistencies)}] msgid={msgid!r} ==="
+        print(header)
+        print_msg_info("en", msgid, all_labels=all_labels, labels_to_langs=labels_to_langs)
+        print()
+
+        all_langs = sorted(labels_to_langs.values())
+        for n, langs in enumerate(all_langs, start=1):
+            # if any of the languages have an all-ASCII translation, load that. Otherwise, use the first lang code.
+            langs_msgs = ((lang, all_labels.language_msgid(lang, msgid)) for lang in langs)
+            lang = next((lang for lang, msg in langs_msgs if msg.msgstr.isascii()), next(iter(langs)))
+            print_msg_info(lang, msgid, all_labels=all_labels, labels_to_langs=labels_to_langs)
+            if n != len(all_langs):
+                print()
+
+        print(header)
+        print()
+
+
+def locate_crashable_mismatches(po_files: dict[str, Path]) -> None:
+    """Locate any messages for which English is missing a placeholder that
+    other languages expect, which would cause gettext to crash at runtime."""
+    all_labels = AllLabels()
+    for lang, path in tqdm(po_files.items(), leave=False):
+        all_labels.ingest_po_file(path, lang=lang)
+
+    ordered_inconsistencies = sorted(all_labels.find_discrepencies_by_msgid())
+    for msgid, labels_to_langs in ordered_inconsistencies:
+        en_msg = all_labels.language_msgid("en", msgid)
+        en_labels = en_msg.labels
+        labels_to_langs.pop(en_labels)  # remove everything that matches english's placeholder set
+
+        for labels, langs in labels_to_langs.items():
+            if missing_labels := labels.difference(en_labels):
+                alert_str = f"{msgid=!r} expects {sorted(missing_labels)} in {{{' '.join(sorted(langs))}}}!"
+                print(textwrap.fill(alert_str, width=100))
+                print()
+
+
+def autofix_files(po_files: dict[str, Path]) -> None:
+    """Automatically fixes labels that can be fixed.
+
+    If there is only one label in the msgstr, and that label's
+    name differs from the English label's name, we can just rewrite
+    the label in the translations.
+    """
+    all_labels = AllLabels()
+    for lang, path in tqdm(po_files.items()):
+        all_labels.ingest_po_file(path, lang=lang)
+
+    ordered_inconsistencies = sorted(all_labels.find_discrepencies_by_msgid())
+    for msgid, labels_by_lang in ordered_inconsistencies:
+        print(msgid)
+
+        en_msg = all_labels.language_msgid("en", msgid)
+        en_labels = en_msg.labels
+        langs_same_as_en = sorted(labels_by_lang.pop(en_labels))
+        print(f"  OK: {textwrap.fill(' '.join(langs_same_as_en), width=100, subsequent_indent=' ' * 6)}")
+
+        for labels, langs in labels_by_lang.items():
+            langs = sorted(langs)
+            if len(labels) == len(en_labels) == 1:
+                print(f"  ED: rewriting {sorted(labels)} -> {sorted(en_labels)}")
+                print(f"      in langs = {textwrap.fill(' '.join(langs), width=100, subsequent_indent=' ' * 17)}")
+            else:
+                print(f"  ERR: cannot rewrite {sorted(labels)} -> {sorted(en_labels)}")
+                print(f"       in langs = {textwrap.fill(' '.join(langs), width=100, subsequent_indent=' ' * 18)}")
+
+        print()
+
+
+def fix_files(po_files: dict[str, Path]) -> None:
+    """Interactively fix labels.
+
+    For each msgid with languages with the same *number* of labels,
+    but different actual labels, show an interactive widget to map
+    old_label -> new_label, then rewrite the matching translations
+    to use the new labels.
+    """
+    all_labels = AllLabels()
+    for lang, path in tqdm(po_files.items()):
+        all_labels.ingest_po_file(path, lang=lang)
+
+    ordered_inconsistencies = sorted(all_labels.find_discrepencies_by_msgid())
+    for msgid, labels_by_lang in ordered_inconsistencies:
+        print(msgid)
+
+        en_msg = all_labels.language_msgid("en", msgid)
+        en_labels = en_msg.labels
+        langs_same_as_en = sorted(labels_by_lang.pop(en_labels))
+        print(f"  OK: {textwrap.fill(' '.join(langs_same_as_en), width=100, subsequent_indent=' ' * 6)}")
+
+        for labels, langs in labels_by_lang.items():
+            langs = sorted(langs)
+            if len(labels) == len(en_labels):
+                mapping = dict[str, str]()
+                while True:
+                    print("Please map the english labels to the non-english labels:")
+                    source = input(f"Select the `en` label (choices: {sorted(en_labels)}): ")
+                    dest = input(f"Select the non-`en` label (choices: {sorted(labels)}): ")
+                    mapping[source] = dest
+                    print(f"  ED: rewriting {sorted(labels)} -> {sorted(en_labels)}")
+                    print(f"      in langs = {textwrap.fill(' '.join(langs), width=100, subsequent_indent=' ' * 17)}")
+                    ...
+            else:
+                print(f"  ERR: cannot rewrite {sorted(labels)} -> {sorted(en_labels)}")
+                print(f"       in langs = {textwrap.fill(' '.join(langs), width=100, subsequent_indent=' ' * 18)}")
+
+        print()
+
+
+def main() -> None:
+    """Tools for validating and modifying translations.
+
+       check: Look for common causes of runtime gettext crashes.
+    validate: Check that all translations have consistent placeholders across languages.
+     autofix: Automatically fix labels that can be fixed.
+         fix: Interactively fix labels.
+    """
+    parser = argparse.ArgumentParser(
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        description="Scan .po files for inconsistencies.",
+    )
+
+    parser.add_argument(
+        "--translations-dir",
+        "-d",
+        type=Path,
+        help="Path to the 'translations' directory.",
+        default=Path("./allthethings/translations"),
+        metavar="DIR",
+    )
+
+    subparsers = parser.add_subparsers(
+        title="commands",
+        description=main.__doc__,
+    )
+
+    parser_check = subparsers.add_parser(
+        name="check",
+        usage=locate_crashable_mismatches.__doc__,
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+    )
+    parser_check.set_defaults(func=locate_crashable_mismatches)
+
+    parser_validate = subparsers.add_parser(
+        name="validate",
+        usage=validate_files.__doc__,
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+    )
+    parser_validate.set_defaults(func=validate_files)
+
+    parser_autofix = subparsers.add_parser(
+        name="autofix",
+        usage=autofix_files.__doc__,
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+    )
+    parser_autofix.set_defaults(func=autofix_files)
+
+    # [fix] is disabled while we work on the UI.
+    parser_fix = subparsers.add_parser(
+        name="fix",
+        usage=fix_files.__doc__,
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+    )
+    parser_fix.set_defaults(func=fix_files)
+
+    args = parser.parse_args(namespace=ScriptArgs)
+
+    if not args.translations_dir.is_dir():
+        print(f"Error: Path is not a directory: {args.translations_dir}")
+        return
+
+    po_files = get_po_files(args.translations_dir)
+    if "en" not in po_files:
+        print("Error: English (en) source translations not found.")
+        return
+
+    args.func(po_files)
+
+
+if __name__ == "__main__":
+    try:
+        main()
+
+    except KeyboardInterrupt:
+        pass
