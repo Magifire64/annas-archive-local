@@ -1,448 +1,795 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
+# ruff: noqa: E402
+
 import argparse
-import pathlib
+import dataclasses
+import json
+import logging
 import re
-from collections import defaultdict
+import sys
+import urllib.parse
+import uuid
+from collections.abc import Iterable
+from pathlib import Path
+from typing import Generator, cast
+from xml.sax.saxutils import quoteattr
 
-from bs4 import BeautifulSoup, NavigableString, Tag
+import html5lib
+import html5lib.constants
+import slugify
+from babel.messages import Message
+from babel.messages.pofile import generate_po, read_po, write_po
+from html5lib.filters.base import Filter as BaseFilter
+from html5lib.filters.optionaltags import Filter as OptionalTagFilter
+
+# ANSI color codes for error messages
+RED_BOLD = "\033[1;31m"
+RESET = "\033[0m"
+
+logger = logging.getLogger(__name__)
+logging.basicConfig(level="DEBUG", format="%(message)s", datefmt="[%X]")
 
 
-def slugify(text):
-    """
-    Simple slugify function.
-    """
-    text = text or ""
-    text = re.sub(r"[^\w\s-]", "", text.lower())
-    return re.sub(r"[-\s]+", "_", text).strip("_")
+# monkeypatch the set of known-boolean attributes to add some new ones for <video>
+boolean_attrs = html5lib.constants.booleanAttributes
+boolean_attrs["video"] = frozenset(boolean_attrs["video"] | {"loop", "muted", "playsinline"})
+boolean_attrs["textarea"] = frozenset(boolean_attrs.get("textarea", frozenset()) | {"required"})
 
 
-def get_column_header_text(cell_element: Tag) -> str | None:
-    """
-    Finds the text of the column header for a given table cell (<td> or <th>).
+def stderr(*args, **kwargs) -> None:
+    """wrapper for print() that just sends to sys.stderr"""
+    print(*args, file=sys.stderr, **kwargs)
 
-    This tries to determine the column index of the given cell and then finds
-    the corresponding header cell in what it determines to be the most
-    appropriate header row (typically the last row in `<thead>` or the first row
-    of the table if it contains `<th>` elements).
-    """
-    parent_row = cell_element.find_parent("tr")
-    assert parent_row.name == "tr", ValueError(
-        "Cell element is not a direct child of a <tr> element."
-    )
 
-    actual_col_index = 0
-
-    for sibling_cell in parent_row.find_all(["td", "th"], recursive=False):
-        if sibling_cell is cell_element or sibling_cell in cell_element.parents:
-            break
-        actual_col_index += int(sibling_cell.get("colspan", 1))
-
-    table = cell_element.find_parent("table")
-    assert table, ValueError("Cell element is not within a <table>.")
-
-    header_row_tag = None
-    thead = table.find("thead")
-    if thead:
-        header_rows_in_thead = thead.find_all("tr", recursive=False)
-        if header_rows_in_thead:
-            header_row_tag = header_rows_in_thead[-1]
-
-    if not header_row_tag:
-        # Fallback: if no <thead>, or <thead> is empty, try the first row of the table
-        # but only if it contains <th> elements.
-        first_table_row = table.find("tr", recursive=False)
-        if first_table_row and first_table_row.find("th", recursive=False):
-            header_row_tag = first_table_row
-
-    assert header_row_tag, ValueError("Could not identify a suitable header row.")
-
-    current_header_col = 0
-    for th_candidate in header_row_tag.find_all(["th", "td"], recursive=False):
-        colspan = int(th_candidate.get("colspan", 1))
-        # Check if the data cell's column index falls within the span of this header cell
-        if current_header_col <= actual_col_index < current_header_col + colspan:
-            return th_candidate.get_text(strip=True)
-        current_header_col += colspan
-
-    assert False, ValueError(
-        f"No header cell found for column index {actual_col_index} in the identified header row (searching for {cell_element}, column {actual_col_index})."
+def is_external_link(href: str) -> bool:
+    # Use the domain from the href as the key, but ensure it is a valid identifier.
+    url = urllib.parse.urlparse(href)
+    assert url, f"Invalid URL: {href}"
+    return (
+        url.scheme in ("http", "https")
+        and url.hostname is not None
+        and not re.match("^(.*\\.)?annas-archive\\.", url.hostname)
     )
 
 
-def process_tag(
-    tag: Tag,
-    text_segments: list[str],
-    params: dict,
-    context: dict,
-    *,
-    prohibit_block_elements: bool = False,
-) -> None:
-    match tag:
-        case NavigableString():
-            # Raw text
-            text_segments.append(str(tag))
-        case Tag(name="a"):
-            # Links, specifically
-            param_name = tag.attrs.get("translate-key")
-            if param_name:
-                del tag.attrs["translate-key"]
-            else:
-                context["a_counter"] += 1
-                param_name = f"a{context['a_counter']}"
-
-            inner_a_html = tag.decode_contents()
-            text_segments.append(f"<a %({param_name})s>{inner_a_html}</a>")
-
-            params[param_name] = {
-                key: " ".join(value) if isinstance(value, list) else value
-                for key, value in tag.attrs.items()
-            }
-        case Tag(name="x-gettext"):
-            # Custom <x-gettext key="k" value="v | safe"></x-gettext> tags, which
-            # turn into %(key)s within the text and are attached as key=(value) params
-            # to the extracted string.
-            key = tag.attrs.get("key")
-            value = tag.attrs.get("value")
-            if not key or not value:
-                raise ValueError(
-                    "<x-gettext> tags must have non-empty key= and value= attributes"
-                )
-
-            text_segments.append(f"%({key})s")
-            params[key] = value
-        case Tag(
-            name="abbr"
-            | "b"
-            | "big"
-            | "cite"
-            | "code"
-            | "del"
-            | "dfn"
-            | "em"
-            | "i"
-            | "ins"
-            | "kbd"
-            | "mark"
-            | "q"
-            | "s"
-            | "samp"
-            | "small"
-            | "span"
-            | "strong"
-            | "sub"
-            | "sup"
-            | "time"
-            | "u"
-            | "var"
-        ):
-            # Inline elements, for which we want to recursively process the anchor tags to extract the parameters
-            inner_soup = BeautifulSoup(
-                f"<span>{tag.decode_contents()}</span>", "html.parser"
-            ).span
-            text_segments.append(f"<{tag.name}>")
-            for inner_tag in inner_soup.contents:
-                process_tag(
-                    inner_tag,
-                    text_segments,
-                    params,
-                    context,
-                    prohibit_block_elements=True,
-                )
-            text_segments.append(f"</{tag.name}>")
-        case Tag(
-            name="address"
-            | "article"
-            | "aside"
-            | "audio"
-            | "blockquote"
-            | "button"
-            | "canvas"
-            | "caption"
-            | "col"
-            | "colgroup"
-            | "dd"
-            | "details"
-            | "dialog"
-            | "div"
-            | "dl"
-            | "dt"
-            | "dd"
-            | "embed"
-            | "fieldset"
-            | "figcaption"
-            | "figure"
-            | "footer"
-            | "form"
-            | "h1"
-            | "h2"
-            | "h3"
-            | "h4"
-            | "h5"
-            | "h6"
-            | "header"
-            | "hr"
-            | "iframe"
-            | "img"
-            | "input"
-            | "label"
-            | "legend"
-            | "li"
-            | "main"
-            | "meter"
-            | "nav"
-            | "noscript"
-            | "object"
-            | "ol"
-            | "option"
-            | "p"
-            | "progress"
-            | "section"
-            | "select"
-            | "summary"
-            | "svg"
-            | "table"
-            | "tbody"
-            | "td"
-            | "template"
-            | "textarea"
-            | "tfoot"
-            | "th"
-            | "thead"
-            | "time"
-            | "tr"
-            | "ul"
-            | "video"
-        ):
-            # Block elements, which we prohibit inside [translate] elements
-            if prohibit_block_elements:
-                raise ValueError(
-                    f"Block element <{tag.name}> found inside a block-level translate element. Elements with 'translate' should not contain block elements."
-                )
-            text_segments.append(str(tag))
-        case Tag():
-            raise ValueError(
-                f"Unsupported tag type: {tag.name}. Please ensure it is a valid HTML tag."
-            )
-        case _:
-            # Comments, etc.
-            text_segments.append(str(tag))
+def secure_external_link(href: str, attrs_dict: dict[str, str | None]):
+    # If the <a> is an external link, we want to add some attributes to the placeholder.
+    if "rel" not in attrs_dict:
+        attrs_dict["rel"] = "noopener noreferrer nofollow"
+    if "target" not in attrs_dict:
+        attrs_dict["target"] = "_blank"
 
 
-def process_html_template(html_content, gettext_prefix: tuple[str, ...]):
-    """
-    Parses an HTML Jinja template, extracts inline text and tags to gettext calls.
-    """
-    soup = BeautifulSoup(html_content, "html.parser")
+def slugify_url(href: str, *, keypath: str, attrs_dict: dict[str, str | None]) -> str:
+    # Use the domain from the href as the key, but ensure it is a valid identifier.
+    url = urllib.parse.urlparse(href)
+    domain = url.hostname
 
-    key_counters: dict[str, int] = defaultdict(int)
-    base_page_prefix_parts = list(gettext_prefix)
+    assert url, f"Invalid URL: {href}"
 
-    tag_contexts = {}
-    current_h_context_slug = ""
-    temp_table_counters = defaultdict(int)
-    gettext_map = {}
+    # autoamticall add [noopener noreferrer nofollow] to external links
+    if is_external_link(href):
+        secure_external_link(href, attrs_dict)
 
-    # Walk all tags to establish context
-    for tag in soup.find_all(True):
-        if tag.name in ["h1", "h2", "h3", "h4", "h5", "h6"]:
-            h_text_content = tag.get_text(separator=" ", strip=True).split("\n")[0]
-            current_h_context_slug = slugify(h_text_content) if h_text_content else ""
-            temp_table_counters.clear()
+    if domain:
+        if re.match("^(.*\\.)?annas-archive\\.", domain):
+            domain = "annas_archive"
+        elif re.match("^(.*\\.)?wikipedia\\.org", domain):
+            domain = "wikipedia"
 
-        if tag.has_attr("translate"):
-            table_id = None
-            column_header_text = None
+        if domain.startswith("www."):
+            domain = domain[4:]
 
-            if parent_table := tag.find_parent("table"):
-                if current_h_context_slug:
-                    section_key_for_table = current_h_context_slug
-                else:
-                    section_key_for_table = "_global_"
-
-                parent_assigned = parent_table.has_attr("data-table-id-assigned")
-                if tag.name == "th" and not parent_assigned:
-                    temp_table_counters[section_key_for_table] += 1
-                    table_id = temp_table_counters[section_key_for_table]
-                    # only increment counter once per table
-                    parent_table.attrs["data-table-id-assigned"] = "true"
-                elif parent_assigned:
-                    table_id = temp_table_counters[section_key_for_table]
-
-                if tag.name == "th":
-                    column_header_text = tag.get_text(
-                        separator=" ",
-                        strip=True,
-                    ).splitlines()[0]
-                elif tag.find_parent("td"):
-                    column_header_text = get_column_header_text(tag)
-
-            tag_contexts[tag] = {
-                "current_h_slug": current_h_context_slug,
-                "table_id": table_id,
-                "column_header_text": column_header_text,
-            }
-
-    # Clean up temporary attribute
-    for table_tag in soup.find_all(attrs={"data-table-id-assigned": "true"}):
-        del table_tag["data-table-id-assigned"]
-
-    # Now process the tags that had "translate"
-    translatable_tags = soup.find_all(attrs={"translate": True})
-
-    for i, tag in enumerate(translatable_tags):
-        context = tag_contexts.get(tag)
-        assert context, f"No context for tag {tag.name}"
-
-        current_prefix_parts_for_key = list(base_page_prefix_parts)
-
-        if tag.name in ["h1", "h2", "h3", "h4", "h5", "h6"]:
-            h_text_slug = slugify(
-                tag.get_text(separator=" ", strip=True).split("\n")[0]
-            )
-            if h_text_slug and tag.name != "h2":
-                current_prefix_parts_for_key.append(h_text_slug)
-            key_counters[".".join(current_prefix_parts_for_key)] = 0
-
-        elif context["current_h_slug"]:
-            current_prefix_parts_for_key.append(context["current_h_slug"])
-
-        # Increment counter for the current key prefix
-        key_prefix_str = ".".join(current_prefix_parts_for_key)
-        key_counters[key_prefix_str] += 1
-        current_count = key_counters[key_prefix_str]
-
-        gettext_key = ""
-        if tag.find_parent("table"):
-            column_name = slugify(context["column_header_text"])
-            table_num = context.get("table_id", 1)
-
-            gettext_key_list = [key_prefix_str, f"table{table_num}", column_name]
-
-            if tag.name == "th":
-                gettext_key = ".".join([*gettext_key_list, "header"])
-
-            elif tag.find_parent("td"):
-                row_idx = len(tag.find_parent("tr").find_previous_siblings("tr")) + 1
-                cell_idx = len(tag.find_parent("td").find_previous_siblings("td")) + 1
-                gettext_key = ".".join(
-                    [
-                        *gettext_key_list,
-                        f"row{row_idx}",
-                        f"cell{cell_idx}",
-                        f"{current_count}",
-                    ]
-                )
-
+        # Remove common top-level domains
+        if domain.endswith((".org", ".com", ".net", ".edu", ".gov")):
+            domain = domain[:-4]
+        elif domain.endswith((".co.uk", ".org.uk")):
+            domain = domain[:-7]
+        elif domain.endswith((".io", ".pl", ".de", ".fr", ".es", ".it", ".ru", ".jp", ".cn")):
+            domain = domain[:-3]
+    else:
+        # If the URL has no hostname, treat it as a relative link, and extract the filename or last path segment.
+        assert url.path, f"<a> tag with a relative URL must have a path. Found in block '{keypath}'."
+        if url.path.startswith("/blog/"):
+            domain = "blog"
         else:
-            gettext_key = f"{key_prefix_str}.{current_count}"
+            domain = url.path.split("/")[-1]  # Use the last segment of the path as the domain.
+            domain = domain.split(".")[0]  # Remove any file extension.
 
-        if translate_attr := tag.attrs["translate"]:
-            gettext_key = translate_attr
+    # Replace dots and dashes with underscores to create a valid key.
+    attr_key_segments = [domain]
 
-        original_tag_content_html = tag.decode_contents()
+    # For Wikipedia links, include the page title in the key
+    if url.path and url.path != "/":
+        path_parts = []
 
-        # Use a temporary soup to parse the content again, makes handling mixed content easier
-        # Wrap in a div to ensure it's a valid mini-document.
-        content_soup = BeautifulSoup(
-            f"<div>{original_tag_content_html}</div>",
-            "html.parser",
-        ).div
+        match url.hostname:
+            case str(hostname) if hostname.endswith(".wikipedia.org"):
+                # Use the last part of the path as the key, removing any file extension.
+                path_parts = urllib.parse.unquote_plus(url.path.lower().strip("/").replace("_", " ")).split("/")
+                if path_parts:
+                    attr_key_segments.append(path_parts[-1].replace("'", ""))
+            case "github.com":
+                # For GitHub links, use the repository name and the path.
+                path_parts = urllib.parse.unquote_plus(url.path.lower().strip("/").replace("_", " ")).split("/")
+                match path_parts[:2]:
+                    case [gh_org, gh_repo]:
+                        if gh_org != gh_repo and not gh_repo.startswith(gh_org):
+                            attr_key_segments.append(gh_org)
+                        attr_key_segments.append(gh_repo)
+            case _:
+                # For other domains, just use the domain as the key.
+                pass
 
-        text_segments = []
-        params = {}
-        a_counter = 0
+    # Include the fragment if it exists
+    fragment = url.fragment
+    if fragment:
+        attr_key_segments.append(fragment)
 
-        for child in content_soup.contents:
-            process_tag(child, text_segments, params, {"a_counter": a_counter})
+    slugified = slugify.slugify(" ".join(attr_key_segments), separator="_", lowercase=True)
 
-        text_to_translate = re.sub(r"\s+", " ", "".join(text_segments)).strip()
-        gettext_map[gettext_key] = text_to_translate
+    if slugified and slugified[0].isdigit():
+        slugified = f"a_{slugified}"
 
-        param_strings = []
-        for p_name, p_attrs in params.items():
-            match p_attrs:
-                case dict():
-                    # Format attributes like `{'href': '/faq#what'}` - taking advantage of the
-                    # fact that Jinja accepts python syntax within the parentheses.
-                    param_strings.append(f"{p_name}=({p_attrs!r} | xmlattr)")
-                case str():
-                    # In the case of x-gettext tags, we're expecting the user to provide a valid
-                    # gettext expression.
-                    param_strings.append(f"{p_name}=({p_attrs})")
-                case _:
-                    raise ValueError(f"unknown gettext parameter type {type(p_attrs)}")
+    if not slugified or not slugified.isidentifier():
+        raise ValueError(f"<a> href created invalid key '{slugified}' from '{href}'.")
 
-        params_part = ""
-        if param_strings:
-            params_part = ", " + ", ".join(param_strings)
-
-        new_content_string = f"{{{{ gettext('{gettext_key}'{params_part}) }}}}"
-
-        # Replace tag's content
-        tag.clear()
-        tag.append(NavigableString(new_content_string))
-
-        # Remove the translate attribute
-        del tag["translate"]
-
-    return soup.prettify(), gettext_map
+    return slugified
 
 
-def rewrite_gettext(output):
-    filename = "./allthethings/translations/en/LC_MESSAGES/messages.po"
+class JinjaPlaceholderFilter(BaseFilter):
+    def __iter__(self):
+        for token in self.source:
+            match token:
+                # Custom handling for start tags to avoid escaping attributes with placeholders
+                case {"type": "StartTag" | "EmptyTag", "data": dict(data)} if any(
+                    "JINJA_PLACEHOLDER=" in v for v in data.values()
+                ):
+                    yield {**token, "type": f"{token['type']}WithJinjaAttr"}
+                    continue
 
-    with open(filename, "r", encoding="utf8") as fp:
-        content = fp.read()
+                # Check if it's our special placeholder comment
+                # TODO: where are these still coming from?
+                case {"type": "Comment", "data": str(data)} if "JINJA_PLACEHOLDER=" in data:
+                    # Render it exactly as-is, without any escaping.
+                    yield {"type": "Verbatim", "data": f"<!--{data}-->"}
+                    continue
 
-    for msgid, msgstr in output.items():
-        new_msg = f'msgid "{msgid}"\nmsgstr "{msgstr}"'
+            yield token
 
-        if '"' in msgstr:
-            raise ValueError(f"msgstr cannot contain double quotes {msgstr!r}")
 
-        locator = rf"msgid \"{re.escape(msgid)}\"\nmsgstr \"[^\"]*\""
-        content = re.sub(locator, new_msg, content)
+class UnescapingJinjaSerializer(html5lib.serializer.HTMLSerializer):
+    """
+    A custom html5lib serializer that prevents escaping of Jinja expressions.
+    This version overrides the public `serialize` method for better compatibility
+    and to avoid accessing internal attributes.
+    """
 
-        # If the replacement didn't find anything, add the new entry to the bottom of the file
-        if new_msg not in content:
-            content += f"\n{new_msg}\n"
+    def serialize(self, treewalker: Iterable[dict], encoding=None) -> Generator[str, None, None]:
+        if self.omit_optional_tags:
+            # clean out optional HTML tags
+            treewalker = OptionalTagFilter(treewalker)
 
-    with open(filename, "w", encoding="utf8") as fp:
-        fp.write(content)
+        # always replace
+        treewalker = JinjaPlaceholderFilter(treewalker)
+
+        for token in treewalker:
+            match token:
+                case {"type": "Verbatim" | "JinjaExpression", "data": str(data)}:
+                    yield data
+                    continue
+
+                case {"type": "StartTagWithJinjaAttr" | "EmptyTagWithJinjaAttr", "data": dict(data)}:
+                    yield f"<{token['name']}"
+
+                    for (namespace, name), value in token["data"].items():
+                        yield f" {name}"
+                        if "JINJA_PLACEHOLDER=" in value:
+                            # If a placeholder is in the value, render the attribute raw, without escaping.
+                            yield f'="{value}"'
+                        else:
+                            # Otherwise, use the default escaping
+                            if not self.minimize_boolean_attributes or (
+                                name not in boolean_attrs.get(token["name"], tuple())
+                                and name not in boolean_attrs.get("", tuple())
+                            ):
+                                yield "="
+                                # if we're in here, we're going to print the value
+                                if self.escape_lt_in_attrs:
+                                    # ask sax to convert &lt; back to < right after it does the other conversion
+                                    yield quoteattr(value, {"&lt;": "<"})
+                                else:
+                                    yield quoteattr(value)
+
+                    if token["name"] in html5lib.constants.voidElements and self.use_trailing_solidus:
+                        if self.space_before_trailing_solidus:
+                            yield " "
+                        yield "/"
+
+                    yield ">"
+                    continue
+
+                case {"type": "StartTag" | "EmptyTag", "data": dict(data)}:
+                    yield f"<{token['name']}"
+
+                    for (namespace, name), value in token["data"].items():
+                        yield f" {name}"
+
+                        # Otherwise, use the default escaping
+                        if not self.minimize_boolean_attributes or (
+                            name not in boolean_attrs.get(token["name"], tuple())
+                            and name not in boolean_attrs.get("", tuple())
+                        ):
+                            yield "="
+                            # if we're in here, we're going to print the value
+                            if self.escape_lt_in_attrs:
+                                # ask sax to convert &lt; back to < right after it does the other conversion
+                                yield quoteattr(value, {"&lt;": "<"})
+                            else:
+                                yield quoteattr(value)
+
+                    if token["name"] in html5lib.constants.voidElements and self.use_trailing_solidus:
+                        if self.space_before_trailing_solidus:
+                            yield " "
+                        yield "/"
+
+                    yield ">"
+                    continue
+
+                # TODO: document what this is for
+                case {"type": "Characters" | "SpaceCharacters", "data": str(data)}:
+                    data = data.strip()
+                    if data.startswith("{{") and data.endswith("}}"):
+                        yield data
+                        continue
+
+            # Let the parent handle all other token types (EndTag, Doctype, etc.).
+            yield from super().serialize([token], encoding=encoding)
+
+
+@dataclasses.dataclass(slots=True)
+class TranslationContext:
+    """Holds the state for a t-msgid block."""
+
+    tag: str
+    key: str
+    marker: str
+    placeholders: dict[str, str] = dataclasses.field(default_factory=dict)
+    has_closed_translatable_child: bool = False
+
+
+@dataclasses.dataclass(slots=True)
+class RenderContext:
+    tag: str
+
+
+ContextEntry = TranslationContext | RenderContext
+
+
+@dataclasses.dataclass(slots=True)
+class TranslationExprInfo:
+    key: str
+    value: str
+
+
+@dataclasses.dataclass(slots=True, kw_only=True)
+class HTMLTranslator:
+    """
+    A custom HTML processor using html5lib to rewrite parts of a document for translation.
+
+    This processor works on a stream of tokens. It identifies any HTML tag with
+    a 't-msgid' attribute and replaces its content with a Jinja2-style gettext
+    call by manipulating the token stream. The final HTML is generated by
+    passing the modified stream to an html5lib serializer.
+
+    Special attribute handling:
+    - `t-msgid`: Defines a block of text to be translated.
+    - `translatable`: An element inside a `t-msgid` block that is excluded
+      from translation and rendered directly. Must be the last child.
+    - `t-key`: Creates a named placeholder in the translation string for an
+      element's attributes (e.g., an <a> tag's href).
+    - `<t-expr>`: Creates a placeholder for a dynamic Jinja2 expression.
+    - `<t-include>`: Includes and escapes content from another file.
+    """
+
+    # A list to hold the stream of processed tokens.
+    processed_tokens: list[dict] = dataclasses.field(default_factory=list)
+    translations: dict[str, str] = dataclasses.field(default_factory=dict)
+    # A stack to manage context. Items are tuples: (mode, info)
+    # mode is 'translate' or 'render'
+    context_stack: list[ContextEntry] = dataclasses.field(default_factory=list)
+    # A temporary state for processing a <t-expr> tag.
+    current_t_expr_info: TranslationExprInfo | None = None
+    jinja_expr_map: dict[str, str] = dataclasses.field(default_factory=dict)
+    # The file path being processed, for <t-include> tags.
+    file_path: Path | None = None
+
+    jinja_placeholder_ident = r"JINJA_PLACEHOLDER=([a-f0-9]{32})"
+    jinja_placeholder_pattern = re.compile(jinja_placeholder_ident)
+
+    def _convert_attrs(self, attrs: dict) -> dict[str, str | None]:
+        """Converts html5lib's attribute dictionary format to a simple dict."""
+        return {name: value for (ns, name), value in attrs.items()}
+
+    def feed(self, html_content: str) -> None:
+        """
+        Parses HTML content (or a fragment) and processes it as a stream of tokens.
+
+        This method walks the document tree and dispatches each token to the
+        appropriate handler, which then builds up a new, modified token stream.
+        It uses parseFragment to handle partial HTML documents correctly.
+        """
+
+        def process_option_content(match: re.Match) -> str:
+            """Recursively process content within <option> tags first.
+
+            The HTML parser treats <option> content as plain text, so we must handle
+            any nested t-msgids within them before the main parsing pass.
+            """
+            start_tag, content, end_tag = match.groups()
+
+            # Only process if there's a t-msgid to avoid overhead.
+            if "t-msgid" in content:
+                # Use a new translator instance to process the inner content.
+                rewritten_content, inner_messages = translate_jinja_template(self.file_path, content)
+
+                # Merge the translations collected from the inner content.
+                for msg in inner_messages:
+                    if msg.id not in self.translations:
+                        self.translations[cast(str, msg.id)] = cast(str, msg.string)
+
+                return f"{start_tag}{rewritten_content}{end_tag}"
+            return match.group(0)
+
+        option_pattern = re.compile(r"(<option[^>]*>)(.*?)(</option>)", re.DOTALL | re.IGNORECASE)
+        processed_html = option_pattern.sub(process_option_content, html_content)
+
+        document = html5lib.parseFragment(processed_html, namespaceHTMLElements=False)
+        walker = html5lib.getTreeWalker("etree")
+
+        for token in walker(document):
+            match token["type"]:
+                case "StartTag" | "EmptyTag":
+                    self._handle_starttag(token)
+                case "EndTag":
+                    self._handle_endtag(token)
+                case "Characters" | "SpaceCharacters":
+                    self._handle_data(token)
+                case "Comment":
+                    self._handle_comment(token)
+                case "Doctype":
+                    self._handle_decl(token)
+
+    def _handle_tmsgid(self, token: dict) -> None:
+        """Handles elements with the 't-msgid' attribute."""
+        # logger.debug("handle_t-msgid:%r", token)
+
+        new_data = cast(dict[tuple[None, str], str], token["data"].copy())
+        assert isinstance(new_data, dict)
+        data_key, translation_key = next(((k, v) for k, v in new_data.items() if k[1] == "t-msgid"), (None, None))
+        if data_key:
+            del new_data[data_key]
+        assert translation_key, f"expected a t-msgid but didn't find one on {token}"
+
+        marker_id = f"__TRANSLATION_MARKER_{uuid.uuid4().hex}__"
+        self.context_stack.append(TranslationContext(tag=token["name"], key=translation_key, marker=marker_id))
+        if translation_key in self.translations:
+            stderr(f"{RED_BOLD}Duplicate t-msgid!{RESET} {translation_key} already exists.")
+        # TODO: is this needed?
+        self.translations[translation_key] = ""
+
+        # Insert the same start token, then insert a special "translation placeholder" token for later use
+        self.processed_tokens.append({**token, "data": new_data})
+        self.processed_tokens.append({"type": "TranslationPlaceholder", "data": marker_id})
+
+    def _handle_translatable(self, token: dict) -> None:
+        """Handles elements with the 'translatable' attribute."""
+        # logger.debug("handle_translatable:%r", token)
+        if not self.context_stack or not any(isinstance(c, TranslationContext) for c in self.context_stack):
+            raise ValueError("'translatable' attribute can only be used inside a 't-msgid' block.")
+        self.context_stack.append(RenderContext(tag=token["name"]))
+
+        new_data = token["data"].copy()
+        translatable_key = next((k for k in new_data if k[1] == "translatable"), None)
+        if translatable_key:
+            del new_data[translatable_key]
+
+        self.processed_tokens.append({**token, "data": new_data})
+
+    def _handle_t_include(self, attrs_dict: dict[str, str | None]) -> None:
+        """Handles elements with the 't-include' attribute."""
+        # logger.debug("handle_t-include")
+        if not self.file_path:
+            raise ValueError("<t-include> tag can only be used when a file path is provided.")
+        root = self.file_path.parent
+
+        if "t-file" not in attrs_dict or not (include_path_str := attrs_dict["t-file"]):
+            raise ValueError("<t-include> tag must have a non-empty 't-file' attribute.")
+
+        if ".." in Path(include_path_str).parts:
+            raise ValueError("Directory traversal is not allowed in 't-file' attribute.")
+
+        file_path = (root / include_path_str).resolve()
+        if root.resolve() not in file_path.parents:
+            raise ValueError("Path for 't-file' is outside the allowed directory.")
+
+        with file_path.open("r", encoding="utf-8") as fp:
+            included_content = fp.read().strip()
+
+        # Insert the raw data as Characters, which will cause it to be escaped before embedding.
+        self.processed_tokens.append({"type": "Characters", "data": included_content})
+
+    def _handle_starttag(self, token: dict) -> None:
+        # logger.debug("handle_starttag:%s", token)
+        tag = token["name"]
+        attrs_dict = self._convert_attrs(token["data"])
+
+        if "t-msgid" in attrs_dict:
+            self._handle_tmsgid(token)
+            return
+
+        if "translatable" in attrs_dict:
+            self._handle_translatable(token)
+            return
+
+        parent_context_info = self.context_stack[-1] if self.context_stack else None
+        if isinstance(parent_context_info, TranslationContext):
+            parent_translation_key = parent_context_info.key
+            placeholders = parent_context_info.placeholders
+
+            if tag == "t-expr":
+                if not (key := attrs_dict.get("t-key")):
+                    raise ValueError("<t-expr> tag is missing 't-key' attribute.")
+                self.current_t_expr_info = TranslationExprInfo(key=key, value="")
+                return
+
+            elif "t-key" in attrs_dict:
+                placeholder_key = str(attrs_dict.pop("t-key"))
+                if tag == "a" and (href := attrs_dict.get("href", None)) is not None:
+                    if is_external_link(href):
+                        secure_external_link(href, attrs_dict)
+                attr_dict_str = json.dumps(attrs_dict)
+                placeholders[placeholder_key] = f"({attr_dict_str} | xmlattr)"
+                self.translations[parent_translation_key] += f"<{tag} %({placeholder_key})s>"
+
+            elif tag == "a":
+                href = attrs_dict.get("href")
+                if not href:
+                    raise ValueError(
+                        f"<a> tag must have a non-empty 'href'. Found in block '{parent_translation_key}'."
+                    )
+
+                attr_key = slugify_url(href, keypath=parent_translation_key, attrs_dict=attrs_dict)
+
+                base_key, counter = attr_key, 2
+                while attr_key in placeholders:
+                    attr_key = f"{base_key}_{counter}"
+                    counter += 1
+
+                attr_value = f"({json.dumps(attrs_dict)} | xmlattr)"
+                existing_key = next((k for k, v in placeholders.items() if v == attr_value), None)
+                if existing_key:
+                    attr_key = existing_key
+
+                placeholders[attr_key] = attr_value
+                self.translations[parent_translation_key] += f"<{tag} %({attr_key})s>"
+
+            else:
+                original_attrs = [k if v is None else f'{k}="{v}"' for k, v in attrs_dict.items()]
+                self.translations[parent_translation_key] += (
+                    f"<{tag}{' ' if original_attrs else ''}{' '.join(original_attrs)}>"
+                )
+        elif tag == "t-include":
+            self._handle_t_include(attrs_dict)
+            return
+        else:
+            self.processed_tokens.append(token)
+
+    def _handle_data(self, token: dict) -> None:
+        # logger.debug("handle_data:%s", token)
+        data = token["data"]
+
+        parent_context_info = self.context_stack[-1] if self.context_stack else None
+        if isinstance(parent_context_info, TranslationContext):
+            self.translations[parent_context_info.key] += data
+        else:
+            self.processed_tokens.append(token)
+
+    def _handle_endtag(self, token: dict) -> None:
+        # logger.debug("handle_endtag:%s", token)
+        tag = token["name"]
+
+        if tag == "t-expr" and self.current_t_expr_info:
+            info, self.current_t_expr_info = self.current_t_expr_info, None
+            key, placeholder_id = info.key, info.value.strip()
+            value = self.jinja_expr_map[placeholder_id.split("=", maxsplit=1)[1]]
+            if not value.startswith("{{") or not value.endswith("}}"):
+                raise ValueError(f"<t-expr> content must be a Jinja2 expression. Found {value!r}")
+            expression = value[2:-2].strip()
+            parent_context = self.context_stack[-1]
+            assert isinstance(parent_context, TranslationContext)
+            parent_context.placeholders[key] = f"({expression})"
+            self.translations[parent_context.key] += f"%({key})s"
+            return
+
+        if tag == "t-include":
+            return
+
+        if not self.context_stack:
+            self.processed_tokens.append(token)
+            return
+
+        current_info = self.context_stack[-1]
+        current_tag = current_info.tag
+
+        if current_tag == tag:
+            self.context_stack.pop()
+            if isinstance(current_info, TranslationContext):
+                # Replace the "translation goes here" HTML comment with the fully-constructed Jinja expression
+                key, placeholders, marker = current_info.key, current_info.placeholders, current_info.marker
+
+                gettext_args = [f"'{key}'"]
+                for p_key, p_expression in placeholders.items():
+                    gettext_args.append(f"{p_key}={p_expression}")
+                gettext_call = f"{{{{ gettext({', '.join(gettext_args)}) }}}}"
+
+                for i, t in enumerate(self.processed_tokens):
+                    if t.get("type") == "TranslationPlaceholder" and t.get("data") == marker:
+                        self.processed_tokens[i] = {"type": "JinjaExpression", "data": gettext_call}
+                        break
+                else:
+                    stderr(f"{RED_BOLD}Internal Error:{RESET} Could not find translation marker for key '{key}'.")
+
+            elif isinstance(current_info, RenderContext):
+                if self.context_stack and isinstance(self.context_stack[-1], TranslationContext):
+                    self.context_stack[-1].has_closed_translatable_child = True
+
+            self.processed_tokens.append(token)
+        else:
+            if isinstance(current_info, TranslationContext):
+                self.translations[current_info.key] += f"</{tag}>"
+            else:
+                self.processed_tokens.append(token)
+
+    def _handle_comment(self, token: dict) -> None:
+        # logger.debug("handle_comment:%s", token)
+
+        data = token["data"]
+        if not isinstance(data, str):
+            self.processed_tokens.append(token)
+            return
+
+        # The <t-expr>{{ jinja }}</t-expr> tags will have been turned into
+        # <t-expr><!-- JINJA_PLACEHOLDER=uuid --></t-expr> by the preprocessor,
+        # but we need to look up the original expression here so that we can
+        # substitute the correct value into the translations.
+        if self.current_t_expr_info:
+            self.current_t_expr_info.value += data
+            return
+
+        self.processed_tokens.append(token)
+
+    def _handle_decl(self, token: dict) -> None:
+        # logger.debug("handle_decl:%s", token)
+        self.processed_tokens.append(token)
+
+    def _get_result(self) -> tuple[str, list[Message]]:
+        """
+        Serializes the processed token stream into the final HTML and returns
+        it along with the list of translation messages.
+        """
+        messages = [Message(msgid, msgstr.strip()) for msgid, msgstr in self.translations.items()]
+
+        serializer = UnescapingJinjaSerializer(
+            quote_attr_values="always",
+            omit_optional_tags=False,
+            escape_lt_in_attrs=False,
+            resolve_entities=True,
+            minimize_boolean_attributes=True,
+            use_trailing_solidus=False,
+        )
+        serializer.strict = True
+
+        rewritten_html = "".join(serializer.render(self.processed_tokens))
+
+        return rewritten_html, messages
+
+
+def translate_jinja_template(file_path: Path | None, template_content: str) -> tuple[str, list[Message]]:
+    """
+    Translates t-msgid tags by temporarily replacing Jinja tags with placeholder
+    HTML comments, processing the pure HTML, and then restoring the Jinja tags.
+    """
+
+    def is_in_html_comment(pos: int) -> bool:
+        """Check if a character position is inside a known comment span."""
+        return any(start <= pos < end for start, end in comment_spans)
+
+    def hide_jinja(match: re.Match) -> str:
+        """Hide all pre-existing Jinja tags as HTML comments."""
+        # If the match starts inside a comment, leave it untouched.
+        if is_in_html_comment(match.start()):
+            return match.group(0)
+
+        # Otherwise, replace it with a placeholder.
+        placeholder_id = uuid.uuid4().hex
+        translator.jinja_expr_map[placeholder_id] = match.group(1)
+        return f"<!-- JINJA_PLACEHOLDER={placeholder_id} -->"
+
+    def restore_jinja(match: re.Match) -> str:
+        """Restore the original Jinja tags from the placeholders."""
+        placeholder_id = match.group(1)
+        return translator.jinja_expr_map.get(placeholder_id, "")
+
+    translator = HTMLTranslator(file_path=file_path)
+
+    jinja_pattern = re.compile(r"({%.*?%}|{{.*?}}|{#.*?#})", re.DOTALL)
+    comment_pattern = re.compile(r"<!--.*?-->", re.DOTALL)
+    placeholder_comment_pattern = re.compile(rf"<!-- {translator.jinja_placeholder_ident} -->")
+    escaped_placeholder_comment_pattern = re.compile(rf"&lt;!-- {translator.jinja_placeholder_ident} --&gt;")
+
+    # First, find all comment spans to avoid processing Jinja tags inside them
+    comment_spans = [m.span() for m in comment_pattern.finditer(template_content)]
+
+    # Then, hide any Jinja tags that are NOT inside comments
+    html_with_placeholders = jinja_pattern.sub(hide_jinja, template_content)
+
+    # Process the now-valid HTML
+    translator.feed(html_with_placeholders)
+    rewritten_html_with_placeholders, messages = translator._get_result()
+
+    final_template = placeholder_comment_pattern.sub(restore_jinja, rewritten_html_with_placeholders)
+    final_template = escaped_placeholder_comment_pattern.sub(restore_jinja, final_template)
+
+    return final_template, messages
+
+
+def rewrite_gettext(output_html_path: Path | None, translation_messages: list[Message]):
+    """Updates a .po file with the extracted translation key-value pairs."""
+
+    catalog_path = Path("./allthethings/translations/en/LC_MESSAGES/messages.po")
+
+    if output_html_path:
+        with catalog_path.open("r") as fp:
+            catalog = read_po(fp, locale="en")
+    else:
+        catalog = read_po([], locale="en")
+
+    for msg in translation_messages:
+        # babel doesn't override the string when __setitem__ is called, so we
+        # need to do it manually.
+        catalog[msg.id] = msg
+        catalog[msg.id].string = msg.string
+
+    if output_html_path:
+        with catalog_path.open("wb") as fp:
+            write_po(fp, catalog, width=0, omit_header=True, sort_by_file=True, no_location=True)
+    else:
+        print("\n--- Rewritten gettext Catalog ---")
+        print("".join(generate_po(catalog, width=0, omit_header=True, no_location=True)))
+
+
+def rewrite_html(input_file_path: Path, output_file_path: Path | None) -> tuple[str, list[Message]]:
+    """Reads, translates, and outputs a single HTML file."""
+    stderr(f"processing {input_file_path}")
+
+    new_html, translation_messages = translate_jinja_template(
+        file_path=input_file_path,
+        template_content=input_file_path.read_text(encoding="utf-8"),
+    )
+
+    if output_file_path:
+        output_file_path.write_text(new_html, encoding="utf-8")
+
+    else:
+        print("\n--- Rewritten HTML ---")
+        print(new_html)
+
+    return new_html, translation_messages
+
+
+@dataclasses.dataclass
+class TranslateHtmlArgs(argparse.Namespace):
+    input_paths: list[Path]
+    output_file: Path | None = None
+    output_dir: Path | None = None
+    in_place: bool = False
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
-        description="Process HTML template for translation."
+        description="Rewrite HTML files for translation, extracting translatable strings.",
+        formatter_class=argparse.ArgumentDefaultsHelpFormatter,
     )
-    parser.add_argument("glob", help="Glob to the input HTML files", type=str)
-    args = parser.parse_args()
+    parser.add_argument(
+        "input_paths",
+        nargs="+",
+        help="Paths to input HTML files or directories containing *.html.j2 files.",
+        type=Path,
+    )
+    # --- Output mode flags ---
+    output_group = parser.add_mutually_exclusive_group()
+    output_group.add_argument(
+        "-o",
+        "--output-file",
+        help="Path to write a single output HTML file. Only valid for a single input file.",
+        type=Path,
+    )
+    output_group.add_argument(
+        "-D",
+        "--output-dir",
+        help="Directory to write output files to.",
+        type=Path,
+    )
+    output_group.add_argument(
+        "-I",
+        "--in-place",
+        action="store_true",
+        help="Modify files in-place, saving back to the original location. "
+        "If the filename ends in .html.j2, it is saved as .html",
+    )
+    args = parser.parse_args(namespace=TranslateHtmlArgs)
 
-    for input_file in pathlib.Path(".").glob(args.glob):
-        assert (
-            [".source", ".html"] == input_file.suffixes
-        ), f"file {input_file!r} must end in .source.html, but ended with {input_file.suffixes}"
+    # --- Collect all files to be processed ---
+    files_to_process: list[Path] = []
+    had_directory_input = False
+    for input_path in args.input_paths:
+        if not input_path.exists():
+            stderr(f"{RED_BOLD}Error:{RESET} Input path not found at '{input_path}'")
+            sys.exit(1)
 
-        input_file_basename = input_file
-        while input_file_basename.suffix:
-            input_file_basename = input_file_basename.with_suffix("")
-        output_file = input_file_basename.with_suffix(".html")
+        if input_path.is_dir():
+            had_directory_input = True
+            source_files = list(input_path.glob("*.html.j2"))
+            if not source_files:
+                stderr(f"Warning: No *.html.j2 files found in '{input_path}'.")
+            files_to_process.extend(source_files)
+        elif input_path.is_file():
+            files_to_process.append(input_path)
+        else:
+            stderr(f"{RED_BOLD}Error:{RESET} Input path '{input_path}' is not a valid file or directory.")
+            sys.exit(1)
 
-        print(f"translating {input_file} to {output_file}", end=" ")
+    # --- More argument validation based on collected files ---
+    if had_directory_input and not args.output_dir and not args.in_place:
+        stderr(f"{RED_BOLD}Error:{RESET} --output-dir (-D) or --in-place (-I) is required when processing a directory.")
+        sys.exit(1)
 
-        with input_file.open("r") as fp:
-            input_html_content = fp.read()
+    if len(files_to_process) > 1 and args.output_file:
+        stderr(f"{RED_BOLD}Error:{RESET} --output-file (-o) can only be used with a single input file.")
+        sys.exit(1)
 
-        gettext_prefix = (str(input_file.parent.stem), input_file_basename.stem)
-        processed_html, gettext_output = process_html_template(
-            input_html_content, gettext_prefix
-        )
+    if not files_to_process:
+        stderr("No valid files found to process.")
+        sys.exit(0)
 
-        with output_file.open("w") as fp:
-            fp.write(processed_html)
+    for input_file in files_to_process:
+        output_path = None
+        if args.in_place:
+            if input_file.name.endswith(".html.j2"):
+                stem = input_file.name.rsplit(".html.j2", 1)[0]
+                output_filename = f"{stem}.html"
+                output_path = input_file.parent / output_filename
+            else:
+                # Overwrite the original file if not a .html.j2 file
+                output_path = input_file
+        elif args.output_dir:
+            output_dir = Path(args.output_dir)
+            output_dir.mkdir(parents=True, exist_ok=True)
+            if input_file.name.endswith(".html.j2"):
+                stem = input_file.name.rsplit(".html.j2", 1)[0]
+                output_filename = f"{stem}.html"
+            else:
+                output_filename = input_file.name
+            output_path = output_dir / output_filename
+        elif args.output_file:
+            # This branch is only taken when there is one file
+            output_path = Path(args.output_file)
+            output_path.parent.mkdir(parents=True, exist_ok=True)
 
-        rewrite_gettext(gettext_output)
-
-        print(
-            f"\rtranslated {input_file} to {output_file}; wrote {len(gettext_output)} gettext messages"
-        )
+        try:
+            _html, translation_messages = rewrite_html(input_file, output_path)
+            rewrite_gettext(output_path, translation_messages)
+        except Exception as e:
+            stderr(f"   {RED_BOLD}Error:{RESET} processing file '{input_file}': {e}")
+            raise e

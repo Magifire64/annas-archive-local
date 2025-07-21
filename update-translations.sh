@@ -3,7 +3,7 @@
 set -Eeuxo pipefail
 
 # Convert the source HTML files into the translatable versions
-./bin/translate-html "./allthethings/**/templates/**/*.source.html"
+./bin/translate-html --in-place ./allthethings/**/templates/**/*.source.html.j2
 
 # Some of these change their output when run multiple times
 for _ in 1 2 3

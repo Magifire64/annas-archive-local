@@ -30,6 +30,7 @@ dependencies = [
     { name = "flask-static-digest" },
     { name = "forex-python" },
     { name = "gunicorn" },
+    { name = "html5lib-modern" },
     { name = "httpx", extra = ["socks"] },
     { name = "indexed-zstd" },
     { name = "isbnlib" },
@@ -93,6 +94,7 @@ requires-dist = [
     { name = "flask-static-digest", specifier = "==0.2.1" },
     { name = "forex-python", specifier = "==1.8" },
     { name = "gunicorn", specifier = "==20.1.0" },
+    { name = "html5lib-modern", specifier = ">=1.2" },
     { name = "httpx", extras = ["socks"], specifier = "==0.23.0" },
     { name = "indexed-zstd", specifier = "==1.6.1" },
     { name = "isbnlib", specifier = "==3.10.10" },
@@ -749,6 +751,15 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/bd/e9/72c3dc8f7dd7874812be6a6ec788ba1300bfe31570963a7e788c86280cb9/h11-0.12.0.tar.gz", hash = "sha256:47222cb6067e4a307d535814917cd98fd0a57b6788ce715755fa2b6c28b56042", size = 98121, upload-time = "2021-01-01T11:34:46.783Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/60/0f/7a0eeea938eaf61074f29fed9717f2010e8d0e0905d36b38d3275a1e4622/h11-0.12.0-py3-none-any.whl", hash = "sha256:36a3cb8c0a032f56e2da7084577878a035d3b61d104230d4bd49c0c6b555a9c6", size = 54857, upload-time = "2021-01-01T11:34:45.391Z" },
+]
+
+[[package]]
+name = "html5lib-modern"
+version = "1.2"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/af/6d/a773b5338f4341cdeca17d17cf0e56016ed1f9e7ea8377456b275b63a7b0/html5lib_modern-1.2.tar.gz", hash = "sha256:1fadbfc27ea955431270e4e79a4a4c290ba11c3a3098a95cc22dc73e312a1768", size = 275189, upload-time = "2024-09-25T04:19:49.004Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/b1/cd/ddf0baebab2dfac62a90af9d7a1c2504d697f1411f2529b928e02b4e9cd0/html5lib_modern-1.2-py2.py3-none-any.whl", hash = "sha256:3458b6e31525ede4fcaac0ff42d9eeb5efaf755473768103cb56e0275caa8d99", size = 116249, upload-time = "2024-09-25T04:19:46.627Z" },
 ]
 
 [[package]]
