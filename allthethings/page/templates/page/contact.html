@@ -3,71 +3,45 @@
 {% block title %}{{ gettext('page.contact.title') }}{% endblock %}
 
 {% block body %}
-<h2 class="mt-4 mb-4 text-3xl font-bold">
- {{ gettext('page.contact.title') }}
-</h2>
-<p class="mb-4">
- <span>
-  {{ gettext('page.contact.dmca.form', a_copyright=({'href': '/copyright'} | xmlattr)) }}
- </span>
- <span>
-  {{ gettext('page.contact.dmca.delete') }}
- </span>
-</p>
-<p class="mb-4">
- <div>
-  <span>
-   {{ gettext('page.contact.checkboxes.text1') }}
-  </span>
-  <span>
-   {{ gettext('page.contact.checkboxes.text2') }}
-  </span>
- </div>
- <div>
-  <label>
-   <input class="js-email-checkbox align-[-1px]" type="checkbox"/>
-   <span>
-    {{ gettext('page.contact.checkboxes.copyright') }}
-   </span>
-  </label>
- </div>
- <!-- <div><label><input class="js-email-checkbox align-[-1px]" type="checkbox"> {{ gettext('layout.index.header.banner.issues.partners_closed') }} <div class="ml-4 font-bold underline">{{ gettext('layout.index.header.banner.issues.memberships_extended') }}</div></label></div> -->
- <div>
-  <label>
-   <input class="js-email-checkbox align-[-1px]" type="checkbox"/>
-   <span>
-    {{ gettext('layout.index.footer.dont_email', a_request=({'href': '/faq#request'} | xmlattr), a_upload=({'href': '/faq#upload'} | xmlattr)) }}
-   </span>
-  </label>
- </div>
- <div>
-  <label>
-   <input class="js-email-checkbox align-[-1px]" type="checkbox"/>
-   <span>
-    {{ gettext('page.donate.please_include') }}
-   </span>
-  </label>
- </div>
- <div>
-  <label>
-   <input class="js-email-checkbox align-[-1px]" type="checkbox"/>
-   {{ gettext('page.donate.small_team') }}
-  </label>
- </div>
- <button class="px-4 py-1 bg-[#0195ff] text-white rounded hover:bg-blue-600 mb-4" onclick="if (Array.from(document.querySelectorAll('.js-email-checkbox')).every((el) =&gt; el.checked)) { document.querySelector('.js-email-field').classList.remove('hidden') }">
-  {{ gettext('page.contact.checkboxes.show_email_button') }}
- </button>
- <!-- NOTE: HIDDEN -->
- <div class="hidden js-email-field">
-  <span class="hidden">
-   {{ gettext('layout.index.header.banner.issues.partners_closed') }}
-   <span class="ml-4 font-bold underline">
-    {{ gettext('layout.index.header.banner.issues.memberships_extended') }}
-   </span>
-  </span>
-  <a href="mailto:{{ AA_EMAIL }}">
-   {{ AA_EMAIL }}
-  </a>
- </div>
-</p>
+  <h2 class="mt-4 mb-4 text-3xl font-bold">{{ gettext('page.contact.title') }}</h2>
+
+  <p class="mb-4">
+    <span>{{ gettext('page.contact.dmca.form', a_copyright=({"href": "/copyright"} | xmlattr)) }}</span>
+    <span>{{ gettext('page.contact.dmca.delete') }}</span>
+  </p>
+
+  <div class="mb-4">
+    <div>
+      <span>{{ gettext('page.contact.checkboxes.text1') }}</span>
+      <span>{{ gettext('page.contact.checkboxes.text2') }}</span>
+    </div>
+    <div>
+      <label>
+        <input class="js-email-checkbox align-[-1px]" type="checkbox">
+        <span>{{ gettext('page.contact.checkboxes.copyright') }}</span>
+      </label>
+    </div>
+    <!-- <div><label><input class="js-email-checkbox align-[-1px]" type="checkbox"> {{ gettext('layout.index.header.banner.issues.partners_closed') }} <div class="ml-4 font-bold underline">{{ gettext('layout.index.header.banner.issues.memberships_extended') }}</div></label></div> -->
+    <div>
+      <label>
+        <input class="js-email-checkbox align-[-1px]" type="checkbox">
+        <span>{{ gettext('layout.index.footer.dont_email', a_request=({"href": "/faq#request"} | xmlattr), a_upload=({"href": "/faq#upload"} | xmlattr)) }}</span>
+      </label>
+    </div>
+    <div>
+      <label>
+        <input class="js-email-checkbox align-[-1px]" type="checkbox">
+        <span>{{ gettext('page.donate.please_include') }}</span>
+      </label>
+    </div>
+    <div>
+      <label>
+        <input class="js-email-checkbox align-[-1px]" type="checkbox">
+        {{ gettext('page.donate.small_team') }}
+      </label>
+    </div>
+    <button class="px-4 py-1 bg-[#0195ff] text-white rounded hover:bg-blue-600 mb-4" onclick="if (Array.from(document.querySelectorAll('.js-email-checkbox')).every((el) =&gt; el.checked)) { document.querySelector('.js-email-field').classList.remove('hidden') }">{{ gettext('page.contact.checkboxes.show_email_button') }}</button>
+    <!-- NOTE: HIDDEN -->
+    <div class="hidden js-email-field"><span class="hidden">{{ gettext('layout.index.header.banner.issues.partners_closed') }} <span class="ml-4 font-bold underline">{{ gettext('layout.index.header.banner.issues.memberships_extended') }}</span></span> <a href="mailto:{{ AA_EMAIL }}">{{ AA_EMAIL }}</a></div>
+  </div>
 {% endblock %}

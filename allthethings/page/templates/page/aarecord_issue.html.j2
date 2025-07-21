@@ -1,0 +1,9 @@
+{% extends "layouts/index.html" %}
+{% import 'macros/shared_links.j2' as a %}
+
+{% block body %}
+  <h2 class="mt-12 mb-1 text-3xl font-bold" t-msgid="page.aarecord_issue.title">🔥 Issue loading this page</h2>
+  <p class="mb-4" t-msgid="page.aarecord_issue.text">
+    Please refresh to try again. <a t-key="a_contact" href="/contact">Contact us</a> if the issue persists for multiple hours.
+  </p>
+{% endblock %}

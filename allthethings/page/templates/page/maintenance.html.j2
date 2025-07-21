@@ -1,0 +1,13 @@
+{% extends "layouts/index.html" %}
+
+{% block meta_tags %}
+  <meta property="robots" content="noindex" />
+{% endblock %}
+
+{% block title %}{{ gettext('page.maintenance.header') }}{% endblock %}
+
+{% block body %}
+  <p t-msgid="page.maintenance.header">
+    Anna’s Archive is temporarily down for maintenance. Please come back in an hour.
+  </p>
+{% endblock %}

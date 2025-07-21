@@ -3,22 +3,22 @@
 {% block title %}{{ gettext('page.contact.title') }}{% endblock %}
 
 {% block body %}
-  <h2 class="mt-4 mb-4 text-3xl font-bold" translate="page.contact.title">Contact email</h2>
+  <h2 class="mt-4 mb-4 text-3xl font-bold" t-msgid="page.contact.title">Contact email</h2>
 
   <p class="mb-4">
-    <span translate="page.contact.dmca.form">For DMCA / copyright claims, use <a href="/copyright" translate-key="a_copyright">this form</a>.</span>
-    <span translate="page.contact.dmca.delete">Any other ways of contacting us about copyright claims will be automatically deleted.</span>
+    <span t-msgid="page.contact.dmca.form">For DMCA / copyright claims, use <a t-key="a_copyright" href="/copyright">this form</a>.</span>
+    <span t-msgid="page.contact.dmca.delete">Any other ways of contacting us about copyright claims will be automatically deleted.</span>
   </p>
 
-  <p class="mb-4">
+  <div class="mb-4">
     <div>
-      <span translate="page.contact.checkboxes.text1">We very much welcome your feedback and questions!</span>
-      <span translate="page.contact.checkboxes.text2">However, due to the amount of spam and nonsense emails we get, please check the boxes to confirm you understand these conditions for contacting us.</span>
+      <span t-msgid="page.contact.checkboxes.text1">We very much welcome your feedback and questions!</span>
+      <span t-msgid="page.contact.checkboxes.text2">However, due to the amount of spam and nonsense emails we get, please check the boxes to confirm you understand these conditions for contacting us.</span>
     </div>
     <div>
       <label>
         <input class="js-email-checkbox align-[-1px]" type="checkbox">
-        <span translate="page.contact.checkboxes.copyright">
+        <span t-msgid="page.contact.checkboxes.copyright">
           Copyright claims to this email will be ignored; use the form instead.
         </span>
       </label>
@@ -27,15 +27,15 @@
     <div>
       <label>
         <input class="js-email-checkbox align-[-1px]" type="checkbox">
-        <span translate="layout.index.footer.dont_email">
-          Don’t email us to <a href="/faq#request" translate-key="a_request">request books</a> or small (<10k) <a href="/faq#upload" translate-key="a_upload">uploads</a>.
+        <span t-msgid="layout.index.footer.dont_email">
+          Don’t email us to <a t-key="a_request" href="/faq#request">request books</a> or small (&lt;10k) <a t-key="a_upload" href="/faq#upload">uploads</a>.
         </span>
       </label>
     </div>
     <div>
       <label>
         <input class="js-email-checkbox align-[-1px]" type="checkbox">
-        <span translate="page.donate.please_include">
+        <span t-msgid="page.donate.please_include">
           When asking account or donation questions, add your account ID, screenshots, receipts, as much information as possible. We only check our email every 1-2 weeks, so not including this information will delay any resolution.
         </span>
       </label>
@@ -46,10 +46,10 @@
         {{ gettext('page.donate.small_team') }}
       </label>
     </div>
-    <button class="px-4 py-1 bg-[#0195ff] text-white rounded hover:bg-blue-600 mb-4" onclick="if (Array.from(document.querySelectorAll('.js-email-checkbox')).every((el) => el.checked)) { document.querySelector('.js-email-field').classList.remove('hidden') }" translate="page.contact.checkboxes.show_email_button">
+    <button class="px-4 py-1 bg-[#0195ff] text-white rounded hover:bg-blue-600 mb-4" onclick="if (Array.from(document.querySelectorAll('.js-email-checkbox')).every((el) => el.checked)) { document.querySelector('.js-email-field').classList.remove('hidden') }" t-msgid="page.contact.checkboxes.show_email_button">
       Show email
     </button>
     <!-- NOTE: HIDDEN -->
     <div class="hidden js-email-field"><span class="hidden">{{ gettext('layout.index.header.banner.issues.partners_closed') }} <span class="ml-4 font-bold underline">{{ gettext('layout.index.header.banner.issues.memberships_extended') }}</span></span> <a href="mailto:{{ AA_EMAIL }}">{{ AA_EMAIL }}</a></div>
-  </p>
+  </div>
 {% endblock %}

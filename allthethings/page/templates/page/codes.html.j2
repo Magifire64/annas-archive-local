@@ -7,14 +7,20 @@
 {% block body %}
   {% from 'macros/copy_button.html' import copy_button %}
 
-  <h2 class="mt-4 mb-1 text-3xl font-bold">{{ gettext('page.codes.heading') }}</h2>
+  <h2 class="mt-4 mb-1 text-3xl font-bold" t-msgid="page.codes.heading">Codes Explorer</h2>
 
   {% if prefix_label == '' %}
-    <div class="mt-4">{{ gettext('page.codes.intro') }}</div>
+    <div class="mt-4" t-msgid="page.codes.intro">
+      Explore the codes that records are tagged with, by prefix. The <q>records</q> column shows the number of records tagged with codes with the given prefix, as seen in the search engine (including metadata-only records). The <q>codes</q> column shows how many actual codes have a given prefix.
+    </div>
 
-    <div class="mt-4 text-sm text-gray-500">{{ gettext('page.codes.why_cloudflare', a_donate=({"href": "/donate"} | xmlattr)) }}</div>
+    <div class="mt-4 text-sm text-gray-500" t-msgid="page.codes.why_cloudflare">
+      This page can take a while to generate, which is why it requires a Cloudflare captcha. <a t-key="a_donate" href="/donate">Members</a> can skip the captcha.
+    </div>
 
-    <div class="mt-4 pb-2 text-sm text-gray-500">{{ gettext('page.codes.dont_scrape', a_import=({"href": "https://software.annas-archive.li/AnnaArchivist/annas-archive/-/blob/main/data-imports/README.md"} | xmlattr), a_download=({"href": "/torrents#aa_derived_mirror_metadata"} | xmlattr), a_software=({"href": "https://software.annas-archive.li/"} | xmlattr), a_json_file=({"href": "/db/aarecord_elasticsearch/md5:8336332bf5877e3adbfb60ac70720cd5.json.html"} | xmlattr)) }}</div>
+    <div class="mt-4 pb-2 text-sm text-gray-500" t-msgid="page.codes.dont_scrape">
+      Please do not scrape these pages. Instead we recommend <a t-key="a_import" href="https://software.annas-archive.li/AnnaArchivist/annas-archive/-/blob/main/data-imports/README.md">generating</a> or <a t-key="a_download" href="/torrents#aa_derived_mirror_metadata">downloading</a> our ElasticSearch and MariaDB databases, and running our <a t-key="a_software" href="https://software.annas-archive.li/">open source code</a>. The raw data can be manually explored through JSON files such as <a t-key="a_json_file" href="/db/aarecord_elasticsearch/md5:8336332bf5877e3adbfb60ac70720cd5.json.html">this one</a>.
+    </div>
   {% endif %}
 
   <form action="/member_codes" method="get" class="mt-4">
@@ -28,18 +34,20 @@
   </form>
 
   {% if bad_unicode %}
-    <div class="text-sm italic mt-4">{{ gettext('page.codes.bad_unicode') }}</div>
+    <div class="text-sm italic mt-4" t-msgid="page.codes.bad_unicode">
+      Warning: code has incorrect Unicode characters in it, and might behave incorrectly in various situations. The raw binary can be decoded from the base64 representation in the URL.
+    </div>
   {% endif %}
 
   {% if code_item and ((code_item.info | length) > 0) %}
     <div class="mt-4">
-      <div class="font-bold">{{ gettext('page.codes.known_code_prefix', key=(code_item.key)) }}</div>
+      <div class="font-bold" t-msgid="page.codes.known_code_prefix">Known code prefix <q><t-expr t-key=key>{{ code_item.key }}</t-expr></q></div>
       <table class="text-sm">
         <tbody>
-        <tr class=""><td class="pr-8 pb-1">{{ gettext('page.codes.code_prefix') }}</td><td><a href="/member_codes?prefix={{ code_item.key }}:"><q>{{ code_item.key }}</q></a></td></tr>
-        <tr class=""><td class="pr-8 pb-1">{{ gettext('page.codes.code_label') }}</td><td>{{ code_item.info.label }}</td></tr>
+        <tr class=""><td class="pr-8 pb-1" t-msgid="page.codes.code_prefix">Prefix</td><td><a href="/member_codes?prefix={{ code_item.key }}:"><q>{{ code_item.key }}</q></a></td></tr>
+        <tr class=""><td class="pr-8 pb-1" t-msgid="page.codes.code_label">Label</td><td>{{ code_item.info.label }}</td></tr>
         {% if code_item.info.description %}
-        <tr class=""><td class="pr-8 pb-1">{{ gettext('page.codes.code_description') }}</td><td class="py-2">{{ code_item.info.description }}</td></tr>
+        <tr class=""><td class="pr-8 pb-1" t-msgid="page.codes.code_description">Description</td><td class="py-2">{{ code_item.info.description }}</td></tr>
         {% endif %}
         {% if code_item.info.url %}
           {% if '%s' in code_item.info.url %}
@@ -72,19 +80,21 @@
         <div class="js-codes-aarecord-list-more hidden">
           {{ aarecord_list(aarecords[3:]) }}
         </div>
-        <a href="#" onclick="event.preventDefault(); document.querySelector('.js-codes-aarecord-list-more').classList.remove('hidden'); this.classList.add('hidden'); return false">{{ gettext('page.codes.more') }}</a>
+        <a t-msgid="page.codes.more" href="#" onclick="event.preventDefault(); document.querySelector('.js-codes-aarecord-list-more').classList.remove('hidden'); this.classList.add('hidden'); return false">More…</a>
       {% endif %}
     </div>
   {% endif %}
 
   {% if (prefix_rows | length) > 0 %}
     {% if prefix_label != '' and dir_path == None %}
-      <div class="font-bold mt-4">{{ gettext('page.codes.codes_starting_with', prefix_label=(prefix_label)) }}</div>
+      <div class="font-bold mt-4" t-msgid="page.codes.codes_starting_with">
+        Codes starting with <q><t-expr t-key=prefix_label>{{ prefix_label }}</t-expr></q>
+      </div>
     {% endif %}
 
     {% if dir_path != None %}
     <div class="font-bold leading-none my-4">
-      <span>{{ gettext('page.codes.index_of_dir_path') }}</span><br>
+      <span t-msgid="page.codes.index_of_dir_path">Index of</span><br>
       {% for path_segment in dir_path[:-1] %}<a class="!no-underline" href="{{ path_segment.link }}">{{ path_segment.label }}</a>{% endfor %}{{ dir_path[-1].label }}
     </div>
     {% endif %}
@@ -98,8 +108,8 @@
           {% endif %}
         </td>
         <td></td>
-        <td class="text-sm text-gray-500 px-4">{{ gettext('page.codes.records_prefix') }}</td>
-        <td class="text-sm text-gray-500 px-4">{{ gettext('page.codes.records_codes') }}</td>
+        <td class="text-sm text-gray-500 px-4" t-msgid="page.codes.records_prefix">records</td>
+        <td class="text-sm text-gray-500 px-4" t-msgid="page.codes.records_codes">codes</td>
       </tr>
       {% macro prefix_row_render(prefix_row) %}
         <tr>
@@ -126,7 +136,7 @@
           {% endif %}
         {% endfor %}
 
-        <tr><td colspan="100" class="pt-4 text-sm text-gray-500">{{ gettext('page.codes.fewer_than', count=(magic_number | numberformat)) }}</td></tr>
+        <tr><td colspan="100" class="pt-4 text-sm text-gray-500" t-msgid="page.codes.fewer_than">Fewer than <t-expr t-key="count">{{ magic_number | numberformat }}</t-expr> records</td></tr>
         {% for prefix_row in prefix_rows %}
           {% if prefix_row.records < magic_number %}
             {{ prefix_row_render(prefix_row) }}
