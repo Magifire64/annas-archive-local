@@ -1,0 +1,51 @@
+{% extends "layouts/blog.html" %}
+
+{% set title = gettext("blog.introducing.title") %}
+{% set tldr = "" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block meta_tags %}
+<meta name="description" content="{{ tldr }}" />
+<meta name="twitter:card" value="summary" />
+<meta property="og:title" content="{{ title }}" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://annas-archive.li/blog/blog-introducing.html" />
+<meta property="og:description" content="{{ tldr }}" />
+{% endblock %}
+
+{% block body %}
+  <h1 t-msgid="blog.introducing.title">Introducing the Pirate Library Mirror: Preserving 7TB of books (that are not in Libgen)</h1>
+  <p style="font-style: italic">
+    annas-archive.li/blog, 2022-07-01
+  </p>
+  <p t-msgid="blog.introducing.text1">
+    This project (EDIT: moved to <a href="https://en.wikipedia.org/wiki/Anna%27s_Archive">Anna’s Archive</a>) aims to contribute to the preservation and libration of human knowledge. We make our small and humble contribution, in the footsteps of the greats before us.
+  </p>
+  <p t-msgid="blog.introducing.text2">
+    The focus of this project is illustrated by its name:
+  </p>
+  <ul>
+    <li t-msgid="blog.introducing.focus.pirate"><strong>Pirate</strong> - We deliberately violate the copyright law in most countries. This allows us to do something that legal entities cannot do: making sure books are mirrored far and wide.</li>
+    <li t-msgid="blog.introducing.focus.library"><strong>Library</strong> - Like most libraries, we focus primarily on written materials like books. We might expand into other types of media in the future.</li>
+    <li t-msgid="blog.introducing.focus.mirror"><strong>Mirror</strong> - We are strictly a mirror of existing libraries. We focus on preservation, not on making books easily searchable and downloadable (access) or fostering a big community of people who contribute new books (sourcing).</li>
+  </ul>
+  <p t-msgid="blog.introducing.text3">
+    The first library that we have mirrored is Z-Library. This is a popular (and illegal) library. They have taken the Library Genesis collection and made it easily searchable. On top of that, they have become very effective at solliciting new book contributions, by incentivizing contributing users with various perks. They currently do not contribute these new books back to Library Genesis. And unlike Library Genesis, they do not make their collection easily mirrorable, which prevents wide preservation. This is important to their business model, since they charge money for accessing their collection in bulk (more than 10 books per day).
+  </p>
+  <p t-msgid="blog.introducing.text4">
+    We do not make moral judgements about charging money for bulk access to an illegal book collection. It is beyond a doubt that the Z-Library has been successful in expanding access to knowledge, and sourcing more books. We are simply here to do our part: ensuring the long-term preservation of this private collection.
+  </p>
+  <p t-msgid="blog.introducing.text5">
+    We would like to invite you to help preserve and liberate human knowledge by downloading and seeding our torrents. See the project page for more information about how the data is organized.
+  </p>
+  <p t-msgid="blog.introducing.text6">
+    We would also very much invite you to contribute your ideas for which collections to mirror next, and how to go about it. Together we can achieve much. This is but a small contribution among countless others. Thank you, for all that you do.
+  </p>
+  <p t-msgid="blog.introducing.signature">
+    - Anna and the team (<a href="https://reddit.com/r/Annas_Archive/">Reddit</a>)
+  </p>
+  <p t-msgid="blog.introducing.footnote">
+    <em>We do not link to the files from this blog. Please find it yourself.</em>
+  </p>
+{% endblock %}

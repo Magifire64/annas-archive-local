@@ -3,19 +3,21 @@
 {% block title %}Help seed Z-Library on IPFS{% endblock %}
 
 {% block meta_tags %}
-<meta name="description" content="YOU can help preserve access to this collection.">
-<meta name="twitter:card" value="summary">
-<meta property="og:title" content="Help seed Z-Library on IPFS">
-<meta property="og:type" content="article">
-<meta property="og:url" content="http://annas-archive.li/blog/help-seed-zlibrary-on-ipfs.html">
-<meta property="og:description" content="YOU can help preserve access to this collection.">
+<meta name="description" content="YOU can help preserve access to this collection." />
+<meta name="twitter:card" value="summary" />
+<meta property="og:title" content="Help seed Z-Library on IPFS" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://annas-archive.li/blog/help-seed-zlibrary-on-ipfs.html" />
+<meta property="og:description" content="YOU can help preserve access to this collection." />
 {% endblock %}
 
 {% block body %}
-  <p>{{ gettext('blog.zlib-on-ipfs.deprecated') }}</p>
+  <p t-msgid="blog.zlib-on-ipfs.deprecated">
+    Warning: this blog post has been deprecated. We’ve decided that IPFS is not yet ready for prime time. We’ll still link to files on IPFS from Anna’s Archive when possible, but we won’t host it ourselves anymore, nor do we recommend others to mirror using IPFS. Please see our Torrents page if you want to help preserve our collection.
+  </p>
 
   <div style="opacity: 30%">
-    <h1>{{ gettext('blog.zlib-on-ipfs.title') }}</h1>
+    <h1 t-msgid="blog.zlib-on-ipfs.title">Help seed Z-Library on IPFS</h1>
     <p style="font-style: italic">
       annas-archive.li/blog, 2022-11-22
     </p>

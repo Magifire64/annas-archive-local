@@ -1,139 +1,97 @@
 {% extends "layouts/blog.html" %}
 
-{% block title %}How to run a shadow library: operations at Anna’s Archive{% endblock %}
+{% set title = gettext("blog.how-to-run.title") %}
+{% set tldr = gettext("blog.how-to-run.tldr") %}
+
+{% block title %}{{ title }}{% endblock %}
 
 {% block meta_tags %}
-<meta name="description" content="There is no “AWS for shadow charities”, so how do we run Anna’s Archive?" />
+<meta name="description" content="{{ tldr }}">
 <meta name="twitter:card" value="summary">
-<meta property="og:title" content="How to run a shadow library: operations at Anna’s Archive" />
-<meta property="og:image" content="https://annas-archive.li/blog/copyright-bell-curve.png" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="how-to-run-a-shadow-library.html" />
-<meta property="og:description" content="There is no “AWS for shadow charities”, so how do we run Anna’s Archive?" />
+<meta property="og:title" content="{{ title }}">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://annas-archive.li/blog/copyright-bell-curve.png">
+<meta property="og:url" content="http://annas-archive.li/blog/how-to-run-a-shadow-library.html">
+<meta property="og:description" content="{{ tldr }}">
 {% endblock %}
 
 {% block body %}
-  <h1>How to run a shadow library: operations at Anna’s Archive</h1>
+  <h1>{{ gettext('blog.how-to-run.title') }}</h1>
   <p style="font-style: italic">
     annas-archive.li/blog, 2023-03-19
   </p>
 
-  <p>
-    I run <a href="https://en.wikipedia.org/wiki/Anna%27s_Archive">Anna’s Archive</a>, the world’s largest open-source non-profit search engine for <a href="https://en.wikipedia.org/wiki/Shadow_library">shadow libraries</a>, like Sci-Hub, Library Genesis, and Z-Library. Our goal is to make knowledge and culture readily accessible, and ultimately to build a community of people who together archive and preserve <a href="blog-isbndb-dump-how-many-books-are-preserved-forever.html">all the books in the world</a>.
-  </p>
+  <p class="tldr">{{ gettext('blog.how-to-run.tldr') }}</p>
 
-  <p>
-    In this article I’ll show how we run this website, and the unique challenges that come with operating a website with questionable legal status, since there is no “AWS for shadow charities”.
-  </p>
+  <p>{{ gettext('blog.how-to-run.text1', wikipedia_annas_archive=({"href": "https://en.wikipedia.org/wiki/Anna%27s_Archive", "rel": "noopener noreferrer nofollow", "target": "_blank"} | xmlattr), wikipedia_shadow_library=({"href": "https://en.wikipedia.org/wiki/Shadow_library", "rel": "noopener noreferrer nofollow", "target": "_blank"} | xmlattr), blog_isbndb_dump_how_many_books_are_preserved_forever=({"href": "blog-isbndb-dump-how-many-books-are-preserved-forever.html"} | xmlattr)) }}</p>
 
-  <p>
-    <em>Also check out the sister article <a href="blog-how-to-become-a-pirate-archivist.html">How to become a pirate archivist</a>.</em>
-  </p>
+  <p>{{ gettext('blog.how-to-run.text2') }}</p>
 
-  <h2>Innovation tokens</h2>
+  <p>{{ gettext('blog.how-to-run.text3', blog_how_to_become_a_pirate_archivist=({"href": "blog-how-to-become-a-pirate-archivist.html"} | xmlattr)) }}</p>
 
-  <p>
-    Let’s start with our tech stack. It is deliberately boring. We use Flask, MariaDB, and ElasticSearch. That is literally it. Search is largely a solved problem, and we don’t intend to reinvent it. Besides, we have to spend our <a href="https://mcfunley.com/choose-boring-technology">innovation tokens</a> on something else: not being taken down by the authorities.
-  </p>
+  <h2>{{ gettext('blog.how-to-run.innovation-tokens') }}</h2>
 
-  <p>
-    So how legal or illegal is Anna’s Archive exactly? This mostly depends on the legal jurisdiction. Most countries believe in some form of copyright, which means that people or companies are assigned an exclusive monopoly on certain types of works for a certain period of time. As an aside, at Anna’s Archive we believe while there are some benefits, overall copyright is a net-negative for society — but that is a story for another time.
-  </p>
+  <p>{{ gettext('blog.how-to-run.innovation-tokens.text1', mcfunley=({"href": "https://mcfunley.com/choose-boring-technology", "rel": "noopener noreferrer nofollow", "target": "_blank"} | xmlattr)) }}</p>
+
+  <p>{{ gettext('blog.how-to-run.innovation-tokens.text2') }}</p>
 
   <img src="copyright-bell-curve.png" style="max-width: 100%">
 
-  <p>
-    This exclusive monopoly on certain works means that it is illegal for anyone outside of this monopoly to directly distribute those works — including us. But Anna’s Archive is a search engine that doesn’t directly distribute those works (at least not on our clearnet website), so we should be okay, right? Not exactly. In many jurisdictions it is not only illegal to distribute copyrighted works, but also to link to places that do. A classic example of this is the United States’ DMCA law.
-  </p>
+  <p>{{ gettext('blog.how-to-run.innovation-tokens.text3') }}</p>
 
-  <p>
-    That is the strictest end of the spectrum. On the other end of the spectrum there could theoretically be countries with no copyright laws whatsoever, but these don’t really exist. Pretty much every country has some form of copyright law on the books. Enforcement is a different story. There are plenty of countries with governments that do not care to enforce copyright law. There are also countries in between the two extremes, which prohibit distributing copyrighted works, but do not prohibit linking to such works.
-  </p>
+  <p>{{ gettext('blog.how-to-run.innovation-tokens.text4') }}</p>
 
-  <p>
-    Another consideration is at the company-level. If a company operates in a jurisdiction that doesn’t care about copyright, but the company itself is not willing to take any risk, then they might shut down your website as soon as anyone complains about it.
-  </p>
+  <p>{{ gettext('blog.how-to-run.innovation-tokens.text5') }}</p>
 
-  <p>
-    Finally, a big consideration is payments. Since we need to stay anonymous, we cannot use traditional payment methods. This leaves us with cryptocurrencies, and only a small subset of companies support those (there are virtual debit cards paid by crypto, but they are often not accepted).
-  </p>
+  <p>{{ gettext('blog.how-to-run.innovation-tokens.text6') }}</p>
 
-  <h2>System architecture</h2>
+  <h2>{{ gettext('blog.how-to-run.architecture') }}</h2>
 
-  <p>
-    So let’s say that you found some companies that are willing to host your website without shutting you down — let’s call these “freedom-loving providers” 😄. You’ll quickly find that hosting everything with them is rather expensive, so you might want to find some “cheap providers” and do the actual hosting there, proxying through the freedom-loving providers. If you do it right, the cheap providers will never know what you are hosting, and never receive any complaints.
-  </p>
+  <p>{{ gettext('blog.how-to-run.architecture.text1') }}</p>
 
   <img src="diagram1.svg" style="max-width: 100%">
 
-  <p>
-    With all of these providers there is a risk of them shutting you down anyway, so you also need redundancy. We need this on all levels of our stack.
-  </p>
+  <p>{{ gettext('blog.how-to-run.architecture.text2') }}</p>
 
   <img src="diagram2.svg" style="max-width: 100%">
 
-  <p>
-    One somewhat freedom-loving company that has put itself in an interesting position is Cloudflare. They have <a href="https://blog.cloudflare.com/cloudflares-abuse-policies-and-approach/">argued</a> that they are not a hosting provider, but a utility, like an ISP. They are therefore not subject to DMCA or other takedown requests, and forward any requests to your actual hosting provider. They have gone as far as going to court to protect this structure. We can therefore use them as another layer of caching and protection.
-  </p>
+  <p>{{ gettext('blog.how-to-run.architecture.text3', blog_cloudflare=({"href": "https://blog.cloudflare.com/cloudflares-abuse-policies-and-approach/", "rel": "noopener noreferrer nofollow", "target": "_blank"} | xmlattr)) }}</p>
 
   <img src="diagram3.svg" style="max-width: 100%">
 
-  <p>
-    Cloudflare does not accept anonymous payments, so we can only use their free plan. This means that we can’t use their load balancing or failover features. We therefore <a href="https://software.annas-archive.li/AnnaArchivist/annas-archive/-/blob/0f730afd4cc9612ef0c12c0f1b46505a4fd1c724/allthethings/templates/layouts/index.html#L255">implemented this ourselves</a> at the domain level. On page load, the browser will check if the current domain is still available, and if not, it rewrites all URLs to a different domain. Since Cloudflare caches many pages, this means that a user can land on our main domain, even if the proxy server is down, and then on the next click be moved over to another domain.
-  </p>
+  <p>{{ gettext('blog.how-to-run.architecture.text4', annas_archive_l255=({"href": "https://software.annas-archive.li/AnnaArchivist/annas-archive/-/blob/0f730afd4cc9612ef0c12c0f1b46505a4fd1c724/allthethings/templates/layouts/index.html#L255"} | xmlattr)) }}</p>
 
-  <p>
-    We still also have normal operational concerns to deal with, such as monitoring server health, logging backend and frontend errors, and so on. Our failover architecture allows for more robustness on this front as well, for example by running a completely different set of servers on one of the domains. We can even run older versions of the code and datasets on this separate domain, in case a critical bug in the main version goes unnoticed.
-  </p>
+  <p>{{ gettext('blog.how-to-run.architecture.text5') }}</p>
 
   <img src="diagram4.svg" style="max-width: 100%">
 
-  <p>
-    We can also hedge against Cloudflare turning against us, by removing it from one of the domains, such as this separate domain. Different permutations of these ideas are possible.
-  </p>
+  <p>{{ gettext('blog.how-to-run.architecture.text6') }}</p>
 
-  <h2>Tools</h2>
+  <h2>{{ gettext('blog.how-to-run.tools') }}</h2>
 
-  <p>
-    Let’s look at what tools we use to accomplish all of this. This is very much evolving as we run into new problems and find new solutions.
-  </p>
+  <p>{{ gettext('blog.how-to-run.tools.text1') }}</p>
 
   <ul>
-    <li>Application server: Flask, MariaDB, ElasticSearch, Docker.</li>
-    <li>Proxy server: Varnish.</li>
-    <li>Server management: Ansible, Checkmk, UFW.</li>
-    <li>Development: Gitlab, Weblate, Zulip.</li>
-    <li>Onion static hosting: Tor, Nginx.</li>
+    <li>{{ gettext('blog.how-to-run.tools.app') }}</li>
+    <li>{{ gettext('blog.how-to-run.tools.proxy') }}</li>
+    <li>{{ gettext('blog.how-to-run.tools.management') }}</li>
+    <li>{{ gettext('blog.how-to-run.tools.dev') }}</li>
+    <li>{{ gettext('blog.how-to-run.tools.onion') }}</li>
   </ul>
 
-  <p>
-    There are some decisions that we have gone back and forth on. One is the communication between servers: we used to use Wireguard for this, but found that it occasionally stops transmitting any data, or only transmits data in one direction. This happened with several different Wireguard setups that we tried, such as <a href="https://github.com/costela/wesher">wesher</a> and <a href="https://github.com/k4yt3x/wg-meshconf">wg-meshconf</a>. We also tried tunneling ports over SSH, using autossh and sshuttle, but ran into <a href="https://github.com/sshuttle/sshuttle/issues/830">problems there</a> (though it is still not clear to me if autossh suffers from TCP-over-TCP issues or not — it just feels like a janky solution to me but maybe it is actually fine?).
-  </p>
+  <p>{{ gettext('blog.how-to-run.tools.text2', github_costela_wesher=({"href": "https://github.com/costela/wesher", "rel": "noopener noreferrer nofollow", "target": "_blank"} | xmlattr), github_k4yt3x_wg_meshconf=({"href": "https://github.com/k4yt3x/wg-meshconf", "rel": "noopener noreferrer nofollow", "target": "_blank"} | xmlattr), github_sshuttle=({"href": "https://github.com/sshuttle/sshuttle/issues/830", "rel": "noopener noreferrer nofollow", "target": "_blank"} | xmlattr)) }}</p>
 
-  <p>
-    Instead, we reverted back to direct connections between servers, hiding that a server is running on the cheap providers using IP-filtering with UFW. This has the downside that Docker doesn't work well with UFW, unless you use <code>network_mode: "host"</code>. All of this is a bit more error-prone, because you will expose your server to the internet with just a tiny misconfiguration. Perhaps we should move back to autossh — feedback would be very welcome here.
-  </p>
+  <p>{{ gettext('blog.how-to-run.tools.text3') }}</p>
 
-  <p>
-    We’ve also gone back and forth on Varnish vs. Nginx. We currently like Varnish, but it does have its quirks and rough edges. The same applies to Checkmk: we don’t love it, but it works for now. Weblate has been okay but not incredible — I sometimes fear it will lose my data whenever I try to sync it with our git repo. Flask has been good overall, but it has some weird quirks that have cost a lot of time to debug, such as configuring custom domains, or issues with its SqlAlchemy integration.
-  </p>
+  <p>{{ gettext('blog.how-to-run.tools.text4') }}</p>
 
-  <p>
-    So far the other tools have been great: we have no serious complaints about MariaDB, ElasticSearch, Gitlab, Zulip, Docker, and Tor. All of these have had some issues, but nothing overly serious or time-consuming.
-  </p>
+  <p>{{ gettext('blog.how-to-run.tools.text5') }}</p>
 
-  <h2>Conclusion</h2>
+  <h2>{{ gettext('blog.how-to-run.conclusions') }}</h2>
 
-  <p>
-    It has been an interesting experience to learn how to set up a robust and resilient shadow library search engine. There are tons more details to share in later posts, so let me know what you would like to learn more about!
-  </p>
+  <p>{{ gettext('blog.how-to-run.conclusions.text1') }}</p>
 
-  <p>
-    As always, we’re looking for donations to support this work, so be sure to check out the Donate page on Anna’s Archive. We’re also looking for other types of support, such as grants, long-term sponsors, high-risk payment providers, perhaps even (tasteful!) ads. And if you want to contribute your time and skills, we’re always looking for developers, translators, and so on. Thanks for your interest and support.
-  </p>
+  <p>{{ gettext('blog.how-to-run.conclusions.text2') }}</p>
 
-  <p>
-    - Anna and the team (<a href="https://www.reddit.com/r/Annas_Archive/">Reddit</a>, <a href="https://t.me/+D0zemuNzEdgyOGVk">Telegram</a>)
-  </p>
-
+  <p>{{ gettext('blog.how-to-run.signature', reddit=({"href": "https://www.reddit.com/r/Annas_Archive/", "rel": "noopener noreferrer nofollow", "target": "_blank"} | xmlattr), t_me=({"href": "https://t.me/+D0zemuNzEdgyOGVk", "rel": "noopener noreferrer nofollow", "target": "_blank"} | xmlattr)) }}</p>
 {% endblock %}

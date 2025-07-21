@@ -18,14 +18,20 @@ td:first-child {
 {% endblock %}
 
 {% block body %}
-  <p>{{ gettext('blog.index.text1', wikipedia_annas_archive=({"href": "https://en.wikipedia.org/wiki/Anna%27s_Archive", "rel": "noopener noreferrer nofollow", "target": "_blank"} | xmlattr)) }}</p>
-  <p>{{ gettext('blog.index.text2', reddit=({"href": "https://www.reddit.com/r/Annas_Archive/", "rel": "noopener noreferrer nofollow", "target": "_blank"} | xmlattr)) }}</p>
-  <p>{{ gettext('blog.index.text3') }}</p>
+  <p t-msgid="blog.index.text1">
+    Hi, I’m Anna. I created <a href="https://en.wikipedia.org/wiki/Anna%27s_Archive">Anna’s Archive</a>, the world’s largest shadow library. This is my personal blog, in which I and my teammates write about piracy, digital preservation, and more.
+  </p>
+  <p t-msgid="blog.index.text2">
+    Connect with me on <a href="https://www.reddit.com/r/Annas_Archive/">Reddit</a>.
+  </p>
+  <p t-msgid="blog.index.text3">
+    Note that this website is just a blog. We only host our own words here. No torrents or other copyrighted files are hosted or linked here.
+  </p>
 
-  <h2>{{ gettext('blog.index.heading') }}</h2>
+  <h2 t-msgid="blog.index.heading">Blog posts</h2>
 
   <table cellpadding="0" cellspacing="0">
-    <tbody><tr>
+    <tr>
       <td><a href="all-isbns-winners.html">{{ gettext("blog.all-isbns-winners.title") }}</a></td>
       <td>2025-02-24</td>
       <td></td>
@@ -105,7 +111,7 @@ td:first-child {
       <td>2022-07-01</td>
       <td></td>
     </tr>
-  </tbody></table>
+  </table>
   <p>
     📡 <a href="rss.xml">RSS</a>
   </p>

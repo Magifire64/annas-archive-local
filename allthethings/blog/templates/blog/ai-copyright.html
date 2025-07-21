@@ -1,15 +1,18 @@
 {% extends "layouts/blog.html" %}
 
-{% block title %}Copyright reform is necessary for national security{% endblock %}
+{% set title = gettext("blog.ai-copyright.title") %}
+{% set tldr = gettext("blog.ai-copyright.tldr") %}
+
+{% block title %}{{ title }}{% endblock %}
 
 {% block meta_tags %}
-<meta name="description" content="Chinese LLMs (including DeepSeek) are trained on my illegal archive of books and papers — the largest in the world. The West needs to overhaul copyright law as a matter of national security." />
+<meta name="description" content="{{ tldr }}">
 <meta name="twitter:card" value="summary">
-<meta property="og:title" content="Copyright reform is necessary for national security" />
-<meta property="og:image" content="" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://annas-archive.li/blog/ai-copyright.html" />
-<meta property="og:description" content="Chinese LLMs (including DeepSeek) are trained on my illegal archive of books and papers — the largest in the world. The West needs to overhaul copyright law as a matter of national security." />
+<meta property="og:title" content="{{ title }}">
+<meta property="og:image" content="">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://annas-archive.li/blog/ai-copyright.html">
+<meta property="og:description" content="{{ tldr }}">
 <style>
   .main {
     max-width: unset;
@@ -28,38 +31,36 @@
 {% endblock %}
 
 {% block body %}
-  <h1 style="font-size: 26px; margin-bottom: 0.25em">Copyright reform is necessary for national security</h1>
+  <h1 style="font-size: 26px; margin-bottom: 0.25em">{{ gettext('blog.ai-copyright.title') }}</h1>
   <p style="font-style: italic; margin-top: 0">
-    annas-archive.li/blog, 2025-01-31 — companion articles by TorrentFreak: <a href="https://torrentfreak.com/pirate-libraries-are-forbidden-fruit-for-ai-companies-but-at-what-cost-250131/">first</a>, <a href="https://torrentfreak.com/annas-archive-urges-ai-copyright-overhaul-to-protect-national-security-250201/">second</a>
+    annas-archive.li/blog, 2025-01-31 — <span>{{ gettext('blog.ai-copyright.subtitle', torrentfreak=({"href": "https://torrentfreak.com/pirate-libraries-are-forbidden-fruit-for-ai-companies-but-at-what-cost-250131/", "rel": "noopener noreferrer nofollow", "target": "_blank"} | xmlattr), torrentfreak_2=({"href": "https://torrentfreak.com/annas-archive-urges-ai-copyright-overhaul-to-protect-national-security-250201/", "rel": "noopener noreferrer nofollow", "target": "_blank"} | xmlattr)) }}</span>
   </p>
 
-  <p style="font-style: italic;">TL;DR: Chinese LLMs (including DeepSeek) are trained on my illegal archive of books and papers — the largest in the world. The West needs to overhaul copyright law as a matter of national security.</p>
+  <p class="tldr">{{ gettext('blog.ai-copyright.tldr') }}</p>
 
-  <p>Not too long ago, “shadow-libraries” were dying. Sci-Hub, the massive illegal archive of academic papers, had stopped taking in new works, due to lawsuits. “Z-Library”, the largest illegal library of books, saw its alleged creators arrested on criminal copyright charges. They incredibly managed to escape their arrest, but their library is no less under threat.</p>
+  <p>{{ gettext('blog.ai-copyright.text1') }}</p>
 
-  <p>When Z-Library faced shutdown, I had already backed up its entire library and was searching for a platform to house it. That was my motivation for starting Anna’s Archive: a continuation of the mission behind those earlier initiatives. We’ve since grown to be the largest shadow library in the world, hosting more than 140 million copyrighted texts across numerous formats — books, academic papers, magazines, newspapers, and beyond.</p>
+  <p>{{ gettext('blog.ai-copyright.text2') }}</p>
 
-  <p>Me and my team are ideologues. We believe that preserving and hosting these files is morally right. Libraries around the world are seeing funding cuts, and we can’t trust humanity’s heritage to corporations either.</p>
+  <p>{{ gettext('blog.ai-copyright.text3') }}</p>
 
-  <p>Then came AI. Virtually all major companies building LLMs contacted us to train on our data. Most (but not all!) US-based companies reconsidered once they realized the illegal nature of our work. By contrast, Chinese firms have enthusiastically embraced our collection, apparently untroubled by its legality. This is notable given China’s role as a signatory to nearly all major international copyright treaties.</p>
+  <p>{{ gettext('blog.ai-copyright.text4') }}</p>
 
-  <p>We have given high-speed access to about 30 companies. Most of them are LLM companies, and some are data brokers, who will resell our collection. Most are Chinese, though we’ve also worked with companies from the US, Europe, Russia, South Korea, and Japan. DeepSeek <a href="https://arxiv.org/pdf/2403.05525">admitted</a> that an earlier version was trained on part of our collection, though they’re tight-lipped about their latest model (probably also trained on our data though).</p>
+  <p>{{ gettext('blog.ai-copyright.text5', arxiv=({"href": "https://arxiv.org/pdf/2403.05525", "rel": "noopener noreferrer nofollow", "target": "_blank"} | xmlattr)) }}</p>
 
-  <p>If the West wants to stay ahead in the race of LLMs, and ultimately, AGI, it needs to reconsider its position on copyright, and soon. Whether you agree with us or not on our moral case, this is now becoming a case of economics, and even of national security. All power blocs are building artificial super-scientists, super-hackers, and super-militaries. Freedom of information is becoming a matter of survival for these countries — even a matter of national security.</p>
+  <p>{{ gettext('blog.ai-copyright.text6') }}</p>
 
-  <p>Our team is from all over the world, and we don’t have a particular alignment. But we’d encourage countries with strong copyright laws to use this existential threat to reform them. So what to do?</p>
+  <p>{{ gettext('blog.ai-copyright.text7') }}</p>
 
-  <p>Our first recommendation is straightforward: shorten the copyright term. In the US, copyright is granted for 70 years after the author’s death. This is absurd. We can bring this in line with patents, which are granted for 20 years after filing. This should be more than enough time for authors of books, papers, music, art, and other creative works, to get fully compensated for their efforts (including longer-term projects such as movie adaptations).</p>
+  <p>{{ gettext('blog.ai-copyright.text8') }}</p>
 
-  <p>Then, at a minimum, policymakers should include carve-outs for the mass-preservation and dissemination of texts. If lost revenue from individual customers is the main worry, personal-level distribution could remain prohibited. In turn, those capable of managing vast repositories — companies training LLMs, along with libraries and other archives — would be covered by these exceptions.</p>
+  <p>{{ gettext('blog.ai-copyright.text9') }}</p>
 
-  <p>Some countries are already doing a version of this. TorrentFreak <a href="https://torrentfreak.com/pirate-libraries-are-forbidden-fruit-for-ai-companies-but-at-what-cost-250131/">reported</a> that China and Japan have introduced AI exceptions to their copyright laws. It is unclear to us how this interacts with international treaties, but it certainly gives cover to their domestic companies, which explains what we’ve been seeing.</p>
+  <p>{{ gettext('blog.ai-copyright.text10', torrentfreak=({"href": "https://torrentfreak.com/pirate-libraries-are-forbidden-fruit-for-ai-companies-but-at-what-cost-250131/", "rel": "noopener noreferrer nofollow", "target": "_blank"} | xmlattr)) }}</p>
 
-  <p>As for Anna’s Archive — we will continue our underground work rooted in moral conviction. Yet our greatest wish is to enter the light, and amplify our impact legally. Please reform copyright.</p>
+  <p>{{ gettext('blog.ai-copyright.text11') }}</p>
 
-  <p>
-    - Anna and the team (<a href="https://www.reddit.com/r/Annas_Archive/">Reddit</a>, <a href="https://t.me/+D0zemuNzEdgyOGVk">Telegram</a>)
-  </p>
+  <p>{{ gettext('blog.ai-copyright.signature', reddit=({"href": "https://www.reddit.com/r/Annas_Archive/", "rel": "noopener noreferrer nofollow", "target": "_blank"} | xmlattr), t_me=({"href": "https://t.me/+D0zemuNzEdgyOGVk", "rel": "noopener noreferrer nofollow", "target": "_blank"} | xmlattr)) }}</p>
 
-  <p style="font-style: italic;">Read the companion articles by TorrentFreak: <a href="https://torrentfreak.com/pirate-libraries-are-forbidden-fruit-for-ai-companies-but-at-what-cost-250131/">first</a>, <a href="https://torrentfreak.com/annas-archive-urges-ai-copyright-overhaul-to-protect-national-security-250201/">second</a></p>
+  <p style="font-style: italic;">{{ gettext('blog.ai-copyright.postscript', torrentfreak=({"href": "https://torrentfreak.com/pirate-libraries-are-forbidden-fruit-for-ai-companies-but-at-what-cost-250131/", "rel": "noopener noreferrer nofollow", "target": "_blank"} | xmlattr), torrentfreak_2=({"href": "https://torrentfreak.com/annas-archive-urges-ai-copyright-overhaul-to-protect-national-security-250201/", "rel": "noopener noreferrer nofollow", "target": "_blank"} | xmlattr)) }}</p>
 {% endblock %}

@@ -1,0 +1,182 @@
+{% extends "layouts/blog.html" %}
+
+{% set title = gettext("blog.all-isbns-winners.title") %}
+{% set tldr = gettext("blog.all-isbns-winners.tldr") %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block meta_tags %}
+<meta name="description" content="{{ tldr }}" />
+<meta name="twitter:card" value="summary" />
+<meta property="og:title" content="{{ title }}" />
+<meta property="og:image" content="https://annas-archive.li/blog/isbn_images/all_isbns_smaller.png" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://annas-archive.li/blog/all-isbns-winners.html" />
+<meta property="og:description" content="{{ tldr }}" />
+<style>
+  .main {
+    max-width: unset;
+  }
+  h1, h2, p, ul, blockquote {
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  figcaption {
+    margin-top: 0;
+    font-style: italic;
+    text-align: center;
+  }
+</style>
+{% endblock %}
+
+{% block body %}
+  <h1 style="font-size: 26px; margin-bottom: 0.25em" t-msgid="blog.all-isbns-winners.title">Winners of the $10,000 ISBN visualization bounty</h1>
+  <p style="font-style: italic; margin-top: 0">
+    annas-archive.li/blog, 2024-02-24
+  </p>
+
+  <p class="tldr" t-msgid="blog.all-isbns-winners.tldr">TL;DR: We got some incredible submissions to the $10,000 ISBN visualization bounty.</p>
+
+  <p t-msgid="blog.all-isbns-winners.text1">A few months ago we announced a <a href="./all-isbns.html">$10,000 bounty</a> to make the best possible visualization of our data showing the ISBN space. We emphasized showing which files we have/haven’t archived already, and we later a dataset describing how many libraries hold ISBNs (a measure of rarity).</p>
+
+  <p t-msgid="blog.all-isbns-winners.text2">We’ve been overwhelmed by the response. There has been so much creativity. A big thank you to everyone who has participated: your energy and enthusiasm are infectious!</p>
+
+  <p t-msgid="blog.all-isbns-winners.text3">Ultimately we wanted to answer the following questions: <strong>which books exist in the world, how many have we archived already, and which books should we focus on next?</strong> It’s great to see so many people care about these questions.</p>
+
+  <p t-msgid="blog.all-isbns-winners.text4">We started with a basic visualization ourselves. In less than 300kb, this picture succinctly represents the largest fully open “list of books” ever assembled in the history of humanity:</p>
+
+  <img src="isbn_images/all_isbns_smaller.png" style="position:absolute; visibility:hidden; width:1px">
+  <img src="isbn_images/md5_isbns_smaller.png" style="position:absolute; visibility:hidden; width:1px">
+  <img src="isbn_images/cadal_ssno_isbns_smaller.png" style="position:absolute; visibility:hidden; width:1px">
+  <img src="isbn_images/cerlalc_isbns_smaller.png" style="position:absolute; visibility:hidden; width:1px">
+  <img src="isbn_images/duxiu_ssid_isbns_smaller.png" style="position:absolute; visibility:hidden; width:1px">
+  <img src="isbn_images/edsebk_isbns_smaller.png" style="position:absolute; visibility:hidden; width:1px">
+  <img src="isbn_images/gbooks_isbns_smaller.png" style="position:absolute; visibility:hidden; width:1px">
+  <img src="isbn_images/goodreads_isbns_smaller.png" style="position:absolute; visibility:hidden; width:1px">
+  <img src="isbn_images/ia_isbns_smaller.png" style="position:absolute; visibility:hidden; width:1px">
+  <img src="isbn_images/isbndb_isbns_smaller.png" style="position:absolute; visibility:hidden; width:1px">
+  <img src="isbn_images/isbngrp_isbns_smaller.png" style="position:absolute; visibility:hidden; width:1px">
+  <img src="isbn_images/libby_isbns_smaller.png" style="position:absolute; visibility:hidden; width:1px">
+  <img src="isbn_images/nexusstc_isbns_smaller.png" style="position:absolute; visibility:hidden; width:1px">
+  <img src="isbn_images/oclc_isbns_smaller.png" style="position:absolute; visibility:hidden; width:1px">
+  <img src="isbn_images/ol_isbns_smaller.png" style="position:absolute; visibility:hidden; width:1px">
+  <img src="isbn_images/rgb_isbns_smaller.png" style="position:absolute; visibility:hidden; width:1px">
+  <img src="isbn_images/trantor_isbns_smaller.png" style="position:absolute; visibility:hidden; width:1px">
+
+  <p>
+    <script>window.prevIndex = window.curIndex = 0;</script>
+    <select class="js-switcher-select" onchange="document.querySelector('.js-switcher-img').src = document.querySelector('.js-switcher-link').href = 'isbn_images/' + this.value; if (this.selectedIndex !== window.curIndex) { window.prevIndex = window.curIndex; window.curIndex = this.selectedIndex; }">
+      <option value="all_isbns_smaller.png" selected><span t-msgid="blog.all-isbns-winners.opt.all">All ISBNs</span> [all_isbns]</option>
+      <option value="md5_isbns_smaller.png"><span t-msgid="blog.all-isbns-winners.opt.md5">Files in Anna’s Archive</span> [md5]</option>
+      <option value="cadal_ssno_isbns_smaller.png"><span t-msgid="blog.all-isbns-winners.opt.cadal_ssno">CADAL SSNOs</span> [cadal_ssno]</option>
+      <option value="cerlalc_isbns_smaller.png"><span t-msgid="blog.all-isbns-winners.opt.cerlalc">CERLALC data leak</span> [cerlalc]</option>
+      <option value="duxiu_ssid_isbns_smaller.png"><span t-msgid="blog.all-isbns-winners.opt.duxiu_ssid">DuXiu SSIDs</span> [duxiu_ssid]</option>
+      <option value="edsebk_isbns_smaller.png"><span t-msgid="blog.all-isbns-winners.opt.edsebk">EBSCOhost’s eBook Index</span> [edsebk]</option>
+      <option value="gbooks_isbns_smaller.png"><span t-msgid="blog.all-isbns-winners.opt.gbooks">Google Books</span> [gbooks]</option>
+      <option value="goodreads_isbns_smaller.png"><span t-msgid="blog.all-isbns-winners.opt.goodreads">Goodreads</span> [goodreads]</option>
+      <option value="ia_isbns_smaller.png"><span t-msgid="blog.all-isbns-winners.opt.ia">Internet Archive</span> [ia]</option>
+      <option value="isbndb_isbns_smaller.png"><span t-msgid="blog.all-isbns-winners.opt.isbndb">ISBNdb</span> [isbndb]</option>
+      <option value="isbngrp_isbns_smaller.png"><span t-msgid="blog.all-isbns-winners.opt.isbngrp">ISBN Global Register of Publishers</span> [isbngrp]</option>
+      <option value="libby_isbns_smaller.png"><span t-msgid="blog.all-isbns-winners.opt.libby">Libby</span> [libby]</option>
+      <option value="nexusstc_isbns_smaller.png"><span t-msgid="blog.all-isbns-winners.opt.nexusstc">Nexus/STC</span> [nexusstc]</option>
+      <option value="oclc_isbns_smaller.png"><span t-msgid="blog.all-isbns-winners.opt.oclc">OCLC/Worldcat</span> [oclc]</option>
+      <option value="ol_isbns_smaller.png"><span t-msgid="blog.all-isbns-winners.opt.ol">OpenLibrary</span> [ol]</option>
+      <option value="rgb_isbns_smaller.png"><span t-msgid="blog.all-isbns-winners.opt.rgb">Russian State Library</span> [rgb]</option>
+      <option value="trantor_isbns_smaller.png"><span t-msgid="blog.all-isbns-winners.opt.trantor">Imperial Library of Trantor</span> [trantor]</option>
+    </select>
+    &nbsp;&nbsp;
+    <button title="{{ gettext('common.back') }}" style="border: none; background: none; cursor: pointer" onclick="var select = document.querySelector('.js-switcher-select'); select.selectedIndex = (select.selectedIndex - 1 + select.options.length) % select.options.length; select.onchange()">⬅️</button>
+    <button title="{{ gettext('common.forward') }}" style="border: none; background: none; cursor: pointer" onclick="var select = document.querySelector('.js-switcher-select'); select.selectedIndex = (select.selectedIndex + 1) % select.options.length; select.onchange()">➡️</button>
+    <button title="{{ gettext('common.last') }}" style="border: none; background: none; cursor: pointer" onclick="var select = document.querySelector('.js-switcher-select'); select.selectedIndex = window.prevIndex; select.onchange()">🔄</button>
+  </p>
+
+  <div style="margin: 0 -20px">
+    <div style="text-align: center; margin: 1em 0">
+      <a class="js-switcher-link" target="_blank" href="isbn_images/all_isbns_smaller.png">
+        <img class="js-switcher-img" src="isbn_images/all_isbns_smaller.png" style="max-width: 100%; margin: 0 auto">
+      </a>
+    </div>
+  </div>
+
+  <p t-msgid="blog.all-isbns-winner.text5">Please see the <a href="./all-isbns.html">original blog post</a> for more information.</p>
+
+  <p t-msgid="blog.all-isbns-winner.text6">We issued a challenge to improve on this. We would award a first place bounty of $6,000, second place of $3,000, and third place of $1,000. Due to the overwhelming response and incredible submissions, we’ve decided to increase the prize pool slightly, and award a four-way third place of $500 each. The winners are below, but be sure to look at all submissions <a href="https://software.annas-archive.li/AnnaArchivist/annas-archive/-/issues/244">here</a>, or download our <a href="/dyn/small_file/torrents/other_aa/aa_misc_data/2025-01-isbn-visualization-files.torrent">combined torrent</a>.</p>
+
+  <h2 style="margin-top: 1.5em;" t-msgid="blog.all-isbns-winners.first">First place $6,000: phiresky</h2>
+
+  <p t-msgid="blog.all-isbns-winners.first.text1">This <a href="https://phiresky.github.io/blog/2025/visualizing-all-books-in-isbn-space/">submission</a> (<a href="https://software.annas-archive.li/AnnaArchivist/annas-archive/-/issues/244#note_2951">Gitlab comment</a>) is simply everything we wanted, and more! We especially liked the incredibly flexible visualization options (even supporting custom shaders), but with a comprehensive list of presets. We also liked how fast and smooth everything is, the simple implementation (that doesn’t even have a backend), the clever minimap, and extensive explanation in their <a href="https://phiresky.github.io/blog/2025/visualizing-all-books-in-isbn-space/">blog post</a>. Incredible work, and the well-deserved winner!</p>
+
+  <p>
+    <video autoplay loop muted playsinline poster="isbn_winners/phiresky-zoom.png" style="max-width: 100%">
+      <source src="isbn_winners/phiresky-zoom.mp4" type="video/mp4">
+      <source src="isbn_winners/phiresky-zoom.webm" type="video/webm">
+      <source src="isbn_winners/phiresky-zoom.ogv" type="video/ogg">
+      <img src="isbn_winners/phiresky-zoom.png" alt="Your browser does not support the video tag." />
+    </video>
+  </p>
+
+  <h2 style="margin-top: 1.5em;" t-msgid="blog.all-isbns-winners.second">Second place $3,000: hypha</h2>
+
+  <p t-msgid="blog.all-isbns-winners.second.text1">Another incredible <a href="https://software.annas-archive.li/AnnaArchivist/annas-archive/-/issues/244#note_2913">submission</a>. Not as flexible as the first place, but we actually preferred its macro-level visualization over the first place (space-filling curve, borders, labeling, highlighting, panning, and zooming). A <a href="https://software.annas-archive.li/AnnaArchivist/annas-archive/-/issues/244#note_2971">comment</a> by Joe Davis resonated with us:</p>
+
+  <blockquote t-msgid="blog.all-isbns-winners.second.quote">
+    “While perfect squares and rectangles are mathematically pleasing, they don't provide superior locality in a mapping context. I believe the asymmetry inherent in these Hilbert or classic Morton is not a flaw but a feature. Just like Italy's famously boot-shaped outline makes it instantly recognizable on a map, the unique "quirks" of these curves may serve as cognitive landmarks. This distinctiveness can enhance spatial memory and help users orient themselves, potentially making locating specific regions or noticing patterns easier.”
+  </blockquote>
+
+  <p t-msgid="blog.all-isbns-winners.second.text2">And still lots of options for visualizing and rendering, as well as an incredibly smooth an intuitive UI. A solid second place!</p>
+
+  <p><img src="isbn_winners/hypha.png" style="max-width: 100%; margin: 0 auto"></p>
+
+  <h2 style="margin-top: 1.5em;" t-msgid="blog.all-isbns-winners.third1">Third place $500 #1: maxlion</h2>
+
+  <p t-msgid="blog.all-isbns-winners.third1.text1">In this <a href="https://software.annas-archive.li/AnnaArchivist/annas-archive/-/issues/244#note_2940">submission</a> we really liked the different kinds of views, in particular the comparison and publisher views.</p>
+
+  <p><img src="isbn_winners/maxlion.png" style="max-width: 100%; margin: 0 auto"></p>
+
+  <h2 style="margin-top: 1.5em;" t-msgid="blog.all-isbns-winners.third2">Third place $500 #2: abetusk</h2>
+
+  <p t-msgid="blog.all-isbns-winners.third2.text1">While not the most polished UI, this <a href="https://software.annas-archive.li/AnnaArchivist/annas-archive/-/issues/244#note_2917">submission</a> checks a lot of the boxes. We particularly liked its comparison feature.</p>
+
+  <p><img src="isbn_winners/abetusk.png" style="max-width: 100%; margin: 0 auto"></p>
+
+  <h2 style="margin-top: 1.5em;" t-msgid="blog.all-isbns-winners.third3">Third place $500 #3: conundrumer0</h2>
+
+  <p t-msgid="blog.all-isbns-winners.third3.text1">Like the first place, this <a href="https://software.annas-archive.li/AnnaArchivist/annas-archive/-/issues/244#note_2975">submission</a> impressed us with its flexibility. Ultimately this is what makes for a great visualization tool: maximal flexibility for power users, while keeping things simple for average users.</p>
+
+  <p><img src="isbn_winners/conundrumer0.jpeg" style="max-width: 100%; margin: 0 auto"></p>
+
+  <h2 style="margin-top: 1.5em;" t-msgid="blog.all-isbns-winners.third4">Third place $500 #4: charelf</h2>
+
+  <p t-msgid="blog.all-isbns-winners.third4.text1">The final <a href="https://software.annas-archive.li/AnnaArchivist/annas-archive/-/issues/244#note_2947">submission</a> to get a bounty is pretty basic, but has some unique features that we really liked. We liked how they show how many datasets cover a particular ISBN as a measure of popularity/reliability. We also really liked the simplicity but effectiveness of using an opacity slider for comparisons.</p>
+
+  <p><img src="isbn_winners/charelf.png" style="max-width: 100%; margin: 0 auto"></p>
+
+  <h2 style="margin-top: 1.5em;" t-msgid="blog.all-isbns-winners.notable">Notable ideas</h2>
+
+  <p t-msgid="blog.all-isbns-winners.notable.text1">Some more ideas and implementations we particularly liked:</p>
+
+  <ul>
+    <li><a href="https://software.annas-archive.li/AnnaArchivist/annas-archive/-/issues/244#note_2945">BWV_1011:</a> <span t-msgid="blog.all-isbns-winners.notable.BWV_1011">Skyscrapers for rarity</span></li>
+    <li><a href="https://software.annas-archive.li/AnnaArchivist/annas-archive/-/issues/244#note_2919">robingchan:</a> <span t-msgid="blog.all-isbns-winners.notable.robingchan">Live stats</span></li>
+    <li><a href="https://software.annas-archive.li/AnnaArchivist/annas-archive/-/issues/244#note_2925">reguster:</a> <span t-msgid="blog.all-isbns-winners.notable.reguster">Annotations, and also live stats</span></li>
+    <li><a href="https://software.annas-archive.li/AnnaArchivist/annas-archive/-/issues/244#note_2944">orangereporter:</a> <span t-msgid="blog.all-isbns-winners.notable.orangereporter">Unique map view and filters</span></li>
+    <li><a href="https://software.annas-archive.li/AnnaArchivist/annas-archive/-/issues/244#note_2958">joe.davis:</a> <span t-msgid="blog.all-isbns-winners.notable.joe.davis">Cool default color scheme and heatmap.</span></li>
+    <li><a href="https://software.annas-archive.li/AnnaArchivist/annas-archive/-/issues/244#note_2954">timharding:</a> <span t-msgid="blog.all-isbns-winners.notable.timharding">Easy toggling of datasets for quick comparisons.</span></li>
+    <li><a href="https://software.annas-archive.li/AnnaArchivist/annas-archive/-/issues/244#note_2935">j1618:</a> <span t-msgid="blog.all-isbns-winners.notable.j1618">Pretty labels.</span></li>
+    <li><a href="https://software.annas-archive.li/AnnaArchivist/annas-archive/-/issues/244#note_2792">immartian:</a> <span t-msgid="blog.all-isbns-winners.notable.immartian">Scale bar with number of books.</span></li>
+    <li><a href="https://software.annas-archive.li/AnnaArchivist/annas-archive/-/issues/244#note_2928">backrndsource:</a> <span t-msgid="blog.all-isbns-winners.notable.backrndsource">Lots of sliders to compare datasets, as if you’re a DJ.</span></li>
+  </ul>
+
+  <p t-msgid="blog.all-isbns-winners.notable.text2">We could keep going for a while, but let’s stop here. Be sure to look at all submissions <a href="https://software.annas-archive.li/AnnaArchivist/annas-archive/-/issues/244">here</a>, or download our <a href="/dyn/small_file/torrents/other_aa/aa_misc_data/2025-01-isbn-visualization-files.torrent">combined torrent</a>. So many submissions, and each one brings a unique perspective, whether in UI or implementation.</p>
+
+  <p t-msgid="blog.all-isbns-winners.notable.text3">We’ll at least incorporate the first place submission into our main website, and perhaps some others. We’ve also started thinking about how to organize the process of identifying, confirming, and then archiving the rarest books. More to come on this front.</p>
+
+  <p t-msgid="blog.all-isbns-winners.notable.text4">Thanks everyone who participated. It’s amazing that so many people care.</p>
+
+  <p t-msgid="blog.all-isbns-winners.gratitude">Our hearts are full with gratitude.</p>
+
+  <p t-msgid="blog.all-isbns-winners.footer">
+    - Anna and the team (<a href="https://www.reddit.com/r/Annas_Archive/">Reddit</a>, <a href="https://t.me/+D0zemuNzEdgyOGVk">Telegram</a>)
+  </p>
+{% endblock %}

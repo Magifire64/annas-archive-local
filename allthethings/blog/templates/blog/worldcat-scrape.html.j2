@@ -1,0 +1,244 @@
+{% extends "layouts/blog.html" %}
+
+{% block title %}{{ gettext('blog.worldcat-scrape.title') }}{% endblock %}
+
+{% block meta_tags %}
+<meta name="description" content="Anna’s Archive scraped all of WorldCat to make a TODO list of books that need to be preserved." />
+<meta name="twitter:card" value="summary" />
+<meta property="og:title" content="1.3B WorldCat scrape" />
+<meta property="og:image" content="https://annas-archive.li/blog/worldcat_redesign.png" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://annas-archive.li/blog/annas-archive-containers.html" />
+<meta property="og:description" content="Anna’s Archive scraped all of WorldCat to make a TODO list of books that need to be preserved." />
+<style>
+  code { word-break: break-all; font-size: 89%; letter-spacing: -0.3px; }
+
+  code ::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 5px;
+    height: 5px;
+  }
+
+  code ::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, .3);
+    box-shadow: 0 0 1px rgba(255, 255, 255, .3);
+  }
+
+  .code-block {
+    background: #fffe9250;
+    display: block;
+  }
+</style>
+{% endblock %}
+
+{% block body %}
+  <h1 t-msgid="blog.worldcat-scrape.title">1.3B WorldCat scrape</h1>
+  <p style="font-style: italic">
+    annas-archive.li/blog, 2023-10-03
+  </p>
+
+  <p class="tldr" t-msgid="blog.worldcat-scrape.tldr">
+    <em><strong>TL;DR:</strong> Anna’s Archive scraped all of WorldCat (the world’s largest library metadata collection) to make a TODO list of books that need to be preserved.</em>
+  </p>
+
+  <p t-msgid="blog.worldcat-scrape.text1">
+    A year ago, we <a href="/blog/blog-isbndb-dump-how-many-books-are-preserved-forever.html">set out</a> to answer this question: <strong>What percentage of books have been permanently preserved by shadow libraries?</strong>
+  </p>
+
+  <p t-msgid="blog.worldcat-scrape.text2">
+     Once a book makes it into an open-data shadow library like <a href="https://en.wikipedia.org/wiki/Library_Genesis">Library Genesis</a>, and now <a href="https://en.wikipedia.org/wiki/Anna%27s_Archive">Anna’s Archive</a>, it gets mirrored all over the world (through torrents), thereby practically preserving it forever.
+  </p>
+
+  <p t-msgid="blog.worldcat-scrape.text3">
+     To answer the question of which percentage of books has been preserved, we need to know the denominator: how many books exist in total? And ideally we don’t just have a number, but actual metadata. Then we can not only match them against shadow libraries, but also <strong>create a TODO list of remaining books to preserve!</strong> We could even start dreaming of a crowdsourced effort to go down this TODO list.
+  </p>
+
+  <p t-msgid="blog.worldcat-scrape.text4">
+    We scraped <a href="https://en.wikipedia.org/wiki/ISBNdb.com">ISBNdb</a>, and downloaded the <a href="https://openlibrary.org/developers/dumps">Open Library dataset</a>, but the results were unsatisfactory. The main problem was that there was not a ton of overlap of ISBNs. See this Venn diagram from <a href="/blog/blog-isbndb-dump-how-many-books-are-preserved-forever.html">our blog post</a>:
+  </p>
+
+  <img src="venn.svg" style="max-height: 300px;">
+
+  <p t-msgid="blog.worldcat-scrape.text5">
+    We were very surprised by how little overlap there was between ISBNdb and Open Library, both of which liberally include data from various sources, such as web scrapes and library records. If they both do a good job at finding most ISBNs in out there, their circles surely would have substantial overlap, or one would be a subset of the other. It made us wonder, how many books fall <em>completely outside of these circles</em>? We need a bigger database.
+  </p>
+
+  <h2 t-msgid="blog.worldcat-scrape.worldcat">WorldCat</h2>
+
+  <p t-msgid="blog.worldcat-scrape.text6">
+    That is when we set our sights on the largest book database in the world: <a href="https://en.wikipedia.org/wiki/WorldCat">WorldCat</a>. This is a proprietary database by the non-profit <a href="https://en.wikipedia.org/wiki/OCLC">OCLC</a>, which aggregates metadata records from libraries all over the world, in exchange for giving those libraries access to the full dataset, and having them show up in end-users’ search results.
+  </p>
+
+  <p t-msgid="blog.worldcat-scrape.text7">
+    Even though OCLC is a non-profit, their business model requires protecting their database. Well, we’re sorry to say, friends at OCLC, we’re giving it all away. :-)
+  </p>
+
+  <p t-msgid="blog.worldcat-scrape.text8">
+    Over the past year, we’ve meticulously scraped all WorldCat records. At first, we hit a lucky break. WorldCat was just rolling out their complete website redesign (in Aug 2022). This included a substantial overhaul of their backend systems, introducing many security flaws. We immediately seized the opportunity, and were able scrape hundreds of millions (!) of records in mere days.
+  </p>
+
+  <img src="worldcat_redesign.png" style="max-width: 100%;">
+  <div style="font-size: 90%" t-msgid="blog.worldcat-scrape.alt.redesign"><em>WorldCat redesign</em></div>
+
+  <p t-msgid="blog.worldcat-scrape.text9">
+    After that, security flaws were slowly fixed one by one, until the final one we found was patched about a month ago. By that time we had pretty much all records, and were only going for slightly higher quality records. So we felt it is time to release!
+  </p>
+
+  <p t-msgid="blog.worldcat-scrape.text10">
+    Let’s look at some basic information on the data:
+  </p>
+
+  <ul>
+    <li t-msgid="blog.worldcat-scrape.data.format"><strong>Format?</strong> <a href="/blog/annas-archive-containers.html">Anna’s Archive Containers (AAC)</a>, which is essentially <a href="https://jsonlines.org/">JSON Lines</a> compressed with <a href="http://www.zstd.net/">Zstandard</a>, plus some standardized semantics. These containers wrap various types of records, based on the different scrapes we deployed.</li>
+    <li><strong>Where?</strong> On the torrents page of <a href="https://en.wikipedia.org/wiki/Anna%27s_Archive">Anna’s Archive</a>. We can’t link to it directly from here. Filename: <code>annas_archive_meta__aacid__worldcat__20231001T025039Z--20231001T235839Z.jsonl.zst.torrent</code>.</li>
+    <li><strong>Size?</strong> 220GB compressed, 2.2TB uncompressed. 1.3 billion unique IDs (1,348,336,870), covered by 1.8 billion records (1,888,381,236), so 540 million duplicates (29%). 600 million are redirects or 404s, so <strong>700 million unique actual records</strong>.</li>
+    <li><strong>Is that a lot?</strong> Yes. For comparison, Open Library has 47 million records, and ISBNdb has 34 million. Anna’s Archive has 125 million files, but with many duplicates, and most are papers from Sci-Hub (98 million).</li>
+    <li><strong>What?</strong> WorldCat library records, merged from ~30,000 OCLC member libraries. Mostly books, but also magazines, journals, dissertations, physical artifacts, and so on. We only captured the records themselves, not holding information (e.g. which library has which items).</li>
+    <li><strong>Scraping quality?</strong> This varies between our different collection methods. The vast majority of records are “Title JSON”, which contains a good amount of information. There are some records we only managed to scrape through bulk HTML searches, containing only basic information like title, author, and ISBN.</li>
+    <li><strong>Primary key?</strong> The IDs of WorldCat records are known as “OCLC IDs”, and appear to be incrementing numbers, ranging from 1 to (when we started our scrape) about 1,350,000,000, which is the range we scraped for. However, due to how some of our scraping methods work, we also found other ranges, that seem different from the main set starting at 1.</li>
+    <li><strong>Examples?</strong> Canoncial URLs of these records are of the form <code>worldcat.org/oclc/:id</code>, which currently redirects to <code>worldcat.org/title/:id</code>. For example, <a href="https://worldcat.org/oclc/528432361">https://worldcat.org/oclc/528432361</a>.</li>
+  </ul>
+
+  <h2 t-msgid="blog.worldcat-scrape.data">Data</h2>
+
+  <p>
+    We haven’t looked too deeply into the different fields yet, and documentation is sparse. We’ll have to fill in a lot of gaps ourselves.
+  </p>
+
+  <h3>Official API</h3>
+
+  <p>
+    Let’s first look at an official API response. To use their API, you have to be a member library, but luckily the docs are public and <a href="https://developer.api.oclc.org/wcv2#/Bibliographic%20Resources/retrieve-bib">include an example</a>, which is for <a href="https://worldcat.org/oclc/311684437">this book</a>:
+  </p>
+
+  <code><pre class="code-block" style="margin-top: 0; overflow: auto; max-height: 40vh">
+    <t-include t-file="./worldcat-scrape/ppz.json"></t-include>
+  </pre></code>
+
+  <p>
+    From the <code>title.mainTitles.0.text</code> field we can see that they chose the example of <em>“Pride and prejudice and zombies : the classic regency romance--now with ultraviolent zombie mayhem / by Jane Austen and Seth Grahame-Smith.”</em> I will say, this makes me immediately like the OCLC people some more. :-)
+  </p>
+
+  <p>
+    There is a lot of incredible information here, a lot of which we unfortunately do not have access to in our various scraping methods. For example, there are references to other numbering systems, such as LCCN, Dewey Decimal, and a long list of <code>externalIdentifiers</code>.
+  </p>
+
+  <p>
+    Some information in this API is only available in a subset of our scraping methods. For example, the "work ID", which is useful to cluster similar works, is available in our “providerSearchRequest” records.
+  </p>
+
+  <h3>Redirects</h3>
+
+  <p>
+    One of our simplest scraping types is “redirect_title_json”. This occurs when we make a request for a certain OCLC ID, but receive data for another OCLC ID. When this happens we can infer that these records have been merged, e.g. by a deduplication process. Indeed, for the <code>mergedOclcNumbers</code> in the official API, we can find the first of those redirects in our scrape:
+  </p>
+
+  <code class="code-block"><t-include t-file="./worldcat-scrape/merged-oclc-numbers.json"></t-include></code>
+
+  <p>
+    In this record you can also see the container JSON (per the <a href="/blog/annas-archive-containers.html">Anna’s Archive Container format</a>), as well as the metadata of which scrape file this record originates from (which we included in case it is somehow useful).
+  </p>
+
+  <h3>Title JSON</h3>
+
+  <p>
+    The main type of record we have is “title_json”. This is the JSON that is loaded when going to a <code>worldcat.org/title/:id</code> page. It can either be embedded in the page itself, or made with a separate request. We have not observed a difference in these two origins.
+  </p>
+
+  <p>
+    For <em>“Pride and prejudice and zombies”</em> this looks like this:
+  </p>
+
+  <code><pre class="code-block" style="margin-top: 0; overflow: auto; max-height: 40vh">
+    <t-include t-file="./worldcat-scrape/ppz.title_json.json"></t-include>
+  </pre></code>
+
+  <p>
+    This is mostly a subset of the official API, though this does contain some metadata indicating that this Jane Austen is not an actual author, but a "parody of" relationship (the <code>http://rdaregistry.info/Elements/w/P10197</code>) at the very end. It is unclear if the official API example is simply outdated and nowadays also includes this, or if this is actual unique information to this scraping method.
+  </p>
+
+  <p>
+    Let’s look at one more example, <a href="https://worldcat.org/title/1157">“Little Women”</a>, since for this book we have records using all our scraping methods. This is its “title_json”:
+  </p>
+
+  <code><pre class="code-block" style="margin-top: 0; overflow: auto; max-height: 40vh">
+    <t-include t-file="./worldcat-scrape/little_women.title_json.json"></t-include>
+  </pre></code>
+
+  <h3>Brief JSON</h3>
+
+  <p>
+    Some scrapes used search endpoints that returned a little bit less JSON, so we dubbed it “briefrecords_json”. However for <em>“Pride and prejudice and zombies”</em> it’s very similar to “title_json”:
+  </p>
+
+  <code><pre class="code-block" style="margin-top: 0; overflow: auto; max-height: 40vh">
+    <t-include t-file="./worldcat-scrape/ppz.briefrecords_json.json"></t-include>
+  </pre></code>
+
+  <p>
+    Here is an example of “briefrecords_json” for <em>“Little Women”</em>:
+  </p>
+
+  <code><pre class="code-block" style="margin-top: 0; overflow: auto; max-height: 40vh">
+    <t-include t-file="./worldcat-scrape/little_women.briefrecords_json.json"></t-include>
+  </pre></code>
+
+  <p>
+    Here we see some more differences: “briefrecords_json” is missing <code>contentNotes</code> and <code>additionalPhysicalFormEntries</code>.
+  </p>
+
+  <h3>ProviderSearchRequest JSON</h3>
+
+  <p>
+    Another search API leaked the raw internal search request in a <code>providerSearchRequest</code> field, so we dubbed its type “providersearchrequest_json”. It has the most information of all our scrapes, but unfortunately we only have a very small number of records using this method. Nevertheless, here is <em>“Little Women”</em>:
+  </p>
+
+  <code><pre class="code-block" style="margin-top: 0; overflow: auto; max-height: 40vh">
+    <t-include t-file="./worldcat-scrape/little_women.providersearchrequest_json.json"></t-include>
+  </pre></code>
+
+  <h3>Legacy search HTML</h3>
+
+  <p>
+    We discovered a bunch of websites whitelabeled for libraries, that still used the old search UI. We scraped a bunch of records using these pages. There is very little information in here, but the basics such as title, author, and even ISBN are present. Here is <em>“Little Women”</em>:
+  </p>
+
+  <code><pre class="code-block" style="margin-top: 0; overflow: auto; max-height: 40vh; white-space: normal;">
+    <t-include t-file="./worldcat-scrape/little_women.legacy_search.json"></t-include>
+  </pre></code>
+
+  <h3>Not found</h3>
+
+  <p>
+    The final record type is trivial: records that for which we got a 404 during a “title_json” request, so “not_found_title_json”:
+  </p>
+
+  <code class="code-block"><t-include t-file="./worldcat-scrape/not_found_title_json.json"></t-include></code>
+
+  <h2>Conclusion</h2>
+
+  <p>
+    We think this release marks a major milestone in mapping out all the books in the world. We can now work on making a TODO list of all the books that still need to be preserved.
+  </p>
+
+  <p>
+    Join us: help seed our torrents, scan and upload some books, help build Anna’s Archive, help scrape more collections, or simply become a member. We’ve already met dozens of incredible volunteers, and <em>you too</em> can help preserve humanity’s legacy.
+  </p>
+
+  <p>
+    <strong>Special call for LLM companies and groups:</strong> we recently launched a special program on Anna’s Archive to help out teams building LLMs with high-speed access to our collections.
+  </p>
+
+  <p>
+    Thanks everyone.
+  </p>
+
+  <p>
+    - Anna and the team (<a href="https://www.reddit.com/r/Annas_Archive/">Reddit</a>, <a href="https://t.me/+D0zemuNzEdgyOGVk">Telegram</a>)
+  </p>
+
+  <p>
+    PS: We do want to give a genuine shout-out to the WorldCat team. Even though it was a small tragedy that your data was locked up, you did an amazing job at getting 30,000 libraries on board to share their metadata with you. As with many of our releases, we could not have done it without the decades of hard work you put into building the collections that we now liberate. Truly: thank you.
+  </p>
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends "layouts/blog.html" %}
+
+{% set title = gettext('blog.3x-new-books.title') %}
+{% set tldr = '' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block meta_tags %}
+<meta name="description" content="{{ tldr }}" />
+<meta name="twitter:card" value="summary" />
+<meta property="og:title" content="{{ title }}" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://annas-archive.li/blog/blog-3x-new-books.html" />
+<meta property="og:description" content="{{ tldr }}" />
+{% endblock %}
+
+{% block body %}
+  <h1 t-msgid="blog.3x-new-books.title">3x new books added to the Pirate Library Mirror (+24TB, 3.8 million books)</h1>
+  <p style="font-style: italic">
+    annas-archive.li/blog, 2022-09-25
+  </p>
+
+  <p t-msgid="blog.3x-new-books.text1">
+    In the original release of the Pirate Library Mirror (EDIT: moved to <a href="https://en.wikipedia.org/wiki/Anna%27s_Archive">Anna’s Archive</a>), we made a mirror of Z-Library, a large illegal book collection. As a reminder, this is what we wrote in that original blog post:
+  </p>
+
+  <blockquote>
+    <p t-msgid="blog.3x-new-books.q1.text1">
+      Z-Library is a popular (and illegal) library. They have taken the Library Genesis collection and made it easily searchable. On top of that, they have become very effective at solliciting new book contributions, by incentivizing contributing users with various perks. They currently do not contribute these new books back to Library Genesis. And unlike Library Genesis, they do not make their collection easily mirrorable, which prevents wide preservation. This is important to their business model, since they charge money for accessing their collection in bulk (more than 10 books per day).
+    </p>
+
+    <p t-msgid="blog.3x-new-books.q1.text2">
+      We do not make moral judgements about charging money for bulk access to an illegal book collection. It is beyond a doubt that the Z-Library has been successful in expanding access to knowledge, and sourcing more books. We are simply here to do our part: ensuring the long-term preservation of this private collection.
+    </p>
+  </blockquote>
+
+  <p t-msgid="blog.3x-new-books.text2">
+    That collection dated back to mid-2021. In the meantime, the Z-Library has been growing at a staggering rate: they have added about 3.8 million new books. There are some duplicates in there, sure, but the majority of it seems to be legitimately new books, or higher quality scans of previously submitted books. This is in large part because of the increased number of volunteer moderators at the Z-Library, and their bulk-upload system with deduplication. We would like to congratulate them on these achievements.
+  </p>
+
+  <p t-msgid="blog.3x-new-books.text3">
+    We are happy to announce that we have gotten all books that were added to the Z-Library between our last mirror and August 2022. We have also gone back and scraped some books that we missed the first time around. All in all, this new collection is about 24TB, which is much bigger than the last one (7TB). Our mirror is now 31TB in total. Again, we deduplicated against Library Genesis, since there are already torrents available for that collection.
+  </p>
+
+  <p t-msgid="blog.3x-new-books.text4">
+    Please go to the Pirate Library Mirror to check out the new collection (EDIT: moved to <a href="https://en.wikipedia.org/wiki/Anna%27s_Archive">Anna’s Archive</a>). There is more information there about how the files are structured, and what has changed since last time. We won't link to it from here, since this is just a blog website that doesn't host any illegal materials.
+  </p>
+
+  <p t-msgid="blog.3x-new-books.text5">
+    Of course, seeding is also a great way to help us out. Thanks everyone who is seeding our previous set of torrents. We're grateful for the positive response, and happy that there are so many people who care about preservation of knowledge and culture in this unusual way.
+  </p>
+
+  <p t-msgid="blog.3x-new-books.signature">
+    - Anna and the team (<a href="https://reddit.com/r/Annas_Archive/">Reddit</a>)
+  </p>
+{% endblock %}
