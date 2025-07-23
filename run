@@ -56,6 +56,11 @@ function lint:python {
   cmd ruff check "$@"
 }
 
+function lint:translations {
+  # Lint the .po files
+  cmd uv run ./bin/validate-translations "${@:-check}"
+}
+
 function format {
   # Format Python code
   cmd ruff format . "$@"
@@ -185,6 +190,7 @@ function check {
   lint:shellcheck
   lint:dockerfile
   lint:python
+  lint:translations
 
   printf "\n> Verifying code formatting...\n" >&2
   # skipping this until we have reformatted the codebase
