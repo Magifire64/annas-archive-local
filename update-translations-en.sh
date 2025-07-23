@@ -3,7 +3,7 @@
 set -Eeuxo pipefail
 
 # Convert the source HTML files into the translatable versions
-./bin/translate-html --in-place ./allthethings/**/templates/**/*.html.j2
+./run cmd bin/translate-html --in-place ./allthethings/**/templates/**/*.html.j2
 
 # Some of these change their output when run multiple times
 # TODO: --sort-output, to sort by msgid instead of file
