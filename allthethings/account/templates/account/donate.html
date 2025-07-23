@@ -49,10 +49,10 @@
     <span class="icon-[ion--checkmark-outline] absolute top-1 -left-5"></span>
   {% endset %}
 
-  {% macro membership_tier(level, size_classes) %}
+  {% macro membership_tier(level, min, max, size_classes) %}
     <div class="{{ size_classes }} w-[calc(50%-6px)] px-2 py-4 bg-white border border-gray-200 aria-selected:border-[#09008e] rounded-lg shadow mb-3 js-membership-tier js-membership-tier-{{ level }}" aria-selected="false">
       <div class="whitespace-nowrap text-center mb-2">{{ membership_tier_names[level] | replace(' ', '<br>') | safe }}</div>
-      <div class="text-center font-bold text-xl mb-2">{{ gettext('page.donate.membership_per_month', cost=('%0.2f'| format(MEMBERSHIP_TIER_COSTS[level] * (1-(MEMBERSHIP_DURATION_DISCOUNTS['96']+30)/100)) | string | replace('.00', '')) + "-$" + (MEMBERSHIP_TIER_COSTS[level] | string)) }}</div>
+      <div class="text-center font-bold text-xl mb-2">{{ gettext('page.donate.membership_per_month', cost=((min | string | replace('.00', '')) + "-$" + (max | string | replace('.00', '')))) }}</div>
       <button onclick="window.membershipTierToggle('{{level}}')" class="text-center mb-1 block bg-[#0195ff] hover:bg-blue-600 [[aria-selected=true]_&]:bg-[#09008e] px-2 py-1 rounded-md text-white w-full">
         <span class="[[aria-selected=true]_&]:hidden">{{ gettext('page.donate.buttons.join') }}</span>
         <span class="[[aria-selected=false]_&]:hidden"><span class="icon-[ion--checkmark-circle-sharp] text-lg align-text-bottom"></span> {{ gettext('page.donate.buttons.selected') }}</span>
@@ -66,7 +66,7 @@
 
   <div class="js-membership-section-tier">
     <div class="flex flex-wrap justify-between md:overflow-hidden">
-      {% call membership_tier('2', 'md:min-w-[170px] md:w-[21%]') %}
+      {% call membership_tier('2', 2, 6, 'md:min-w-[170px] md:w-[21%]') %}
         <li class="relative mb-1">{{ checkmark_icon | safe }} 🚀 {{ fast_downloads(MEMBERSHIP_DOWNLOADS_PER_DAY['2'], 2.0) | safe }}</li>
         <li class="relative mb-1">{{ checkmark_icon | safe }} 🧬&nbsp;{{ gettext('page.donate.perks.scidb') }}</li>
         <li class="relative mb-1">{{ checkmark_icon | safe }} 👩‍💻 {{ gettext('page.donate.perks.jsonapi', a_api=(a.faqs_api | xmlattr)) }}</li>
@@ -74,19 +74,19 @@
         <!-- <li class="relative mb-1">{{ checkmark_icon | safe }} {{ gettext('page.donate.perks.credits') }}</li> -->
       {% endcall %}
 
-      {% call membership_tier('3', 'md:min-w-[180px] md:w-[21%]') %}
+      {% call membership_tier('3', 3, 9, 'md:min-w-[180px] md:w-[21%]') %}
         <li class="text-sm relative mb-1">{{ gettext('page.donate.perks.previous_plus') }}</li>
         <li class="relative mb-1">{{ checkmark_icon | safe }} 🚀 {{ fast_downloads(MEMBERSHIP_DOWNLOADS_PER_DAY['3'], 2.0) | safe }}</li>
         <!-- <li class="relative mb-1">{{ checkmark_icon | safe }} {{ gettext('page.donate.perks.early_access') }}</li> -->
       {% endcall %}
 
-      {% call membership_tier('4', 'md:min-w-[180px] md:w-[23%]') %}
+      {% call membership_tier('4', 9, 27, 'md:min-w-[180px] md:w-[23%]') %}
         <li class="text-sm relative mb-1">{{ gettext('page.donate.perks.previous_plus') }}</li>
         <li class="relative mb-1">{{ checkmark_icon | safe }} 🚀 {{ fast_downloads(MEMBERSHIP_DOWNLOADS_PER_DAY['4'], 2.0) | safe }}</li>
         <li class="relative mb-1">{{ checkmark_icon | safe }} 😼 {{ gettext('page.donate.perks.exclusive_telegram') }}</li>
       {% endcall %}
 
-      {% call membership_tier('5', 'md:min-w-[240px] md:w-[29%]') %}
+      {% call membership_tier('5', 27, 81, 'md:min-w-[240px] md:w-[29%]') %}
         <li class="text-sm relative mb-1">{{ gettext('page.donate.perks.previous_plus') }}</li>
         <li class="relative mb-1">{{ checkmark_icon | safe }} 🚀 {{ fast_downloads(MEMBERSHIP_DOWNLOADS_PER_DAY['5'], 2.0) | safe }}</li>
         <!-- <li class="relative mb-1">{{ checkmark_icon | safe }} 🤗 {{ gettext('page.donate.perks.adopt', div_months=(' class="text-gray-500 text-sm" ' | safe)) }}</li> -->

@@ -2312,7 +2312,7 @@ def get_lgrsnf_book_dicts(session, key, values):
         if (toc := strip_description(lgrs_book_dict.get('toc') or '')) != '':
             lgrs_book_dict['file_unified_data']['stripped_description_additional'].append(toc)
         lgrs_book_dict['file_unified_data']['language_codes'] = get_bcp47_lang_codes(lgrs_book_dict.get('language') or '')
-        lgrs_book_dict['file_unified_data']['cover_url_best'] = f"https://libgen.is/covers/{lgrs_book_dict['coverurl']}" if len(lgrs_book_dict.get('coverurl') or '') > 0 else ''
+        # lgrs_book_dict['file_unified_data']['cover_url_best'] = f"https://libgen.is/covers/{lgrs_book_dict['coverurl']}" if len(lgrs_book_dict.get('coverurl') or '') > 0 else ''
 
         if lgrs_book_dict['timeadded'] != '0000-00-00 00:00:00':
             if not isinstance(lgrs_book_dict['timeadded'], datetime.datetime):
@@ -2421,7 +2421,7 @@ def get_lgrsfic_book_dicts(session, key, values):
         ]))
         lgrs_book_dict['file_unified_data']['stripped_description_best'] = strip_description(lgrs_book_dict.get('descr') or '')
         lgrs_book_dict['file_unified_data']['language_codes'] = get_bcp47_lang_codes(lgrs_book_dict.get('language') or '')
-        lgrs_book_dict['file_unified_data']['cover_url_best'] = f"https://libgen.is/fictioncovers/{lgrs_book_dict['coverurl']}" if len(lgrs_book_dict.get('coverurl') or '') > 0 else ''
+        # lgrs_book_dict['file_unified_data']['cover_url_best'] = f"https://libgen.is/fictioncovers/{lgrs_book_dict['coverurl']}" if len(lgrs_book_dict.get('coverurl') or '') > 0 else ''
 
         if lgrs_book_dict['timeadded'] != '0000-00-00 00:00:00':
             if not isinstance(lgrs_book_dict['timeadded'], datetime.datetime):
@@ -7645,14 +7645,14 @@ def get_additional_for_aarecord(aarecord):
 
     md5_content_type_mapping = get_md5_content_type_mapping(allthethings.utils.get_base_lang_code(get_locale()))
 
-    cover_url = aarecord['file_unified_data']['cover_url_best'].replace('https://libgen.rs', 'https://libgen.is')
+    cover_url = aarecord['file_unified_data']['cover_url_best']
     zlib3_cover_path = ((next(iter(source_records_by_type['aac_zlib3_book']), {})).get('cover_path') or '')
     if '/collections/' in zlib3_cover_path:
         cover_url = f"https://s3proxy.cdn-zlib.sk/{zlib3_cover_path}"
-    elif 'zlib' in cover_url or '1lib' in cover_url: # Remove old zlib cover_urls.
-        non_zlib_covers = [url for url in aarecord['file_unified_data']['cover_url_additional'] if ('zlib' not in url and '1lib' not in url)]
-        if len(non_zlib_covers) > 0:
-            cover_url = non_zlib_covers[0]
+    elif 'zlib' in cover_url or '1lib' in cover_url or 'libgen.is' in cover_url: # Remove old broken cover_urls.
+        non_broken_covers = [url for url in aarecord['file_unified_data']['cover_url_additional'] if ('zlib' not in url and '1lib' not in url and 'libgen.is' not in url)]
+        if len(non_broken_covers) > 0:
+            cover_url = non_broken_covers[0]
         else:
             cover_url = ""
 
@@ -7782,7 +7782,7 @@ def get_additional_for_aarecord(aarecord):
         if lgrsnf_thousands_dir <= 4391000:
             lgrsnf_path = f"g4/libgenrs_nonfiction/libgenrs_nonfiction/{lgrsnf_thousands_dir}/{lgrsnf_filename}"
             add_partner_servers(lgrsnf_path, '', aarecord, additional)
-        elif lgrsnf_thousands_dir <= 4530000:
+        elif lgrsnf_thousands_dir <= 4529000:
             lgrsnf_path = f"ga/lgrsnf/{lgrsnf_thousands_dir}/{lgrsnf_filename}"
             add_partner_servers(lgrsnf_path, '', aarecord, additional)
 
@@ -7798,7 +7798,7 @@ def get_additional_for_aarecord(aarecord):
         if lgrsfic_thousands_dir <= 3039000:
             lgrsfic_path = f"g3/libgenrs_fiction/libgenrs_fiction/{lgrsfic_thousands_dir}/{lgrsfic_filename}"
             add_partner_servers(lgrsfic_path, '', aarecord, additional)
-        elif lgrsfic_thousands_dir <= 3139000:
+        elif lgrsfic_thousands_dir <= 3138000:
             lgrsfic_path = f"ga/lgrsfic/{lgrsfic_thousands_dir}/{lgrsfic_filename}"
             add_partner_servers(lgrsfic_path, '', aarecord, additional)
 
@@ -8718,12 +8718,13 @@ def md5_slow_download(md5_input, path_index, domain_index):
     warning = False
     # # These waitlist_max_wait_time_seconds values must be multiples, under the current modulo scheme.
     # # Also WAITLIST_DOWNLOAD_WINDOW_SECONDS gets subtracted from it.
-    waitlist_max_wait_time_seconds = 10*60
+    waitlist_max_wait_time_seconds = 75
     domain = domain_slow
-    if daily_download_count_from_ip >= 30:
+    if daily_download_count_from_ip >= 10:
         domain = domain_slowest
-        # warning = True
-        waitlist_max_wait_time_seconds *= 2
+        warning = True
+        if daily_download_count_from_ip >= 50:
+            waitlist_max_wait_time_seconds *= 2
     #     # targeted_seconds_multiplier = 2.0
     #     # minimum = 20
     #     # maximum = 100
@@ -8736,7 +8737,7 @@ def md5_slow_download(md5_input, path_index, domain_index):
         # minimum = 100
         # targeted_seconds_multiplier = 0.2
 
-        WAITLIST_DOWNLOAD_WINDOW_SECONDS = 90
+        WAITLIST_DOWNLOAD_WINDOW_SECONDS = 15
         hashed_md5_bytes = int.from_bytes(hashlib.sha256(bytes.fromhex(canonical_md5) + HASHED_DOWNLOADS_SECRET_KEY).digest(), byteorder='big')
         seconds_since_epoch = int(time.time())
         wait_seconds = ((hashed_md5_bytes-seconds_since_epoch) % waitlist_max_wait_time_seconds) - WAITLIST_DOWNLOAD_WINDOW_SECONDS

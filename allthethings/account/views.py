@@ -102,10 +102,10 @@ def account_downloaded_page():
     with Session(mariapersist_engine) as mariapersist_session:
         cursor = allthethings.utils.get_cursor_ping(mariapersist_session)
 
-        cursor.execute('SELECT * FROM mariapersist_downloads WHERE account_id = %(account_id)s ORDER BY timestamp DESC LIMIT 100', { 'account_id': account_id })
+        cursor.execute('SELECT * FROM mariapersist_downloads WHERE account_id = %(account_id)s ORDER BY timestamp DESC LIMIT 3000', { 'account_id': account_id })
         downloads = list(cursor.fetchall())
 
-        cursor.execute('SELECT * FROM mariapersist_fast_download_access WHERE account_id = %(account_id)s ORDER BY timestamp DESC LIMIT 100',{'account_id': account_id})
+        cursor.execute('SELECT * FROM mariapersist_fast_download_access WHERE account_id = %(account_id)s ORDER BY timestamp DESC LIMIT 3000',{'account_id': account_id})
         fast_downloads = list(cursor.fetchall())
 
         # TODO: This merging is not great, because the lists will get out of sync, so you get a gap toward the end.

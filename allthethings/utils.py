@@ -35,20 +35,20 @@ from config.settings import SECRET_KEY, DOWNLOADS_SECRET_KEY, MEMBERS_TELEGRAM_U
 
 FEATURE_FLAGS = {}
 
-FAST_DOWNLOAD_DOMAINS = [x for x in [FAST_PARTNER_SERVER1, 'b4mcx2ml.net', 'wbsg8v.xyz', 'momot.rs', 'nrzr.li'] if x is not None]
+FAST_DOWNLOAD_DOMAINS = [x for x in [FAST_PARTNER_SERVER1, 'b4mcx2ml.net', 'wbsg8v.xyz', 'momot.rs'] if x is not None]
 SLOW_DOWNLOAD_DOMAINS_SLIGHTLY_FASTER = [True, True, False] # KEEP SAME LENGTH
 def download_variant(data_ip):
     return ((datetime.datetime.now(tz=datetime.timezone.utc).minute // 10) + int.from_bytes(data_ip, byteorder='big', signed=False)) % 2
 def get_slow_download_domains(data_ip, domain_index):
     if download_variant(data_ip) == 0:
-        return ['momot.rs', 'wbsg8v.xyz', 'nrzr.li'][domain_index] # KEEP SAME LENGTH
+        return ['wbsg8v.xyz', 'b4mcx2ml.net', 'momot.rs'][domain_index] # KEEP SAME LENGTH
     else:
-        return ['momot.rs', 'wbsg8v.xyz', 'nrzr.li'][domain_index] # KEEP SAME LENGTH
+        return ['b4mcx2ml.net', 'wbsg8v.xyz', 'momot.rs'][domain_index] # KEEP SAME LENGTH
 def get_slowest_download_domains(data_ip, domain_index):
     if download_variant(data_ip) == 0:
-        return ['nrzr.li', 'nrzr.li', 'nrzr.li'][domain_index] # KEEP SAME LENGTH
+        return ['momot.rs', 'momot.rs', 'momot.rs'][domain_index] # KEEP SAME LENGTH
     else:
-        return ['nrzr.li', 'nrzr.li', 'nrzr.li'][domain_index] # KEEP SAME LENGTH
+        return ['momot.rs', 'momot.rs', 'momot.rs'][domain_index] # KEEP SAME LENGTH
 SCIDB_SLOW_DOWNLOAD_DOMAINS = ['wbsg8v.xyz']
 SCIDB_FAST_DOWNLOAD_DOMAINS = [FAST_PARTNER_SERVER1 if FAST_PARTNER_SERVER1 is not None else 'momot.rs']
 
@@ -379,6 +379,7 @@ def get_base_lang_code(locale):
 
 
 # Adapted from https://github.com/python-babel/flask-babel/blob/69d3340cd0ff52f3e23a47518285a7e6d8f8c640/flask_babel/__init__.py#L175
+@functools.cache
 def list_translations():
     # return [locale for locale in babel.list_translations() if is_locale(locale)]
     result = {}
