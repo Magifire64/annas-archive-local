@@ -1051,7 +1051,7 @@ def account_buy_membership():
         raise Exception("Invalid costCentsUsdVerification")
 
     donation_type = 0 # manual
-    if method in ['payment1b_alipay', 'payment1b_alipay_cc', 'payment1b_wechat', 'payment1c_alipay', 'payment1c_alipay_cc', 'payment1c_wechat', 'payment1d_alipay', 'payment1d_alipay_cc', 'payment1d_wechat', 'payment2', 'payment2paypal', 'payment2cashapp', 'payment2revolut', 'payment2cc', 'amazon', 'amazon_co_uk', 'amazon_fr', 'amazon_it', 'amazon_ca', 'amazon_de', 'amazon_es', 'amazon_au', 'hoodpay', 'payment3a', 'payment3a_cc', 'payment3b']:
+    if method in ['payment1b_alipay', 'payment1b_alipay_cc', 'payment1b_wechat', 'payment1c_alipay', 'payment1c_alipay_cc', 'payment1c_wechat', 'payment1d_alipay', 'payment1d_alipay_cc', 'payment1d_wechat', 'payment2', 'payment2paypal', 'payment2cashapp', 'payment2revolut', 'payment2cc', 'amazon', 'amazon_co_uk', 'amazon_fr', 'amazon_it', 'amazon_ca', 'amazon_de', 'amazon_es', 'amazon_au', 'amazon_jp', 'hoodpay', 'payment3a', 'payment3a_cc', 'payment3b']:
         donation_type = 1
 
     with Session(mariapersist_engine) as mariapersist_session:

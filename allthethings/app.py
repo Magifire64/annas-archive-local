@@ -197,7 +197,7 @@ def extensions(app):
     @app.before_request
     def before_req():
         if X_AA_SECRET is not None and request.headers.get('x-aa-secret') != X_AA_SECRET and (not request.full_path.startswith('/dyn/up')):
-            return gettext('layout.index.invalid_request', websites='annas-archive.li, .org')
+            return gettext('layout.index.invalid_request', websites='annas-archive.org, .se, .li')
 
         # Add English as a fallback language to all translations.
         translations = get_translations()

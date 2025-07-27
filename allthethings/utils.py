@@ -645,6 +645,7 @@ MEMBERSHIP_METHOD_DISCOUNTS = {
     "amazon_de": 0,
     "amazon_es": 0,
     "amazon_au": 0,
+    "amazon_jp": 0,
     # "bmc":    0,
     # "alipay": 0,
     # "pix":    0,
@@ -679,6 +680,7 @@ MEMBERSHIP_TELEGRAM_URL = {
     "1": "", "2": "", "3": "", "4": MEMBERS_TELEGRAM_URL, "5": MEMBERS_TELEGRAM_URL,
 }
 MEMBERSHIP_EXCHANGE_RATE_RMB = 7.25
+MEMBERSHIP_EXCHANGE_RATE_JPY = 150.0
 MEMBERSHIP_METHOD_MINIMUM_CENTS_USD = {
     "crypto": 0,
     "payment2": 0,
@@ -698,6 +700,7 @@ MEMBERSHIP_METHOD_MINIMUM_CENTS_USD = {
     "amazon_de": 1000,
     "amazon_es": 1000,
     "amazon_au": 1000,
+    "amazon_jp": 1000,
     # "bmc":    0,
     # "alipay": 0,
     # "pix":    0,
@@ -740,6 +743,7 @@ MEMBERSHIP_METHOD_MAXIMUM_CENTS_NATIVE = {
     "amazon_de": 10000, # 30000,
     "amazon_es": 10000, # 30000,
     "amazon_au": 10000, # 60000,
+    "amazon_jp": 500000, # round(500000 / MEMBERSHIP_EXCHANGE_RATE_JPY), # Actual number in USD!
 }
 MEMBERSHIP_MAX_BONUS_DOWNLOADS = 10000
 
@@ -809,7 +813,7 @@ def format_currency(cost_cents_native_currency, native_currency_code, locale):
 
 def membership_format_native_currency(locale, native_currency_code, cost_cents_native_currency, cost_cents_usd):
     with force_locale(locale):
-        if native_currency_code in ['USD', 'CAD', 'EUR', 'GBP', 'AUD']: # Don't show USD comparison for these.
+        if native_currency_code in ['USD', 'CAD', 'EUR', 'GBP', 'AUD', 'JPY']: # Don't show USD comparison for these.
             return {
                 'cost_cents_native_currency_str_calculator': gettext('common.membership.format_currency.total', amount=format_currency(cost_cents_native_currency, native_currency_code, locale)),
                 'cost_cents_native_currency_str_button': f"{format_currency(cost_cents_native_currency, native_currency_code, locale)}",
@@ -858,6 +862,23 @@ def membership_costs_data(locale):
         # elif method == 'bmc':
         #     native_currency_code = 'COFFEE'
         #     cost_cents_native_currency = round(cost_cents_usd / 500)
+        elif method in ['amazon_jp']:
+            native_currency_code = 'JPY'
+            cost_cents_native_currency = math.floor(cost_cents_usd * MEMBERSHIP_EXCHANGE_RATE_JPY / 100) * 100
+            cost_cents_native_currency_no_discounts = math.floor(cost_cents_usd_no_discounts * MEMBERSHIP_EXCHANGE_RATE_JPY / 100) * 100
+
+            if cost_cents_native_currency <= 50000:
+                cost_cents_native_currency = 50000
+            elif cost_cents_native_currency <= 140000:
+                cost_cents_native_currency = 100000
+            elif cost_cents_native_currency <= 240000:
+                cost_cents_native_currency = 200000
+            elif cost_cents_native_currency <= 340000:
+                cost_cents_native_currency = 300000
+            elif cost_cents_native_currency <= 600000:
+                cost_cents_native_currency = 500000
+
+            cost_cents_usd = round(cost_cents_native_currency / MEMBERSHIP_EXCHANGE_RATE_JPY)
         elif method in ['amazon', 'amazon_co_uk', 'amazon_fr', 'amazon_it', 'amazon_ca', 'amazon_de', 'amazon_es', 'amazon_au']:
             if method in ['amazon_co_uk']:
                 cost_cents_native_currency = math.ceil(cost_cents_usd * 0.8)
@@ -1067,12 +1088,12 @@ def gc_notify(cursor, request_data, dont_store_errors=False):
     if "dkim=pass" not in auth_results:
         return exec_err(f"Warning: gc_notify message '{message['X-Original-To']}' with wrong auth_results: {auth_results}")
 
-    if (re.search(r'<gc-orders@gc\.email\.amazon\.(com|co\.uk|fr|it|ca|de|es|com\.au)>$', message['From'].strip()) is None) and (re.search(r'<do-not-reply@(gift-cards\.)?amazon\.(com|co\.uk|fr|it|ca|de|es|com\.au)>$', message['From'].strip()) is None):
+    if (re.search(r'<gc-orders@gc\.email\.amazon\.(com|co\.uk|fr|it|ca|de|es|com\.au|co\.jp)>$', message['From'].strip()) is None) and (re.search(r'<do-not-reply@(gift-cards\.)?amazon\.(com|co\.uk|fr|it|ca|de|es|com\.au|co\.jp)>$', message['From'].strip()) is None):
         return exec_err(f"Warning: gc_notify message '{message['X-Original-To']}' with wrong From: {message['From']}")
 
     suffixes = [
        'sent you an Amazon Gift Card!',
-       # 'sent you an Amazon.com.au Gift Card!',
+       'sent you an Amazon.com.au Gift Card!',
        'is waiting',
        'une carte cadeau Amazon !',
        'vous attend',
@@ -1082,6 +1103,8 @@ def gc_notify(cursor, request_data, dont_store_errors=False):
        'wartet auf Sie.',
        'Tarjeta regalo de Amazon.',
        'esperando',
+       'ません',
+       'きました！',
     ]
     subject_stripped = message['Subject'].strip()
     if not any([subject_stripped.lower().endswith(suffix.lower()) for suffix in suffixes]):
@@ -1091,9 +1114,13 @@ def gc_notify(cursor, request_data, dont_store_errors=False):
     if len(potential_money) == 0:
         potential_money = re.findall(r"\n([0123456789]+[.,][0123456789]{2})[ ]?[$€£]", message_body)
     if len(potential_money) == 0:
+        potential_money = re.findall(r"\n[￥][ ]?([0123456789]+)", message_body)
+    if len(potential_money) == 0:
+        potential_money = re.findall(r"\n[￥][ ]?([0123456789]+,000)", message_body)
+    if len(potential_money) == 0:
         return exec_err(f"Warning: gc_notify message '{message['X-Original-To']}' with no matches for potential_money")
 
-    links = [str(link[0]) for link in re.findall(r'(https://www.amazon.(com|co\.uk|fr|it|ca|de|es|com\.au)/gp/r.html?[^\n)>"]+)', message_body)]
+    links = [str(link[0]) for link in re.findall(r'(https://www.amazon.(com|co\.uk|fr|it|ca|de|es|com\.au|co\.jp)/gp/r.html?[^\n)>"]+)', message_body)]
     if len(links) == 0:
         return exec_err(f"Warning: gc_notify message '{message['X-Original-To']}' with no matches for links")
 
@@ -1105,7 +1132,7 @@ def gc_notify(cursor, request_data, dont_store_errors=False):
             main_link = potential_link
             break
     if main_link is not None:
-        domain = re.findall(r'amazon.(com/|co\.uk/|fr/|it/|ca/|de/|es/|com\.au/)gp', main_link)[0].removesuffix('/')
+        domain = re.findall(r'amazon.(com/|co\.uk/|fr/|it/|ca/|de/|es/|com\.au/|co\.jp/)gp', main_link)[0].removesuffix('/')
         main_link = main_link.split('%2Fg%2F', 1)[1]
         main_link = main_link.split('%3F', 1)[0]
         main_link = f"https://www.amazon.{domain}/g/{main_link}"
@@ -1124,13 +1151,17 @@ def gc_notify(cursor, request_data, dont_store_errors=False):
         'EUR': ['com', 'co.uk', 'fr', 'it', 'de', 'es'],
         # 'CAD': ['ca', 'com.au', 'com', 'co.uk', 'fr', 'it', 'de', 'es'],
         'CAD': ['ca', 'com', 'co.uk', 'fr', 'it', 'de', 'es'],
-        # 'AUD': ['ca', 'com.au', 'com', 'co.uk', 'fr', 'it', 'de', 'es'],
+        'AUD': ['ca', 'com.au', 'com', 'co.uk', 'fr', 'it', 'de', 'es'],
+        'JPY': ['co.jp'],
     }[donation['native_currency_code']]
     if domain not in allowed_domains_for_currency:
         return exec_err(f"Warning: gc_notify message '{message['X-Original-To']}' with invalid domain for current currency {domain=} {donation['native_currency_code']=} {allowed_domains_for_currency=}")
 
     # Keep in sync!
-    money = float(potential_money[-1].replace(',', '.'))
+    if '￥' in potential_money[0]:
+        money = float(potential_money[-1].replace(',',''))
+    else:
+        money = float(potential_money[-1].replace(',', '.'))
     # Allow for 5% margin
     if money * 105 < int(donation['cost_cents_native_currency']):
         return exec_err(f"Warning: gc_notify message '{message['X-Original-To']}' with too small amount gift card {money*110} < {donation['cost_cents_native_currency']}")
@@ -1161,7 +1192,7 @@ def confirm_membership(cursor, donation_id, data_key, data_value):
     #     return False
 
     donation_json = orjson.loads(donation['json'])
-    if donation_json['method'] not in ['payment1b_alipay', 'payment1b_alipay_cc', 'payment1b_wechat', 'payment1c_alipay', 'payment1c_alipay_cc', 'payment1c_wechat', 'payment1d_alipay', 'payment1d_alipay_cc', 'payment1d_wechat', 'payment2', 'payment2paypal', 'payment2cashapp', 'payment2revolut', 'payment2cc', 'amazon', 'amazon_co_uk', 'amazon_fr', 'amazon_it', 'amazon_ca', 'amazon_de', 'amazon_es', 'amazon_au', 'hoodpay', 'payment3a', 'payment3a_cc', 'payment3b']:
+    if donation_json['method'] not in ['payment1b_alipay', 'payment1b_alipay_cc', 'payment1b_wechat', 'payment1c_alipay', 'payment1c_alipay_cc', 'payment1c_wechat', 'payment1d_alipay', 'payment1d_alipay_cc', 'payment1d_wechat', 'payment2', 'payment2paypal', 'payment2cashapp', 'payment2revolut', 'payment2cc', 'amazon', 'amazon_co_uk', 'amazon_fr', 'amazon_it', 'amazon_ca', 'amazon_de', 'amazon_es', 'amazon_au', 'amazon_jp', 'hoodpay', 'payment3a', 'payment3a_cc', 'payment3b']:
         print(f"Warning: failed {data_key} request because method is not valid: {donation_id}")
         return False
 

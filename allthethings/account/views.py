@@ -438,7 +438,7 @@ def donation_page(donation_id):
             if hoodpay_status['status'] in ['PENDING', 'PROCESSING']:
                 donation_confirming = True
 
-        if donation_json['method'] in ['amazon', 'amazon_co_uk', 'amazon_fr', 'amazon_it', 'amazon_ca', 'amazon_de', 'amazon_es', 'amazon_au']:
+        if donation_json['method'] in ['amazon', 'amazon_co_uk', 'amazon_fr', 'amazon_it', 'amazon_ca', 'amazon_de', 'amazon_es', 'amazon_au', 'amazon_jp']:
             donation_amazon_domain_replace = {
                 'amazon': '.com',
                 'amazon_co_uk': '.co.uk',
@@ -448,6 +448,7 @@ def donation_page(donation_id):
                 'amazon_de': '.de',
                 'amazon_es': '.es',
                 'amazon_au': '.com.au',
+                'amazon_jp': '.co.jp',
             }[donation_json['method']]
             donation_amazon_form = {
                 'amazon': 'https://www.amazon.com/gp/product/B07PCMWTSG',
@@ -458,12 +459,13 @@ def donation_page(donation_id):
                 'amazon_de': 'https://www.amazon.de/gp/product/B07Q1JNC7R',
                 'amazon_es': 'https://www.amazon.es/gp/product/B07SS5PFJK',
                 'amazon_au': 'https://www.amazon.com.au/gp/product/B07TDR2SLF',
+                'amazon_jp': 'https://www.amazon.co.jp/gp/product/B004N3APGO',
             }[donation_json['method']]
 
         donation_dict = make_donation_dict(donation)
 
         donation_email = f"AnnaReceipts+{donation_dict['receipt_id']}@proton.me"
-        if donation_json['method'] in ['amazon', 'amazon_co_uk', 'amazon_fr', 'amazon_it', 'amazon_ca', 'amazon_de', 'amazon_es', 'amazon_au']:
+        if donation_json['method'] in ['amazon', 'amazon_co_uk', 'amazon_fr', 'amazon_it', 'amazon_ca', 'amazon_de', 'amazon_es', 'amazon_au', 'amazon_jp']:
             donation_email = f"giftcards+{donation_dict['receipt_id']}@annas-archive.org"
 
         # # No need to call get_referral_account_id here, because we have already verified, and we don't want to take away their bonus because
