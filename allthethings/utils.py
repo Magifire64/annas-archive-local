@@ -143,6 +143,10 @@ DB_EXAMPLE_PAGES = [
     "/db/aac_record/aacid__hathitrust_files__20250227T120812Z__22GT7yrb3SpiFbNagtGGv8.json.html",
 ]
 
+def sign_in_first_message():
+    # TODO:TRANSLATE
+    return "Please sign in first."
+
 def validate_canonical_md5s(canonical_md5s):
     return all([bool(re.match(r"^[a-f\d]{32}$", canonical_md5)) for canonical_md5 in canonical_md5s])
 
@@ -745,6 +749,44 @@ MEMBERSHIP_METHOD_MAXIMUM_CENTS_NATIVE = {
     "amazon_au": 10000, # 60000,
     "amazon_jp": 500000, # round(500000 / MEMBERSHIP_EXCHANGE_RATE_JPY), # Actual number in USD!
 }
+MEMBERSHIP_METHOD_FEES = {
+    "alipay": 0.15,
+    "amazon": 0.30,
+    "amazon_au": 0.30,
+    "amazon_ca": 0.30,
+    "amazon_co_uk": 0.30,
+    "amazon_de": 0.30,
+    "amazon_es": 0.30,
+    "amazon_fr": 0.30,
+    "amazon_it": 0.30,
+    "binance": 0.15,
+    "bmc": 0.15,
+    "crypto": 0.15,
+    "givebutter": 0.15,
+    "hoodpay": 0.15,
+    "payment1": 0.15,
+    "payment1_alipay": 0.15,
+    "payment1_wechat": 0.15,
+    "payment1b": 0.15,
+    "payment1b_alipay": 0.15,
+    "payment1b_wechat": 0.15,
+    "payment1bb": 0.15,
+    "payment1c": 0.15,
+    "payment1c_alipay": 0.15,
+    "payment1c_wechat": 0.15,
+    "payment1d_alipay": 0.15,
+    "payment1d_alipay_cc": 0.15,
+    "payment1d_wechat": 0.15,
+    "payment2": 0.15,
+    "payment2cashapp": 0.15,
+    "payment2cc": 0.15,
+    "payment2paypal": 0.15,
+    "payment2revolut": 0.15,
+    "payment3a": 0.15,
+    "payment3a_cc": 0.15,
+    "payment3b": 0.15,
+    "paypal": 0.15,
+}
 MEMBERSHIP_MAX_BONUS_DOWNLOADS = 10000
 
 
@@ -784,6 +826,11 @@ def get_account_fast_download_info(mariapersist_session, account_id):
     max_tier = str(max([int(membership['membership_tier']) for membership in memberships]))
 
     return { 'downloads_left': max(0, downloads_left), 'recently_downloaded_md5s': recently_downloaded_md5s, 'downloads_per_day': downloads_per_day, 'telegram_url': MEMBERSHIP_TELEGRAM_URL[max_tier] }
+
+def validate_ref_id(ref_id):
+    if not ref_id:
+        return False
+    return re.fullmatch(r'[A-Za-z0-9]+', ref_id) and len(ref_id) < 20
 
 # def get_referral_account_id(mariapersist_session, potential_ref_account_id, current_account_id):
 #     if potential_ref_account_id is None:
@@ -1180,7 +1227,7 @@ def confirm_membership(cursor, donation_id, data_key, data_value):
     if donation is None:
         print(f"Warning: failed {data_key} request because of donation not found: {donation_id}")
         return False
-    if donation['processing_status'] == 1:
+    if donation['processing_status'] in [1, 6]:
         # Already confirmed
         return True
     if donation['processing_status'] not in [0, 2, 4]:

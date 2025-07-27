@@ -8,6 +8,7 @@ import re
 import functools
 import urllib
 import pymysql
+import collections
 
 from flask import Blueprint, request, g, render_template, make_response, redirect
 from sqlalchemy import text
@@ -270,7 +271,7 @@ def profile_page(account_id):
 def account_profile_page():
     account_id = allthethings.utils.get_account_id(request.cookies)
     if account_id is None:
-        return "", 403
+        return allthethings.utils.sign_in_first_message(), 403
     return redirect(f"/profile/{account_id}", code=302)
 
 
@@ -334,6 +335,7 @@ def get_order_processing_status_labels(locale):
             3: gettext('common.donation.order_processing_status_labels.3'),
             4: gettext('common.donation.order_processing_status_labels.4'),
             5: gettext('common.donation.order_processing_status_labels.5'),
+            6: gettext('common.donation.order_processing_status_labels.1'), # Same as 1
         }
 
 
@@ -358,7 +360,7 @@ def make_donation_dict(donation):
 def donation_page(donation_id):
     account_id = allthethings.utils.get_account_id(request.cookies)
     if account_id is None:
-        return "", 403
+        return allthethings.utils.sign_in_first_message(), 403
 
     donation_confirming = False
     donation_time_left = datetime.timedelta()
@@ -376,7 +378,7 @@ def donation_page(donation_id):
 
         #donation = mariapersist_session.connection().execute(select(MariapersistDonations).where((MariapersistDonations.account_id == account_id) & (MariapersistDonations.donation_id == donation_id)).limit(1)).first()
         if donation is None:
-            return "", 403
+            return allthethings.utils.sign_in_first_message(), 403
 
         donation_json = orjson.loads(donation['json'])
 
@@ -499,7 +501,7 @@ def donation_page(donation_id):
 def donations_page():
     account_id = allthethings.utils.get_account_id(request.cookies)
     if account_id is None:
-        return "", 403
+        return allthethings.utils.sign_in_first_message(), 403
 
     with Session(mariapersist_engine) as mariapersist_session:
         cursor = allthethings.utils.get_cursor_ping(mariapersist_session)
@@ -512,6 +514,44 @@ def donations_page():
             donation_dicts=[make_donation_dict(donation) for donation in donations],
             order_processing_status_labels=get_order_processing_status_labels(get_locale()),
         )
+
+
+@account.get("/account/referrals")
+@account.get("/account/referrals/")
+@allthethings.utils.no_cache()
+def referrals_page():
+    account_id = allthethings.utils.get_account_id(request.cookies)
+    if account_id is None:
+        return allthethings.utils.sign_in_first_message(), 403
+
+    with Session(mariapersist_engine) as mariapersist_session:
+        cursor = allthethings.utils.get_cursor_ping(mariapersist_session)
+        cursor.execute('SELECT cost_cents_usd, created, date(created) as day, json_unquote(json_extract(json, "$.method")) AS method FROM mariapersist_donations WHERE json_extract(json, "$.cookies_ref_id") = %(account_id)s AND processing_status = 1 ORDER BY created DESC LIMIT 10000', { 'account_id': account_id })
+        referrals = cursor.fetchall()
+
+        earnings_total = 0.0
+        donations_count = 0
+        earnings_by_day = collections.defaultdict(float)
+        counts_by_day = collections.defaultdict(int)
+        for referral in referrals:
+            total_usd = float(referral['cost_cents_usd']) / 100.0
+            earnings = (1.0-allthethings.utils.MEMBERSHIP_METHOD_FEES[referral['method']])*total_usd*0.20
+            earnings_by_day[referral['day']] += earnings
+            earnings_total += earnings
+            counts_by_day[referral['day']] += 1
+            donations_count += 1
+
+        return render_template(
+            "account/referrals.html",
+            header_active="account",
+            earnings_by_day=[{"day": day, "earnings": babel.numbers.format_currency(earnings, 'USD', locale=get_locale()) } for day, earnings in earnings_by_day.items()],
+            counts_by_day=counts_by_day,
+            account_id=account_id,
+            earnings_total=babel.numbers.format_currency(earnings_total, 'USD', locale=get_locale()),
+            donations_count=donations_count,
+        )
+
+
 
 
 

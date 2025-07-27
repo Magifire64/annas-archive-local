@@ -301,7 +301,7 @@ def check_downloaded():
     
     account_id = allthethings.utils.get_account_id(request.cookies)
     if account_id is None:
-        return "", 403
+        return allthethings.utils.sign_in_first_message(), 403
 
     with Session(mariapersist_engine) as mariapersist_session:
         cursor = allthethings.utils.get_cursor_ping(mariapersist_session)
@@ -448,7 +448,7 @@ def md5_report(md5_input):
 
     account_id = allthethings.utils.get_account_id(request.cookies)
     if account_id is None:
-        return "", 403
+        return allthethings.utils.sign_in_first_message(), 403
 
     report_type = request.form['type']
     if report_type not in ["metadata", "download", "broken", "pages", "spam", "other"]:
@@ -485,7 +485,7 @@ def md5_report(md5_input):
 def put_display_name():
     account_id = allthethings.utils.get_account_id(request.cookies)
     if account_id is None:
-        return "", 403
+        return allthethings.utils.sign_in_first_message(), 403
 
     display_name = request.form['display_name'].strip().replace('\n', '')
 
@@ -505,7 +505,7 @@ def put_display_name():
 def put_list_name(list_id):
     account_id = allthethings.utils.get_account_id(request.cookies)
     if account_id is None:
-        return "", 403
+        return allthethings.utils.sign_in_first_message(), 403
 
     name = request.form['name'].strip()
     if len(name) == 0:
@@ -531,7 +531,7 @@ def get_resource_type(resource):
 def put_comment(resource):
     account_id = allthethings.utils.get_account_id(request.cookies)
     if account_id is None:
-        return "", 403
+        return allthethings.utils.sign_in_first_message(), 403
 
     content = request.form['content'].strip()
     if len(content) == 0:
@@ -701,7 +701,7 @@ def md5_reports(md5_input):
 def put_comment_reaction(reaction_type, resource):
     account_id = allthethings.utils.get_account_id(request.cookies)
     if account_id is None:
-        return "", 403
+        return allthethings.utils.sign_in_first_message(), 403
 
     with Session(mariapersist_engine) as mariapersist_session:
         cursor = allthethings.utils.get_cursor_ping(mariapersist_session)
@@ -717,7 +717,7 @@ def put_comment_reaction(reaction_type, resource):
             if comment_account_id is None:
                 raise Exception("No parent comment")
             if comment_account_id == account_id:
-                return "", 403
+                return allthethings.utils.sign_in_first_message(), 403
         elif resource_type == 'md5':
             if reaction_type not in [0,2]:
                 raise Exception("Invalid reaction_type")
@@ -893,7 +893,7 @@ def activity():
 def lists_update(resource):
     account_id = allthethings.utils.get_account_id(request.cookies)
     if account_id is None:
-        return "", 403
+        return allthethings.utils.sign_in_first_message(), 403
 
     with Session(mariapersist_engine) as mariapersist_session:
         resource_type = get_resource_type(resource)
@@ -1038,7 +1038,7 @@ def search_counts_page():
 def account_buy_membership():
     account_id = allthethings.utils.get_account_id(request.cookies)
     if account_id is None:
-        return "", 403
+        return allthethings.utils.sign_in_first_message(), 403
 
     tier = request.form['tier']
     method = request.form['method']
@@ -1054,6 +1054,11 @@ def account_buy_membership():
     if method in ['payment1b_alipay', 'payment1b_alipay_cc', 'payment1b_wechat', 'payment1c_alipay', 'payment1c_alipay_cc', 'payment1c_wechat', 'payment1d_alipay', 'payment1d_alipay_cc', 'payment1d_wechat', 'payment2', 'payment2paypal', 'payment2cashapp', 'payment2revolut', 'payment2cc', 'amazon', 'amazon_co_uk', 'amazon_fr', 'amazon_it', 'amazon_ca', 'amazon_de', 'amazon_es', 'amazon_au', 'amazon_jp', 'hoodpay', 'payment3a', 'payment3a_cc', 'payment3b']:
         donation_type = 1
 
+    cookies_ref_id = None
+    if allthethings.utils.validate_ref_id(request.cookies.get('ref_id')):
+        cookies_ref_id = request.cookies.get('ref_id')
+    cookies_ref_referer_header = request.cookies.get('ref_referer_header')
+
     with Session(mariapersist_engine) as mariapersist_session:
         donation_id = shortuuid.uuid()
         donation_json = {
@@ -1063,6 +1068,8 @@ def account_buy_membership():
             'monthly_cents': membership_costs['monthly_cents'],
             'discounts': membership_costs['discounts'],
             'full_domain': g.full_domain,
+            'cookies_ref_id': cookies_ref_id,
+            'cookies_ref_referer_header': cookies_ref_referer_header,
             # 'ref_account_id': allthethings.utils.get_referral_account_id(mariapersist_session, request.cookies.get('ref_id'), account_id),
         }
 
@@ -1211,7 +1218,7 @@ def account_buy_membership():
 def account_mark_manual_donation_sent(donation_id):
     account_id = allthethings.utils.get_account_id(request.cookies)
     if account_id is None:
-        return "", 403
+        return allthethings.utils.sign_in_first_message(), 403
 
     with Session(mariapersist_engine) as mariapersist_session:
         cursor = allthethings.utils.get_cursor_ping(mariapersist_session)
@@ -1219,7 +1226,7 @@ def account_mark_manual_donation_sent(donation_id):
         cursor.execute('SELECT * FROM mariapersist_donations WHERE account_id = %(account_id)s AND processing_status = 0 AND donation_id = %(donation_id)s LIMIT 1', { 'donation_id': donation_id, 'account_id': account_id })
         donation = cursor.fetchone()
         if donation is None:
-            return "", 403
+            return allthethings.utils.sign_in_first_message(), 403
 
         cursor.execute('UPDATE mariapersist_donations SET processing_status = 4 WHERE donation_id = %(donation_id)s AND processing_status = 0 AND account_id = %(account_id)s LIMIT 1', { 'donation_id': donation_id, 'account_id': account_id })
         mariapersist_session.commit()
@@ -1231,7 +1238,7 @@ def account_mark_manual_donation_sent(donation_id):
 def account_cancel_donation(donation_id):
     account_id = allthethings.utils.get_account_id(request.cookies)
     if account_id is None:
-        return "", 403
+        return allthethings.utils.sign_in_first_message(), 403
 
     with Session(mariapersist_engine) as mariapersist_session:
         cursor = allthethings.utils.get_cursor_ping(mariapersist_session)
@@ -1239,7 +1246,7 @@ def account_cancel_donation(donation_id):
         cursor.execute('SELECT * FROM mariapersist_donations WHERE account_id = %(account_id)s AND (processing_status = 0 OR processing_status = 4) AND donation_id = %(donation_id)s LIMIT 1', { 'account_id': account_id, 'donation_id': donation_id })
         donation = cursor.fetchone()
         if donation is None:
-            return "", 403
+            return allthethings.utils.sign_in_first_message(), 403
 
         cursor.execute('UPDATE mariapersist_donations SET processing_status = 2 WHERE donation_id = %(donation_id)s AND (processing_status = 0 OR processing_status = 4) AND account_id = %(account_id)s LIMIT 1', { 'donation_id': donation_id, 'account_id': account_id })
         mariapersist_session.commit()
@@ -1377,7 +1384,7 @@ def hoodpay_notify():
         cursor.execute('SELECT * FROM mariapersist_donations WHERE donation_id = %(donation_id)s LIMIT 1')
         donation = cursor.fetchone()
         if donation is None:
-            return "", 403
+            return allthethings.utils.sign_in_first_message(), 403
         donation_json = orjson.loads(donation['json'])
         hoodpay_status, hoodpay_request_success = allthethings.utils.hoodpay_check(cursor, donation_json['hoodpay_request']['data']['id'], donation_id)
         if not hoodpay_request_success:
@@ -1390,7 +1397,7 @@ def hoodpay_notify():
 #         connection.connection.ping(reconnect=True)
 #         donation = connection.execute(select(MariapersistDonations).where(MariapersistDonations.donation_id == donation_id).limit(1)).first()
 #         if donation is None:
-#             return "", 403
+#             return allthethings.utils.sign_in_first_message(), 403
 #         donation_json = orjson.loads(donation['json'])
 #         cursor = connection.connection.cursor(pymysql.cursors.DictCursor)
 #         hoodpay_status, hoodpay_request_success = allthethings.utils.hoodpay_check(cursor, donation_json['hoodpay_request']['data']['id'], donation_id)

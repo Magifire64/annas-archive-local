@@ -1475,7 +1475,7 @@ def reprocess_gift_cards(since_days):
     with Session(mariapersist_engine) as mariapersist_session:
         cursor = allthethings.utils.get_cursor_ping(mariapersist_session)
         datetime_from = datetime.datetime.now(tz=datetime.timezone.utc) - datetime.timedelta(days=int(since_days))
-        cursor.execute('SELECT * FROM mariapersist_donations WHERE created >= %(datetime_from)s AND processing_status IN (0,1,2,3,4) AND json LIKE \'%%"gc_notify_debug"%%\'', { "datetime_from": datetime_from })
+        cursor.execute('SELECT * FROM mariapersist_donations WHERE created >= %(datetime_from)s AND processing_status IN (0,1,2,3,4,6) AND json LIKE \'%%"gc_notify_debug"%%\'', { "datetime_from": datetime_from })
         donations = list(cursor.fetchall())
         for donation in tqdm.tqdm(donations, bar_format='{l_bar}{bar}{r_bar} {eta}'):
             for debug_data in orjson.loads(donation['json'])['gc_notify_debug']:
@@ -1493,7 +1493,7 @@ def payment2_check_recent_days(since_days, sleep_seconds):
         cursor = allthethings.utils.get_cursor_ping(mariapersist_session)
         datetime_from = datetime.datetime.now(tz=datetime.timezone.utc) - datetime.timedelta(days=int(since_days))
         # Don't close "payment2" quote, so we also catch strings like "payment2cashapp".
-        cursor.execute('SELECT * FROM mariapersist_donations WHERE created >= %(datetime_from)s AND processing_status IN (0,2,3,4) AND json LIKE \'%%"method":"payment2%%\'', { "datetime_from": datetime_from })
+        cursor.execute('SELECT * FROM mariapersist_donations WHERE created >= %(datetime_from)s AND processing_status IN (0,2,3,4,6) AND json LIKE \'%%"method":"payment2%%\'', { "datetime_from": datetime_from })
         donations = list(cursor.fetchall())
         for donation in tqdm.tqdm(donations, bar_format='{l_bar}{bar}{r_bar} {eta}'):
             donation_json = orjson.loads(donation['json'])

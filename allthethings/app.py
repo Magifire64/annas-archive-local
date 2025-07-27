@@ -12,6 +12,7 @@ import datetime
 import calendar
 import random
 import re
+import urllib.parse
 
 from celery import Celery
 from flask import Flask, request, g, redirect, url_for, make_response
@@ -308,14 +309,22 @@ def extensions(app):
         g.darkreader_code = get_static_file_contents(safe_join(app.static_folder, 'js/darkreader.js'))
 
         ref_id = request.args.get('r') or ''
-        if re.fullmatch(r'[A-Za-z0-9]+', ref_id):
+        if allthethings.utils.validate_ref_id(ref_id):
             updated_args = request.args.to_dict()
             updated_args.pop('r', None)
-            clean_url = url_for(request.endpoint, **updated_args)
+            clean_url = request.path + (f"?{urllib.parse.urlencode(updated_args)}" if len(updated_args) > 0 else "")
             resp = make_response(redirect(clean_url, code=302))
             resp.set_cookie(
                 key='ref_id',
                 value=ref_id,
+                expires=datetime.datetime(9999,1,1),
+                httponly=True,
+                secure=g.secure_domain,
+                domain=g.base_domain,
+            )
+            resp.set_cookie(
+                key='ref_referer_header',
+                value=request.headers.get("Referer") or '',
                 expires=datetime.datetime(9999,1,1),
                 httponly=True,
                 secure=g.secure_domain,

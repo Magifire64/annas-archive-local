@@ -1,0 +1,39 @@
+{% extends "layouts/index.html" %}
+
+{% block title %}Referrals (beta){% endblock %}
+
+{% block body %}
+  <h2 class="mt-4 mb-4 text-3xl font-bold">Referrals (beta)</h2>
+
+  <p class="mb-4">
+    Earn money by referring users who donate.
+  </p>
+
+  <p class="mb-4">
+    Rules:<br>
+    - Link to any page on Anna’s Archive with a <code class="text-xs break-all text-gray-600">?r={{ account_id }}</code> query parameter.<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Examples: <a href="/md5/8336332bf5877e3adbfb60ac70720cd5?r={{ account_id }}">1</a>, <a href="/search?q=Against%20intellectual%20monopoly&r={{ account_id }}">2</a>, <a href="/?r={{ account_id }}">3</a><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A cookie will be set, and when the user makes a donation, you earn money.<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You have to let the browser send a Referer header.<br>
+    - You earn 20% of the donation after transaction fees.<br>
+    - Transaction fees are 15%, except Amazon gift cards (30%).<br>
+    - You can’t misrepresent us by using “Anna’s Archive” as the name of your account, website, or domain. You <em>can</em> link to us as “Anna’s Archive”.<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You also can’t misrepresent Z-Library, Library Genesis, or Sci-Hub (however you can use those names with the word “alternative”).<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You can’t say you’re an official partner of us.<br>
+    - We will pay you in XMR (no other methods are possible) once you have at least $50 in total earnings from at least 10 donations.<br>
+    - When you reach this threshold, <a href="/contact">email us</a>, and send a screenshot of this page, screenshots+links showing how you link to us, and your XMR address.
+  </p>
+
+  <p class="mb-4">
+    <span class="font-bold">Account ID:</span> {{ account_id }}<br>
+    <span class="font-bold">Donations:</span> {{ donations_count }}<br>
+    <span class="font-bold">Total earnings:</span> {{ earnings_total }}
+  </p>
+
+  <table>
+    <tr><th class="min-w-[150px] text-left">date</th><th class="min-w-[150px] text-left">earnings</th><th class="min-w-[150px] text-left">donations</th></tr>
+    {% for day_dict in earnings_by_day %}
+      <tr><td>{{ day_dict.day }}</td><td>{{ day_dict.earnings }}</td><td>{{ counts_by_day[day_dict.day] }}</td></tr>
+    {% endfor %}
+  </table>
+{% endblock %}
