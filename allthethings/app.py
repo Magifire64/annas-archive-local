@@ -11,9 +11,10 @@ import ipaddress
 import datetime
 import calendar
 import random
+import re
 
 from celery import Celery
-from flask import Flask, request, g, redirect
+from flask import Flask, request, g, redirect, url_for, make_response
 from werkzeug.security import safe_join
 from werkzeug.debug import DebuggedApplication
 from werkzeug.middleware.proxy_fix import ProxyFix
@@ -305,6 +306,22 @@ def extensions(app):
         g.fraction_of_the_month = today / monthrange
 
         g.darkreader_code = get_static_file_contents(safe_join(app.static_folder, 'js/darkreader.js'))
+
+        ref_id = request.args.get('r') or ''
+        if re.fullmatch(r'[A-Za-z0-9]+', ref_id):
+            updated_args = request.args.to_dict()
+            updated_args.pop('r', None)
+            clean_url = url_for(request.endpoint, **updated_args)
+            resp = make_response(redirect(clean_url, code=302))
+            resp.set_cookie(
+                key='ref_id',
+                value=ref_id,
+                expires=datetime.datetime(9999,1,1),
+                httponly=True,
+                secure=g.secure_domain,
+                domain=g.base_domain,
+            )
+            return resp
 
     return None
 

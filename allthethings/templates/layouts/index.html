@@ -179,24 +179,6 @@
         };
       })();
     </script>
-    <script>
-      (function() {
-        var pageUrl = new URL(document.location);
-        var hashMatch = pageUrl.hash.match(/r=([a-zA-Z0-9]+)/);
-        if (hashMatch && hashMatch[1].length < 20) {
-          if (!document.cookie.includes('ref_id=' + hashMatch[1])) {
-            if (window.baseDomain) {
-              document.cookie = 'ref_id=' + hashMatch[1] + ';path=/;expires=Fri, 31 Dec 9999 23:59:59 GMT;domain=' + window.baseDomain;
-            } else {
-              document.cookie = 'ref_id=' + hashMatch[1] + ';path=/;expires=Fri, 31 Dec 9999 23:59:59 GMT';
-            }
-            if (pageUrl.pathname == "/donate") {
-              document.location = "/donate";
-            }
-          }
-        }
-      })();
-    </script>
     {% block main %}
       <div class="header" role="navigation">
         <div>
