@@ -30,10 +30,12 @@
     <span class="font-bold">Total earnings:</span> {{ earnings_total }}
   </p>
 
-  <table>
-    <tr><th class="min-w-[150px] text-left">date</th><th class="min-w-[150px] text-left">earnings</th><th class="min-w-[150px] text-left">donations</th></tr>
-    {% for day_dict in earnings_by_day %}
-      <tr><td>{{ day_dict.day }}</td><td>{{ day_dict.earnings }}</td><td>{{ counts_by_day[day_dict.day] }}</td></tr>
-    {% endfor %}
-  </table>
+  {% if (earnings_by_day | length) > 0 %}
+    <table>
+      <tr><th class="min-w-[150px] text-left">date</th><th class="min-w-[150px] text-left">earnings</th><th class="min-w-[150px] text-left">donations</th></tr>
+      {% for day_dict in earnings_by_day %}
+        <tr><td>{{ day_dict.day }}</td><td>{{ day_dict.earnings }}</td><td>{{ counts_by_day[day_dict.day] }}</td></tr>
+      {% endfor %}
+    </table>
+  {% endif %}
 {% endblock %}
