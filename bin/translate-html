@@ -491,7 +491,7 @@ class HTMLTranslator:
 
         parent_context_info = self.context_stack[-1] if self.context_stack else None
         if isinstance(parent_context_info, TranslationContext):
-            self.translations[parent_context_info.key] += data
+            self.translations[parent_context_info.key] += data.replace('%', '%%')
         else:
             self.processed_tokens.append(token)
 
