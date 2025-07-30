@@ -1161,9 +1161,9 @@ def gc_notify(cursor, request_data, dont_store_errors=False):
     if len(potential_money) == 0:
         potential_money = re.findall(r"\n([0123456789]+[.,][0123456789]{2})[ ]?[$€£]", message_body)
     if len(potential_money) == 0:
-        potential_money = re.findall(r"\n[￥][ ]?([0123456789]+)", message_body)
+        potential_money = re.findall(r"\n([￥][ ]?[0123456789]+,000)", message_body)
     if len(potential_money) == 0:
-        potential_money = re.findall(r"\n[￥][ ]?([0123456789]+,000)", message_body)
+        potential_money = re.findall(r"\n([￥][ ]?[0123456789]+)", message_body)
     if len(potential_money) == 0:
         return exec_err(f"Warning: gc_notify message '{message['X-Original-To']}' with no matches for potential_money")
 
@@ -1205,8 +1205,8 @@ def gc_notify(cursor, request_data, dont_store_errors=False):
         return exec_err(f"Warning: gc_notify message '{message['X-Original-To']}' with invalid domain for current currency {domain=} {donation['native_currency_code']=} {allowed_domains_for_currency=}")
 
     # Keep in sync!
-    if '￥' in potential_money[0]:
-        money = float(potential_money[-1].replace(',',''))
+    if '￥' in potential_money[-1]:
+        money = float(potential_money[-1].replace('￥','').replace(' ','').replace(',',''))
     else:
         money = float(potential_money[-1].replace(',', '.'))
     # Allow for 5% margin
