@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-31 04:42+0000\n"
-"PO-Revision-Date: 2025-08-01 05:25+0000\n"
+"PO-Revision-Date: 2025-08-02 08:25+0000\n"
 "Last-Translator: Dennis <nateajatt@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ja\n"
@@ -1555,153 +1555,117 @@ msgstr "<strong>AAC</strong>（Anna's Archive Container）は、<strong>メタ�
 msgid "blog.annas-archive-containers.standard.collection"
 msgstr "<strong>コレクション：</strong> 各 AAC はコレクションに属しており、コレクションとは意味的に一貫性のある AAC のリストです。メタデータの形式に大きな変更を加える場合は、新しいコレクションを作成する必要があります。"
 
-#, fuzzy
 msgid "blog.annas-archive-containers.standard.records-files"
 msgstr "<strong>「レコード」と「ファイル」のコレクション.</strong> 慣例として、「レコード」と「ファイル」を異なるコレクションとしてリリースすることが便利なことが多く、例えばスクレイピングの速度に基づいて異なるスケジュールでリリースできます。「レコード」はメタデータのみのコレクションで、本のタイトル、著者、ISBNなどの情報を含み、「ファイル」は実際のファイル（pdf、epub）を含むコレクションです。"
 
-#, fuzzy
 msgid "blog.annas-archive-containers.standard.aacid"
-msgstr "<strong>AACID.</strong> AACIDの形式は次の通りです：<code style=\"color: #0093ff\">aacid__{collection}__{ISO 8601 timestamp}__{collection-specific ID}__{shortuuid}</code>。例えば、私たちがリリースした実際のAACIDは<code style=\"color: #0093ff\">aacid__zlib3_records__20230808T014342Z__22433983__URsJNGy5CjokTsNT6hUmmj</code>です。"
+msgstr "<strong>AACID（アークID）</strong>AACIDのフォーマットは次のようになっています：<code style=\"color: #0093ff\">aacid__{collection}{ISO 8601 タイムスタンプ}{コレクション固有のID}__{shortuuid}</code>たとえば、実際にリリースされたAACIDの一例は、<code style=\"color: #0093ff\">aacid__zlib3_records__20230808T014342Z__22433983__URsJNGy5CjokTsNT6hUmmj</code>です。"
 
-#, fuzzy
 msgid "blog.annas-archive-containers.standard.aacid.collection"
-msgstr "<code>{collection}</code>: コレクション名で、ASCII文字、数字、アンダースコアを含むことができます（ただし、ダブルアンダースコアは不可）。"
+msgstr "<code>{collection}</code>：コレクション名を表します。ASCII文字（英字）、数字、アンダースコア（_）を含むことができますが、ダブルアンダースコア（__）は使用できません。"
 
-#, fuzzy
 msgid "blog.annas-archive-containers.standard.aacid.iso8601"
-msgstr "<code>{ISO 8601 timestamp}</code>: ISO 8601の短縮版で、常にUTCで、例：<code>20220723T194746Z</code>。この番号は、リリースごとに単調に増加する必要がありますが、その正確な意味はコレクションごとに異なる場合があります。スクレイピングの時間やID生成の時間を使用することをお勧めします。"
+msgstr "<code>{ISO 8601 timestamp}</code>：ISO 8601形式の短縮版で、常にUTC（協定世界時）で表記されます。例：<code>20220723T194746Z</code>。この数字は、リリースのたびに単調に増加する必要がありますが、正確な意味づけはコレクションごとに異なる場合があります。スクレイピング実行時やID生成時のタイムスタンプを使用することを推奨します。"
 
-#, fuzzy
 msgid "blog.annas-archive-containers.standard.aacid.collection-id"
-msgstr "<code>{collection-specific ID}</code>: コレクション固有の識別子で、該当する場合、例：Z-ライブラリID。省略または切り捨てることができます。AACIDが150文字を超える場合は、省略または切り捨てる必要があります。"
+msgstr "<code>{collection-specific ID}</code>：必要に応じて使われる、コレクションごとのID（例：Z-LibraryのIDなど）です。使わなくても構いませんし、短くしてもOKです。ただし、AACID全体が150文字を超えそうな場合は、省略や短縮が必須です。"
 
-#, fuzzy
 msgid "blog.annas-archive-containers.standard.aacid.shortuuid"
 msgstr "<code>{shortuuid}</code>: UUIDですが、ASCIIに圧縮されています。例としてbase57を使用します。現在、<a %(github_skorokithakis_shortuuid)s>shortuuid</a> Pythonライブラリを使用しています。"
 
-#, fuzzy
 msgid "blog.annas-archive-containers.standard.aacid-range"
-msgstr "<strong>AACID範囲.</strong> AACIDには単調に増加するタイムスタンプが含まれているため、特定のコレクション内の範囲を示すためにそれを使用できます。この形式を使用します：<code style=\"color: blue\">aacid__{collection}__{from_timestamp}--{to_timestamp}</code>、タイムスタンプは包括的です。これはISO 8601表記と一致しています。範囲は連続しており、重複することがありますが、重複がある場合は、そのコレクションで以前にリリースされたものと同一のレコードを含む必要があります（AACは不変であるため）。欠落したレコードは許可されていません。"
+msgstr "<strong>AACIDレンジ</strong>：AACIDには単調増加のタイムスタンプが含まれているため、それを利用して特定のコレクション内の範囲を示すことができます。フォーマットは以下の通りです：<code style=\"color: blue\">aacid__{collection}__{from_timestamp}--{to_timestamp}</code>。これは ISO 8601 の表記法に準拠しています。範囲は連続している必要があり、重複しても構いませんが、その場合、重複するレコードはすでに同一コレクション内でリリースされたものと完全に一致していなければなりません（AACは不変であるため）。欠落レコードは許可されていません。"
 
-#, fuzzy
 msgid "blog.annas-archive-containers.standard.metadata-file"
 msgstr "<strong>メタデータファイル.</strong> メタデータファイルは、特定のコレクションのAACの範囲のメタデータを含みます。これらには次の特性があります："
 
-#, fuzzy
 msgid "blog.annas-archive-containers.standard.metadata-file.filename"
 msgstr "ファイル名は、<code style=\"color: red\">annas_archive_meta__</code>で始まり、<code>.jsonl.zstd</code>で終わるAACID範囲でなければなりません。例えば、私たちのリリースの一つは次のように呼ばれています：<br><code><span style=\"color: red\">annas_archive_meta__</span><span style=\"color: blue\">aacid__zlib3_records__20230808T014342Z--20230808T023702Z</span>.jsonl.zst</code>。"
 
-#, fuzzy
 msgid "blog.annas-archive-containers.standard.metadata-file.jsonlines"
 msgstr "ファイル拡張子が示すように、ファイルタイプは<a %(jsonlines)s>JSON Lines</a>で<a %(zstd)s>Zstandard</a>で圧縮されています。"
 
-#, fuzzy
 msgid "blog.annas-archive-containers.standard.metadata-file.fields"
 msgstr "各JSONオブジェクトは、トップレベルに次のフィールドを含む必要があります：<strong>aacid</strong>、<strong>metadata</strong>、<strong>data_folder</strong>（オプション）。他のフィールドは許可されていません。"
 
-#, fuzzy
 msgid "blog.annas-archive-containers.standard.metadata-file.metadata"
 msgstr "<code>metadata</code>は、コレクションのセマンティクスに従った任意のメタデータです。コレクション内で意味的に一貫している必要があります。"
 
-#, fuzzy
 msgid "blog.annas-archive-containers.standard.metadata-file.data_folder"
-msgstr "<code>data_folder</code>はオプションで、対応するバイナリデータを含むバイナリデータフォルダの名前です。そのフォルダ内の対応するバイナリデータのファイル名はレコードのAACIDです。"
+msgstr "<code>data_folder</code> は任意項目です。この項目は、対応するバイナリデータを格納するフォルダ名を指定します。そのフォルダ内にある対応データのファイル名は、各レコードの AACID と一致します。"
 
-#, fuzzy
 msgid "blog.annas-archive-containers.standard.metadata-file.prefix"
 msgstr "<code style=\"color: red\">annas_archive_meta__</code>プレフィックスは、あなたの機関の名前に適応させることができます。例：<code style=\"color: red\">my_institute_meta__</code>。"
 
-#, fuzzy
 msgid "blog.annas-archive-containers.standard.binary"
-msgstr "<strong>バイナリデータフォルダ.</strong> 特定のコレクションのAACの範囲のバイナリデータを含むフォルダ。これらには次の特性があります："
+msgstr "<strong>バイナリデータのフォルダ.</strong> 特定のコレクションのAACの範囲のバイナリデータを含むフォルダ。これらには次の特性があります："
 
-#, fuzzy
 msgid "blog.annas-archive-containers.standard.binary.name"
 msgstr "ディレクトリ名は、<code style=\"color: green\">annas_archive_data__</code>で始まり、サフィックスはありません。例えば、私たちの実際のリリースの一つには、次のようなディレクトリがあります：<br><code><span style=\"color: green\">annas_archive_data__</span><span style=\"color: blue\">aacid__zlib3_files__20230808T055130Z--20230808T055131Z</span></code>。"
 
-#, fuzzy
 msgid "blog.annas-archive-containers.standard.binary.contents"
 msgstr "ディレクトリには、指定された範囲内のすべてのAACのデータファイルを含める必要があります。各データファイルは、そのAACIDをファイル名として持たなければなりません（拡張子なし）。"
 
-#, fuzzy
 msgid "blog.annas-archive-containers.standard.binary.tip"
-msgstr "これらのフォルダはある程度管理しやすいサイズにすることをお勧めします。例えば、各フォルダのサイズが100GBから1TBを超えないようにしますが、この推奨事項は時間とともに変わる可能性があります。"
+msgstr "各フォ各フォルダのサイズは大きくなりすぎないよう、100GB〜1TB程度を目安にするのがおすすめです。この目安は将来変わることがあります。"
 
-#, fuzzy
 msgid "blog.annas-archive-containers.standard.torrents"
 msgstr "<strong>トレント。</strong> メタデータファイルとバイナリデータフォルダはトレントでまとめることができ、1つのメタデータファイルにつき1つのトレント、または1つのバイナリデータフォルダにつき1つのトレントとします。トレントは元のファイル/ディレクトリ名に<code>.torrent</code>のサフィックスを付けたファイル名でなければなりません。"
 
 msgid "blog.annas-archive-containers.example.heading"
 msgstr "例"
 
-#, fuzzy
 msgid "blog.annas-archive-containers.example.text1"
 msgstr "最近のZ-ライブラリのリリースを例に見てみましょう。これは2つのコレクションで構成されています：「<span style=\"background: #fffaa3\">zlib3_records</span>」と「<span style=\"background: #ffd6fe\">zlib3_files</span>」。これにより、実際の書籍ファイルからメタデータレコードを個別にスクレイピングしてリリースすることができます。このようにして、メタデータファイルを含む2つのトレントをリリースしました。"
 
-#, fuzzy
 msgid "blog.annas-archive-containers.example.text2"
 msgstr "また、バイナリデータフォルダを含むトレントも多数リリースしましたが、これは「<span style=\"background: #ffd6fe\">zlib3_files</span>」コレクションのみで、合計62個です。"
 
-#, fuzzy
 msgid "blog.annas-archive-containers.example.text3"
 msgstr "<code>zstdcat <span style=\"color: red\">annas_archive_meta__</span><span style=\"color: blue\">aacid__<span style=\"background: #fffaa3\">zlib3_records</span>__20230808T014342Z--20230808T023702Z.jsonl.zst</span></code>を実行することで、中身を確認できます。"
 
-#, fuzzy
 msgid "blog.annas-archive-containers.example.text4"
 msgstr "この場合、Z-ライブラリによって報告された書籍のメタデータです。トップレベルには「aacid」と「metadata」しかなく、「data_folder」はありません。対応するバイナリデータがないためです。AACIDには「22430000」が主なIDとして含まれており、「zlibrary_id」から取得されたことがわかります。このコレクションの他のAACも同じ構造を持つと予想されます。"
 
-#, fuzzy
 msgid "blog.annas-archive-containers.example.text5"
 msgstr "次に、<code>zstdcat <span style=\"color: red\">annas_archive_meta__</span><span style=\"color: blue\">aacid__<span style=\"background: #ffd6fe\">zlib3_files</span>__20230808T051503Z--20230809T223215Z.jsonl.zst</span></code>を実行してみましょう。"
 
-#, fuzzy
 msgid "blog.annas-archive-containers.example.text6"
 msgstr "これははるかに小さなAACメタデータですが、このAACの大部分はバイナリファイルの別の場所にあります！結局のところ、今回は「data_folder」があるので、対応するバイナリデータが<code><span style=\"color: green\">annas_archive_data__</span><span style=\"color: blue\">aacid__<span style=\"background: #ffd6fe\">zlib3_files</span>__20230808T051503Z--20230808T051504Z</span>/<span style=\"color: #0093ff\">aacid__<span style=\"background: #ffd6fe\">zlib3_files</span>__20230808T051503Z__22433983__NRgUGwTJYJpkQjTbz2jA3M</span></code>にあると予想できます。「metadata」には「zlibrary_id」が含まれているので、「zlib_records」コレクション内の対応するAACと簡単に関連付けることができます。AACIDを通じて関連付けることも可能です — 標準ではそれを規定していません。"
 
-#, fuzzy
 msgid "blog.annas-archive-containers.example.text7"
 msgstr "「metadata」フィールド自体がJSONである必要はないことにも注意してください。XMLや他のデータ形式を含む文字列である可能性もあります。大量のデータであれば、関連するバイナリブロブにメタデータ情報を保存することもできます。"
 
 msgid "blog.annas-archive-containers.conclusion.heading"
 msgstr "結論"
 
-#, fuzzy
 msgid "blog.annas-archive-containers.conclusion.text1"
 msgstr "この標準を使用することで、リリースをより段階的に行い、新しいデータソースをより簡単に追加できます。すでにいくつかのエキサイティングなリリースが進行中です！"
 
-#, fuzzy
 msgid "blog.annas-archive-containers.conclusion.text2"
-msgstr "また、他のシャドウライブラリが私たちのコレクションをミラーリングしやすくなることを願っています。結局のところ、私たちの目標は人類の知識と文化を永遠に保存することなので、冗長性が多いほど良いのです。"
+msgstr "他のシャドウライブラリがこののコレクションをミラーリングしやすくなることを願っています。結局のところ、私たちの目標は人類の知識と文化を永遠に保存することなので、冗長性が多いほど良いのです。"
 
-#, fuzzy
 msgid "blog.annas-archive-containers.conclusion"
 msgstr "- アンナとチーム (<a %(reddit)s>Reddit</a>, <a %(t_me)s>Telegram</a>)"
 
-#, fuzzy
 msgid "blog.annas-update-2022.title"
 msgstr "アンナのアップデート: 完全オープンソースのアーカイブ、ElasticSearch、300GB以上のブックカバー"
 
-#, fuzzy
 msgid "blog.annas-update-2022.tldr"
 msgstr "私たちはアンナのアーカイブで良い代替手段を提供するために昼夜を問わず取り組んできました。最近達成したことのいくつかを以下に示します。"
 
-#, fuzzy
 msgid "blog.annas-update-2022.text1"
-msgstr "Z-ライブラリが閉鎖され、その（疑われる）創設者が逮捕されたことで、私たちはアンナのアーカイブで良い代替手段を提供するために昼夜を問わず取り組んできました（ここではリンクしませんが、Googleで検索できます）。最近達成したことのいくつかを以下に示します。"
+msgstr "Z-Libraryが閉鎖され、その（疑われる）創設者が逮捕されたことで、私たちはアンナのアーカイブで良い代替手段を提供するために昼夜を問わず取り組んできました（ここではリンクしませんが、Googleで検索できます）。最近達成したことのいくつかを以下に示します。"
 
-#, fuzzy
 msgid "blog.annas-update-2022.open-source"
 msgstr "アンナのアーカイブは完全にオープンソースです"
 
-#, fuzzy
 msgid "blog.annas-update-2022.open-source.text1"
 msgstr "情報は自由であるべきだと私たちは信じており、私たち自身のコードも例外ではありません。私たちはすべてのコードをプライベートでホストしているGitlabインスタンスで公開しました：<a %(annas_archive)s>アンナのソフトウェア</a>。また、作業を整理するためにイシュートラッカーを使用しています。開発に参加したい場合は、ここから始めるのが良いでしょう。"
 
-#, fuzzy
 msgid "blog.annas-update-2022.open-source.text2"
-msgstr "私たちが取り組んでいることの一端をお見せするために、クライアント側のパフォーマンス改善に関する最近の作業を取り上げます。まだページネーションを実装していないため、100〜200件の結果を持つ非常に長い検索ページを返すことがよくありました。検索結果を早く切りたくはありませんでしたが、これにより一部のデバイスが遅くなることがありました。これに対して、ちょっとしたトリックを実装しました：ほとんどの検索結果をHTMLコメント(<code><!-- --></code>)でラップし、結果が表示されるべき時にコメントを解除する小さなJavascriptを書きました。"
+msgstr "現在取り組んでいる内容の一部をご紹介すると、最近はクライアント側のパフォーマンス改善に注力しています。まだページネーション（ページ分割）を実装していないため、検索結果ページには 100〜200 件ほどの結果が一度に表示されることがありました。検索結果を早い段階で打ち切りたくはなかったのですが、これにより一部の端末では動作が重くなってしまうという問題がありました。そこで、私たちはちょっとした工夫を施しました。検索結果の大部分をHTMLコメント(<code><!-- --></code>)でラップし、「結果が表示される必要がある」と判断されたタイミングで、コメントを外して表示するようなJavaScriptを組み込みました。"
 
-#, fuzzy
 msgid "blog.annas-update-2022.open-source.text3"
 msgstr "DOM「仮想化」は23行で実装され、派手なライブラリは不要です！限られた時間で解決すべき実際の問題があるときに、こうした迅速で実用的なコードが生まれます。現在、遅いデバイスでも検索がうまく機能するとの報告があります！"
 
@@ -1767,68 +1731,54 @@ msgstr "- アンナとチーム (<a %(reddit)s>Reddit</a>)"
 msgid "blog.backed-up-libgen-li.title"
 msgstr "アンナのアーカイブは、世界最大のコミックシャドウライブラリ（95TB）をバックアップしました — あなたもシードに協力できます"
 
-#, fuzzy
 msgid "blog.backed-up-libgen-li.tldr"
-msgstr "世界最大のコミックブックのシャドウライブラリには、これまで単一の障害点がありましたが…今日までです。"
+msgstr "世界最大の漫画のシャドウライブラリには、これまで単一の障害点がありましたが…今日までです。"
 
-#, fuzzy
 msgid "blog.backed-up-libgen-li.links"
 msgstr "<a %(news_ycombinator)s>Hacker Newsで議論する</a>"
 
-#, fuzzy
 msgid "blog.backed-up-libgen-li.text1"
 msgstr "コミックブックの最大のシャドウライブラリは、おそらく特定のLibrary Genesisフォーク、Libgen.liのものです。そのサイトを運営する1人の管理者は、200万以上のファイルを集め、合計95TBを超える驚異的なコミックコレクションを収集しました。しかし、他のLibrary Genesisコレクションとは異なり、これはトレントを通じて一括で利用できませんでした。これらのコミックは彼の遅い個人サーバーを通じて個別にしかアクセスできませんでした — 単一障害点です。今日まで！"
 
-#, fuzzy
 msgid "blog.backed-up-libgen-li.text2"
 msgstr "この投稿では、このコレクションについて、そしてこの作業をさらにサポートするための資金調達についてお話しします。"
 
-#, fuzzy
 msgid "blog.backed-up-libgen-li.fig1"
 msgstr "<q>バーバラ・ゴードン博士は、図書館の平凡な世界に没頭しようとします…</q>"
 
 msgid "blog.backed-up-libgen-li.forks"
 msgstr "Libgenフォーク"
 
-#, fuzzy
 msgid "blog.backed-up-libgen-li.forks.text1"
 msgstr "まず、背景を少し説明します。Library Genesisはその壮大な書籍コレクションで知られているかもしれません。Library Genesisのボランティアが他にもプロジェクトを立ち上げていることを知っている人は少ないです。例えば、雑誌や標準文書の大規模なコレクション、Sci-Hubの完全なバックアップ（Sci-Hubの創設者アレクサンドラ・エルバキアンとの協力による）、そして実際に膨大なコミックのコレクションがあります。"
 
-#, fuzzy
 msgid "blog.backed-up-libgen-li.forks.text2"
 msgstr "ある時点で、Library Genesisのミラーの異なる運営者たちがそれぞれの道を歩み始め、現在のように複数の異なる「フォーク」が存在する状況が生まれましたが、すべてがLibrary Genesisの名前を保持しています。Libgen.liフォークは、このコミックコレクションと、かなりの雑誌コレクションを独自に持っています（これも私たちが取り組んでいるところです）。"
 
 msgid "blog.backed-up-libgen-li.collaboration"
 msgstr "共同作業"
 
-#, fuzzy
 msgid "blog.backed-up-libgen-li.collaboration.text1"
-msgstr "その規模を考えると、このコレクションは長い間私たちのウィッシュリストにありました。Z-ライブラリのバックアップに成功した後、このコレクションに目を向けました。最初は直接スクレイピングしましたが、彼らのサーバーの状態が良くなかったため、かなりの挑戦でした。この方法で約15TBを取得しましたが、進行は遅かったです。"
+msgstr "このコレクションは、その規模から以前より私たちの「やりたいことリスト」の上位にありました。Z-Libraryのバックアップに成功したあと、次のターゲットとしてこのコレクションに狙いを定めました。当初は直接スクレイピングを試みましたが、これはなかなかの挑戦でした。というのも、相手側のサーバー状態があまり良くなかったためです。この方法で約15TBのデータを取得することができましたが、非常に時間のかかる作業でした。"
 
-#, fuzzy
 msgid "blog.backed-up-libgen-li.collaboration.text2"
 msgstr "幸運にも、ライブラリの運営者と連絡を取ることができ、すべてのデータを直接送ってもらうことに同意してもらいました。これにより、はるかに速くなりました。それでも、すべてのデータを転送して処理するのに半年以上かかり、ディスクの破損でほとんどすべてを失うところでした。そうなれば、最初からやり直しになるところでした。"
 
-#, fuzzy
 msgid "blog.backed-up-libgen-li.collaboration.text3"
 msgstr "この経験から、データをできるだけ早く公開し、広くミラーリングすることが重要だと考えるようになりました。私たちは、このコレクションを永遠に失うまで、あと一つか二つの不運なタイミングの出来事からしか離れていません！"
 
 msgid "blog.backed-up-libgen-li.collection"
 msgstr "コレクション"
 
-#, fuzzy
 msgid "blog.backed-up-libgen-li.collection.text1"
 msgstr "迅速に動くということは、コレクションが少し整理されていないことを意味します…見てみましょう。ファイルシステムがあると想像してください（実際にはトレントに分割していますが）。"
 
-#, fuzzy
 msgid "blog.backed-up-libgen-li.collection.text2"
 msgstr "最初のディレクトリ、<code>/repository</code>は、これのより構造化された部分です。このディレクトリには、いわゆる「千ディレクトリ」が含まれています。各ディレクトリには千のファイルがあり、データベースで順次番号が付けられています。ディレクトリ<code>0</code>には、comic_id 0–999のファイルが含まれています。"
 
-#, fuzzy
 msgid "blog.backed-up-libgen-li.collection.text3"
 msgstr "これは、Library Genesisがフィクションとノンフィクションのコレクションに使用しているのと同じスキームです。アイデアは、各「千ディレクトリ」がいっぱいになるとすぐに自動的にトレントに変換されるというものです。"
 
-#, fuzzy
 msgid "blog.backed-up-libgen-li.collection.text4"
 msgstr "しかし、Libgen.liの運営者はこのコレクションのトレントを作成しなかったため、千ディレクトリはおそらく不便になり、「未整理ディレクトリ」に道を譲りました。これらは<code>/comics0</code>から<code>/comics4</code>までです。これらはすべてユニークなディレクトリ構造を持っており、ファイルを収集するためには理にかなっていたかもしれませんが、今ではあまり意味を成しません。幸いなことに、metadataはこれらすべてのファイルを直接参照しているため、ディスク上のストレージの組織は実際には問題ではありません！"
 
@@ -1950,11 +1900,9 @@ msgstr "新しいコレクションを確認するには、Pirate Library Mirror
 msgid "blog.3x-new-books.text5"
 msgstr "もちろん、シードすることも私たちを助ける素晴らしい方法です。以前のトレントセットをシードしている皆さん、ありがとうございます。私たちはポジティブな反応に感謝し、この異例の方法で知識と文化の保存に関心を持つ多くの人々がいることを嬉しく思います。"
 
-#, fuzzy
 msgid "blog.3x-new-books.signature"
 msgstr "- アンナとチーム (<a %(reddit)s>Reddit</a>)"
 
-#, fuzzy
 msgid "blog.how-to.title"
 msgstr "海賊アーキビストになる方法"
 
@@ -1962,7 +1910,6 @@ msgstr "海賊アーキビストになる方法"
 msgid "blog.how-to.tldr"
 msgstr "最初の課題は意外なものかもしれません。それは技術的な問題でも、法的な問題でもありません。心理的な問題です。"
 
-#, fuzzy
 msgid "blog.how-to.updates"
 msgstr "始める前に、海賊図書館ミラー（編集済み：<a %(wikipedia_annas_archive)s>アンナのアーカイブ</a>に移動）に関する2つの更新情報があります。"
 
@@ -2128,9 +2075,8 @@ msgstr "ウェブサイト全体をスクレイピングする前に、少し手
 msgid "blog.how-to.projects.metadata.text3"
 msgstr "制限を回避するために試せることがいくつかあります。同じデータをホストしているが同じ制限がない他のIPアドレスやサーバーはありますか？制限がないAPIエンドポイントはありますか？どのダウンロード速度でIPがブロックされ、どのくらいの期間ブロックされますか？ブロックされずに速度が制限されることはありますか？ユーザーアカウントを作成すると、どのように変わりますか？HTTP/2を使用して接続を開いたままにし、ページをリクエストする速度を上げることはできますか？複数のファイルを一度にリストするページがあり、そこにリストされている情報は十分ですか？"
 
-#, fuzzy
 msgid "blog.how-to.projects.metadata.text4"
-msgstr "保存したいものには以下が含まれるでしょう："
+msgstr "保存しておくべき情報には、以下のようなものが含まれます："
 
 msgid "blog.how-to.projects.metadata.title"
 msgstr "タイトル"
@@ -2138,7 +2084,6 @@ msgstr "タイトル"
 msgid "blog.how-to.projects.metadata.location"
 msgstr "ファイル名 / 場所"
 
-#, fuzzy
 msgid "blog.how-to.projects.metadata.id"
 msgstr "ID: 内部IDでも構いませんが、ISBNやDOIのようなIDは便利です。"
 
@@ -2237,7 +2182,6 @@ msgstr "各プロジェクトで決定することの一つは、以前と同じ
 msgid "blog.how-to.projects.distribution.text7"
 msgstr "情報を広めることは難しいかもしれません。私たちが言ったように、これはまだニッチなコミュニティです。私たちは最初にRedditに投稿しましたが、実際にはHacker Newsで注目を集めました。今のところ、いくつかの場所に投稿して何が起こるかを見てみることをお勧めします。そして、再び私たちに連絡してください。私たちは、より多くの海賊アーカイブ活動の言葉を広めたいと思っています。"
 
-#, fuzzy
 msgid "blog.how-to.conclusion"
 msgstr "結論"
 
@@ -2245,11 +2189,9 @@ msgstr "結論"
 msgid "blog.how-to.conclusion.text1"
 msgstr "新たに始める海賊アーカイブ主義者にとって、これが役立つことを願っています。この世界にあなたを迎えることに興奮していますので、遠慮なく連絡してください。できるだけ多くの世界の知識と文化を保存し、それを広くミラーリングしましょう。"
 
-#, fuzzy
 msgid "blog.how-to.signature"
 msgstr "- アンナとチーム (<a %(reddit)s>Reddit</a>)"
 
-#, fuzzy
 msgid "blog.introducing.title"
 msgstr "海賊図書館ミラーの紹介：Libgenにない7TBの本を保存"
 
@@ -2379,7 +2321,6 @@ msgstr "この投稿では、私たちの以前のZ-ライブラリのリリー�
 msgid "blog.isbndb-dump.text9"
 msgstr "私たちが共有するのは、世界中の本の数を推定するための予備的な分析です。私たちは3つのデータセットを調べました：この新しいISBNdbデータセット、Z-ライブラリシャドウライブラリからスクレイピングしたmetadataの元のリリース（Library Genesisを含む）、およびOpen Libraryのデータダンプです。"
 
-#, fuzzy
 msgid "blog.isbndb-dump.text10"
 msgstr "まずは大まかな数字から始めましょう："
 
@@ -2391,9 +2332,8 @@ msgstr "Z-ライブラリ/LibgenとOpen Libraryの両方には、ユニークな
 msgid "blog.isbndb-dump.text12"
 msgstr "それらのISBNのうち、どれだけがユニークなのでしょうか？これはベン図で最もよく示されます："
 
-#, fuzzy
 msgid "blog.isbndb-dump.text13"
-msgstr "より正確に言うと："
+msgstr "正確に言うと："
 
 #, fuzzy
 msgid "blog.isbndb-dump.text14"
@@ -2415,11 +2355,9 @@ msgstr "データ分析に特に興味がある場合、私たちはデータセ
 msgid "blog.isbndb-dump.text18"
 msgstr "最後に、この作業を支援したい場合は、寄付を検討してください。これは完全にボランティアで運営されており、あなたの貢献が大きな違いを生みます。少しでも助けになります。現在、暗号通貨での寄付を受け付けています。Anna’s Archiveの寄付ページをご覧ください。"
 
-#, fuzzy
 msgid "blog.isbndb-dump.signature"
 msgstr "- アンナとチーム (<a %(reddit)s>Reddit</a>)"
 
-#, fuzzy
 msgid "blog.isbndb-dump.fn1"
 msgstr "1. 「永遠」の合理的な定義による。 ;)"
 
@@ -2431,7 +2369,6 @@ msgstr "2. もちろん、人類の書かれた遺産は本だけではありま
 msgid "blog.isbndb-dump.fn3"
 msgstr "3. アーロン・シュワルツについてはもっと多くのことが言えますが、彼がこの物語で重要な役割を果たしているため、簡単に触れておきたいと思います。時間が経つにつれて、彼の名前を初めて知る人が増えるかもしれませんし、その後、自分で深く掘り下げることができるでしょう。"
 
-#, fuzzy
 msgid "blog.critical-window.title"
 msgstr "シャドウライブラリーの重要なウィンドウ"
 
@@ -2451,7 +2388,6 @@ msgstr "Anna’s Archiveでは、コレクションの総サイズがすでに1�
 msgid "blog.critical-window.fig1"
 msgstr "過去数か月間のトレントシーダー数で分解されたコレクションの<a %(annas_archive_stats)s>総サイズ</a>。"
 
-#, fuzzy
 msgid "blog.critical-window.priorities"
 msgstr "優先事項"
 
@@ -2463,55 +2399,42 @@ msgstr "なぜ私たちは論文や本にそれほど関心を持っているの
 msgid "blog.critical-window.priorities.text2"
 msgstr "ストレージのメガバイトあたり、書かれたテキストはすべてのメディアの中で最も多くの情報を保存します。私たちは知識と文化の両方を大切にしていますが、前者をより重視しています。全体として、情報密度と保存の重要性の階層はおおよそ次のようになります："
 
-#, fuzzy
 msgid "blog.critical-window.priorities.order.papers"
 msgstr "学術論文、ジャーナル、レポート"
 
-#, fuzzy
 msgid "blog.critical-window.priorities.order.organic"
 msgstr "DNA配列、植物の種子、微生物サンプルのような有機データ"
 
-#, fuzzy
 msgid "blog.critical-window.priorities.order.nonfiction-books"
 msgstr "ノンフィクション書籍"
 
-#, fuzzy
 msgid "blog.critical-window.priorities.order.code"
 msgstr "科学・工学ソフトウェアコード"
 
-#, fuzzy
 msgid "blog.critical-window.priorities.order.measurements"
 msgstr "科学的測定、経済データ、企業報告書のような測定データ"
 
-#, fuzzy
 msgid "blog.critical-window.priorities.order.science-websites"
 msgstr "科学・工学ウェブサイト、オンラインディスカッション"
 
-#, fuzzy
 msgid "blog.critical-window.priorities.order.nonfiction-other"
 msgstr "ノンフィクション雑誌、新聞、マニュアル"
 
-#, fuzzy
 msgid "blog.critical-window.priorities.order.nonfiction-transcripts"
 msgstr "講演、ドキュメンタリー、ポッドキャストのノンフィクションの書き起こし"
 
-#, fuzzy
 msgid "blog.critical-window.priorities.order.leaks"
 msgstr "企業や政府からの内部データ（リーク）"
 
-#, fuzzy
 msgid "blog.critical-window.priorities.order.metadata"
 msgstr "メタデータ記録全般（ノンフィクションとフィクション、他のメディア、アート、人々などのレビューを含む）"
 
-#, fuzzy
 msgid "blog.critical-window.priorities.order.geographic"
 msgstr "地理データ（例：地図、地質調査）"
 
-#, fuzzy
 msgid "blog.critical-window.priorities.order.transcripts"
 msgstr "法的または裁判手続きの書き起こし"
 
-#, fuzzy
 msgid "blog.critical-window.priorities.order.fiction"
 msgstr "上記のすべてのフィクションまたはエンターテインメント版"
 
@@ -2527,15 +2450,12 @@ msgstr "これらの項目の中には、他のものとあまりにも異なっ
 msgid "blog.critical-window.priorities.text5"
 msgstr "私たちの優先順位付けにおけるもう一つの大きな要因は、特定の作品がどれだけ危険にさらされているかです。私たちは、以下のような作品に焦点を当てることを好みます："
 
-#, fuzzy
 msgid "blog.critical-window.priorities.rarity.rare"
 msgstr "希少"
 
-#, fuzzy
 msgid "blog.critical-window.priorities.rarity.underfocused"
 msgstr "特に注目されていない"
 
-#, fuzzy
 msgid "blog.critical-window.priorities.rarity.at-risk"
 msgstr "特に破壊の危険にさらされている（例：戦争、資金削減、訴訟、政治的迫害による）"
 
@@ -2543,7 +2463,6 @@ msgstr "特に破壊の危険にさらされている（例：戦争、資金削
 msgid "blog.critical-window.priorities.text6"
 msgstr "最後に、私たちは規模を重視します。時間とお金が限られているので、同じくらい価値があり危険にさらされているなら、1,000冊の本を救うよりも10,000冊の本を救うために1か月を費やしたいと思います。"
 
-#, fuzzy
 msgid "blog.critical-window.shadowlib"
 msgstr "シャドウライブラリー"
 
@@ -2583,7 +2502,6 @@ msgstr "コードはGithubでオープンソースにすることができます
 msgid "blog.critical-window.shadowlib.example.reddit"
 msgstr "Redditは無料で使用できますが、最近、データを大量に必要とするLLMトレーニングの影響で、厳しいスクレイピング対策を導入しました（詳細は後述します）。"
 
-#, fuzzy
 msgid "blog.critical-window.copies"
 msgstr "コピーの増殖"
 
@@ -2595,7 +2513,6 @@ msgstr "元の質問に戻りますが、どのようにして私たちのコレ
 msgid "blog.critical-window.copies.text2"
 msgstr "このデータの成長は、コレクションを世界中でミラーすることを難しくします。データストレージは高価です！しかし、私たちは次の3つのトレンドを観察することで楽観的です。"
 
-#, fuzzy
 msgid "blog.critical-window.low-hanging-fruit"
 msgstr "1. 簡単に手に入るものを手に入れました"
 
@@ -2655,7 +2572,6 @@ msgstr "常に第三の選択肢は存在していましたが、その品質が
 msgid "blog.critical-window.storage.density.text4"
 msgstr "しかし、最近のマルチモーダルディープラーニングモデルは非常に急速に進歩していますが、依然として高コストです。今後数年で精度とコストの両方が劇的に改善され、私たちの全ライブラリに適用することが現実的になると期待しています。"
 
-#, fuzzy
 msgid "blog.critical-window.ocr"
 msgstr "OCRの改善。"
 
@@ -2667,7 +2583,6 @@ msgstr "その時が来れば、元のファイルを保存し続ける可能性
 msgid "blog.critical-window.storage.density.text6"
 msgstr "全体として、ファイルサイズの合計が少なくとも5〜10倍、場合によってはそれ以上に削減されることを期待するのは非現実的ではありません。保守的に5倍の削減でも、ライブラリが3倍に増えても10年で<strong>1,000〜3,000ドルになると見込まれます</strong>。"
 
-#, fuzzy
 msgid "blog.critical-window.the-window"
 msgstr "重要なウィンドウ"
 
@@ -2691,15 +2606,12 @@ msgstr "<strong>私たちは保存の革命の前夜にいますが、<q>失わ�
 msgid "blog.critical-window.the-window.text5"
 msgstr "このウィンドウを乗り越えることができれば、人類の知識と文化を永続的に保存することができるでしょう。この時間を無駄にしてはいけません。この重要なウィンドウを閉じさせてはいけません。"
 
-#, fuzzy
 msgid "blog.critical-window.the-window.text6"
 msgstr "行きましょう。"
 
-#, fuzzy
 msgid "blog.critical-window.signature"
 msgstr "- アンナとチーム (<a %(reddit)s>Reddit</a>, <a %(t_me)s>Telegram</a>)"
 
-#, fuzzy
 msgid "blog.duxiu-exclusive.title"
 msgstr "世界最大の中国ノンフィクション書籍コレクションへのLLM企業の独占アクセス"
 
@@ -2727,7 +2639,6 @@ msgstr "これには、スキャンからテキストを抽出する必要があ
 msgid "blog.duxiu-exclusive.text4"
 msgstr "私たちの目標はLLM開発者の目標と一致しているため、協力者を探しています。適切なOCRとテキスト抽出ができるなら、<strong>このコレクションへの独占的な早期アクセスを1年間提供する用意があります</strong>。パイプラインのコード全体を共有する用意があるなら、コレクションの禁輸期間を延長する用意があります。"
 
-#, fuzzy
 msgid "blog.duxiu-exclusive.example_pages"
 msgstr "サンプルページ"
 
@@ -2739,7 +2650,6 @@ msgstr "私たちに優れたパイプラインがあることを証明するた
 msgid "blog.duxiu-exclusive.example_pages.text2"
 msgstr "処理したページを私たちのメールに送ってください。見栄えが良ければ、プライベートでさらに送りますので、それらにも迅速にパイプラインを実行できることを期待しています。満足したら、契約を結ぶことができます。"
 
-#, fuzzy
 msgid "blog.duxiu-exclusive.collection"
 msgstr "コレクション"
 
@@ -2763,7 +2673,6 @@ msgstr "コレクションは7,543,702ファイルです。これはLibrary Gene
 msgid "blog.duxiu-exclusive.collection.text5"
 msgstr "他の提案やアイデアにもオープンです。ぜひご連絡ください。アンナのアーカイブで私たちのコレクション、保存活動、そしてどのように協力できるかについての詳細情報をご覧ください。ありがとうございます！"
 
-#, fuzzy
 msgid "blog.duxiu-exclusive.signoff"
 msgstr "- アンナとチーム (<a %(reddit)s>Reddit</a>, <a %(t_me)s>Telegram</a>)"
 
@@ -2771,7 +2680,6 @@ msgstr "- アンナとチーム (<a %(reddit)s>Reddit</a>, <a %(t_me)s>Telegram<
 msgid "blog.zlib-on-ipfs.deprecated"
 msgstr "警告：このブログ投稿は廃止されました。IPFSはまだ本格的に使用する準備ができていないと判断しました。可能な場合はアンナのアーカイブからIPFS上のファイルへのリンクを提供しますが、もはや自分たちでホストすることはなく、他の人がIPFSを使用してミラーリングすることも推奨しません。コレクションの保存を手伝いたい場合は、トレントページをご覧ください。"
 
-#, fuzzy
 msgid "blog.zlib-on-ipfs.title"
 msgstr "IPFSでZ-ライブラリをシードするのを手伝ってください"
 
@@ -2823,9 +2731,8 @@ msgstr "もう一つの考慮事項は、企業レベルでのことです。あ
 msgid "blog.how-to-run.innovation-tokens.text6"
 msgstr "最後に、大きな考慮事項は支払いです。匿名性を保つ必要があるため、従来の支払い方法を使用することはできません。これにより、暗号通貨が残りますが、それをサポートする企業はごく一部です（暗号通貨で支払われる仮想デビットカードもありますが、しばしば受け入れられません）。"
 
-#, fuzzy
 msgid "blog.how-to-run.architecture"
-msgstr "システムアーキテクチャ"
+msgstr "システム構成"
 
 #, fuzzy
 msgid "blog.how-to-run.architecture.text1"
@@ -2851,7 +2758,6 @@ msgstr "また、サーバーの健康状態の監視、バックエンドとフ
 msgid "blog.how-to-run.architecture.text6"
 msgstr "Cloudflareが私たちに対して反旗を翻すことに備えて、この別のドメインからCloudflareを削除することで対策を講じることもできます。これらのアイデアの異なる組み合わせが可能です。"
 
-#, fuzzy
 msgid "blog.how-to-run.tools"
 msgstr "ツール"
 
@@ -2863,19 +2769,15 @@ msgstr "これを達成するために使用しているツールを見てみま
 msgid "blog.how-to-run.tools.app"
 msgstr "アプリケーションサーバー：Flask、MariaDB、ElasticSearch、Docker。"
 
-#, fuzzy
 msgid "blog.how-to-run.tools.proxy"
 msgstr "プロキシサーバー：Varnish。"
 
-#, fuzzy
 msgid "blog.how-to-run.tools.management"
 msgstr "サーバー管理：Ansible、Checkmk、UFW。"
 
-#, fuzzy
 msgid "blog.how-to-run.tools.dev"
 msgstr "開発：Gitlab、Weblate、Zulip。"
 
-#, fuzzy
 msgid "blog.how-to-run.tools.onion"
 msgstr "オニオン静的ホスティング：Tor、Nginx。"
 
@@ -2895,7 +2797,6 @@ msgstr "私たちは、VarnishとNginxの間で行ったり来たりしてきま
 msgid "blog.how-to-run.tools.text5"
 msgstr "これまでのところ、他のツールは素晴らしいです。MariaDB、ElasticSearch、Gitlab、Zulip、Docker、Torについては、深刻な不満はありません。これらにはいくつかの問題がありましたが、深刻すぎたり時間がかかりすぎたりするものはありませんでした。"
 
-#, fuzzy
 msgid "blog.how-to-run.conclusions"
 msgstr "結論"
 
@@ -2923,15 +2824,12 @@ msgstr "<a %(reddit)s>Reddit</a>で私とつながりましょう。"
 msgid "blog.index.text3"
 msgstr "このウェブサイトはブログだけです。ここでは私たち自身の言葉だけをホストしています。トレントや他の著作権で保護されたファイルはここでホストされておらず、リンクもされていません。"
 
-#, fuzzy
 msgid "blog.index.heading"
 msgstr "ブログ投稿"
 
-#, fuzzy
 msgid "blog.worldcat-scrape.title"
 msgstr "1.3B WorldCat スクレイピング"
 
-#, fuzzy
 msgid "blog.books-on-ipfs.title"
 msgstr "5,998,794冊の本をIPFSに配置"
 
@@ -2963,7 +2861,6 @@ msgstr "私たちは<a %(wikipedia_isbndb_com)s>ISBNdb</a>をスクレイピン�
 msgid "blog.worldcat-scrape.text5"
 msgstr "私たちは、ISBNdbとOpen Libraryの間にほとんど重複がないことに非常に驚きました。どちらもウェブスクレイピングや図書館の記録など、さまざまなソースからデータを自由に取り入れています。もし両者が外にあるほとんどのISBNを見つけるのが得意であれば、それらの円は確実に大きく重なるか、一方が他方の部分集合であるはずです。これにより、これらの円の完全に外にある本がどれだけあるのか疑問に思いました。私たちはより大きなデータベースが必要です。"
 
-#, fuzzy
 msgid "blog.worldcat-scrape.worldcat"
 msgstr "WorldCat"
 
@@ -2979,9 +2876,8 @@ msgstr "OCLCは非営利団体ですが、そのビジネスモデルはデー�
 msgid "blog.worldcat-scrape.text8"
 msgstr "過去1年間、私たちはWorldCatのすべてのレコードを細心の注意を払ってスクレイピングしてきました。最初は幸運に恵まれました。WorldCatはちょうどウェブサイトの完全なリニューアルを開始したところでした（2022年8月）。これにはバックエンドシステムの大幅なオーバーホールが含まれており、多くのセキュリティの欠陥が導入されました。私たちはすぐにこの機会を捉え、数日で数億ものレコードをスクレイピングすることができました。"
 
-#, fuzzy
 msgid "blog.worldcat-scrape.alt.redesign"
-msgstr "<em>WorldCatのリニューアル</em>"
+msgstr "<em>WorldCatのリデザイン</em>"
 
 #, fuzzy
 msgid "blog.worldcat-scrape.text9"
@@ -2995,7 +2891,6 @@ msgstr "データの基本情報を見てみましょう："
 msgid "blog.worldcat-scrape.data.format"
 msgstr "<strong>フォーマットは？</strong> <a %(blog)s>アンナのアーカイブコンテナ（AAC）</a>、これは本質的に<a %(jsonlines)s>JSON Lines</a>を<a %(zstd)s>Zstandard</a>で圧縮し、いくつかの標準化されたセマンティクスを加えたものです。これらのコンテナは、私たちが展開したさまざまなスクレイピングに基づいて、さまざまなタイプのレコードをラップしています。"
 
-#, fuzzy
 msgid "blog.worldcat-scrape.data"
 msgstr "データ"
 
@@ -3028,19 +2923,15 @@ msgstr "より良いバージョン"
 msgid "page.comments.do_you_want_to_report_abuse"
 msgstr "このユーザーを不適切な行動で報告しますか？"
 
-#, fuzzy
 msgid "page.comments.report_abuse"
 msgstr "不正行為を報告"
 
-#, fuzzy
 msgid "page.comments.abuse_reported"
 msgstr "報告された不正行為:"
 
-#, fuzzy
 msgid "page.comments.reported_abuse_this_user"
 msgstr "このユーザーを不正行為で報告しました。"
 
-#, fuzzy
 msgid "page.comments.reply_button"
 msgstr "返信"
 
@@ -3056,7 +2947,6 @@ msgstr "コメントを残しました。表示されるまでに少し時間が
 msgid "page.md5.quality.comment_error"
 msgstr "何か問題が発生しました。ページをリロードして、もう一度お試しください。"
 
-#, fuzzy
 msgid "page.md5.box.download.affected_files"
 msgstr "%(count)s 影響を受けたページ"
 
@@ -3070,16 +2960,14 @@ msgid "common.md5_problem_type_mapping.lgli_visible"
 msgstr "libgen.li では見ることができません"
 
 msgid "common.md5_problem_type_mapping.lgli_broken"
-msgstr "Libgen.li で壊れたと見なされました"
+msgstr "Libgen.liで壊れたと見なされました"
 
 msgid "common.md5_problem_type_mapping.zlib_missing"
 msgstr "Z-Libraryから消えています"
 
-#, fuzzy
 msgid "common.md5_problem_type_mapping.zlib_spam"
 msgstr "Z-Libraryで「スパム」としてマーク"
 
-#, fuzzy
 msgid "common.md5_problem_type_mapping.zlib_bad_file"
 msgstr "Z-Libraryで「不良ファイル」としてマーク"
 
@@ -3115,7 +3003,6 @@ msgstr "漫画"
 msgid "common.md5_content_type_mapping.musical_score"
 msgstr "音源"
 
-#, fuzzy
 msgid "common.md5_content_type_mapping.audiobook"
 msgstr "オーディオブック"
 
@@ -3125,7 +3012,6 @@ msgstr "その他"
 msgid "common.access_types_mapping.aa_download"
 msgstr "パートナーサーバーからダウンロード"
 
-#, fuzzy
 msgid "common.access_types_mapping.aa_scidb"
 msgstr "SciDB"
 
@@ -3154,11 +3040,9 @@ msgstr "Libgen.li"
 msgid "common.record_sources_mapping.zlib"
 msgstr "Z-Library"
 
-#, fuzzy
 msgid "common.record_sources_mapping.zlibzh"
 msgstr "Z-Library 中文"
 
-#, fuzzy
 msgid "common.record_sources_mapping.ia"
 msgstr "IA"
 
@@ -3174,87 +3058,66 @@ msgstr "Sci-Hub"
 msgid "common.record_sources_mapping.oclc"
 msgstr "OCLC (WorldCat(ワールドキャット)"
 
-#, fuzzy
 msgid "common.record_sources_mapping.duxiu"
 msgstr "DuXiu 读秀"
 
-#, fuzzy
 msgid "common.record_sources_mapping.uploads"
 msgstr "AAへのアップロード"
 
-#, fuzzy
 msgid "common.record_sources_mapping.magzdb"
 msgstr "MagzDB"
 
-#, fuzzy
 msgid "common.record_sources_mapping.nexusstc"
 msgstr "Nexus/STC"
 
-#, fuzzy
 msgid "common.record_sources_mapping.edsebk"
 msgstr "EBSCOhost eBook Index"
 
-#, fuzzy
 msgid "common.record_sources_mapping.cerlalc"
 msgstr "Cerlalc"
 
-#, fuzzy
 msgid "common.record_sources_mapping.czech_oo42hcks"
 msgstr "チェコのメタデータ"
 
-#, fuzzy
 msgid "common.record_sources_mapping.gbooks"
-msgstr "Google Books"
+msgstr "Googleブックス"
 
-#, fuzzy
 msgid "common.record_sources_mapping.goodreads"
 msgstr "Goodreads"
 
-#, fuzzy
 msgid "common.record_sources_mapping.isbngrp"
 msgstr "ISBN GRP"
 
-#, fuzzy
 msgid "common.record_sources_mapping.libby"
 msgstr "Libby"
 
-#, fuzzy
 msgid "common.record_sources_mapping.rgb"
 msgstr "ロシア国立図書館"
 
-#, fuzzy
 msgid "common.record_sources_mapping.trantor"
 msgstr "Trantor"
 
-#, fuzzy
 msgid "common.record_sources_mapping.hathi"
 msgstr "HathiTrust"
 
-#, fuzzy
 msgid "common.specific_search_fields.title"
 msgstr "タイトル"
 
-#, fuzzy
 msgid "common.specific_search_fields.author"
 msgstr "著者"
 
-#, fuzzy
 msgid "common.specific_search_fields.publisher"
 msgstr "出版社"
 
-#, fuzzy
 msgid "common.specific_search_fields.edition_varia"
 msgstr "版"
 
-#, fuzzy
 msgid "common.specific_search_fields.year"
 msgstr "出版年"
 
-#, fuzzy
 msgid "common.specific_search_fields.original_filename"
 msgstr "元のファイル名"
 
-#, fuzzy
 msgid "common.specific_search_fields.description_comments"
 msgstr "説明とメタデータのコメント"
 
@@ -3265,7 +3128,6 @@ msgstr "このファイルのパートナーサーバーからのダウンロー
 msgid "common.md5.servers.fast_partner"
 msgstr "高速な内部のサーバー#%(number)s"
 
-#, fuzzy
 msgid "common.md5.servers.fast_partner.recommended2"
 msgstr "（おすすめ）"
 
@@ -3276,11 +3138,9 @@ msgstr "（ブラウザの確認や待機リストなし）"
 msgid "common.md5.servers.slow_partner"
 msgstr "低速な内部のサーバー#%(number)s"
 
-#, fuzzy
 msgid "common.md5.servers.faster_with_waitlist"
 msgstr "（少し速いが待機リストあり）"
 
-#, fuzzy
 msgid "common.md5.servers.slow_no_waitlist"
 msgstr "（待機リストなしだが非常に遅い場合あり）"
 
@@ -3302,19 +3162,15 @@ msgstr "(上部の「GET」もクリック)"
 msgid "page.md5.box.download.extra_click_get"
 msgstr "(上部の「GET」をクリック)"
 
-#, fuzzy
 msgid "page.md5.box.download.libgen_ads"
 msgstr "その広告には悪意のあるソフトウェアが含まれていることが知られているため、広告ブロッカーを使用するか、広告をクリックしないでください。"
 
-#, fuzzy
 msgid "page.md5.box.download.nexusstc"
 msgstr "Nexus/STC"
 
-#, fuzzy
 msgid "page.md5.box.download.nexusstc_unreliable"
 msgstr "(Nexus/STCファイルはダウンロードが不安定な場合があります)"
 
-#, fuzzy
 msgid "page.md5.box.download.zlib"
 msgstr "Z-Library"
 
@@ -3324,7 +3180,6 @@ msgstr "TOR上のZ-Library"
 msgid "page.md5.box.download.zlib_tor_extra"
 msgstr "(Tor Browserが必要)"
 
-#, fuzzy
 msgid "page.md5.box.download.magzdb"
 msgstr "MagzDB"
 
@@ -3337,19 +3192,15 @@ msgstr "（印刷障害のある利用者のみ）"
 msgid "page.md5.box.download.scihub_maybe"
 msgstr "(関連するDOIはSci-Hubで公開されていない可能性があります)"
 
-#, fuzzy
 msgid "page.md5.box.download.manualslib"
 msgstr "ManualsLib"
 
-#, fuzzy
 msgid "page.md5.box.download.pubmed"
 msgstr "PubMed"
 
-#, fuzzy
 msgid "page.md5.box.download.collection"
 msgstr "コレクション"
 
-#, fuzzy
 msgid "page.md5.box.download.torrent"
 msgstr "トレント"
 
@@ -3385,11 +3236,9 @@ msgstr "WorldCatで元のレコードを見つける"
 msgid "page.md5.box.download.aa_duxiu"
 msgstr "Anna’s ArchiveでDuXiu SSID番号を検索"
 
-#, fuzzy
 msgid "page.md5.box.download.original_duxiu"
 msgstr "DuXiuで手動検索"
 
-#, fuzzy
 msgid "page.md5.box.download.aa_cadal"
 msgstr "Anna’s ArchiveでCADAL SSNO番号を検索"
 
@@ -3397,13 +3246,11 @@ msgstr "Anna’s ArchiveでCADAL SSNO番号を検索"
 msgid "page.md5.box.download.original_cadal"
 msgstr "CADALでオリジナルレコードを探す"
 
-#, fuzzy
 msgid "page.md5.box.download.aa_dxid"
 msgstr "Anna’s ArchiveでDuXiu DXID番号を検索"
 
-#, fuzzy
 msgid "page.md5.box.download.edsebk"
-msgstr "EBSCOhost eBook Index"
+msgstr "EBSCOhostのeBook索引"
 
 msgid "page.md5.box.download.scidb"
 msgstr "Anna's Archive 🧬SciDB"
@@ -3411,111 +3258,84 @@ msgstr "Anna's Archive 🧬SciDB"
 msgid "common.md5.servers.no_browser_verification"
 msgstr "(ブラウザの認証は不要)"
 
-#, fuzzy
 msgid "page.md5.top_row.isbndb"
 msgstr "ISBNdb %(id)s}"
 
-#, fuzzy
 msgid "page.md5.top_row.oclc"
 msgstr "OCLC %(id)s}"
 
-#, fuzzy
 msgid "page.md5.top_row.duxiu_ssid"
 msgstr "DuXiu SSID %(id)s}"
 
-#, fuzzy
 msgid "page.md5.top_row.cadal_ssno"
 msgstr "CADAL SSNO %(id)s}"
 
-#, fuzzy
 msgid "page.md5.top_row.magzdb"
 msgstr "MagzDB %(id)s}"
 
-#, fuzzy
 msgid "page.md5.top_row.nexusstc"
 msgstr "Nexus/STC %(id)s}"
 
-#, fuzzy
 msgid "page.md5.top_row.edsebk"
 msgstr "EBSCOhost edsebk %(id)s}"
 
-#, fuzzy
 msgid "page.md5.top_row.cerlalc"
 msgstr "Cerlalc %(id)s}"
 
-#, fuzzy
 msgid "page.md5.top_row.czech_oo42hcks"
 msgstr "チェコのメタデータ %(id)s}"
 
-#, fuzzy
 msgid "page.md5.top_row.gbooks"
-msgstr "Google Books %(id)s}"
+msgstr "Google ブックス %(id)s}"
 
-#, fuzzy
 msgid "page.md5.top_row.goodreads"
 msgstr "Goodreads %(id)s}"
 
-#, fuzzy
 msgid "page.md5.top_row.isbngrp"
 msgstr "ISBN GRP %(id)s}"
 
-#, fuzzy
 msgid "page.md5.top_row.libby"
 msgstr "Libby %(id)s}"
 
-#, fuzzy
 msgid "page.md5.top_row.rgb"
 msgstr "RSL %(id)s}"
 
-#, fuzzy
 msgid "page.md5.top_row.trantor"
 msgstr "Trantor %(id)s}"
 
-#, fuzzy
 msgid "page.md5.top_row.hathi"
 msgstr "HathiTrust %(id)s}"
 
-#, fuzzy
 msgid "page.datasets.sources.metadata.header"
 msgstr "メタデータ"
 
-#, fuzzy
 msgid "page.md5.box.descr_title"
 msgstr "説明"
 
-#, fuzzy
 msgid "page.md5.box.alternative_filename"
 msgstr "別のファイル名"
 
-#, fuzzy
 msgid "page.md5.box.alternative_title"
 msgstr "別のタイトル"
 
-#, fuzzy
 msgid "page.md5.box.alternative_author"
 msgstr "別の著者"
 
-#, fuzzy
 msgid "page.md5.box.alternative_publisher"
 msgstr "別の出版社"
 
-#, fuzzy
 msgid "page.md5.box.alternative_edition"
 msgstr "別の版"
 
-#, fuzzy
 msgid "page.md5.box.alternative_extension"
 msgstr "別の拡張子"
 
-#, fuzzy
 msgid "page.md5.box.metadata_comments_title"
 msgstr "メタデータのコメント"
 
-#, fuzzy
 msgid "page.md5.box.alternative_description"
 msgstr "別の説明"
 
-#, fuzzy
 msgid "page.md5.box.date_open_sourced_title"
 msgstr "オープンソース化された日付"
 
@@ -3561,51 +3381,39 @@ msgstr "Nexus/STC ID %(id)s メタデータレコード"
 msgid "page.md5.header.meta_desc"
 msgstr "これはメタデータの記録であり、ダウンロード可能なファイルではありません。<a %(a_request)s>ファイルをリクエストする</a>際にこのURLを使用できます。"
 
-#, fuzzy
 msgid "page.md5.text.linked_metadata"
 msgstr "リンクされたレコードからのメタデータ"
 
-#, fuzzy
 msgid "page.md5.text.linked_metadata_openlib"
 msgstr "Open Libraryでメタデータを改善する"
 
-#, fuzzy
 msgid "page.md5.warning.multiple_links"
 msgstr "警告: 複数のリンクされたレコードがあります:"
 
-#, fuzzy
 msgid "page.md5.header.improve_metadata"
 msgstr "メタデータを改善"
 
-#, fuzzy
 msgid "page.md5.text.report_quality"
 msgstr "ファイルの品質を報告する"
 
-#, fuzzy
 msgid "page.search.results.download_time"
 msgstr "ダウンロード時間"
 
-#, fuzzy
 msgid "page.md5.codes.url"
 msgstr "URL："
 
-#, fuzzy
 msgid "page.md5.codes.website"
 msgstr "ウェブサイト："
 
-#, fuzzy
 msgid "page.md5.codes.aa_abbr"
 msgstr "AA:"
 
-#, fuzzy
 msgid "page.md5.codes.aa_search"
 msgstr "「%(name)s」をAnna’s Archiveで検索"
 
-#, fuzzy
 msgid "page.md5.codes.code_explorer"
 msgstr "コードエクスプローラー："
 
-#, fuzzy
 msgid "page.md5.codes.code_search"
 msgstr "コードエクスプローラーで表示 “%(name)s”"
 
@@ -3621,7 +3429,6 @@ msgstr "貸出(%(count)s)"
 msgid "page.md5.tabs.explore_metadata"
 msgstr "メタデータを探索(%(count)s)"
 
-#, fuzzy
 msgid "page.md5.tabs.comments"
 msgstr "コメント (%(count)s)"
 
@@ -3643,7 +3450,6 @@ msgstr "このファイルのより良いバージョンが %(link)s にある�
 msgid "page.md5.box.issues.text2"
 msgstr "このファイルをダウンロードする場合は、信頼できる最新のソフトウェアのみを使用してファイルを開くようにしてください。"
 
-#, fuzzy
 msgid "page.md5.box.download.header_fast_only"
 msgstr "🚀 高速ダウンロード"
 
@@ -3670,38 +3476,30 @@ msgstr "<strong>🚀高速ダウンロード</strong>最近ダウンロード済
 msgid "page.md5.box.download.option"
 msgstr "オプション #%(num)d: %(link)s %(extra)s"
 
-#, fuzzy
 msgid "page.md5.box.download.no_redirect"
 msgstr "（リダイレクトなし）"
 
-#, fuzzy
 msgid "page.md5.box.download.open_in_viewer"
 msgstr "（ビューアで開く）"
 
-#, fuzzy
 msgid "layout.index.header.banner.refer"
 msgstr "友達を紹介すると、あなたと友達の両方に%(percentage)s%%のボーナス高速ダウンロードがもらえます！"
 
-#, fuzzy
 msgid "layout.index.header.learn_more"
 msgstr "詳細を確認…"
 
-#, fuzzy
 msgid "page.md5.box.download.header_slow_only"
 msgstr "🐢 低速ダウンロード"
 
-#, fuzzy
 msgid "page.md5.box.download.trusted_partners"
 msgstr "信頼できるパートナーから。"
 
-#, fuzzy
 msgid "page.md5.box.download.slow_faq"
 msgstr "詳細は<a %(a_slow)s>FAQ</a>をご覧ください。"
 
 msgid "common.md5.servers.browser_verification_unlimited"
 msgstr "(<a %(a_browser)s>ブラウザの認証</a>が必要な場合がございます。— ダウンロード無制限！)"
 
-#, fuzzy
 msgid "page.md5.box.download.after_downloading"
 msgstr "ダウンロード後:"
 
@@ -3709,11 +3507,9 @@ msgstr "ダウンロード後:"
 msgid "page.md5.box.download.open_in_our_viewer"
 msgstr "当社のビューアで開く"
 
-#, fuzzy
 msgid "page.md5.box.external_downloads"
 msgstr "外部ダウンロードを表示"
 
-#, fuzzy
 msgid "page.md5.box.download.header_external"
 msgstr "外部ダウンロード"
 
@@ -3727,19 +3523,15 @@ msgstr "すべてのミラーは同じファイルを提供するため、安全
 msgid "page.md5.box.download.dl_managers"
 msgstr "大きなファイルの場合、中断を防ぐためにダウンロードマネージャーの使用をお勧めします。"
 
-#, fuzzy
 msgid "page.md5.box.download.dl_managers.links"
 msgstr "推奨ダウンロードマネージャー: %(links)s"
 
-#, fuzzy
 msgid "page.md5.box.download.readers"
 msgstr "ファイルを開くには、ファイル形式に応じて電子書籍リーダーまたはPDFリーダーが必要です。"
 
-#, fuzzy
 msgid "page.md5.box.download.readers.links"
 msgstr "推奨電子書籍リーダー: %(links)s"
 
-#, fuzzy
 msgid "page.md5.box.download.aa_viewer"
 msgstr "アンナのアーカイブオンラインビューア"
 
@@ -3779,7 +3571,6 @@ msgstr "これが気に入っていて、余裕がある場合は、オリジナ
 msgid "page.md5.box.download.support.libraries"
 msgstr "これが地元の図書館で利用可能な場合、そこで無料で借りることを検討してください。"
 
-#, fuzzy
 msgid "page.md5.quality.header"
 msgstr "ファイル品質"
 
@@ -3787,19 +3578,15 @@ msgstr "ファイル品質"
 msgid "page.md5.quality.report"
 msgstr "このファイルの品質を報告してコミュニティを支援してください！ 🙌"
 
-#, fuzzy
 msgid "page.md5.quality.report_issue"
 msgstr "ファイルの問題を報告する (%(count)s)"
 
-#, fuzzy
 msgid "page.md5.quality.great_quality"
 msgstr "素晴らしいファイル品質 (%(count)s)"
 
-#, fuzzy
 msgid "page.md5.quality.add_comment"
 msgstr "コメントを追加 (%(count)s)"
 
-#, fuzzy
 msgid "page.md5.quality.what_is_wrong"
 msgstr "このファイルの何が問題ですか？"
 
@@ -3811,7 +3598,6 @@ msgstr "<a %(a_copyright)s>DMCA / 著作権侵害申告フォーム</a>をご利
 msgid "page.md5.quality.describe_the_issue"
 msgstr "問題の説明 (必須)"
 
-#, fuzzy
 msgid "page.md5.quality.issue_description"
 msgstr "問題の説明"
 
@@ -3827,11 +3613,9 @@ msgstr "このファイルに非常に近い別のファイル (同じ版、同�
 msgid "page.md5.quality.better_md5.line1"
 msgstr "URLからmd5を取得できます。例:"
 
-#, fuzzy
 msgid "page.md5.quality.submit_report"
 msgstr "報告を送信"
 
-#, fuzzy
 msgid "page.md5.quality.improve_the_metadata"
 msgstr "<a %(a_metadata)s>このファイルのメタデータを改善する方法</a>を学びましょう。"
 
@@ -3847,18 +3631,15 @@ msgstr "何か問題が発生しました。ページをリロードして、も
 msgid "page.md5.quality.great.summary"
 msgstr "このファイルの品質が高い場合、ここで何でも議論できます！そうでない場合は、「ファイルの問題を報告」ボタンを使用してください。"
 
-#, fuzzy
 msgid "page.md5.quality.loved_the_book"
 msgstr "この本が大好きでした！"
 
-#, fuzzy
 msgid "page.md5.quality.submit_comment"
 msgstr "コメントを残す"
 
 msgid "common.english_only"
 msgstr "テキストは英語で以下に続きます。"
 
-#, fuzzy
 msgid "page.md5.text.stats.total_downloads"
 msgstr "総ダウンロード数: %(total)s"
 
@@ -3878,7 +3659,6 @@ msgstr "これは<a %(a_ia)s>IAの制御デジタル貸出</a>ライブラリに
 msgid "page.md5.text.file_info.text1"
 msgstr "この特定のファイルに関する情報は、その<a %(a_href)s>JSONファイル</a>をご覧ください。"
 
-#, fuzzy
 msgid "page.aarecord_issue.title"
 msgstr "🔥 このページの読み込みに問題が発生しました"
 
@@ -3895,7 +3675,6 @@ msgstr "\"%(md5_input)s\" は、私たちのデータベースで見つかりま
 msgid "page.login.title"
 msgstr "ログイン/登録"
 
-#, fuzzy
 msgid "page.browserverification.header"
 msgstr "ブラウザ検証"
 
@@ -3905,15 +3684,12 @@ msgstr "スパムボットがアカウントを大量に作成するのを防止
 msgid "page.login.text2"
 msgstr "無限ループが発生した場合は、<a %(a_privacypass)s>Privacy Pass</a>をインストールすることをお勧めします。"
 
-#, fuzzy
 msgid "page.login.text3"
 msgstr "広告ブロッカーや他のブラウザ拡張機能をオフにすることも役立つかもしれません。"
 
-#, fuzzy
 msgid "page.codes.title"
 msgstr "コード"
 
-#, fuzzy
 msgid "page.codes.heading"
 msgstr "コードエクスプローラー"
 
@@ -3929,56 +3705,43 @@ msgstr "このページの生成には時間がかかる場合があるため、
 msgid "page.codes.dont_scrape"
 msgstr "これらのページをスクレイピングしないでください。代わりに、<a %(a_import)s>生成</a>または<a %(a_download)s>ダウンロード</a>して、ElasticSearchとMariaDBデータベースを使用し、<a %(a_software)s>オープンソースコード</a>を実行することをお勧めします。生データは<a %(a_json_file)s>このような</a>JSONファイルを通じて手動で探索できます。"
 
-#, fuzzy
 msgid "page.codes.prefix"
 msgstr "プレフィックス"
 
-#, fuzzy
 msgid "common.form.go"
 msgstr "移動"
 
-#, fuzzy
 msgid "common.form.reset"
 msgstr "リセット"
 
-#, fuzzy
 msgid "page.codes.search_archive_start"
 msgstr "アンナのアーカイブを検索"
 
-#, fuzzy
 msgid "page.codes.bad_unicode"
 msgstr "警告: コードに不正なUnicode文字が含まれており、さまざまな状況で正しく動作しない可能性があります。生のバイナリはURLのbase64表現からデコードできます。"
 
-#, fuzzy
 msgid "page.codes.known_code_prefix"
-msgstr "既知のコードプレフィックス「%(key)s」"
+msgstr "既知のコードプレフィックス <q>%(key)s</q>"
 
-#, fuzzy
 msgid "page.codes.code_prefix"
 msgstr "プレフィックス"
 
-#, fuzzy
 msgid "page.codes.code_label"
 msgstr "ラベル"
 
-#, fuzzy
 msgid "page.codes.code_description"
 msgstr "説明"
 
-#, fuzzy
 msgid "page.codes.code_url"
 msgstr "特定のコードのURL"
 
-#, fuzzy
 msgctxt "the %s should not be changed"
 msgid "page.codes.s_substitution"
 msgstr "「%%」はコードの値に置き換えられます"
 
-#, fuzzy
 msgid "page.codes.generic_url"
 msgstr "汎用URL"
 
-#, fuzzy
 msgid "page.codes.code_website"
 msgstr "ウェブサイト"
 
@@ -3995,15 +3758,12 @@ msgstr "特定のコードのURL: 「%(url)s」"
 msgid "page.codes.more"
 msgstr "もっと…"
 
-#, fuzzy
 msgid "page.codes.codes_starting_with"
-msgstr "「%(prefix_label)s」で始まるコード"
+msgstr "<q>%(prefix_label)s</q>で始まるコード"
 
-#, fuzzy
 msgid "page.codes.index_of_dir_path"
 msgstr "インデックス"
 
-#, fuzzy
 msgid "page.codes.records_prefix"
 msgstr "レコード"
 
@@ -4055,7 +3815,6 @@ msgstr "アカウントや寄付に関する質問をする際には、アカウ
 msgid "page.contact.checkboxes.show_email_button"
 msgstr "メールを表示"
 
-#, fuzzy
 msgid "page.copyright.title"
 msgstr "DMCA / 著作権侵害申告フォーム"
 
@@ -4071,23 +3830,18 @@ msgstr "Anna’s ArchiveのURL（必須）。1行に1つずつ。同じ版の書
 msgid "page.copyright.form.aa_urls.note"
 msgstr "複数の書籍や版をまとめて申告する場合は、却下されます。"
 
-#, fuzzy
 msgid "page.copyright.form.name"
 msgstr "お名前（必須）"
 
-#, fuzzy
 msgid "page.copyright.form.address"
 msgstr "住所（必須）"
 
-#, fuzzy
 msgid "page.copyright.form.phone"
 msgstr "電話番号（必須）"
 
-#, fuzzy
 msgid "page.copyright.form.email"
 msgstr "Eメール（必須）"
 
-#, fuzzy
 msgid "page.copyright.form.description"
 msgstr "資料の明確な説明（必須）"
 
@@ -4103,23 +3857,18 @@ msgstr "<a %(a_openlib)s>Open Library</a>の資料のURL。1行に1つずつ。O
 msgid "page.copyright.form.external_urls"
 msgstr "資料のURL。1行に1つずつ（必須）。確認を容易にするため、できるだけ多く含めてください（例：Amazon、WorldCat、Google Books、DOI）。"
 
-#, fuzzy
 msgid "page.copyright.form.statement"
 msgstr "声明と署名（必須）"
 
-#, fuzzy
 msgid "page.copyright.form.submit_claim"
 msgstr "申告を提出"
 
-#, fuzzy
 msgid "page.copyright.form.on_success"
 msgstr "✅ 著作権侵害の申告を提出していただき、ありがとうございます。できるだけ早く確認いたします。別の申告を行うには、ページをリロードしてください。"
 
-#, fuzzy
 msgid "page.copyright.form.on_failure"
 msgstr "❌ 問題が発生しました。ページをリロードして、再度お試しください。"
 
-#, fuzzy
 msgid "page.datasets.title"
 msgstr "データセット"
 
@@ -4135,7 +3884,6 @@ msgstr "私たちの使命は、世界中のすべての本（論文、雑誌な
 msgid "page.datasets.intro.text3"
 msgstr "私たちのすべてのデータは<a %(a_torrents)s>トレント</a>でダウンロードでき、すべてのメタデータはElasticSearchおよびMariaDBデータベースとして<a %(a_anna_software)s>生成</a>または<a %(a_elasticsearch)s>ダウンロード</a>できます。生データは<a %(a_dbrecord)s>こちら</a>のようなJSONファイルを通じて手動で探索できます。"
 
-#, fuzzy
 msgid "page.datasets.overview.title"
 msgstr "概要"
 
@@ -4143,27 +3891,21 @@ msgstr "概要"
 msgid "page.datasets.overview.text1"
 msgstr "以下は、アンナのアーカイブにあるファイルのソースの簡単な概要です。"
 
-#, fuzzy
 msgid "page.datasets.overview.source.header"
 msgstr "ソース"
 
-#, fuzzy
 msgid "page.datasets.overview.size.header"
 msgstr "サイズ"
 
-#, fuzzy
 msgid "page.datasets.overview.mirrored.header"
 msgstr "AAによってミラーリングされた%% / トレントが利用可能"
 
-#, fuzzy
 msgid "page.datasets.overview.mirrored.clarification"
 msgstr "ファイル数の割合"
 
-#, fuzzy
 msgid "page.datasets.overview.last_updated.header"
 msgstr "最終更新日"
 
-#, fuzzy
 msgid "common.record_sources_mapping.lgrs.nonfiction_and_fiction"
 msgstr "ノンフィクションとフィクション"
 
@@ -4176,7 +3918,6 @@ msgstr[0] "%(count)s ファイル"
 msgid "common.record_sources_mapping.scihub.via_lgli_scimag"
 msgstr "Libgen.li「scimag」経由"
 
-#, fuzzy
 msgid "page.datasets.scihub_frozen_1"
 msgstr "Sci-Hub: 2021年以降凍結; ほとんどがトレントで利用可能"
 
@@ -4196,15 +3937,12 @@ msgstr "フィクションのトレントは遅れています（ただし、ID�
 msgid "page.datasets.zlibzh.searchable"
 msgstr "Z-Libraryの「中国語」コレクションは、MD5が異なるだけで、私たちのDuXiuコレクションと同じようです。重複を避けるためにこれらのファイルをトレントから除外しますが、検索インデックスには表示されます。"
 
-#, fuzzy
 msgid "common.record_sources_mapping.iacdl"
 msgstr "IA コントロールデジタルレンディング"
 
-#, fuzzy
 msgid "page.datasets.iacdl.searchable"
 msgstr "98%%以上のファイルが検索可能です。"
 
-#, fuzzy
 msgid "page.datasets.overview.total"
 msgstr "合計"
 
@@ -4220,7 +3958,6 @@ msgstr "シャドウライブラリはしばしば互いにデータを同期す
 msgid "page.datasets.overview.text5"
 msgstr "「Anna’s Archiveによってミラーおよびシードされた」割合は、私たちが自分たちでミラーしているファイルの数を示しています。これらのファイルはトレントを通じて一括でシードされ、パートナーウェブサイトを通じて直接ダウンロード可能にしています。"
 
-#, fuzzy
 msgid "page.datasets.source_libraries.title"
 msgstr "ソースライブラリ"
 
@@ -4232,11 +3969,9 @@ msgstr "一部のソースライブラリは、トレントを通じてデータ
 msgid "page.datasets.source_libraries.text2"
 msgstr "以下は、異なるソースライブラリとどのようにインターフェースしているかの概要です。"
 
-#, fuzzy
 msgid "page.datasets.sources.source.header"
 msgstr "ソース"
 
-#, fuzzy
 msgid "page.datasets.sources.files.header"
 msgstr "ファイル"
 
@@ -4371,7 +4106,6 @@ msgstr "%(icon)s 直接大量には利用できず、スクレイピングから
 msgid "page.datasets.sources.worldcat.metadata2"
 msgstr "%(icon)s アンナのアーカイブは<a %(worldcat)s>OCLC (WorldCat)メタデータ</a>のコレクションを管理しています。"
 
-#, fuzzy
 msgid "page.datasets.unified_database.title"
 msgstr "統合データベース"
 
@@ -4383,11 +4117,9 @@ msgstr "上記のすべてのソースを1つの統合データベースに結�
 msgid "page.datasets.unified_database.text2"
 msgstr "これらのスクリプトをローカルで実行する前にデータを探索したい場合は、JSONファイルを確認できます。これらのファイルは他のJSONファイルにリンクしています。<a %(a_json)s>このファイル</a>が良い出発点です。"
 
-#, fuzzy
 msgid "page.datasets.duxiu.title"
 msgstr "DuXiu 读秀"
 
-#, fuzzy
 msgid "page.datasets.duxiu.see_blog_post"
 msgstr "私たちの<a %(a_href)s>ブログ記事</a>からの抜粋です。"
 
@@ -4403,15 +4135,12 @@ msgstr "Duxiuの書籍は長い間、中国のインターネット上で海賊�
 msgid "page.datasets.duxiu.description3"
 msgstr "これらの書籍は半公開で配布されてきましたが、大量に入手するのは非常に困難です。私たちはこれをTODOリストの上位に置き、フルタイムで数ヶ月間取り組むことにしました。しかし、2023年後半に信じられないほど素晴らしく才能のあるボランティアが私たちに連絡を取り、すでにこの作業をすべて行ったと教えてくれました—多大な費用をかけて。彼らは長期保存の保証を除いて何も期待せずに、全コレクションを私たちと共有してくれました。本当に驚くべきことです。"
 
-#, fuzzy
 msgid "page.datasets.common.resources"
 msgstr "リソース"
 
-#, fuzzy
 msgid "page.datasets.common.total_files"
 msgstr "総ファイル数: %(count)s"
 
-#, fuzzy
 msgid "page.datasets.common.total_filesize"
 msgstr "総ファイルサイズ: %(size)s"
 
@@ -4419,13 +4148,12 @@ msgstr "総ファイルサイズ: %(size)s"
 msgid "page.datasets.common.mirrored_file_count"
 msgstr "Anna’s Archiveによってミラーリングされたファイル: %(count)s (%(percent)s%%)"
 
-#, fuzzy
 msgid "page.datasets.common.last_updated"
 msgstr "最終更新日: %(date)s"
 
 #, fuzzy
 msgid "page.datasets.common.aa_torrents"
-msgstr "Anna’s Archiveのトレント"
+msgstr "アンナのトレント"
 
 #, fuzzy
 msgid "page.datasets.common.aa_example_record"
@@ -4471,19 +4199,15 @@ msgstr "最初のリリースでは、<a %(a_aac)s>Anna’s Archive Containers (
 msgid "page.datasets.ia.part2"
 msgstr "AACを使用した増分リリース。2023-01-01以降のタイムスタンプを持つメタデータのみが含まれています。それ以前のものはすでに「ia」によってカバーされています。また、今回はacsmおよび「bookreader」（IAのウェブリーダー）貸出システムからのすべてのpdfファイルも含まれています。名前が正確ではないにもかかわらず、bookreaderファイルをia2_acsmpdf_filesコレクションに追加しています。これらは相互排他的です。"
 
-#, fuzzy
 msgid "page.datasets.common.main_website"
 msgstr "メイン%(source)sウェブサイト"
 
-#, fuzzy
 msgid "page.datasets.ia.ia_lending"
 msgstr "デジタル貸出図書館"
 
-#, fuzzy
 msgid "page.datasets.common.metadata_docs"
 msgstr "メタデータドキュメント（ほとんどのフィールド）"
 
-#, fuzzy
 msgid "page.datasets.isbn_ranges.title"
 msgstr "ISBN国情報"
 
@@ -4491,23 +4215,18 @@ msgstr "ISBN国情報"
 msgid "page.datasets.isbn_ranges.text1"
 msgstr "国際ISBN機関は、各国のISBN機関に割り当てた範囲を定期的に公開しています。これにより、このISBNがどの国、地域、または言語グループに属するかを特定できます。現在、このデータはPythonライブラリの<a %(a_isbnlib)s>isbnlib</a>を通じて間接的に使用しています。"
 
-#, fuzzy
 msgid "page.datasets.isbn_ranges.resources"
 msgstr "リソース"
 
-#, fuzzy
 msgid "page.datasets.isbn_ranges.last_updated"
 msgstr "最終更新日: %(isbn_country_date)s (%(link)s)"
 
-#, fuzzy
 msgid "page.datasets.isbn_ranges.isbn_website"
 msgstr "ISBNウェブサイト"
 
-#, fuzzy
 msgid "page.datasets.isbn_ranges.isbn_metadata"
 msgstr "メタデータ"
 
-#, fuzzy
 msgid "page.datasets.libgen_li.title"
 msgstr "Libgen.li"
 
@@ -4555,27 +4274,21 @@ msgstr "「libgen.is」に言及しているトレントファイルは、<a %(a
 msgid "page.datasets.libgen_li.description6"
 msgstr "メタデータの使用に役立つリソースは<a %(a_href)s>このページ</a>です。"
 
-#, fuzzy
 msgid "page.datasets.libgen_li.fiction_torrents"
 msgstr "Anna’s Archiveのフィクショントレント"
 
-#, fuzzy
 msgid "page.datasets.libgen_li.comics_torrents"
 msgstr "Anna’s Archiveのコミックトレント"
 
-#, fuzzy
 msgid "page.datasets.libgen_li.magazines_torrents"
 msgstr "Anna’s Archiveの雑誌トレント"
 
-#, fuzzy
 msgid "page.datasets.libgen_li.standarts_torrents"
 msgstr "アンナのアーカイブの標準文書トレント"
 
-#, fuzzy
 msgid "page.datasets.libgen_li.fiction_rus_torrents"
 msgstr "アンナのアーカイブのロシアのフィクショントレント"
 
-#, fuzzy
 msgid "page.datasets.libgen_li.link_metadata"
 msgstr "メタデータ"
 
@@ -4583,7 +4296,6 @@ msgstr "メタデータ"
 msgid "page.datasets.libgen_li.link_metadata_ftp"
 msgstr "FTP経由のメタデータ"
 
-#, fuzzy
 msgid "page.datasets.libgen_li.metadata_structure"
 msgstr "メタデータフィールド情報"
 
@@ -4599,7 +4311,6 @@ msgstr "ディスカッションフォーラム"
 msgid "page.datasets.libgen_li.comics_announcement"
 msgstr "コミックブックリリースに関する私たちのブログ投稿"
 
-#, fuzzy
 msgid "page.datasets.libgen_rs.title"
 msgstr "Libgen.rs"
 
