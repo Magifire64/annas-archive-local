@@ -29,6 +29,8 @@
   <td class="p-0"></td><td colspan="5" class="p-0 text-xs">Full data leak of CERLALC, scrubbed from personal information. Used to generate the <a href="/datasets/cerlalc">“cerlalc” metadata collection</a>.</td>
 </tr>{% endif %}{% if 'world_lending_library_2024_11.tar.zst.torrent' in small_file.file_path %}<tr class="{% if small_file.obsolete %}line-through{% endif %}">
   <td class="p-0"></td><td colspan="5" class="p-0 text-xs">Yet another “complete library of the world”. The book files have been imported into the <a href="/datasets/upload">upload_files_wll</a>. The original library also contains videos and music, and has been preserved in its entirety in this torrent, as a historical curiosity.</td>
+</tr>{% endif %}{% if 'annas-torrents-2025-07-14' in small_file.file_path %}<tr class="{% if small_file.obsolete %}line-through{% endif %}">
+  <td class="p-0"></td><td colspan="5" class="p-0 text-xs">Contains all torrent files from /torrents on 2025-07-14, from <a href="https://software.annas-archive.li/AnnaArchivist/annas-archive/-/issues/287">#287</a>.</td>
 </tr>{% endif %}
 {%- endmacro %}
 
