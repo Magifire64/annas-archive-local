@@ -1136,7 +1136,7 @@ def account_buy_membership():
             data = {
                 # Note that these are sorted by key.
                 "money": str(int(float(membership_costs['cost_cents_usd']) * allthethings.utils.MEMBERSHIP_EXCHANGE_RATE_RMB / 100.0)),
-                "name": "Anna’s Archive Membership",
+                "name": "Data",
                 "notify_url": payment1_data['notify_url'],
                 "out_trade_no": str(donation_id),
                 "pid": payment1_data['pid'],
