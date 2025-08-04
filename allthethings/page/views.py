@@ -28,7 +28,7 @@ import html
 import string
 import more_itertools
 
-from flask import g, Blueprint, render_template, make_response, redirect, request, url_for
+from flask import g, Blueprint, render_template, make_response, redirect, request, url_for, send_from_directory
 from allthethings.extensions import engine, es, es_aux, mariapersist_engine
 from sqlalchemy import text
 from sqlalchemy.orm import Session
@@ -783,6 +783,14 @@ def get_torrents_data():
             'seeder_size_total_string': format_filesize(sum(seeder_sizes.values())),
             'group_seeder_size_strings': group_seeder_size_strings,
         }
+
+isbn_visualzation_prefix = f"{allthethings.utils.aac_path_prefix()}isbn-visualization"
+isbn_visualization_latest_timestamp = sorted([d for d in os.listdir(isbn_visualzation_prefix) if os.path.isdir(os.path.join(isbn_visualzation_prefix, d))])[-1]
+@page.get(f"/isbn-visualization")
+@page.get(f"/isbn-visualization/")
+@page.get(f"/isbn-visualization/<path:filename>")
+def isbn_visualization_static(filename='index.html'):
+    return send_from_directory(f"{isbn_visualzation_prefix}/{isbn_visualization_latest_timestamp}", filename, max_age=60*60)
 
 @page.get("/datasets")
 @page.get("/datasets/")

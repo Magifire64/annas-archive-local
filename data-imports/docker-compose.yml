@@ -95,3 +95,23 @@ services:
       - "./mariadb-conf:/etc/mysql/conf.d"
       - "../public:/app/public"
     tty: true
+
+
+  "aa-data-import--isbn-visualization":
+    container_name: "aa-data-import--isbn-visualization"
+    build:
+      context: "../isbn-visualization"
+    depends_on:
+      - "aa-data-import--mariadb"
+      - "aa-data-import--elasticsearch"
+    env_file:
+      - "./.env-data-imports-fixed"
+      - "./.env-data-imports"
+    restart: "unless-stopped"
+    stop_grace_period: "3s"
+    volumes:
+      - "../../aa-data-import--isbn-visualization-temp-data:/app/data"
+      - "../../aa-data-import--allthethings-file-data:/file-data"
+      - "../../aa-data-import--allthethings-exports:/exports/"
+    tty: true
+    entrypoint: "tail -f /dev/null"
