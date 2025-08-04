@@ -785,12 +785,19 @@ def get_torrents_data():
         }
 
 isbn_visualzation_prefix = f"{allthethings.utils.aac_path_prefix()}isbn-visualization"
-isbn_visualization_latest_timestamp = sorted([d for d in os.listdir(isbn_visualzation_prefix) if os.path.isdir(os.path.join(isbn_visualzation_prefix, d))])[-1]
+isbn_visualization_latest_timestamp = ''
+try:
+    isbn_visualization_latest_timestamp = sorted([d for d in os.listdir(isbn_visualzation_prefix) if os.path.isdir(os.path.join(isbn_visualzation_prefix, d))])[-1]
+except:
+    pass
 @page.get(f"/isbn-visualization")
 @page.get(f"/isbn-visualization/")
 @page.get(f"/isbn-visualization/<path:filename>")
 def isbn_visualization_static(filename='index.html'):
+    if filename.startswith('prefix-data') and filename.endswith('.json'):
+        filename = f'{filename}.gz'
     return send_from_directory(f"{isbn_visualzation_prefix}/{isbn_visualization_latest_timestamp}", filename, max_age=60*60)
+
 
 @page.get("/datasets")
 @page.get("/datasets/")
@@ -1190,6 +1197,13 @@ def codes_prefix_matcher(s):
 def codes_page():
     DIR_LIST_LIMIT = 5000
     PREFIX_EXPANSION_LIMIT = 500
+    INTERESTING_LABELS = [
+        'filepath:⋯',
+        'lgrsnf_topic:⋯', 
+        'zlib_category_name:⋯',
+        'oclc_holdings_editions:⋯',
+        'lang:⋯',
+    ]
     FILEPATH_PREFIXES = [
         b'czech_oo42hcks_filename', 
         b'filepath', 
@@ -1201,6 +1215,25 @@ def codes_page():
         b'collection',
         b'edsebk_subject',
         b'magzdb_keyword',
+        b'file_problem',
+        b'hathi_access',
+        b'hathi_access_profile_code',
+        b'hathi_bib_fmt',
+        b'hathi_collection_code',
+        b'hathi_content_provider_code',
+        b'hathi_digitization_agent_code',
+        b'hathi_pub_place',
+        b'hathi_responsible_entity_code',
+        b'hathi_rights',
+        b'hathi_rights_reason_code',
+        b'hathi_source',
+        b'hathi_us_gov_doc_flag',
+        b'content_type',
+        b'lang',
+        b'oclc_holdings_editions',
+        b'oclc_editions',
+        b'oclc_holdings',
+        b'year',
     ]
     
     account_id = allthethings.utils.get_account_id(request.cookies)
@@ -1391,7 +1424,8 @@ def codes_page():
             bad_unicode=bad_unicode,
             code_item=code_item,
             dir_path=dir_path,
-            hit_max_dirs=hit_max_dirs
+            hit_max_dirs=hit_max_dirs,
+            INTERESTING_LABELS=INTERESTING_LABELS,
         )
 
 zlib_book_dict_comments = {

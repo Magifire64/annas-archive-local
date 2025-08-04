@@ -98,8 +98,8 @@
           {% endif %}
         </td>
         <td></td>
-        <td class="text-sm text-gray-500 px-4">{{ gettext('page.codes.records_prefix') }}</td>
-        <td class="text-sm text-gray-500 px-4">{{ gettext('page.codes.records_codes') }}</td>
+        <td class="text-sm font-bold px-4">{{ gettext('page.codes.records_prefix') }}</td>
+        <td class="text-sm font-bold px-4">{{ gettext('page.codes.records_codes') }}</td>
       </tr>
       {% macro prefix_row_render(prefix_row) %}
         <tr>
@@ -120,15 +120,30 @@
 
       {% if prefix_label == '' %}
         {% set magic_number = 10000 %}
+
+        <!-- TODO:TRANSLATE -->
+        <tr><td colspan="100" class="pt-4 text-xl font-bold">Interesting codes</td></tr>
+
+        {% for label in INTERESTING_LABELS %}
+          {% for prefix_row in prefix_rows %}
+            {% if prefix_row.label == label %}
+              {{ prefix_row_render(prefix_row) }}
+            {% endif %}
+          {% endfor %}
+        {% endfor %}
+
+        <!-- TODO:TRANSLATE -->
+        <tr><td colspan="100" class="pt-4 text-xl font-bold">Codes with many records</td></tr>
+
         {% for prefix_row in prefix_rows %}
-          {% if prefix_row.records >= magic_number %}
+          {% if (prefix_row.records >= magic_number) and (prefix_row.label not in BROWSABLE_PREFIXES) %}
             {{ prefix_row_render(prefix_row) }}
           {% endif %}
         {% endfor %}
 
-        <tr><td colspan="100" class="pt-4 text-sm text-gray-500">{{ gettext('page.codes.fewer_than', count=(magic_number | numberformat)) }}</td></tr>
+        <tr><td colspan="100" class="pt-4 text-xl font-bold">{{ gettext('page.codes.fewer_than', count=(magic_number | numberformat)) }}</td></tr>
         {% for prefix_row in prefix_rows %}
-          {% if prefix_row.records < magic_number %}
+          {% if (prefix_row.records < magic_number) and (prefix_row.label not in BROWSABLE_PREFIXES) %}
             {{ prefix_row_render(prefix_row) }}
           {% endif %}
         {% endfor %}

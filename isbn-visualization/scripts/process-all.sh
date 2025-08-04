@@ -42,14 +42,6 @@ else
   echo "Skipping gen-prefixes.ts as $DATA_DIR/prefix-data.json already exists"
 fi
 
-if [ ! -f "$OUTPUT_DIR_PUBLIC/prefix-data/root.json.gz" ]; then
-  echo "Running scripts/minify-prefix-data.sh"
-  scripts/minify-prefix-data.sh
-else
-  echo "Skipping scripts/minify-prefix-data.sh as $OUTPUT_DIR_PUBLIC/prefix-data/root.json.gz already exists"
-fi
-
-
 # run only if DATA_DIR/library_holding_data.sqlite3 does not exist
 if [ ! -f "$DATA_DIR/library_holding_data.sqlite3" ]; then
   echo "Running scripts/rarity"
@@ -105,3 +97,6 @@ if [ ! -d "$OUTPUT_DIR_PUBLIC/title-data" ]; then
 else
   echo "Skipping scripts/write-titles.ts as $OUTPUT_DIR_PUBLIC/title-data already exists"
 fi
+
+echo "Running scripts/minify-prefix-data.sh"
+scripts/minify-prefix-data.sh

@@ -175,5 +175,5 @@ export default {
     },
     { name: "Worldcat", url: "https://worldcat.org/isbn/%s" },
   ],
-  jsonCompression: "gzip",
+  // jsonCompression: "gzip",
 };
