@@ -332,6 +332,18 @@ def extensions(app):
             )
             return resp
 
+    @app.after_request
+    def after_req(response):
+        if request.path.startswith('/css/') or request.path.startswith('/js/') or request.path.endswith('.png') or request.path.endswith('site.webmanifest') or request.path.endswith('.ico'):
+            minutes = 60 * 3
+            cloudflare_minutes = minutes
+            response.headers.remove('Cache-Control')
+            response.headers.add('Cache-Control', f"public,max-age={int(60 * minutes)},s-maxage={int(60 * minutes)}")
+            response.headers.add('X-AA-Debug-Cache-Control', f"public,max-age={int(60 * minutes)},s-maxage={int(60 * minutes)}")
+            response.headers.add('Cloudflare-CDN-Cache-Control', f"max-age={int(60 * cloudflare_minutes)}")
+            response.headers.add('X-AA-Debug-Cloudflare-CDN-Cache-Control', f"max-age={int(60 * cloudflare_minutes)}")
+        return response
+
     return None
 
 
