@@ -45,6 +45,8 @@ docker exec -it aa-data-import--web /scripts/download_openlib.sh # Can be skippe
 docker exec -it aa-data-import--web /scripts/download_pilimi_isbndb.sh # Can be skipped when using aa_derived_mirror_metadata.
 docker exec -it aa-data-import--web /scripts/download_pilimi_zlib.sh # Can be skipped when using aa_derived_mirror_metadata.
 docker exec -it aa-data-import--web /scripts/download_aa_various.sh # Can be skipped when using aa_derived_mirror_metadata.
+docker exec -it aa-data-import--web /scripts/download_scihub.sh # Can be skipped when using aa_derived_mirror_metadata.
+docker exec -it aa-data-import--web /scripts/download_torrentsjson.sh # Can be skipped when using aa_derived_mirror_metadata.
 docker exec -it aa-data-import--web /scripts/download_aac_duxiu_files.sh # CANNOT BE SKIPPED
 docker exec -it aa-data-import--web /scripts/download_aac_duxiu_records.sh # CANNOT BE SKIPPED
 docker exec -it aa-data-import--web /scripts/download_aac_hathitrust_files.sh # CANNOT BE SKIPPED
@@ -67,6 +69,8 @@ docker exec -it aa-data-import--web /scripts/load_openlib.sh # Can be skipped wh
 docker exec -it aa-data-import--web /scripts/load_pilimi_isbndb.sh # Can be skipped when using aa_derived_mirror_metadata.
 docker exec -it aa-data-import--web /scripts/load_pilimi_zlib.sh # Can be skipped when using aa_derived_mirror_metadata.
 docker exec -it aa-data-import--web /scripts/load_aa_various.sh # Can be skipped when using aa_derived_mirror_metadata.
+docker exec -it aa-data-import--web /scripts/load_scihub.sh # Can be skipped when using aa_derived_mirror_metadata.
+docker exec -it aa-data-import--web /scripts/load_torrentsjson.sh # Can be skipped when using aa_derived_mirror_metadata.
 docker exec -it aa-data-import--web /scripts/load_aac_duxiu_files.sh # CANNOT BE SKIPPED
 docker exec -it aa-data-import--web /scripts/load_aac_duxiu_records.sh # CANNOT BE SKIPPED
 docker exec -it aa-data-import--web /scripts/load_aac_hathitrust_files.sh # CANNOT BE SKIPPED
@@ -103,6 +107,10 @@ docker exec -it aa-data-import--web flask cli elastic_build_aarecords_all # Can 
 docker exec -it aa-data-import--web flask cli elastic_build_aarecords_forcemerge # Can be skipped when using aa_derived_mirror_metadata.
 docker exec -it aa-data-import--web flask cli mysql_build_aarecords_codes_numbers # Can be skipped when using aa_derived_mirror_metadata. Only run this when doing full reset.
 
+# Generate ISBN visualization (optional):
+docker exec -it aa-data-import--web /scripts/dump_codes_benc.sh # Can be skipped when using aa_derived_mirror_metadata. Only run this when doing full reset.
+docker exec -it aa-data-import--isbn-visualization /app/scripts/process-all-wrapper-anna.sh
+
 # Gracefully shut down MariaDB
 docker exec -it aa-data-import--web /scripts/mariadb_graceful_shutdown.sh
 
@@ -116,9 +124,11 @@ export NOW=$(date +"%Y_%m_%d_%H_%M")
 mv ../allthethings-mysql-data ../allthethings-mysql-data--backup-$NOW
 mv ../allthethings-elastic-data ../allthethings-elastic-data--backup-$NOW
 mv ../allthethings-elasticsearchaux-data ../allthethings-elasticsearchaux-data--backup-$NOW
+mv ../allthethings-file-data ../allthethings-file-data--backup-$NOW
 rsync -a --progress ../aa-data-import--allthethings-mysql-data/ ../allthethings-mysql-data
 rsync -a --progress ../aa-data-import--allthethings-elastic-data/ ../allthethings-elastic-data
 rsync -a --progress ../aa-data-import--allthethings-elasticsearchaux-data/ ../allthethings-elasticsearchaux-data
+rsync -a --progress ../aa-data-import--allthethings-file-data/ ../allthethings-file-data
 docker compose up -d --no-deps --build; docker compose stop web
 docker compose logs --tail 20 --follow
 docker compose start web
@@ -128,11 +138,19 @@ docker compose stop mariadb elasticsearch elasticsearchaux kibana
 mv ../allthethings-mysql-data ../allthethings-mysql-data--didnt-work
 mv ../allthethings-elastic-data ../allthethings-elastic-data--didnt-work
 mv ../allthethings-elasticsearchaux-data ../allthethings-elasticsearchaux-data--didnt-work
+mv ../allthethings-file-data ../allthethings-file-data--didnt-work
 mv ../allthethings-mysql-data--backup-$NOW ../allthethings-mysql-data
 mv ../allthethings-elastic-data--backup-$NOW ../allthethings-elastic-data
 mv ../allthethings-elasticsearchaux-data--backup-$NOW ../allthethings-elasticsearchaux-data
+mv ../allthethings-file-data--backup-$NOW ../allthethings-file-data
 docker compose up -d --no-deps --build
 docker compose logs --tail 20 --follow
+
+# To export files to aa_derived_mirror_metadata
+docker exec -it aa-data-import--web /scripts/dump_elasticsearch.sh
+docker exec -it aa-data-import--web /scripts/dump_elasticsearchaux.sh
+docker exec -it aa-data-import--web /scripts/dump_mariadb.sh
+docker exec -it aa-data-import--web /scripts/dump_codes_benc.sh
 ```
 
 ## Importing from aa_derived_mirror_metadata
