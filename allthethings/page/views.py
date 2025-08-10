@@ -315,7 +315,7 @@ def add_comments_to_dict(before_dict, comments):
 @allthethings.utils.public_cache(minutes=5, cloudflare_minutes=60*3)
 def home_page():
     if allthethings.utils.DOWN_FOR_MAINTENANCE:
-        return render_template("page/maintenance.html", header_active="")
+        return render_template("page/maintenance.html", header_active="home/maintenance")
 
     torrents_data = get_torrents_data()
     return render_template("page/home.html", header_active="home/home", torrents_data=torrents_data)
@@ -375,7 +375,7 @@ def llm_page():
 @page.get("/browser_verification/")
 @allthethings.utils.public_cache(minutes=5, cloudflare_minutes=60*3)
 def browser_verification_page():
-    return render_template("page/browser_verification.html", header_active="home/search")
+    return render_template("page/browser_verification.html", header_active="search")
 
 @cachetools.cached(cache=cachetools.TTLCache(maxsize=30000, ttl=24*60*60), lock=threading.Lock())
 def get_stats_data():
@@ -1081,8 +1081,8 @@ def datasets_gbooks_page():
 def copyright_page():
     account_id = allthethings.utils.get_account_id(request.cookies)
     if account_id is None:
-        return render_template("page/login_to_view.html", header_active="")
-    return render_template("page/copyright.html", header_active="")
+        return render_template("page/login_to_view.html", header_active="account/login_to_view")
+    return render_template("page/copyright.html", header_active="home/copyright")
 
 @page.get("/volunteering")
 @page.get("/volunteering/")
@@ -1102,9 +1102,9 @@ def metadata_page():
 def contact_page():
     account_id = allthethings.utils.get_account_id(request.cookies)
     if account_id is None:
-        return render_template("page/login_to_view.html", header_active="")
+        return render_template("page/login_to_view.html", header_active="account/login_to_view")
     is_member_str = '+mb' if allthethings.utils.check_is_member(request.cookies, mariapersist_engine) else '+nt'
-    return render_template("page/contact.html", header_active="", AA_EMAIL=AA_EMAIL.replace('@', f"+{account_id}{is_member_str}@"))
+    return render_template("page/contact.html", header_active="home/contact", AA_EMAIL=AA_EMAIL.replace('@', f"+{account_id}{is_member_str}@"))
 
 @page.get("/fast_download_no_more")
 @page.get("/fast_download_no_more/")
@@ -1173,7 +1173,7 @@ def member_codes_page():
 
     account_id = allthethings.utils.get_account_id(request.cookies)
     if account_id is None:
-        return render_template("page/login_to_view.html", header_active="")
+        return render_template("page/login_to_view.html", header_active="account/login_to_view")
 
     with Session(mariapersist_engine) as mariapersist_session:
         account_fast_download_info = allthethings.utils.get_account_fast_download_info(mariapersist_session, account_id)
@@ -1238,7 +1238,7 @@ def codes_page():
     
     account_id = allthethings.utils.get_account_id(request.cookies)
     if account_id is None:
-        return render_template("page/login_to_view.html", header_active="")
+        return render_template("page/login_to_view.html", header_active="account/login_to_view")
 
     with engine.connect() as connection:
         prefix_arg = request.args.get('prefix') or ''
@@ -8293,7 +8293,7 @@ VIEWER_SUPPORTED_EXTENSIONS = {
 
 def render_aarecord(record_id):
     if allthethings.utils.DOWN_FOR_MAINTENANCE:
-        return render_template("page/maintenance.html", header_active="")
+        return render_template("page/maintenance.html", header_active="home/maintenance")
 
     with Session(engine):
         ids = [record_id]
@@ -8319,7 +8319,7 @@ def render_aarecord(record_id):
         account_id = allthethings.utils.get_account_id(request.cookies)
 
         render_fields = {
-            "header_active": "home/search",
+            "header_active": "search",
             "aarecord_id": aarecord['id'],
             "aarecord_id_split": aarecord['id'].split(':', 1),
             "aarecord": aarecord,
@@ -8371,7 +8371,7 @@ def scidb_redirect_page():
 def scidb_page(doi_input):
     # account_id = allthethings.utils.get_account_id(request.cookies)
     # if account_id is None:
-    #     return render_template("page/login_to_view.html", header_active="")
+    #     return render_template("page/login_to_view.html", header_active="account/login_to_view")
 
     doi_input = doi_input.strip().replace('\n', '')
 
@@ -8385,7 +8385,7 @@ def scidb_page(doi_input):
 
     if FLASK_DEBUG and (doi_input == "10.1145/1543135.1542528"):
         render_fields = {
-            "header_active": "home/search",
+            "header_active": "search",
             "aarecord_id": "test_pdf",
             "aarecord_id_split": "test_pdf",
             "aarecord": { "additional": { "top_box": { "meta_information": ["Test PDF"], "title": "Test PDF" } } },
@@ -8449,7 +8449,7 @@ def scidb_page(doi_input):
             download_url = 'https://' + domain + '/' + allthethings.utils.make_anon_download_uri(True, speed, path_info['path'], aarecord['additional']['filename'], domain)
 
         render_fields = {
-            "header_active": "home/search",
+            "header_active": "search",
             "aarecord_id": aarecord['id'],
             "aarecord_id_split": aarecord['id'].split(':', 1),
             "aarecord": aarecord,
@@ -8931,7 +8931,7 @@ def search_page():
     global number_of_search_primary_exceptions
 
     if allthethings.utils.DOWN_FOR_MAINTENANCE:
-        return render_template("page/maintenance.html", header_active="")
+        return render_template("page/maintenance.html", header_active="home/maintenance")
 
     search_page_timer = time.perf_counter()
     had_es_timeout = False
@@ -9322,7 +9322,7 @@ def search_page():
     search_hashes = [record["id"].split("md5:")[1] for record in search_dict["search_aarecords"] if "md5:" in record["id"]]
     r = make_response((render_template(
             "page/search.html",
-            header_active="home/search",
+            header_active="search",
             search_input=search_input,
             search_dict=search_dict,
             search_hashes=search_hashes

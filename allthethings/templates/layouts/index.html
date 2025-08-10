@@ -477,6 +477,79 @@
             </script>
           </div>
 
+          {% macro sidebar_and_footer(is_footer) %}
+            <div>
+              <div class="font-bold mx-4 mt-2 text-black">{{ gettext('layout.index.header.title') }}</div>
+              <div><a href="/" class="custom-a block hover:text-[#333] hover:bg-gray-300 text-sm px-4 py-[2px] {% if (not is_footer) and header_active == 'home/home' %}font-bold bg-gray-300 border-l-4 border-l-[#0096ff] pl-3{% endif %}">{{ gettext('layout.index.header.nav.home') }}</a></div>
+              <div><a href="/search" class="custom-a block hover:text-[#333] hover:bg-gray-300 text-sm px-4 py-[2px] {% if (not is_footer) and header_active == 'search' %}font-bold bg-gray-300 border-l-4 border-l-[#0096ff] pl-3{% endif %}">{{ gettext('layout.index.header.nav.search') }}</a></div>
+              <div><a href="/donate" class="custom-a block hover:text-[#333] hover:bg-gray-300 text-sm px-4 py-[2px] {% if (not is_footer) and header_active == 'donate' %}font-bold bg-gray-300 border-l-4 border-l-[#0096ff] pl-3{% endif %}">{{ gettext('layout.index.header.nav.donate') }}</a></div>
+              <div><a href="/scidb" class="custom-a block hover:text-[#333] hover:bg-gray-300 text-sm px-4 py-[2px] {% if (not is_footer) and header_active == 'home/scidb' %}font-bold bg-gray-300 border-l-4 border-l-[#0096ff] pl-3{% endif %}">🧬 {{ gettext('page.home.scidb.header') }}</a></div>
+              <div><a href="/faq" class="custom-a block hover:text-[#333] hover:bg-gray-300 text-sm px-4 py-[2px] {% if (not is_footer) and header_active == 'home/faq' %}font-bold bg-gray-300 border-l-4 border-l-[#0096ff] pl-3{% endif %}">{{ gettext('layout.index.header.nav.faq') }}</a></div>
+              <span class="sm:max-w-[110px]"></span> <!-- To get tailwind to pick up on it -->
+              <div class="text-xs px-4 py-[2px]"><select class="p-1 rounded text-gray-500 max-w-full {% if is_footer %}sm:max-w-[110px]{% endif %}" onchange="handleChangeLang(event)">
+                {% for lang_code, lang_name, lang_name_current_locale in g.languages %}
+                  {% if g.domain_lang_code == lang_code %}
+                    <option value="{{ lang_code }}">🌐 {{ lang_code }} - {{ lang_name }}{% if lang_name_current_locale %} - {{ lang_name_current_locale }}{% endif %}</option>
+                  {% endif %}
+                {% endfor %}
+                {% for lang_code, lang_name, lang_name_current_locale in g.languages %}
+                  <option value="{{ lang_code }}">{{ lang_code }} - {{ lang_name }}{% if lang_name_current_locale %} - {{ lang_name_current_locale }}{% endif %}{% if lang_code == g.domain_lang_code %} ☑️{% endif %}</option>
+                {% endfor %}
+              </select></div>
+
+              <div class="font-bold mx-4 mt-4 text-black">{{ gettext('layout.index.header.nav.account') }}</div>
+              <div class="[html.aa-logged-in_&]:hidden"><a href="/account" class="custom-a block hover:text-[#333] hover:bg-gray-300 text-sm px-4 py-[2px] {% if (not is_footer) and header_active.startswith('account') %}font-bold bg-gray-300 border-l-4 border-l-[#0096ff] pl-3{% endif %}">{{ gettext('layout.index.header.nav.login_register') }}</a></div>
+              <div class="[html:not(.aa-logged-in)_&]:hidden"><a href="/account" class="custom-a block hover:text-[#333] hover:bg-gray-300 text-sm px-4 py-[2px] {% if (not is_footer) and header_active == 'account' %}font-bold bg-gray-300 border-l-4 border-l-[#0096ff] pl-3{% endif %}">{{ gettext('layout.index.header.nav.account') }}</a></div>
+              <div class="[html:not(.aa-logged-in)_&]:hidden"><a href="/account/profile" class="custom-a block hover:text-[#333] hover:bg-gray-300 text-sm px-4 py-[2px] {% if (not is_footer) and header_active == 'account/profile' %}font-bold bg-gray-300 border-l-4 border-l-[#0096ff] pl-3{% endif %}">{{ gettext('layout.index.header.nav.public_profile') }}</a></div>
+              <div class="[html:not(.aa-logged-in)_&]:hidden"><a href="/account/downloaded" class="custom-a block hover:text-[#333] hover:bg-gray-300 text-sm px-4 py-[2px] {% if (not is_footer) and header_active == 'account/downloaded' %}font-bold bg-gray-300 border-l-4 border-l-[#0096ff] pl-3{% endif %}">{{ gettext('layout.index.header.nav.downloaded_files') }}</a></div>
+              <div class="[html:not(.aa-logged-in)_&]:hidden"><a href="/account/donations" class="custom-a block hover:text-[#333] hover:bg-gray-300 text-sm px-4 py-[2px] {% if (not is_footer) and header_active == 'account/donations' %}font-bold bg-gray-300 border-l-4 border-l-[#0096ff] pl-3{% endif %}">{{ gettext('layout.index.header.nav.my_donations') }}</a></div>
+            </div>
+
+            <div>
+              <div class="font-bold mx-4 mt-4 text-black"><!--TODO:TRANSLATE-->Explore</div>
+              <div><a href="/activity" class="custom-a block hover:text-[#333] hover:bg-gray-300 text-sm px-4 py-[2px] {% if (not is_footer) and header_active == 'home/activity' %}font-bold bg-gray-300 border-l-4 border-l-[#0096ff] pl-3{% endif %}">{{ gettext('layout.index.header.nav.activity') }}</a></div>
+              <div><a href="/member_codes" class="custom-a block hover:text-[#333] hover:bg-gray-300 text-sm px-4 py-[2px] {% if (not is_footer) and header_active == 'home/codes' %}font-bold bg-gray-300 border-l-4 border-l-[#0096ff] pl-3{% endif %}">{{ gettext('layout.index.header.nav.codes') }}</a></div>
+              <div><a target="_blank" href="/isbn-visualization" class="custom-a block hover:text-[#333] hover:bg-gray-300 text-sm px-4 py-[2px] {% if (not is_footer) and header_active == ' ' %}font-bold bg-gray-300 border-l-4 border-l-[#0096ff] pl-3{% endif %}"><!--TODO:TRANSLATE-->ISBN Visualization ↗</a></div>
+
+              <div class="font-bold mx-4 mt-4 text-black"><!--TODO:TRANSLATE-->Open data</div>
+              <div><a href="/datasets" class="custom-a block hover:text-[#333] hover:bg-gray-300 text-sm px-4 py-[2px] {% if (not is_footer) and header_active == 'home/datasets' %}font-bold bg-gray-300 border-l-4 border-l-[#0096ff] pl-3{% endif %}">{{ gettext('layout.index.header.nav.datasets') }}</a></div>
+              <div><a href="/torrents" class="custom-a block hover:text-[#333] hover:bg-gray-300 text-sm px-4 py-[2px] {% if (not is_footer) and header_active == 'home/torrents' %}font-bold bg-gray-300 border-l-4 border-l-[#0096ff] pl-3{% endif %}">{{ gettext('layout.index.header.nav.torrents') }}</a></div>
+              <div><a href="/llm" class="custom-a block hover:text-[#333] hover:bg-gray-300 text-sm px-4 py-[2px] {% if (not is_footer) and header_active == 'home/llm' %}font-bold bg-gray-300 border-l-4 border-l-[#0096ff] pl-3{% endif %}">{{ gettext('layout.index.header.nav.llm_data') }}</a></div>
+            </div>
+
+            <div>
+              <div class="font-bold mx-4 mt-4 text-black">{{ gettext('layout.index.footer.list2.header') }}</div>
+              <div><a href="/contact" class="custom-a block hover:text-[#333] hover:bg-gray-300 text-sm px-4 py-[2px] {% if (not is_footer) and header_active == 'home/contact' %}font-bold bg-gray-300 border-l-4 border-l-[#0096ff] pl-3{% endif %}">{{ gettext('page.contact.title') }}</a></div>
+              <div><a target="_blank" href="/blog" class="custom-a block hover:text-[#333] hover:bg-gray-300 text-sm px-4 py-[2px] {% if (not is_footer) and header_active == ' ' %}font-bold bg-gray-300 border-l-4 border-l-[#0096ff] pl-3{% endif %}">{{ gettext('layout.index.header.nav.annasblog') | replace('↗', '') }} ↗</a></div>
+              <div><a target="_blank" href="https://www.reddit.com/r/Annas_Archive" class="custom-a block hover:text-[#333] hover:bg-gray-300 text-sm px-4 py-[2px] {% if (not is_footer) and header_active == ' ' %}font-bold bg-gray-300 border-l-4 border-l-[#0096ff] pl-3{% endif %}">{{ gettext('layout.index.footer.list2.reddit') }} ↗</a></div>
+              <div><a target="_blank" href="https://matrix.to/#/#annas:archivecommunication.org" class="custom-a block hover:text-[#333] hover:bg-gray-300 text-sm px-4 py-[2px] {% if (not is_footer) and header_active == ' ' %}font-bold bg-gray-300 border-l-4 border-l-[#0096ff] pl-3{% endif %}"><!--TODO:TRANSLATE -->Matrix ↗</a></div>
+
+              <div class="font-bold mx-4 mt-4 text-black"><!--TODO:TRANSLATE-->Help out</div>
+              <div><a href="/metadata" class="custom-a block hover:text-[#333] hover:bg-gray-300 text-sm px-4 py-[2px] {% if (not is_footer) and header_active == 'home/metadata' %}font-bold bg-gray-300 border-l-4 border-l-[#0096ff] pl-3{% endif %}">{{ gettext('layout.index.header.nav.improve_metadata') }}</a></div>
+              <div><a href="/volunteering" class="custom-a block hover:text-[#333] hover:bg-gray-300 text-sm px-4 py-[2px] {% if (not is_footer) and header_active == 'home/volunteering' %}font-bold bg-gray-300 border-l-4 border-l-[#0096ff] pl-3{% endif %}">{{ gettext('layout.index.header.nav.volunteering') }}</a></div>
+              <div><a target="_blank" href="https://translate.annas-archive.li/" class="custom-a block hover:text-[#333] hover:bg-gray-300 text-sm px-4 py-[2px] {% if (not is_footer) and header_active == ' ' %}font-bold bg-gray-300 border-l-4 border-l-[#0096ff] pl-3{% endif %}">{{ gettext('layout.index.header.nav.translate') | replace('↗', '') }} ↗</a></div>
+            </div>
+
+            <div>
+              <div class="font-bold mx-4 mt-4 text-black"><!--TODO:TRANSLATE-->Development</div>
+              <div><a target="_blank" href="https://software.annas-archive.li/" class="custom-a block hover:text-[#333] hover:bg-gray-300 text-sm px-4 py-[2px] {% if (not is_footer) and header_active == ' ' %}font-bold bg-gray-300 border-l-4 border-l-[#0096ff] pl-3{% endif %}">{{ gettext('layout.index.header.nav.annassoftware') | replace('↗', '') }} ↗</a></div>
+              <div><a href="/security" class="custom-a block hover:text-[#333] hover:bg-gray-300 text-sm px-4 py-[2px] {% if (not is_footer) and header_active == 'home/security' %}font-bold bg-gray-300 border-l-4 border-l-[#0096ff] pl-3{% endif %}">{{ gettext('layout.index.header.nav.security') }}</a></div>
+              <div><a href="/copyright" class="custom-a block hover:text-[#333] hover:bg-gray-300 text-sm px-4 py-[2px] {% if (not is_footer) and header_active == 'home/copyright' %}font-bold bg-gray-300 border-l-4 border-l-[#0096ff] pl-3{% endif %}">{{ gettext('layout.index.footer.list2.dmca_copyright') }}</a></div>
+
+              <div class="font-bold mx-4 mt-4 text-black">{{ gettext('layout.index.footer.list3.header') }}</div>
+              <div><a target="_blank" href="https://annas-archive.li" class="js-annas-archive-li custom-a block hover:text-[#333] hover:bg-gray-300 text-sm px-4 py-[2px] {% if (not is_footer) and header_active == ' ' %}font-bold bg-gray-300 border-l-4 border-l-[#0096ff] pl-3{% endif %}">annas-archive.li ↗</a></div>
+              <div><a target="_blank" href="https://annas-archive.se" class="js-annas-archive-se custom-a block hover:text-[#333] hover:bg-gray-300 text-sm px-4 py-[2px] {% if (not is_footer) and header_active == ' ' %}font-bold bg-gray-300 border-l-4 border-l-[#0096ff] pl-3{% endif %}">annas-archive.se ↗</a></div>
+              <div><a target="_blank" href="https://annas-archive.org" class="js-annas-archive-org custom-a block hover:text-[#333] hover:bg-gray-300 text-sm px-4 py-[2px] {% if (not is_footer) and header_active == ' ' %}font-bold bg-gray-300 border-l-4 border-l-[#0096ff] pl-3{% endif %}">annas-archive.org ↗</a></div>
+              <div><a target="_blank" href="https://open-slum.org/" class="custom-a block hover:text-[#333] hover:bg-gray-300 text-sm px-4 py-[2px] {% if (not is_footer) and header_active == ' ' %}font-bold bg-gray-300 border-l-4 border-l-[#0096ff] pl-3{% endif %}">{{ gettext('layout.index.footer.list3.link.slum', unaffiliated=((('<span class="text-xs">[' | safe) + gettext('layout.index.footer.list3.link.unaffiliated')) + (']</span>' | safe)) | safe) | replace('(','') | replace(')', '') }} ↗</a></div>
+            </div>
+
+            <div class="font-bold mt-1"></div>
+          {% endmacro %}
+
+          {% macro home_menu_label() %}
+            
+          {% endmacro %}
+
           <script>
             function topMenuToggle(event, className) {
               const el = document.querySelector("." + className);
@@ -507,11 +580,11 @@
 
           <div class="header-bar" data-testid="header-bar">
             <div class="header-links relative z-20">
-              <a href="#" aria-expanded="false" onclick="topMenuToggle(event, 'js-top-menu-home')" class="header-link-first {{ 'header-link-active' if header_active.startswith('home') }}" style="margin-right: 24px;">
+              <a href="/" aria-expanded="false" onclick="topMenuToggle(event, 'js-top-menu-home')" class="sm:hidden header-link-first {{ 'header-link-active' if header_active.startswith('home') or header_active.startswith('account') }}" style="margin-right: 24px;">
                 <span class="header-link-normal">
-                  {% if header_active == 'home/search' %}{{ gettext('layout.index.header.nav.search') }}
-                  {% elif header_active == 'home/scidb' %}🧬&nbsp;{{ gettext('page.home.scidb.header') }}
+                  {% if header_active == 'home/scidb' %}🧬&nbsp;{{ gettext('page.home.scidb.header') }}
                   {% elif header_active == 'home/faq' %}{{ gettext('layout.index.header.nav.faq') }}
+                  {% elif header_active == 'home/contact' %}{{ gettext('page.contact.title') }}
                   {% elif header_active == 'home/metadata' %}{{ gettext('layout.index.header.nav.improve_metadata') }}
                   {% elif header_active == 'home/volunteering' %}{{ gettext('layout.index.header.nav.volunteering') }}
                   {% elif header_active == 'home/datasets' %}{{ gettext('layout.index.header.nav.datasets') }}
@@ -519,13 +592,17 @@
                   {% elif header_active == 'home/activity' %}{{ gettext('layout.index.header.nav.activity') }}
                   {% elif header_active == 'home/codes' %}{{ gettext('layout.index.header.nav.codes') }}
                   {% elif header_active == 'home/llm' %}{{ gettext('layout.index.header.nav.llm_data') }}
+                  {% elif header_active == 'account/profile' %}{{ gettext('layout.index.header.nav.public_profile') }}
+                  {% elif header_active == 'account/downloaded' %}{{ gettext('layout.index.header.nav.downloaded_files') }}
+                  {% elif header_active == 'account/donations' %}{{ gettext('layout.index.header.nav.my_donations') }}
+                  {% elif header_active == 'account' %}{{ gettext('layout.index.header.nav.account') }}
                   {% else %}{{ gettext('layout.index.header.nav.home') }}{% endif %}
                   <span class="icon-[material-symbols--arrow-drop-down] absolute text-lg mt-[3px] -ml-px"></span>
                 </span>
                 <span class="header-link-bold">
-                  {% if header_active == 'home/search' %}{{ gettext('layout.index.header.nav.search') }}
-                  {% elif header_active == 'home/scidb' %}🧬&nbsp;{{ gettext('page.home.scidb.header') }}
+                  {% if header_active == 'home/scidb' %}🧬&nbsp;{{ gettext('page.home.scidb.header') }}
                   {% elif header_active == 'home/faq' %}{{ gettext('layout.index.header.nav.faq') }}
+                  {% elif header_active == 'home/contact' %}{{ gettext('page.contact.title') }}
                   {% elif header_active == 'home/metadata' %}{{ gettext('layout.index.header.nav.improve_metadata') }}
                   {% elif header_active == 'home/volunteering' %}{{ gettext('layout.index.header.nav.volunteering') }}
                   {% elif header_active == 'home/datasets' %}{{ gettext('layout.index.header.nav.datasets') }}
@@ -533,27 +610,26 @@
                   {% elif header_active == 'home/activity' %}{{ gettext('layout.index.header.nav.activity') }}
                   {% elif header_active == 'home/codes' %}{{ gettext('layout.index.header.nav.codes') }}
                   {% elif header_active == 'home/llm' %}{{ gettext('layout.index.header.nav.llm_data') }}
+                  {% elif header_active == 'account/profile' %}{{ gettext('layout.index.header.nav.public_profile') }}
+                  {% elif header_active == 'account/downloaded' %}{{ gettext('layout.index.header.nav.downloaded_files') }}
+                  {% elif header_active == 'account/donations' %}{{ gettext('layout.index.header.nav.my_donations') }}
+                  {% elif header_active == 'account' %}{{ gettext('layout.index.header.nav.account') }}
                   {% else %}{{ gettext('layout.index.header.nav.home') }}{% endif %}
                   <span class="icon-[material-symbols--arrow-drop-down] absolute text-lg mt-[3px] -ml-px"></span>
                 </span>
               </a>
-              <div class="absolute left-0 top-full bg-[#f2f2f2] px-4 shadow js-top-menu-home hidden">
-                <a class="custom-a block py-1 {% if header_active == 'home/home'         %}font-bold text-black{% else %}text-black/64{% endif %} hover:text-black" href="/">{{ gettext('layout.index.header.nav.home') }}</a>
-                <a class="custom-a block py-1 {% if header_active == 'home/search'       %}font-bold text-black{% else %}text-black/64{% endif %} hover:text-black" href="/search">{{ gettext('layout.index.header.nav.search') }}</a>
-                <a class="custom-a block py-1 {% if header_active == 'home/scidb'        %}font-bold text-black{% else %}text-black/64{% endif %} hover:text-black" href="/scidb">🧬&nbsp;{{ gettext('page.home.scidb.header') }}</a>
-                <a class="custom-a block py-1 {% if header_active == 'home/faq'          %}font-bold text-black{% else %}text-black/64{% endif %} hover:text-black" href="/faq">{{ gettext('layout.index.header.nav.faq') }}</a>
-                <a class="custom-a block py-1 {% if header_active == 'home/metadata'     %}font-bold text-black{% else %}text-black/64{% endif %} hover:text-black" href="/metadata">{{ gettext('layout.index.header.nav.improve_metadata') }}</a>
-                <a class="custom-a block py-1 {% if header_active == 'home/volunteering' %}font-bold text-black{% else %}text-black/64{% endif %} hover:text-black" href="/volunteering">{{ gettext('layout.index.header.nav.volunteering') }}</a>
-                <a class="custom-a block py-1 {% if header_active == 'home/datasets'     %}font-bold text-black{% else %}text-black/64{% endif %} hover:text-black" href="/datasets">{{ gettext('layout.index.header.nav.datasets') }}</a>
-                <a class="custom-a block py-1 {% if header_active == 'home/torrents'     %}font-bold text-black{% else %}text-black/64{% endif %} hover:text-black" href="/torrents">{{ gettext('layout.index.header.nav.torrents') }}</a>
-                <a class="custom-a block py-1 {% if header_active == 'home/activity'     %}font-bold text-black{% else %}text-black/64{% endif %} hover:text-black" href="/activity">{{ gettext('layout.index.header.nav.activity') }}</a>
-                <a class="custom-a block py-1 {% if header_active == 'home/codes'        %}font-bold text-black{% else %}text-black/64{% endif %} hover:text-black" href="/member_codes">{{ gettext('layout.index.header.nav.codes') }}</a>
-                <a class="custom-a block py-1 {% if header_active == 'home/isbn-visualization' %}font-bold text-black{% else %}text-black/64{% endif %} hover:text-black" href="/isbn-visualization/">ISBN Visualization<!-- TODO:TRANSLATE --></a>
-                <a class="custom-a block py-1 {% if header_active == 'home/llm'          %}font-bold text-black{% else %}text-black/64{% endif %} hover:text-black" href="/llm">{{ gettext('layout.index.header.nav.llm_data') }}</a>
-                <a class="custom-a block py-1 text-black/64 hover:text-black" href="/blog" target="_blank">{{ gettext('layout.index.header.nav.annasblog') }}</a>
-                <a class="custom-a block py-1 text-black/64 hover:text-black" href="https://software.annas-archive.li" target="_blank">{{ gettext('layout.index.header.nav.annassoftware') }}</a>
-                <a class="custom-a block py-1 text-black/64 hover:text-black" href="https://translate.annas-archive.li" target="_blank">{{ gettext('layout.index.header.nav.translate') }}</a>
+              <a href="/" class="hidden sm:inline header-link-first {{ 'header-link-active' if header_active.startswith('home') }}">
+                <span class="header-link-normal">
+                  {{ gettext('layout.index.header.nav.home') }}
+                </span>
+                <span class="header-link-bold">
+                  {{ gettext('layout.index.header.nav.home') }}
+                </span>
+              </a>
+              <div class="absolute -left-1 top-full bg-[#f2f2f2] drop-shadow-lg js-top-menu-home hidden" style="box-shadow: 0px 0px 2px #00000040">
+                {{ sidebar_and_footer(False) }}
               </div>
+              <a href="/search" class="{{ 'header-link-active' if header_active == 'search' }}"><span class="header-link-normal">{{ gettext('layout.index.header.nav.search') }}</span><span class="header-link-bold">{{ gettext('layout.index.header.nav.search') }}</span></a>
               <a href="/donate" class="{{ 'header-link-active' if header_active == 'donate' }}"><span class="header-link-normal">{{ gettext('layout.index.header.nav.donate') }}{% if g.is_membership_double %} <span class="ml-1 text-xs bg-[#ff005b] text-white px-1 rounded align-[1px]">x2</span>{% endif %}</span><span class="header-link-bold">{{ gettext('layout.index.header.nav.donate') }}{% if g.is_membership_double %} <span class="ml-1 text-xs bg-[#ff005b] text-white px-1 rounded align-[1px]">x2</span>{% endif %}</span></a>
             </div>
             {% if not g.hide_search_bar %}
@@ -561,8 +637,10 @@
                 <input class="js-slash-focus rounded" name="q" type="search" placeholder="{{ gettext('common.search.placeholder') }}" value="{{search_input}}" title="Focus: '/' Scroll search results: 'j', 'k'">
               </form>
             {% endif %}
-            <div class="header-links header-links-right relative z-10 ml-auto items-center">
-              <!-- <div class="mr-1 bg-[#0195ff] text-white text-xs font-medium px-1 py-0.5 rounded">{{ gettext('layout.index.header.nav.beta') }}</div> -->
+            <!-- <div class="header-links header-links-right relative z-10 ml-auto items-center">
+              <a href="/account" class="{{ 'header-link-active' if header_active.startswith('account') }}"><span class="header-link-normal">{{ gettext('layout.index.header.nav.account') }}</span><span class="header-link-bold">{{ gettext('layout.index.header.nav.account') }}</span></a>
+            </div> -->
+            <!-- <div class="header-links header-links-right relative z-10 ml-auto items-center">
               <a href="#" aria-expanded="false" onclick="topMenuToggle(event, 'js-top-menu-login')" class="header-link-first {{ 'header-link-active' if header_active.startswith('account') }} [html.aa-logged-in_&]:hidden">
                 <span class="header-link-normal">
                   {{ gettext('layout.index.header.nav.login_register') }}
@@ -598,63 +676,16 @@
                 <a class="custom-a block py-1 {% if header_active == 'account/downloaded' %}font-bold text-black{% else %}text-black/64{% endif %} hover:text-black" href="/account/downloaded">{{ gettext('layout.index.header.nav.downloaded_files') }}</a>
                 <a class="custom-a block py-1 {% if header_active == 'account/donations' %}font-bold text-black{% else %}text-black/64{% endif %} hover:text-black" href="/account/donations">{{ gettext('layout.index.header.nav.my_donations') }}</a>
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
-      <main class="main">{% if g.live_debug %}<div class="bg-red-100 p-2 inline-block mb-4 text-xs font-bold rounded">⚙️ LIVE/DEBUG version of this page. 🔨</div>{% endif %}{% block body %}{% endblock %}</main>
+      <main class="main">{% if header_active.startswith('home') or header_active.startswith('account') %}<div class="main-menu hidden sm:block py-2">
+        {{ sidebar_and_footer(False) }}
+      </div>{% endif %}<div class="main-inner">{% if g.live_debug %}<div class="bg-red-100 p-2 inline-block mb-4 text-xs font-bold rounded">⚙️ LIVE/DEBUG version of this page. 🔨</div>{% endif %}{% block body %}{% endblock %}</div></main>
       <footer class="bg-black/5 text-[#777]" style="box-shadow: 0px 0px 7px rgb(0 0 0 / 30%)">
-        <div class="max-w-[1050px] mx-auto p-[12px] leading-relaxed flex flex-wrap">
-          <div class="mr-4 mb-4 grow">
-            <strong class="font-bold text-black">{{ gettext('layout.index.footer.list1.header') }}</strong><br>
-            <a class="custom-a hover:text-[#333]" href="/">{{ gettext('layout.index.header.nav.home') }}</a><br>
-            <a class="custom-a hover:text-[#333]" href="/search">{{ gettext('layout.index.header.nav.search') }}</a><br>
-            <a class="custom-a hover:text-[#333]" href="/scidb">🧬&nbsp;{{ gettext('page.home.scidb.header') }}</a><br>
-            <a class="custom-a hover:text-[#333]" href="/faq">{{ gettext('layout.index.header.nav.faq') }}</a><br>
-            <a class="custom-a hover:text-[#333]" href="/donate">{{ gettext('layout.index.header.nav.donate') }}</a><br>
-            <select class="p-1 rounded text-gray-500 mt-1 max-w-[110px]" onchange="handleChangeLang(event)">
-              {% for lang_code, lang_name, lang_name_current_locale in g.languages %}
-                {% if g.domain_lang_code == lang_code %}
-                  <option value="{{ lang_code }}">🌐 {{ lang_code }} - {{ lang_name }}{% if lang_name_current_locale %} - {{ lang_name_current_locale }}{% endif %}</option>
-                {% endif %}
-              {% endfor %}
-              {% for lang_code, lang_name, lang_name_current_locale in g.languages %}
-                <option value="{{ lang_code }}">{{ lang_code }} - {{ lang_name }}{% if lang_name_current_locale %} - {{ lang_name_current_locale }}{% endif %}{% if lang_code == g.domain_lang_code %} ☑️{% endif %}</option>
-              {% endfor %}
-            </select>
-          </div>
-
-          <div class="mr-4 mb-4 grow grow">
-            <strong class="font-bold text-black">{{ gettext('layout.index.footer.list2.header') }}</strong><br>
-            <a class="custom-a hover:text-[#333]" href="/contact">{{ gettext('page.contact.title') }}</a><br>
-            <a class="custom-a hover:text-[#333]" href="/copyright">{{ gettext('layout.index.footer.list2.dmca_copyright') }}</a><br>
-            <a class="custom-a hover:text-[#333]" href="https://www.reddit.com/r/Annas_Archive">{{ gettext('layout.index.footer.list2.reddit') }}</a> / <a class="custom-a hover:text-[#333]" href="https://matrix.to/#/#annas:archivecommunication.org">Matrix</a><!-- TODO:TRANSLATE --><br>
-            <a class="custom-a hover:text-[#333]" href="/blog">{{ gettext('layout.index.header.nav.annasblog') }}</a><br>
-            <a class="custom-a hover:text-[#333]" href="https://software.annas-archive.li">{{ gettext('layout.index.header.nav.annassoftware') }}</a><br>
-            <a class="custom-a hover:text-[#333]" href="https://translate.annas-archive.li">{{ gettext('layout.index.header.nav.translate') }}</a><br>
-          </div>
-
-          <div class="mr-4 mb-4 grow">
-            <strong class="font-bold text-black">{{ gettext('layout.index.header.nav.advanced') }}</strong><br>
-            <a class="custom-a hover:text-[#333]" href="/faq">{{ gettext('layout.index.header.nav.faq') }}</a><br>
-            <a class="custom-a hover:text-[#333]" href="/metadata">{{ gettext('layout.index.header.nav.improve_metadata') }}</a><br>
-            <a class="custom-a hover:text-[#333]" href="/volunteering">{{ gettext('layout.index.header.nav.volunteering') }}</a><br>
-            <a class="custom-a hover:text-[#333]" href="/datasets">{{ gettext('layout.index.header.nav.datasets') }}</a><br>
-            <a class="custom-a hover:text-[#333]" href="/torrents">{{ gettext('layout.index.header.nav.torrents') }}</a><br>
-            <a class="custom-a hover:text-[#333]" href="/activity">{{ gettext('layout.index.header.nav.activity') }}</a><br>
-            <a class="custom-a hover:text-[#333]" href="/member_codes">{{ gettext('layout.index.header.nav.codes') }}</a><br>
-            <a class="custom-a hover:text-[#333]" href="/isbn-visualization/">ISBN Visualization<!-- TODO:TRANSLATE --></a><br>
-            <a class="custom-a hover:text-[#333]" href="/llm">{{ gettext('layout.index.header.nav.llm_data') }}</a><br>
-            <a class="custom-a hover:text-[#333]" href="/faq#security">{{ gettext('layout.index.header.nav.security') }}</a><br>
-          </div>
-
-          <div class="grow">
-            <strong class="font-bold text-black">{{ gettext('layout.index.footer.list3.header') }}</strong><br>
-            <a class="custom-a hover:text-[#333] js-annas-archive-li" href="https://annas-archive.li">annas-archive.li</a><br>
-            <a class="custom-a hover:text-[#333] js-annas-archive-se" href="https://annas-archive.se">annas-archive.se</a><br>
-            <a class="custom-a hover:text-[#333] js-annas-archive-org" href="https://annas-archive.org">annas-archive.org</a><br>
-            <a class="custom-a hover:text-[#333]" href="https://open-slum.org/">{{ gettext('layout.index.footer.list3.link.slum', unaffiliated=((('<span class="text-xs">[' | safe) + gettext('layout.index.footer.list3.link.unaffiliated')) + (']</span>' | safe)) | safe) | replace('(','') | replace(')', '') }}</a><br>
-          </div>
+        <div class="max-w-[1050px] mx-auto p-[12px] leading-relaxed flex flex-col sm:flex-row sm:flex-wrap justify-between">
+          {{ sidebar_and_footer(True) }}
         </div>
       </footer>
     {% endblock %}

@@ -18,18 +18,30 @@ display: flex;
 flex-direction: column;
 }
 .main {
-max-width: 1050px;
+max-width: 1280px;
 margin: 0 auto;
-padding: 20px 10px;
 width: 100%;
 flex-grow: 1;
+display: flex;
+}
+.main-menu {
+width: 200px;
+flex-shrink: 0;
+margin-right: 30px;
+background: #f2f2f2;
+}
+.main-inner {
+padding: 20px 10px;  
+min-width: 0;
+width: 100%;
 }
 .header {
 background: #f2f2f2;
 box-shadow: 0px 0px 7px rgb(0 0 0 / 30%);
+position: relative;
 }
 .header-inner {
-max-width: 1050px;
+max-width: 1280px;
 margin: 0 auto;
 padding: 12px;
 }
@@ -104,10 +116,10 @@ visibility: visible;
 }
 .header-search {
 flex-grow: 1;
-max-width: 400px;
 margin-left: auto;
 max-width: 400px;
-margin-right: var(--header-link-spacing);
+/*margin-right: var(--header-link-spacing);*/
+margin-right: auto;
 }
 .header-search > input {
 flex-grow: 1;
