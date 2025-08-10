@@ -26,6 +26,7 @@ import time
 import email
 import email.policy
 import py_pinyin_split
+import natsort
 from sqlalchemy.orm import Session
 
 from flask_babel import gettext, get_babel, force_locale
@@ -2526,6 +2527,18 @@ def get_torrents_json_aa_currently_seeding_by_torrent_path():
         cursor.execute('SELECT json FROM torrents_json LIMIT 1')
         return { row['url'].split('dyn/small_file/torrents/', 1)[1]: row['aa_currently_seeding'] for row in orjson.loads(cursor.fetchone()['json']) }
 
+def format_filesize(num):
+    if num < 100000:
+        return "0.1MB"
+    elif num < 1000000:
+        return f"{num/1000000:3.1f}MB"
+    else:
+        for unit in ["", "KB", "MB", "GB", "TB", "PB", "EB", "ZB"]:
+            if abs(num) < 1000.0:
+                return f"{num:3.1f}{unit}"
+            num /= 1000.0
+        return f"{num:.1f}YB"
+
 # These are marked as not seeding because an issue with the torrent but are actually seeding.
 # Keep in sync.
 TORRENT_PATHS_PARTIALLY_BROKEN = [
@@ -2542,6 +2555,203 @@ TORRENT_PATHS_PARTIALLY_BROKEN = [
     'torrents/managed_by_aa/annas_archive_data__aacid/annas_archive_data__aacid__ia2_acsmpdf_files__20240823T234438Z--20240823T234439Z.torrent',
     'torrents/external/libgen_li_magazines/m_1727000.torrent',
 ]
+
+def torrent_group_data_from_file_path(file_path):
+    group = file_path.split('/')[2]
+    aac_meta_group = None
+    aac_meta_prefix = 'torrents/managed_by_aa/annas_archive_meta__aacid/annas_archive_meta__aacid__'
+    if file_path.startswith(aac_meta_prefix):
+        aac_meta_group = file_path[len(aac_meta_prefix):].split('__', 1)[0]
+        group = aac_meta_group
+    aac_data_prefix = 'torrents/managed_by_aa/annas_archive_data__aacid/annas_archive_data__aacid__'
+    if file_path.startswith(aac_data_prefix):
+        group = file_path[len(aac_data_prefix):].split('__', 1)[0]
+    if 'zlib3' in file_path:
+        group = 'zlib'
+    if '_ia2_' in file_path:
+        group = 'ia'
+    if 'duxiu' in file_path:
+        group = 'duxiu'
+    if 'upload' in file_path:
+        group = 'upload'
+    if 'magzdb_records' in file_path: # To not get magzdb from 'upload' collection.
+        group = 'magzdb'
+    if 'nexusstc' in file_path:
+        group = 'nexusstc'
+    if 'hathitrust' in file_path:
+        group = 'hathitrust'
+    if 'ebscohost_records' in file_path:
+        group = 'other_metadata'
+    if 'gbooks_records' in file_path:
+        group = 'gbooks'
+    if 'rgb_records' in file_path:
+        group = 'other_metadata'
+    if 'trantor_records' in file_path:
+        group = 'other_metadata'
+    if 'libby_records' in file_path:
+        group = 'other_metadata'
+    if 'isbngrp_records' in file_path:
+        group = 'other_metadata'
+    if 'goodreads_records' in file_path:
+        group = 'other_metadata'
+    if 'cerlalc_records' in file_path:
+        group = 'other_metadata'
+    if 'czech_oo42hcks_records' in file_path:
+        group = 'other_metadata'
+    if 'isbndb' in file_path:
+        group = 'other_metadata'
+    if 'libgenrs_covers' in file_path:
+        group = 'other_metadata'
+    if 'airitibooks_records' in file_path:
+        group = 'other_metadata'
+    if 'bloomsbury_records' in file_path:
+        group = 'other_metadata'
+    if 'chinese_architecture_records' in file_path:
+        group = 'other_metadata'
+    if 'hentai_records' in file_path:
+        group = 'other_metadata'
+    if 'kulturpass_records' in file_path:
+        group = 'other_metadata'
+    if 'newsarch_magz_records' in file_path:
+        group = 'other_metadata'
+    if 'covers-2022-12' in file_path:
+        group = 'other_metadata'
+    if 'torrents_byteoffsets_records' in file_path:
+        group = 'other_metadata'
+    if 'annas-torrents-2025-07-14' in file_path:
+        group = 'other_metadata'
+
+    return { 'group': group, 'aac_meta_group': aac_meta_group }
+
+@cachetools.cached(cache=cachetools.TTLCache(maxsize=1024, ttl=30*60), lock=threading.Lock())
+def get_torrents_data(mariapersist_engine):
+    with mariapersist_engine.connect() as connection:
+        cursor = get_cursor_ping_conn(connection)
+        # cursor.execute('SELECT mariapersist_small_files.created, mariapersist_small_files.file_path, mariapersist_small_files.metadata, s.metadata AS scrape_metadata, s.created AS scrape_created FROM mariapersist_small_files LEFT JOIN (SELECT mariapersist_torrent_scrapes.* FROM mariapersist_torrent_scrapes INNER JOIN (SELECT file_path, MAX(created) AS max_created FROM mariapersist_torrent_scrapes GROUP BY file_path) s2 ON (mariapersist_torrent_scrapes.file_path = s2.file_path AND mariapersist_torrent_scrapes.created = s2.max_created)) s USING (file_path) WHERE mariapersist_small_files.file_path LIKE "torrents/managed_by_aa/%" GROUP BY mariapersist_small_files.file_path ORDER BY created ASC, scrape_created DESC LIMIT 50000')
+        cursor.execute('SELECT created, file_path, metadata FROM mariapersist_small_files WHERE mariapersist_small_files.file_path LIKE "torrents/%" ORDER BY created, file_path LIMIT 50000')
+        small_files = list(cursor.fetchall())
+        cursor.execute('SELECT * FROM mariapersist_torrent_scrapes INNER JOIN (SELECT file_path, MAX(created) AS max_created FROM mariapersist_torrent_scrapes GROUP BY file_path) s2 ON (mariapersist_torrent_scrapes.file_path = s2.file_path AND mariapersist_torrent_scrapes.created = s2.max_created)')
+        scrapes_by_file_path = { row['file_path']: row for row in list(cursor.fetchall()) }
+
+        group_sizes = collections.defaultdict(int)
+        group_num_files = collections.defaultdict(int)
+        small_file_dicts_grouped_aa = collections.defaultdict(list)
+        small_file_dicts_grouped_external = collections.defaultdict(list)
+        small_file_dicts_grouped_other_aa = collections.defaultdict(list)
+        aac_meta_file_paths_grouped = collections.defaultdict(list)
+        seeder_sizes = collections.defaultdict(int)
+        group_seeder_sizes = collections.defaultdict(lambda: [0,0,0])
+        for small_file in small_files:
+            metadata = orjson.loads(small_file['metadata'])
+            toplevel = small_file['file_path'].split('/')[1]
+
+            torrent_group_data = torrent_group_data_from_file_path(small_file['file_path'])
+            group = torrent_group_data['group']
+            if torrent_group_data['aac_meta_group'] is not None:
+                aac_meta_file_paths_grouped[torrent_group_data['aac_meta_group']].append(small_file['file_path'])
+
+            if group == 'hathitrust':
+                toplevel = 'managed_by_aa' # For torrents/other_aa/aa_misc_data/hathitrust_ht_text_pd_2025_03_06_non_zip_files_only.tar.zst.torrent
+
+            scrape_row = scrapes_by_file_path.get(small_file['file_path'])
+            scrape_metadata = {"scrape":{}}
+            scrape_created = datetime.datetime.utcnow()
+            # Make sure we actually make these
+            group_seeder_sizes[group][0] += 0
+            if scrape_row is not None:
+                scrape_created = scrape_row['created']
+                scrape_metadata = orjson.loads(scrape_row['metadata'])
+                if (metadata.get('embargo') or False) is False:
+                    if scrape_metadata['scrape']['seeders'] < 4:
+                        seeder_sizes[0] += metadata['data_size']
+                        group_seeder_sizes[group][0] += metadata['data_size']
+                    elif scrape_metadata['scrape']['seeders'] < 11:
+                        seeder_sizes[1] += metadata['data_size']
+                        group_seeder_sizes[group][1] += metadata['data_size']
+                    else:
+                        seeder_sizes[2] += metadata['data_size']
+                        group_seeder_sizes[group][2] += metadata['data_size']
+
+            group_sizes[group] += metadata['data_size']
+            group_num_files[group] += metadata.get('num_files') or 0
+            if toplevel == 'external':
+                list_to_add = small_file_dicts_grouped_external[group]
+            elif toplevel == 'other_aa':
+                list_to_add = small_file_dicts_grouped_other_aa[group]
+            else:
+                list_to_add = small_file_dicts_grouped_aa[group]
+            display_name = small_file['file_path'].split('/')[-1]
+            list_to_add.append({
+                "sort_key": small_file['file_path'] if group in ['libgen_li_comics', 'libgen_li_fic', 'libgen_li_magazines', 'libgen_li_standarts', 'libgen_rs_fic', 'libgen_rs_non_fic', 'scihub'] else (small_file['created'].strftime("%Y-%m-%d") + small_file['file_path']),
+                "created": small_file['created'].strftime("%Y-%m-%d"),
+                "new": (datetime.datetime.utcnow() - datetime.timedelta(days=30)) < small_file['created'],
+                "file_path": small_file['file_path'],
+                "metadata": metadata,
+                "aa_currently_seeding": aa_currently_seeding(metadata),
+                "size_string": format_filesize(metadata['data_size']),
+                "file_path_short": small_file['file_path'].replace('torrents/managed_by_aa/annas_archive_meta__aacid/', '').replace('torrents/managed_by_aa/annas_archive_data__aacid/', '').replace(f'torrents/managed_by_aa/{group}/', '').replace(f'torrents/external/{group}/', '').replace(f'torrents/other_aa/{group}/', ''),
+                "display_name": display_name,
+                "scrape_metadata": scrape_metadata,
+                "scrape_created": scrape_created,
+                "is_metadata": (('annas_archive_meta__' in small_file['file_path']) or ('.sql' in small_file['file_path']) or ('-index-' in small_file['file_path']) or ('-derived' in small_file['file_path']) or ('isbndb' in small_file['file_path']) or ('covers-' in small_file['file_path']) or ('-metadata-' in small_file['file_path']) or ('-thumbs' in small_file['file_path']) or ('.csv' in small_file['file_path'])),
+                "magnet_link": f"magnet:?xt=urn:btih:{metadata['btih']}&dn={urllib.parse.quote(display_name)}&tr=udp://tracker.opentrackr.org:1337/announce",
+                "temp_uuid": shortuuid.uuid(),
+                "partially_broken": (small_file['file_path'] in TORRENT_PATHS_PARTIALLY_BROKEN),
+                "torrent_code": 'torrent:' + small_file['file_path'].replace('torrents/','')
+            })
+
+        for key in small_file_dicts_grouped_external:
+            small_file_dicts_grouped_external[key] = natsort.natsorted(small_file_dicts_grouped_external[key], key=lambda x: list(x.values()))
+        for key in small_file_dicts_grouped_aa:
+            small_file_dicts_grouped_aa[key] = natsort.natsorted(small_file_dicts_grouped_aa[key], key=lambda x: list(x.values()))
+        for key in small_file_dicts_grouped_other_aa:
+            small_file_dicts_grouped_other_aa[key] = natsort.natsorted(small_file_dicts_grouped_other_aa[key], key=lambda x: list(x.values()))
+
+        obsolete_file_paths = [
+            'torrents/managed_by_aa/zlib/pilimi-zlib-index-2022-06-28.torrent',
+            'torrents/managed_by_aa/libgenli_comics/comics0__shoutout_to_tosec.torrent',
+            'torrents/managed_by_aa/libgenli_comics/comics1__adopted_by_yperion.tar.torrent',
+            'torrents/managed_by_aa/libgenli_comics/comics2__never_give_up_against_elsevier.tar.torrent',
+            'torrents/managed_by_aa/libgenli_comics/comics4__for_science.tar.torrent',
+            'torrents/managed_by_aa/libgenli_comics/comics3.0__hone_the_hachette.tar.torrent',
+            'torrents/managed_by_aa/libgenli_comics/comics3.1__adopted_by_oskanios.tar.torrent',
+            'torrents/managed_by_aa/libgenli_comics/c_2022_12_thousand_dirs.torrent',
+            'torrents/managed_by_aa/libgenli_comics/c_2022_12_thousand_dirs_magz.torrent',
+            'torrents/managed_by_aa/annas_archive_data__aacid/annas_archive_data__aacid__upload_files_duxiu_epub__20240510T045054Z--20240510T045055Z.torrent',
+        ]
+        for file_path_list in aac_meta_file_paths_grouped.values():
+            obsolete_file_paths += file_path_list[0:-1]
+        for item in small_file_dicts_grouped_other_aa['aa_derived_mirror_metadata'][0:-1]:
+            obsolete_file_paths.append(item['file_path'])
+
+        # Tack on "obsolete" fields, now that we have them
+        for group in list(small_file_dicts_grouped_aa.values()) + list(small_file_dicts_grouped_external.values()) + list(small_file_dicts_grouped_other_aa.values()):
+            for item in group:
+                item['obsolete'] = (item['file_path'] in obsolete_file_paths)
+
+        # TODO: exclude obsolete
+        group_size_strings = { group: format_filesize(total) for group, total in group_sizes.items() }
+        group_avg_size_strings = { group: format_filesize(total // group_num_files[group]) for group, total in group_sizes.items() if group in group_num_files }
+        seeder_size_strings = { index: format_filesize(seeder_sizes[index]) for index in [0,1,2] }
+        group_seeder_size_strings = {}
+        for group, inner_seeder_sizes in group_seeder_sizes.items():
+            total = sum(inner_seeder_sizes) + 1
+            group_seeder_size_strings[group] = [(format_filesize(inner_seeder_sizes[index]) if inner_seeder_sizes[index] > 0 else '–') + f" ({round(inner_seeder_sizes[index]*100/total)}%)" for index in [0,1,2]]
+
+        return {
+            'small_file_dicts_grouped': {
+                'managed_by_aa': dict(sorted(small_file_dicts_grouped_aa.items())),
+                'external': dict(sorted(small_file_dicts_grouped_external.items())),
+                'other_aa': dict(sorted(small_file_dicts_grouped_other_aa.items())),
+            },
+            'group_size_strings': group_size_strings,
+            'group_num_files': group_num_files,
+            'group_avg_size_strings': group_avg_size_strings,
+            'seeder_size_strings': seeder_size_strings,
+            'seeder_sizes': seeder_sizes,
+            'seeder_size_total_string': format_filesize(sum(seeder_sizes.values())),
+            'group_seeder_size_strings': group_seeder_size_strings,
+        }
 
 def build_pagination_pages_with_dots(primary_hits_pages, page_value, large):
     pagination_pages_with_dots = []

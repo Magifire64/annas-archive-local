@@ -25,7 +25,7 @@ from flask_babel import gettext, get_locale
 
 from allthethings.extensions import es, engine, mariapersist_engine
 from config.settings import PAYMENT1B_ID, PAYMENT1B_KEY, PAYMENT1C_ID, PAYMENT1C_KEY, PAYMENT1D_ID, PAYMENT1D_KEY, PAYMENT2_URL, PAYMENT2_API_KEY, PAYMENT2_PROXIES, PAYMENT2_HMAC, PAYMENT2_SIG_HEADER, GC_NOTIFY_SIG, HOODPAY_URL, HOODPAY_AUTH, PAYMENT3_DOMAIN, PAYMENT3_KEY
-from allthethings.page.views import get_aarecords_elasticsearch, ES_TIMEOUT_PRIMARY, get_torrents_data
+from allthethings.page.views import get_aarecords_elasticsearch, ES_TIMEOUT_PRIMARY
 
 import allthethings.utils
 
@@ -175,7 +175,7 @@ def make_torrent_json(top_level_group_name, group_name, row):
 @dyn.get("/dyn/torrents.json")
 @allthethings.utils.no_cache()
 def torrents_json_page():
-    torrents_data = get_torrents_data()
+    torrents_data = allthethings.utils.get_torrents_data(mariapersist_engine)
     output_rows = []
     for top_level_group_name, small_files_groups in torrents_data['small_file_dicts_grouped'].items():
         for group_name, small_files in small_files_groups.items():
@@ -186,7 +186,7 @@ def torrents_json_page():
 @dyn.get("/dyn/generate_torrents")
 @allthethings.utils.no_cache()
 def generate_torrents_page():
-    torrents_data = get_torrents_data()
+    torrents_data = allthethings.utils.get_torrents_data(mariapersist_engine)
     max_tb = 10000000
     try:
         max_tb = float(request.args.get('max_tb'))
