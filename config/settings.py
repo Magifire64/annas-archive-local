@@ -54,5 +54,8 @@ ELASTICSEARCHAUX_HOST = os.getenv("ELASTICSEARCHAUX_HOST", "http://elasticsearch
 SLOW_DATA_IMPORTS = str(os.getenv("SLOW_DATA_IMPORTS", "")).lower() in ["1","true"]
 AACID_SMALL_DATA_IMPORTS = str(os.getenv("AACID_SMALL_DATA_IMPORTS", "")).lower() in ["1","true"]
 
+# Local Archive mode - enables features for running Anna's Archive locally
+LOCAL_MODE = str(os.getenv("LOCAL_MODE", "")).lower() in ["1","true"]
+
 FLASK_DEBUG = str(os.getenv("FLASK_DEBUG", "")).lower() in ["1","true"]
 DEBUG_TB_INTERCEPT_REDIRECTS = False

@@ -2,7 +2,7 @@
 <html lang="{{ g.full_lang_code }}">
   <head>
     <meta charset="utf-8">
-    <title>{% if self.title() %}{% block title %}{% endblock %} - {% endif %}{{ gettext('layout.index.title') }}</title>
+    <title>{% if self.title() %}{% block title %}{% endblock %} - {% endif %}{% if g.local_mode %}{{ gettext('layout.index.title.local') }}{% else %}{{ gettext('layout.index.title') }}{% endif %}</title>
     {% block darkreader_code_block %}
       <script type="text/javascript">{{ g.darkreader_code | safe }}</script>
     {% endblock %}
@@ -17,7 +17,7 @@
     {% if self.meta_tags() %}
       {% block meta_tags %}{% endblock %}
     {% else %}
-      <meta name="description" content="{{ gettext('layout.index.meta.description') }}" />
+      <meta name="description" content="{% if g.local_mode %}{{ gettext('layout.index.meta.description.local') }}{% else %}{{ gettext('layout.index.meta.description') }}{% endif %}" />
     {% endif %}
     <meta name="twitter:card" value="summary" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -370,7 +370,7 @@
         </div>
         <div class="header-inner">
           <div class="header-inner-top">
-            <a href="/" class="custom-a text-black hover:text-[#444]"><h1 class="text-2xl sm:text-4xl">{{ gettext('layout.index.header.title') }}</h1></a>
+            <a href="/" class="custom-a text-black hover:text-[#444]"><h1 class="text-2xl sm:text-4xl">{% if g.local_mode %}{{ gettext('layout.index.title.local') }}{% else %}{{ gettext('layout.index.header.title') }}{% endif %}</h1></a>
             
             <div class="flex gap-1 items-center">
               <button
@@ -479,7 +479,7 @@
 
           {% macro sidebar_and_footer(is_footer) %}
             <div>
-              <div class="font-bold mx-4 mt-2 text-black">{{ gettext('layout.index.header.title') }}</div>
+              <div class="font-bold mx-4 mt-2 text-black">{% if g.local_mode %}{{ gettext('layout.index.title.local') }}{% else %}{{ gettext('layout.index.header.title') }}{% endif %}</div>
               <div><a href="/" class="custom-a block hover:text-black hover:bg-gray-300 text-sm px-4 py-[2px] {% if (not is_footer) and header_active == 'home/home' %}text-black font-bold bg-gray-300 border-l-4 border-l-[#0096ff] pl-3{% endif %}">{{ gettext('layout.index.header.nav.home') }}</a></div>
               <div><a href="/search" class="custom-a block hover:text-black hover:bg-gray-300 text-sm px-4 py-[2px] {% if (not is_footer) and header_active == 'search' %}text-black font-bold bg-gray-300 border-l-4 border-l-[#0096ff] pl-3{% endif %}">{{ gettext('layout.index.header.nav.search') }}</a></div>
               <div><a href="/donate" class="custom-a block hover:text-black hover:bg-gray-300 text-sm px-4 py-[2px] {% if (not is_footer) and header_active == 'donate' %}text-black font-bold bg-gray-300 border-l-4 border-l-[#0096ff] pl-3{% endif %}">{{ gettext('layout.index.header.nav.donate') }}</a></div>
