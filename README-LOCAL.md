@@ -90,7 +90,8 @@ Anna's [local] Archive includes:
 - **Databases**: 
   - Elasticsearch for search indexing
   - MariaDB for metadata and file locations
-- **Torrent Client**: Integrated qBittorrent with Web UI
+- **Torrent Client**: Integrated qBittorrent with Web UI (accessible at http://localtest.me:8080)
+  - Default credentials: admin / adminadmin (change on first login)
 - **File Indexer**: Automatic and manual file indexing service
 - **Archive Proxy**: Direct extraction from archive files
 
