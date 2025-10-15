@@ -209,8 +209,9 @@ def extensions(app):
             translations_with_english_fallback.add(translations)
 
         # Enable local mode if configured
-        from config.settings import LOCAL_MODE
+        from config.settings import LOCAL_MODE, MAIN_SITE_URL
         g.local_mode = LOCAL_MODE
+        g.main_site_url = MAIN_SITE_URL
 
         g.app_debug = app.debug
         g.base_domain = 'annas-archive.li'
