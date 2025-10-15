@@ -6,6 +6,16 @@
 {% block body %}
   {% from 'macros/copy_button.html' import copy_button %}
 
+  {% if g.local_mode %}
+    <div class="bg-yellow-100 border border-yellow-400 text-yellow-800 p-4 rounded-lg mb-4">
+      <div class="font-bold mb-2">ℹ️ Local Mode Notice</div>
+      <p>
+        You're running Anna's [local] Archive. Donations are not applicable for local installations.
+        If you'd like to support Anna's Archive, please visit <a href="https://annas-archive.org/donate" target="_blank" class="text-[#0095ff] hover:underline">annas-archive.org/donate ↗</a>
+      </p>
+    </div>
+  {% endif %}
+
   {% if has_made_donations %}
     <div class="mb-4 p-4 overflow-hidden bg-black/5 break-words rounded">
       {% if existing_unpaid_donation_id %}

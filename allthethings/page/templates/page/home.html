@@ -4,6 +4,23 @@
 
 {% block body %}
 
+{% if g.local_mode %}
+<div class="bg-[#0195ff] text-white p-4 rounded-lg mb-4">
+  <div class="font-bold text-lg mb-2">🏠 Welcome to Anna's [local] Archive!</div>
+  <p class="mb-2">
+    You're running the local version. Browse and search your downloaded collections, manage torrents, and index your files.
+  </p>
+  <div class="flex gap-2">
+    <a href="/local" class="bg-white text-[#0195ff] px-4 py-2 rounded font-medium hover:bg-gray-100">
+      Manage Local Archive
+    </a>
+    <a href="/local/torrents" class="bg-white/20 hover:bg-white/30 px-4 py-2 rounded">
+      Browse Torrents
+    </a>
+  </div>
+</div>
+{% endif %}
+
 <div class="max-lg:max-w-[450px] max-lg:mx-auto lg:flex lg:flex-wrap lg:justify-between">
   <div class="lg:w-[485px]">
     <h2 class="mt-4 text-xl font-bold">📚 {{ gettext('page.home.full_database.header') }}</h2>
