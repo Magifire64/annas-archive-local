@@ -352,6 +352,19 @@ def faq_page():
         aarecords=aarecords,
     )
 
+@page.get("/local")
+@page.get("/local/")
+def local_manage_page():
+    from config.settings import LOCAL_MODE
+    if not LOCAL_MODE:
+        # Redirect to home if not in local mode
+        return redirect("/", code=302)
+    
+    return render_template(
+        "page/local_manage.html",
+        header_active="local/manage",
+    )
+
 @page.get("/security")
 @page.get("/security/")
 @allthethings.utils.public_cache(minutes=5, cloudflare_minutes=60*3)

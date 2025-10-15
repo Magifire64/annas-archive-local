@@ -1,0 +1,153 @@
+{% extends "layouts/index.html" %}
+
+{% block title %}Manage Local Archive{% endblock %}
+
+{% block body %}
+  <h2 class="mt-4 mb-1 text-3xl font-bold">Manage Local Archive</h2>
+
+  <p class="mb-4">
+    Welcome to the Anna's [local] Archive management interface. Here you can manage your local collection, download torrents, and index your files.
+  </p>
+
+  <!-- Torrent Management Section -->
+  <div class="bg-[#f2f2f2] p-4 pb-3 rounded-lg mb-4">
+    <div class="mb-2 font-bold text-xl">📥 Torrent Management</div>
+    
+    <p class="mb-3">
+      Download and manage torrents from Anna's Archive. Browse available collections and select what you want to download.
+    </p>
+
+    <div class="flex gap-2 mb-3">
+      <a href="/local/torrents" class="bg-[#0095ff] hover:bg-[#0160a7] text-white px-4 py-2 rounded inline-block">
+        Browse Available Torrents
+      </a>
+      <a href="/local/torrents/active" class="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded inline-block">
+        View Active Downloads
+      </a>
+    </div>
+
+    <div class="text-sm text-gray-600">
+      <strong>Status:</strong> <span id="torrent-status" class="text-green-600">Torrent client ready</span>
+    </div>
+  </div>
+
+  <!-- Metadata Management Section -->
+  <div class="bg-[#f2f2f2] p-4 pb-3 rounded-lg mb-4">
+    <div class="mb-2 font-bold text-xl">💾 Metadata Management</div>
+    
+    <p class="mb-3">
+      Keep your local metadata database up to date. This allows you to search and browse your local collection.
+    </p>
+
+    <div class="flex gap-2 mb-3">
+      <button id="download-metadata-btn" class="bg-[#0095ff] hover:bg-[#0160a7] text-white px-4 py-2 rounded">
+        Download Latest Metadata
+      </button>
+      <button id="load-metadata-btn" class="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded" disabled>
+        Load Metadata into Database
+      </button>
+    </div>
+
+    <div class="text-sm text-gray-600">
+      <strong>Last update:</strong> <span id="metadata-date">Never</span>
+    </div>
+    
+    <div id="metadata-progress" class="hidden mt-3">
+      <div class="w-full bg-gray-300 rounded-full h-4">
+        <div id="metadata-progress-bar" class="bg-[#0095ff] h-4 rounded-full transition-all duration-300" style="width: 0%"></div>
+      </div>
+      <div class="text-sm mt-1" id="metadata-progress-text">Preparing download...</div>
+    </div>
+  </div>
+
+  <!-- File Indexing Section -->
+  <div class="bg-[#f2f2f2] p-4 pb-3 rounded-lg mb-4">
+    <div class="mb-2 font-bold text-xl">🔍 File Indexing</div>
+    
+    <p class="mb-3">
+      Index your downloaded files so they can be searched and accessed through the local archive interface.
+    </p>
+
+    <div class="flex gap-2 mb-3">
+      <button id="index-files-btn" class="bg-[#0095ff] hover:bg-[#0160a7] text-white px-4 py-2 rounded">
+        Index Files Now
+      </button>
+      <label class="bg-gray-200 hover:bg-gray-300 text-gray-700 px-4 py-2 rounded inline-block cursor-pointer">
+        <input type="checkbox" id="auto-index-checkbox" class="mr-2">
+        Auto-index on download complete
+      </label>
+    </div>
+
+    <div class="text-sm text-gray-600 mb-2">
+      <strong>Indexed files:</strong> <span id="indexed-count">0</span> files
+    </div>
+
+    <div id="indexing-progress" class="hidden mt-3">
+      <div class="w-full bg-gray-300 rounded-full h-4">
+        <div id="indexing-progress-bar" class="bg-[#0095ff] h-4 rounded-full transition-all duration-300" style="width: 0%"></div>
+      </div>
+      <div class="text-sm mt-1" id="indexing-progress-text">Scanning files...</div>
+    </div>
+  </div>
+
+  <!-- Storage Information Section -->
+  <div class="bg-[#f2f2f2] p-4 pb-3 rounded-lg mb-4">
+    <div class="mb-2 font-bold text-xl">💿 Storage</div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-3">
+      <div>
+        <div class="text-sm text-gray-600">Available Space</div>
+        <div class="text-2xl font-bold" id="storage-available">-- GB</div>
+      </div>
+      <div>
+        <div class="text-sm text-gray-600">Used by Archive</div>
+        <div class="text-2xl font-bold" id="storage-used">-- GB</div>
+      </div>
+      <div>
+        <div class="text-sm text-gray-600">Total Collections</div>
+        <div class="text-2xl font-bold" id="collections-count">0</div>
+      </div>
+    </div>
+
+    <a href="/local/settings" class="text-[#0095ff] hover:underline text-sm">
+      Configure storage settings →
+    </a>
+  </div>
+
+  <!-- Quick Links -->
+  <div class="bg-[#f2f2f2] p-4 pb-3 rounded-lg mb-4">
+    <div class="mb-2 font-bold text-xl">🔗 Quick Links</div>
+    
+    <ul class="list-disc list-inside space-y-1">
+      <li><a href="/search?local=1" class="text-[#0095ff] hover:underline">Search local files only</a></li>
+      <li><a href="/torrents" class="text-[#0095ff] hover:underline">Browse all available torrents</a></li>
+      <li><a href="/datasets" class="text-[#0095ff] hover:underline">Learn about datasets</a></li>
+      <li><a href="https://annas-archive.org/dyn/torrents.json" target="_blank" class="text-[#0095ff] hover:underline">View torrents.json ↗</a></li>
+    </ul>
+  </div>
+
+  <script>
+    // Placeholder JavaScript for future functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      // These would be connected to actual APIs in the full implementation
+      
+      document.getElementById('download-metadata-btn')?.addEventListener('click', function() {
+        alert('Metadata download functionality will be implemented. This will fetch the latest aa_derived_mirror_metadata.');
+      });
+
+      document.getElementById('load-metadata-btn')?.addEventListener('click', function() {
+        alert('Metadata loading functionality will be implemented. This will load the downloaded metadata into ElasticSearch and MariaDB.');
+      });
+
+      document.getElementById('index-files-btn')?.addEventListener('click', function() {
+        alert('File indexing functionality will be implemented. This will scan your download directories and index all files.');
+      });
+
+      // Load initial stats (would come from API in real implementation)
+      document.getElementById('storage-available').textContent = '500 GB';
+      document.getElementById('storage-used').textContent = '50 GB';
+      document.getElementById('collections-count').textContent = '0';
+      document.getElementById('indexed-count').textContent = '0';
+    });
+  </script>
+{% endblock %}
