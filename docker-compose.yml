@@ -276,3 +276,20 @@ services:
     profiles: ["mailpit"]
     logging:
       driver: "local"
+
+  qbittorrent:
+    container_name: qbittorrent
+    image: "lscr.io/linuxserver/qbittorrent:latest"
+    network_mode: "${NETWORK_MODE:-bridge}"
+    environment:
+      - PUID=${UID:-1000}
+      - PGID=${GID:-1000}
+      - TZ=Etc/UTC
+      - WEBUI_PORT=8080
+    volumes:
+      - "../allthethings-qbittorrent-config:/config"
+      - "../allthethings-torrents:/downloads"
+    restart: unless-stopped
+    profiles: ["qbittorrent"]
+    logging:
+      driver: "local"

@@ -272,3 +272,54 @@ CREATE TABLE mariapersist_giftcards (
 
 INSERT INTO mariapersist_accounts (account_id, display_name) VALUES ("ANNATST", "ANNATST");
 INSERT INTO mariapersist_memberships (account_id, membership_tier, membership_expiration) VALUES ("ANNATST", 5, NOW() + INTERVAL 10 YEAR);
+
+-- Local Archive Tables for tracking downloaded files
+CREATE TABLE IF NOT EXISTS mariapersist_local_files (
+    `file_id` BIGINT NOT NULL AUTO_INCREMENT,
+    `file_path` VARCHAR(2048) NOT NULL,
+    `file_name` VARCHAR(512) NOT NULL,
+    `file_size` BIGINT NOT NULL,
+    `md5` BINARY(16) NULL,
+    `created` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `updated` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    `indexed` TINYINT(1) NOT NULL DEFAULT 0,
+    `torrent_id` BIGINT NULL,
+    PRIMARY KEY (`file_id`),
+    UNIQUE INDEX (`file_path`),
+    INDEX (`md5`),
+    INDEX (`indexed`),
+    INDEX (`created`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+
+CREATE TABLE IF NOT EXISTS mariapersist_local_torrents (
+    `torrent_id` BIGINT NOT NULL AUTO_INCREMENT,
+    `torrent_hash` VARCHAR(64) NOT NULL,
+    `torrent_name` VARCHAR(512) NOT NULL,
+    `torrent_size` BIGINT NOT NULL,
+    `status` VARCHAR(50) NOT NULL DEFAULT 'downloading',
+    `progress` DECIMAL(5,2) NOT NULL DEFAULT 0.00,
+    `created` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `updated` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    `completed` TIMESTAMP NULL,
+    `source_url` VARCHAR(512) NULL,
+    PRIMARY KEY (`torrent_id`),
+    UNIQUE INDEX (`torrent_hash`),
+    INDEX (`status`),
+    INDEX (`created`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+
+CREATE TABLE IF NOT EXISTS mariapersist_local_metadata (
+    `metadata_id` BIGINT NOT NULL AUTO_INCREMENT,
+    `metadata_type` VARCHAR(50) NOT NULL,
+    `downloaded` TIMESTAMP NULL,
+    `loaded` TIMESTAMP NULL,
+    `file_path` VARCHAR(2048) NULL,
+    `file_size` BIGINT NULL,
+    `version` VARCHAR(100) NULL,
+    PRIMARY KEY (`metadata_id`),
+    INDEX (`metadata_type`),
+    INDEX (`downloaded`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+
+ALTER TABLE mariapersist_local_files ADD CONSTRAINT `mariapersist_local_files_torrent_id` 
+    FOREIGN KEY(`torrent_id`) REFERENCES `mariapersist_local_torrents` (`torrent_id`) ON DELETE SET NULL;

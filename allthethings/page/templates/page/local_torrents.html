@@ -1,0 +1,187 @@
+{% extends "layouts/index.html" %}
+
+{% block title %}Available Torrents{% endblock %}
+
+{% block body %}
+  <h2 class="mt-4 mb-1 text-3xl font-bold">Available Torrents</h2>
+
+  <p class="mb-4">
+    Browse and download torrents from Anna's Archive. All torrents are available from 
+    <a href="https://annas-archive.org/dyn/torrents.json" target="_blank" class="text-[#0095ff] hover:underline">torrents.json ↗</a>.
+  </p>
+
+  <!-- Storage Planning -->
+  <div class="bg-[#f2f2f2] p-4 rounded-lg mb-4">
+    <div class="mb-2 font-bold">💾 Storage Planning</div>
+    <div class="mb-2">
+      <label class="block text-sm mb-1">Available disk space (GB):</label>
+      <input type="number" id="available-space" class="p-2 border rounded w-40" value="500" min="0">
+    </div>
+    <button id="calculate-selection-btn" class="bg-[#0095ff] hover:bg-[#0160a7] text-white px-4 py-2 rounded text-sm">
+      Suggest Selection Based on Space
+    </button>
+  </div>
+
+  <!-- Filter Options -->
+  <div class="bg-[#f2f2f2] p-4 rounded-lg mb-4">
+    <div class="mb-2 font-bold">🔍 Filters</div>
+    <div class="flex gap-4 flex-wrap">
+      <label class="flex items-center">
+        <input type="checkbox" class="filter-checkbox" data-category="managed_by_aa" checked>
+        <span class="ml-2">Managed by AA</span>
+      </label>
+      <label class="flex items-center">
+        <input type="checkbox" class="filter-checkbox" data-category="external" checked>
+        <span class="ml-2">External Collections</span>
+      </label>
+      <label class="flex items-center">
+        <input type="checkbox" class="filter-checkbox" data-category="other" checked>
+        <span class="ml-2">Other Torrents</span>
+      </label>
+    </div>
+  </div>
+
+  <!-- Torrents Loading -->
+  <div id="loading" class="text-center py-8">
+    <div class="text-2xl mb-2">⏳</div>
+    <div>Loading torrents from torrents.json...</div>
+  </div>
+
+  <!-- Torrents List -->
+  <div id="torrents-list" class="hidden">
+    <div class="mb-4">
+      <div class="text-sm text-gray-600">
+        <span id="total-torrents">0</span> torrents available
+        <span class="ml-4">Total size: <span id="total-size">0</span></span>
+      </div>
+    </div>
+
+    <div id="torrents-container">
+      <!-- Torrents will be loaded here via JavaScript -->
+    </div>
+  </div>
+
+  <!-- Error Display -->
+  <div id="error" class="hidden bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
+    <strong>Error:</strong> <span id="error-message"></span>
+  </div>
+
+  <script>
+    let torrentsData = null;
+
+    // Format bytes to human readable
+    function formatBytes(bytes) {
+      if (bytes === 0) return '0 B';
+      const k = 1024;
+      const sizes = ['B', 'KB', 'MB', 'GB', 'TB'];
+      const i = Math.floor(Math.log(bytes) / Math.log(k));
+      return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+    }
+
+    // Load torrents from API
+    async function loadTorrents() {
+      try {
+        const response = await fetch('https://annas-archive.org/dyn/torrents.json');
+        if (!response.ok) {
+          throw new Error('Failed to load torrents');
+        }
+        torrentsData = await response.json();
+        displayTorrents();
+        document.getElementById('loading').classList.add('hidden');
+        document.getElementById('torrents-list').classList.remove('hidden');
+      } catch (error) {
+        console.error('Error loading torrents:', error);
+        document.getElementById('loading').classList.add('hidden');
+        document.getElementById('error').classList.remove('hidden');
+        document.getElementById('error-message').textContent = error.message;
+      }
+    }
+
+    // Display torrents
+    function displayTorrents() {
+      if (!torrentsData) return;
+
+      const container = document.getElementById('torrents-container');
+      container.innerHTML = '';
+      
+      let totalSize = 0;
+      let totalCount = 0;
+
+      // Group torrents by category (simplified version)
+      const groups = {};
+      
+      Object.values(torrentsData).forEach(torrent => {
+        if (!torrent.group) return;
+        
+        if (!groups[torrent.group]) {
+          groups[torrent.group] = [];
+        }
+        groups[torrent.group].push(torrent);
+        totalSize += parseInt(torrent.size || 0);
+        totalCount++;
+      });
+
+      // Display grouped torrents
+      Object.keys(groups).sort().forEach(groupName => {
+        const groupTorrents = groups[groupName];
+        
+        const groupDiv = document.createElement('div');
+        groupDiv.className = 'bg-[#f2f2f2] p-4 rounded-lg mb-4';
+        
+        let groupSize = 0;
+        groupTorrents.forEach(t => groupSize += parseInt(t.size || 0));
+        
+        groupDiv.innerHTML = `
+          <div class="mb-3">
+            <div class="font-bold text-lg">${groupName}</div>
+            <div class="text-sm text-gray-600">${groupTorrents.length} torrents • ${formatBytes(groupSize)}</div>
+          </div>
+          <div class="space-y-2">
+            ${groupTorrents.map(torrent => `
+              <div class="bg-white p-3 rounded border border-gray-300">
+                <div class="flex justify-between items-start mb-2">
+                  <div class="flex-1">
+                    <div class="font-medium">${torrent.display_name || torrent.name}</div>
+                    <div class="text-xs text-gray-600">${formatBytes(parseInt(torrent.size || 0))}</div>
+                  </div>
+                  <div class="flex gap-2">
+                    <a href="${torrent.url}" class="bg-[#0095ff] hover:bg-[#0160a7] text-white px-3 py-1 rounded text-sm" download>
+                      Download .torrent
+                    </a>
+                    ${torrent.magnet ? `<a href="${torrent.magnet}" class="bg-gray-500 hover:bg-gray-600 text-white px-3 py-1 rounded text-sm">Magnet</a>` : ''}
+                  </div>
+                </div>
+                ${torrent.seeders !== undefined ? `<div class="text-xs text-gray-600">Seeders: ${torrent.seeders || 0}</div>` : ''}
+              </div>
+            `).join('')}
+          </div>
+        `;
+        
+        container.appendChild(groupDiv);
+      });
+
+      // Update totals
+      document.getElementById('total-torrents').textContent = totalCount;
+      document.getElementById('total-size').textContent = formatBytes(totalSize);
+    }
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', function() {
+      loadTorrents();
+
+      // Filter checkboxes (placeholder)
+      document.querySelectorAll('.filter-checkbox').forEach(checkbox => {
+        checkbox.addEventListener('change', function() {
+          // TODO: Implement filtering
+          console.log('Filter changed:', this.dataset.category, this.checked);
+        });
+      });
+
+      // Calculate selection button
+      document.getElementById('calculate-selection-btn')?.addEventListener('click', function() {
+        const availableSpace = parseInt(document.getElementById('available-space').value) * 1024 * 1024 * 1024; // Convert GB to bytes
+        alert(`Selection suggestion based on ${formatBytes(availableSpace)} will be implemented. This will analyze all torrents and suggest an optimal selection.`);
+      });
+    });
+  </script>
+{% endblock %}

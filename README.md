@@ -2,6 +2,16 @@
 
 Welcome to the Code repository for Anna's Archive, the comprehensive search engine for books, papers, comics, magazines, and more. This repository contains all the code necessary to run Anna’s Archive locally or deploy it to a production environment.
 
+## Anna's [local] Archive
+
+**Want to run Anna's Archive on your own computer?** Check out [README-LOCAL.md](README-LOCAL.md) for instructions on setting up **Anna's [local] Archive** - a local version optimized for browsing your downloaded torrents. Features:
+- One-liner setup script
+- Integrated torrent client (qBittorrent)
+- Local file indexing and search
+- Simplified interface for local use
+
+Continue reading below for the full production/development setup instructions.
+
 ## Quick Start
 
 To get Anna's Archive running locally:

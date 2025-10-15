@@ -208,6 +208,11 @@ def extensions(app):
                 translations.add_fallback(get_translations())
             translations_with_english_fallback.add(translations)
 
+        # Enable local mode if configured
+        from config.settings import LOCAL_MODE, MAIN_SITE_URL
+        g.local_mode = LOCAL_MODE
+        g.main_site_url = MAIN_SITE_URL
+
         g.app_debug = app.debug
         g.base_domain = 'annas-archive.li'
         valid_other_domains = list(VALID_OTHER_DOMAINS)
@@ -285,17 +290,25 @@ def extensions(app):
         tagline_newnew2a = gettext('layout.index.header.tagline_newnew2a', **new_stats)
         tagline_newnew2b = gettext('layout.index.header.tagline_newnew2b', **new_stats)
         tagline_newnew4 = gettext('layout.index.header.tagline_open_source')
-        new_header_tagline = " ".join([gettext('layout.index.header.tagline_new1'), tagline_newnew2a, tagline_newnew2b, gettext('layout.index.header.tagline_new3', **new_stats), tagline_newnew4])
-        g.header_tagline = new_header_tagline
-        g.header_tagline_mid = " ".join([gettext('layout.index.header.tagline_new1'), tagline_newnew2a, tagline_newnew2b, gettext('layout.index.header.tagline_new3', **new_stats)])
-        g.header_tagline_short = " ".join([gettext('layout.index.header.tagline_new1'), tagline_newnew2a, tagline_newnew2b])
-        if str(get_locale()) != 'en':
-            with force_locale('en'):
-                new_header_tagline_english = " ".join([gettext('layout.index.header.tagline_new1'), tagline_newnew2a, tagline_newnew2b, gettext('layout.index.header.tagline_new3', **new_stats), tagline_newnew4])
-            if new_header_tagline == new_header_tagline_english:
-                g.header_tagline = gettext('layout.index.header.tagline', **g.header_stats)
-                g.header_tagline_mid = gettext('layout.index.header.tagline', **g.header_stats)
-                g.header_tagline_short = gettext('layout.index.header.tagline_short')
+        
+        # Use local mode taglines if enabled
+        if g.local_mode:
+            new_header_tagline = gettext('layout.index.header.tagline.local', **g.header_stats)
+            g.header_tagline = new_header_tagline
+            g.header_tagline_mid = new_header_tagline
+            g.header_tagline_short = gettext('layout.index.header.tagline_short.local')
+        else:
+            new_header_tagline = " ".join([gettext('layout.index.header.tagline_new1'), tagline_newnew2a, tagline_newnew2b, gettext('layout.index.header.tagline_new3', **new_stats), tagline_newnew4])
+            g.header_tagline = new_header_tagline
+            g.header_tagline_mid = " ".join([gettext('layout.index.header.tagline_new1'), tagline_newnew2a, tagline_newnew2b, gettext('layout.index.header.tagline_new3', **new_stats)])
+            g.header_tagline_short = " ".join([gettext('layout.index.header.tagline_new1'), tagline_newnew2a, tagline_newnew2b])
+            if str(get_locale()) != 'en':
+                with force_locale('en'):
+                    new_header_tagline_english = " ".join([gettext('layout.index.header.tagline_new1'), tagline_newnew2a, tagline_newnew2b, gettext('layout.index.header.tagline_new3', **new_stats), tagline_newnew4])
+                if new_header_tagline == new_header_tagline_english:
+                    g.header_tagline = gettext('layout.index.header.tagline', **g.header_stats)
+                    g.header_tagline_mid = gettext('layout.index.header.tagline', **g.header_stats)
+                    g.header_tagline_short = gettext('layout.index.header.tagline_short')
 
         g.is_membership_double = allthethings.utils.get_is_membership_double()
 
