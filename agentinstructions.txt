@@ -1,0 +1,13 @@
+So let's make a version of Anna's Archive that is easy to run locally, which you can use to browse our torrents. It should be based on our existing codebase, with some changes. It should be part of our repo, we don't want to maintain separate repositories for this.
+Minimal requirements:
+
+One-liner to install and get started. Okay to have some common dependencies like Docker. But you should be able to within 5 minutes on any OS (Windows, Mac, Linux) get it set up, and navigate to http://localtest.me:8000.
+Torrent downloader with web UI should be included. It should also be possible to use your own torrent downloader and point the installation to that existing directory.
+It should be a single click to download the latest aa_derived_mirror_metadata. It should also be a single click to load it into the local databases (ES/ESaux/MariaDB).
+There should be a list of all the torrents you can download from us (using https://annas-archive.org/dyn/torrents.json). It should be easy to select entire ranges, or to generate a bunch of torrents depending on available disk space.
+Indexing all your local files should happen automatically (when the integrated torrent client finishes a torrent) or manually (for your existing files). This should index the location and filenames of all files. Do NOT compute the md5, that is too slow.
+You should be able to use the local archive normally, but there should be a special search option "local files", to filter only by files you have locally.
+Whenever a file is available locally, there should be a download button "Anna's [local] Archive".
+Whenever a local file is within an archive, you should still be able to download it directly from within that archive. This will require you to build a proxy that reaches into archives using the byte offsets (https://annas-archive.org/dyn/small_file/torrents/managed_by_aa/annas_archive_meta__aacid/annas_archive_meta__aacid__torrents_byteoffsets_records__20250712T225427Z--20250712T225427Z.jsonl.seekable.zst.torrent). See the "torrents_byteoffsets" section in https://annas-archive.org/datasets/other_metadata
+
+The general branding should be updated to read "Anna's [local] Archive" and any pages that don't work well locally should be disabled and links removed. It should overall be a smooth experience to use "Anna's [local] Archive".
